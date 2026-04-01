@@ -14,7 +14,7 @@
               <el-select
                 style="width: 200px"
                 v-model="tableFrom.factor"
-                placeholder="请选择活动类型"
+                placeholder="الرجاء اختيار 活动类型"
                 clearable
                 @change="userSearchs"
               >
@@ -25,11 +25,11 @@
             </el-form-item>
           </el-col>
           <el-col>
-            <el-form-item label="活动状态：" clearable>
+            <el-form-item label="活动الحالة：" clearable>
               <el-select
                 style="width: 200px"
                 v-model="tableFrom.start_status"
-                placeholder="请选择"
+                placeholder="الرجاء اختيار "
                 clearable
                 @change="userSearchs"
               >
@@ -41,10 +41,10 @@
           </el-col>
 
           <el-col>
-            <el-form-item label="上架状态：">
+            <el-form-item label="上架الحالة：">
               <el-select
                 style="width: 200px"
-                placeholder="请选择"
+                placeholder="الرجاء اختيار "
                 v-model="tableFrom.status"
                 clearable
                 @change="userSearchs"
@@ -55,12 +55,12 @@
             </el-form-item>
           </el-col>
           <el-col>
-            <el-form-item label="抽奖搜索：" label-for="store_name">
+            <el-form-item label="抽奖بحث：" label-for="store_name">
               <el-input
                 search
                 enter-button
                 style="width: 200px"
-                placeholder="请输入抽奖名称，ID"
+                placeholder="الرجاء إدخال 抽奖الاسم，ID"
                 v-model="tableFrom.store_name"
                 @on-search="userSearchs"
               />
@@ -69,7 +69,7 @@
         </el-scope.row>
         <el-scope.row class="mb20">
           <el-button v-auth="['marketing-store_bargain-create']" type="primary" v-db-click @click="add" class="mr10"
-            >添加抽奖</el-button
+            >إضافة抽奖</el-button
           >
         </el-scope.row>
       </el-form>
@@ -85,7 +85,7 @@
             <span>{{ scope.row.id }}</span>
           </template>
         </el-table-column>
-        <el-table-column label="活动名称" min-width="130">
+        <el-table-column label="活动الاسم" min-width="130">
           <template slot-scope="scope">
             <span>{{ scope.row.name }}</span>
           </template>
@@ -110,12 +110,12 @@
             <span>{{ scope.row.lottery_win }}</span>
           </template>
         </el-table-column>
-        <el-table-column label="活动状态" min-width="130">
+        <el-table-column label="活动الحالة" min-width="130">
           <template slot-scope="scope">
             <span>{{ scope.row.status_name }}</span>
           </template>
         </el-table-column>
-        <el-table-column label="上架状态" min-width="130">
+        <el-table-column label="上架الحالة" min-width="130">
           <template slot-scope="scope">
             <el-switch
               class="defineSwitch"
@@ -132,22 +132,22 @@
             </el-switch>
           </template>
         </el-table-column>
-        <el-table-column label="活动时间" min-width="130">
+        <el-table-column label="活动الوقت" min-width="130">
           <template slot-scope="scope">
             <div>起：{{ scope.row.start_time || '--' }}</div>
             <div>止：{{ scope.row.end_time || '--' }}</div>
           </template>
         </el-table-column>
-        <el-table-column label="活动状态" min-width="130">
+        <el-table-column label="活动الحالة" min-width="130">
           <template slot-scope="scope">
             <span>{{ scope.row.status_name }}</span>
           </template>
         </el-table-column>
-        <el-table-column label="操作" fixed="right" width="170">
+        <el-table-column label="الخيارات" fixed="right" width="170">
           <template slot-scope="scope">
-            <a v-db-click @click="edit(scope.row)">编辑</a>
+            <a v-db-click @click="edit(scope.row)">تحرير</a>
             <el-divider direction="vertical"></el-divider>
-            <a v-db-click @click="del(scope.row, '删除抽奖', scope.$index)">删除</a>
+            <a v-db-click @click="del(scope.row, 'حذف抽奖', scope.$index)">حذف</a>
             <el-divider direction="vertical"></el-divider>
             <a v-db-click @click="copy(scope.row)">复制</a>
             <el-divider direction="vertical"></el-divider>
@@ -211,11 +211,11 @@ export default {
     this.getList();
   },
   methods: {
-    // 添加
+    // إضافة
     add() {
       this.$router.push({ path: this.$routeProStr + '/marketing/lottery/create' });
     },
-    // 编辑
+    // تحرير
     edit(row) {
       this.$router.push({
         name: 'marketing_create',
@@ -234,7 +234,7 @@ export default {
         },
       });
     },
-    // 删除
+    // حذف
     del(row, tit, num) {
       let delfromData = {
         title: tit,
@@ -278,12 +278,12 @@ export default {
           this.$message.error(res.msg);
         });
     },
-    // 表格搜索
+    // 表格بحث
     userSearchs() {
       this.tableFrom.page = 1;
       this.getList();
     },
-    // 修改是否显示
+    // تعديل是否显示
     onchangeIsShow(row) {
       let data = {
         id: row.id,

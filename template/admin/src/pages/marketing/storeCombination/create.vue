@@ -2,7 +2,7 @@
   <div>
     <pages-header
       ref="pageHeader"
-      :title="$route.params.id && !$route.params.copy ? '编辑拼团商品' : '添加拼团商品'"
+      :title="$route.params.id && !$route.params.copy ? 'تحرير拼团商品' : 'إضافة拼团商品'"
       :backUrl="$routeProStr + '/marketing/store_combination/index'"
     ></pages-header>
     <el-card :bordered="false" shadow="never" class="mt16">
@@ -73,10 +73,10 @@
               </el-col>
               <el-col :span="24">
                 <el-col v-bind="grid">
-                  <el-form-item label="拼团名称：" prop="title" label-for="title">
+                  <el-form-item label="拼团الاسم：" prop="title" label-for="title">
                     <el-input
                       elearable
-                      placeholder="请输入拼团名称"
+                      placeholder="الرجاء إدخال 拼团الاسم"
                       v-model="formValidate.title"
                       class="content_width"
                       maxlength="80"
@@ -89,7 +89,7 @@
                 <el-col v-bind="grid">
                   <el-form-item label="拼团简介：" prop="info" label-for="info">
                     <el-input
-                      placeholder="请输入拼团简介"
+                      placeholder="الرجاء إدخال 拼团简介"
                       type="textarea"
                       :rows="4"
                       v-model="formValidate.info"
@@ -101,7 +101,7 @@
                 </el-col>
               </el-col>
               <el-col :span="24">
-                <el-form-item label="拼团时间：" prop="section_time">
+                <el-form-item label="拼团الوقت：" prop="section_time">
                   <div>
                     <el-date-picker
                       clearable
@@ -116,7 +116,7 @@
                       class="content_width"
                       v-model="formValidate.section_time"
                     ></el-date-picker>
-                    <div class="grey">设置活动开启结束时间，用户可以在设置时间内发起参与拼团</div>
+                    <div class="grey">设置活动开启结束الوقت，用户可以在设置الوقت内发起参与拼团</div>
                   </div>
                 </el-form-item>
               </el-col>
@@ -152,7 +152,7 @@
                       :min="0"
                       :max="9999999999"
                       v-model="formValidate.postage"
-                      placeholder="请输入金额"
+                      placeholder="الرجاء إدخال 金额"
                       class="content_width input-number-unit-class"
                       class-unit="元"
                     />
@@ -165,7 +165,7 @@
                     <el-select
                       v-model="formValidate.temp_id"
                       clearable
-                      placeholder="请选择运费模板"
+                      placeholder="الرجاء اختيار 运费模板"
                       class="content_width"
                     >
                       <el-option
@@ -184,13 +184,13 @@
                   <div>
                     <el-input-number
                       :controls="false"
-                      placeholder="请输入拼团时效"
+                      placeholder="الرجاء إدخال 拼团时效"
                       class="content_width input-number-unit-class"
                       class-unit="小时"
                       v-model="formValidate.effective_time"
                     />
                     <div class="grey">
-                      用户发起拼团后开始计时，需在设置时间内邀请到规定好友人数参团，超过时效时间，则系统判定拼团失败，自动发起退款
+                      用户发起拼团后开始计时，需在设置الوقت内邀请到规定好友人数参团，超过时效الوقت，则系统判定拼团失败，自动发起退款
                     </div>
                   </div>
                 </el-form-item>
@@ -202,7 +202,7 @@
                       :controls="false"
                       :min="2"
                       :max="10000"
-                      placeholder="请输入拼团人数"
+                      placeholder="الرجاء إدخال 拼团人数"
                       :precision="0"
                       v-model="formValidate.people"
                       class="content_width input-number-unit-class"
@@ -233,7 +233,7 @@
               </el-col>
               <el-col :span="24">
                 <el-form-item label="单位：" prop="unit_name" label-for="unit_name">
-                  <el-input clearable placeholder="请输入单位" v-model="formValidate.unit_name" class="content_width" />
+                  <el-input clearable placeholder="الرجاء إدخال 单位" v-model="formValidate.unit_name" class="content_width" />
                 </el-form-item>
               </el-col>
               <el-col :span="24">
@@ -242,7 +242,7 @@
                     <el-input-number
                       :controls="false"
                       :min="1"
-                      placeholder="请输入总数量限制"
+                      placeholder="الرجاء إدخال 总数量限制"
                       :precision="0"
                       :max="10000"
                       v-model="formValidate.num"
@@ -261,7 +261,7 @@
                     <el-input-number
                       :controls="false"
                       :min="1"
-                      placeholder="请输入单次购买数量限制"
+                      placeholder="الرجاء إدخال 单次购买数量限制"
                       :precision="0"
                       :max="10000"
                       v-model="formValidate.once_num"
@@ -289,7 +289,7 @@
                       class-unit="%"
                     />
                     <div class="grey">
-                      拼团成功后，如果团长是分销员，则在订单确认收货时会给团长返一定的佣金，佣金比例是实际支付金额的0-100%
+                      拼团成功后，如果团长是分销员，则在订单تأكيد收货时会给团长返一定的佣金，佣金比例是实际支付金额的0-100%
                     </div>
                   </div>
                 </el-form-item>
@@ -315,7 +315,7 @@
                 <el-form-item label="排序：">
                   <el-input-number
                     :controls="false"
-                    placeholder="请输入排序"
+                    placeholder="الرجاء إدخال 排序"
                     :precision="0"
                     :max="10000"
                     :min="0"
@@ -339,7 +339,7 @@
                 </el-form-item>
               </el-col>
               <el-col :span="24">
-                <el-form-item label="活动状态：" props="is_show" label-for="is_show">
+                <el-form-item label="活动الحالة：" props="is_show" label-for="is_show">
                   <el-switch
                     class="defineSwitch"
                     :active-value="1"
@@ -438,7 +438,7 @@
                 class="submission"
                 v-db-click
                 @click="next('formValidate')"
-                >{{ current === 2 ? '提交' : '下一步' }}</el-button
+                >{{ current === 2 ? 'إرسال' : '下一步' }}</el-button
               >
             </el-form-item>
           </el-form>
@@ -519,9 +519,9 @@ export default {
         sm: 8,
         xs: 8,
       },
-      stepList: ['选择拼团商品', '填写基础信息', '修改商品详情'],
+      stepList: ['选择拼团商品', '填写基础信息', 'تعديل商品تفاصيل'],
       myConfig: {
-        autoHeightEnabled: false, // 编辑器不自动被内容撑高
+        autoHeightEnabled: false, // تحرير器不自动被内容撑高
         initialFrameHeight: 500, // 初始容器高度
         initialFrameWidth: '100%', // 初始容器宽度
         UEDITOR_HOME_URL: '/UEditor/',
@@ -568,12 +568,12 @@ export default {
         postage: 1, //设置运费金额
       },
       ruleValidate: {
-        image: [{ required: true, message: '请选择主图', trigger: 'change' }],
+        image: [{ required: true, message: 'الرجاء اختيار 主图', trigger: 'change' }],
         images: [
           {
             required: true,
             type: 'array',
-            message: '请选择主图',
+            message: 'الرجاء اختيار 主图',
             trigger: 'change',
           },
           {
@@ -583,22 +583,22 @@ export default {
             trigger: 'change',
           },
         ],
-        title: [{ required: true, message: '请输入拼团名称', trigger: 'blur' }],
-        info: [{ required: true, message: '请输入拼团简介', trigger: 'blur' }],
+        title: [{ required: true, message: 'الرجاء إدخال 拼团الاسم', trigger: 'blur' }],
+        info: [{ required: true, message: 'الرجاء إدخال 拼团简介', trigger: 'blur' }],
         section_time: [
           {
             required: true,
             type: 'array',
-            message: '请选择活动时间',
+            message: 'الرجاء اختيار 活动الوقت',
             trigger: 'change',
           },
         ],
-        unit_name: [{ required: true, message: '请输入单位', trigger: 'blur' }],
+        unit_name: [{ required: true, message: 'الرجاء إدخال 单位', trigger: 'blur' }],
         price: [
           {
             required: true,
             type: 'number',
-            message: '请输入拼团价',
+            message: 'الرجاء إدخال 拼团价',
             trigger: 'blur',
           },
         ],
@@ -606,7 +606,7 @@ export default {
           {
             required: true,
             type: 'number',
-            message: '请输入成本价',
+            message: 'الرجاء إدخال 成本价',
             trigger: 'blur',
           },
         ],
@@ -614,7 +614,7 @@ export default {
           {
             required: true,
             type: 'number',
-            message: '请输入库存',
+            message: 'الرجاء إدخال 库存',
             trigger: 'blur',
           },
         ],
@@ -622,7 +622,7 @@ export default {
           {
             required: true,
             type: 'number',
-            message: '请输入赠送积分',
+            message: 'الرجاء إدخال 赠送积分',
             trigger: 'blur',
           },
         ],
@@ -630,7 +630,7 @@ export default {
           {
             required: true,
             type: 'number',
-            message: '请输入拼团时效(单位 小时)',
+            message: 'الرجاء إدخال 拼团时效(单位 小时)',
             trigger: 'blur',
           },
         ],
@@ -638,7 +638,7 @@ export default {
           {
             required: true,
             type: 'number',
-            message: '请输入拼团人数',
+            message: 'الرجاء إدخال 拼团人数',
             trigger: 'blur',
           },
         ],
@@ -646,7 +646,7 @@ export default {
           {
             required: true,
             type: 'number',
-            message: '请输入购买数量限制',
+            message: 'الرجاء إدخال 购买数量限制',
             trigger: 'blur',
           },
         ],
@@ -654,7 +654,7 @@ export default {
           {
             required: true,
             type: 'number',
-            message: '请输入单次购买数量限制',
+            message: 'الرجاء إدخال 单次购买数量限制',
             trigger: 'blur',
           },
         ],
@@ -662,14 +662,14 @@ export default {
           {
             required: true,
             type: 'number',
-            message: '请输入虚拟成团补齐人数',
+            message: 'الرجاء إدخال 虚拟成团补齐人数',
             trigger: 'blur',
           },
         ],
         temp_id: [
           {
             required: true,
-            message: '请选择运费模板',
+            message: 'الرجاء اختيار 运费模板',
             trigger: 'change',
             type: 'number',
           },
@@ -703,7 +703,7 @@ export default {
     getEditorContent(data) {
       this.description = data;
     },
-    // 添加运费模板
+    // إضافة运费模板
     freight() {
       this.$refs.template.id = 0;
       this.$refs.template.isTemplate = true;
@@ -794,7 +794,7 @@ export default {
     onchangeTime(e) {
       this.formValidate.section_time = e;
     },
-    // 详情
+    // تفاصيل
     getInfo() {
       this.spinShow = true;
       combinationInfoApi(this.$route.params.id)
@@ -882,7 +882,7 @@ export default {
               return that.$message.error('单次购买数量限制必须大于0');
             }
             if (!that.formValidate.attrs) {
-              return that.$message.error('请选择属性规格');
+              return that.$message.error('الرجاء اختيار 属性规格');
             } else {
               for (let index in that.formValidate.attrs) {
                 if (that.formValidate.attrs[index].quota <= 0) {
@@ -902,7 +902,7 @@ export default {
         if (this.formValidate.image) {
           this.current += 1;
         } else {
-          this.$message.warning('请选择商品');
+          this.$message.warning('الرجاء اختيار 商品');
         }
       }
     },

@@ -23,7 +23,7 @@ export function adminListApi(data) {
 }
 
 /**
- * @description 管理员添加表单
+ * @description إدارة员إضافة表单
  */
 export function adminFromApi() {
   return request({
@@ -33,8 +33,8 @@ export function adminFromApi() {
 }
 
 /**
- * @description 管理员编辑表单
- * @param {Number} param id {Number} 管理员id
+ * @description إدارة员تحرير表单
+ * @param {Number} param id {Number} إدارة员id
  */
 export function adminEditFromApi(id) {
   return request({
@@ -44,8 +44,8 @@ export function adminEditFromApi(id) {
 }
 
 /**
- * @description 管理员删除
- * @param {Number} param id {Number} 管理员id
+ * @description إدارة员حذف
+ * @param {Number} param id {Number} إدارة员id
  */
 export function adminDelFromApi(id) {
   return request({
@@ -55,7 +55,7 @@ export function adminDelFromApi(id) {
 }
 
 /**
- * @description 管理员 修改状态
+ * @description إدارة员 تعديلالحالة
  * @param {Object} param data {Object} 传值
  */
 export function setShowApi(data) {

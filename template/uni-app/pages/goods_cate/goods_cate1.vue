@@ -6,7 +6,7 @@
 		<view class='header acea-row row-center-wrapper'>
 			<view class='acea-row row-between-wrapper input'>
 				<text class='iconfont icon-sousuo'></text>
-				<input type='text' :placeholder="$t('搜索商品名称')" @confirm="searchSubmitValue" confirm-type='search'
+				<input type='text' :placeholder="$t('بحث商品الاسم')" @confirm="searchSubmitValue" confirm-type='search'
 					name="search" placeholder-class='placeholder'></input>
 			</view>
 		</view>
@@ -225,7 +225,7 @@
 					})
 				else
 					return this.$util.Tips({
-						title: this.$t(`搜索商品名称`)
+						title: this.$t(`بحث商品الاسم`)
 					});
 			},
 		}

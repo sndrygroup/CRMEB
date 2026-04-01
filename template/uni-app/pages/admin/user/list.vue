@@ -7,7 +7,7 @@
         class="sysTitle acea-row row-center-wrapper"
         :style="{ height: getHeight.barHeight + 'px' }"
       >
-        <view>用户管理</view>
+        <view>用户إدارة</view>
         <text class="iconfont icon-ic_leftarrow" @click="goarrow"></text>
       </view>
     </view>
@@ -20,7 +20,7 @@
         <text class="iconfont icon-ic_search"></text>
         <input
           class="inputs"
-          placeholder="请输入用户昵称/ID"
+          placeholder="الرجاء إدخال 用户昵称/ID"
           placeholder-class="placeholder"
           confirm-type="search"
           name="search"
@@ -28,7 +28,7 @@
           @confirm="searchSubmit"
         />
       </view>
-      <!-- <view @click="manageTap" v-if="administer">取消</view>
+      <!-- <view @click="manageTap" v-if="administer">إلغاء</view>
       <view class="edit acea-row row-center-wrapper" @click="manageTap" v-else>
         <text class="iconfont icon-ic_batch"></text>
       </view> -->
@@ -137,11 +137,11 @@
             :range="groupArray"
             range-key="group_name"
           >
-            <view>修改分组</view>
+            <view>تعديل分组</view>
           </picker>
         </view>
         <view class="bnt acea-row row-center-wrapper" @click="editLabels"
-          >添加标签</view
+          >إضافة标签</view
         >
         <view class="bnt acea-row row-center-wrapper" @click="sendCoupon"
           >发送优惠券</view
@@ -253,13 +253,13 @@ export default {
       getHeight: this.$util.getWXStatusHeight(),
       editList: [
         {
-          name: "修改余额",
+          name: "تعديل余额",
         },
         {
-          name: "修改积分",
+          name: "تعديل积分",
         },
         {
-          name: "修改等级",
+          name: "تعديل等级",
         },
         {
           name: "赠送会员",
@@ -268,7 +268,7 @@ export default {
           name: "赠送优惠券",
         },
         {
-          name: "修改分组",
+          name: "تعديل分组",
         },
       ],
       administer: 0,
@@ -281,7 +281,7 @@ export default {
       loadend: false,
       limit: 20,
       page: 1,
-      keyword: "", //搜索字段
+      keyword: "", //بحث字段
       visibleBalance: false,
       type: 0,
       visibleMember: false,
@@ -324,7 +324,7 @@ export default {
     sendCoupon() {
       if (!this.getIds().length) {
         this.$util.Tips({
-          title: "请选择商品",
+          title: "الرجاء اختيار 商品",
         });
         return;
       }
@@ -384,7 +384,7 @@ export default {
     bindPickerChange(e) {
       if (!this.getIds().length) {
         this.$util.Tips({
-          title: "请选择用户",
+          title: "الرجاء اختيار 用户",
         });
         return;
       }
@@ -413,11 +413,11 @@ export default {
       this.visibleBalance = false;
       this.init();
     },
-    //批量编辑标签
+    //批量تحرير标签
     editLabels() {
       if (!this.getIds().length) {
         this.$util.Tips({
-          title: "请选择商品",
+          title: "الرجاء اختيار 商品",
         });
         return;
       }
@@ -551,7 +551,7 @@ export default {
       if (value.length) {
         if (this.userLists.length > 100) {
           this.$util.Tips({
-            title: "每次最多只提交100条数据",
+            title: "每次最多只إرسال100条数据",
           });
         }
         this.isAllSelect = true;

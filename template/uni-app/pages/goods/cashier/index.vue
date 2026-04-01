@@ -6,7 +6,7 @@
 				<numberScroll :num='payPriceShow' color="#E93323" width='30' height='50' fontSize='50'></numberScroll>
 			</view>
 			<view class="count-down">
-				{{$t(`支付剩余时间`)}}：
+				{{$t(`支付剩余الوقت`)}}：
 				<countDown :is-day="false" :tip-text="' '" :day-text="' '" :hour-text="' : '" :minute-text="' : '"
 					:second-text="' '" :datatime="invalidTime"></countDown>
 			</view>
@@ -31,7 +31,7 @@
 			</view>
 		</view>
 		<view class="btn">
-			<view class="button acea-row row-center-wrapper" @click='goPay(number, paytype)'>{{$t(`确认支付`)}}</view>
+			<view class="button acea-row row-center-wrapper" @click='goPay(number, paytype)'>{{$t(`تأكيد支付`)}}</view>
 			<view class="wait-pay" @click="waitPay">{{$t(`暂不支付`)}}</view>
 		</view>
 		<view v-show="false" v-html="formContent"></view>
@@ -140,16 +140,16 @@
 		onShow() {
 			let options = wx.getEnterOptionsSync();
 			if (options.scene == '1038' && options.referrerInfo.appId == 'wxef277996acc166c3' && this.initIn) {
-				// 代表从收银台小程序返回
+				// 代表从收银台小程序عودة
 				let extraData = options.referrerInfo.extraData;
 				this.initIn = false
 				if (!extraData) {
-					// "当前通过物理按键返回，未接收到返参，建议自行查询交易结果";
+					// "当前通过物理按键عودة，未接收到返参，建议自行查询交易结果";
 					this.$util.Tips({
-						title: this.$t(`取消支付`)
+						title: this.$t(`إلغاء支付`)
 					}, {
 						tab: 5,
-						url: `/pages/goods/order_pay_status/index?order_id=${this.orderId}&msg=${this.$t(`取消支付`)}&type=3&totalPrice=${this.payPriceShow}&status=2`
+						url: `/pages/goods/order_pay_status/index?order_id=${this.orderId}&msg=${this.$t(`إلغاء支付`)}&type=3&totalPrice=${this.payPriceShow}&status=2`
 					});
 				} else {
 					if (extraData.code == 'success') {
@@ -163,12 +163,12 @@
 							url
 						});
 					} else if (extraData.code == 'cancel') {
-						// "支付已取消";
+						// "支付已إلغاء";
 						this.$util.Tips({
-							title: this.$t(`取消支付`)
+							title: this.$t(`إلغاء支付`)
 						}, {
 							tab: 5,
-							url: `/pages/goods/order_pay_status/index?order_id=${this.orderId}&msg=${this.$t(`取消支付`)}&type=3&totalPrice=${this.payPriceShow}&status=2`
+							url: `/pages/goods/order_pay_status/index?order_id=${this.orderId}&msg=${this.$t(`إلغاء支付`)}&type=3&totalPrice=${this.payPriceShow}&status=2`
 						});
 					} else {
 						// "支付失败：" + extraData.errmsg;
@@ -259,14 +259,14 @@
 			},
 			waitPay() {
 				uni.reLaunch({
-					url: '/pages/goods/order_pay_status/index?order_id=' + this.orderId + '&msg=取消支付&type=3' +
+					url: '/pages/goods/order_pay_status/index?order_id=' + this.orderId + '&msg=إلغاء支付&type=3' +
 						'&status=2&totalPrice=' + this.payPriceShow
 				})
 			},
 			goPay(number, paytype) {
 				let that = this;
 				if (!that.orderId) return that.$util.Tips({
-					title: that.$t(`请选择要支付的订单`)
+					title: that.$t(`الرجاء اختيار 要支付的订单`)
 				});
 				if (paytype == 'yue' && parseFloat(number) < parseFloat(that.payPriceShow)) return that.$util.Tips({
 					title: that.$t(`余额不足`)
@@ -428,7 +428,7 @@
 								fail: function(e) {
 									uni.hideLoading();
 									return that.$util.Tips({
-										title: that.$t(`取消支付`)
+										title: that.$t(`إلغاء支付`)
 									}, {
 										tab: 5,
 										url: goPages + '&status=2'
@@ -436,11 +436,11 @@
 								},
 								complete: function(e) {
 									uni.hideLoading();
-									//关闭当前页面跳转至订单状态
+									//关闭当前页面跳转至订单الحالة
 									if (res.errMsg == 'requestPayment:cancel' || e.errMsg ==
 										'requestOrderPayment:cancel') return that.$util
 										.Tips({
-											title: that.$t(`取消支付`)
+											title: that.$t(`إلغاء支付`)
 										}, {
 											tab: 5,
 											url: goPages + '&status=2'
@@ -466,7 +466,7 @@
 									})
 								}
 								if (res.errMsg == 'chooseWXPay:cancel') return that.$util.Tips({
-									title: that.$t(`取消支付`)
+									title: that.$t(`إلغاء支付`)
 								}, {
 									tab: 5,
 									url: goPages + '&status=2'

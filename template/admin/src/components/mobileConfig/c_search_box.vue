@@ -24,7 +24,7 @@ import { mapMutations } from 'vuex';
 export default {
   name: 'c_search_box',
   componentsName: 'search_box',
-  cname: '搜索框',
+  cname: 'بحث框',
   props: {
     activeIndex: {
       type: null,

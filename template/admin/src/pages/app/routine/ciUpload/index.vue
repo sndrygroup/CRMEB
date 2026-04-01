@@ -49,7 +49,7 @@
             <div class="notice-step">1</div>
             <div class="notice-text">
               <strong>生成代码上传密钥</strong>
-              <p>访问 <a href="https://mp.weixin.qq.com/" target="_blank" rel="noopener">微信公众平台</a> → 开发管理 → 开发设置 →
+              <p>访问 <a href="https://mp.weixin.qq.com/" target="_blank" rel="noopener">微信公众平台</a> → 开发إدارة → 开发设置 →
                 小程序代码上传 → 生成密钥</p>
             </div>
           </div>
@@ -57,7 +57,7 @@
             <div class="notice-step">2</div>
             <div class="notice-text">
               <strong>配置 IP 白名单</strong>
-              <p>在同一页面将服务器公网 IP 添加到白名单中</p>
+              <p>在同一页面将服务器公网 IP إضافة到白名单中</p>
             </div>
           </div>
         </div>
@@ -66,7 +66,7 @@
 
     <!-- 主内容区域 -->
     <div class="main-content">
-      <!-- 环境状态卡片 -->
+      <!-- 环境الحالة卡片 -->
       <div class="card env-card" :class="{ 'card-success': envStatus.ready, 'card-warning': !envStatus.ready }">
         <div class="card-header">
           <div class="card-title">
@@ -79,7 +79,7 @@
         </div>
 
         <div class="card-body" v-loading="loading.environment">
-          <!-- 环境状态概览 -->
+          <!-- 环境الحالة概览 -->
           <div class="status-overview">
             <div class="status-badge" :class="envStatus.ready ? 'success' : 'warning'">
               <i :class="envStatus.ready ? 'el-icon-check' : 'el-icon-warning'"></i>
@@ -87,14 +87,14 @@
             </div>
           </div>
 
-          <!-- 环境详情 -->
+          <!-- 环境تفاصيل -->
           <div class="env-grid">
             <div class="env-item">
               <div class="env-icon os">
                 <i class="el-icon-monitor"></i>
               </div>
               <div class="env-info">
-                <span class="env-label">操作系统</span>
+                <span class="env-label">الخيارات系统</span>
                 <span class="env-value">{{ envStatus.os?.type || '-' }} {{ envStatus.os?.version || '' }}</span>
               </div>
             </div>
@@ -128,7 +128,7 @@
             <div class="alert-content">
               <strong>无法使用小程序上传功能</strong>
               <p>服务器禁用了 <code>exec</code> 函数。请在 PHP 配置中启用该函数。</p>
-              <p class="alert-hint">宝塔面板：软件商店 → PHP → 设置 → 禁用函数 → 删除 exec</p>
+              <p class="alert-hint">宝塔面板：软件商店 → PHP → 设置 → 禁用函数 → حذف exec</p>
             </div>
           </div>
 
@@ -216,7 +216,7 @@
         </div>
 
         <div class="card-body">
-          <!-- 提示信息 -->
+          <!-- تنبيه信息 -->
           <div class="info-banner">
             <i class="el-icon-info"></i>
             <span>系统将自动生成小程序代码包并上传到微信服务器</span>
@@ -280,7 +280,7 @@
                   <h4>{{ uploadResult.success ? '上传成功' : '上传失败' }}</h4>
                   <p v-if="uploadResult.success">版本 {{ uploadResult.version }} 已上传到微信服务器</p>
                   <p v-if="uploadResult.success">
-                    请前往 <a href="https://mp.weixin.qq.com/" target="_blank" rel="noopener">微信公众平台</a> 提交审核
+                    请前往 <a href="https://mp.weixin.qq.com/" target="_blank" rel="noopener">微信公众平台</a> إرسال审核
                   </p>
                   <p v-else class="error-msg">{{ uploadResult.message }}</p>
                 </div>
@@ -372,10 +372,10 @@
             <span>密钥获取方式</span>
           </div>
           <ol class="info-steps">
-            <li>登录 <a href="https://mp.weixin.qq.com/" target="_blank" rel="noopener">微信公众平台</a></li>
-            <li>进入 开发管理 → 开发设置 → 小程序代码上传</li>
+            <li>تسجيل الدخول <a href="https://mp.weixin.qq.com/" target="_blank" rel="noopener">微信公众平台</a></li>
+            <li>进入 开发إدارة → 开发设置 → 小程序代码上传</li>
             <li>点击「生成」按钮，下载 private.key 文件</li>
-            <li>用文本编辑器打开，复制全部内容粘贴到下方</li>
+            <li>用文本تحرير器打开，复制全部内容粘贴到下方</li>
           </ol>
         </div>
 
@@ -384,7 +384,7 @@
             <i class="el-icon-warning"></i>
             <span>IP 白名单配置</span>
           </div>
-          <p>在同一页面将服务器公网 IP 添加到白名单</p>
+          <p>在同一页面将服务器公网 IP إضافة到白名单</p>
         </div>
 
         <div class="key-input-section">
@@ -397,11 +397,11 @@
         </div>
       </div>
       <span slot="footer" class="dialog-footer">
-        <button class="btn btn-secondary" @click="showKeyUpload = false">取消</button>
+        <button class="btn btn-secondary" @click="showKeyUpload = false">إلغاء</button>
         <button class="btn btn-primary" :class="{ loading: loading.saveKey }" :disabled="loading.saveKey"
           @click="savePrivateKey">
           <i :class="loading.saveKey ? 'el-icon-loading' : 'el-icon-check'"></i>
-          <span>保存密钥</span>
+          <span>حفظ密钥</span>
         </button>
       </span>
     </el-dialog>
@@ -423,13 +423,13 @@ export default {
   name: 'RoutineCIUpload',
   data() {
     return {
-      // 页面状态
+      // 页面الحالة
       showNotice: false,
       envStatus: {},
       uploadConfig: {},
       installGuide: null,
 
-      // 加载状态
+      // 加载الحالة
       loading: {
         environment: false,
         saveKey: false,
@@ -437,7 +437,7 @@ export default {
         preview: false,
       },
 
-      // 弹窗状态
+      // 弹窗الحالة
       showGuide: false,
       showKeyUpload: false,
 
@@ -450,7 +450,7 @@ export default {
       },
       uploadRules: {
         version: [
-          { required: true, message: '请输入版本号', trigger: 'blur' },
+          { required: true, message: 'الرجاء إدخال 版本号', trigger: 'blur' },
           { pattern: /^\d+\.\d+\.\d+$/, message: '版本号格式错误，请使用 x.x.x 格式', trigger: 'blur' },
         ],
       },
@@ -515,22 +515,22 @@ export default {
       }
     },
 
-    // 保存密钥
+    // حفظ密钥
     async savePrivateKey() {
       if (!this.keyContent.trim()) {
-        this.$message.warning('请输入密钥内容');
+        this.$message.warning('الرجاء إدخال 密钥内容');
         return;
       }
 
       this.loading.saveKey = true;
       try {
         await routineCISaveKey({ key_content: this.keyContent });
-        this.$message.success('密钥保存成功');
+        this.$message.success('密钥حفظ成功');
         this.showKeyUpload = false;
         this.keyContent = '';
         this.getUploadConfig();
       } catch (err) {
-        this.$message.error(err.msg || '保存失败');
+        this.$message.error(err.msg || 'حفظ失败');
       } finally {
         this.loading.saveKey = false;
       }
@@ -542,9 +542,9 @@ export default {
         if (!valid) return;
 
         try {
-          await this.$confirm('确定要上传小程序代码吗？', '确认上传', {
+          await this.$confirm('确定要上传小程序代码吗？', 'تأكيد上传', {
             confirmButtonText: '确定上传',
-            cancelButtonText: '取消',
+            cancelButtonText: 'إلغاء',
             type: 'info',
           });
 
@@ -925,7 +925,7 @@ $transition-slow: 300ms ease;
     }
   }
 
-  // 环境状态卡片
+  // 环境الحالة卡片
   .env-card {
     .status-overview {
       display: flex;
@@ -1100,7 +1100,7 @@ $transition-slow: 300ms ease;
     }
   }
 
-  // 操作按钮区域
+  // الخيارات按钮区域
   .action-buttons {
     display: flex;
     gap: 12px;

@@ -8,7 +8,7 @@
     <el-card :bordered="false" shadow="never" class="ivu-mt">
       <div class="acea-row row-between-wrapper mb20">
         <div class="acea-row row-middle">
-          <el-button type="primary" @click="add">添加微页面</el-button>
+          <el-button type="primary" @click="add">إضافة微页面</el-button>
         </div>
       </div>
       <el-table
@@ -19,14 +19,14 @@
         no-filtered-userFrom-text="暂无筛选结果"
       >
         <el-table-column label="编号" min-width="80" prop="id"></el-table-column>
-        <el-table-column label="名称" min-width="150" prop="title"></el-table-column>
-        <el-table-column label="添加时间" min-width="150" prop="add_time"></el-table-column>
-        <el-table-column label="更新时间" min-width="150" prop="up_time"></el-table-column>
-        <el-table-column label="操作" fixed="right" width="150">
+        <el-table-column label="الاسم" min-width="150" prop="title"></el-table-column>
+        <el-table-column label="إضافةالوقت" min-width="150" prop="add_time"></el-table-column>
+        <el-table-column label="更新الوقت" min-width="150" prop="up_time"></el-table-column>
+        <el-table-column label="الخيارات" fixed="right" width="150">
           <template slot-scope="scope">
-            <a @click="edit(scope.row)">编辑</a>
+            <a @click="edit(scope.row)">تحرير</a>
             <el-divider direction="vertical"></el-divider>
-            <a @click="del(scope.row, '删除微页面', scope.$index)">删除</a>
+            <a @click="del(scope.row, 'حذف微页面', scope.$index)">حذف</a>
           </template>
         </el-table-column>
       </el-table>

@@ -231,8 +231,8 @@ export default {
         },
 
         menuConfig: {
-          title: '最多可添加1张图片，建议宽度90 * 90px',
-          bnt: '添加',
+          title: '最多可إضافة1张图片，建议宽度90 * 90px',
+          bnt: 'إضافة',
           type: 1,
           listStyle: 0,
           maxList: 100,
@@ -252,7 +252,7 @@ export default {
                 {
                   title: '链接',
                   value: '',
-                  tips: '请输入链接',
+                  tips: 'الرجاء إدخال 链接',
                   max: 100,
                 },
               ],

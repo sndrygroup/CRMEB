@@ -92,7 +92,7 @@ export default {
     formSubmit() {
       this.fapi.submit();
     },
-    // 提交表单 group
+    // إرسال表单 group
     onSubmit(formData) {
       let datas = {};
       datas = formData;

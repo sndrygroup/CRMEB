@@ -214,7 +214,7 @@ export default {
         this.$set(data, 'rightBntConfig', {
           title: '右侧按钮',
           value: '立即开通',
-          place: '请输入按钮文字',
+          place: 'الرجاء إدخال 按钮文字',
           max: 6,
         });
       }

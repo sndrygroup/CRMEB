@@ -91,7 +91,7 @@ export default {
       this.$refs.elMenuHorizontalScrollRef.$refs.wrap.scrollLeft =
         this.$refs.elMenuHorizontalScrollRef.$refs.wrap.scrollLeft + eventDelta / 4;
     },
-    // 初始化数据，页面刷新时，滚动条滚动到对应位置
+    // 初始化数据，页面تحديث时，滚动条滚动到对应位置
     initElMenuOffsetLeft() {
       this.$nextTick(() => {
         let els = document.querySelector('.layout-columns.layout-columns-active');
@@ -140,7 +140,7 @@ export default {
       }
       this.bus.$emit('oneCatName', resData.item[0].title);
       this.onColumnsAsideDown(resData.item[0].k);
-      // 刷新时，初始化一个路由设置自动收起菜单
+      // تحديث时，初始化一个路由设置自动收起菜单
       resData.children.length > 0
         ? (this.$store.state.themeConfig.themeConfig.isCollapse = false)
         : (this.$store.state.themeConfig.themeConfig.isCollapse = true);

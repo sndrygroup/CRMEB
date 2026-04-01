@@ -320,7 +320,7 @@ export default {
   configName: 'c_picture_cube',
   icon: '#iconzujian-tupianmofang',
   type: 0, // 0 基础组件 1 营销组件 2工具组件
-  defaultName: 'pictureCube', // 外面匹配名称
+  defaultName: 'pictureCube', // 外面匹配الاسم
   props: {
     index: {
       type: null,
@@ -356,7 +356,7 @@ export default {
   },
   data() {
     return {
-      // 默认初始化数据禁止修改
+      // 默认初始化数据禁止تعديل
       defaultConfig: {
         cname: '图片魔方',
         name: 'pictureCube',
@@ -393,7 +393,7 @@ export default {
               info: [
                 {
                   title: '链接',
-                  tips: '请输入链接',
+                  tips: 'الرجاء إدخال 链接',
                   value: '',
                   max: 100,
                 },

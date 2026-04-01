@@ -3,7 +3,7 @@
     <div>
       <div class="box-container">
         <div class="list sp">
-          <label class="name">直播间名称：</label>
+          <label class="name">直播间الاسم：</label>
           <span class="info">{{ FormData.name }}</span>
         </div>
         <div class="list sp">
@@ -24,15 +24,15 @@
           <span class="info">{{ FormData.phone }}</span>
         </div>
         <div class="list sp">
-          <label class="name">直播状态：</label>
+          <label class="name">直播الحالة：</label>
           <span class="info">{{ FormData.live_status | liveReviewStatusFilter }}</span>
         </div>
         <div class="list sp">
-          <label class="name">直播开始时间：</label>
+          <label class="name">直播开始الوقت：</label>
           <span class="info">{{ FormData.start_time }}</span>
         </div>
         <div class="list sp">
-          <label class="name">直播结束时间：</label>
+          <label class="name">直播结束الوقت：</label>
           <span class="info">{{ FormData.end_time }}</span>
         </div>
         <div class="list sp">

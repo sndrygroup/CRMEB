@@ -74,7 +74,7 @@
                         />
                       </div>
                     </el-form-item>
-                    <el-form-item label="消息状态：">
+                    <el-form-item label="消息الحالة：">
                       <el-radio-group v-model="formValidate.status">
                         <el-radio :label="1">启用</el-radio>
                         <el-radio :label="0">禁用</el-radio>
@@ -83,7 +83,7 @@
                     <el-form-item label="消息类型：" prop="type">
                       <el-select
                         v-model="formValidate.type"
-                        placeholder="请选择规则状态"
+                        placeholder="الرجاء اختيار 规则الحالة"
                         style="width: 90%"
                         @change="RuleFactor(formValidate.type)"
                       >
@@ -140,7 +140,7 @@
                     </el-form-item>
                     <el-form-item>
                       <el-button type="primary" class="mr20" v-db-click @click="submenus('formValidate')"
-                        >保存并发布
+                        >حفظ并发布
                       </el-button>
                     </el-form-item>
                   </el-form>
@@ -148,7 +148,7 @@
               </el-col>
               <!-- <el-col :span="24">
                 <div class="acea-row row-center">
-                  <el-button type="primary" class="mr20" v-db-click @click="submenus('formValidate')">保存并发布 </el-button>
+                  <el-button type="primary" class="mr20" v-db-click @click="submenus('formValidate')">حفظ并发布 </el-button>
                 </div>
               </el-col> -->
             </el-col>
@@ -201,7 +201,7 @@ export default {
     };
     const validateVal = (rule, value, callback) => {
       if (this.labelarr.length === 0) {
-        callback(new Error('请输入后回车'));
+        callback(new Error('الرجاء إدخال 后回车'));
       } else {
         callback();
       }
@@ -232,7 +232,7 @@ export default {
       fileUrl: Setting.apiBaseURL + '/file/upload/1',
       ruleValidate: {
         val: [{ required: true, validator: validateVal, trigger: 'change' }],
-        type: [{ required: true, message: '请选择消息类型', trigger: 'change' }],
+        type: [{ required: true, message: 'الرجاء اختيار 消息类型', trigger: 'change' }],
         content: [{ required: true, validator: validateContent, trigger: 'blur' }],
         src: [{ required: true, validator: validateSrc, trigger: 'change' }],
       },
@@ -280,7 +280,7 @@ export default {
       const index = this.labelarr.indexOf(name);
       this.labelarr.splice(index, 1);
     },
-    // 详情
+    // تفاصيل
     details() {
       let url = '';
       let data = {};
@@ -367,7 +367,7 @@ export default {
     handleMaxSize(file) {
       this.$message.warning('请上传文件2M以内的文件');
     },
-    // 保存
+    // حفظ
     submenus(name) {
       this.$refs[name].validate((valid) => {
         if (valid) {
@@ -397,12 +397,12 @@ export default {
         }
       });
     },
-    // 保存成功操作
+    // حفظ成功الخيارات
     operation() {
       if (this.$route.params.id && this.$route.params.id === '0') {
         this.$msgbox({
-          title: '提示',
-          message: '是否继续添加',
+          title: 'تنبيه',
+          message: '是否继续إضافة',
           showCancelButton: true,
           cancelButtonText: '否',
           confirmButtonText: '是',

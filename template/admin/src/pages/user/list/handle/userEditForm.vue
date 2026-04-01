@@ -6,17 +6,17 @@
         <div class="section-bd">
           <div class="item">
             <el-form-item label="用户ID：">
-              <el-input class="form-sty" disabled v-model="formItem.uid" placeholder="请输入编号"></el-input>
+              <el-input class="form-sty" disabled v-model="formItem.uid" placeholder="الرجاء إدخال 编号"></el-input>
             </el-form-item>
           </div>
           <div class="item">
             <el-form-item label="真实姓名：" prop="real_name">
-              <el-input class="form-sty" v-model.trim="formItem.real_name" placeholder="请输入真实姓名"></el-input>
+              <el-input class="form-sty" v-model.trim="formItem.real_name" placeholder="الرجاء إدخال 真实姓名"></el-input>
             </el-form-item>
           </div>
           <div class="item">
             <el-form-item label="手机号码：" prop="phone">
-              <el-input class="form-sty" v-model="formItem.phone" placeholder="请输入手机号码"></el-input>
+              <el-input class="form-sty" v-model="formItem.phone" placeholder="الرجاء إدخال 手机号码"></el-input>
             </el-form-item>
           </div>
           <div class="item">
@@ -26,7 +26,7 @@
                 class="form-sty"
                 type="date"
                 v-model="formItem.birthday"
-                placeholder="请选择生日"
+                placeholder="الرجاء اختيار 生日"
                 format="yyyy-MM-dd"
                 value-format="yyyy-MM-dd"
               ></el-date-picker>
@@ -34,36 +34,36 @@
           </div>
           <div class="item">
             <el-form-item label="身份证号：">
-              <el-input class="form-sty" v-model.trim="formItem.card_id" placeholder="请输入身份证号"></el-input>
+              <el-input class="form-sty" v-model.trim="formItem.card_id" placeholder="الرجاء إدخال 身份证号"></el-input>
             </el-form-item>
           </div>
           <div class="item">
             <el-form-item label="用户地址：">
-              <el-input class="form-sty" v-model="formItem.addres" placeholder="请输入用户地址"></el-input>
+              <el-input class="form-sty" v-model="formItem.addres" placeholder="الرجاء إدخال 用户地址"></el-input>
             </el-form-item>
           </div>
         </div>
       </div>
       <div class="section">
-        <div class="section-hd">密码</div>
+        <div class="section-hd">كلمة المرور</div>
         <div class="section-bd">
           <div class="item">
-            <el-form-item label="登录密码：" prop="pwd">
+            <el-form-item label="تسجيل الدخولكلمة المرور：" prop="pwd">
               <el-input
                 class="form-sty"
                 type="password"
                 v-model="formItem.pwd"
-                placeholder="请输入登录密码（修改用户可不填写，不填写不修改原密码）"
+                placeholder="الرجاء إدخال تسجيل الدخولكلمة المرور（تعديل用户可不填写，不填写不تعديل原كلمة المرور）"
               ></el-input>
             </el-form-item>
           </div>
           <div class="item">
-            <el-form-item label="确认密码：" prop="true_pwd">
+            <el-form-item label="تأكيدكلمة المرور：" prop="true_pwd">
               <el-input
                 class="form-sty"
                 type="password"
                 v-model="formItem.true_pwd"
-                placeholder="请输入确认密码（修改用户可不填写，不填写不修改原密码）"
+                placeholder="الرجاء إدخال تأكيدكلمة المرور（تعديل用户可不填写，不填写不تعديل原كلمة المرور）"
               ></el-input>
             </el-form-item>
           </div>
@@ -138,7 +138,7 @@
             </el-form-item>
           </div>
           <div class="item lang">
-            <el-form-item label="用户状态：">
+            <el-form-item label="用户الحالة：">
               <el-radio-group v-model="formItem.status" class="form-sty">
                 <el-radio :label="1">开启</el-radio>
                 <el-radio :label="0">锁定</el-radio>
@@ -157,14 +157,14 @@
                 type="textarea"
                 :rows="5"
                 v-model="formItem.mark"
-                placeholder="请输入用户备注"
+                placeholder="الرجاء إدخال 用户备注"
               ></el-input>
             </el-form-item>
           </div>
         </div>
       </div>
     </el-form>
-    <el-dialog :visible.sync="labelShow" append-to-body title="请选择用户标签" :show-close="true" width="540px">
+    <el-dialog :visible.sync="labelShow" append-to-body title="الرجاء اختيار 用户标签" :show-close="true" width="540px">
       <userLabel v-if="labelShow" :only_get="true" :uid="formItem.uid" @close="labelClose" @activeData="activeData">
       </userLabel>
     </el-dialog>
@@ -258,10 +258,10 @@ export default {
         ids.push(i.id);
       });
       data.label_id = ids;
-      // if (!data.real_name) return this.$message.warning("请输入真实姓名");
-      // if (!data.phone) return this.$message.warning("请输入手机号");
-      // if (!data.pwd) return this.$message.warning("请输入密码");
-      // if (!data.true_pwd) return this.$message.warning("请输入确认密码");
+      // if (!data.real_name) return this.$message.warning("الرجاء إدخال 真实姓名");
+      // if (!data.phone) return this.$message.warning("الرجاء إدخال 手机号");
+      // if (!data.pwd) return this.$message.warning("الرجاء إدخال كلمة المرور");
+      // if (!data.true_pwd) return this.$message.warning("الرجاء إدخال تأكيدكلمة المرور");
       if (data.uid) {
         editUser(data)
           .then((res) => {

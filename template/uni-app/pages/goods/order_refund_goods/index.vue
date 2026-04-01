@@ -33,7 +33,7 @@
 					</view>
 					<view class='item acea-row row-between-wrapper'>
 						<view>{{$t(`联系电话`)}}</view>
-						<input class="input" type="number" :placeholder="$t(`请输入手机号`)" placeholder-class='placeholder'
+						<input class="input" type="number" :placeholder="$t(`الرجاء إدخال 手机号`)" placeholder-class='placeholder'
 							v-model="refundInfo.refund_phone" />
 					</view>
 					<view class='item textarea acea-row row-between'>
@@ -59,7 +59,7 @@
 						</view>
 					</view>
 				</view>
-				<button class='returnBnt bg-color' form-type="submit">{{$t(`提交`)}}</button>
+				<button class='returnBnt bg-color' form-type="submit">{{$t(`إرسال`)}}</button>
 			</view>
 		</form>
 	</view>
@@ -123,10 +123,10 @@
 					title: that.$t(`填写快递单号`)
 				});
 				if (!that.refundInfo.refund_phone) return this.$util.Tips({
-					title: that.$t(`请输入手机号`)
+					title: that.$t(`الرجاء إدخال 手机号`)
 				});
 				if (!/^1(3|4|5|7|8|9|6)\d{9}$/i.test(that.refundInfo.refund_phone)) return this.$util.Tips({
-					title: that.$t(`请输入正确的手机号码`)
+					title: that.$t(`الرجاء إدخال 正确的手机号码`)
 				});
 				that.refundInfo.refund_express_name = that.expressList[that.seIndex].name;
 				that.refundInfo.refund_img = that.refund_reason_wap_img.join(',');
@@ -145,7 +145,7 @@
 				})
 			},
 			/**
-			 * 删除图片
+			 * حذف图片
 			 * 
 			 */
 			DelPic: function(e) {
@@ -168,7 +168,7 @@
 				});
 			},
 			/**
-			 * 获取订单详情
+			 * 获取订单تفاصيل
 			 * 
 			 */
 			getOrderInfo: function() {

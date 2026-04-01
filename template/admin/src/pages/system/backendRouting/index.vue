@@ -2,7 +2,7 @@
   <div>
     <div class="tabs">
       <el-tabs v-model="apiType">
-        <el-tab-pane label="管理端接口" name="adminapi"></el-tab-pane>
+        <el-tab-pane label="إدارة端接口" name="adminapi"></el-tab-pane>
         <el-tab-pane label="用户端接口" name="api"></el-tab-pane>
         <el-tab-pane label="客服端接口" name="kefuapi"></el-tab-pane>
         <el-tab-pane label="对外接口" name="outapi"></el-tab-pane>
@@ -62,8 +62,8 @@
                   <template slot="dropdown">
                     <el-dropdown-menu>
                       <el-dropdown-item command="1" v-if="!slotProps.model.method">新增接口</el-dropdown-item>
-                      <el-dropdown-item command="2" v-if="!slotProps.model.method">编辑分类名</el-dropdown-item>
-                      <el-dropdown-item command="3">删除</el-dropdown-item>
+                      <el-dropdown-item command="2" v-if="!slotProps.model.method">تحرير分类名</el-dropdown-item>
+                      <el-dropdown-item command="3">حذف</el-dropdown-item>
                     </el-dropdown-menu>
                   </template>
                 </el-dropdown>
@@ -105,7 +105,7 @@
                 class="submission"
                 v-db-click
                 @click="isEdit = !isEdit"
-                >{{ isEdit ? '取消' : '编辑' }}</el-button
+                >{{ isEdit ? 'إلغاء' : 'تحرير' }}</el-button
               >
               <el-button
                 v-if="isEdit"
@@ -113,7 +113,7 @@
                 class="submission"
                 v-db-click
                 @click="handleSubmit('formValidate')"
-                >保存</el-button
+                >حفظ</el-button
               >
             </div>
           </div>
@@ -129,14 +129,14 @@
             <el-row :gutter="24">
               <el-col :span="24">
                 <div class="title">接口信息</div>
-                <el-form-item label="接口名称：" prop="name">
+                <el-form-item label="接口الاسم：" prop="name">
                   <el-input
                     v-if="isEdit"
                     class="perW20"
                     type="text"
                     :rows="4"
                     v-model.trim="formValidate.name"
-                    placeholder="请输入"
+                    placeholder="الرجاء إدخال "
                   />
                   <span v-else>{{ formValidate.name || '' }}</span>
                 </el-form-item>
@@ -160,7 +160,7 @@
                     type="textarea"
                     :rows="4"
                     v-model.trim="formValidate.describe"
-                    placeholder="请输入"
+                    placeholder="الرجاء إدخال "
                   />
                   <span v-else class="text-area">{{ formValidate.describe || '--' }}</span>
                 </el-form-item>
@@ -247,7 +247,7 @@
                         <span v-else>{{ row.trip || '' }}</span>
                       </template>
                     </vxe-column>
-                    <vxe-column title="操作" width="200" v-if="isEdit">
+                    <vxe-column title="الخيارات" width="200" v-if="isEdit">
                       <template #default="{ row }">
                         <vxe-button
                           type="text"
@@ -258,14 +258,14 @@
                           >插入</vxe-button
                         >
                         <vxe-button type="text" status="primary" v-db-click @click="removeRow(row, 'headTable')"
-                          >删除</vxe-button
+                          >حذف</vxe-button
                         >
                       </template>
                     </vxe-column>
                   </vxe-table>
 
                   <el-button class="mt10" v-if="isEdit" type="primary" v-db-click @click="insertEvent('headTable')"
-                    >添加参数</el-button
+                    >إضافة参数</el-button
                   >
                 </el-form-item>
                 <el-form-item label="query参数：">
@@ -317,7 +317,7 @@
                         <span v-else>{{ row.trip || '' }}</span>
                       </template>
                     </vxe-column>
-                    <vxe-column title="操作" width="200" v-if="isEdit">
+                    <vxe-column title="الخيارات" width="200" v-if="isEdit">
                       <template #default="{ row }">
                         <vxe-button
                           type="text"
@@ -328,13 +328,13 @@
                           >插入</vxe-button
                         >
                         <vxe-button type="text" status="primary" v-db-click @click="removeRow(row, 'xTable')"
-                          >删除</vxe-button
+                          >حذف</vxe-button
                         >
                       </template>
                     </vxe-column>
                   </vxe-table>
                   <el-button class="mt10" v-if="isEdit" type="primary" v-db-click @click="insertEvent('xTable')"
-                    >添加参数</el-button
+                    >إضافة参数</el-button
                   >
                 </el-form-item>
                 <el-form-item label="body参数：">
@@ -392,7 +392,7 @@
                         <span v-else>{{ row.trip || '' }}</span>
                       </template>
                     </vxe-column>
-                    <vxe-column title="操作" width="200" v-if="isEdit">
+                    <vxe-column title="الخيارات" width="200" v-if="isEdit">
                       <template #default="{ row }">
                         <vxe-button
                           type="text"
@@ -403,17 +403,17 @@
                           >插入</vxe-button
                         >
                         <vxe-button type="text" status="primary" v-db-click @click="removeRow(row, 'bodyTable')"
-                          >删除</vxe-button
+                          >حذف</vxe-button
                         >
                       </template>
                     </vxe-column>
                   </vxe-table>
 
                   <el-button class="mt10" v-if="isEdit" type="primary" v-db-click @click="insertEvent('bodyTable')"
-                    >添加参数</el-button
+                    >إضافة参数</el-button
                   >
                 </el-form-item>
-                <el-form-item label="返回参数：">
+                <el-form-item label="عودة参数：">
                   <vxe-table
                     resizable
                     show-overflow
@@ -458,7 +458,7 @@
                         <span v-else>{{ row.trip || '' }}</span>
                       </template>
                     </vxe-column>
-                    <vxe-column title="操作" width="200" v-if="isEdit">
+                    <vxe-column title="الخيارات" width="200" v-if="isEdit">
                       <template #default="{ row }">
                         <vxe-button
                           type="text"
@@ -469,13 +469,13 @@
                           >插入</vxe-button
                         >
                         <vxe-button type="text" status="primary" v-db-click @click="removeRow(row, 'resTable')"
-                          >删除</vxe-button
+                          >حذف</vxe-button
                         >
                       </template>
                     </vxe-column>
                   </vxe-table>
                   <el-button class="mt10" v-if="isEdit" type="primary" v-db-click @click="insertEvent('resTable')"
-                    >添加参数</el-button
+                    >إضافة参数</el-button
                   >
                 </el-form-item>
               </el-col>
@@ -490,11 +490,11 @@
                       type="textarea"
                       :rows="4"
                       v-model.trim="formValidate.request_example"
-                      placeholder="请输入"
+                      placeholder="الرجاء إدخال "
                     />
                     <span v-else class="text-area">{{ formValidate.request_example || '' }}</span>
                   </el-form-item> -->
-                <el-form-item v-if="formValidate.response_example" label="返回数据示例：" prop="response_example">
+                <el-form-item v-if="formValidate.response_example" label="عودة数据示例：" prop="response_example">
                   <el-collapse v-for="(item, index) in formValidate.response_example" accordion :key="index">
                     <el-collapse-item>
                       <template slot="title">
@@ -506,7 +506,7 @@
                         type="textarea"
                         :rows="4"
                         v-model.trim="item.data"
-                        placeholder="请输入"
+                        placeholder="الرجاء إدخال "
                       />
                       <span v-else class="text-area">{{ item.data || '' }}</span>
                     </el-collapse-item>
@@ -545,16 +545,16 @@
                         <span v-else>{{ row.solution || '' }}</span>
                       </template>
                     </vxe-column>
-                    <vxe-column title="操作" v-if="isEdit">
+                    <vxe-column title="الخيارات" v-if="isEdit">
                       <template #default="{ row }">
                         <vxe-button type="text" status="primary" v-db-click @click="removeRow(row, 'codeTable')"
-                          >删除</vxe-button
+                          >حذف</vxe-button
                         >
                       </template>
                     </vxe-column>
                   </vxe-table>
                   <el-button class="mt10" v-if="isEdit" type="primary" v-db-click @click="insertEvent('codeTable')"
-                    >添加参数</el-button
+                    >إضافة参数</el-button
                   >
                 </el-form-item>
               </el-col>
@@ -562,7 +562,7 @@
             <!-- <el-row :gutter="24" >
               <el-col :span="24">
                 <el-form-item>
-                  <el-button type="primary" class="submission" v-db-click @click="handleSubmit('formValidate')">保存</el-button>
+                  <el-button type="primary" class="submission" v-db-click @click="handleSubmit('formValidate')">حفظ</el-button>
                 </el-form-item>
               </el-col>
             </el-row> -->
@@ -584,9 +584,9 @@
         </div> -->
       </el-card>
     </div>
-    <el-dialog :visible.sync="nameModal" width="470px" title="分组名称">
-      <label>分组名称：</label>
-      <el-input v-model="value" placeholder="请输入分组名称" style="width: 85%" />
+    <el-dialog :visible.sync="nameModal" width="470px" title="分组الاسم">
+      <label>分组الاسم：</label>
+      <el-input v-model="value" placeholder="الرجاء إدخال 分组الاسم" style="width: 85%" />
       <span slot="footer" class="dialog-footer">
         <el-button v-db-click @click="nameModal = false">取 消</el-button>
         <el-button type="primary" v-db-click @click="asyncOK">确 定</el-button>
@@ -647,7 +647,7 @@ export default {
         xs: 24,
       },
       ruleValidate: {
-        title: [{ message: '请输入正确的描述 (不能多于200位数)', trigger: 'blur', max: 200 }],
+        title: [{ message: 'الرجاء إدخال 正确的描述 (不能多于200位数)', trigger: 'blur', max: 200 }],
       },
       loading: false,
       intTypeList: [
@@ -792,9 +792,9 @@ export default {
     syncRoute() {
       this.$msgbox({
         title: '立即同步',
-        message: '同步之后，路由文件中新增的接口添加到接口列表中，路由文件中删除的路由会同步的在接口列表中删除',
+        message: '同步之后，路由文件中新增的接口إضافة到接口列表中，路由文件中حذف的路由会同步的在接口列表中حذف',
         showCancelButton: true,
-        cancelButtonText: '取消',
+        cancelButtonText: 'إلغاء',
         confirmButtonText: '确定',
         iconClass: 'el-icon-warning',
         confirmButtonClass: 'btn-custom-cancel',
@@ -890,11 +890,11 @@ export default {
     },
     async handleSubmit() {
       if (!this.formValidate.name) {
-        return this.$message.warning('请输入接口名称');
+        return this.$message.warning('الرجاء إدخال 接口الاسم');
       } else if (!this.formValidate.method) {
-        return this.$message.warning('请选择请求类型');
+        return this.$message.warning('الرجاء اختيار 请求类型');
       } else if (!this.formValidate.path) {
-        return this.$message.warning('请输入路由地址');
+        return this.$message.warning('الرجاء إدخال 路由地址');
       }
       this.formValidate.request = await this.$refs.bodyTable.getTableData().tableData;
       this.formValidate.response = await this.$refs.resTable.getTableData().tableData;
@@ -982,7 +982,7 @@ export default {
       const $table = this.$refs[type];
       await $table.remove(row);
     },
-    // 修改名字
+    // تعديل名字
     add() {
       this.value = '';
       this.formValidate.id = 0;
@@ -1120,10 +1120,10 @@ export default {
     onDel(node) {
       let method = node.cate_id ? routeDel : routeCateDel;
       this.$msgbox({
-        title: '提示',
-        message: '删除后无法恢复，请确认后删除！',
+        title: 'تنبيه',
+        message: 'حذف后无法恢复，请تأكيد后حذف！',
         showCancelButton: true,
-        cancelButtonText: '取消',
+        cancelButtonText: 'إلغاء',
         confirmButtonText: '确定',
         iconClass: 'el-icon-warning',
         confirmButtonClass: 'btn-custom-cancel',

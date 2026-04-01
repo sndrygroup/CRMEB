@@ -9,7 +9,7 @@
 			<view class="rollTop">
 				<view class="scan">
 					<view class="header" :style="{backgroundImage:'url('+imgHost+'/statics/images/banner.png'+')'}">
-						请选择当前核销订单
+						الرجاء اختيار 当前核销订单
 					</view>
 					<view class="box">
 						<view class="content" v-for="(item,index) in list" :key="index"  @click="sure(item.id)">
@@ -17,7 +17,7 @@
 								<image :src="item.image" mode=""></image>
 								<view class="content_box_title">
 									<p class="textbox">订单号：{{ item.order_id }}</p>
-									<p class="attribute mar">下单时间：{{ item.add_time }}</p>
+									<p class="attribute mar">下单الوقت：{{ item.add_time }}</p>
 									<view class="txt">
 										<p class="attribute">订单实付：¥{{ item.pay_price }}</p>
 										<p class="orange" v-if="item._status == 12">部分核销</p>

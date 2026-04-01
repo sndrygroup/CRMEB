@@ -39,7 +39,7 @@
 					<view class='input'><text>{{$t(`￥`)}}</text><input v-model="number" placeholder="0.00" type='number'
 							placeholder-class='placeholder' name="number"></input></view>
 					<view class="tips-title">
-						<view style="font-weight: bold; font-size: 26rpx;">{{$t(`提示`)}}：</view>
+						<view style="font-weight: bold; font-size: 26rpx;">{{$t(`تنبيه`)}}：</view>
 						<view style="margin-top: 10rpx;">{{$t(`当前可转入佣金为`)}} <text
 								class='font-color'>{{$t(`￥`)}}{{userinfo.commissionCount || 0}}</text>{{$t(`冻结佣金为`)}}<text
 								class='font-color'>{{$t(`￥`)}}{{userinfo.broken_commission}}</text></view>
@@ -363,11 +363,11 @@
 								},
 								complete: function(e) {
 									uni.hideLoading();
-									//关闭当前页面跳转至订单状态
+									//关闭当前页面跳转至订单الحالة
 									if (res.errMsg == 'requestPayment:cancel' || e.errMsg ==
 										'requestOrderPayment:cancel') return that.$util
 										.Tips({
-											title: that.$t(`取消支付`)
+											title: that.$t(`إلغاء支付`)
 										});
 								},
 							})
@@ -391,7 +391,7 @@
 									});
 								}
 								if (res.errMsg == 'chooseWXPay:cancel') return that.$util.Tips({
-									title: that.$t(`取消支付`)
+									title: that.$t(`إلغاء支付`)
 								});
 							})
 							// #endif
@@ -521,12 +521,12 @@
 				if (that.active) {
 					if (parseFloat(value) < 0 || parseFloat(value) == NaN || value == undefined || value == "") {
 						return that.$util.Tips({
-							title: that.$t(`请输入金额`)
+							title: that.$t(`الرجاء إدخال 金额`)
 						});
 					}
 					uni.showModal({
 						title: that.$t(`转入余额`),
-						content: that.$t(`转入余额后无法再次转出，确认是否转入余额`),
+						content: that.$t(`转入余额后无法再次转出，تأكيد是否转入余额`),
 						success(res) {
 							if (res.confirm) {
 								recharge({
@@ -549,7 +549,7 @@
 									});
 							} else if (res.cancel) {
 								return that.$util.Tips({
-									title: that.$t(`已取消`)
+									title: that.$t(`已إلغاء`)
 								});
 							}
 						},

@@ -39,7 +39,7 @@
         ></textarea>
       </div>
       <div class="modify" v-db-click @click="save">
-        {{ orderInfo.refund_status === 0 || status === 1 ? '立即修改' : '确认退款' }}
+        {{ orderInfo.refund_status === 0 || status === 1 ? '立即تعديل' : 'تأكيد退款' }}
       </div>
       <div class="modify1" v-db-click @click="refuse" v-if="orderInfo.refund_status === 1 && status === 0">
         拒绝退款
@@ -142,7 +142,7 @@ export default {
         orderRefundApi(data).then(
           (res) => {
             this.$emit('closechange', false);
-            that.$dialog.success('操作成功');
+            that.$dialog.success('الخيارات成功');
           },
           (err) => {
             this.$emit('closechange', false);
@@ -162,7 +162,7 @@ export default {
         orderRemark(data).then(
           (res) => {
             this.$emit('closechange', false);
-            that.$dialog.success('提交成功');
+            that.$dialog.success('إرسال成功');
           },
           (err) => {
             this.$emit('closechange', false);

@@ -1,7 +1,7 @@
 <template>
 	<view>
 		<!-- #ifdef MP || APP-PLUS -->
-		<NavBar titleText="订单详情" :iconColor="iconColor" :textColor="iconColor" :isScrolling="isScrolling" showBack></NavBar>
+		<NavBar titleText="订单تفاصيل" :iconColor="iconColor" :textColor="iconColor" :isScrolling="isScrolling" showBack></NavBar>
 		<!-- #endif -->
 		<view class="headerBg">
 			<view :style="{ height: `${getHeight.barTop}px` }"></view>
@@ -17,7 +17,7 @@
 			</view>
 			<view class="remarks acea-row row-middle  h-100" v-if="goname != 'looks'" @click="modify('1')">
 				<text class="iconfont icon-ic_notes mr-10"></text>
-				<text class="line1" style="text-align: left;">{{ orderInfo.remark ? orderInfo.remark : '订单未备注，点击添加备注信息' }}</text>
+				<text class="line1" style="text-align: left;">{{ orderInfo.remark ? orderInfo.remark : '订单未备注，点击إضافة备注信息' }}</text>
 			</view>
 			<!-- <view class="orderingUser acea-row row-middle" v-if="orderInfo.nickname">
 				<span class="iconfont icon-yonghu2"></span>{{ orderInfo.nickname }}
@@ -156,7 +156,7 @@
 					</view>
 				</view>
 				<view class="item acea-row row-between">
-					<view>申请时间</view>
+					<view>申请الوقت</view>
 					<view class="conter">{{ orderInfo.add_time_y }} {{ orderInfo.add_time_h }}</view>
 				</view>
 				<view class="item acea-row row-between" v-show="[1,2,4,5].includes(orderInfo.refund_type)">
@@ -254,7 +254,7 @@
 				<view class="btn delivery" v-if="orderInfo.refund_type == 1" @click="modify('2',1)">退款审核</view>
 				<view class="btn delivery" v-if="orderInfo.refund_type == 2" @click="modify('2',0)">退款审核</view>
 				<view class="btn" v-if="orderInfo.refund_type == 5" @click="goLogistics(orderInfo)">查看物流</view>
-				<view class="btn delivery" v-if="orderInfo.refund_type == 5" @click="modify('2',1)">确认收货</view>
+				<view class="btn delivery" v-if="orderInfo.refund_type == 5" @click="modify('2',1)">تأكيد收货</view>
 			</view>
 			<PriceChange :change="change" :orderInfo="orderInfo" :isRefund="isRefund" @closechange="changeclose" @savePrice="savePrice" :status="status">
 			</PriceChange>
@@ -457,7 +457,7 @@
 				if (that.status == 0) {
 					if (!isMoney(price)) {
 						return that.$util.Tips({
-							title: '请输入正确的金额'
+							title: 'الرجاء إدخال 正确的金额'
 						});
 					}
 					data.price = price;
@@ -482,7 +482,7 @@
 					if (this.isRefund) {
 						if (!isMoney(refund_price)) {
 							return that.$util.Tips({
-								title: '请输入正确的金额'
+								title: 'الرجاء إدخال 正确的金额'
 							});
 						}
 						data.price = refund_price;
@@ -516,7 +516,7 @@
 				} else {
 					if (!remark) {
 						return this.$util.Tips({
-							title: '请输入备注'
+							title: 'الرجاء إدخال 备注'
 						})
 					}
 					data.remark = remark;
@@ -681,7 +681,7 @@
 		color: #2291f8;
 	}
 
-	/*商户管理订单详情*/
+	/*商户إدارة订单تفاصيل*/
 	.pos-order-details .header {
 		// background: linear-gradient(270deg, #1cd1dc 0%, #2291f8 100%);
 	}
@@ -801,7 +801,7 @@
 		height: 100%;
 	}
 
-	/*订单详情*/
+	/*订单تفاصيل*/
 	.order-details .header {
 		padding: 48rpx 0 30rpx 12rpx;
 	}

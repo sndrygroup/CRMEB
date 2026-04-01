@@ -45,7 +45,7 @@
 										{{ active === 2  ? $t(`立即预定`) : $t(`已结束`) }}
 									</view>
 									<view v-else class="unStartBtn">
-										<text>{{$t(`开售时间`)}}</text>
+										<text>{{$t(`开售الوقت`)}}</text>
 										<view>
 											{{ new Date(item.presale_start_time*1000).getMonth()+1 }}/{{ new Date(item.presale_start_time*1000).getDate() }}
 											{{ new Date(item.presale_start_time*1000).getHours()<10?'0'+ 

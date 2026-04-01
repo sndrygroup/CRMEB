@@ -68,7 +68,7 @@ export function isXlsUpload(file) {
 }
 
 export function arraysEqual(arr1, arr2) {
-  // 如果两个数组的长度不同，直接返回 false
+  // 如果两个数组的长度不同，直接عودة false
   if (arr1.length !== arr2.length) {
     return false;
   }

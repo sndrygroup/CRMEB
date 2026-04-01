@@ -67,8 +67,8 @@ const bottomMenu = {
     tabList: [{ name: '显示' }, { name: '隐藏' }],
   },
   menuConfig: {
-    title: '最多可添加1张图片，建议宽度90 * 90px',
-    bnt: '添加',
+    title: '最多可إضافة1张图片，建议宽度90 * 90px',
+    bnt: 'إضافة',
     type: 1,
     listStyle: 0,
     maxList: 100,
@@ -88,7 +88,7 @@ const bottomMenu = {
           {
             title: '链接',
             value: '',
-            tips: '请输入链接',
+            tips: 'الرجاء إدخال 链接',
             max: 100,
           },
         ],
@@ -263,7 +263,7 @@ export default {
   state: {
     configName: '',
     pageTitle: '',
-    pageName: '模版名称1',
+    pageName: '模版الاسم1',
     pageShow: 1,
     pageColor: 0,
     pagePic: 0,
@@ -439,14 +439,14 @@ export default {
      * @description 默认配置push到数组里面
      * @param {Object} state vuex state
      * @param {Object} data
-     * 把默认数据添加到默认数组里面，解耦重复组件公用一条配置的问题
+     * 把默认数据إضافة到默认数组里面，解耦重复组件公用一条配置的问题
      */
     ADDARRAY(state, data) {
       data.val.id = 'id' + data.val.timestamp;
       state.defaultArray[data.num] = data.val;
     },
     /**
-     * @description 删除列表第几个默认数据
+     * @description حذف列表第几个默认数据
      * @param {Object} state vuex state
      * @param {Object} data 数据
      */
@@ -454,7 +454,7 @@ export default {
       let tempObj = delete state.defaultArray[data.num];
     },
     /**
-     * @description 删除列表第几个默认数据
+     * @description حذف列表第几个默认数据
      * @param {Object} state vuex state
      * @param {Object} data 数据
      */
@@ -517,7 +517,7 @@ export default {
       state.defaultArray = value;
     },
     /**
-     * @description 保存组件名称
+     * @description حفظ组件الاسم
      * @param {Object} state vuex state
      * @param {string} data
      */

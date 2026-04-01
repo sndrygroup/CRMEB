@@ -9,7 +9,7 @@
           type="text"
           v-db-click
           @click="$router.go(-1)"
-          >返回</el-button
+          >عودة</el-button
         >
         <el-divider direction="vertical"></el-divider>
         <span class="ivu-page-header-title">{{ $route.meta.title }}</span>
@@ -25,7 +25,7 @@
           @submit.native.prevent
           inline
         >
-          <el-form-item label="时间选择：">
+          <el-form-item label="الوقت选择：">
             <el-date-picker
               clearable
               v-model="timeVal"
@@ -45,8 +45,8 @@
               <el-option v-for="(item, i) in typeList" :key="i" :label="item.text" :value="item.val"></el-option>
             </el-select>
           </el-form-item>
-          <el-form-item label="搜索用户：" label-for="store_name">
-            <el-input clearable placeholder="请输入用户信息" v-model="tableFrom.keyword" class="form_content_width" />
+          <el-form-item label="بحث用户：" label-for="store_name">
+            <el-input clearable placeholder="الرجاء إدخال 用户信息" v-model="tableFrom.keyword" class="form_content_width" />
           </el-form-item>
           <el-form-item>
             <el-button type="primary" v-db-click @click="userSearchs">查询</el-button>
@@ -80,7 +80,7 @@
             </div>
           </template>
         </el-table-column>
-        <el-table-column label="抽奖时间" min-width="100">
+        <el-table-column label="抽奖الوقت" min-width="100">
           <template slot-scope="scope">
             <div>{{ scope.row.add_time }}</div>
           </template>
@@ -100,7 +100,7 @@
             <span>{{ scope.row.deliver_info.mark }}</span>
           </template>
         </el-table-column>
-        <el-table-column label="操作" fixed="right" width="120">
+        <el-table-column label="الخيارات" fixed="right" width="120">
           <template slot-scope="scope">
             <a v-db-click @click="deliver(scope.row, 1)" v-if="scope.row.type == 6 && scope.row.is_deliver === 0"
               >发货</a
@@ -143,19 +143,19 @@
           </el-select>
         </el-form-item>
         <el-form-item v-if="modelType === 1" label="快递单号：" prop="deliver_number">
-          <el-input v-model="shipForm.deliver_number" placeholder="请输入快递单号" class="w100"></el-input>
+          <el-input v-model="shipForm.deliver_number" placeholder="الرجاء إدخال 快递单号" class="w100"></el-input>
           <div class="tips-info" v-if="shipForm.deliver_name == '顺丰速运'">
-            <p>顺丰请输入单号 :收件人或寄件人手机号后四位</p>
+            <p>顺丰الرجاء إدخال 单号 :收件人或寄件人手机号后四位</p>
             <p>例如：SF000000000000:3941</p>
           </div>
         </el-form-item>
         <el-form-item v-if="modelType === 2" label="备注：">
-          <el-input v-model="markForm.mark" placeholder="请输入备注" class="w100"></el-input>
+          <el-input v-model="markForm.mark" placeholder="الرجاء إدخال 备注" class="w100"></el-input>
         </el-form-item>
         <el-form-item>
           <div class="acea-row row-right">
             <el-button v-db-click @click="cancel('formValidate')">关闭</el-button>
-            <el-button type="primary" v-db-click @click="ok(modelType === 1 ? 'shipForm' : 'markForm')">提交</el-button>
+            <el-button type="primary" v-db-click @click="ok(modelType === 1 ? 'shipForm' : 'markForm')">إرسال</el-button>
           </div>
         </el-form-item>
       </el-form>
@@ -265,7 +265,7 @@ export default {
       this.$refs[name].validate((valid) => {
         lotteryRecordDeliver(this.modelType == 1 ? this.shipForm : this.markForm)
           .then((res) => {
-            this.$message.success('操作成功');
+            this.$message.success('الخيارات成功');
             this.shipModel = false;
             this.getList();
             this.shipForm = {
@@ -306,7 +306,7 @@ export default {
       this.tableFrom.page = 1;
       this.getList();
     },
-    // 选择时间
+    // 选择الوقت
     selectChange(tab) {
       this.tableFrom.page = 1;
       this.tableFrom.time = tab;
@@ -338,7 +338,7 @@ export default {
           this.$message.error(res.msg);
         });
     },
-    // 表格搜索
+    // 表格بحث
     userSearchs() {
       this.tableFrom.page = 1;
       this.getList();

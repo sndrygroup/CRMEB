@@ -2,7 +2,7 @@
   <div class="" id="shopp-manager" v-loading="spinShow">
     <pages-header
       ref="pageHeader"
-      :title="$route.params.id ? '编辑商品' : '添加商品'"
+      :title="$route.params.id ? 'تحرير商品' : 'إضافة商品'"
       :backUrl="$routeProStr + '/product/product_list'"
     ></pages-header>
     <el-card :bordered="false" shadow="never" class="mt16" :body-style="{ padding: '0px 20px' }">
@@ -82,7 +82,7 @@
           @addVirtual="addVirtual"
         ></spec-stock>
 
-        <!-- 商品详情-->
+        <!-- 商品تفاصيل-->
         <product-detail
           v-show="currentTab === '3'"
           :contents="contents"
@@ -175,7 +175,7 @@
             v-db-click
             @click="handleSubmit('formValidate')"
             v-if="$route.params.id || currentTab !== '1'"
-            >保存</el-button
+            >حفظ</el-button
           >
         </el-form-item>
       </el-form>
@@ -192,7 +192,7 @@
       <el-dialog
         :visible.sync="addVirtualModel"
         width="720px"
-        title="添加卡密"
+        title="إضافة卡密"
         :show-close="true"
         :close-on-click-modal="false"
         @closed="initVirtualData"
@@ -225,7 +225,7 @@
                     type="text"
                     v-model.trim="item.key"
                     style="width: 150px"
-                    placeholder="请输入卡号(非必填)"
+                    placeholder="الرجاء إدخال 卡号(非必填)"
                   ></el-input>
                   <span class="mr10 virtual-title">卡密{{ index + 1 }}：</span>
                   <el-input
@@ -233,9 +233,9 @@
                     type="text"
                     v-model.trim="item.value"
                     style="width: 150px"
-                    placeholder="请输入卡密"
+                    placeholder="الرجاء إدخال 卡密"
                   ></el-input>
-                  <span class="deteal-btn" v-db-click @click="removeVirtual(index)">删除</span>
+                  <span class="deteal-btn" v-db-click @click="removeVirtual(index)">حذف</span>
                 </div>
               </div>
               <div class="add-more" v-if="disk_type == 2">
@@ -292,7 +292,7 @@
     <!-- 用户标签 -->
     <el-dialog
       :visible.sync="labelShow"
-      title="请选择用户标签"
+      title="الرجاء اختيار 用户标签"
       :show-close="true"
       width="540px"
       :close-on-click-modal="false"
@@ -302,7 +302,7 @@
     <!-- 商品标签 -->
     <el-dialog
       :visible.sync="tagShow"
-      title="请选择商品标签"
+      title="الرجاء اختيار 商品标签"
       :show-close="true"
       width="540px"
       :close-on-click-modal="false"
@@ -401,7 +401,7 @@ export default {
       headTab: [
         { tit: '基础信息', name: '1' },
         { tit: '规格库存', name: '2' },
-        { tit: '商品详情', name: '3' },
+        { tit: '商品تفاصيل', name: '3' },
         { tit: '物流设置', name: '4' },
         { tit: '会员价/佣金', name: '5' },
         { tit: '营销设置', name: '6' },
@@ -490,7 +490,7 @@ export default {
         freight: 2, //运费设置
         postage: 0, //设置运费金额
         recommend: [], //商品推荐
-        presale_day: 1, //预售发货时间-结束
+        presale_day: 1, //预售发货الوقت-结束
         presale: false, //预售商品开关
         is_limit: false,
         limit_type: 0,
@@ -645,8 +645,8 @@ export default {
       goodsType: [],
       paramsTypeList: [],
       paramsType: null,
-      canSel: true, // 规格图片添加判断
-      changeAttrValue: '', //修改的规格值
+      canSel: true, // 规格图片إضافة判断
+      changeAttrValue: '', //تعديل的规格值
       tableKey: 0,
       protectionList: [], // 服务保障
       labelList: [],
@@ -847,7 +847,7 @@ export default {
     // 类型选择/填入内容判断
     virtualbtn(index, type) {
       if (type != 1) {
-        if (this.$route.params.id) return this.$message.error('编辑商品不支持切换商品类型');
+        if (this.$route.params.id) return this.$message.error('تحرير商品不支持切换商品类型');
         this.formValidate.is_sub = [];
         let id = this.$route.params.id;
         if (id) {
@@ -867,7 +867,7 @@ export default {
       const baseHeadTabs = [
         { tit: '基础信息', name: '1' },
         { tit: '规格库存', name: '2' },
-        { tit: '商品详情', name: '3' },
+        { tit: '商品تفاصيل', name: '3' },
         { tit: '物流设置', name: '4' },
         { tit: '会员价/佣金', name: '5' },
         { tit: '营销设置', name: '6' },
@@ -876,7 +876,7 @@ export default {
       const virtualHeadTabs = [
         { tit: '基础信息', name: '1' },
         { tit: '规格库存', name: '2' },
-        { tit: '商品详情', name: '3' },
+        { tit: '商品تفاصيل', name: '3' },
         { tit: '会员价/佣金', name: '4' },
         { tit: '营销设置', name: '5' },
         { tit: '其他设置', name: '6' },
@@ -935,7 +935,7 @@ export default {
     // 自定义留言 新增表单
     addcustom() {
       if (this.formValidate.custom_form.length > 9) {
-        this.$message.warning('最多添加10条');
+        this.$message.warning('最多إضافة10条');
       } else {
         this.formValidate.custom_form.push({
           title: '',
@@ -945,7 +945,7 @@ export default {
         });
       }
     },
-    // 删除
+    // حذف
     delcustom(index) {
       this.formValidate.custom_form.splice(index, 1);
     },
@@ -953,7 +953,7 @@ export default {
     onchangeTime(e) {
       this.formValidate.presale_time = e;
     },
-    // 商品详情
+    // 商品تفاصيل
     getEditorContent(data) {
       this.content = data;
     },
@@ -1092,7 +1092,7 @@ export default {
         }
       }
     },
-    // 添加优惠券
+    // إضافة优惠券
     addCoupon() {
       this.$refs.couponTemplates.isTemplate = true;
       this.$refs.couponTemplates.tableList();
@@ -1117,17 +1117,17 @@ export default {
         this.$refs.goodsCoupon.tableList(3);
       }
     },
-    // 修改分佣比例
+    // تعديل分佣比例
     changeDiscount(index, type = 'manyFormValidate') {
-      // 根据分佣比例 vip_proportion 修改会员价 保留2位小数
+      // 根据分佣比例 vip_proportion تعديل会员价 保留2位小数
       this[type][index].vip_price = (this[type][index].price * (this[type][index].vip_proportion / 100)).toFixed(2);
     },
-    // 修改会员价
+    // تعديل会员价
     changeVipPrice(index, type = 'manyFormValidate') {
       // 根据会员价计算出分佣比例
       this[type][index].vip_proportion = ((this[type][index].vip_price / this[type][index].price) * 100).toFixed(2);
     },
-    // 添加优惠券
+    // إضافة优惠券
     addGoodsCoupon(index, name) {
       this.tabIndex = index;
       this.tabName = name;
@@ -1139,13 +1139,13 @@ export default {
       this.tabName = name;
       this.addVirtualModel = true;
     },
-    // 提交卡密信息
+    // إرسال卡密信息
     upVirtual() {
       if (this.disk_type == 2) {
         for (let i = 0; i < this.virtualList.length; i++) {
           const element = this.virtualList[i];
           if (!element.value) {
-            this.$message.error('请输入所有卡密');
+            this.$message.error('الرجاء إدخال 所有卡密');
             return;
           }
         }
@@ -1217,7 +1217,7 @@ export default {
       this.updateIds = couponIds;
       this.updateName = this.couponName;
     },
-    // 添加运费模板
+    // إضافة运费模板
     addTemp() {
       this.$refs.templates.isTemplate = true;
     },
@@ -1226,7 +1226,7 @@ export default {
         this.formValidate.video_link = e;
       });
     },
-    // 删除视频；
+    // حذف视频；
     delVideo() {
       this.$set(this.formValidate, 'video_link', '');
       this.$set(this, 'progress', 0);
@@ -1289,7 +1289,7 @@ export default {
     userSearchs() {
       this.productGetRule();
     },
-    // 添加规则；
+    // إضافة规则；
     addRule() {
       this.$refs.addattr.modal = true;
     },
@@ -1297,19 +1297,19 @@ export default {
     brokerageSetUp() {
       if (this.formValidate.is_sub.indexOf(1) > -1) {
         if (this.manyBrokerage <= 0 || this.manyBrokerageTwo <= 0) {
-          return this.$message.error('请填写返佣金额后进行批量添加');
+          return this.$message.error('请填写返佣金额后进行批量إضافة');
         }
       } else if (this.formValidate.is_sub.indexOf(0) > -1) {
         if (this.manyVipPrice <= 0) {
-          return this.$message.error('请填写会员价后进行批量添加');
+          return this.$message.error('请填写会员价后进行批量إضافة');
         }
       }
       if (this.formValidate.is_sub.length === 2) {
         if (this.manyBrokerage <= 0 || this.manyBrokerageTwo <= 0) {
-          return this.$message.error('请填写完金额后进行批量添加');
+          return this.$message.error('请填写完金额后进行批量إضافة');
         }
         if (this.manyVipPrice > 0 && this.manyVipDiscount > 0) {
-          return this.$message.error('会员价和会员折扣只能二选一添加');
+          return this.$message.error('会员价和会员折扣只能二选一إضافة');
         }
       }
       for (let val of this.manyFormValidate) {
@@ -1327,7 +1327,7 @@ export default {
     // 批量设置会员价
     vipPriceSetUp() {
       if (this.manyVipPrice <= 0) {
-        return this.$message.error('请填写会员价在进行批量添加');
+        return this.$message.error('请填写会员价在进行批量إضافة');
       } else {
         for (let val of this.manyFormValidate) {
           this.$set(val, 'vip_price', this.manyVipPrice);
@@ -1375,7 +1375,7 @@ export default {
       this.formValidate.selectRule = name;
       this.attrs = [];
       if (this.formValidate.selectRule.trim().length <= 0) {
-        return this.$message.error('请选择属性');
+        return this.$message.error('الرجاء اختيار 属性');
       }
       this.ruleList.forEach((item, index) => {
         if (item.rule_name === this.formValidate.selectRule) {
@@ -1425,7 +1425,7 @@ export default {
       }
       return true;
     },
-    // 批量添加
+    // 批量إضافة
     batchAdd() {
       let arr = [];
       for (let val of this.attrs) {
@@ -1481,7 +1481,7 @@ export default {
         }
       }
       if (isHas) {
-        this.$confirm('可以同步修改下方该规格图片，确定要替换吗？', '提示', {
+        this.$confirm('可以同步تعديل下方该规格图片，确定要替换吗？', 'تنبيه', {
           confirmButtonText: '替换',
           cancelButtonText: '暂不',
           type: 'warning',
@@ -1512,7 +1512,7 @@ export default {
       this.formDynamic.attrsVal = '';
     },
 
-    // 删除规格
+    // حذف规格
     handleRemoveRole(index) {
       this.attrs.splice(index, 1);
       this.manyFormValidate.splice(index, 1);
@@ -1523,7 +1523,7 @@ export default {
         this.generateAttr(this.attrs);
       }
     },
-    // 删除表格中 对应属性
+    // حذف表格中 对应属性
     delAttrTable(val) {
       for (let i = 0; i < this.manyFormValidate.length; i++) {
         let item = this.manyFormValidate[i];
@@ -1533,9 +1533,9 @@ export default {
         }
       }
     },
-    // 删除属性
+    // حذف属性
     handleRemove2(item, index, val) {
-      // 删除 manyFormValidate中 title = item.value 的属性值
+      // حذف manyFormValidate中 title = item.value 的属性值
       item.splice(index, 1);
       // this.generateAttr(this.attrs);
       this.delAttrTable(val);
@@ -1557,9 +1557,9 @@ export default {
       this.formValidate.params_list.push(data);
     },
     handleSaveAsTemplate() {
-      this.$prompt('', '请输入模板名称', {
+      this.$prompt('', 'الرجاء إدخال 模板الاسم', {
         confirmButtonText: '确定',
-        cancelButtonText: '取消',
+        cancelButtonText: 'إلغاء',
       })
         .then(({ value }) => {
           let spec = this.attrs.map((item) => {
@@ -1602,7 +1602,7 @@ export default {
     handleRemoveImg(item) {
       item.pic = '';
     },
-    // 规格名称改变
+    // 规格الاسم改变
     attrChangeValue(i, val) {
       if (val.trim().length && this.attrs[i].detail.length) {
         this.generateHeader(this.attrs);
@@ -1641,7 +1641,7 @@ export default {
         this.generateAttr(this.attrs, 1);
       }
     },
-    // 规格图片添加开关
+    // 规格图片إضافة开关
     addPic(e, i) {
       if (e) {
         this.attrs.map((item, ii) => {
@@ -1672,10 +1672,10 @@ export default {
       let arr;
       if ([1, 2].includes(Number(this.formValidate.virtual_type))) {
         arr = [...specificationsColumns, ...VirtualTableHead];
-        // 找到slot 等于 fictitious 将title改为规格名称
+        // 找到slot 等于 fictitious 将title改为规格الاسم
         this.formValidate.header.map((item) => {
           if (item.slot === 'fictitious') {
-            item.title = this.formValidate.virtual_type == 1 ? '添加卡密/网盘' : '选择优惠券';
+            item.title = this.formValidate.virtual_type == 1 ? 'إضافة卡密/网盘' : '选择优惠券';
           }
         });
       } else if (this.formValidate.virtual_type == 3) {
@@ -1820,7 +1820,7 @@ export default {
       const [first, ...rest] = arr;
       return first.detail.flatMap((detail) => this.generateCombinations(rest, [...prefix, detail.value]));
     },
-    // 添加属性
+    // إضافة属性
     createAttr(num, idx) {
       if (num) {
         // 判断是否存在同样熟悉
@@ -1875,7 +1875,7 @@ export default {
           });
       }
     },
-    // 详情
+    // تفاصيل
     getInfo() {
       this.spinShow = true;
       productInfoApi(this.$route.params.id)
@@ -1948,7 +1948,7 @@ export default {
       this.oneFormValidate[0].pic = this.formValidate.slider_image[0];
       this.modalPic = false;
     },
-    // 提交
+    // إرسال
     handleSubmit(name) {
       this.$refs[name].validate((valid) => {
         if (valid) {
@@ -1957,7 +1957,7 @@ export default {
           let item = JSON.parse(JSON.stringify(arr));
           if (this.formValidate.spec_type === 1) {
             if (item.length < 2) return this.$message.warning('商品规格-规格数量最少1个');
-            // 删除第一项
+            // حذف第一项
             item.shift();
           }
           for (let i = 0; i < item.length; i++) {
@@ -2028,7 +2028,7 @@ export default {
             });
         } else {
           if (!this.formValidate.store_name) {
-            return this.$message.warning('商品信息-商品名称不能为空');
+            return this.$message.warning('商品信息-商品الاسم不能为空');
           } else if (!this.formValidate.cate_id.length) {
             return this.$message.warning('商品信息-商品分类不能为空');
           } else if (!this.formValidate.unit_name) {
@@ -2104,7 +2104,7 @@ export default {
       this.labelShow = false;
       this.tagShow = false;
     },
-    // 删除用户标签
+    // حذف用户标签
     closeLabel(label) {
       let index = this.dataLabel.indexOf(this.dataLabel.filter((d) => d.id == label.id)[0]);
       this.dataLabel.splice(index, 1);

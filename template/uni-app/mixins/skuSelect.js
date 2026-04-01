@@ -277,7 +277,7 @@ export default {
 
 			if (duo) {
 				let productSelect = that.productValue[this.attrValue];
-				//如果有属性,没有选择,提示用户选择
+				//如果有属性,没有选择,تنبيه用户选择
 				console.log(productSelect);
 				
 				if (
@@ -285,7 +285,7 @@ export default {
 					productSelect === undefined
 				) {
 					return that.$util.Tips({
-						title: "产品库存不足，请选择其它属性"
+						title: "产品库存不足，الرجاء اختيار 其它属性"
 					});
 				}
 			}

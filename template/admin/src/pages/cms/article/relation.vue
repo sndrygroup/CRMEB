@@ -9,12 +9,12 @@
     >
       <el-row :gutter="24">
         <el-col v-bind="grid">
-          <el-form-item label="商品名称：" prop="status2" label-for="status2">
+          <el-form-item label="商品الاسم：" prop="status2" label-for="status2">
             <el-input
               search
               enter-button
               v-model="levelFrom.name"
-              placeholder="请输入商品名称"
+              placeholder="الرجاء إدخال 商品الاسم"
               @on-search="userSearchs"
               style="width: 100%"
             />
@@ -55,8 +55,8 @@
         </el-switch>
       </template>
       <template slot-scope="{ row, index }" slot="action">
-        <a v-db-click @click="edit(row)">编辑 | </a>
-        <a v-db-click @click="del(row, '删除任务')"> 删除</a>
+        <a v-db-click @click="edit(row)">تحرير | </a>
+        <a v-db-click @click="del(row, 'حذف任务')"> حذف</a>
       </template>
     </el-table>
     <div class="acea-row row-right page">
@@ -68,7 +68,7 @@
         @pagination="getList"
       />
     </div>
-    <!-- 新建 编辑表单-->
+    <!-- 新建 تحرير表单-->
     <edit-from ref="edits" :FromData="FromData" @submitFail="submitFail" :titleType="titleType"></edit-from>
   </el-dialog>
 </template>
@@ -93,7 +93,7 @@ export default {
     handleReset() {
       this.modals = false;
     },
-    // 表格搜索
+    // 表格بحث
     userSearchs() {
       this.getList();
     },

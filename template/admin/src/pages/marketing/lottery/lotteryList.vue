@@ -10,7 +10,7 @@
         inline
         @submit.native.prevent
       >
-        <el-form-item label="活动时间：">
+        <el-form-item label="活动الوقت：">
           <el-date-picker
             v-model="timeVal"
             type="daterange"
@@ -24,7 +24,7 @@
             style="width: 250px"
           ></el-date-picker>
         </el-form-item>
-        <el-form-item label="活动状态：">
+        <el-form-item label="活动الحالة：">
           <el-select
             class="form_content_width"
             v-model="tableFrom.start"
@@ -52,7 +52,7 @@
             <el-option label="订单评价" :value="4" />
           </el-select>
         </el-form-item>
-        <el-form-item label="开启状态：">
+        <el-form-item label="开启الحالة：">
           <el-select
             class="form_content_width"
             v-model="tableFrom.status"
@@ -66,10 +66,10 @@
           </el-select>
         </el-form-item>
 
-        <el-form-item label="搜索抽奖：">
+        <el-form-item label="بحث抽奖：">
           <el-input
             class="form_content_width"
-            placeholder="请输入活动名称"
+            placeholder="الرجاء إدخال 活动الاسم"
             v-model="tableFrom.keyword"
             @change="userSearchs"
             clearable
@@ -86,7 +86,7 @@
             <span>{{ scope.row.id }}</span>
           </template>
         </el-table-column>
-        <el-table-column label="活动名称" min-width="120">
+        <el-table-column label="活动الاسم" min-width="120">
           <template slot-scope="scope">
             <span>{{ scope.row.name }}</span>
           </template>
@@ -116,12 +116,12 @@
             <span>{{ scope.row.records_wins_num }}</span>
           </template>
         </el-table-column>
-        <el-table-column label="活动状态" min-width="100">
+        <el-table-column label="活动الحالة" min-width="100">
           <template slot-scope="scope">
             <span>{{ scope.row.status_name }}</span>
           </template>
         </el-table-column>
-        <el-table-column label="开启状态" min-width="100">
+        <el-table-column label="开启الحالة" min-width="100">
           <template slot-scope="scope">
             <el-switch
               class="defineSwitch"
@@ -137,15 +137,15 @@
             </el-switch>
           </template>
         </el-table-column>
-        <el-table-column label="活动时间" min-width="180">
+        <el-table-column label="活动الوقت" min-width="180">
           <template slot-scope="scope">
             <p>开始：{{ scope.row.start_time }}</p>
             <p>结束：{{ scope.row.end_time }}</p>
           </template>
         </el-table-column>
-        <el-table-column label="操作" min-width="180" fixed="right">
+        <el-table-column label="الخيارات" min-width="180" fixed="right">
           <template slot-scope="scope">
-            <a @click="edit(scope.row)">编辑</a>
+            <a @click="edit(scope.row)">تحرير</a>
             <el-divider direction="vertical" />
             <a @click="openPage(1, scope.row)">抽奖记录</a>
             <el-divider direction="vertical" />
@@ -158,7 +158,7 @@
                   <el-dropdown-item command="3">
                     <span class="copy copy-data" :data-clipboard-text="copyLink(scope.row)">复制链接</span>
                   </el-dropdown-item>
-                  <el-dropdown-item command="4">删除抽奖</el-dropdown-item>
+                  <el-dropdown-item command="4">حذف抽奖</el-dropdown-item>
                 </el-dropdown-menu>
               </el-dropdown>
             </template>
@@ -218,7 +218,7 @@ export default {
       ruleShip: ruleShip,
       ruleMark: ruleMark,
       fromList: {
-        title: '选择时间',
+        title: '选择الوقت',
         fromTxt: [
           { text: '全部', val: '' },
           { text: '今天', val: 'today' },
@@ -303,7 +303,7 @@ export default {
     this.getList();
   },
   methods: {
-    // 操作
+    // الخيارات
     changeMenu(row, name, index) {
       switch (name) {
         case '1':
@@ -313,7 +313,7 @@ export default {
           this.onCopy(row);
           break;
         case '4':
-          this.del(row, '删除活动', index);
+          this.del(row, 'حذف活动', index);
           break;
       }
     },
@@ -371,7 +371,7 @@ export default {
       this.tableFrom.page = 1;
       this.getList();
     },
-    // 删除
+    // حذف
     del(row, tit, num) {
       let delfromData = {
         title: tit,
@@ -404,7 +404,7 @@ export default {
           this.$message.error(res.msg);
         });
     },
-    // 修改是否显示
+    // تعديل是否显示
     onchangeIsShow(row) {
       let data = {
         id: row.id,
@@ -418,7 +418,7 @@ export default {
           this.$message.error(res.msg);
         });
     },
-    // 表格搜索
+    // 表格بحث
     userSearchs() {
       this.tableFrom.page = 1;
       this.getList();

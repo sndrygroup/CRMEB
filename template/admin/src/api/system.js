@@ -34,7 +34,7 @@ export function classAddApi(data) {
 }
 
 /**
- * @description 配置分类--编辑表单
+ * @description 配置分类--تحرير表单
  * @param {Number} param id {Number} 配置分类id
  */
 export function classEditApi(id) {
@@ -45,7 +45,7 @@ export function classEditApi(id) {
 }
 
 /**
- * @description 配置分类--修改状态
+ * @description 配置分类--تعديلالحالة
  * @param {Number} param id {Number} 文章id
  */
 export function setStatusApi(data) {
@@ -80,7 +80,7 @@ export function configTabAddApi(data) {
 }
 
 /**
- * @description 配置--编辑表单
+ * @description 配置--تحرير表单
  * @param {Number} param id {Number} 配置id
  */
 export function configTabEditApi(id) {
@@ -91,7 +91,7 @@ export function configTabEditApi(id) {
 }
 
 /**
- * @description 配置--修改状态
+ * @description 配置--تعديلالحالة
  * @param {Number} param id {Number} 文章id
  */
 export function configSetStatusApi(id, status) {
@@ -126,7 +126,7 @@ export function groupAddApi(data) {
 }
 
 /**
- * @description 组合数据--详情
+ * @description 组合数据--تفاصيل
  * @param {Number} param id {Number} 组合数据id
  */
 export function groupInfoApi(id) {
@@ -161,7 +161,7 @@ export function groupDataAddApi(id, url) {
 }
 
 /**
- * @description 组合数据列表 -- 编辑表单
+ * @description 组合数据列表 -- تحرير表单
  * @param {Number} param id {Number} 组合数据列表id
  * @param {Object} param data {Object} 组合数据id对象
  */
@@ -174,7 +174,7 @@ export function groupDataEditApi(data, url) {
 }
 
 /**
- * @description 组合数据列表 -- 编辑表单
+ * @description 组合数据列表 -- تحرير表单
  * @param {Number} param id {Number} 组合数据id
  */
 export function groupDataHeaderApi(data, url) {
@@ -186,7 +186,7 @@ export function groupDataHeaderApi(data, url) {
 }
 
 /**
- * @description 组合数据列表 -- 修改状态
+ * @description 组合数据列表 -- تعديلالحالة
  * @param {Object} param data {Object} 组合数据列表传值
  */
 export function groupDataSetApi(url) {
@@ -197,7 +197,7 @@ export function groupDataSetApi(url) {
 }
 
 /**
- * @description 系统日志 -- 搜索条件
+ * @description 系统日志 -- بحث条件
  */
 export function searchAdminApi(data) {
   return request({
@@ -207,7 +207,7 @@ export function searchAdminApi(data) {
 }
 
 /**
- * @description 系统日志 -- 搜索条件
+ * @description 系统日志 -- بحث条件
  */
 export function systemListApi(params) {
   return request({
@@ -238,7 +238,7 @@ export function backupListApi() {
 }
 
 /**
- * @description 数据备份 -- 查看表结构详情
+ * @description 数据备份 -- 查看表结构تفاصيل
  */
 export function backupReadListApi(params) {
   return request({
@@ -314,7 +314,7 @@ export function filesImportApi(data) {
 }
 
 /**
- * @description 文件管理 -- 登录
+ * @description 文件إدارة -- تسجيل الدخول
  */
 export function opendirLoginApi(data) {
   return request({
@@ -325,7 +325,7 @@ export function opendirLoginApi(data) {
 }
 
 /**
- * @description 文件管理 -- 列表
+ * @description 文件إدارة -- 列表
  */
 export function opendirListApi(params) {
   return request({
@@ -337,7 +337,7 @@ export function opendirListApi(params) {
 }
 
 /**
- * @description 文件管理 -- 读取文件
+ * @description 文件إدارة -- 读取文件
  */
 export function openfileApi(params) {
   return request({
@@ -349,7 +349,7 @@ export function openfileApi(params) {
 }
 
 /**
- * @description 文件管理 -- 保存
+ * @description 文件إدارة -- حفظ
  */
 export function savefileApi(data) {
   return request({
@@ -360,7 +360,7 @@ export function savefileApi(data) {
   });
 }
 /**
- * @description 文件管理 -- 新建文件夹
+ * @description 文件إدارة -- 新建文件夹
  */
 export function createFolder(params) {
   return request({
@@ -371,7 +371,7 @@ export function createFolder(params) {
   });
 }
 /**
- * @description 文件管理 -- 新建文件
+ * @description 文件إدارة -- 新建文件
  */
 export function createFile(params) {
   return request({
@@ -382,7 +382,7 @@ export function createFile(params) {
   });
 }
 /**
- * @description 文件管理 -- 删除文件或文件夹
+ * @description 文件إدارة -- حذف文件或文件夹
  */
 export function rename(params) {
   return request({
@@ -393,7 +393,7 @@ export function rename(params) {
   });
 }
 /**
- * @description 文件管理 -- 删除文件或文件夹
+ * @description 文件إدارة -- حذف文件或文件夹
  */
 export function delFolder(params) {
   return request({
@@ -506,7 +506,7 @@ export function versionCrate(id) {
 }
 
 /**
- * @description 数据配置保存
+ * @description 数据配置حفظ
  */
 export function groupSaveApi(data) {
   return request({
@@ -517,7 +517,7 @@ export function groupSaveApi(data) {
 }
 
 /**
- * @description 引导页数据配置保存
+ * @description 引导页数据配置حفظ
  */
 export function openAdvSave(data) {
   return request({
@@ -528,7 +528,7 @@ export function openAdvSave(data) {
 }
 
 /**
- * @description 引导页数据配置保存
+ * @description 引导页数据配置حفظ
  */
 export function getOpenAdv() {
   return request({
@@ -634,7 +634,7 @@ export function getCrmebCopyRight() {
 }
 
 /**
- * @description 保存版权
+ * @description حفظ版权
  */
 export function saveCrmebCopyRight(data) {
   return request({
@@ -677,7 +677,7 @@ export function upgradeAgreementApi() {
 }
 
 /**
- * @description 升级状态
+ * @description 升级الحالة
  */
 export function upgradeStatusApi() {
   return request({
@@ -762,7 +762,7 @@ export function timerIndex(params) {
 }
 
 /**
- * 修改定时任务状态
+ * تعديل定时任务الحالة
  * @param {*} params
  * @returns
  */
@@ -784,7 +784,7 @@ export function timerInfo(id) {
 }
 
 /**
- * 保存定时任务
+ * حفظ定时任务
  * @param {*} data
  * @returns
  */
@@ -822,7 +822,7 @@ export function updateMark(data) {
   });
 }
 /**
- * 文件管理 更新备注
+ * 文件إدارة 更新备注
  * @param {*} data
  * @returns
  */
@@ -835,7 +835,7 @@ export function markSave(fileToken, data) {
 }
 
 /**
- * 定时任务名称及标识
+ * 定时任务الاسم及标识
  * @returns
  */
 export function timerTask() {
@@ -859,7 +859,7 @@ export function eventIndex(params) {
 }
 
 /**
- * 自定义事件修改状态
+ * 自定义事件تعديلالحالة
  * @param {*} params
  * @returns
  */
@@ -881,7 +881,7 @@ export function eventInfo(id) {
 }
 
 /**
- * 自定义事件保存
+ * 自定义事件حفظ
  * @param {*} data
  * @returns
  */
@@ -972,7 +972,7 @@ export function crossVersionUpgradeProgressApi() {
 }
 
 /**
- * 获取备份状态
+ * 获取备份الحالة
  * @returns
  */
 export function backupStatusApi() {

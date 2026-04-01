@@ -56,7 +56,7 @@
 			<div class="cancel" @click="getCombinationRemove"
 				v-if="pinkBool === 0 && userBool === 1 && pinkT.uid == userInfo.uid">
 				<span class="iconfont icon-guanbi3"></span>
-				{{$t(`取消开团`)}}
+				{{$t(`إلغاء开团`)}}
 			</div>
 			<div class="lookOrder" v-if="pinkBool === 1 && orderPid === 0" @click="goOrder">
 				{{$t(`查看订单信息`)}}
@@ -211,7 +211,7 @@
 				H5ShareBox: false, //公众号分享图片
 				isAuto: false, //没有授权的不会自动授权
 				isShowAuth: false, //是否隐藏授权
-				attrTxt: this.$t(`请选择`), //属性页面提示
+				attrTxt: this.$t(`الرجاء اختيار `), //属性页面تنبيه
 				attrValue: '', //已选属性,
 				orderPid: 0
 			};
@@ -394,7 +394,7 @@
 					this.$set(this.attr.productSelect, 'quota_show', 0);
 					this.$set(this.attr.productSelect, 'product_stock', 0);
 					this.$set(this, 'attrValue', '');
-					this.$set(this, 'attrTxt', this.$t(`请选择`));
+					this.$set(this, 'attrTxt', this.$t(`الرجاء اختيار `));
 				}
 			},
 			ChangeCartNum: function(res) {
@@ -501,7 +501,7 @@
 					this.$set(this.attr.productSelect, 'product_stock', 0);
 					this.$set(this.attr.productSelect, 'quota_show', 0);
 					this.$set(this, 'attrValue', '');
-					this.$set(this, 'attrTxt', this.$t(`请选择`));
+					this.$set(this, 'attrTxt', this.$t(`الرجاء اختيار `));
 				} else if (!productSelect && !productAttr.length) {
 					this.$set(this.attr.productSelect, 'store_name', this.storeCombination.title);
 					this.$set(this.attr.productSelect, 'image', this.storeCombination.image);
@@ -512,7 +512,7 @@
 					this.$set(this.attr.productSelect, 'quota_show', 0);
 					this.$set(this.attr.productSelect, 'product_stock', 0);
 					this.$set(this, 'attrValue', '');
-					this.$set(this, 'attrTxt', this.$t(`请选择`));
+					this.$set(this, 'attrTxt', this.$t(`الرجاء اختيار `));
 				}
 			},
 			setProductSelect: function() {
@@ -573,7 +573,7 @@
 					url: '/pages/activity/goods_combination/index'
 				});
 			},
-			//拼团详情
+			//拼团تفاصيل
 			goDetail: function(id) {
 				this.pinkId = id;
 				// this.getCombinationPink();
@@ -660,7 +660,7 @@
 				}
 			},
 			//#endif
-			//拼团取消
+			//拼团إلغاء
 			getCombinationRemove: function() {
 				var that = this;
 				postCombinationRemove({

@@ -10,10 +10,10 @@
           @submit.native.prevent
           inline
         >
-          <el-form-item label="状态：" label-for="status">
+          <el-form-item label="الحالة：" label-for="status">
             <el-select
               v-model="formValidate.status"
-              placeholder="请选择"
+              placeholder="الرجاء اختيار "
               @change="userSearchs"
               clearable
               class="form_content_width"
@@ -25,7 +25,7 @@
           <el-form-item label="身份昵称：" label-for="role_name">
             <el-input
               clearable
-              placeholder="请输入身份昵称"
+              placeholder="الرجاء إدخال 身份昵称"
               v-model="formValidate.role_name"
               class="form_content_width"
             />
@@ -37,8 +37,8 @@
       </div>
     </el-card>
     <el-card :bordered="false" shadow="never" v-loading="spinShow">
-      <el-button v-auth="['setting-system_role-add']" type="primary" v-db-click @click="add('添加')"
-        >添加身份</el-button
+      <el-button v-auth="['setting-system_role-add']" type="primary" v-db-click @click="add('إضافة')"
+        >إضافة身份</el-button
       >
       <el-table
         :data="tableList"
@@ -64,7 +64,7 @@
             <span class="line1">{{ scope.row.rules }}</span>
           </template>
         </el-table-column> -->
-        <el-table-column label="状态" min-width="120">
+        <el-table-column label="الحالة" min-width="120">
           <template slot-scope="scope">
             <el-switch
               class="defineSwitch"
@@ -80,11 +80,11 @@
             </el-switch>
           </template>
         </el-table-column>
-        <el-table-column label="操作" fixed="right" width="120">
+        <el-table-column label="الخيارات" fixed="right" width="120">
           <template slot-scope="scope">
-            <a v-db-click @click="edit(scope.row, '编辑')">编辑</a>
+            <a v-db-click @click="edit(scope.row, 'تحرير')">تحرير</a>
             <el-divider direction="vertical"></el-divider>
-            <a v-db-click @click="del(scope.row, '删除', scope.$index)">删除</a>
+            <a v-db-click @click="del(scope.row, 'حذف', scope.$index)">حذف</a>
           </template>
         </el-table-column>
       </el-table>
@@ -98,7 +98,7 @@
         />
       </div>
     </el-card>
-    <!-- 新增编辑-->
+    <!-- 新增تحرير-->
     <el-dialog
       :visible.sync="modals"
       :title="`${modelTit}身份`"
@@ -115,8 +115,8 @@
         :label-position="labelPosition2"
         @submit.native.prevent
       >
-        <el-form-item label="身份名称：" label-for="role_name" prop="role_name">
-          <el-input placeholder="请输入身份昵称" v-model="formInline.role_name" />
+        <el-form-item label="身份الاسم：" label-for="role_name" prop="role_name">
+          <el-input placeholder="الرجاء إدخال 身份昵称" v-model="formInline.role_name" />
         </el-form-item>
         <el-form-item label="是否开启：" prop="status">
           <el-radio-group v-model="formInline.status">
@@ -189,8 +189,8 @@ export default {
       selectIds: [],
       modelTit: '',
       ruleValidate: {
-        role_name: [{ required: true, message: '请输入身份昵称', trigger: 'blur' }],
-        status: [{ required: true, type: 'number', message: '请选择是否开启', trigger: 'change' }],
+        role_name: [{ required: true, message: 'الرجاء إدخال 身份昵称', trigger: 'blur' }],
+        status: [{ required: true, type: 'number', message: 'الرجاء اختيار 是否开启', trigger: 'change' }],
         // checked_menus: [
         //     { required: true, validator: validateStatus, trigger: 'change' }
         // ]
@@ -240,14 +240,14 @@ export default {
       };
       this.selectIds = [];
     },
-    // 添加
+    // إضافة
     add(name) {
       this.formInline.id = 0;
       this.modelTit = name;
       this.modals = true;
       this.getmenusList();
     },
-    // 删除
+    // حذف
     del(row, tit, num) {
       let delfromData = {
         title: tit,
@@ -265,7 +265,7 @@ export default {
           this.$message.error(res.msg);
         });
     },
-    // 修改是否显示
+    // تعديل是否显示
     onchangeIsShow(row) {
       let data = {
         id: row.id,
@@ -295,12 +295,12 @@ export default {
           this.$message.error(res.msg);
         });
     },
-    // 表格搜索
+    // 表格بحث
     userSearchs() {
       this.formValidate.page = 1;
       this.getList();
     },
-    // 编辑
+    // تحرير
     edit(row, name) {
       this.modelTit = name;
       this.formInline.id = row.id;
@@ -335,7 +335,7 @@ export default {
           this.$message.error(res.msg);
         });
     },
-    // 详情
+    // تفاصيل
     getIofo(row) {
       this.spinShow = true;
       roleInfoApi(row.id)
@@ -382,7 +382,7 @@ export default {
       if (selected !== -1) {
         // 子节点只要被选中父节点就被选中
         this.selectedParent(currentObj);
-        // 统一处理子节点为相同的勾选状态
+        // 统一处理子节点为相同的勾选الحالة
         this.uniteChildSame(currentObj, true);
       } else {
         // 未选中 处理子节点全部未选中
@@ -401,7 +401,7 @@ export default {
         if (!selParent && currentObj.pid) this.$refs.tree.setChecked(currentObj.pid, false);
       }
     },
-    // 统一处理子节点为相同的勾选状态
+    // 统一处理子节点为相同的勾选الحالة
     uniteChildSame(treeList, isSelected) {
       this.$refs.tree.setChecked(treeList.id, isSelected);
       for (let i = 0; i < treeList.children.length; i++) {
@@ -454,7 +454,7 @@ export default {
       }
       return data;
     },
-    // 提交
+    // إرسال
     handleSubmit(name) {
       this.$refs[name].validate((valid) => {
         if (valid) {

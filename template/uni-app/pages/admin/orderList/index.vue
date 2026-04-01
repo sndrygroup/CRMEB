@@ -3,7 +3,7 @@
 		<view class="searchCon acea-row">
 			<view class="search acea-row row-middle">
 				<text class="iconfont icon-ic_search"></text>
-				<input class="inputs" placeholder='请输入用户手机号/用户昵称/订单号/商品名称' placeholder-class='placeholder' confirm-type='search' name="search" v-model="where.keyword" @confirm="searchSubmit"></input>
+				<input class="inputs" placeholder='الرجاء إدخال 用户手机号/用户昵称/订单号/商品الاسم' placeholder-class='placeholder' confirm-type='search' name="search" v-model="where.keyword" @confirm="searchSubmit"></input>
 			</view>
 			<view class="btn" @click="filterShow = true">
 				<text class="iconfont icon-a-icon_filter1x"></text>
@@ -91,7 +91,7 @@
 							一键改价
 						</view>
 						<view class="bnt primary" :class="openErp?'on':''" v-if="item.status == 0 && item.paid == 0 && item.is_cancel == 0" @click="confirmPay(item)">
-							确认付款
+							تأكيد付款
 						</view>
 						<view class="bnt primary" :class="openErp?'on':''"
 							v-if="item._status == 2 && item.shipping_type == 1 && (item.pink_id == 0 || (item.pink_id > 0 && item.pinkStatus == 2))"
@@ -119,12 +119,12 @@
 			<view class="search-box">
 				<view class="search acea-row row-middle">
 					<text class="iconfont icon-ic_search"></text>
-					<input class="input" placeholder='请输入要查询的订单' placeholder-class='placeholder' confirm-type='search' name="search" v-model="where.keyword" @confirm="searchSubmit"></input>
+					<input class="input" placeholder='الرجاء إدخال 要查询的订单' placeholder-class='placeholder' confirm-type='search' name="search" v-model="where.keyword" @confirm="searchSubmit"></input>
 				</view>
 			</view>
 			<view class="content">
 				<view class="item">
-					<view class="title">按下单时间</view>
+					<view class="title">按下单الوقت</view>
 					<view class="acea-row list">
 						<view class="cell" v-for="(item, index) in dateList" :key="index" :class="{ on: item.val == dateSelected }" @click="dateChange(item.val)">{{ item.label }}</view>
 					</view>
@@ -139,11 +139,11 @@
 		</view>
 		<view v-if="confirmShow" class="mask"></view>
 		<view v-if="confirmShow" class="confirm-popup">
-			<view class="title">确认付款</view>
-			<view class="info">确认该订单用户已付款</view>
+			<view class="title">تأكيد付款</view>
+			<view class="info">تأكيد该订单用户已付款</view>
 			<view class="acea-row btn-box">
-				<view class="btn" @click="confirmShow = false">取消</view>
-				<view class="btn primary" @click="offlinePay">确认</view>
+				<view class="btn" @click="confirmShow = false">إلغاء</view>
+				<view class="btn primary" @click="offlinePay">تأكيد</view>
 			</view>
 		</view>
 		<view class="footerH"></view>
@@ -210,7 +210,7 @@
 					limit: 10,
 					status: '',
 					keyword: '',
-					data: '', // 时间筛选
+					data: '', // الوقت筛选
 					type: '', // 订单类型
 					pay_type: '', // 支付方式
 				},
@@ -302,8 +302,8 @@
 		methods: {
 			verify(item) {
 				uni.showModal({
-					title: '操作提示',
-					content: '是否确认核销该订单？',
+					title: 'الخياراتتنبيه',
+					content: '是否تأكيد核销该订单？',
 					success: (res) => {
 						if (res.confirm) {
 							orderVerific(item.verify_code, 1, 1)
@@ -390,7 +390,7 @@
 					this.init();
 				}
 			},
-			// 商品操作
+			// 商品الخيارات
 			modify: function(item, status, type) {
 				if (this.openErp && status != 1) return
 				this.change = true;
@@ -432,7 +432,7 @@
 				if (that.status == 0) {
 					if (!isMoney(price)) {
 						return that.$util.Tips({
-							title: '请输入正确的金额'
+							title: 'الرجاء إدخال 正确的金额'
 						});
 					}
 					data.price = price;
@@ -457,7 +457,7 @@
 					if (this.isRefund) {
 						if (!isMoney(refund_price)) {
 							return that.$util.Tips({
-								title: '请输入正确的金额'
+								title: 'الرجاء إدخال 正确的金额'
 							});
 						}
 						data.price = refund_price;
@@ -502,7 +502,7 @@
 				} else {
 					if (!remark) {
 						return this.$util.Tips({
-							title: '请输入备注'
+							title: 'الرجاء إدخال 备注'
 						})
 					}
 					data.remark = remark;

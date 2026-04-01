@@ -78,7 +78,7 @@ export default {
     openStoreLabel(row) {
       this.storeLabelShow = true;
       this.$nextTick(() => {
-        // 深拷贝配置数据列表，避免直接修改原数据
+        // 深拷贝配置数据列表，避免直接تعديل原数据
         const listData = this.configData.list?.length ? JSON.parse(JSON.stringify(this.configData.list)) : undefined;
         // 调用storeLabel方法，传入处理后的数据
         this.$refs.storeLabel.storeLabel(listData);

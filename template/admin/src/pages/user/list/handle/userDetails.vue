@@ -1,6 +1,6 @@
 <template>
   <div style="width: 100%">
-    <el-drawer :visible.sync="modals" title="用户详情" :wrapperClosable="false" :size="1100" @closed="draChange">
+    <el-drawer :visible.sync="modals" title="用户تفاصيل" :wrapperClosable="false" :size="1100" @closed="draChange">
       <div class="acea-row head">
         <div class="avatar mr15"><img :src="psInfo.avatar" /></div>
         <div class="dashboard-workplace-header-tip">
@@ -12,9 +12,9 @@
           </div>
         </div>
         <div class="edit-btn" v-if="!this.psInfo.is_del">
-          <el-button v-if="!isEdit" type="primary" v-db-click @click="edit">编辑</el-button>
-          <el-button v-if="isEdit" v-db-click @click="edit">取消</el-button>
-          <el-button v-if="isEdit" type="primary" v-db-click @click="editSave">保存</el-button>
+          <el-button v-if="!isEdit" type="primary" v-db-click @click="edit">تحرير</el-button>
+          <el-button v-if="isEdit" v-db-click @click="edit">إلغاء</el-button>
+          <el-button v-if="isEdit" type="primary" v-db-click @click="editSave">حفظ</el-button>
         </div>
       </div>
       <el-row justify="space-between" class="mt14">
@@ -121,7 +121,7 @@ export default {
     draChange() {
       this.isEdit = false;
     },
-    // 会员详情
+    // 会员تفاصيل
     getDetails(id) {
       this.activeName = 'user';
       this.userId = id;
@@ -189,7 +189,7 @@ export default {
                     minWidth: 120,
                   },
                   {
-                    title: '交易完成时间',
+                    title: '交易完成الوقت',
                     key: 'pay_time',
                     minWidth: 120,
                   },
@@ -237,7 +237,7 @@ export default {
                     minWidth: 120,
                   },
                   {
-                    title: '签到时间',
+                    title: '签到الوقت',
                     key: 'add_time',
                     minWidth: 120,
                   },
@@ -251,7 +251,7 @@ export default {
               case 'coupon':
                 this.columns = [
                   {
-                    title: '优惠券名称',
+                    title: '优惠券الاسم',
                     key: 'coupon_title',
                     minWidth: 120,
                   },
@@ -266,7 +266,7 @@ export default {
                     minWidth: 120,
                   },
                   {
-                    title: '领取时间',
+                    title: '领取الوقت',
                     key: '_add_time',
                     minWidth: 120,
                   },
@@ -290,7 +290,7 @@ export default {
                     minWidth: 120,
                   },
                   {
-                    title: '创建时间',
+                    title: '创建الوقت',
                     key: 'add_time',
                     minWidth: 120,
                   },
@@ -319,7 +319,7 @@ export default {
                     minWidth: 120,
                   },
                   {
-                    title: '加入时间',
+                    title: '加入الوقت',
                     key: 'add_time',
                     minWidth: 120,
                   },

@@ -39,7 +39,7 @@ export function routeList(apiType) {
 }
 
 /**
- * 添加/编辑接口
+ * إضافة/تحرير接口
  * @param {*} data
  * @returns
  */
@@ -52,7 +52,7 @@ export function routeSave(data) {
 }
 
 /**
- * 接口信息详情
+ * 接口信息تفاصيل
  * @param {*} data
  * @returns
  */
@@ -63,7 +63,7 @@ export function routeDet(id) {
   });
 }
 /**
- * 接口分类编辑
+ * 接口分类تحرير
  * @param {*} data
  * @returns
  */
@@ -75,7 +75,7 @@ export function routeEdit(id, appName) {
 }
 
 /**
- * @description 修改名称
+ * @description تعديلالاسم
  * @param {Object} data data {Object} 传值
  */
 export function interfaceEditName(data) {
@@ -87,7 +87,7 @@ export function interfaceEditName(data) {
 }
 
 /**
- * @description 删除
+ * @description حذف
  */
 export function routeDel(id) {
   return request({
@@ -96,7 +96,7 @@ export function routeDel(id) {
   });
 }
 /**
- * @description 删除
+ * @description حذف
  */
 export function routeCateDel(id) {
   return request({
@@ -106,7 +106,7 @@ export function routeCateDel(id) {
 }
 
 /**
- * 接口信息详情
+ * 接口信息تفاصيل
  * @param {*} data
  * @returns
  */

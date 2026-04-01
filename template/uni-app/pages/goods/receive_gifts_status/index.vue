@@ -9,13 +9,13 @@
 				{{ $t(status ? '礼物领取成功' : '领取失败，礼物已失效') }}
 			</view>
 			<view v-if="status" class="btn" @click="goPage(0)">
-				{{ $t('查看礼物详情') }}
+				{{ $t('查看礼物تفاصيل') }}
 			</view>
 			<view v-if="status" class="btn-clear" @click="goPage(1)">
-				{{ $t('返回商城首页') }}
+				{{ $t('عودة商城首页') }}
 			</view>
 			<view v-if="!status" class="btn" @click="goPage(1)">
-				{{ $t('返回商城首页') }}
+				{{ $t('عودة商城首页') }}
 			</view>
 		</view>
 	</view>

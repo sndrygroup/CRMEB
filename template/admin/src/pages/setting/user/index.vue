@@ -20,17 +20,17 @@
         <el-form-item label="姓名：" prop="real_name">
           <el-input type="text" v-model="formValidate.real_name" class="input"></el-input>
         </el-form-item>
-        <el-form-item label="原始密码：">
+        <el-form-item label="原始كلمة المرور：">
           <el-input type="password" v-model="formValidate.pwd" class="input"></el-input>
         </el-form-item>
-        <el-form-item label="新密码：">
+        <el-form-item label="新كلمة المرور：">
           <el-input type="password" v-model="formValidate.new_pwd" class="input"></el-input>
         </el-form-item>
-        <el-form-item label="确认新密码：">
+        <el-form-item label="تأكيد新كلمة المرور：">
           <el-input type="password" v-model="formValidate.conf_pwd" class="input"></el-input>
         </el-form-item>
         <el-form-item>
-          <el-button type="primary" v-db-click @click="handleSubmit('formValidate')">提交</el-button>
+          <el-button type="primary" v-db-click @click="handleSubmit('formValidate')">إرسال</el-button>
         </el-form-item>
       </el-form>
     </el-card>
@@ -97,7 +97,7 @@ export default {
             });
         } else {
           if (this.formValidate.new_pwd !== this.formValidate.conf_pwd) {
-            this.$message.error('您输入的新密码与旧密码不一致');
+            this.$message.error('您输入的新كلمة المرور与旧كلمة المرور不一致');
           }
         }
       });

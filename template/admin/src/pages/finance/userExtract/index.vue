@@ -10,7 +10,7 @@
           inline
           @submit.native.prevent
         >
-          <el-form-item label="时间选择：">
+          <el-form-item label="الوقت选择：">
             <el-date-picker
               clearable
               v-model="timeVal"
@@ -26,11 +26,11 @@
               class="mr20"
             ></el-date-picker>
           </el-form-item>
-          <el-form-item label="提现状态：">
+          <el-form-item label="提现الحالة：">
             <el-select
               clearable
               v-model="formValidate.status"
-              placeholder="请选择状态"
+              placeholder="الرجاء اختيار الحالة"
               @change="selChange"
               class="form_content_width"
             >
@@ -46,7 +46,7 @@
             <el-select
               clearable
               v-model="formValidate.extract_type"
-              placeholder="请选择状态"
+              placeholder="الرجاء اختيار الحالة"
               @change="selChange"
               class="form_content_width"
             >
@@ -58,7 +58,7 @@
               ></el-option>
             </el-select>
           </el-form-item>
-          <el-form-item label="搜索：">
+          <el-form-item label="بحث：">
             <el-input
               clearable
               placeholder="微信昵称/姓名/支付宝账号/银行卡号"
@@ -138,7 +138,7 @@
             </div>
           </template>
         </el-table-column>
-        <el-table-column label="申请时间" min-width="130">
+        <el-table-column label="申请الوقت" min-width="130">
           <template slot-scope="scope">
             <span>{{ scope.row.add_time | formatDate }}</span>
           </template>
@@ -148,7 +148,7 @@
             <span>{{ scope.row.mark }}</span>
           </template>
         </el-table-column>
-        <el-table-column label="审核状态" min-width="130">
+        <el-table-column label="审核الحالة" min-width="130">
           <template slot-scope="scope">
             <div class="status" v-if="scope.row.status === 0">
               <div class="statusVal">申请中</div>
@@ -160,9 +160,9 @@
             </div>
           </template>
         </el-table-column>
-        <el-table-column label="操作" fixed="right" width="170">
+        <el-table-column label="الخيارات" fixed="right" width="170">
           <template slot-scope="scope" v-if="scope.row.status == 0">
-            <a href="javascript:void(0);" v-db-click @click="edit(scope.row)">编辑</a>
+            <a href="javascript:void(0);" v-db-click @click="edit(scope.row)">تحرير</a>
             <el-divider direction="vertical"></el-divider>
             <a class="item" v-db-click @click="adopt(scope.row, '审核通过', index)">通过</a>
             <el-divider direction="vertical"></el-divider>
@@ -181,11 +181,11 @@
       </div>
     </el-card>
 
-    <!-- 编辑表单-->
+    <!-- تحرير表单-->
     <edit-from ref="edits" :FromData="FromData" @submitFail="submitFail"></edit-from>
     <!-- 拒绝通过-->
     <el-dialog :visible.sync="modals" title="未通过原因" :close-on-click-modal="false" width="540px">
-      <el-input v-model="fail_msg.message" type="textarea" :rows="4" placeholder="请输入未通过原因" />
+      <el-input v-model="fail_msg.message" type="textarea" :rows="4" placeholder="الرجاء إدخال 未通过原因" />
       <div slot="footer">
         <el-button type="primary" size="small" v-db-click @click="oks">确定</el-button>
       </div>
@@ -348,7 +348,7 @@ export default {
       this.formValidate.page = 1;
       this.getList();
     },
-    // 选择时间
+    // 选择الوقت
     selectChange(tab) {
       this.formValidate.page = 1;
       this.formValidate.data = tab;
@@ -392,7 +392,7 @@ export default {
           this.$message.error(res.msg);
         });
     },
-    // 编辑
+    // تحرير
     edit(row) {
       cashEditApi(row.id)
         .then(async (res) => {
@@ -406,7 +406,7 @@ export default {
           this.$message.error(res.msg);
         });
     },
-    // 编辑提交成功
+    // تحريرإرسال成功
     submitFail() {
       // this.getList();
     },

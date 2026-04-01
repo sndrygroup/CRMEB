@@ -10,7 +10,7 @@
       </div>
       <div class="tip">确定要核销此订单吗？</div>
       <div class="sure" v-db-click @click="confirm">确定核销</div>
-      <div class="sure cancel" v-db-click @click="cancel">取消</div>
+      <div class="sure cancel" v-db-click @click="cancel">إلغاء</div>
     </div>
     <div class="maskModel" @touchmove.prevent></div>
   </div>

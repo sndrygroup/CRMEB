@@ -13,7 +13,7 @@
           <el-select
             v-model="formItem.delivery_name"
             filterable
-            placeholder="请选择快递公司"
+            placeholder="الرجاء اختيار 快递公司"
             style="width: 80%"
             @change="expressChange"
           >
@@ -29,7 +29,7 @@
           <el-form-item label="电子面单：" class="express_temp_id">
             <el-select
               v-model="formItem.express_temp_id"
-              placeholder="请选择电子面单"
+              placeholder="الرجاء اختيار 电子面单"
               style="width: 80%"
               @change="expressTempChange"
             >
@@ -43,13 +43,13 @@
             <el-button v-if="formItem.express_temp_id" type="text" v-db-click @click="preview">预览</el-button>
           </el-form-item>
           <el-form-item label="寄件人姓名：">
-            <el-input v-model="formItem.to_name" placeholder="请输入寄件人姓名" style="width: 80%"></el-input>
+            <el-input v-model="formItem.to_name" placeholder="الرجاء إدخال 寄件人姓名" style="width: 80%"></el-input>
           </el-form-item>
           <el-form-item label="寄件人电话：">
-            <el-input v-model="formItem.to_tel" placeholder="请输入寄件人电话" style="width: 80%"></el-input>
+            <el-input v-model="formItem.to_tel" placeholder="الرجاء إدخال 寄件人电话" style="width: 80%"></el-input>
           </el-form-item>
           <el-form-item label="寄件人地址：">
-            <el-input v-model="formItem.to_addr" placeholder="请输入寄件人地址" style="width: 80%"></el-input>
+            <el-input v-model="formItem.to_addr" placeholder="الرجاء إدخال 寄件人地址" style="width: 80%"></el-input>
           </el-form-item>
         </template>
       </div>
@@ -57,7 +57,7 @@
         <el-form-item label="送货人：">
           <el-select
             v-model="formItem.sh_delivery"
-            placeholder="请选择送货人"
+            placeholder="الرجاء اختيار 送货人"
             style="width: 80%"
             @change="shDeliveryChange"
           >
@@ -83,8 +83,8 @@
       </div>
     </el-form>
     <div slot="footer">
-      <el-button v-db-click @click="cancel">取消</el-button>
-      <el-button type="primary" v-db-click @click="putSend">提交</el-button>
+      <el-button v-db-click @click="cancel">إلغاء</el-button>
+      <el-button type="primary" v-db-click @click="putSend">إرسال</el-button>
     </div>
     <div ref="viewer" v-viewer v-show="temp">
       <img :src="temp.pic" style="display: none" />
@@ -202,7 +202,7 @@ export default {
           this.$message.error(res.msg);
         });
     },
-    // 提交
+    // إرسال
     putSend(name) {
       let data = Object.assign(this.formItem);
       let arr = [];
@@ -226,7 +226,7 @@ export default {
         } else if (this.formItem.to_tel === '') {
           return this.$message.error('寄件人电话不能为空');
         } else if (!/^1(3|4|5|7|8|9|6)\d{9}$/i.test(this.formItem.to_tel)) {
-          return this.$message.error('请输入正确的手机号码');
+          return this.$message.error('الرجاء إدخال 正确的手机号码');
         } else if (this.formItem.to_addr === '') {
           return this.$message.error('寄件人地址不能为空');
         }

@@ -385,7 +385,7 @@ export default {
         articleSort: {
           title: '排序类型',
           tabVal: 0,
-          tabList: [{ name: '浏览量' }, { name: '发布时间' }],
+          tabList: [{ name: '浏览量' }, { name: '发布الوقت' }],
         },
         articleSortRule: {
           title: '排序规则',
@@ -453,13 +453,13 @@ export default {
           max: 10000,
         },
         couponTime: {
-          title: '领取时间',
+          title: '领取الوقت',
           val: [],
         },
         couponSort: {
           title: '排序类型',
           tabVal: 0,
-          tabList: [{ name: '面值大小' }, { name: '发布时间' }],
+          tabList: [{ name: '面值大小' }, { name: '发布الوقت' }],
         },
         couponSortRule: {
           title: '排序规则',

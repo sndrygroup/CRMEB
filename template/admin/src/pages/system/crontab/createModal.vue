@@ -2,15 +2,15 @@
   <div>
     <el-drawer
       :visible.sync="modal"
-      :title="formValidate.id ? '编辑定时任务' : '添加定时任务'"
+      :title="formValidate.id ? 'تحرير定时任务' : 'إضافة定时任务'"
       size="1000px"
       @closed="initData"
     >
       <el-form v-if="modal" class="pb-20" ref="formValidate" :model="formValidate" label-width="97px" label-colon>
-        <el-form-item label="任务名称：" v-if="currentTab === '1'">
+        <el-form-item label="任务الاسم：" v-if="currentTab === '1'">
           <el-row :gutter="10">
             <el-col :span="24">
-              <el-input v-model="formValidate.name" type="text" placeholder="请输入任务名称"></el-input>
+              <el-input v-model="formValidate.name" type="text" placeholder="الرجاء إدخال 任务الاسم"></el-input>
             </el-col>
           </el-row>
         </el-form-item>
@@ -93,7 +93,7 @@
                 v-model="formValidate.content"
                 type="textarea"
                 :autosize="{ minRows: 3, maxRows: 5 }"
-                placeholder="请输入任务说明"
+                placeholder="الرجاء إدخال 任务说明"
               ></el-input>
             </el-col>
           </el-row>
@@ -105,13 +105,13 @@
             </el-col>
           </el-row>
         </el-form-item>
-        <el-form-item label="开发密码：" v-if="currentTab === '1'">
+        <el-form-item label="开发كلمة المرور：" v-if="currentTab === '1'">
           <el-row :gutter="10">
             <el-col :span="24">
               <el-input
                 v-model="formValidate.password"
                 type="password"
-                placeholder="请输入系统开发密码，开发密码在crmeb/config/filesystem.php中修改password"
+                placeholder="الرجاء إدخال 系统开发كلمة المرور，开发كلمة المرور在crmeb/config/filesystem.php中تعديلpassword"
               ></el-input>
             </el-col>
           </el-row>
@@ -209,7 +209,7 @@ export default {
         { label: '周六', value: 6 },
         { label: '周日', value: 7 },
       ],
-      editor: '', //当前编辑器对象
+      editor: '', //当前تحرير器对象
     };
   },
   watch: {
@@ -257,15 +257,15 @@ export default {
       }
     },
     /**
-     * 初始化编辑器
+     * 初始化تحرير器
      */
     initEditor(conetnt = '') {
       try {
         let that = this;
         that.$nextTick(() => {
-          // 初始化编辑器，确保dom已经渲染
+          // 初始化تحرير器，确保dom已经渲染
           that.editor = monaco.editor.create(document.getElementById('container'), {
-            value: conetnt, //编辑器初始显示文字
+            value: conetnt, //تحرير器初始显示文字
             language: 'php', //语言支持自行查阅demo
             automaticLayout: true, //自动布局
             theme: 'vs-dark', //官方自带三种主题vs, hc-black, or vs-dark
@@ -323,7 +323,7 @@ export default {
         );
       }
     },
-    // 提交
+    // إرسال
     handleSubmit() {
       if (this.currentTab === '1') {
         this.formValidate.customCode = this.editor.getValue();
@@ -331,7 +331,7 @@ export default {
       }
       if (!this.formValidate.mark) {
         return this.$message.error({
-          message: '请选择任务名称',
+          message: 'الرجاء اختيار 任务الاسم',
           onClose: () => {
             // this.loading = false;
           },

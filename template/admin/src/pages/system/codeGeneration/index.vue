@@ -38,7 +38,7 @@
     </div>
     <el-card :bordered="false" class="fixed-card" :style="{ left: `${fixBottomWidth}` }" shadow="never">
       <el-button :disabled="!currentTab" class="mr20" v-db-click @click="beforeTab">上一步</el-button>
-      <el-button type="primary" v-db-click @click="nextTab">{{ currentTab == 2 ? '提交' : '下一步' }}</el-button>
+      <el-button type="primary" v-db-click @click="nextTab">{{ currentTab == 2 ? 'إرسال' : '下一步' }}</el-button>
     </el-card>
   </div>
 </template>
@@ -191,11 +191,11 @@ export default {
     },
     nextTab() {
       if (this.currentTab == 0) {
-        // if (!this.formItem.foundation.pid) return this.$message.warning('请选择菜单');
-        if (!this.formItem.foundation.tableName) return this.$message.warning('请输入表名');
-        if (!this.formItem.foundation.modelName) return this.$message.warning('请输入模块名');
+        // if (!this.formItem.foundation.pid) return this.$message.warning('الرجاء اختيار 菜单');
+        if (!this.formItem.foundation.tableName) return this.$message.warning('الرجاء إدخال 表名');
+        if (!this.formItem.foundation.modelName) return this.$message.warning('الرجاء إدخال 模块名');
         if (!this.formItem.foundation.isTable) {
-          if (!this.$refs.TableForm.tableField.length) return this.$message.warning('请先添加表数据');
+          if (!this.$refs.TableForm.tableField.length) return this.$message.warning('请先إضافة表数据');
           if (this.$refs.TableForm.tableField.length)
             for (let i = 0; i < this.$refs.TableForm.tableField.length; i++) {
               const el = this.$refs.TableForm.tableField[i];
@@ -223,9 +223,9 @@ export default {
           data.id = this.id;
           this.$msgbox({
             title: '生成提醒',
-            message: '重新提交会重新生成文件,删除、新增、修改的字段将直接从改表中进行修改,请慎重操作！！',
+            message: '重新إرسال会重新生成文件,حذف、新增、تعديل的字段将直接从改表中进行تعديل,请慎重الخيارات！！',
             showCancelButton: true,
-            cancelButtonText: '取消',
+            cancelButtonText: 'إلغاء',
             confirmButtonText: '确定',
             iconClass: 'el-icon-warning',
             confirmButtonClass: 'btn-custom-cancel',
@@ -238,9 +238,9 @@ export default {
           this.$msgbox({
             title: '生成提醒',
             message:
-              '生成后本地开发调试会直接加载生成的vue页面；如果是上线后进行生成,可以进行浏览，代码生成列表中的修改文件将不生效。需要重新打包上线！',
+              '生成后本地开发调试会直接加载生成的vue页面；如果是上线后进行生成,可以进行浏览，代码生成列表中的تعديل文件将不生效。需要重新打包上线！',
             showCancelButton: true,
-            cancelButtonText: '取消',
+            cancelButtonText: 'إلغاء',
             confirmButtonText: '确定',
             iconClass: 'el-icon-warning',
             confirmButtonClass: 'btn-custom-cancel',

@@ -44,11 +44,11 @@
 					</view>
 				</view>
 				<view class='item acea-row row-between'>
-					<view>{{$t(`订单状态`)}}：</view>
+					<view>{{$t(`订单الحالة`)}}：</view>
 					<view class='conter'>{{$t(cartInfo.status_name)}}</view>
 				</view>
 				<view class='item acea-row row-between'>
-					<view>{{$t(`下单时间`)}}：</view>
+					<view>{{$t(`下单الوقت`)}}：</view>
 					<view class='conter'>{{cartInfo.add_time}}</view>
 				</view>
 				<view class='item acea-row row-between'>
@@ -95,12 +95,12 @@
 
 			<view style='height:120rpx;'></view>
 			<view class='footer acea-row row-right row-middle'>
-				<view class='bnt bg-color' v-if="cartInfo.status==3" @tap='delOrder'>{{$t(`删除订单`)}}</view>
+				<view class='bnt bg-color' v-if="cartInfo.status==3" @tap='delOrder'>{{$t(`حذف订单`)}}</view>
 				<navigator class='bnt cancel' hover-class='none'
 					v-if="cartInfo.delivery_id && cartInfo.delivery_type === 'express'"
 					:url="'/pages/points_mall/logistics_details?order_id='+ cartInfo.order_id">{{$t(`查看物流`)}}
 				</navigator>
-				<view class='bnt bg-color' v-if="cartInfo.status==2" @tap='confirmOrder'>{{$t(`确认收货`)}}</view>
+				<view class='bnt bg-color' v-if="cartInfo.status==2" @tap='confirmOrder'>{{$t(`تأكيد收货`)}}</view>
 			</view>
 		</view>
 		<!-- #ifndef MP -->
@@ -151,10 +151,10 @@
 				orderInfo: {
 					system_store: {},
 					_status: {}
-				}, //订单详情
+				}, //订单تفاصيل
 				system_store: {},
 				isGoodsReturn: false, //是否为退款订单
-				status: {}, //订单底部按钮状态
+				status: {}, //订单底部按钮الحالة
 				isClose: false,
 				payMode: [{
 						name: this.$t(`微信支付`),
@@ -315,7 +315,7 @@
 				this.pay_order_id = '';
 			},
 			/**
-			 * 登录授权回调
+			 * تسجيل الدخول授权回调
 			 * 
 			 */
 			onLoadFun: function() {
@@ -398,14 +398,14 @@
 				};
 				if (type == 1 && combination_id > 0) status.class_status = 1; //查看拼团
 				if (type == 2 && delivery_type == 'express') status.class_status = 2; //查看物流
-				if (type == 2) status.class_status = 3; //确认收货
-				if (type == 4 || type == 0) status.class_status = 4; //删除订单
+				if (type == 2) status.class_status = 3; //تأكيد收货
+				if (type == 4 || type == 0) status.class_status = 4; //حذف订单
 				if (!seckill_id && !bargain_id && !combination_id && (type == 3 || type == 4)) status.class_status =
 					5; //再次购买
 				this.$set(this, 'status', status);
 			},
 			/**
-			 * 去拼团详情
+			 * 去拼团تفاصيل
 			 * 
 			 */
 			goJoinPink: function() {
@@ -416,15 +416,15 @@
 			confirmOrder: function() {
 				let that = this;
 				uni.showModal({
-					title: this.$t(`确认收货`),
-					content: this.$t(`为保障权益，请收到货确认无误后，再确认收货`),
+					title: this.$t(`تأكيد收货`),
+					content: this.$t(`为保障权益，请收到货تأكيد无误后，再تأكيد收货`),
 					success: (res) => {
 						if (res.confirm) {
 							orderTake({
 								order_id: that.order_id
 							}).then(res => {
 								return that.$util.Tips({
-									title: that.$t(`操作成功`),
+									title: that.$t(`الخيارات成功`),
 									icon: 'success'
 								}, () => {
 									that.getOrderInfo();
@@ -440,7 +440,7 @@
 			},
 			/**
 			 * 
-			 * 删除订单
+			 * حذف订单
 			 */
 			delOrder: function() {
 				let that = this;
@@ -448,7 +448,7 @@
 					order_id: that.order_id
 				}).then(res => {
 					return that.$util.Tips({
-						title: that.$t(`删除成功`),
+						title: that.$t(`حذف成功`),
 						icon: 'success'
 					}, {
 						tab: 5,

@@ -132,7 +132,7 @@ export default {
                 ? `地区:${params.name}</br>累计用户: ${params.data.value}</br>新增用户: ${params.data.newNum}</br>访客数: ${params.data.visitNum}</br>支付金额: ${params.data.payPrice}`
                 : `地区:${params.name}</br>累计用户: 0</br>新增用户: 0</br>访客数: 0</br>支付金额: 0`;
             },
-          }, // 鼠标移到图里面的浮动提示框
+          }, // 鼠标移到图里面的浮动تنبيه框
           dataRange: {
             show: false,
             min: 0,

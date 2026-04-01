@@ -20,7 +20,7 @@
         </div>
       </draggable>
       <div class="add-btn" @click="modals = true">
-        <el-button class="btn"><span class="iconfont iconaddto"></span>添加</el-button>
+        <el-button class="btn"><span class="iconfont iconaddto"></span>إضافة</el-button>
       </div>
     </div>
 
@@ -45,7 +45,7 @@
             <el-form-item label="文章分类：" label-for="pid">
               <el-cascader
                 v-model="artFrom.pid"
-                placeholder="请选择"
+                placeholder="الرجاء اختيار "
                 class="treeSel"
                 @change="handleCheckChange"
                 :options="treeData"
@@ -55,8 +55,8 @@
               >
               </el-cascader>
             </el-form-item>
-            <el-form-item label="文章搜索：" label-for="title">
-              <el-input clearable placeholder="请输入" v-model="artFrom.title" class="form_content_width" />
+            <el-form-item label="文章بحث：" label-for="title">
+              <el-input clearable placeholder="الرجاء إدخال " v-model="artFrom.title" class="form_content_width" />
             </el-form-item>
             <el-form-item>
               <el-button type="primary" @click="userSearchs">查询</el-button>
@@ -83,9 +83,9 @@
               </div>
             </template>
           </el-table-column>
-          <el-table-column label="文章名称" min-width="130" prop="title"> </el-table-column>
+          <el-table-column label="文章الاسم" min-width="130" prop="title"> </el-table-column>
           <el-table-column label="分类" min-width="130" prop="catename"> </el-table-column>
-          <el-table-column label="时间" min-width="130">
+          <el-table-column label="الوقت" min-width="130">
             <template slot-scope="scope">
               <span>{{ scope.row.add_time | formatDate }}</span>
             </template>
@@ -192,7 +192,7 @@ export default {
         return this.$message.warning('您选择的文章已存在');
       }
       this.defaults[this.configNme].list = list.concat(newItems);
-      this.$message.success('添加成功');
+      this.$message.success('إضافة成功');
       this.modals = false;
     },
     // 获取文章列表
@@ -235,7 +235,7 @@ export default {
       this.artFrom.page = 1;
       this.getList();
     },
-    // 搜索
+    // بحث
     userSearchs() {
       this.artFrom.page = 1;
       this.getList();
@@ -251,13 +251,13 @@ export default {
       let list = this.defaults[this.configNme].list;
       let exists = list.some((item) => item.id === row.id);
       if (exists) {
-        this.$message.warning('该文章已添加');
+        this.$message.warning('该文章已إضافة');
         return;
       }
       this.defaults[this.configNme].list.push(row);
-      this.$message.success('添加成功');
+      this.$message.success('إضافة成功');
     },
-    // 删除文章
+    // حذف文章
     bindDelete(index) {
       this.defaults[this.configNme].list.splice(index, 1);
     },

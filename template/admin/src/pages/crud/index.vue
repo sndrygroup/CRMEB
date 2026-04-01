@@ -15,7 +15,7 @@
             <el-input
               v-if="item.type === 'input'"
               v-model="from[item.field]"
-              :placeholder="'请输入' + item.name"
+              :placeholder="'الرجاء إدخال ' + item.name"
               class="form_content_width"
               @input="change($event)"
             />
@@ -35,7 +35,7 @@
             <el-select
               v-else-if="item.type === 'select'"
               v-model="from[item.field]"
-              placeholder="请选择"
+              placeholder="الرجاء اختيار "
               clearable
               @change="searchs"
               class="form_content_width"
@@ -45,7 +45,7 @@
           </el-form-item>
           <!-- <template v-for="(item, index) in search">
             <el-form-item :label="item.name + ':'" label-for="name" v-if="item.type === 'input'" :key="index">
-              <el-input v-model="from[item.field]" :placeholder="'请输入' + item.name" class="form_content_width"/>
+              <el-input v-model="from[item.field]" :placeholder="'الرجاء إدخال ' + item.name" class="form_content_width"/>
             </el-form-item>
             <el-form-item :label="item.name + ':'" v-else-if="item.type === 'date-picker'" :key="index">
               <el-date-picker
@@ -69,7 +69,7 @@
             >
               <el-select
                   v-model="from[item.field]"
-                  placeholder="请选择"
+                  placeholder="الرجاء اختيار "
                   clearable
                   @change="searchs"
                   class="form_content_width"
@@ -87,7 +87,7 @@
     <el-card shadow="never" class="ivu-mt" :class="search.length ? 'mt16' : ''">
       <el-row>
         <el-col v-bind="grid">
-          <el-button type="primary" v-db-click @click="add">添加</el-button>
+          <el-button type="primary" v-db-click @click="add">إضافة</el-button>
         </el-col>
       </el-row>
       <el-table
@@ -119,11 +119,11 @@
               <span>{{ scope.row[item.slot][0] }}--{{ scope.row[item.slot][1] }}</span>
             </template>
             <template v-else-if="item.slot === 'action'">
-              <a v-db-click @click="show(scope.row)">详情</a>
+              <a v-db-click @click="show(scope.row)">تفاصيل</a>
               <el-divider direction="vertical" />
-              <a v-db-click @click="edit(scope.row)">修改</a>
+              <a v-db-click @click="edit(scope.row)">تعديل</a>
               <el-divider direction="vertical"></el-divider>
-              <a v-db-click @click="del(scope.row, '删除', scope.$index)">删除</a>
+              <a v-db-click @click="del(scope.row, 'حذف', scope.$index)">حذف</a>
             </template>
             <template v-else-if="item.from_type === 'switches'">
               <el-switch
@@ -144,7 +144,7 @@
       </div>
     </el-card>
 
-    <el-dialog title="查看详情" :visible.sync="dialogTableVisible" v-if="dialogTableVisible">
+    <el-dialog title="查看تفاصيل" :visible.sync="dialogTableVisible" v-if="dialogTableVisible">
       <el-descriptions :title="readFields.name">
         <el-descriptions-item :label="item.comment" v-for="(item, index) in readFields.all" :key="index">
           <div v-if="item.from_type == 'frameImageOne'">
@@ -242,7 +242,7 @@ export default {
           this.$message.error(res.msg);
         });
     },
-    // 表格搜索
+    // 表格بحث
     searchs() {
       this.from.page = 1;
       this.getList();
@@ -260,7 +260,7 @@ export default {
         });
         this.search = res.data.search;
         res.data.columns.push({
-          title: '操作',
+          title: 'الخيارات',
           slot: 'action',
           fixed: 'right',
           width: 100,
@@ -326,7 +326,7 @@ export default {
         this.getList();
       });
     },
-    // 添加
+    // إضافة
     add() {
       let url = this.methodApi.create;
       this.$modalForm(getCreateApi(url)).then(() => this.getList());
@@ -347,12 +347,12 @@ export default {
           this.$message.error(res.msg);
         });
     },
-    // 修改
+    // تعديل
     edit(row) {
       let url = this.methodApi.edit.replace('<id>', row[this.curdKey]);
       this.$modalForm(getEditApi(url)).then(() => this.getList());
     },
-    // 删除
+    // حذف
     del(row, tit, num) {
       let url = this.methodApi.delete.replace('<id>', row[this.curdKey]);
       let delfromData = {

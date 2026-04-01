@@ -2,8 +2,8 @@
   <div>
     <el-dialog :visible.sync="modals" :z-index="100" title="发送优惠券" :close-on-click-modal="false" width="1000px">
       <div class="acea-row">
-        <span class="sp">优惠券名称：</span
-        ><el-input clearable v-model="page.coupon_title" placeholder="请输入优惠券名称" class="form_content_width" />
+        <span class="sp">优惠券الاسم：</span
+        ><el-input clearable v-model="page.coupon_title" placeholder="الرجاء إدخال 优惠券الاسم" class="form_content_width" />
         <el-button type="primary" v-db-click @click="userSearchs" class="ml15">查询</el-button>
       </div>
       <el-table
@@ -15,7 +15,7 @@
         no-userFrom-text="暂无数据"
         no-filtered-userFrom-text="暂无筛选结果"
       >
-        <el-table-column label="优惠券名称" min-width="130">
+        <el-table-column label="优惠券الاسم" min-width="130">
           <template slot-scope="scope">
             <span>{{ scope.row.title }}</span>
           </template>
@@ -36,7 +36,7 @@
             <div v-else>{{ scope.row.use_time }}</div>
           </template>
         </el-table-column>
-        <el-table-column label="操作" fixed="right" width="90">
+        <el-table-column label="الخيارات" fixed="right" width="90">
           <template slot-scope="scope">
             <a v-db-click @click="sendGrant(scope.row, '发送优惠券', index)">发送</a>
           </template>
@@ -94,7 +94,7 @@ export default {
           this.$message.error(res.msg);
         });
     },
-    // 表格搜索
+    // 表格بحث
     userSearchs() {
       this.getList();
     },

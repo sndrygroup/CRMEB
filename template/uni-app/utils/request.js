@@ -32,11 +32,11 @@ function baseRequest(url, method, data, {
 		header = HEADER;
 
 	if (!noAuth) {
-		//登录过期自动登录
+		//تسجيل الدخول过期自动تسجيل الدخول
 		if (!store.state.app.token && !checkLogin()) {
 			toLogin();
 			return Promise.reject({
-				msg: i18n.t(`未登录`)
+				msg: i18n.t(`未تسجيل الدخول`)
 			});
 		}
 	}
@@ -62,7 +62,7 @@ function baseRequest(url, method, data, {
 					reject(res.data);
 				} else if (res.data.status == 402) {
 					uni.showModal({
-						title: i18n.t(`提示`),
+						title: i18n.t(`تنبيه`),
 						content: res.data.msg,
 						showCancel: false,
 						confirmText: i18n.t(`我知道了`)

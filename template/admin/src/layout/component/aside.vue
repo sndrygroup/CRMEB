@@ -128,7 +128,7 @@ export default {
   },
   // 页面销毁时
   destroyed() {
-    // 取消菜单滚动条监听
+    // إلغاء菜单滚动条监听
     this.bus.$off('updateElScrollBar', () => {});
   },
 };

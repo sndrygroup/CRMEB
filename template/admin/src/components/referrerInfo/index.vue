@@ -44,7 +44,7 @@
               用户备注：<span>{{ spread.mark }}</span>
             </div>
             <div class="name ivu-form-item-content">
-              最后登录时间：<span>{{ spread.last_time }}</span>
+              最后تسجيل الدخولالوقت：<span>{{ spread.last_time }}</span>
             </div>
           </div>
         </div>

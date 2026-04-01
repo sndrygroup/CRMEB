@@ -10,7 +10,7 @@
           @submit.native.prevent
           inline
         >
-          <el-form-item label="创建时间：">
+          <el-form-item label="创建الوقت：">
             <el-date-picker
               clearable
               v-model="timeVal"
@@ -27,10 +27,10 @@
             ></el-date-picker>
           </el-form-item>
           <el-form-item label="订单号：" label-for="title">
-            <el-input clearable v-model="pagination.order_id" placeholder="请输入订单号" class="form_content_width" />
+            <el-input clearable v-model="pagination.order_id" placeholder="الرجاء إدخال 订单号" class="form_content_width" />
           </el-form-item>
-          <el-form-item label="用户名：" label-for="title">
-            <el-input clearable v-model="pagination.name" placeholder="请输入用户名" class="form_content_width" />
+          <el-form-item label="اسم المستخدم：" label-for="title">
+            <el-input clearable v-model="pagination.name" placeholder="الرجاء إدخال اسم المستخدم" class="form_content_width" />
           </el-form-item>
           <el-form-item>
             <el-button type="primary" v-db-click @click="orderSearch">查询</el-button>
@@ -69,7 +69,7 @@
             <span>{{ scope.row.true_price }}</span>
           </template>
         </el-table-column>
-        <el-table-column label="支付时间" min-width="180">
+        <el-table-column label="支付الوقت" min-width="180">
           <template slot-scope="scope">
             <span>{{ scope.row.pay_time }}</span>
           </template>
@@ -146,7 +146,7 @@ export default {
       this.animal = e;
       this.qrcodeShow();
     },
-    // 具体日期搜索()；
+    // 具体日期بحث()；
     onchangeTime(e) {
       this.pagination.page = 1;
       this.timeVal = e || [];
@@ -172,7 +172,7 @@ export default {
       this.pagination.page = 1;
       this.getOrderList();
     },
-    // 订单搜索
+    // 订单بحث
     orderSearch() {
       this.pagination.page = 1;
       this.getOrderList();

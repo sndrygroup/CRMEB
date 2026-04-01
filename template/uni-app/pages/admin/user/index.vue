@@ -7,7 +7,7 @@
         class="sysTitle acea-row row-center-wrapper"
         :style="{ height: getHeight.barHeight + 'px' }"
       >
-        <view>用户详情</view>
+        <view>用户تفاصيل</view>
         <text class="iconfont icon-ic_leftarrow" @click="goarrow"></text>
       </view>
     </view>
@@ -108,7 +108,7 @@
         <view class="acea-row row-between-wrapper">
           <view>标签</view>
           <view class="add" @click="editLabels"
-            ><text class="iconfont icon-ic_increase"></text>添加标签</view
+            ><text class="iconfont icon-ic_increase"></text>إضافة标签</view
           >
         </view>
         <view
@@ -150,7 +150,7 @@
           class="item acea-row row-between-wrapper"
           v-if="infoData._add_time"
         >
-          <view>注册时间</view>
+          <view>注册الوقت</view>
           <view class="info">{{ infoData._add_time }}</view>
         </view>
       </view>

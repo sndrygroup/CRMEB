@@ -109,15 +109,15 @@
           <div class="wait">正在更新，请耐心等候～</div>
         </div>
         <div slot="footer">
-          <!-- <div v-if="upgradeProgress.speed == '100.0'"><el-button class="back" type="primary" shape="circle" v-db-click @click="updateModal = false">确认</el-button></div> -->
+          <!-- <div v-if="upgradeProgress.speed == '100.0'"><el-button class="back" type="primary" shape="circle" v-db-click @click="updateModal = false">تأكيد</el-button></div> -->
         </div>
         <div v-if="upgradeProgress.speed == '100.0'" class="describe">
           <el-progress type="circle" :percentage="100" status="success"></el-progress>
           <div class="success">升级成功</div>
         </div>
         <div v-if="upgradeProgress.speed == '100.0'" slot="footer" class="footer2">
-          <el-button class="confirm" type="primary" shape="circle" v-db-click @click="back()">确认</el-button>
-          <!-- <div><el-button class="back" shape="circle" v-db-click @click="backSure()">返回</el-button></div> -->
+          <el-button class="confirm" type="primary" shape="circle" v-db-click @click="back()">تأكيد</el-button>
+          <!-- <div><el-button class="back" shape="circle" v-db-click @click="backSure()">عودة</el-button></div> -->
         </div>
         <span v-if="upgradeProgress.speed == '100.0'" slot="footer" class="dialog-footer">
           <el-button v-db-click @click="cancel">取 消</el-button>
@@ -377,7 +377,7 @@ export default {
           this.$message.error(res.msg);
         });
     },
-    // 升级状态
+    // 升级الحالة
     getUpgradeStatus() {
       upgradeStatusApi()
         .then((res) => {

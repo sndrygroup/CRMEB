@@ -51,7 +51,7 @@
 								<text class="sign cart-color acea-row row-center-wrapper" v-else-if="item.type == 4">{{ $t(`预售`) }}</text>
 								<view>{{ item._add_time }}</view>
 							</view>
-							<view v-if="item.is_cancel == 1" class="font-color">{{ $t(`已取消`) }}</view>
+							<view v-if="item.is_cancel == 1" class="font-color">{{ $t(`已إلغاء`) }}</view>
 							<view v-else-if="item._status._type == 9" class="font-color">{{ $t(`线下付款,未支付`) }}</view>
 							<view v-else-if="item._status._type == 0" class="font-color">{{ $t(`待付款`) }}</view>
 							<view v-else-if="item._status._type == 1 && item.shipping_type == 1" class="font-color">
@@ -104,10 +104,10 @@
 					</view>
 					<view class="bottom acea-row row-right row-middle">
 						<view class="bnt cancelBnt" v-if="(item._status._type == 0 || item._status._type == 9) && item.is_cancel == 0" @click="cancelOrder(index, item.order_id)">
-							{{ $t(`取消订单`) }}
+							{{ $t(`إلغاء订单`) }}
 						</view>
-						<view class="bnt cancelBnt" v-if="item._status._type == 4 && item.is_cancel == 0" @click="delOrder(item.order_id, index)">{{ $t(`删除订单`) }}</view>
-						<view class="bnt" :class="item._status._type == 0 && item.is_cancel == 0 ? 'cancelBnt' : 'bg-color'" @click="goOrderDetails(item.order_id)">{{ $t(`查看详情`) }}</view>
+						<view class="bnt cancelBnt" v-if="item._status._type == 4 && item.is_cancel == 0" @click="delOrder(item.order_id, index)">{{ $t(`حذف订单`) }}</view>
+						<view class="bnt" :class="item._status._type == 0 && item.is_cancel == 0 ? 'cancelBnt' : 'bg-color'" @click="goOrderDetails(item.order_id)">{{ $t(`查看تفاصيل`) }}</view>
 						<view class="bnt bg-color" v-if="item._status._type == 0 && item.is_cancel == 0" @click="goPay(item.pay_price, item.order_id)">{{ $t(`立即付款`) }}</view>
 						
 						<!-- <view class="bnt bg-color" v-else-if="item._status._type == 3"
@@ -163,10 +163,10 @@ export default {
 		return {
 			loading: false, //是否加载中
 			loadend: false, //是否加载完毕
-			loadTitle: this.$t(`加载更多`), //提示语
+			loadTitle: this.$t(`加载更多`), //تنبيه语
 			orderList: [], //订单数组
 			orderData: {}, //订单详细统计
-			orderStatus: 9, //订单状态
+			orderStatus: 9, //订单الحالة
 			page: 1,
 			limit: 20,
 			pay_close: false,
@@ -186,12 +186,12 @@ export default {
 		if (options.status) this.orderStatus = options.status;
 		let EnOptions = wx.getEnterOptionsSync();
 		if (EnOptions.scene == '1038' && EnOptions.referrerInfo.appId == 'wxef277996acc166c3' && this.initIn) {
-			// 代表从收银台小程序返回
+			// 代表从收银台小程序عودة
 			let extraData = EnOptions.referrerInfo.extraData;
 			this.initIn = false;
 			if (!extraData) {
 				this.getOrderList();
-				// "当前通过物理按键返回，未接收到返参，建议自行查询交易结果";
+				// "当前通过物理按键عودة，未接收到返参，建议自行查询交易结果";
 			} else {
 				if (extraData.code == 'success') {
 					this.getOrderList();
@@ -252,18 +252,18 @@ export default {
 			});
 		},
 		/**
-		 * 取消订单
+		 * إلغاء订单
 		 *
 		 */
 		cancelOrder: function (index, order_id) {
 			let that = this;
 			if (!order_id)
 				return that.$util.Tips({
-					title: that.$t(`缺少订单号无法取消订单`)
+					title: that.$t(`缺少订单号无法إلغاء订单`)
 				});
 			uni.showModal({
-				title: this.$t(`提示`),
-				content: this.$t(`确认取消该订单`),
+				title: this.$t(`تنبيه`),
+				content: this.$t(`تأكيدإلغاء该订单`),
 				success: function (res) {
 					if (res.confirm) {
 						orderCancel(order_id)
@@ -301,13 +301,13 @@ export default {
 			});
 		},
 		/**
-		 * 去订单详情
+		 * 去订单تفاصيل
 		 */
 		goOrderDetails: function (order_id) {
 			let that = this;
 			if (!order_id)
 				return that.$util.Tips({
-					title: that.$t(`缺少订单号无法查看订单详情`)
+					title: that.$t(`缺少订单号无法查看订单تفاصيل`)
 				});
 			// #ifdef MP
 			uni.showLoading({
@@ -372,13 +372,13 @@ export default {
 		},
 
 		/**
-		 * 删除订单
+		 * حذف订单
 		 */
 		delOrder: function (order_id, index) {
 			let that = this;
 			uni.showModal({
-				title: that.$t(`删除订单`),
-				content: that.$t(`确定删除该订单`),
+				title: that.$t(`حذف订单`),
+				content: that.$t(`确定حذف该订单`),
 				success: function (res) {
 					if (res.confirm) {
 						orderDel(order_id)
@@ -388,7 +388,7 @@ export default {
 								that.$set(that.orderData, 'unpaid_count', that.orderData.unpaid_count - 1);
 								that.getOrderData();
 								return that.$util.Tips({
-									title: that.$t(`删除成功`),
+									title: that.$t(`حذف成功`),
 									icon: 'success'
 								});
 							})
@@ -399,7 +399,7 @@ export default {
 							});
 					} else if (res.cancel) {
 						return that.$util.Tips({
-							title: that.$t(`已取消`)
+							title: that.$t(`已إلغاء`)
 						});
 					}
 				}

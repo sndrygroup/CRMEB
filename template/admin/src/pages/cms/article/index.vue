@@ -13,7 +13,7 @@
           <el-form-item label="文章分类：" label-for="pid">
             <el-cascader
               v-model="artFrom.pid"
-              placeholder="请选择"
+              placeholder="الرجاء اختيار "
               class="treeSel"
               @change="handleCheckChange"
               :options="treeData"
@@ -22,8 +22,8 @@
             >
             </el-cascader>
           </el-form-item>
-          <el-form-item label="文章搜索：" label-for="title">
-            <el-input clearable placeholder="请输入" v-model="artFrom.title" class="form_content_width" />
+          <el-form-item label="文章بحث：" label-for="title">
+            <el-input clearable placeholder="الرجاء إدخال " v-model="artFrom.title" class="form_content_width" />
           </el-form-item>
           <el-form-item>
             <el-button type="primary" v-db-click @click="userSearchs">查询</el-button>
@@ -33,7 +33,7 @@
     </el-card>
     <el-card :bordered="false" shadow="never" class="ivu-mt">
       <router-link :to="$routeProStr + '/cms/article/add_article'" v-auth="['cms-article-creat']"
-        ><el-button type="primary" class="bnt">添加文章</el-button></router-link
+        ><el-button type="primary" class="bnt">إضافة文章</el-button></router-link
       >
       <el-table
         :data="cmsList"
@@ -58,7 +58,7 @@
             </div>
           </template>
         </el-table-column>
-        <el-table-column label="文章名称" min-width="130">
+        <el-table-column label="文章الاسم" min-width="130">
           <template slot-scope="scope">
             <el-tooltip placement="top" :open-delay="600">
               <div slot="content">{{ ' [ ' + scope.row.catename + ' ] ' + scope.row.title }}</div>
@@ -76,20 +76,20 @@
             <span>{{ scope.row.visit }}</span>
           </template>
         </el-table-column>
-        <el-table-column label="时间" min-width="130">
+        <el-table-column label="الوقت" min-width="130">
           <template slot-scope="scope">
             <span>{{ scope.row.add_time | formatDate }}</span>
           </template>
         </el-table-column>
-        <el-table-column label="操作" fixed="right" width="300">
+        <el-table-column label="الخيارات" fixed="right" width="300">
           <template slot-scope="scope">
-            <a v-db-click @click="edit(scope.row)">编辑</a>
+            <a v-db-click @click="edit(scope.row)">تحرير</a>
             <el-divider direction="vertical"></el-divider>
-            <a v-db-click @click="artRelation(scope.row, '取消关联', index)">{{
-              scope.row.product_id === 0 ? '关联' : '取消关联'
+            <a v-db-click @click="artRelation(scope.row, 'إلغاء关联', index)">{{
+              scope.row.product_id === 0 ? '关联' : 'إلغاء关联'
             }}</a>
             <el-divider direction="vertical"></el-divider>
-            <a v-db-click @click="del(scope.row, '删除文章', scope.$index)">删除</a>
+            <a v-db-click @click="del(scope.row, 'حذف文章', scope.$index)">حذف</a>
             <el-divider direction="vertical"></el-divider>
             <el-dropdown size="small" @command="onCopy(scope.row, $event)" :transfer="true">
               <span class="el-dropdown-link">复制链接<i class="el-icon-arrow-down el-icon--right"></i></span>
@@ -244,7 +244,7 @@ export default {
       this.artFrom.page = 1;
       this.getList();
     },
-    // 编辑
+    // تحرير
     edit(row) {
       this.$router.push({ path: this.$routeProStr + '/cms/article/add_article/' + row.id });
     },
@@ -271,7 +271,7 @@ export default {
           });
       }
     },
-    // 删除
+    // حذف
     del(row, tit, num) {
       let delfromData = {
         title: tit,
@@ -289,7 +289,7 @@ export default {
           this.$message.error(res.msg);
         });
     },
-    // 表格搜索
+    // 表格بحث
     userSearchs() {
       this.artFrom.page = 1;
       this.getList();

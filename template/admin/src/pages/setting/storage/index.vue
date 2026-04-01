@@ -40,15 +40,15 @@
             <p v-if="currentTab == 7">
               天翼云cos开通方法：<a href="https://doc.crmeb.com/single/v5/8524" target="_blank">点击查看</a>
             </p>
-            <p>第一步： 添加【存储空间】（空间名称不能重复）</p>
-            <p>第二步： 开启【使用状态】</p>
+            <p>第一步： إضافة【存储空间】（空间الاسم不能重复）</p>
+            <p>第二步： 开启【使用الحالة】</p>
             <template v-if="currentTab == 2">
-              <p>第三步（必选）： 选择云存储空间列表上的修改【空间域名操作】</p>
-              <p>第四步（必选）： 选择云存储空间列表上的修改【CNAME配置】，打开后复制记录值到对应的平台解析</p>
+              <p>第三步（必选）： 选择云存储空间列表上的تعديل【空间域名الخيارات】</p>
+              <p>第四步（必选）： 选择云存储空间列表上的تعديل【CNAME配置】，打开后复制记录值到对应的平台解析</p>
             </template>
             <template v-else>
-              <p>第三步（可选）： 选择云存储空间列表上的修改【空间域名操作】</p>
-              <p>第四步（可选）： 选择云存储空间列表上的修改【CNAME配置】，打开后复制记录值到对应的平台解析</p>
+              <p>第三步（可选）： 选择云存储空间列表上的تعديل【空间域名الخيارات】</p>
+              <p>第四步（可选）： 选择云存储空间列表上的تعديل【CNAME配置】，打开后复制记录值到对应的平台解析</p>
             </template>
           </template>
         </el-alert>
@@ -107,7 +107,7 @@
                       class="topIput"
                       type="number"
                       v-model="formValidate.thumb_big_width"
-                      placeholder="请输入宽度"
+                      placeholder="الرجاء إدخال 宽度"
                     >
                       <span slot="append">px</span>
                     </el-input>
@@ -117,7 +117,7 @@
                       class="topIput"
                       type="number"
                       v-model="formValidate.thumb_big_height"
-                      placeholder="请输入高度"
+                      placeholder="الرجاء إدخال 高度"
                     >
                       <span slot="append">px</span>
                     </el-input>
@@ -137,7 +137,7 @@
                       class="topIput"
                       type="number"
                       v-model="formValidate.thumb_mid_width"
-                      placeholder="请输入宽度"
+                      placeholder="الرجاء إدخال 宽度"
                     >
                       <span slot="append">px</span>
                     </el-input>
@@ -147,7 +147,7 @@
                       type="number"
                       class="topIput"
                       v-model="formValidate.thumb_mid_height"
-                      placeholder="请输入高度"
+                      placeholder="الرجاء إدخال 高度"
                     >
                       <span slot="append">px</span>
                     </el-input>
@@ -167,7 +167,7 @@
                       class="topIput"
                       type="number"
                       v-model="formValidate.thumb_small_width"
-                      placeholder="请输入宽度"
+                      placeholder="الرجاء إدخال 宽度"
                     >
                       <span slot="append">px</span>
                     </el-input>
@@ -177,7 +177,7 @@
                       class="topIput"
                       type="number"
                       v-model="formValidate.thumb_small_height"
-                      placeholder="请输入高度"
+                      placeholder="الرجاء إدخال 高度"
                     >
                       <span slot="append">px</span>
                     </el-input>
@@ -212,7 +212,7 @@
                         class="topIput"
                         type="number"
                         v-model="formValidate.watermark_opacity"
-                        placeholder="请输入水印透明度"
+                        placeholder="الرجاء إدخال 水印透明度"
                       >
                       </el-input>
                     </el-form-item>
@@ -221,7 +221,7 @@
                         class="topIput"
                         type="number"
                         v-model="formValidate.watermark_rotate"
-                        placeholder="请输入水印倾斜度"
+                        placeholder="الرجاء إدخال 水印倾斜度"
                       >
                       </el-input>
                     </el-form-item>
@@ -259,7 +259,7 @@
                         class="topIput"
                         type="number"
                         v-model="formValidate.watermark_x"
-                        placeholder="请输入水印横坐标偏移量"
+                        placeholder="الرجاء إدخال 水印横坐标偏移量"
                         style="width: 240px"
                       >
                         <span slot="append">px</span>
@@ -270,7 +270,7 @@
                         class="topIput"
                         type="number"
                         v-model="formValidate.watermark_y"
-                        placeholder="请输入水印纵坐标偏移量"
+                        placeholder="الرجاء إدخال 水印纵坐标偏移量"
                         style="width: 240px"
                       >
                         <span slot="append">px</span>
@@ -282,7 +282,7 @@
                 <div v-else>
                   <div class="flex">
                     <el-form-item class="contentIput" label="文字：" label-width="110px" prop="name">
-                      <el-input class="topIput" v-model="formValidate.watermark_text" placeholder="请输入水印文字">
+                      <el-input class="topIput" v-model="formValidate.watermark_text" placeholder="الرجاء إدخال 水印文字">
                       </el-input>
                     </el-form-item>
                     <el-form-item class="contentIput" label="文字大小：" label-width="110px">
@@ -290,7 +290,7 @@
                         class="topIput"
                         type="number"
                         v-model="formValidate.watermark_text_size"
-                        placeholder="请输入水印文字大小"
+                        placeholder="الرجاء إدخال 水印文字大小"
                       >
                       </el-input>
                     </el-form-item>
@@ -321,7 +321,7 @@
                         class="topIput"
                         type="number"
                         v-model="formValidate.watermark_text_angle"
-                        placeholder="请输入水印字体旋转角度"
+                        placeholder="الرجاء إدخال 水印字体旋转角度"
                       >
                       </el-input>
                     </el-form-item>
@@ -330,7 +330,7 @@
                         class="topIput"
                         type="number"
                         v-model="formValidate.watermark_x"
-                        placeholder="请输入水印横坐标偏移量"
+                        placeholder="الرجاء إدخال 水印横坐标偏移量"
                       >
                         <span slot="append">px</span>
                       </el-input>
@@ -341,7 +341,7 @@
                       class="topIput"
                       type="number"
                       v-model="formValidate.watermark_y"
-                      placeholder="请输入水印纵坐标偏移量"
+                      placeholder="الرجاء إدخال 水印纵坐标偏移量"
                     >
                       <span slot="append">px</span>
                     </el-input>
@@ -350,7 +350,7 @@
               </div>
             </div>
             <el-form-item>
-              <el-button type="primary" v-db-click @click="handleSubmit('formValidate')">保存</el-button>
+              <el-button type="primary" v-db-click @click="handleSubmit('formValidate')">حفظ</el-button>
             </el-form-item>
           </div>
         </el-form>
@@ -362,9 +362,9 @@
       <el-card :bordered="false" shadow="never" class="ivu-mt">
         <el-row class="mb20">
           <el-col :span="24">
-            <el-button type="primary" v-db-click @click="addStorageBtn">添加存储空间</el-button>
+            <el-button type="primary" v-db-click @click="addStorageBtn">إضافة存储空间</el-button>
             <el-button type="success" v-db-click @click="synchro" style="margin-left: 20px">同步存储空间</el-button>
-            <el-button v-db-click @click="addConfigBtn" style="float: right">修改配置信息</el-button>
+            <el-button v-db-click @click="addConfigBtn" style="float: right">تعديل配置信息</el-button>
           </el-col>
         </el-row>
         <el-table
@@ -376,7 +376,7 @@
           no-userFrom-text="暂无数据"
           no-filtered-userFrom-text="暂无筛选结果"
         >
-          <el-table-column label="储存空间名称" min-width="120">
+          <el-table-column label="储存空间الاسم" min-width="120">
             <template slot-scope="scope">
               <span>{{ scope.row.name }}</span>
             </template>
@@ -391,7 +391,7 @@
               <span>{{ scope.row.domain }}</span>
             </template>
           </el-table-column>
-          <el-table-column label="使用状态" min-width="90">
+          <el-table-column label="使用الحالة" min-width="90">
             <template slot-scope="scope">
               <el-switch
                 class="defineSwitch"
@@ -407,25 +407,25 @@
               </el-switch>
             </template>
           </el-table-column>
-          <el-table-column label="创建时间" min-width="130">
+          <el-table-column label="创建الوقت" min-width="130">
             <template slot-scope="scope">
               <span>{{ scope.row._add_time }}</span>
             </template>
           </el-table-column>
-          <el-table-column label="更新时间" min-width="130">
+          <el-table-column label="更新الوقت" min-width="130">
             <template slot-scope="scope">
               <span>{{ scope.row._update_time }}</span>
             </template>
           </el-table-column>
-          <el-table-column label="操作" fixed="right" width="220">
+          <el-table-column label="الخيارات" fixed="right" width="220">
             <template slot-scope="scope">
               <template v-if="scope.row.domain && scope.row.domain != scope.row.cname">
                 <span class="btn" v-db-click @click="config(scope.row)">CNAME配置</span>
                 <el-divider direction="vertical"></el-divider>
               </template>
-              <span class="btn" v-db-click @click="edit(scope.row)">修改空间域名</span>
+              <span class="btn" v-db-click @click="edit(scope.row)">تعديل空间域名</span>
               <el-divider direction="vertical"></el-divider>
-              <span class="btn" v-db-click @click="del(scope.row, '删除该数据', scope.$index)">删除</span>
+              <span class="btn" v-db-click @click="del(scope.row, 'حذف该数据', scope.$index)">حذف</span>
             </template>
           </el-table-column>
         </el-table>
@@ -610,7 +610,7 @@ export default {
         this.postMessage(this.formValidate);
       }
     },
-    //保存接口
+    //حفظ接口
     postMessage(data) {
       positionPostApi(data)
         .then((res) => {
@@ -644,19 +644,19 @@ export default {
           this.$message.error(err.msg);
         });
     },
-    // 添加存储空间
+    // إضافة存储空间
     addStorageBtn() {
       this.$modalForm(addStorageApi(this.currentTab)).then(() => {
         this.getlist();
       });
     },
-    // 修改配置信息
+    // تعديل配置信息
     addConfigBtn() {
       this.$modalForm(addConfigApi(this.currentTab)).then(() => {
         this.getlist();
       });
     },
-    //修改空间域名
+    //تعديل空间域名
     edit(row) {
       this.$modalForm(editStorageApi(row.id)).then(() => {
         this.getlist();
@@ -665,10 +665,10 @@ export default {
     changeSwitch(row, item) {
       return new Promise((resolve) => {
         this.$msgbox({
-          title: '切换状态',
-          message: '您确认要切换使用状态吗',
+          title: '切换الحالة',
+          message: '您تأكيد要切换使用الحالة吗',
           showCancelButton: true,
-          cancelButtonText: '取消',
+          cancelButtonText: 'إلغاء',
           confirmButtonText: '确定',
           iconClass: 'el-icon-warning',
           confirmButtonClass: 'btn-custom-cancel',
@@ -728,7 +728,7 @@ export default {
           this.$message.error(err.msg);
         });
     },
-    // 删除
+    // حذف
     del(row, tit, num) {
       let delfromData = {
         title: tit,

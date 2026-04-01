@@ -148,7 +148,7 @@ export default {
     uni.getSystemInfo({
       success: function (res) {
         // 首页没有title获取的整个页面的高度，里面的页面有原生标题要减掉就是视口的高度
-        // 状态栏是动态的可以拿到 标题栏是固定写死的是44px
+        // الحالة栏是动态的可以拿到 标题栏是固定写死的是44px
         let height = res.windowHeight - res.statusBarHeight - 44;
         // #ifdef H5 || APP-PLUS
         that.globalData.windowHeight = res.windowHeight + "px";
@@ -162,7 +162,7 @@ export default {
     // #ifdef MP
     if (HTTP_REQUEST_URL == "") {
       console.error(
-        "请配置根目录下的config.js文件中的 'HTTP_REQUEST_URL'\n\n请修改开发者工具中【详情】->【AppID】改为自己的Appid\n\n请前往后台【小程序】->【小程序配置】填写自己的 appId and AppSecret"
+        "请配置根目录下的config.js文件中的 'HTTP_REQUEST_URL'\n\n请تعديل开发者工具中【تفاصيل】->【AppID】改为自己的Appid\n\n请前往后台【小程序】->【小程序配置】填写自己的 appId and AppSecret"
       );
       return false;
     }
@@ -180,7 +180,7 @@ export default {
           });
           updateManager.onUpdateReady(function () {
             wx.showModal({
-              title: "更新提示",
+              title: "更新تنبيه",
               content: "新版本已经下载好，是否重启当前应用？",
               success(res) {
                 if (res.confirm) {
@@ -192,7 +192,7 @@ export default {
           updateManager.onUpdateFailed(function () {
             wx.showModal({
               title: "发现新版本",
-              content: "请删除当前小程序，重启搜索打开...",
+              content: "请حذف当前小程序，重启بحث打开...",
             });
           });
         }
@@ -230,7 +230,7 @@ export default {
     // }
     // #endif
     // #ifdef H5
-    // 添加crmeb chat 统计
+    // إضافةcrmeb chat 统计
     // var __s = document.createElement('script');
     // __s.src = `${HTTP_REQUEST_URL}/api/get_script`;
     // document.head.appendChild(__s);

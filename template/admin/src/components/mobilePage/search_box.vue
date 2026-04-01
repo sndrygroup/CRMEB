@@ -43,11 +43,11 @@ import { mapState } from 'vuex';
 // import theme from "@/mixins/theme";
 export default {
   name: 'search_box',
-  cname: '搜索框',
+  cname: 'بحث框',
   icon: '#iconzujian-sousuokuang',
   configName: 'c_search_box',
   type: 0, // 0 基础组件 1 营销组件 2工具组件
-  defaultName: 'headerSerch', // 外面匹配名称
+  defaultName: 'headerSerch', // 外面匹配الاسم
   props: {
     index: {
       type: null,
@@ -123,9 +123,9 @@ export default {
   // mixins: [theme],
   data() {
     return {
-      // 默认初始化数据禁止修改
+      // 默认初始化数据禁止تعديل
       defaultConfig: {
-        cname: '搜索框',
+        cname: 'بحث框',
         name: 'headerSerch',
         timestamp: this.num,
         isHide: false,
@@ -133,9 +133,9 @@ export default {
           tabVal: 0,
         },
         titleLeft: '展示设置',
-        titleSearch: '搜索内容',
-        titleHotWords: '搜索热词',
-        titleRight: '搜索框',
+        titleSearch: 'بحث内容',
+        titleHotWords: 'بحث热词',
+        titleRight: 'بحث框',
         titleCurrency: '通用样式',
         titleTxt: '文字设置',
         zIndexConfig: {
@@ -148,7 +148,7 @@ export default {
           tabVal: 0,
           tabList: [
             {
-              name: '搜索',
+              name: 'بحث',
             },
             {
               name: '标题',
@@ -177,19 +177,19 @@ export default {
         titleConfig: {
           title: '标题',
           value: '标题',
-          place: '请输入标题',
+          place: 'الرجاء إدخال 标题',
           max: 6,
         },
         linkConfig: {
           title: '链接',
           value: '',
-          place: '请选择链接',
+          place: 'الرجاء اختيار 链接',
           max: 100,
           type: 'link',
         },
         tipConfig: {
-          title: '提示文字',
-          value: '搜索商品',
+          title: 'تنبيه文字',
+          value: 'بحث商品',
           place: '填写内容',
           max: 20,
         },
@@ -201,8 +201,8 @@ export default {
           ],
         },
         numConfig: {
-          placeholder: '设置搜索热词显示时间',
-          title: '显示时间',
+          placeholder: '设置بحث热词显示الوقت',
+          title: '显示الوقت',
           val: 3,
           type: 'words',
         },
@@ -258,7 +258,7 @@ export default {
           min: 0,
         },
         searchBoxColor: {
-          title: '搜索框',
+          title: 'بحث框',
           default: [
             {
               item: '#F5F5F5',
@@ -271,7 +271,7 @@ export default {
           ],
         },
         tipColor: {
-          title: '提示文字',
+          title: 'تنبيه文字',
           default: [
             {
               item: '#CCCCCC',

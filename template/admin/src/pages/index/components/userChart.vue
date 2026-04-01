@@ -95,7 +95,7 @@ export default {
           this.$message.error(res.msg);
         });
     },
-    // 监听页面宽度变化，刷新表格
+    // 监听页面宽度变化，تحديث表格
     handleResize() {
       if (this.infoList && this.series.length !== 0) this.$refs.userChart.handleResize();
       if (this.infoList) this.$refs.visitChart.handleResize();

@@ -10,10 +10,10 @@
           @submit.native.prevent
           inline
         >
-          <el-form-item label="提货点搜索：">
+          <el-form-item label="提货点بحث：">
             <el-input
               clearable
-              placeholder="请输入提货点名称,电话"
+              placeholder="الرجاء إدخال 提货点الاسم,电话"
               v-model="artFrom.keywords"
               class="form_content_width"
             />
@@ -35,7 +35,7 @@
       <el-row v-auth="['setting-merchant-system_store-save']">
         <el-col v-bind="grid">
           <el-button v-auth="['setting-merchant-system_store-save']" type="primary" v-db-click @click="add"
-            >添加提货点</el-button
+            >إضافة提货点</el-button
           >
         </el-col>
       </el-row>
@@ -60,7 +60,7 @@
             </div>
           </template>
         </el-table-column>
-        <el-table-column label="提货点名称" min-width="130">
+        <el-table-column label="提货点الاسم" min-width="130">
           <template slot-scope="scope">
             <span>{{ scope.row.name }}</span>
           </template>
@@ -75,7 +75,7 @@
             <span>{{ scope.row.detailed_address }}</span>
           </template>
         </el-table-column>
-        <el-table-column label="营业时间" min-width="130">
+        <el-table-column label="营业الوقت" min-width="130">
           <template slot-scope="scope">
             <span>{{ scope.row.day_time }}</span>
           </template>
@@ -96,11 +96,11 @@
             </el-switch>
           </template>
         </el-table-column>
-        <el-table-column label="操作" fixed="right" width="170">
+        <el-table-column label="الخيارات" fixed="right" width="170">
           <template slot-scope="scope">
-            <a v-db-click @click="edit(scope.row.id)">编辑</a>
+            <a v-db-click @click="edit(scope.row.id)">تحرير</a>
             <el-divider direction="vertical"></el-divider>
-            <a v-if="scope.row.is_del == 0" v-db-click @click="del(scope.row, '删除提货点', scope.$index)">删除</a>
+            <a v-if="scope.row.is_del == 0" v-db-click @click="del(scope.row, 'حذف提货点', scope.$index)">حذف</a>
             <a v-else v-db-click @click="del(scope.row, '恢复提货点', scope.$index)">恢复</a>
           </template>
         </el-table-column>
@@ -190,7 +190,7 @@ export default {
           this.$message.error(res.msg);
         });
     },
-    // 搜索；
+    // بحث；
     userSearchs() {
       this.artFrom.page = 1;
       this.getList();
@@ -201,7 +201,7 @@ export default {
       this.artFrom.keywords = '';
       this.getList();
     },
-    // 删除
+    // حذف
     del(row, tit, num) {
       let delfromData = {
         title: tit,
@@ -220,7 +220,7 @@ export default {
           this.$message.error(res.msg);
         });
     },
-    // 添加提货点；
+    // إضافة提货点；
     add() {
       this.$refs.template.isTemplate = true;
     },

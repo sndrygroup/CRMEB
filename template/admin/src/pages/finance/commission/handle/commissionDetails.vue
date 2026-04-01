@@ -1,6 +1,6 @@
 <template>
   <div style="width: 100%">
-    <el-dialog :visible.sync="modals" title="用户详情" :close-on-click-modal="false" width="720px">
+    <el-dialog :visible.sync="modals" title="用户تفاصيل" :close-on-click-modal="false" width="720px">
       <div class="" v-loading="spinShow">
         <div class="dashboard-workplace-header-tip">
           <div class="dashboard-workplace-header-tip-desc">
@@ -10,7 +10,7 @@
             >
             <span class="dashboard-workplace-header-tip-desc-sp">佣金总收入：{{ detailsData.number }}</span>
             <span class="dashboard-workplace-header-tip-desc-sp">用户余额：{{ detailsData.now_money }}</span>
-            <span class="dashboard-workplace-header-tip-desc-sp">创建时间：{{ detailsData.add_time }}</span>
+            <span class="dashboard-workplace-header-tip-desc-sp">创建الوقت：{{ detailsData.add_time }}</span>
           </div>
         </div>
       </div>
@@ -25,12 +25,12 @@
         <el-row :gutter="24">
           <!--                    <el-col :span="8">-->
           <!--                        <el-form-item label="订单号/昵称：">-->
-          <!--                            <el-input enter-button placeholder="请输入" element-id="name" v-model="formValidate.nickname"-->
+          <!--                            <el-input enter-button placeholder="الرجاء إدخال " element-id="name" v-model="formValidate.nickname"-->
           <!--                                   clearable/>-->
           <!--                        </el-form-item>-->
           <!--                    </el-col>-->
           <el-col :span="12">
-            <el-form-item label="时间范围：" class="tab_data">
+            <el-form-item label="الوقت范围：" class="tab_data">
               <el-date-picker
                 clearable
                 :editable="false"
@@ -45,7 +45,7 @@
             </el-form-item>
           </el-col>
           <el-col :span="4">
-            <el-button type="primary" v-db-click @click="userSearchs">搜索</el-button>
+            <el-button type="primary" v-db-click @click="userSearchs">بحث</el-button>
           </el-col>
         </el-row>
       </el-form>
@@ -62,7 +62,7 @@
             <span>{{ scope.row.number }}</span>
           </template>
         </el-table-column>
-        <el-table-column label="获得时间" min-width="130">
+        <el-table-column label="获得الوقت" min-width="130">
           <template slot-scope="scope">
             <span>{{ scope.row._add_time }}</span>
           </template>
@@ -124,12 +124,12 @@ export default {
     }
   },
   methods: {
-    // 时间
+    // الوقت
     onchangeTime(e) {
       this.formValidate.start_time = e[0];
       this.formValidate.end_time = e[1];
     },
-    // 详情
+    // تفاصيل
     getDetails(id) {
       this.Ids = id;
       this.spinShow = true;
@@ -164,7 +164,7 @@ export default {
           this.$message.error(res.msg);
         });
     },
-    // 搜索
+    // بحث
     userSearchs() {
       this.formValidate.page = 1;
       this.getList();

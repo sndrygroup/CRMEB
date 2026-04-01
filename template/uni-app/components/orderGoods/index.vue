@@ -69,7 +69,7 @@
 					<view class="rig-btn" v-if="status_type === 2 && index === cartInfo.length - 1 || !split">
 						<view v-if="delivery_type === 'express'" class="logistics" @click.stop="logistics(orderId)">{{$t(`查看物流`)}}
 						</view>
-						<view class="logistics sure" v-if="status_type === 2" @click.stop="confirmOrder(orderId)">{{$t(`确认收货`)}}
+						<view class="logistics sure" v-if="status_type === 2" @click.stop="confirmOrder(orderId)">{{$t(`تأكيد收货`)}}
 						</view>
 					</view>
 				</view>
@@ -84,7 +84,7 @@
 	export default {
 		computed: mapGetters(['uid']),
 		props: {
-			// 订单状态
+			// 订单الحالة
 			statusType: {
 				type: Number,
 				default: 0,

@@ -68,7 +68,7 @@ export default {
       name: `${pre}newsCategoryIndex`,
       meta: {
         auth: ['wechat-wechat-news-category-index'],
-        title: '图文管理',
+        title: '图文إدارة',
       },
       component: () => import('@/pages/app/wechat/newsCategory/index'),
     },
@@ -77,7 +77,7 @@ export default {
       name: `${pre}newsCategorySave`,
       meta: {
         auth: ['wechat-wechat-news-category-save'],
-        title: '图文添加',
+        title: '图文إضافة',
         activeMenu: routePre + '/app/wechat/news_category/index',
       },
       component: () => import('@/pages/app/wechat/newsCategory/save'),
@@ -105,7 +105,7 @@ export default {
       name: `${pre}keywordAdd`,
       meta: {
         auth: ['wechat-wechat-reply-save'],
-        title: '关键字添加',
+        title: '关键字إضافة',
         activeMenu: routePre + '/app/wechat/reply/keyword',
       },
       component: () => import('@/pages/app/wechat/reply/follow'),
@@ -151,7 +151,7 @@ export default {
       name: `${pre}version`,
       meta: {
         auth: ['admin-app-version'],
-        title: 'APP版本管理',
+        title: 'APP版本إدارة',
       },
       component: () => import('@/pages/app/version/index'),
     },

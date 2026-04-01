@@ -10,8 +10,8 @@
           @submit.native.prevent
           inline
         >
-          <el-form-item label="搜索：" label-for="keyword">
-            <el-input clearable v-model="levelFrom.name" placeholder="请输入模板名称" class="form_content_width" />
+          <el-form-item label="بحث：" label-for="keyword">
+            <el-input clearable v-model="levelFrom.name" placeholder="الرجاء إدخال 模板الاسم" class="form_content_width" />
           </el-form-item>
           <el-form-item>
             <el-button type="primary" v-db-click @click="userSearchs">查询</el-button>
@@ -20,7 +20,7 @@
       </div>
     </el-card>
     <el-card :bordered="false" shadow="never" class="ivu-mt">
-      <el-button type="primary" v-db-click @click="freight">添加运费模板</el-button>
+      <el-button type="primary" v-db-click @click="freight">إضافة运费模板</el-button>
       <el-table
         :data="levelLists"
         ref="table"
@@ -35,7 +35,7 @@
             <span>{{ scope.row.id }}</span>
           </template>
         </el-table-column>
-        <el-table-column label="模板名称" min-width="130">
+        <el-table-column label="模板الاسم" min-width="130">
           <template slot-scope="scope">
             <span>{{ scope.row.name }}</span>
           </template>
@@ -55,16 +55,16 @@
             <span>{{ scope.row.sort }}</span>
           </template>
         </el-table-column>
-        <el-table-column label="添加时间" min-width="130">
+        <el-table-column label="إضافةالوقت" min-width="130">
           <template slot-scope="scope">
             <span>{{ scope.row.add_time }}</span>
           </template>
         </el-table-column>
-        <el-table-column label="操作" fixed="right" width="100">
+        <el-table-column label="الخيارات" fixed="right" width="100">
           <template slot-scope="scope">
-            <a v-db-click @click="edit(scope.row.id)">修改</a>
+            <a v-db-click @click="edit(scope.row.id)">تعديل</a>
             <el-divider direction="vertical" v-if="scope.row.id !== 1" />
-            <a v-db-click @click="del(scope.row, '删除模版', index)" v-if="scope.row.id !== 1">删除</a>
+            <a v-db-click @click="del(scope.row, 'حذف模版', index)" v-if="scope.row.id !== 1">حذف</a>
           </template>
         </el-table-column>
       </el-table>
@@ -135,7 +135,7 @@ export default {
     },
   },
   methods: {
-    // 添加运费模板
+    // إضافة运费模板
     freight() {
       this.isTemplate = true;
       this.$nextTick((e) => {
@@ -143,7 +143,7 @@ export default {
         this.$refs.template.isTemplate = true;
       });
     },
-    // 删除
+    // حذف
     del(row, tit, num) {
       let delfromData = {
         title: tit,
@@ -176,7 +176,7 @@ export default {
           this.$message.error(res.msg);
         });
     },
-    // 编辑
+    // تحرير
     edit(id) {
       this.isTemplate = true;
       this.$nextTick((e) => {
@@ -184,7 +184,7 @@ export default {
         this.$refs.template.editFrom(id);
       });
     },
-    // 表格搜索
+    // 表格بحث
     userSearchs() {
       this.levelFrom.page = 1;
       this.getList();

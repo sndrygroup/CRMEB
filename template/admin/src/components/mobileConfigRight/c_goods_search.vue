@@ -8,7 +8,7 @@
         </el-checkbox>
         <el-cascader
           :data="configData.list"
-          placeholder="请选择商品分类"
+          placeholder="الرجاء اختيار 商品分类"
           :props="{ multiple: true, checkStrictly: true, emitPath: false }"
           v-model="configData.activeValue"
           filterable

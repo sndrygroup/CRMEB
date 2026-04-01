@@ -3,7 +3,7 @@ import Cache from '@/utils/cache';
 /**
  * 判断传入的 key 是否在数组 arr 中存在
  * @param {string} key - 待判断的字符串
- * @returns {boolean} - 返回布尔值，表示是否有权限
+ * @returns {boolean} - عودة布尔值，表示是否有权限
  */
 function ActivePermission(key) {
 	// seckill 秒杀 bargain 砍价 combination 拼团

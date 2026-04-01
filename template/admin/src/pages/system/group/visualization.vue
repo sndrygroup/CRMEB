@@ -4,7 +4,7 @@
       <span class="ivu-page-header-title mr20">{{ $route.meta.title }}</span>
       <div>
         <div style="float: right">
-          <el-button class="bnt" type="primary" v-db-click @click="save">保存</el-button>
+          <el-button class="bnt" type="primary" v-db-click @click="save">حفظ</el-button>
         </div>
       </div>
     </div>
@@ -61,7 +61,7 @@
       <div v-if="name == 'admin_login_slide'" class="pciframe" :bordered="false" shadow="never">
         <img src="../../../assets/images/pclogin.png" class="pciframe-box" />
         <div class="pcmoddile_goods">
-          <div class="nofont" v-if="tabList.list == ''">暂无照片，请添加~</div>
+          <div class="nofont" v-if="tabList.list == ''">暂无照片，请إضافة~</div>
           <swiper v-else :options="swiperOption" class="pcswiperimg_goods">
             <swiper-slide class="spcwiperimg_goods" v-for="(item, index) in tabList.list" :key="index">
               <img :src="item.slide" />
@@ -74,7 +74,7 @@
           <img src="../../../assets/images/integral.png" style="width: 100%" />
           <div class="moddile_goods">
             <div class="nofonts" v-if="tabList.list == '' || !tabList.list.length || !tabList.list[0].img">
-              暂无照片，请添加~
+              暂无照片，请إضافة~
             </div>
             <swiper v-else :options="swiperOption" class="pcswiperimg_goods">
               <swiper-slide class="swiperimg_goods" v-for="(item, index) in tabList.list" :key="index">
@@ -109,7 +109,7 @@
           class="moddile_box"
         >
           <div class="nofonts" v-if="!tabList.list || !tabList.list.length || !tabList.list[0].img">
-            暂无照片，请添加~
+            暂无照片，请إضافة~
           </div>
           <swiper v-else :options="swiperOption" class="swiperimg">
             <swiper-slide class="swiperimg" v-for="(item, index) in tabList.list" :key="index">
@@ -118,7 +118,7 @@
           </swiper>
         </div>
         <div v-if="name == 'combination_banner'" class="moddile_goods">
-          <div class="nofonts" v-if="tabList.list == ''">暂无照片，请添加~</div>
+          <div class="nofonts" v-if="tabList.list == ''">暂无照片，请إضافة~</div>
           <swiper v-else :options="swiperOption" class="swiperimg_goods">
             <swiper-slide class="swiperimg_goods" v-for="(item, index) in tabList.list" :key="index">
               <img :src="item.img" />
@@ -179,7 +179,7 @@
       </div>
       <div v-if="guide == 2" class="iframe" :bordered="false">
         <div class="nofonts" v-if="tabList.list == '' || !tabList.list.length || !tabList.list[0].img">
-          暂无照片，请添加~
+          暂无照片，请إضافة~
         </div>
         <swiper :options="swiperOption" class="swiperimgs" v-else>
           <swiper-slide class="swiperimgs" v-for="(item, index) in tabList.list" :key="index">
@@ -195,9 +195,9 @@
               <el-button
                 type="primary"
                 v-db-click
-                @click="groupAdd('添加数据')"
+                @click="groupAdd('إضافة数据')"
                 style="margin-left: 14px; margin-top: 30px"
-                >添加数据</el-button
+                >إضافة数据</el-button
               >
             </div>
           </div>
@@ -245,11 +245,11 @@
                   <span>{{ scope.row.sort }}</span>
                 </template>
               </el-table-column>
-              <el-table-column label="操作" fixed="right" width="150">
+              <el-table-column label="الخيارات" fixed="right" width="150">
                 <template slot-scope="scope">
-                  <a v-db-click @click="edit(scope.row, '编辑')">编辑</a>
+                  <a v-db-click @click="edit(scope.row, 'تحرير')">تحرير</a>
                   <el-divider direction="vertical"></el-divider>
-                  <a v-db-click @click="del(scope.row, '删除这条信息', scope.$index)">删除</a>
+                  <a v-db-click @click="del(scope.row, 'حذف这条信息', scope.$index)">حذف</a>
                 </template>
               </el-table-column>
             </el-table>
@@ -264,9 +264,9 @@
               <el-button
                 type="primary"
                 v-db-click
-                @click="groupAdd('添加数据')"
+                @click="groupAdd('إضافة数据')"
                 style="margin-left: 14px; margin-top: 30px"
-                >添加数据</el-button
+                >إضافة数据</el-button
               >
             </div>
           </div>
@@ -304,9 +304,9 @@
                     </el-switch>
                   </template>
                   <template v-else-if="item.slot === 'action'">
-                    <a v-db-click @click="edit(scope.row, '编辑')">编辑</a>
+                    <a v-db-click @click="edit(scope.row, 'تحرير')">تحرير</a>
                     <el-divider direction="vertical"></el-divider>
-                    <a v-db-click @click="del(scope.row, '删除这条信息', scope.$index)">删除</a>
+                    <a v-db-click @click="del(scope.row, 'حذف这条信息', scope.$index)">حذف</a>
                   </template>
                 </template>
               </el-table-column>
@@ -323,7 +323,7 @@
             <div class="hot_imgs">
               <div class="title" v-if="name == 'admin_login_slide'">幻灯片设置</div>
               <div class="title" v-else>轮播图设置</div>
-              <div class="title-text">建议尺寸：690 * 240px，拖拽图片可调整图片顺序哦，最多添加五张</div>
+              <div class="title-text">建议尺寸：690 * 240px，拖拽图片可调整图片顺序哦，最多إضافة五张</div>
               <div class="list-box">
                 <draggable
                   v-if="name == 'admin_login_slide'"
@@ -364,9 +364,9 @@
                     </div>
                     <div class="info">
                       <div class="info-item">
-                        <span>图片名称：</span>
+                        <span>图片الاسم：</span>
                         <div class="input-box">
-                          <el-input v-model="item.comment" placeholder="请填写名称" />
+                          <el-input v-model="item.comment" placeholder="请填写الاسم" />
                         </div>
                       </div>
                       <div class="info-item">
@@ -406,7 +406,7 @@
                     style="width: 100px; height: 35px; background-color: var(--prev-color-primary); color: #ffffff"
                     v-db-click
                     @click="addBox"
-                    >添加图片
+                    >إضافة图片
                   </el-button>
                 </div>
               </template>
@@ -418,18 +418,18 @@
         <div class="right-box">
           <div class="hot_imgs">
             <div class="title">引导页设置</div>
-            <div class="title-text">建议尺寸：750 * 1334px，拖拽图片可调整图片顺序哦，最多添加五张</div>
+            <div class="title-text">建议尺寸：750 * 1334px，拖拽图片可调整图片顺序哦，最多إضافة五张</div>
             <div class="list-box">
               <div>
                 <el-form :model="formItem" label-width="85px">
                   <el-form-item label="开屏广告:">
                     <el-switch active-value="1" inactive-value="0" v-model="formItem.status" size="large"> </el-switch>
                   </el-form-item>
-                  <el-form-item label="广告时间:">
+                  <el-form-item label="广告الوقت:">
                     <el-input
                       v-model.number="formItem.time"
                       type="number"
-                      placeholder="请输入开屏广告时间"
+                      placeholder="الرجاء إدخال 开屏广告الوقت"
                       style="width: 150px"
                     ></el-input>
                     单位(秒)
@@ -452,9 +452,9 @@
                   </div>
                   <div class="info">
                     <div class="info-item">
-                      <span>图片名称：</span>
+                      <span>图片الاسم：</span>
                       <div class="input-box">
-                        <el-input v-model="item.comment" placeholder="请填写名称" />
+                        <el-input v-model="item.comment" placeholder="请填写الاسم" />
                       </div>
                     </div>
                     <div class="info-item">
@@ -488,7 +488,7 @@
                   style="width: 100px; height: 35px; background-color: var(--prev-color-primary); color: #ffffff"
                   v-db-click
                   @click="addBox"
-                  >添加图片
+                  >إضافة图片
                 </el-button>
               </div>
             </template>
@@ -555,7 +555,7 @@ export default {
       },
       ruleValidate: {},
       myConfig: {
-        autoHeightEnabled: false, // 编辑器不自动被内容撑高
+        autoHeightEnabled: false, // تحرير器不自动被内容撑高
         initialFrameHeight: 500, // 初始容器高度
         initialFrameWidth: '100%', // 初始容器宽度
         UEDITOR_HOME_URL: '/UEditor/',
@@ -661,7 +661,7 @@ export default {
     getEditorContent(data) {
       this.formValidate.content = data;
     },
-    // 删除视频；
+    // حذف视频；
     delVideo() {
       let that = this;
       that.$set(that.formItem, 'video_link', '');
@@ -763,7 +763,7 @@ export default {
         }
       });
     },
-    // 添加表单
+    // إضافة表单
     groupAdd() {
       this.$modalForm(groupDataAddApi({ gid: this.pageId, config_name: this.name }, 'setting/group_data/create')).then(
         () => {
@@ -877,14 +877,14 @@ export default {
         };
       } else {
         if (this.tabList.list.length == 5) {
-          this.$message.warning('最多添加五张呦');
+          this.$message.warning('最多إضافة五张呦');
         } else {
           let obj = JSON.parse(JSON.stringify(this.lastObj));
           this.tabList.list.push(obj);
         }
       }
     },
-    // 删除
+    // حذف
     bindDelete(item, index) {
       this.tabList.list.splice(index, 1);
     },
@@ -948,7 +948,7 @@ export default {
           this.$message.error(res.msg);
         });
     },
-    // 编辑
+    // تحرير
     edit(row) {
       this.$modalForm(
         groupDataEditApi({ gid: this.pageId, config_name: this.name }, 'setting/group_data/' + row.id + '/edit'),
@@ -957,7 +957,7 @@ export default {
         this.url = this.BaseURL + 'pages/users/user_sgin/index';
       });
     },
-    // 删除
+    // حذف
     del(row, tit, num) {
       let delfromData = {
         title: tit,
@@ -975,7 +975,7 @@ export default {
           this.$message.error(res.msg);
         });
     },
-    // 修改是否显示
+    // تعديل是否显示
     onchangeIsShow(row) {
       groupDataSetApi('setting/group_data/set_status/' + row.id + '/' + row.status)
         .then(async (res) => {
@@ -1002,7 +1002,7 @@ export default {
     getContent(val) {
       this.formValidate.content = val;
     },
-    // 提交数据
+    // إرسال数据
     onsubmit(name) {
       this.$refs[name].validate((valid) => {
         if (valid) {
@@ -1018,7 +1018,7 @@ export default {
         }
       });
     },
-    //详情
+    //تفاصيل
     getAgreement() {
       getAgreement()
         .then(async (res) => {

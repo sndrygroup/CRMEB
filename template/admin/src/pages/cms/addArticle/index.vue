@@ -2,7 +2,7 @@
   <div class="article-manager">
     <pages-header
       ref="pageHeader"
-      :title="$route.params.id ? '编辑文章' : '添加文章'"
+      :title="$route.params.id ? 'تحرير文章' : 'إضافة文章'"
       :backUrl="$routeProStr + '/cms/article/index'"
     ></pages-header>
     <el-card :bordered="false" shadow="never" class="mt16">
@@ -22,7 +22,7 @@
           <el-form-item label="标题：" prop="title" label-for="title">
             <el-input
               v-model="formValidate.title"
-              placeholder="请输入"
+              placeholder="الرجاء إدخال "
               class="content_width"
               maxlength="80"
               show-word-limit
@@ -31,7 +31,7 @@
           <el-form-item label="作者：" prop="author" label-for="author">
             <el-input
               v-model="formValidate.author"
-              placeholder="请输入"
+              placeholder="الرجاء إدخال "
               class="content_width"
               maxlength="10"
               show-word-limit
@@ -51,7 +51,7 @@
             <el-input
               v-model="formValidate.synopsis"
               type="textarea"
-              placeholder="请输入"
+              placeholder="الرجاء إدخال "
               class="content_width"
               maxlength="300"
               show-word-limit
@@ -81,7 +81,7 @@
         <el-row :gutter="24">
           <!--                    <el-col :span="24">-->
           <!--                        <el-form-item label="原文链接：">-->
-          <!--                            <el-input v-model="formValidate.url" placeholder="请输入" element-id="url" style="width: 60%"/>-->
+          <!--                            <el-input v-model="formValidate.url" placeholder="الرجاء إدخال " element-id="url" style="width: 60%"/>-->
           <!--                        </el-form-item>-->
           <!--                    </el-col>-->
           <el-col :span="24">
@@ -102,7 +102,7 @@
           </el-col>
           <el-col :span="24">
             <el-form-item label="">
-              <el-button type="primary" class="submission" v-db-click @click="onsubmit('formValidate')">提交</el-button>
+              <el-button type="primary" class="submission" v-db-click @click="onsubmit('formValidate')">إرسال</el-button>
             </el-form-item>
           </el-col>
         </el-row>
@@ -138,7 +138,7 @@ export default {
     };
     const validateUpload2 = (rule, value, callback) => {
       if (!this.formValidate.cid) {
-        callback(new Error('请选择文章分类'));
+        callback(new Error('الرجاء اختيار 文章分类'));
       } else {
         callback();
       }
@@ -183,7 +183,7 @@ export default {
       },
       content: '',
       ruleValidate: {
-        title: [{ required: true, message: '请输入标题', trigger: 'blur' }],
+        title: [{ required: true, message: 'الرجاء إدخال 标题', trigger: 'blur' }],
         cid: [
           {
             required: true,
@@ -193,7 +193,7 @@ export default {
           },
         ],
         image_input: [{ required: true, validator: validateUpload, trigger: 'change' }],
-        content: [{ required: true, message: '请输入文章内容', trigger: 'change' }],
+        content: [{ required: true, message: 'الرجاء إدخال 文章内容', trigger: 'change' }],
       },
       value: '',
       modalPic: false,
@@ -203,7 +203,7 @@ export default {
         type: 1,
       },
       myConfig: {
-        autoHeightEnabled: false, // 编辑器不自动被内容撑高
+        autoHeightEnabled: false, // تحرير器不自动被内容撑高
         initialFrameHeight: 500, // 初始容器高度
         initialFrameWidth: '100%', // 初始容器宽度
         UEDITOR_HOME_URL: '/UEditor/',
@@ -262,7 +262,7 @@ export default {
           this.$message.error(res.msg);
         });
     },
-    // 过滤详情内容
+    // 过滤تفاصيل内容
     formatRichText(html) {
       let newContent = html.replace(/<img[^>]*>/gi, function (match, capture) {
         match = match.replace(/style="[^"]+"/gi, '').replace(/style='[^']+'/gi, '');
@@ -281,7 +281,7 @@ export default {
       );
       return newContent;
     },
-    // 提交数据
+    // إرسال数据
     onsubmit(name) {
       this.formValidate.content = this.formatRichText(this.content);
       this.$refs[name].validate((valid) => {
@@ -301,7 +301,7 @@ export default {
         }
       });
     },
-    // 文章详情
+    // 文章تفاصيل
     getDetails() {
       createApi(this.$route.params.id ? this.$route.params.id : 0)
         .then(async (res) => {

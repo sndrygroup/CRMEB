@@ -11,7 +11,7 @@
           @submit.native.prevent
           class="tabform"
         >
-          <el-form-item label="直播状态：">
+          <el-form-item label="直播الحالة：">
             <el-select v-model="formValidate.status" clearable @change="selChange" class="form_content_width">
               <el-option
                 v-for="(item, index) in treeData.withdrawal"
@@ -21,10 +21,10 @@
               ></el-option>
             </el-select>
           </el-form-item>
-          <el-form-item label="搜索：">
+          <el-form-item label="بحث：">
             <el-input
               clearable
-              placeholder="请输入直播间名称/ID/主播昵称/微信号"
+              placeholder="الرجاء إدخال 直播间الاسم/ID/主播昵称/微信号"
               v-model="formValidate.kerword"
               class="form_content_width"
             />
@@ -36,8 +36,8 @@
       </div>
     </el-card>
     <el-card :bordered="false" shadow="never" class="ivu-mt mt16">
-      <el-button v-auth="['setting-system_menus-add']" type="primary" v-db-click @click="menusAdd('添加直播间')"
-        >添加直播间</el-button
+      <el-button v-auth="['setting-system_menus-add']" type="primary" v-db-click @click="menusAdd('إضافة直播间')"
+        >إضافة直播间</el-button
       >
       <el-button v-auth="['setting-system_menus-add']" v-db-click @click="syncRoom" style="margin-left: 20px"
         >同步直播间</el-button
@@ -56,7 +56,7 @@
             <span>{{ scope.row.id }}</span>
           </template>
         </el-table-column>
-        <el-table-column label="直播间名称" min-width="35">
+        <el-table-column label="直播间الاسم" min-width="35">
           <template slot-scope="scope">
             <span>{{ scope.row.name }}</span>
           </template>
@@ -71,22 +71,22 @@
             <span>{{ scope.row.anchor_wechat }}</span>
           </template>
         </el-table-column>
-        <el-table-column label="直播开始时间" min-width="35">
+        <el-table-column label="直播开始الوقت" min-width="35">
           <template slot-scope="scope">
             <span>{{ scope.row.start_time }}</span>
           </template>
         </el-table-column>
-        <el-table-column label="计划结束时间" min-width="35">
+        <el-table-column label="计划结束الوقت" min-width="35">
           <template slot-scope="scope">
             <span>{{ scope.row.end_time }}</span>
           </template>
         </el-table-column>
-        <el-table-column label="创建时间" min-width="35">
+        <el-table-column label="创建الوقت" min-width="35">
           <template slot-scope="scope">
             <span>{{ scope.row.add_time }}</span>
           </template>
         </el-table-column>
-        <el-table-column label="显示状态" min-width="35">
+        <el-table-column label="显示الحالة" min-width="35">
           <template slot-scope="scope">
             <el-switch
               class="defineSwitch"
@@ -102,7 +102,7 @@
             </el-switch>
           </template>
         </el-table-column>
-        <el-table-column label="直播状态" min-width="35">
+        <el-table-column label="直播الحالة" min-width="35">
           <template slot-scope="scope">
             <div>{{ scope.row.live_status | liveReviewStatusFilter }}</div>
           </template>
@@ -112,13 +112,13 @@
             <div>{{ scope.row.sort }}</div>
           </template>
         </el-table-column>
-        <el-table-column label="操作" fixed="right" width="170">
+        <el-table-column label="الخيارات" fixed="right" width="170">
           <template slot-scope="scope">
-            <a v-db-click @click="detail(scope.row, '详情')">详情</a>
+            <a v-db-click @click="detail(scope.row, 'تفاصيل')">تفاصيل</a>
             <el-divider direction="vertical"></el-divider>
-            <a v-db-click @click="del(scope.row, '删除这条信息', scope.$index)">删除</a>
+            <a v-db-click @click="del(scope.row, 'حذف这条信息', scope.$index)">حذف</a>
             <el-divider direction="vertical" v-if="scope.row.live_status == 102" />
-            <a v-if="scope.row.live_status == 102" v-db-click @click="addGoods(scope.row)">添加商品</a>
+            <a v-if="scope.row.live_status == 102" v-db-click @click="addGoods(scope.row)">إضافة商品</a>
           </template>
         </el-table-column>
       </el-table>
@@ -132,12 +132,12 @@
         />
       </div>
     </el-card>
-    <!--详情-->
-    <el-dialog :visible.sync="modals" title="直播间详情" class="paymentFooter" width="720px">
+    <!--تفاصيل-->
+    <el-dialog :visible.sync="modals" title="直播间تفاصيل" class="paymentFooter" width="720px">
       <details-from ref="studioDetail" />
     </el-dialog>
-    <!-- 添加商品 -->
-    <el-dialog :visible.sync="isShowBox" title="添加商品" class="paymentFooter" width="720px">
+    <!-- إضافة商品 -->
+    <el-dialog :visible.sync="isShowBox" title="إضافة商品" class="paymentFooter" width="720px">
       <!--            <addGoods :datas="activeItem" @getData="getData" ref="liveAdd"></addGoods>-->
       <goods-list
         ref="goodslist"
@@ -204,16 +204,16 @@ export default {
       },
       columns1: [
         { key: 'id', title: '直播间ID', minWidth: 35 },
-        { key: 'name', minWidth: 35, title: '直播间名称' },
+        { key: 'name', minWidth: 35, title: '直播间الاسم' },
         { key: 'anchor_name', minWidth: 35, title: '主播昵称' },
         { key: 'anchor_wechat', minWidth: 35, title: '主播微信号' },
-        { key: 'start_time', minWidth: 35, title: '直播开始时间' },
-        { key: 'end_time', minWidth: 35, title: '计划结束时间' },
-        { key: 'add_time', minWidth: 35, title: '创建时间' },
-        { slot: 'is_mer_show', title: '显示状态', minWidth: 80 },
-        { slot: 'status', minWidth: 35, title: '直播状态' },
+        { key: 'start_time', minWidth: 35, title: '直播开始الوقت' },
+        { key: 'end_time', minWidth: 35, title: '计划结束الوقت' },
+        { key: 'add_time', minWidth: 35, title: '创建الوقت' },
+        { slot: 'is_mer_show', title: '显示الحالة', minWidth: 80 },
+        { slot: 'status', minWidth: 35, title: '直播الحالة' },
         { key: 'sort', minWidth: 35, title: '排序' },
-        { slot: 'action', fixed: 'right', title: '操作', minWidth: 120 },
+        { slot: 'action', fixed: 'right', title: 'الخيارات', minWidth: 120 },
       ],
       tabList: [],
       loading: false,
@@ -248,7 +248,7 @@ export default {
       this.formValidate.page = 1;
       this.getList();
     },
-    // 添加直播间
+    // إضافة直播间
     menusAdd() {
       this.$router.push({
         path: this.$routeProStr + '/marketing/live/add_live_room',
@@ -264,12 +264,12 @@ export default {
           this.$message.error(error.msg);
         });
     },
-    //  详情
+    //  تفاصيل
     detail(row) {
       this.modals = true;
       this.$refs.studioDetail.getData(row.id);
     },
-    // 直播间添加商品
+    // 直播间إضافة商品
     addGoods(row) {
       this.selectIds = row.product_ids;
       this.activeItem = row;
@@ -302,7 +302,7 @@ export default {
           this.$message.error(error.msg);
         });
     },
-    // 删除
+    // حذف
     del(row, tit, num) {
       let delfromData = {
         title: tit,

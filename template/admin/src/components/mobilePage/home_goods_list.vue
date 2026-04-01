@@ -165,7 +165,7 @@
                       color: toneConfig ? goodsNameColor : '#333',
                     }"
                   >
-                    {{ item.store_name || '这里是商品名称展示区域,商品名称展示区域,商品名称展示区域' }}
+                    {{ item.store_name || '这里是商品الاسم展示区域,商品الاسم展示区域,商品الاسم展示区域' }}
                   </div>
                   <img v-if="checkboxInfo.indexOf(1) != -1" src="../../assets/images/goods01.png" />
                 </div>
@@ -261,7 +261,7 @@
                     color: toneConfig ? goodsNameColor : '#333',
                   }"
                 >
-                  {{ item.store_name || '商品名称商品商名称商品商…' }}
+                  {{ item.store_name || '商品الاسم商品商الاسم商品商…' }}
                 </div>
                 <img v-if="checkboxInfo.indexOf(1) != -1" src="../../assets/images/goods01.png" />
                 <div class="price acea-row row-middle">
@@ -414,7 +414,7 @@
                         color: toneConfig ? goodsNameColor : '#333',
                       }"
                     >
-                      {{ item.store_name || '商品名称商品商名称商品商…' }}
+                      {{ item.store_name || '商品الاسم商品商الاسم商品商…' }}
                     </div>
                   </div>
                   <div class="price" v-if="checkboxInfo.indexOf(2) != -1">
@@ -459,7 +459,7 @@ export default {
   configName: 'c_home_goods_list',
   icon: '#iconzujian-shangpinliebiao',
   type: 0, // 0 基础组件 1 营销组件 2工具组件 3 商品组件 4 个人中心组件
-  defaultName: 'goodList', // 外面匹配名称
+  defaultName: 'goodList', // 外面匹配الاسم
   props: {
     index: {
       type: null,
@@ -499,7 +499,7 @@ export default {
   // mixins: [theme],
   data() {
     return {
-      // 默认初始化数据禁止修改
+      // 默认初始化数据禁止تعديل
       defaultConfig: {
         cname: '商品列表',
         desc: '商品列表介绍',
@@ -653,7 +653,7 @@ export default {
           list: [
             {
               id: 0,
-              name: '商品名称',
+              name: '商品الاسم',
             },
             {
               id: 1,
@@ -694,7 +694,7 @@ export default {
           tabVal: 1,
           tabList: [
             {
-              name: '进入商品详情页',
+              name: '进入商品تفاصيل页',
             },
             {
               name: '商品加购',
@@ -724,7 +724,7 @@ export default {
           valList: [{ val: 0 }, { val: 0 }, { val: 0 }, { val: 0 }],
         },
         goodsName: {
-          title: '商品名称',
+          title: '商品الاسم',
           tabVal: 1,
           tabList: [
             {
@@ -750,7 +750,7 @@ export default {
           ],
         },
         goodsNameColor: {
-          title: '商品名称',
+          title: '商品الاسم',
           name: 'goodsNameColor',
           default: [
             {

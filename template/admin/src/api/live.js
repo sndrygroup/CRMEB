@@ -33,7 +33,7 @@ export function liveAdd(data) {
 }
 
 /**
- * @description 直播列表详情
+ * @description 直播列表تفاصيل
  */
 export function liveDetail(id) {
   return request({
@@ -75,7 +75,7 @@ export function liveGoodsCreat(data) {
 }
 
 /**
- * @description 直播商品列表添加
+ * @description 直播商品列表إضافة
  */
 export function liveGoodsAdd(data) {
   return request({
@@ -86,7 +86,7 @@ export function liveGoodsAdd(data) {
 }
 
 /**
- * @description 直播间添加商品
+ * @description 直播间إضافة商品
  */
 export function liveRoomGoodsAdd(data) {
   return request({
@@ -128,7 +128,7 @@ export function liveAuchorList(params) {
 }
 
 /**
- * @description 主播添加/修改获取表单
+ * @description 主播إضافة/تعديل获取表单
  */
 export function liveAuchorAdd(id) {
   return request({
@@ -138,7 +138,7 @@ export function liveAuchorAdd(id) {
 }
 
 /**
- * @description 直播商品详情
+ * @description 直播商品تفاصيل
  */
 export function liveGoodsDetail(id) {
   return request({

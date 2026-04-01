@@ -2,7 +2,7 @@
   <div class="iconBox">
     <el-input
       v-model="iconVal"
-      placeholder="输入关键词搜索,注意全是英文"
+      placeholder="输入关键词بحث,注意全是英文"
       clearable
       style="width: 300px"
       @change="upIcon(iconVal)"
@@ -35,7 +35,7 @@ export default {
     };
   },
   methods: {
-    // 搜索
+    // بحث
     upIcon(n) {
       this.searchData = this.list.filter((item) => item.indexOf(this.iconVal) > -1);
     },

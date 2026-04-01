@@ -4,7 +4,7 @@
       <el-row class="mb20">
         <el-col :span="24">
           <el-button v-auth="['setting-delivery_service-add']" type="primary" v-db-click @click="add" class="mr10"
-            >添加配送员</el-button
+            >إضافة配送员</el-button
           >
         </el-col>
       </el-row>
@@ -27,7 +27,7 @@
             </div>
           </template>
         </el-table-column>
-        <el-table-column label="名称" min-width="130">
+        <el-table-column label="الاسم" min-width="130">
           <template slot-scope="scope">
             <span>{{ scope.row.nickname }}</span>
           </template>
@@ -53,16 +53,16 @@
             </el-switch>
           </template>
         </el-table-column>
-        <el-table-column label="添加时间" min-width="130">
+        <el-table-column label="إضافةالوقت" min-width="130">
           <template slot-scope="scope">
             <span>{{ scope.row.add_time }}</span>
           </template>
         </el-table-column>
-        <el-table-column label="操作" fixed="right" width="100">
+        <el-table-column label="الخيارات" fixed="right" width="100">
           <template slot-scope="scope">
-            <a v-db-click @click="edit(scope.row)">编辑</a>
+            <a v-db-click @click="edit(scope.row)">تحرير</a>
             <el-divider direction="vertical"></el-divider>
-            <a v-db-click @click="del(scope.row, '删除配送员', scope.$index)">删除</a>
+            <a v-db-click @click="del(scope.row, 'حذف配送员', scope.$index)">حذف</a>
           </template>
         </el-table-column>
       </el-table>
@@ -117,15 +117,15 @@ export default {
           this.$message.error(err.msg);
         });
     },
-    // 添加配送员
+    // إضافة配送员
     add() {
       this.$modalForm(orderDeliveryAdd()).then(() => this.getOrderDeliveryList());
     },
-    // 编辑
+    // تحرير
     edit(row) {
       this.$modalForm(orderDeliveryEdit(row.id)).then(() => this.getOrderDeliveryList());
     },
-    // 删除
+    // حذف
     del(row, tit, num) {
       let delfromData = {
         title: tit,

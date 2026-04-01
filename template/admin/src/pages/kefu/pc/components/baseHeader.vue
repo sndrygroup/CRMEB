@@ -5,7 +5,7 @@
         v-model="value"
         class="search_box"
         prefix="ios-search"
-        placeholder="搜索用户名称"
+        placeholder="بحثاسم المستخدم称"
         @change="bindSearch"
       />
       <div class="user_info">
@@ -27,7 +27,7 @@
           </div>
         </div>
       </div>
-      <div class="out-btn" v-db-click @click.stop="outLogin">退出登录</div>
+      <div class="out-btn" v-db-click @click.stop="outLogin">退出تسجيل الدخول</div>
     </div>
     <div class="right-menu">
       <div
@@ -101,15 +101,15 @@ export default {
       this.$emit('setOnline', type);
       this.isOnline = false;
     },
-    // 退出登录
+    // 退出تسجيل الدخول
     outLogin() {
       let self = this;
       this.$msgbox({
-        title: '退出登录确认',
-        message: '您确定退出登录当前账户吗？打开的标签页和个人设置将会保存。',
+        title: '退出تسجيل الدخولتأكيد',
+        message: '您确定退出تسجيل الدخول当前账户吗？打开的标签页和个人设置将会حفظ。',
         showCancelButton: true,
-        cancelButtonText: '取消',
-        confirmButtonText: '确认',
+        cancelButtonText: 'إلغاء',
+        confirmButtonText: 'تأكيد',
         iconClass: 'el-icon-warning',
         confirmButtonClass: 'btn-custom-cancel',
       })
@@ -121,7 +121,7 @@ export default {
         })
         .catch(() => {});
     },
-    // 搜索
+    // بحث
     bindSearch(e) {
       this.$emit('search', e);
     },

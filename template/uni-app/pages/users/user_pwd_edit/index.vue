@@ -5,11 +5,11 @@
 				<view class="phone">{{$t(`当前手机号`)}}：{{phone}}</view>
 				<view class="list">
 					<view class="item">
-						<input type='password' :placeholder='$t(`设置新密码`)' placeholder-class='placeholder'
+						<input type='password' :placeholder='$t(`设置新كلمة المرور`)' placeholder-class='placeholder'
 							name="password" :value="password"></input>
 					</view>
 					<view class="item">
-						<input type='password' :placeholder='$t(`确认新密码`)' placeholder-class='placeholder'
+						<input type='password' :placeholder='$t(`تأكيد新كلمة المرور`)' placeholder-class='placeholder'
 							name="qr_password" :value="qr_password"></input>
 					</view>
 					<view class="item acea-row row-between-wrapper">
@@ -21,7 +21,7 @@
 						</button>
 					</view>
 				</view>
-				<button form-type="submit" class="confirmBnt bg-color">{{$t(`确认修改`)}}</button>
+				<button form-type="submit" class="confirmBnt bg-color">{{$t(`تأكيدتعديل`)}}</button>
 			</form>
 		</view>
 		<!-- #ifdef MP -->
@@ -150,7 +150,7 @@
 				});
 			},
 			/**
-			 * H5登录 修改密码
+			 * H5تسجيل الدخول تعديلكلمة المرور
 			 * 
 			 */
 			editPwd: function(e) {
@@ -159,13 +159,13 @@
 					qr_password = e.detail.value.qr_password,
 					captcha = e.detail.value.captcha;
 				if (!password) return that.$util.Tips({
-					title: that.$t(`请输入新密码`)
+					title: that.$t(`الرجاء إدخال 新كلمة المرور`)
 				});
 				if (qr_password != password) return that.$util.Tips({
-					title: that.$t(`两次输入的密码不一致！`)
+					title: that.$t(`两次输入的كلمة المرور不一致！`)
 				});
 				if (!captcha) return that.$util.Tips({
-					title: that.$t(`请输入验证码`)
+					title: that.$t(`الرجاء إدخال 验证码`)
 				});
 				phoneRegisterReset({
 					account: that.userInfo.phone,

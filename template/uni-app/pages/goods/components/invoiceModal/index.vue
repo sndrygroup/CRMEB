@@ -78,7 +78,7 @@
 			</view>
 		</view>
 		<view class="btn" @click="close">
-{{$t(`确认`)}}
+{{$t(`تأكيد`)}}
 		</view>
 	</view>
 </template>

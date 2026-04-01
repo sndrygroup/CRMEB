@@ -176,7 +176,7 @@ export default {
   configName: 'c_points_mall',
   icon: '#iconzujian-jifenshangcheng',
   type: 1, // 0 基础组件 1 营销组件 2工具组件
-  defaultName: 'pointsMall', // 外面匹配名称
+  defaultName: 'pointsMall', // 外面匹配الاسم
   props: {
     index: {
       type: null,
@@ -217,7 +217,7 @@ export default {
   // mixins: [theme],
   data() {
     return {
-      // 默认初始化数据禁止修改
+      // 默认初始化数据禁止تعديل
       configObj: null,
       defaultConfig: {
         cname: '积分商城',
@@ -281,13 +281,13 @@ export default {
         titleTxtConfig: {
           title: '标题文字',
           value: '积分兑好礼',
-          place: '请输入标题文字',
+          place: 'الرجاء إدخال 标题文字',
           max: 10,
         },
         rightBntConfig: {
           title: '右侧按钮',
           value: '更多',
-          place: '请输入右侧按钮',
+          place: 'الرجاء إدخال 右侧按钮',
           max: 6,
         },
         numberConfig: {
@@ -419,7 +419,7 @@ export default {
           valList: [{ val: 0 }, { val: 0 }, { val: 0 }, { val: 0 }],
         },
         goodsNameColor: {
-          title: '商品名称',
+          title: '商品الاسم',
           name: 'goodsNameColor',
           default: [
             {
@@ -433,7 +433,7 @@ export default {
           ],
         },
         goodsNameColor2: {
-          title: '商品名称',
+          title: '商品الاسم',
           name: 'goodsNameColor2',
           default: [
             {

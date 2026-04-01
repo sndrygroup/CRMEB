@@ -18,7 +18,7 @@
             <span>{{ scope.row.id }}</span>
           </template>
         </el-table-column>
-        <el-table-column label="名称" width="180">
+        <el-table-column label="الاسم" width="180">
           <template slot-scope="scope">
             <span>{{ scope.row.title }}</span>
           </template>
@@ -28,33 +28,33 @@
             <span>{{ scope.row.path }}</span>
           </template>
         </el-table-column>
-        <el-table-column label="系统链接(编辑不改变)" min-width="200">
+        <el-table-column label="系统链接(تحرير不改变)" min-width="200">
           <template slot-scope="scope">
             <span>{{ scope.row.http_url }}</span>
             <a class="ml10" v-db-click @click="onCopy(scope.row.http_url)">复制</a>
           </template>
         </el-table-column>
-        <el-table-column label="微信链接(编辑改变)" min-width="200">
+        <el-table-column label="微信链接(تحرير改变)" min-width="200">
           <template slot-scope="scope">
             <span>{{ scope.row.url }}</span>
             <a class="ml10" v-db-click @click="onCopy(scope.row.url)">复制</a>
           </template>
         </el-table-column>
-        <el-table-column label="添加时间" min-width="130">
+        <el-table-column label="إضافةالوقت" min-width="130">
           <template slot-scope="scope">
             <span>{{ scope.row.add_time }}</span>
           </template>
         </el-table-column>
-        <el-table-column label="到期时间" min-width="130">
+        <el-table-column label="到期الوقت" min-width="130">
           <template slot-scope="scope">
             <span>{{ scope.row.expire_time }}</span>
           </template>
         </el-table-column>
-        <el-table-column label="操作" fixed="right" width="120">
+        <el-table-column label="الخيارات" fixed="right" width="120">
           <template slot-scope="scope">
-            <a v-db-click @click="edit(scope.row)">编辑</a>
+            <a v-db-click @click="edit(scope.row)">تحرير</a>
             <el-divider direction="vertical"></el-divider>
-            <a v-db-click @click="del(scope.row, '删除链接', scope.$index)">删除</a>
+            <a v-db-click @click="del(scope.row, 'حذف链接', scope.$index)">حذف</a>
           </template>
         </el-table-column>
       </el-table>
@@ -101,7 +101,7 @@ export default {
     this.routineSchemeList();
   },
   methods: {
-    // 添加
+    // إضافة
     add() {
       this.$modalForm(routineSchemeForm(0)).then((res) => {
         this.routineSchemeList();
@@ -130,13 +130,13 @@ export default {
           this.loading = false;
         });
     },
-    // 添加
+    // إضافة
     edit(row) {
       this.$modalForm(routineSchemeForm(row.id)).then((res) => {
         this.routineSchemeList();
       });
     },
-    // 删除
+    // حذف
     del(row, tit, num) {
       let delfromData = {
         title: tit,

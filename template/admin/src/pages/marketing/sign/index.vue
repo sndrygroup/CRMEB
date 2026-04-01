@@ -23,9 +23,9 @@
                 type="primary"
                 icon="md-add"
                 v-db-click
-                @click="groupAdd('添加数据')"
+                @click="groupAdd('إضافة数据')"
                 style="margin-left: 14px; margin-top: 30px"
-                >添加数据</el-button
+                >إضافة数据</el-button
               >
             </div>
           </div>
@@ -73,11 +73,11 @@
                   <span>{{ scope.row.sort }}</span>
                 </template>
               </el-table-column>
-              <el-table-column label="操作" fixed="right" width="150">
+              <el-table-column label="الخيارات" fixed="right" width="150">
                 <template slot-scope="scope">
-                  <a v-db-click @click="edit(scope.row, '编辑')">编辑</a>
+                  <a v-db-click @click="edit(scope.row, 'تحرير')">تحرير</a>
                   <el-divider direction="vertical"></el-divider>
-                  <a v-db-click @click="del(scope.row, '删除这条信息', scope.$index)">删除</a>
+                  <a v-db-click @click="del(scope.row, 'حذف这条信息', scope.$index)">حذف</a>
                 </template>
               </el-table-column>
             </el-table>
@@ -136,7 +136,7 @@ export default {
       },
       ruleValidate: {},
       myConfig: {
-        autoHeightEnabled: false, // 编辑器不自动被内容撑高
+        autoHeightEnabled: false, // تحرير器不自动被内容撑高
         initialFrameHeight: 500, // 初始容器高度
         initialFrameWidth: '100%', // 初始容器宽度
         UEDITOR_HOME_URL: '/UEditor/',
@@ -267,7 +267,7 @@ export default {
         }
       });
     },
-    // 添加表单
+    // إضافة表单
     groupAdd() {
       this.$modalForm(groupDataAddApi({ gid: this.pageId, config_name: this.name }, 'setting/group_data/create')).then(
         () => {
@@ -302,7 +302,7 @@ export default {
         };
       } else {
         if (this.tabList.list.length == 5) {
-          this.$message.warning('最多添加五张呦');
+          this.$message.warning('最多إضافة五张呦');
         } else {
           let obj = JSON.parse(JSON.stringify(this.lastObj));
           this.tabList.list.push(obj);
@@ -348,7 +348,7 @@ export default {
           this.$message.error(res.msg);
         });
     },
-    // 编辑
+    // تحرير
     edit(row) {
       this.$modalForm(
         groupDataEditApi({ gid: this.pageId, config_name: this.name }, 'setting/group_data/' + row.id + '/edit'),
@@ -357,7 +357,7 @@ export default {
         this.url = this.BaseURL + 'pages/users/user_sgin/index';
       });
     },
-    // 删除
+    // حذف
     del(row, tit, num) {
       let delfromData = {
         title: tit,
@@ -375,7 +375,7 @@ export default {
           this.$message.error(res.msg);
         });
     },
-    // 修改是否显示
+    // تعديل是否显示
     onchangeIsShow(row) {
       groupDataSetApi('setting/group_data/set_status/' + row.id + '/' + row.status)
         .then(async (res) => {
@@ -399,7 +399,7 @@ export default {
           this.$message.error(res.msg);
         });
     },
-    // 提交数据
+    // إرسال数据
     onsubmit(name) {
       this.$refs[name].validate((valid) => {
         if (valid) {

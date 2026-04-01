@@ -21,7 +21,7 @@
             class="mt14"
           >
             <el-table-column type="selection" width="55"> </el-table-column>
-            <el-table-column label="表名称" min-width="100">
+            <el-table-column label="表الاسم" min-width="100">
               <template slot-scope="scope">
                 <span>{{ scope.row.name }}</span>
               </template>
@@ -46,7 +46,7 @@
                 <span>{{ scope.row.data_length }}</span>
               </template>
             </el-table-column>
-            <el-table-column label="更新时间" min-width="100">
+            <el-table-column label="更新الوقت" min-width="100">
               <template slot-scope="scope">
                 <span>{{ scope.row.update_time }}</span>
               </template>
@@ -56,14 +56,14 @@
                 <span>{{ scope.row.rows }}</span>
               </template>
             </el-table-column>
-            <el-table-column label="操作" fixed="right" width="70">
+            <el-table-column label="الخيارات" fixed="right" width="70">
               <template slot-scope="scope">
-                <a v-db-click @click="Info(scope.row)">详情</a>
+                <a v-db-click @click="Info(scope.row)">تفاصيل</a>
               </template>
             </el-table-column>
           </el-table>
           <!--          </el-card>-->
-          <!-- 详情模态框-->
+          <!-- تفاصيل模态框-->
           <el-drawer
             :visible.sync="modals"
             :wrapperClosable="false"
@@ -130,7 +130,7 @@
             highlight-current-row
             size="small"
           >
-            <el-table-column label="备份名称" min-width="200">
+            <el-table-column label="备份الاسم" min-width="200">
               <template slot-scope="scope">
                 <span>{{ scope.row.filename }}</span>
               </template>
@@ -150,16 +150,16 @@
                 <span>{{ scope.row.compress }}</span>
               </template>
             </el-table-column>
-            <el-table-column label="时间" min-width="100">
+            <el-table-column label="الوقت" min-width="100">
               <template slot-scope="scope">
                 <span>{{ scope.row.backtime }}</span>
               </template>
             </el-table-column>
-            <el-table-column label="操作" fixed="right" width="140">
+            <el-table-column label="الخيارات" fixed="right" width="140">
               <template slot-scope="scope">
                 <a v-db-click @click="ImportFile(scope.row)">导入</a>
                 <el-divider direction="vertical"></el-divider>
-                <a v-db-click @click="del(scope.row, '删除该备份', scope.$index)">删除</a>
+                <a v-db-click @click="del(scope.row, 'حذف该备份', scope.$index)">حذف</a>
                 <el-divider direction="vertical"></el-divider>
                 <a v-db-click @click="download(scope.row)">下载</a>
               </template>
@@ -168,7 +168,7 @@
         </el-tab-pane>
       </el-tabs>
     </el-card>
-    <el-dialog :visible.sync="markModal" width="470px" title="修改备注" @closed="cancel">
+    <el-dialog :visible.sync="markModal" width="470px" title="تعديل备注" @closed="cancel">
       <el-input v-model="mark"></el-input>
       <span slot="footer" class="dialog-footer">
         <el-button v-db-click @click="cancel">取 消</el-button>
@@ -268,7 +268,7 @@ export default {
           this.$message.error(res.msg);
         });
     },
-    // 删除备份记录表
+    // حذف备份记录表
     del(row, tit, num) {
       let delfromData = {
         title: tit,
@@ -329,7 +329,7 @@ export default {
     // 备份表
     getBackup() {
       if (this.selectionList.length === 0) {
-        return this.$message.warning('请选择表');
+        return this.$message.warning('الرجاء اختيار 表');
       }
       backupBackupApi(this.dataList)
         .then(async (res) => {
@@ -358,7 +358,7 @@ export default {
     // 优化表
     getOptimize() {
       if (this.selectionList.length === 0) {
-        return this.$message.warning('请选择表');
+        return this.$message.warning('الرجاء اختيار 表');
       }
       backupOptimizeApi(this.dataList)
         .then(async (res) => {
@@ -371,7 +371,7 @@ export default {
     // 修复表
     getRepair() {
       if (this.selectionList.length === 0) {
-        return this.$message.warning('请选择表');
+        return this.$message.warning('الرجاء اختيار 表');
       }
       backupRepairApi(this.dataList)
         .then(async (res) => {
@@ -395,7 +395,7 @@ export default {
           this.$message.error(res.msg);
         });
     },
-    // 详情
+    // تفاصيل
     Info(row) {
       this.rows = row;
       this.modals = true;

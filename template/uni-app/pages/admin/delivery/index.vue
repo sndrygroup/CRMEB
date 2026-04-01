@@ -86,7 +86,7 @@
               <view>快递单号</view>
               <input
                 type="text"
-                placeholder="请输入"
+                placeholder="الرجاء إدخال "
                 v-model="delivery_id"
                 class="mode"
               />
@@ -103,7 +103,7 @@
             </view>
             <view class="item">
               <view class="trip" v-if="curExpress == 1"
-                >顺丰请输入单号 :收件人或寄件人手机号后四位</view
+                >顺丰الرجاء إدخال 单号 :收件人或寄件人手机号后四位</view
               >
               <view class="trip" v-if="curExpress == 1"
                 >例如：SF000000000000:3941</view
@@ -233,7 +233,7 @@
     </view> -->
     <view class="height-add"></view>
     <view class="confirm-wrapper">
-      <view class="confirm" @click="saveInfo">确认提交</view>
+      <view class="confirm" @click="saveInfo">تأكيدإرسال</view>
     </view>
   </view>
 </template>
@@ -308,7 +308,7 @@ export default {
       seIndex: 0,
       expIndex: 0,
       expTemp: [], // 快递模板
-      to_name: "", // 发货人名称
+      to_name: "", // 发货人الاسم
       to_tel: "", // 发货人电话
       to_addr: "", // 发货人地址
       postPeople: [], //配送人
@@ -535,7 +535,7 @@ export default {
         }
         if (that.expTemp.length == 0) {
           return this.$util.Tips({
-            title: "请选择电子面单",
+            title: "الرجاء اختيار 电子面单",
           });
         }
         save.express_record_type = that.curExpress;
@@ -552,7 +552,7 @@ export default {
       if (delivery_type == 2) {
         if (!that.postPeople.length) {
           return this.$util.Tips({
-            title: "请在平台后台添加送货人",
+            title: "请在平台后台إضافة送货人",
           });
         }
         let obj = this.postPeople[this.postIndex];
@@ -609,7 +609,7 @@ export default {
     setSplitInfo(item) {
       if (!this.cartIds.length) {
         return this.$util.Tips({
-          title: "请选择发货商品",
+          title: "الرجاء اختيار 发货商品",
         });
       }
       item.cart_ids = this.cartIds;

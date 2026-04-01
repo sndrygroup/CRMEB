@@ -11,7 +11,7 @@
       <div class="note" v-if="isChecked === '1' && sms.open === 1">
         <div class="acea-row row-between-wrapper">
           <div>
-            <span>短信状态：</span>
+            <span>短信الحالة：</span>
             <el-radio-group type="button" v-model="tableFrom.type" @input="selectChange(tableFrom.type)">
               <el-radio-button label="">全部</el-radio-button>
               <el-radio-button label="1">成功</el-radio-button>
@@ -21,7 +21,7 @@
           </div>
           <div>
             <el-button type="primary" v-db-click @click="shortMes">短信模板</el-button>
-            <el-button style="margin-left: 20px" v-db-click @click="editSign">修改签名</el-button>
+            <el-button style="margin-left: 20px" v-db-click @click="editSign">تعديل签名</el-button>
           </div>
         </div>
         <el-table
@@ -47,12 +47,12 @@
               <span>{{ scope.row.num }}</span>
             </template>
           </el-table-column>
-          <el-table-column label="发送时间" min-width="130">
+          <el-table-column label="发送الوقت" min-width="130">
             <template slot-scope="scope">
               <span>{{ scope.row.add_time }}</span>
             </template>
           </el-table-column>
-          <el-table-column label="状态码" min-width="130">
+          <el-table-column label="الحالة码" min-width="130">
             <template slot-scope="scope">
               <span>{{ scope.row._resultcode }}</span>
             </template>
@@ -161,12 +161,12 @@
                   type="text"
                   v-model="formInline.sign"
                   prefix="ios-contact-outline"
-                  placeholder="请输入短信签名"
+                  placeholder="الرجاء إدخال 短信签名"
                 />
               </el-form-item>
               <el-form-item class="maxInpt">
                 <el-button type="primary" long size="default" v-db-click @click="handleSubmit('formInline')" class="btn"
-                  >登录</el-button
+                  >تسجيل الدخول</el-button
                 >
               </el-form-item>
             </el-form>
@@ -189,7 +189,7 @@
               <el-form-item prop="com" class="maxInpt">
                 <el-select
                   v-model="formInlineDump.com"
-                  placeholder="请选择快递公司"
+                  placeholder="الرجاء اختيار 快递公司"
                   @change="onChangeExport"
                   style="text-align: left"
                 >
@@ -205,7 +205,7 @@
                 <div class="acea-row">
                   <el-select
                     v-model="formInlineDump.temp_id"
-                    placeholder="请选择电子面单模板"
+                    placeholder="الرجاء اختيار 电子面单模板"
                     style="text-align: left"
                     :class="[formInlineDump.temp_id ? 'width9' : 'width10']"
                     @change="onChangeImg"
@@ -275,7 +275,7 @@
     </el-card>
     <el-dialog
       :visible.sync="modals"
-      title="短信账户签名修改"
+      title="短信账户签名تعديل"
       width="540px"
       class="order_box"
       @closed="cancel('formInline')"
@@ -294,7 +294,7 @@
           <el-input
             v-model="formInline.sign"
             prefix="ios-document-outline"
-            placeholder="请输入短信签名，例如：CRMEB"
+            placeholder="الرجاء إدخال 短信签名，例如：CRMEB"
             size="large"
             style="width: 87%"
           ></el-input>
@@ -303,7 +303,7 @@
           <el-input
             v-model="formInline.phone"
             prefix="ios-call-outline"
-            placeholder="请输入您的手机号"
+            placeholder="الرجاء إدخال 您的手机号"
             size="large"
             style="width: 87%"
           ></el-input>
@@ -330,7 +330,7 @@
             @click="editSubmit('formInline')"
             class="btn"
             style="width: 87%"
-            >确认修改</el-button
+            >تأكيدتعديل</el-button
           >
         </el-form-item>
       </el-form>
@@ -396,9 +396,9 @@ export default {
         code: '',
       },
       ruleInline: {
-        sign: [{ required: true, message: '请输入短信签名', trigger: 'blur' }],
+        sign: [{ required: true, message: 'الرجاء إدخال 短信签名', trigger: 'blur' }],
         phone: [{ required: true, validator: validatePhone, trigger: 'blur' }],
-        code: [{ required: true, message: '请输入验证码', trigger: 'blur' }],
+        code: [{ required: true, message: 'الرجاء إدخال 验证码', trigger: 'blur' }],
       },
       isChecked: '1',
       columns2: [],
@@ -419,11 +419,11 @@ export default {
         to_address: '',
       },
       ruleInlineDump: {
-        com: [{ required: true, message: '请选择快递公司', trigger: 'change' }],
-        temp_id: [{ required: true, message: '请选择打印模板', trigger: 'change' }],
+        com: [{ required: true, message: 'الرجاء اختيار 快递公司', trigger: 'change' }],
+        temp_id: [{ required: true, message: 'الرجاء اختيار 打印模板', trigger: 'change' }],
         to_name: [{ required: true, message: '请输寄件人姓名', trigger: 'blur' }],
         to_tel: [{ required: true, validator: validatePhone, trigger: 'blur' }],
-        siid: [{ required: true, message: '请输入云打印机编号', trigger: 'blur' }],
+        siid: [{ required: true, message: 'الرجاء إدخال 云打印机编号', trigger: 'blur' }],
         to_address: [{ required: true, message: '请输寄件人地址', trigger: 'blur' }],
       },
       tempImg: '', // 图片
@@ -492,7 +492,7 @@ export default {
       this.modals = false;
       this.$refs[name].resetFields();
     },
-    // 提交
+    // إرسال
     editSubmit(name) {
       this.$refs[name].validate((valid) => {
         if (valid) {
@@ -587,12 +587,12 @@ export default {
                   minWidth: 120,
                 },
                 {
-                  title: '状态',
+                  title: 'الحالة',
                   key: '_resultcode',
                   minWidth: 100,
                 },
                 {
-                  title: '打印时间',
+                  title: '打印الوقت',
                   key: 'add_time',
                   minWidth: 150,
                 },
@@ -611,12 +611,12 @@ export default {
                   minWidth: 120,
                 },
                 {
-                  title: '状态',
+                  title: 'الحالة',
                   key: '_resultcode',
                   minWidth: 120,
                 },
                 {
-                  title: '添加时间',
+                  title: 'إضافةالوقت',
                   key: 'add_time',
                   minWidth: 150,
                 },
@@ -630,12 +630,12 @@ export default {
                   minWidth: 400,
                 },
                 {
-                  title: '请求状态',
+                  title: '请求الحالة',
                   key: '_resultcode',
                   minWidth: 120,
                 },
                 {
-                  title: '添加时间',
+                  title: 'إضافةالوقت',
                   key: 'add_time',
                   minWidth: 150,
                 },
@@ -649,7 +649,7 @@ export default {
           this.$message.error(res.msg);
         });
     },
-    // 开通短信提交
+    // 开通短信إرسال
     handleSubmit(name) {
       this.$refs[name].validate((valid) => {
         if (valid) {
@@ -701,7 +701,7 @@ export default {
         title: '开通物流查询吗',
         message: '确定要开通物流查询吗？',
         showCancelButton: true,
-        cancelButtonText: '取消',
+        cancelButtonText: 'إلغاء',
         confirmButtonText: '确定',
         iconClass: 'el-icon-warning',
         confirmButtonClass: 'btn-custom-cancel',
@@ -722,7 +722,7 @@ export default {
         title: '开通商品采集吗',
         message: '确定要开通商品采集吗？',
         showCancelButton: true,
-        cancelButtonText: '取消',
+        cancelButtonText: 'إلغاء',
         confirmButtonText: '确定',
         iconClass: 'el-icon-warning',
         confirmButtonClass: 'btn-custom-cancel',
@@ -769,7 +769,7 @@ export default {
           this.$message.error(res.msg);
         });
     },
-    // 表格搜索
+    // 表格بحث
     userSearchs() {
       this.getList();
     },

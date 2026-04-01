@@ -28,8 +28,8 @@ export function userShare() {
 }
 
 /**
- * h5用户登录
- * @param data object 用户账号密码
+ * h5用户تسجيل الدخول
+ * @param data object 用户账号كلمة المرور
  */
 export function loginH5(data) {
 	return request.post("login", data, {
@@ -38,7 +38,7 @@ export function loginH5(data) {
 }
 
 /**
- * h5用户手机号登录
+ * h5用户手机号تسجيل الدخول
  * @param data object 用户手机号 也只能
  */
 export function loginMobile(data) {
@@ -68,7 +68,7 @@ export function registerVerify(data) {
 
 /**
  * h5用户手机号注册
- * @param data object 用户手机号 验证码 密码
+ * @param data object 用户手机号 验证码 كلمة المرور
  */
 export function register(data) {
 	return request.post("register", data, {
@@ -77,8 +77,8 @@ export function register(data) {
 }
 
 /**
- * 用户手机号修改密码
- * @param data object 用户手机号 验证码 密码
+ * 用户手机号تعديلكلمة المرور
+ * @param data object 用户手机号 验证码 كلمة المرور
  */
 export function registerReset(data) {
 	return request.post("register/reset", data, {
@@ -136,7 +136,7 @@ export function getSignMonthList(data) {
 }
 
 /**
- * 活动状态
+ * 活动الحالة
  * 
  */
 export function userActivity() {
@@ -294,7 +294,7 @@ export function setAddressDefault(id) {
 }
 
 /**
- * 修改 添加地址
+ * تعديل إضافة地址
  * @param object data
  */
 export function editAddress(data) {
@@ -302,7 +302,7 @@ export function editAddress(data) {
 }
 
 /**
- * 删除地址
+ * حذف地址
  * @param int id
  * 
  */
@@ -321,7 +321,7 @@ export function getAddressDetail(id) {
 }
 
 /**
- * 修改用户信息
+ * تعديل用户信息
  * @param object
  */
 export function userEdit(data) {
@@ -329,7 +329,7 @@ export function userEdit(data) {
 }
 
 /*
- * 退出登录
+ * 退出تسجيل الدخول
  * */
 export function getLogout() {
 	return request.get("logout");
@@ -371,7 +371,7 @@ export function getRechargeApi() {
 }
 
 /**
- * 登录记录
+ * تسجيل الدخول记录
  */
 export function setVisit(data) {
 	return request.post('user/set_visit', {
@@ -388,7 +388,7 @@ export function serviceList() {
 	return request.get("user/service/list");
 }
 /**
- * 客服详情
+ * 客服تفاصيل
  */
 export function getChatRecord(data) {
 	return request.get("v2/user/service/record", data);
@@ -403,7 +403,7 @@ export function spread(puid) {
 }
 
 /**
- * 会员详情
+ * 会员تفاصيل
  */
 export function getlevelInfo() {
 	return request.get("user/level/info");
@@ -418,7 +418,7 @@ export function getlevelExpList(data) {
 
 
 /**
- * 微信直接手机号登录
+ * 微信直接手机号تسجيل الدخول
  */
 export function phoneWxSilenceAuth(data) {
 	return request.post('v2/phone_wx_silence_auth', data, {
@@ -427,7 +427,7 @@ export function phoneWxSilenceAuth(data) {
 }
 
 /**
- * 小程序直接手机号登录
+ * 小程序直接手机号تسجيل الدخول
  */
 export function phoneSilenceAuth(data) {
 	return request.post('v2/phone_silence_auth', data, {
@@ -446,7 +446,7 @@ export function invoiceList(data) {
 }
 
 /**
- * 用户添加|修改发票
+ * 用户إضافة|تعديل发票
  * @param {Object} data
  */
 export function invoiceSave(data) {
@@ -456,7 +456,7 @@ export function invoiceSave(data) {
 }
 
 /**
- * 用户删除发票
+ * 用户حذف发票
  * @param {Object} data
  */
 export function invoiceDelete(id) {
@@ -472,7 +472,7 @@ export function invoiceDefault(type) {
 }
 
 /**
- * 用户单个发票详情
+ * 用户单个发票تفاصيل
  * @param {Object} id
  */
 export function invoiceDetail(id) {
@@ -488,7 +488,7 @@ export function invoiceOrder(data) {
 }
 
 /**
- * 订单详情中申请开票
+ * 订单تفاصيل中申请开票
  * @param {Object} id
  */
 export function makeUpinvoice(data) {
@@ -581,21 +581,21 @@ export function messageSystem(data) {
 }
 
 /**
- * 消息中心-站内信列表详情
+ * 消息中心-站内信列表تفاصيل
  */
 export function getMsgDetails(id) {
 	return request.get('user/message_system/detail/' + id);
 }
 
 /**
- * 消息中心-消息已读/删除
+ * 消息中心-消息已读/حذف
  */
 export function msgLookDel(data) {
 	return request.get('user/message_system/edit_message', data);
 }
 
 /**
- * 苹果账号登录
+ * 苹果账号تسجيل الدخول
  * @param {Object} data
  */
 export function appleLogin(data) {
@@ -630,7 +630,7 @@ export function agentLevelTaskList(id) {
 }
 
 /**
- * 获取代付详情
+ * 获取代付تفاصيل
  * @param int id 任务id
  */
 export function friendDetail(id) {
@@ -657,7 +657,7 @@ export function setClerkPercent(data) {
 
 /**
  * 
- * 删除员工
+ * حذف员工
  * @param object data
  */
 export function delClerkPercent(id) {
@@ -730,7 +730,7 @@ export function spreadAgent(data) {
 	return request.post(`agent/spread`, data);
 }
 
-// 用户确认商家转账
+// 用户تأكيد商家转账
 export function transferInfoApi(data) {
 	return request.get(`transfer/info`, data);
 }

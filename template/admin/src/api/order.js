@@ -11,7 +11,7 @@
 import request from '@/libs/request';
 
 /**
- * @description 订单管理--列表
+ * @description 订单إدارة--列表
  * @param {Object} param data {Object} 传值参数
  */
 export function orderList(data) {
@@ -47,7 +47,7 @@ export function orderInvoiceList(data) {
 }
 
 /**
- * @description 发票提交订单
+ * @description 发票إرسال订单
  * @param {Object} param data {Object} 传值参数
  */
 export function orderInvoiceSet(id, data) {
@@ -59,7 +59,7 @@ export function orderInvoiceSet(id, data) {
 }
 
 /**
- * @description 发票订单详情；
+ * @description 发票订单تفاصيل；
  * @param {Object} param data {Object} 传值参数
  */
 export function orderInvoiceInfo(id) {
@@ -82,7 +82,7 @@ export function getOrdes(data) {
 }
 
 /**
- * @description 订单表单编辑数据
+ * @description 订单表单تحرير数据
  * @param {Number} param id {Number} 订单id
  */
 export function getOrdeDatas(id) {
@@ -93,7 +93,7 @@ export function getOrdeDatas(id) {
 }
 
 /**
- * @description 订单表单详情数据
+ * @description 订单表单تفاصيل数据
  * @param {Number} param id {Number} 订单id
  */
 export function getDataInfo(id) {
@@ -104,7 +104,7 @@ export function getDataInfo(id) {
 }
 
 /**
- * @description 订单表单详情数据-新
+ * @description 订单表单تفاصيل数据-新
  * @param {Number} param id {Number} 订单id
  */
 export function getDataInfoNew(id) {
@@ -115,7 +115,7 @@ export function getDataInfoNew(id) {
 }
 
 /**
- * @description 修改备注信息
+ * @description تعديل备注信息
  * @param {Number} param data.id {Number} 订单id
  * @param {String} param data.remark {String} 备注信息
  */
@@ -205,7 +205,7 @@ export function getNewnoRefundFrom(id) {
 }
 
 /**
- * @description 发送货提交表单
+ * @description 发送货إرسال表单
  * @param {Number} param data.id {Number} 订单id
  * @param {Object} param data.datas {Object} 表单信息
  */
@@ -245,7 +245,7 @@ export function orderDeliveryList() {
 }
 
 /**
- * 列表修改账号状态
+ * 列表تعديل账号الحالة
  * @param {*} data data
  */
 export function orderDeliveryStatus(data) {
@@ -256,7 +256,7 @@ export function orderDeliveryStatus(data) {
 }
 
 /**
- * 编辑配送员表单
+ * تحرير配送员表单
  * @param {*} id id
  */
 export function orderDeliveryEdit(id) {
@@ -381,7 +381,7 @@ export function putWrite(data) {
 }
 
 /**
- * @description 订单管理 -- 导出
+ * @description 订单إدارة -- 导出
  */
 export function storeOrderApi(data) {
   return request({
@@ -525,7 +525,7 @@ export function orderPrice(data) {
   });
 }
 /**
- * @description 取消商家寄件
+ * @description إلغاء商家寄件
  * @param {Object} param data {Object} 传值参数
  */
 export function shipmentCancelOrder(id, data) {
@@ -579,7 +579,7 @@ export function kuaidiComsList() {
 }
 
 /**
- * @description 修改退款订单备注信息
+ * @description تعديل退款订单备注信息
  * @param {Number} param data.id {Number} 订单id
  * @param {String} param data.remark {String} 备注信息
  */
@@ -613,7 +613,7 @@ export function distributionOrder(id) {
   });
 }
 /**
- * @description 发票管理
+ * @description 发票إدارة
  * @param id  发票id
  */
 export function invoiceIssuanceUrl(id) {
@@ -643,7 +643,7 @@ export function redInvoiceIssuance(id) {
   });
 }
 /**
- * @description 发票状态修改
+ * @description 发票الحالةتعديل
  * @param id  发票id
  * @param data  发票信息
  */
@@ -655,8 +655,8 @@ export function saveInvoiceInfo(id, data) {
   });
 }
 /**
- * @description 发票分类搜索
- * @param name  发票分类名称
+ * @description 发票分类بحث
+ * @param name  发票分类الاسم
  */
 export function invoiceCategory(name) {
   return request({
@@ -666,7 +666,7 @@ export function invoiceCategory(name) {
   });
 }
 /**
- * @description 提交电子发票配置
+ * @description إرسال电子发票配置
  * @param data  发票信息
  */
 export function saveBasics(data) {
@@ -686,7 +686,7 @@ export function invoiceConfig() {
   });
 }
 
-// 修改发送货地址
+// تعديل发送货地址
 export function editAddress(data) {
   return request({
     url: `/order/edit_address/${data.id}`,

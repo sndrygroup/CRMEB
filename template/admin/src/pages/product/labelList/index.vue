@@ -4,7 +4,7 @@
       <el-col v-bind="grid1" class="left-wrapper">
         <div class="tree_tit" v-db-click @click="addSort">
           <i class="el-icon-circle-plus"></i>
-          添加分组
+          إضافة分组
         </div>
         <div class="tree">
           <el-tree
@@ -30,8 +30,8 @@
                   <i class="el-icon-more el-icon--right"></i>
                   <template slot="dropdown">
                     <el-dropdown-menu>
-                      <el-dropdown-item command="1">编辑分组</el-dropdown-item>
-                      <el-dropdown-item v-if="data.id" command="2">删除分组</el-dropdown-item>
+                      <el-dropdown-item command="1">تحرير分组</el-dropdown-item>
+                      <el-dropdown-item v-if="data.id" command="2">حذف分组</el-dropdown-item>
                     </el-dropdown-menu>
                   </template>
                 </el-dropdown>
@@ -44,7 +44,7 @@
         <el-card :bordered="false" shadow="never">
           <el-row>
             <el-col>
-              <el-button type="primary" v-db-click @click="add">添加标签</el-button>
+              <el-button type="primary" v-db-click @click="add">إضافة标签</el-button>
             </el-col>
           </el-row>
           <el-table
@@ -61,12 +61,12 @@
                 <span>{{ scope.row.id }}</span>
               </template>
             </el-table-column>
-            <!-- <el-table-column label="标签名称" width="80">
+            <!-- <el-table-column label="标签الاسم" width="80">
               <template slot-scope="scope">
                 <span>{{ scope.row.name }}</span>
               </template>
             </el-table-column> -->
-            <el-table-column label="标签名称" width="180">
+            <el-table-column label="标签الاسم" width="180">
               <template slot-scope="scope">
                 <div
                   v-if="scope.row.type == 1"
@@ -82,12 +82,12 @@
                 <img :src="scope.row.image" class="tag-img" v-else />
               </template>
             </el-table-column>
-            <el-table-column label="分类名称" min-width="140">
+            <el-table-column label="分类الاسم" min-width="140">
               <template slot-scope="scope">
                 <span>{{ scope.row.cate_name }}</span>
               </template>
             </el-table-column>
-            <el-table-column label="状态" min-width="140">
+            <el-table-column label="الحالة" min-width="140">
               <template slot-scope="scope">
                 <el-switch
                   class="defineSwitch"
@@ -119,11 +119,11 @@
                 </el-switch>
               </template>
             </el-table-column>
-            <el-table-column fixed="right" label="操作" width="100">
+            <el-table-column fixed="right" label="الخيارات" width="100">
               <template slot-scope="scope">
-                <a v-db-click @click="edit(scope.row.id)">修改</a>
+                <a v-db-click @click="edit(scope.row.id)">تعديل</a>
                 <el-divider direction="vertical"></el-divider>
-                <a v-db-click @click="del(scope.row, '删除', scope.$index)">删除</a>
+                <a v-db-click @click="del(scope.row, 'حذف', scope.$index)">حذف</a>
               </template>
             </el-table-column>
           </el-table>
@@ -137,10 +137,10 @@
             />
           </div>
         </el-card>
-        <el-dialog :visible.sync="modals" closable :title="isEdit ? '编辑标签' : '添加标签'" width="560" @close="cancel">
+        <el-dialog :visible.sync="modals" closable :title="isEdit ? 'تحرير标签' : 'إضافة标签'" width="560" @close="cancel">
           <div>
             <el-form label-position="right" size="small" ref="form" :rules="rules" :model="form" label-width="100px">
-              <el-form-item label="标签名称：" prop="name">
+              <el-form-item label="标签الاسم：" prop="name">
                 <el-input v-model="form.name" class="w-420"></el-input>
               </el-form-item>
               <el-form-item label="分组选择：" prop="label_cate">
@@ -274,10 +274,10 @@ export default {
       },
       rules: {
         name: [
-          { required: true, message: '请输入标签名称', trigger: 'blur' },
+          { required: true, message: 'الرجاء إدخال 标签الاسم', trigger: 'blur' },
           { min: 2, max: 6, message: '长度在 2 到 6 个字符', trigger: 'blur' },
         ],
-        cate_id: [{ required: true, message: '请选择分组' }],
+        cate_id: [{ required: true, message: 'الرجاء اختيار 分组' }],
       },
     };
   },
@@ -294,7 +294,7 @@ export default {
     this.getLabelLabelAll();
   },
   methods: {
-    // 添加
+    // إضافة
     add() {
       this.modals = true;
       this.isEdit = false;
@@ -319,7 +319,7 @@ export default {
           this.$message.error(res.msg);
         });
     },
-    // 修改
+    // تعديل
     edit(id) {
       productLabelInfoApi({ id: id }).then((res) => {
         this.form = res.data;
@@ -329,7 +329,7 @@ export default {
 
       // this.$modalForm(userLabelAddApi(id)).then(() => this.getList());
     },
-    // 删除
+    // حذف
     del(row, tit, num) {
       let delfromData = {
         title: tit,
@@ -348,7 +348,7 @@ export default {
           this.$message.error(res.msg);
         });
     },
-    // 修改是否显示
+    // تعديل是否显示
     onchangeStatus(row) {
       labelStatusApi(row)
         .then(async (res) => {
@@ -399,7 +399,7 @@ export default {
       });
     },
     addWordsConfirm() {
-      if (!this.form.cate_id) return this.$message.error('请选择分组');
+      if (!this.form.cate_id) return this.$message.error('الرجاء اختيار 分组');
       this.$refs.form.validate((valid) => {
         if (valid) {
           productLabelSaveApi(this.form)
@@ -432,11 +432,11 @@ export default {
       };
       this.modals = false;
     },
-    //编辑标签
+    //تحرير标签
     labelEdit(item) {
       this.$modalForm(productLabelCateFormApi(item.id)).then(() => this.getLabelLabelAll(1));
     },
-    // 添加分类
+    // إضافة分类
     addSort() {
       this.$modalForm(productLabelCateFormApi(0)).then(() => this.getLabelLabelAll());
     },
@@ -466,7 +466,7 @@ export default {
       if (name == 1) {
         this.labelEdit(data);
       } else if (name == 2) {
-        this.deleteSort(data, '删除分类');
+        this.deleteSort(data, 'حذف分类');
       }
     },
     bindMenuItem(name, index) {

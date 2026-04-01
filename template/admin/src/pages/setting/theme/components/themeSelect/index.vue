@@ -40,7 +40,7 @@
             <div class="search-box">
               <el-input
                 v-model="searchKeyword"
-                placeholder="请输入主题名称"
+                placeholder="الرجاء إدخال 主题الاسم"
                 suffix-icon="el-icon-search"
                 size="small"
                 @change="searchTheme"
@@ -77,14 +77,14 @@
               <div class="theme-info">
                 <div class="theme-title">
                   <div class="line1">
-                    {{ theme.title || '暂无主题名称' }}
+                    {{ theme.title || '暂无主题الاسم' }}
                   </div>
                   <div class="tag" v-if="theme.page_type == 'micro'">专题页</div>
                 </div>
-                <div class="theme-time">修改时间：{{ theme.up_time }}</div>
+                <div class="theme-time">تعديلالوقت：{{ theme.up_time }}</div>
 
                 <div class="theme-hover-actions">
-                  <div class="button default" @click="viewThemeDetail(theme)">查看详情</div>
+                  <div class="button default" @click="viewThemeDetail(theme)">查看تفاصيل</div>
                   <div class="button primary" @click="selectTheme(theme)">使用主题</div>
                 </div>
               </div>
@@ -104,12 +104,12 @@
       </div>
     </div>
 
-    <!-- 详情页视图 -->
+    <!-- تفاصيل页视图 -->
     <div class="detail-content" v-else>
       <div class="detail-header">
         <div class="flex">
-          <div class="back-btn" @click="showDetail = false"><i class="el-icon-arrow-left"></i> 返回</div>
-          <div class="detail-title">主题详情</div>
+          <div class="back-btn" @click="showDetail = false"><i class="el-icon-arrow-left"></i> عودة</div>
+          <div class="detail-title">主题تفاصيل</div>
         </div>
         <i class="el-icon-close" @click="handleClose"></i>
       </div>
@@ -127,7 +127,7 @@
           </div>
           <div class="detail-info-box">
             <div>
-              <div class="info-title">{{ currentTheme.title || '暂无主题名称' }}</div>
+              <div class="info-title">{{ currentTheme.title || '暂无主题الاسم' }}</div>
               <div class="info-desc">
                 {{ currentTheme.info || '暂无描述' }}
               </div>
@@ -207,7 +207,7 @@ export default {
       filterOptions: [
         { label: '首页', value: 'home_image' },
         { label: '分类页', value: 'category_image' },
-        { label: '详情页', value: 'detail_image' },
+        { label: 'تفاصيل页', value: 'detail_image' },
         { label: '个人中心', value: 'user_image' },
       ],
       themes: [],
@@ -265,9 +265,9 @@ export default {
     },
     selectTheme(theme) {
       if (this.themeId && this.themeId != 0) {
-        this.$confirm('确定要使用该主题数据吗？这将覆盖当前页面配置', '提示', {
+        this.$confirm('确定要使用该主题数据吗？这将覆盖当前页面配置', 'تنبيه', {
           confirmButtonText: '确定',
-          cancelButtonText: '取消',
+          cancelButtonText: 'إلغاء',
           type: 'warning',
         })
           .then(() => {

@@ -57,15 +57,15 @@
 					<view class='item acea-row row-between-wrapper'>
 						<view>{{$t(`权限设置`)}}</view>
 						<view class="input" @click="Setting">
-							{{$t(`点击管理`)}}<text class="iconfont icon-xiangyou"></text>
+							{{$t(`点击إدارة`)}}<text class="iconfont icon-xiangyou"></text>
 						</view>
 					</view>
 					<!-- #endif -->
 					<!-- #ifdef H5 -->
 					<view class="item acea-row row-between-wrapper" v-if="userInfo.phone && !this.$wechat.isWeixin()">
-						<view>{{$t(`密码`)}}</view>
+						<view>{{$t(`كلمة المرور`)}}</view>
 						<navigator url="/pages/users/user_pwd_edit/index" hover-class="none" class="input">
-							{{$t(`点击修改密码`)}}<text class="iconfont icon-xiangyou"></text>
+							{{$t(`点击تعديلكلمة المرور`)}}<text class="iconfont icon-xiangyou"></text>
 						</navigator>
 					</view>
 					<!-- #endif -->
@@ -77,9 +77,9 @@
 					</view>
 					<!-- #ifdef APP-PLUS -->
 					<view class="item acea-row row-between-wrapper" v-if="userInfo.phone">
-						<view>{{$t(`密码`)}}</view>
+						<view>{{$t(`كلمة المرور`)}}</view>
 						<navigator url="/pages/users/user_pwd_edit/index" hover-class="none" class="input">
-							{{$t(`点击修改密码`)}}<text class="iconfont icon-xiangyou"></text>
+							{{$t(`点击تعديلكلمة المرور`)}}<text class="iconfont icon-xiangyou"></text>
 						</navigator>
 					</view>
 					<view class="item acea-row row-between-wrapper" @click="initData">
@@ -105,13 +105,13 @@
 						</view>
 					</view>
 					<view class="item acea-row row-between-wrapper">
-						<view>{{$t(`地址管理`)}}</view>
+						<view>{{$t(`地址إدارة`)}}</view>
 						<navigator url="/pages/users/user_address_list/index" hover-class="none" class="input">
 							{{$t(`点击前往`)}}<text class="iconfont icon-xiangyou"></text>
 						</navigator>
 					</view>
 					<view class="item acea-row row-between-wrapper" v-if="userInfo.invioce_func">
-						<view>{{$t(`发票管理`)}}</view>
+						<view>{{$t(`发票إدارة`)}}</view>
 						<navigator url="/pages/users/user_invoice_list/index" hover-class="none" class="input">
 							{{$t(`点击前往`)}}<text class="iconfont icon-xiangyou"></text>
 						</navigator>
@@ -137,9 +137,9 @@
 
 				</view>
 
-				<button class='modifyBnt bg-color' formType="submit">{{$t(`保存修改`)}}</button>
+				<button class='modifyBnt bg-color' formType="submit">{{$t(`حفظتعديل`)}}</button>
 				<!-- #ifdef H5 || APP-PLUS || MP -->
-				<view class="logOut cartcolor acea-row row-center-wrapper" @click="outLogin">{{$t(`退出登录`)}}</view>
+				<view class="logOut cartcolor acea-row row-center-wrapper" @click="outLogin">{{$t(`退出تسجيل الدخول`)}}</view>
 				<!-- #endif -->
 				<!-- #ifdef APP-PLUS -->
 				<app-update ref="appUpdate" :force="true" :tabbar="false" :getVer='true' @isNew="isNew"></app-update>
@@ -324,7 +324,7 @@
 							this.formatSize()
 						} else if (res.cancel) {
 							return that.$util.Tips({
-								title: that.$t(`取消`)
+								title: that.$t(`إلغاء`)
 							});
 						}
 					}
@@ -342,7 +342,7 @@
 						let filePath = '' + files[i]; // 没有找到合适的方法获取路径，这样写可以转成文件路径  
 						plus.io.resolveLocalFileSystemURL(filePath, function(entry) {
 							if (entry.isDirectory) {
-								entry.removeRecursively(function(entry) { //递归删除其下的所有文件及子目录  
+								entry.removeRecursively(function(entry) { //递归حذف其下的所有文件及子目录  
 									uni.showToast({
 										title: that.$t(`缓存清理完成`),
 										duration: 2000
@@ -418,15 +418,15 @@
 				}
 			},
 			/**
-			 * 退出登录
+			 * 退出تسجيل الدخول
 			 * 
 			 */
 			outLogin: function() {
 				let that = this;
 				if (that.loginType == 'h5') {
 					uni.showModal({
-						title: that.$t(`提示`),
-						content: that.$t(`确认退出登录`),
+						title: that.$t(`تنبيه`),
+						content: that.$t(`تأكيد退出تسجيل الدخول`),
 						success: function(res) {
 							if (res.confirm) {
 								getLogout()
@@ -444,7 +444,7 @@
 				}
 			},
 			/**
-			 * 获取用户详情
+			 * 获取用户تفاصيل
 			 */
 			getUserInfo: function() {
 				let that = this;
@@ -453,7 +453,7 @@
 					let switchUserInfo = res.data.switchUserInfo || [];
 					for (let i = 0; i < switchUserInfo.length; i++) {
 						if (switchUserInfo[i].uid == that.userInfo.uid) that.userIndex = i;
-						// 切割h5用户；user_type状态：h5、routine（小程序）、wechat（公众号）；注：只有h5未注册手机号时，h5才可和小程序或是公众号数据想通；
+						// 切割h5用户；user_typeالحالة：h5、routine（小程序）、wechat（公众号）；注：只有h5未注册手机号时，h5才可和小程序或是公众号数据想通；
 						//#ifdef H5
 						if (
 							!that.$wechat.isWeixin() &&
@@ -500,14 +500,14 @@
 				})
 			},
 			/**
-			 * 提交修改
+			 * إرسالتعديل
 			 */
 			formSubmit: function(e) {
 				let that = this,
 					value = e.detail.value,
 					userInfo = that.switchUserInfo[that.userIndex];
 				if (!value.nickname) return that.$util.Tips({
-					title: that.$t(`请输入姓名`)
+					title: that.$t(`الرجاء إدخال 姓名`)
 				});
 				value.avatar = this.userInfo.avatar;
 				userEdit(value).then(res => {
@@ -520,7 +520,7 @@
 					});
 				}).catch(msg => {
 					return that.$util.Tips({
-						title: msg || that.$t(`保存失败`)
+						title: msg || that.$t(`حفظ失败`)
 					}, {
 						tab: 3,
 						url: 1

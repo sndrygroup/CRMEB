@@ -23,7 +23,7 @@ export function getCategoryListApi(data) {
 }
 
 /**
- * @description 添加分类
+ * @description إضافة分类
  */
 export function createApi(id) {
   return request({
@@ -34,7 +34,7 @@ export function createApi(id) {
 }
 
 /**
- * @description 编辑分类
+ * @description تحرير分类
  * @param {Number} param id {Number} 分类id
  */
 export function categoryEditApi(id) {
@@ -45,7 +45,7 @@ export function categoryEditApi(id) {
 }
 
 /**
- * @description 删除分类
+ * @description حذف分类
  * @param {Number} param id {Number} 分类id
  */
 export function categoryDelApi(id) {
@@ -68,7 +68,7 @@ export function fileListApi(data) {
 }
 
 /**
- * @description 移动分类，修改附件分类表单
+ * @description 移动分类，تعديل附件分类表单
  * @param {Object} param data {Object} 传值
  */
 export function moveApi(data) {
@@ -80,7 +80,7 @@ export function moveApi(data) {
 }
 
 /**
- * @description 修改附件名称
+ * @description تعديل附件الاسم
  * @param {String} param ids {String} 图片id拼接成的字符串
  */
 export function fileUpdateApi(ids, data) {
@@ -92,7 +92,7 @@ export function fileUpdateApi(ids, data) {
 }
 
 /**
- * @description 删除附件
+ * @description حذف附件
  * @param {String} param ids {String} 图片id拼接成的字符串
  */
 export function fileDelApi(ids) {
@@ -124,7 +124,7 @@ export function scanUploadCode() {
 }
 
 /**
- * @description 素材管理-视频上传
+ * @description 素材إدارة-视频上传
  */
 export function videoCloudUpload(data) {
   return request({

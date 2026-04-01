@@ -8,7 +8,7 @@
         </div>
         <div class="right_box" v-if="currenType == 'link'">
           <div v-if="tableList.length">
-            <div class="cont">请选择链接</div>
+            <div class="cont">الرجاء اختيار 链接</div>
             <div class="Box">
               <div class="cont_box" :class="currenId == item.id ? 'on' : ''" v-for="(item, index) in tableList"
                 :key="index" v-db-click @click="getUrl(item)">
@@ -111,7 +111,7 @@
               </el-col>
               <el-col :span="12">
                 <el-form-item label="" label-for="store_name">
-                  <el-input search enter-button placeholder="请输入商品名称,关键字,编号" v-model="formValidate.store_name"
+                  <el-input search enter-button placeholder="الرجاء إدخال 商品الاسم,关键字,编号" v-model="formValidate.store_name"
                     style="width: 200px" @change="userSearchs" />
                 </el-form-item>
               </el-col>
@@ -214,11 +214,11 @@
           <!--<el-button type="primary" v-db-click @click="customList" v-if="tableList.length">自定义列表</el-button>-->
           <div style="width: 340px; margin: 150px 100px 0 120px">
             <el-form ref="customdate" :model="customdate" :rules="ruleValidate" :label-width="100">
-              <!--<el-form-item label="链接名称：" prop="name">-->
+              <!--<el-form-item label="链接الاسم：" prop="name">-->
               <!--<el-input v-model="customdate.name" placeholder="会员中心"></el-input>-->
               <!--</el-form-item>-->
               <!-- <el-form-item label="跳转路径：" prop="url">
-                <el-input v-model="customdate.url" placeholder="请输入跳转路径"></el-input>
+                <el-input v-model="customdate.url" placeholder="الرجاء إدخال 跳转路径"></el-input>
               </el-form-item> -->
               <div class="mb30 radioGroup">
                 <el-radio-group v-model="customdate.status" @input="radioTap('customdate')">
@@ -232,15 +232,15 @@
               </div>
               <div v-if="customdate.status == 1">
                 <el-form-item label="跳转路径：" prop="url" key="url">
-                  <el-input v-model="customdate.url" placeholder="请输入正确跳转路径"></el-input>
+                  <el-input v-model="customdate.url" placeholder="الرجاء إدخال 正确跳转路径"></el-input>
                 </el-form-item>
               </div>
               <div v-if="customdate.status == 2">
                 <el-form-item label="APPID：" prop="appid" key="appid">
-                  <el-input v-model="customdate.appid" placeholder="请输入正确APPID"></el-input>
+                  <el-input v-model="customdate.appid" placeholder="الرجاء إدخال 正确APPID"></el-input>
                 </el-form-item>
                 <el-form-item label="小程序路径：" prop="mpUrl" key="mpUrl">
-                  <el-input v-model="customdate.mpUrl" placeholder="请输入正确小程序路径"></el-input>
+                  <el-input v-model="customdate.mpUrl" placeholder="الرجاء إدخال 正确小程序路径"></el-input>
                 </el-form-item>
               </div>
             </el-form>
@@ -295,7 +295,7 @@ export default {
           width: 60,
         },
         {
-          title: '页面名称',
+          title: '页面الاسم',
           key: 'title',
           width: 150,
         },
@@ -311,7 +311,7 @@ export default {
           width: 60,
         },
         {
-          title: '分类名称',
+          title: '分类الاسم',
           key: 'cate_name',
           tree: true,
         },
@@ -332,7 +332,7 @@ export default {
           width: 90,
         },
         {
-          title: '商品名称',
+          title: '商品الاسم',
           key: 'store_name',
         },
       ],
@@ -348,7 +348,7 @@ export default {
           width: 90,
         },
         {
-          title: '商品名称',
+          title: '商品الاسم',
           key: 'title',
         },
       ],
@@ -364,7 +364,7 @@ export default {
           width: 90,
         },
         {
-          title: '文章名称',
+          title: '文章الاسم',
           key: 'title',
         },
       ],
@@ -375,7 +375,7 @@ export default {
           width: 60,
         },
         {
-          title: '名称',
+          title: 'الاسم',
           key: 'name',
         },
       ],
@@ -407,9 +407,9 @@ export default {
       },
       customNum: 1,
       ruleValidate: {
-        name: [{ required: true, message: '请输入链接名称', trigger: 'blur' }],
-        url: [{ required: true, message: '请输入跳转路径', trigger: 'blur' }],
-        appid: [{ required: true, message: '请输入APPID', trigger: 'blur' }],
+        name: [{ required: true, message: 'الرجاء إدخال 链接الاسم', trigger: 'blur' }],
+        url: [{ required: true, message: 'الرجاء إدخال 跳转路径', trigger: 'blur' }],
+        appid: [{ required: true, message: 'الرجاء إدخال APPID', trigger: 'blur' }],
       },
       treeId: 0,
     };
@@ -424,7 +424,7 @@ export default {
       this.presentId = row.id;
       this.currenUrl = row.url;
     },
-    // 删除
+    // حذف
     delLink(row, tit, num) {
       let delfromData = {
         title: tit,
@@ -442,7 +442,7 @@ export default {
           }
         })
         .catch((res) => {
-          this.$message.error(res.msg || '删除失败');
+          this.$message.error(res.msg || 'حذف失败');
         });
     },
     customLink() {
@@ -503,7 +503,7 @@ export default {
           this.$message.error(res.msg || '获取商品分类失败');
         });
     },
-    // 表格搜索
+    // 表格بحث
     userSearchs() {
       this.formValidate.page = 1;
       this.getList();
@@ -774,7 +774,7 @@ export default {
     },
     ok() {
       if (this.currenUrl == '') {
-        return this.$message.warning('请选择链接');
+        return this.$message.warning('الرجاء اختيار 链接');
       } else {
         this.$emit('linkUrl', this.currenUrl);
         this.modals = false;

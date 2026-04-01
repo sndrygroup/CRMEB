@@ -16,12 +16,12 @@
       @submit.native.prevent
     >
       <el-form-item label="订单号：">
-        <el-input v-model="order_id" disabled placeholder="请输入订单号" style="width: 60%"></el-input>
+        <el-input v-model="order_id" disabled placeholder="الرجاء إدخال 订单号" style="width: 60%"></el-input>
       </el-form-item>
       <el-form-item label="退款金额：">
         <el-input-number
           v-model="formItem.refund_price"
-          placeholder="请输入退款金额"
+          placeholder="الرجاء إدخال 退款金额"
           style="width: 60%"
         ></el-input-number>
       </el-form-item>
@@ -39,7 +39,7 @@
             <span slot="close">关闭</span>
           </el-switch>
           <div class="trips">
-            <p>可选择表格中的商品单独退款，请谨慎操作！</p>
+            <p>可选择表格中的商品单独退款，请谨慎الخيارات！</p>
           </div>
           <el-table
             v-if="splitSwitch && manyFormValidate.length"
@@ -95,8 +95,8 @@
       </div>
     </el-form>
     <div slot="footer">
-      <el-button v-db-click @click="cancel">取消</el-button>
-      <el-button type="primary" v-db-click @click="putSend">提交</el-button>
+      <el-button v-db-click @click="cancel">إلغاء</el-button>
+      <el-button type="primary" v-db-click @click="putSend">إرسال</el-button>
     </div>
     <!-- <viewer @inited="inited">
             <img :src="temp.pic" style="display:none" />
@@ -152,7 +152,7 @@ export default {
       manyFormValidate: [],
       selectData: [],
       sendPrice: 0,
-      ruleValidate: { sh_delivery: [{ required: true, message: '请输入送货人', trigger: 'change' }] },
+      ruleValidate: { sh_delivery: [{ required: true, message: 'الرجاء إدخال 送货人', trigger: 'change' }] },
       deliveryErrorMsg: '',
       isLoading: true,
       userSendmsg: {},
@@ -201,7 +201,7 @@ export default {
         cart_ids: [],
       };
     },
-    // 提交
+    // إرسال
     putSend(name) {
       this.formItem.cart_ids = [];
       let splitNumStatus = true;
@@ -217,7 +217,7 @@ export default {
         });
       }
       if (!splitNumStatus) {
-        return this.$message.error('请选择退款数量');
+        return this.$message.error('الرجاء اختيار 退款数量');
       }
       refundPrice(this.orderId, this.formItem)
         .then((res) => {

@@ -35,10 +35,10 @@
       </div>
     </div>
     <div class="section">
-      <div class="section-hd">密码</div>
+      <div class="section-hd">كلمة المرور</div>
       <div class="section-bd">
         <div class="item">
-          <div>登录密码：</div>
+          <div>تسجيل الدخولكلمة المرور：</div>
           <div class="value">********</div>
         </div>
       </div>
@@ -51,7 +51,7 @@
           <div class="value">{{ psInfo.spread_open ? '开启' : '关闭' }}</div>
         </div>
         <div class="item">
-          <div>用户状态：</div>
+          <div>用户الحالة：</div>
           <div class="value">{{ psInfo.status ? '开启' : '锁定' }}</div>
         </div>
         <div class="item">
@@ -71,11 +71,11 @@
           <div class="value">{{ psInfo.spread_uid_nickname || '-' }}</div>
         </div>
         <div class="item">
-          <div>注册时间：</div>
+          <div>注册الوقت：</div>
           <div class="value">{{ psInfo.add_time | timeFormat }}</div>
         </div>
         <div class="item">
-          <div>登录时间：</div>
+          <div>تسجيل الدخولالوقت：</div>
           <div class="value">{{ psInfo.last_time | timeFormat }}</div>
         </div>
         <div v-if="psInfo.is_money_level" class="item">

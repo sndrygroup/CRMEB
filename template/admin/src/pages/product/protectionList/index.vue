@@ -10,10 +10,10 @@
           @submit.native.prevent
           inline
         >
-          <el-form-item label="保障名称：">
+          <el-form-item label="保障الاسم：">
             <el-input
               clearable
-              placeholder="请输入保障名称"
+              placeholder="الرجاء إدخال 保障الاسم"
               v-model="formValidate.title"
               class="form_content_width"
               @change="userSearchs"
@@ -26,7 +26,7 @@
       </div>
     </el-card>
     <el-card :bordered="false" shadow="never">
-      <el-button v-auth="['cms-category-create']" type="primary" v-db-click @click="add">添加保障</el-button>
+      <el-button v-auth="['cms-category-create']" type="primary" v-db-click @click="add">إضافة保障</el-button>
 
       <el-table
         :data="categoryList"
@@ -42,7 +42,7 @@
             <span>{{ scope.row.id }}</span>
           </template>
         </el-table-column>
-        <el-table-column label="保障名称" prop="title" min-width="130">
+        <el-table-column label="保障الاسم" prop="title" min-width="130">
           <template slot-scope="scope">
             <span>{{ scope.row.title }}</span>
           </template>
@@ -54,7 +54,7 @@
             </div>
           </template>
         </el-table-column>
-        <el-table-column label="状态" prop="status" min-width="120">
+        <el-table-column label="الحالة" prop="status" min-width="120">
           <template slot-scope="scope">
             <el-switch
               class="defineSwitch"
@@ -75,11 +75,11 @@
             <span>{{ scope.row.sort }}</span>
           </template>
         </el-table-column>
-        <el-table-column label="操作" width="120" fixed="right">
+        <el-table-column label="الخيارات" width="120" fixed="right">
           <template slot-scope="scope">
-            <a v-db-click @click="edit(scope.row)">编辑</a>
+            <a v-db-click @click="edit(scope.row)">تحرير</a>
             <el-divider direction="vertical"></el-divider>
-            <a v-db-click @click="del(scope.row, '删除保障')">删除</a>
+            <a v-db-click @click="del(scope.row, 'حذف保障')">حذف</a>
           </template>
         </el-table-column>
       </el-table>
@@ -129,7 +129,7 @@ export default {
           width: 80,
         },
         {
-          title: '保障名称',
+          title: '保障الاسم',
           key: 'title',
           minWidth: 130,
         },
@@ -144,7 +144,7 @@ export default {
           minWidth: 130,
         },
         {
-          title: '状态',
+          title: 'الحالة',
           slot: 'statuss',
           minWidth: 130,
         },
@@ -154,7 +154,7 @@ export default {
           minWidth: 130,
         },
         {
-          title: '操作',
+          title: 'الخيارات',
           slot: 'action',
           fixed: 'right',
           minWidth: 120,
@@ -180,15 +180,15 @@ export default {
   },
   methods: {
     ...mapMutations('userLevel', ['getCategoryId']),
-    // 添加
+    // إضافة
     add() {
       this.$modalForm(productProtectionFormApi(0)).then(() => this.getList());
     },
-    // 编辑
+    // تحرير
     edit(row) {
       this.$modalForm(productProtectionFormApi(row.id)).then(() => this.getList());
     },
-    // 删除
+    // حذف
     del(row, tit) {
       let delfromData = {
         title: tit,
@@ -222,12 +222,12 @@ export default {
           this.$message.error(res.msg);
         });
     },
-    // 表格搜索
+    // 表格بحث
     userSearchs() {
       this.formValidate.page = 1;
       this.getList();
     },
-    // 修改是否显示
+    // تعديل是否显示
     onchangeIsShow(row) {
       let data = {
         id: row.id,

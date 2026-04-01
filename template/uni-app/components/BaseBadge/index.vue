@@ -9,7 +9,7 @@
 <script>
 	/**
 	 * Badge 数字角标
-	 * @description 数字角标一般和其它控件（列表、9宫格等）配合使用，用于进行数量提示，默认为实心灰色背景
+	 * @description 数字角标一般和其它控件（列表、9宫格等）配合使用，用于进行数量تنبيه，默认为实心灰色背景
 	 * @tutorial https://ext.dcloud.net.cn/plugin?id=21
 	 * @property {String} text 角标内容
 	 * @property {String} size = [normal|small] 角标内容

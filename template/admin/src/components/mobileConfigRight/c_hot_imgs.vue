@@ -1,6 +1,6 @@
 <template>
   <div class="hot_imgs">
-    <div class="title">最多可添加4个版块，图片建议尺寸140 * 140px；鼠标拖拽左侧圆点可 调整版块顺序</div>
+    <div class="title">最多可إضافة4个版块，图片建议尺寸140 * 140px；鼠标拖拽左侧圆点可 调整版块顺序</div>
     <div class="list-box">
       <draggable class="dragArea list-group" :list="defaults.menu" group="people" handle=".move-icon">
         <div class="item" v-for="(item, index) in defaults.menu" :key="index">
@@ -38,7 +38,7 @@
       </draggable>
     </div>
     <div class="add-btn" v-if="defaults.menu.length < 4">
-      <el-button style="width: 100%; height: 40px" @click="addBox">添加板块</el-button>
+      <el-button style="width: 100%; height: 40px" @click="addBox">إضافة板块</el-button>
     </div>
   </div>
 </template>
@@ -141,7 +141,7 @@ export default {
       this.activeIndex = index;
       this.modalPic = true;
     },
-    // 添加自定义弹窗
+    // إضافة自定义弹窗
     addCustomDialog(editorId) {
       window.UE.registerUI(
         'test-dialog',

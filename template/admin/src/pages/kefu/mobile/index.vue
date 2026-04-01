@@ -2,7 +2,7 @@
   <div class="chat-box">
     <div class="head-box">
       <div class="back" v-db-click @click="goBack"><span class="iconfont iconfanhui"></span></div>
-      <div class="title">{{ nickname }} - 对话详情</div>
+      <div class="title">{{ nickname }} - 对话تفاصيل</div>
     </div>
     <div class="chat-scroll-box">
       <vue-scroll
@@ -57,7 +57,7 @@
     <div class="footer-box">
       <div class="words" v-db-click @click="showWords"><span class="iconfont iconhuashu1"></span></div>
       <div class="input-box">
-        <el-input v-model="con" placeholder="请输入内容" style="font-size: 0.28rem" />
+        <el-input v-model="con" placeholder="الرجاء إدخال 内容" style="font-size: 0.28rem" />
         <span class="iconfont iconfasong" v-db-click @click="sendText" :class="{ isSend: isSend }"></span>
       </div>
       <div class="emoji" v-db-click @click="openBox(1)"><span class="iconfont iconbiaoqing2"></span></div>
@@ -249,7 +249,7 @@ export default {
     Promise.all([this.getChatList(), this.getTransferList()]);
   },
   mounted() {
-    window.document.title = `${this.$route.query.nickname || ''} - 对话详情`;
+    window.document.title = `${this.$route.query.nickname || ''} - 对话تفاصيل`;
     // 上传头部token
     this.header['Authori-zation'] = 'Bearer ' + getCookies('kefu_token');
     let isLogin = JSON.parse(sessionStorage.getItem('wsLogin'));
@@ -309,7 +309,7 @@ export default {
     handleFormatError(file) {
       this.$message.error('上传图片只能是 jpg、jpg、jpeg、gif 格式!');
     },
-    // 用户详情
+    // 用户تفاصيل
     goUserInfo(item, status) {
       if (!status) {
         this.$router.push({
@@ -344,7 +344,7 @@ export default {
         }
       }, 300);
     },
-    // 订单详情
+    // 订单تفاصيل
     goOrderDetail(item) {
       this.$router.push({
         path: `/kefu/orderDetail/${item.orderInfo.id}`,
@@ -382,7 +382,7 @@ export default {
       });
       this.isTransfer = false;
     },
-    // 转接确认
+    // 转接تأكيد
     confirm() {
       if (this.activeKF) {
         serviceTransfer({
@@ -400,7 +400,7 @@ export default {
             this.$message.error(error.msg);
           });
       } else {
-        this.$message.error('请选择转接客服');
+        this.$message.error('الرجاء اختيار 转接客服');
       }
     },
     // 商品信息
@@ -463,7 +463,7 @@ export default {
     // 发送消息
     sendText() {
       if (!this.isSend) {
-        return this.$message.error('请输入内容');
+        return this.$message.error('الرجاء إدخال 内容');
       }
       this.sendMsg(this.con, 1);
       this.con = '';
@@ -496,13 +496,13 @@ export default {
       this.isWords = false;
       this.sendMsg(item.message, 1);
     },
-    //  商品详情页
+    //  商品تفاصيل页
     goProduct(item) {
       this.$router.push({
         path: '/kefu/goods/detail?goodsId=' + item.msn,
       });
     },
-    // 管理员订单
+    // إدارة员订单
     goAdminOrder() {
       this.$router.push({
         path: '/kefu/orderList/0/' + this.toUid,

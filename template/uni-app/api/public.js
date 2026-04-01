@@ -46,7 +46,7 @@ export function wechatAuth(code, spread, login_type) {
 }
 
 /**
- * 获取登录授权login
+ * 获取تسجيل الدخول授权login
  *
  */
 export function getLogo() {
@@ -60,8 +60,8 @@ export function getLogo() {
 }
 
 /**
- * 小程序用户登录
- * @param data object 小程序用户登录信息
+ * 小程序用户تسجيل الدخول
+ * @param data object 小程序用户تسجيل الدخول信息
  */
 export function login(data) {
   return request.post("wechat/mp_auth", data, {
@@ -101,7 +101,7 @@ export function getShare() {
 }
 
 /**
- * 公众号登录
+ * 公众号تسجيل الدخول
  * @returns {*}
  */
 export function wechatAuthLogin(data) {
@@ -135,7 +135,7 @@ export function authType(data) {
 }
 
 /**
- * 授权登录
+ * 授权تسجيل الدخول
  * @returns {*}
  */
 export function authLogin(data) {
@@ -207,7 +207,7 @@ export function wechatBindingPhone(data) {
   });
 }
 /**
- * 小程序手机号登录
+ * 小程序手机号تسجيل الدخول
  * @param {Object} data
  */
 export function phoneLogin(data) {
@@ -217,8 +217,8 @@ export function phoneLogin(data) {
 }
 
 /**
- * 小程序用户登录
- * @param data object 小程序用户登录信息
+ * 小程序用户تسجيل الدخول
+ * @param data object 小程序用户تسجيل الدخول信息
  */
 export function routineLogin(data) {
   return request.get("v2/wechat/routine_auth", data, {
@@ -331,7 +331,7 @@ export function getSystemVersion() {
 }
 
 /**
- * iframe登录
+ * iframeتسجيل الدخول
  *
  */
 export function remoteRegister(data) {

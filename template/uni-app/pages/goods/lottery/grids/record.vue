@@ -24,7 +24,7 @@
 						{{ $t(`已失效`) }}
 					</view>
 					<view class="goods-msg" v-else>
-						{{ $t(`兑换时间`) }}：
+						{{ $t(`兑换الوقت`) }}：
 						{{ item.receive_time || '--' }}
 					</view>
 

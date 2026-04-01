@@ -10,8 +10,8 @@
       >
         <el-row :gutter="24">
           <el-col v-bind="grid">
-            <el-form-item label="预售活动状态：">
-              <el-select placeholder="请选择活动状态" v-model="tableFrom.time_type" clearable @change="userSearchs">
+            <el-form-item label="预售活动الحالة：">
+              <el-select placeholder="الرجاء اختيار 活动الحالة" v-model="tableFrom.time_type" clearable @change="userSearchs">
                 <el-option value="0" label="全部"></el-option>
                 <el-option value="1" label="未开始"></el-option>
                 <el-option value="2" label="正在进行"></el-option>
@@ -20,8 +20,8 @@
             </el-form-item>
           </el-col>
           <el-col v-bind="grid">
-            <el-form-item label="预售商品状态：">
-              <el-select placeholder="请选择商品状态" v-model="tableFrom.status" clearable @change="userSearchs">
+            <el-form-item label="预售商品الحالة：">
+              <el-select placeholder="الرجاء اختيار 商品الحالة" v-model="tableFrom.status" clearable @change="userSearchs">
                 <el-option value="" label="全部"></el-option>
                 <el-option value="1" label="上架"></el-option>
                 <el-option value="0" label="下架"></el-option>
@@ -29,11 +29,11 @@
             </el-form-item>
           </el-col>
           <el-col v-bind="grid">
-            <el-form-item label="商品搜索：" label-for="title">
+            <el-form-item label="商品بحث：" label-for="title">
               <el-input
                 search
                 enter-button
-                placeholder="请输入商品名称/ID"
+                placeholder="الرجاء إدخال 商品الاسم/ID"
                 v-model="tableFrom.title"
                 @on-search="userSearchs"
               />
@@ -49,7 +49,7 @@
               v-db-click
               @click="add"
               class="mr10"
-              >添加预售商品</el-button
+              >إضافة预售商品</el-button
             >
             <!-- <el-button
               v-auth="['export-storeBargain']"
@@ -80,7 +80,7 @@
             </div>
           </template>
         </el-table-column>
-        <el-table-column label="预售名称" min-width="130">
+        <el-table-column label="预售الاسم" min-width="130">
           <template slot-scope="scope">
             <span>{{ scope.row.title }}</span>
           </template>
@@ -105,13 +105,13 @@
             <span>{{ scope.row.quota }}</span>
           </template>
         </el-table-column>
-        <el-table-column label="活动时间" min-width="130">
+        <el-table-column label="活动الوقت" min-width="130">
           <template slot-scope="scope">
             <div>起: {{ scope.row.start_time | formatDate }}</div>
             <div>止: {{ scope.row.stop_time | formatDate }}</div>
           </template>
         </el-table-column>
-        <el-table-column label="预售状态" min-width="130">
+        <el-table-column label="预售الحالة" min-width="130">
           <template slot-scope="scope">
             <el-switch
               class="defineSwitch"
@@ -127,12 +127,12 @@
             </el-switch>
           </template>
         </el-table-column>
-        <el-table-column label="操作" fixed="right" width="170">
+        <el-table-column label="الخيارات" fixed="right" width="170">
           <template slot-scope="scope">
-            <a v-db-click @click="edit(scope.row)">编辑</a>
+            <a v-db-click @click="edit(scope.row)">تحرير</a>
             <el-divider v-if="scope.row.stop_status === 0" direction="vertical" />
             <el-divider direction="vertical"></el-divider>
-            <a v-db-click @click="del(scope.row, '删除预售商品', scope.$index)">删除</a>
+            <a v-db-click @click="del(scope.row, 'حذف预售商品', scope.$index)">حذف</a>
           </template>
         </el-table-column>
       </el-table>
@@ -202,7 +202,7 @@ export default {
     this.getList();
   },
   methods: {
-    // 添加
+    // إضافة
     add() {
       this.$router.push({ path: this.$routeProStr + '/marketing/presell/create/0' });
     },
@@ -221,7 +221,7 @@ export default {
           this.$message.error(res.msg);
         });
     },
-    // 编辑
+    // تحرير
     edit(row) {
       this.$router.push({
         path: this.$routeProStr + '/marketing/presell/create/' + row.id + '/0',
@@ -233,7 +233,7 @@ export default {
         path: this.$routeProStr + '/marketing/presell/create/' + row.id + '/1',
       });
     },
-    // 删除
+    // حذف
     del(row, tit, num) {
       let delfromData = {
         title: tit,
@@ -267,12 +267,12 @@ export default {
           this.$message.error(res.msg);
         });
     },
-    // 表格搜索
+    // 表格بحث
     userSearchs() {
       this.tableFrom.page = 1;
       this.getList();
     },
-    // 修改是否显示
+    // تعديل是否显示
     onchangeIsShow(row) {
       let data = {
         id: row.id,

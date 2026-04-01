@@ -325,7 +325,7 @@ export default {
   icon: '#iconzujian-kanjia',
   configName: 'c_home_bargain',
   type: 1, // 0 基础组件 1 营销组件 2工具组件
-  defaultName: 'bargain', // 外面匹配名称
+  defaultName: 'bargain', // 外面匹配الاسم
   props: {
     index: {
       type: null,
@@ -366,7 +366,7 @@ export default {
   data() {
     return {
       configObj: null,
-      // 默认初始化数据禁止修改
+      // 默认初始化数据禁止تعديل
       defaultConfig: {
         cname: '砍价',
         name: 'bargain',
@@ -511,19 +511,19 @@ export default {
         titleTxtConfig: {
           title: '标题文字',
           value: '疯狂砍价',
-          place: '请输入标题文字',
+          place: 'الرجاء إدخال 标题文字',
           max: 6,
         },
         tipTxtConfig: {
-          title: '提示文字',
+          title: 'تنبيه文字',
           value: '低至0元免费拿',
-          place: '请输入提示文字',
+          place: 'الرجاء إدخال تنبيه文字',
           max: 10,
         },
         rightBntConfig: {
           title: '右侧按钮',
           value: '更多',
-          place: '请输入右侧按钮',
+          place: 'الرجاء إدخال 右侧按钮',
           max: 4,
         },
         goodStyleConfig: {
@@ -556,7 +556,7 @@ export default {
           list: [
             {
               id: 0,
-              name: '商品名称',
+              name: '商品الاسم',
             },
             {
               id: 1,
@@ -675,7 +675,7 @@ export default {
           min: 0,
         },
         tipsColor: {
-          title: '提示文字',
+          title: 'تنبيه文字',
           name: 'tipsColor',
           default: [
             {
@@ -689,7 +689,7 @@ export default {
           ],
         },
         tipsColor2: {
-          title: '提示文字',
+          title: 'تنبيه文字',
           name: 'tipsColor2',
           default: [
             {
@@ -754,7 +754,7 @@ export default {
           valList: [{ val: 0 }, { val: 0 }, { val: 0 }, { val: 0 }],
         },
         goodsName: {
-          title: '商品名称',
+          title: '商品الاسم',
           tabVal: 1,
           tabList: [
             {
@@ -768,7 +768,7 @@ export default {
           ],
         },
         goodsNameColor: {
-          title: '商品名称',
+          title: '商品الاسم',
           name: 'goodsNameColor',
           default: [
             {

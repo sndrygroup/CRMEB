@@ -11,7 +11,7 @@
 import request from "@/utils/request.js";
 
 /**
- * 获取产品详情
+ * 获取产品تفاصيل
  * @param int id
  * 
  */
@@ -43,7 +43,7 @@ export function getProductCode(id) {
 // #endif
 
 /**
- * 添加收藏
+ * إضافة收藏
  * @param int id
  * @param string category product=普通产品,product_seckill=秒杀产品
  */
@@ -55,7 +55,7 @@ export function collectAdd(id, category) {
 }
 
 /**
- * 删除收藏产品
+ * حذف收藏产品
  * @param int id
  * @param string category product=普通产品,product_seckill=秒杀产品
  */
@@ -67,7 +67,7 @@ export function collectDel(id, category) {
 }
 
 /**
- * 购车添加
+ * 购车إضافة
  * 
  */
 export function postCartAdd(data) {
@@ -159,7 +159,7 @@ export function getReplyConfig(id) {
 }
 
 /**
- * 获取搜索关键字获取
+ * 获取بحث关键字获取
  * 
  */
 export function getSearchKeyword() {
@@ -188,7 +188,7 @@ export function storeDiscountsList(id) {
 }
 
 /**
- * 购车添加、减少、修改
+ * 购车إضافة、减少、تعديل
  * 
  */
 export function postCartNum(data) {
@@ -257,7 +257,7 @@ export function getHomeProducts(data) {
 }
 
 /**
- * 预售详情
+ * 预售تفاصيل
  * @returns {*}
  */
 export function getPresellProductDetail(id) {
@@ -273,7 +273,7 @@ export function getVisitList(data) {
 }
 
 /**
- * 获取浏览记录列表-删除 
+ * 获取浏览记录列表-حذف 
  * @param object data
  */
 export function deleteVisitList(data) {
@@ -281,7 +281,7 @@ export function deleteVisitList(data) {
 }
 
 /**
- * 申请分销员详情接口
+ * 申请分销员تفاصيل接口
  *
  */
 export function userSpreadInfo() {

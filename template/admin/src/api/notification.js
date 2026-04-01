@@ -11,7 +11,7 @@
 import request from '@/libs/request';
 
 /**
- * @description 获取消息管理列表数据
+ * @description 获إلغاء息إدارة列表数据
  * @param {Object} param params {Object} 传值参数
  */
 export function getNotificationList(type) {
@@ -21,7 +21,7 @@ export function getNotificationList(type) {
   });
 }
 /**
- * @description 获取消息管理设置数据获取
+ * @description 获إلغاء息إدارة设置数据获取
  * @param {Object} param params {Object} 传值参数
  */
 export function getNotificationInfo(id, type) {
@@ -32,7 +32,7 @@ export function getNotificationInfo(id, type) {
 }
 
 /**
- * @description 获取消息管理设置数据获取
+ * @description 获إلغاء息إدارة设置数据获取
  * @param {Object} param params {Object} 传值参数
  */
 export function getNotificationSave(data) {
@@ -55,7 +55,7 @@ export function noticeStatus(type, status, id) {
 }
 
 /**
- * @description 添加修改消息表单
+ * @description إضافةتعديل消息表单
  * @param {Number} param id {Number} 传值参数
  */
 export function notificationForm(id) {

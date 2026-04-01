@@ -90,14 +90,14 @@
 				<view class="item acea-row row-between-wrapper">
 					<view>{{$t(`用户姓名`)}}</view>
 					<view class="discount">
-						<input style="text-align: right;" v-model="contacts" type="text" :placeholder="$t(`请输入姓名`)"
+						<input style="text-align: right;" v-model="contacts" type="text" :placeholder="$t(`الرجاء إدخال 姓名`)"
 							placeholder-class="placeholder"></input>
 					</view>
 				</view>
 				<view class="item acea-row row-between-wrapper">
 					<view>{{$t(`联系电话`)}}</view>
 					<view class="discount">
-						<input style="text-align: right;" v-model="contactsTel" type="text" :placeholder="$t(`请输入手机号`)"
+						<input style="text-align: right;" v-model="contactsTel" type="text" :placeholder="$t(`الرجاء إدخال 手机号`)"
 							placeholder-class="placeholder"></input>
 					</view>
 				</view>
@@ -137,14 +137,14 @@
 					<view class="item acea-row row-between-wrapper">
 						<view>{{$t(`用户姓名`)}}</view>
 						<view class="discount">
-							<input style="text-align: right;" v-model="contacts" type="text" :placeholder="$t(`请输入姓名`)"
+							<input style="text-align: right;" v-model="contacts" type="text" :placeholder="$t(`الرجاء إدخال 姓名`)"
 								placeholder-class="placeholder"></input>
 						</view>
 					</view>
 					<view class="item acea-row row-between-wrapper">
 						<view>{{$t(`联系电话`)}}</view>
 						<view class="discount">
-							<input style="text-align: right;" v-model="contactsTel" type="text" :placeholder="$t(`请输入手机号`)"
+							<input style="text-align: right;" v-model="contactsTel" type="text" :placeholder="$t(`الرجاء إدخال 手机号`)"
 								placeholder-class="placeholder"></input>
 						</view>
 					</view>
@@ -277,9 +277,9 @@
 					<text class='font-color'>{{$t(`￥`)}}{{totalPrice || 0}}</text>
 				</view>
 				<view class='settlement' style='z-index:100' @tap.stop="Debounce(SubOrder())"
-					v-if="(valid_count>0&&!discount_id) || (valid_count==cartInfo.length&&discount_id)">{{$t(`提交订单`)}}
+					v-if="(valid_count>0&&!discount_id) || (valid_count==cartInfo.length&&discount_id)">{{$t(`إرسال订单`)}}
 				</view>
-				<view class='settlement bg-color-hui' style='z-index:100' v-else>{{$t(`提交订单`)}}</view>
+				<view class='settlement bg-color-hui' style='z-index:100' v-else>{{$t(`إرسال订单`)}}</view>
 			</view>
 		</view>
 		<view class="alipaysubmit" v-html="formContent"></view>
@@ -361,8 +361,8 @@
 			})
 			return {
 				confirm: '', //自定义留言
-				date: this.$t(`请选择`),
-				time: this.$t(`请选择`),
+				date: this.$t(`الرجاء اختيار `),
+				time: this.$t(`الرجاء اختيار `),
 
 				canvasWidth: "",
 				canvasHeight: "",
@@ -434,7 +434,7 @@
 				discountId: 0,
 				userInfo: {}, //用户信息
 				mark: '', //备注信息
-				couponTitle: this.$t(`请选择`), //优惠券
+				couponTitle: this.$t(`الرجاء اختيار `), //优惠券
 				coupon_price: 0, //优惠券抵扣金额
 				useIntegral: false, //是否使用积分
 				integral_price: 0, //积分抵扣金额
@@ -444,7 +444,7 @@
 				formIds: [], //收集formid
 				status: 0,
 				is_address: false,
-				toPay: false, //修复进入支付时页面隐藏从新刷新页面
+				toPay: false, //修复进入支付时页面隐藏从新تحديث页面
 				shippingType: 0,
 				system_store: {},
 				storePostage: 0,
@@ -511,7 +511,7 @@
 			this.from = 'app'
 			// #endif
 			if (!options.cartId && !options.order_id) return this.$util.Tips({
-				title: this.$t(`请选择要购买的商品`)
+				title: this.$t(`الرجاء اختيار 要购买的商品`)
 			}, {
 				tab: 3,
 				url: 1
@@ -529,7 +529,7 @@
 			this.news = !options.new || options.new === '0' ? 0 : 1;
 			this.invChecked = options.invoice_id || '';
 			this.header_type = options.header_type || '1';
-			this.couponTitle = options.couponTitle || this.$t(`请选择`)
+			this.couponTitle = options.couponTitle || this.$t(`الرجاء اختيار `)
 			if (options.invoice_id) {
 				let name = ''
 				name += options.header_type == 1 ? this.$t(`个人`) : this.$t(`企业`);
@@ -570,7 +570,7 @@
 		},
 		methods: {
 			/**
-			 * 刷新定位并更新门店列表
+			 * تحديث定位并更新门店列表
 			 */
 			refreshLocationAndStores() {
 				let that = this;
@@ -856,7 +856,7 @@
 				// this.coupon.coupon = false
 				let index = e,
 					list = this.coupon.list,
-					couponTitle = this.$t(`请选择`),
+					couponTitle = this.$t(`الرجاء اختيار `),
 					couponId = 0;
 				for (let i = 0, len = list.length; i < len; i++) {
 					if (i != index) {
@@ -1169,7 +1169,7 @@
 				let that = this,
 					data = {};
 				if (!that.addressId && !that.shippingType && !that.virtual_type && !that.is_gift) return that.$util.Tips({
-					title: that.$t(`请选择收货地址`)
+					title: that.$t(`الرجاء اختيار 收货地址`)
 				});
 				if (that.shippingType == 1) {
 					if (that.contacts == "" || that.contactsTel == "") {
@@ -1179,16 +1179,16 @@
 					}
 					if (!/^1(3|4|5|7|8|9|6)\d{9}$/.test(that.contactsTel)) {
 						return that.$util.Tips({
-							title: that.$t(`请输入正确的手机号码`)
+							title: that.$t(`الرجاء إدخال 正确的手机号码`)
 						});
 					}
 					if (!that.contacts) {
 						return that.$util.Tips({
-							title: that.$t(`请输入姓名`)
+							title: that.$t(`الرجاء إدخال 姓名`)
 						});
 					}
 					if (that.storeList.length == 0) return that.$util.Tips({
-						title: that.$t(`暂无门店,请选择其他方式`)
+						title: that.$t(`暂无门店,الرجاء اختيار 其他方式`)
 					});
 				}
 				for (var i = 0; i < that.confirm.length; i++) {
@@ -1198,7 +1198,7 @@
 							'id') {
 							if (!data.value.trim()) {
 								return uni.showToast({
-									title: that.$t(`请输入`) + `${data.title}`,
+									title: that.$t(`الرجاء إدخال `) + `${data.title}`,
 									icon: 'none'
 								});
 							}
@@ -1206,7 +1206,7 @@
 						if (data.label === 'number') {
 							if (data.value <= 0) {
 								return uni.showToast({
-									title: that.$t(`请输入`) + `${data.title}`,
+									title: that.$t(`الرجاء إدخال `) + `${data.title}`,
 									icon: 'none'
 								});
 							}
@@ -1214,7 +1214,7 @@
 						if (data.label === 'email') {
 							if (!/^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/.test(data.value)) {
 								return uni.showToast({
-									title: that.$t(`请输入正确的`) + `${data.title}`,
+									title: that.$t(`الرجاء إدخال 正确的`) + `${data.title}`,
 									icon: 'none'
 								});
 							}
@@ -1222,7 +1222,7 @@
 						if (data.label === 'phone') {
 							if (!/^1(3|4|5|7|8|9|6)\d{9}$/i.test(data.value)) {
 								return uni.showToast({
-									title: that.$t(`请输入正确的`) + `${data.title}`,
+									title: that.$t(`الرجاء إدخال 正确的`) + `${data.title}`,
 									icon: 'none'
 								});
 							}

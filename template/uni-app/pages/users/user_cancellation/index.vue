@@ -20,12 +20,12 @@
 		<view class="tipaddress" v-show="isCancellation">
 			<view class="top"></view>
 			<view class="bottom">
-				<view class="font1">{{$t(`是否确认注销`)}}</view>
-				<view class="font2">{{$t(`注销后无法恢复，请谨慎操作`)}}</view>
+				<view class="font1">{{$t(`是否تأكيد注销`)}}</view>
+				<view class="font2">{{$t(`注销后无法恢复，请谨慎الخيارات`)}}</view>
 				<view class="btn">
 					<view class="cancellation-btn btn-sty flex-aj-center" @tap="cancelUser">{{$t(`注销`)}}</view>
 					<view class="cancel btn-sty flex-aj-center" @tap="isCancellation = false">
-						{{$t(`取消`)}}
+						{{$t(`إلغاء`)}}
 					</view>
 				</view>
 			</view>

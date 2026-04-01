@@ -109,8 +109,8 @@ export default {
   data() {
     return {
       currentDiyData: {},
-      editModal: false, // 编辑头像信息
-      storeMenu: [], // 商家管理
+      editModal: false, // تحرير头像信息
+      storeMenu: [], // 商家إدارة
       orderMenu: [
         {
           img: "icon-daifukuan",

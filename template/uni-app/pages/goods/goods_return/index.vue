@@ -180,7 +180,7 @@
 			},
 
 			/**
-			 * 删除图片
+			 * حذف图片
 			 * 
 			 */
 			DelPic: function(e) {
@@ -215,7 +215,7 @@
 					value = e.detail.value;
 				//收集form表单
 				if (!value.refund_reason_wap_explain) return this.$util.Tips({
-					title: this.$t(`请输入备注`)
+					title: this.$t(`الرجاء إدخال 备注`)
 				});
 				let cartInfo = this.refundCartInfo;
 				if (cartInfo.length === 1) {

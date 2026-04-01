@@ -17,7 +17,7 @@
 				</view>
 			</view>
 			<!-- <view class='search acea-row row-between-wrapper'>
-				<view class='input'><input placeholder='点击搜索会员名称' placeholder-class='placeholder' v-model="keyword"
+				<view class='input'><input placeholder='点击بحث会员الاسم' placeholder-class='placeholder' v-model="keyword"
 						@confirm="submitForm" confirm-type='search' name="search"></input></view>
 				<button class='iconfont icon-sousuo2' @click="submitForm"></button>
 			</view> -->
@@ -30,7 +30,7 @@
 							</view>
 							<view class="text">
 								<view class="name line1">{{ item.nickname }}</view>
-								<view>{{ $t(`加入时间`) }}: {{ item.division_change_time }}</view>
+								<view>{{ $t(`加入الوقت`) }}: {{ item.division_change_time }}</view>
 								<view>{{ $t(`分佣比例`) }}: {{ item.division_percent }}%</view>
 							</view>
 						</view>
@@ -50,8 +50,8 @@
 						</view>
 					</view>
 					<view class="item-btn">
-						<view class="change" @click="changeData(item)">{{ $t(`修改分佣比例`) }}</view>
-						<view class="clear" @click="clear(item, index)">{{ $t(`删除`) }}</view>
+						<view class="change" @click="changeData(item)">{{ $t(`تعديل分佣比例`) }}</view>
+						<view class="clear" @click="clear(item, index)">{{ $t(`حذف`) }}</view>
 					</view>
 				</block>
 			</view>
@@ -63,13 +63,13 @@
 		<view class="refund-input" :class="refund_close ? 'on' : ''">
 			<view class="input-msg">
 				<text class="iconfont icon-guanbi5" @tap="refund_close = false"></text>
-				<view class="refund-input-title">{{ $t(`修改分佣比例`) }}</view>
+				<view class="refund-input-title">{{ $t(`تعديل分佣比例`) }}</view>
 				<view class="refund-input-sty">
-					<input type="number" v-model="agent_percent" :placeholder="$t(`请输入百分比`)" />
+					<input type="number" v-model="agent_percent" :placeholder="$t(`الرجاء إدخال 百分比`)" />
 				</view>
 				<view class="refund-bth">
-					<!-- <view class="close-refund" @click="refund_close = false">取消</view> -->
-					<view class="submit-refund" @click="refundSubmit()">{{ $t(`提交`) }}</view>
+					<!-- <view class="close-refund" @click="refund_close = false">إلغاء</view> -->
+					<view class="submit-refund" @click="refundSubmit()">{{ $t(`إرسال`) }}</view>
 				</view>
 			</view>
 		</view>
@@ -101,10 +101,10 @@
 			<!-- #endif -->
 
 			<!-- #ifndef H5  -->
-			<view class="save-poster" @click="savePosterPath">{{ $t(`保存到手机`) }}</view>
+			<view class="save-poster" @click="savePosterPath">{{ $t(`حفظ到手机`) }}</view>
 			<!-- #endif -->
 			<!-- #ifdef H5 -->
-			<view class="keep">{{ $t(`长按图片可以保存到手机`) }}</view>
+			<view class="keep">{{ $t(`长按图片可以حفظ到手机`) }}</view>
 			<!-- #endif -->
 		</view>
 	</view>
@@ -222,8 +222,8 @@ export default {
 		clear(data, index) {
 			let that = this;
 			uni.showModal({
-				title: that.$t(`删除员工`),
-				content: that.$t(`确定删除该员工?`),
+				title: that.$t(`حذف员工`),
+				content: that.$t(`确定حذف该员工?`),
 				success: (res) => {
 					if (res.confirm) {
 						delClerkPercent(data.uid)
@@ -233,7 +233,7 @@ export default {
 								// that.userSpreadNewList();
 								that.teamCount -= 1;
 								return that.$util.Tips({
-									title: that.$t(`删除成功`),
+									title: that.$t(`حذف成功`),
 									icon: 'success'
 								});
 							})
@@ -244,7 +244,7 @@ export default {
 							});
 					} else if (res.cancel) {
 						return that.$util.Tips({
-							title: that.$t(`已取消`)
+							title: that.$t(`已إلغاء`)
 						});
 					}
 				}
@@ -257,7 +257,7 @@ export default {
 		refundSubmit() {
 			if (this.agent_percent < 0) {
 				return this.$util.Tips({
-					title: this.$t(`请输入比例`)
+					title: this.$t(`الرجاء إدخال 比例`)
 				});
 			}
 			setClerkPercent({
@@ -361,13 +361,13 @@ export default {
 										success: function (res) {
 											that.posterImageClose();
 											that.$util.Tips({
-												title: that.$t(`保存成功`),
+												title: that.$t(`حفظ成功`),
 												icon: 'success'
 											});
 										},
 										fail: function (res) {
 											that.$util.Tips({
-												title: that.$t(`保存失败`)
+												title: that.$t(`حفظ失败`)
 											});
 										}
 									});
@@ -379,13 +379,13 @@ export default {
 								success: function (res) {
 									that.posterImageClose();
 									that.$util.Tips({
-										title: that.$t(`保存成功`),
+										title: that.$t(`حفظ成功`),
 										icon: 'success'
 									});
 								},
 								fail: function (res) {
 									that.$util.Tips({
-										title: that.$t(`保存失败`)
+										title: that.$t(`حفظ失败`)
 									});
 								}
 							});

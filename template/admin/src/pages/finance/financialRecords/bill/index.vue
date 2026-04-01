@@ -14,11 +14,11 @@
         <el-row :gutter="24">
           <el-col :xl="6" :lg="12" :md="13" :sm="12" :xs="24">
             <el-form-item label="关键字：">
-              <el-input enter-button placeholder="请输入" element-id="name" v-model="formValidate.nickname" />
+              <el-input enter-button placeholder="الرجاء إدخال " element-id="name" v-model="formValidate.nickname" />
             </el-form-item>
           </el-col>
           <el-col :xl="6" :lg="12" :md="13" :sm="12" :xs="24">
-            <el-form-item label="时间范围：" class="tab_data">
+            <el-form-item label="الوقت范围：" class="tab_data">
               <el-date-picker
                 clearable
                 :editable="false"
@@ -47,7 +47,7 @@
           </el-col>
           <el-col :span="6">
             <el-form-item>
-              <el-button type="primary" v-db-click @click="userSearchs">搜索</el-button>
+              <el-button type="primary" v-db-click @click="userSearchs">بحث</el-button>
               <el-button v-auth="['export-userFinance']" class="export" v-db-click @click="exports">导出 </el-button>
             </el-form-item>
           </el-col>
@@ -81,7 +81,7 @@
             <span>{{ scope.row.mark }}</span>
           </template>
         </el-table-column>
-        <el-table-column label="创建时间" min-width="130">
+        <el-table-column label="创建الوقت" min-width="130">
           <template slot-scope="scope">
             <span>{{ scope.row.add_time }}</span>
           </template>
@@ -136,7 +136,7 @@ export default {
     this.getList();
   },
   methods: {
-    // 时间
+    // الوقت
     onchangeTime(e) {
       this.formValidate.start_time = e[0];
       this.formValidate.end_time = e[1];
@@ -166,7 +166,7 @@ export default {
           this.$message.error(res.msg);
         });
     },
-    // 搜索
+    // بحث
     userSearchs() {
       this.formValidate.page = 1;
       this.getList();

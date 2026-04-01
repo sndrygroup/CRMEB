@@ -99,7 +99,7 @@
             class="search_box"
             prefix="ios-search"
             @on-enter="orderSearch"
-            placeholder="搜索订单编号"
+            placeholder="بحث订单编号"
             v-model="orderConfig.searchTxt"
           />
         </div>
@@ -146,7 +146,7 @@
                 <div class="order-info">
                   <div class="info-item"><span>订单编号：</span>{{ item.order_id }}</div>
                   <div class="info-item">
-                    <span>{{ item.refund_status == 1 ? '发起时间' : '付款时间' }}：</span
+                    <span>{{ item.refund_status == 1 ? '发起الوقت' : '付款الوقت' }}：</span
                     >{{ item.refund_status == 1 ? item.add_time : item._pay_time }}
                   </div>
                   <div class="info-item"><span>邮费：</span>¥ {{ item.pay_postage }}</div>
@@ -176,7 +176,7 @@
                     type="primary"
                     @click.stop="orderPaid(item.id)"
                     v-if="item.pay_type == 'offline' && item.paid == 0"
-                    >确认付款</el-button
+                    >تأكيد付款</el-button
                   >
                   <el-button
                     class="btn"
@@ -220,7 +220,7 @@
             @on-enter="productSearch"
             v-model="storeName"
             prefix="ios-search"
-            placeholder="搜索商品名称/ID"
+            placeholder="بحث商品الاسم/ID"
           />
         </div>
         <div class="list-wrapper" v-if="goodsConfig.buyList.length > 0">
@@ -257,7 +257,7 @@
       ></delivery>
     </el-dialog>
     <!-- 订单备注 -->
-    <el-dialog :visible.sync="isRemarks" title="请修改内容" width="470px" :show-close="true" class="none-radius">
+    <el-dialog :visible.sync="isRemarks" title="请تعديل内容" width="470px" :show-close="true" class="none-radius">
       <remarks :remarkId="remarkId" v-if="isRemarks" @close="deliveryClose" @remarkSuccess="remarkSuccess"></remarks>
     </el-dialog>
     <!-- 用户标签 -->
@@ -383,7 +383,7 @@ export default {
           title: '退款中',
         },
       ],
-      activeUserInfo: '', //用户详情
+      activeUserInfo: '', //用户تفاصيل
       curStatus: this.status,
       limit: 15,
       orderConfig: {
@@ -493,7 +493,7 @@ export default {
       this.remarkId = '';
       this.isRemarks = false;
     },
-    //获取左侧用户列表用户详情
+    //获取左侧用户列表用户تفاصيل
     getUserInfo() {
       userInfo(this.uid)
         .then((res) => {
@@ -553,7 +553,7 @@ export default {
     },
     orderPaid(id) {
       this.$modalSure({
-        title: '修改订单为已支付',
+        title: 'تعديل订单为已支付',
         url: `/order/pay_offline/${id}`,
         method: 'post',
         ids: '',
@@ -639,7 +639,7 @@ export default {
         this.goodsConfig.buyList = this.goodsConfig.buyList.concat(res.data);
       });
     },
-    // 修改用户标签
+    // تعديل用户标签
     editLabel() {
       this.isUserLabel = false;
       this.getUserInfo();
@@ -655,7 +655,7 @@ export default {
     pushGoods(item) {
       this.$emit('bindPush', item.id);
     },
-    // 商品搜索
+    // 商品بحث
     productSearch() {
       this.page = 1;
       this.isGoodsScroll = true;

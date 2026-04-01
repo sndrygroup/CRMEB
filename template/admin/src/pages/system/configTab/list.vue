@@ -9,7 +9,7 @@
       <el-row v-if="!$route.query.config_name">
         <el-col v-bind="grid">
           <!-- <el-button type="primary" v-db-click @click="goIndex">配置分类</el-button> -->
-          <el-button type="primary" v-db-click @click="configureAdd">添加配置</el-button>
+          <el-button type="primary" v-db-click @click="configureAdd">إضافة配置</el-button>
         </el-col>
       </el-row>
       <el-table
@@ -25,7 +25,7 @@
             <span>{{ scope.row.id }}</span>
           </template>
         </el-table-column>
-        <el-table-column label="配置名称" min-width="130">
+        <el-table-column label="配置الاسم" min-width="130">
           <template slot-scope="scope">
             <span>{{ scope.row.info }}</span>
           </template>
@@ -100,11 +100,11 @@
             </el-switch>
           </template>
         </el-table-column>
-        <el-table-column label="操作" fixed="right" width="120">
+        <el-table-column label="الخيارات" fixed="right" width="120">
           <template slot-scope="scope">
-            <a v-db-click @click="edit(scope.row)">编辑</a>
+            <a v-db-click @click="edit(scope.row)">تحرير</a>
             <el-divider direction="vertical"></el-divider>
-            <a v-db-click @click="del(scope.row, '删除分类', scope.$index)">删除</a>
+            <a v-db-click @click="del(scope.row, 'حذف分类', scope.$index)">حذف</a>
           </template>
         </el-table-column>
       </el-table>
@@ -113,7 +113,7 @@
     <!-- 新建 表单-->
     <el-dialog
       :visible.sync="modals2"
-      :title="`${rowId ? '修改' : '添加'}配置字段`"
+      :title="`${rowId ? 'تعديل' : 'إضافة'}配置字段`"
       :close-on-click-modal="false"
       :show-close="true"
       width="720px"
@@ -138,11 +138,11 @@
         handleIcon="false"
       ></form-create>
       <span slot="footer" class="dialog-footer">
-        <el-button v-db-click @click="modals2 = false">取消</el-button>
+        <el-button v-db-click @click="modals2 = false">إلغاء</el-button>
         <el-button type="primary" v-db-click @click="submitForm">确定</el-button>
       </span>
     </el-dialog>
-    <!-- 编辑表单-->
+    <!-- تحرير表单-->
     <edit-from ref="edits" :FromData="FromData" @submitFail="submitFail"></edit-from>
   </div>
 </template>
@@ -243,7 +243,7 @@ export default {
           this.$message.error(res.msg);
         });
     },
-    // 编辑表单
+    // تحرير表单
     edit(row) {
       this.rowId = row.id;
       configTabEditApi(row.id)
@@ -261,7 +261,7 @@ export default {
           this.$message.error(res.msg);
         });
     },
-    // 提交表单
+    // إرسال表单
     onSubmit(formData) {
       request({
         url: this.FromRequestData.action,
@@ -281,7 +281,7 @@ export default {
           this.$message.error(res.msg);
         });
     },
-    // 修改成功
+    // تعديل成功
     submitFail() {
       this.getList();
     },
@@ -291,7 +291,7 @@ export default {
         path: this.$routeProStr + '/system/config/system_config_tab/index',
       });
     },
-    // 添加配置
+    // إضافة配置
     configureAdd() {
       // this.modals2 = true;
       this.rowId = 0;
@@ -319,7 +319,7 @@ export default {
       this.formValidate.page = index;
       this.getList();
     },
-    // 删除
+    // حذف
     del(row, tit, num) {
       let delfromData = {
         title: tit,
@@ -337,7 +337,7 @@ export default {
           this.$message.error(res.msg);
         });
     },
-    // 修改是否显示
+    // تعديل是否显示
     onchangeIsShow(row) {
       configSetStatusApi(row.id, row.status)
         .then(async (res) => {

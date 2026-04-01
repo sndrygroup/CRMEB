@@ -8,7 +8,7 @@
         <div class="item" :class="where.type === -1 ? 'on' : ''" v-db-click @click="changeStatus(-1)">退款中</div>
       </div>
       <div class="input-box">
-        <el-input placeholder="搜索订单编号" v-model="where.search" @on-enter="bindSearch" />
+        <el-input placeholder="بحث订单编号" v-model="where.search" @on-enter="bindSearch" />
       </div>
     </div>
 
@@ -21,7 +21,7 @@
           <div class="item" v-for="(item, index) in list" :key="index">
             <div class="order-num acea-row row-middle" v-db-click @click="toDetail(item)">
               订单号：{{ item.order_id }}
-              <span class="time">下单时间：{{ item._add_time }}</span>
+              <span class="time">下单الوقت：{{ item._add_time }}</span>
             </div>
             <template if="item.productList && item.productList.length">
               <div class="pos-order-goods" v-for="(val, key) in item.cartInfo" :key="key">
@@ -60,7 +60,7 @@
                 <!--            <div class="iconfontYI icon-gengduo" v-db-click @click="more(index)"></div>-->
                 <!--            <div class="order" v-show="current === index">-->
                 <!--              <div class="items">-->
-                <!--                {{ where.status > 0 ? "删除" : "取消" }}订单-->
+                <!--                {{ where.status > 0 ? "حذف" : "إلغاء" }}订单-->
                 <!--              </div>-->
                 <!--              <div class="arrow"></div>-->
                 <!--            </div>-->
@@ -82,7 +82,7 @@
                   v-db-click
                   @click="offlinePay(item)"
                 >
-                  确认付款
+                  تأكيد付款
                 </div>
                 <router-link
                   class="bnt"
@@ -236,7 +236,7 @@ export default {
     });
   },
   methods: {
-    // 搜索回车
+    // بحث回车
     bindSearch() {
       this.init();
     },
@@ -348,7 +348,7 @@ export default {
         orderMarkApi(data).then(
           (res) => {
             that.change = false;
-            that.$dialog.success('提交成功');
+            that.$dialog.success('إرسال成功');
             that.init();
           },
           (err) => {

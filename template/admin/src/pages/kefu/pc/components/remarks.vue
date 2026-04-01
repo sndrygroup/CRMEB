@@ -4,7 +4,7 @@
       <el-form-item label="备注：" prop="con" class="form-item" label-position="right" label-width="60px">
         <el-input
           v-model="formValidate.con"
-          placeholder="请输入备注"
+          placeholder="الرجاء إدخال 备注"
           style="width: 360px"
           maxlength="200"
           type="textarea"
@@ -13,8 +13,8 @@
         ></el-input>
       </el-form-item>
       <div class="mask-footer">
-        <el-button v-db-click @click="close">取消</el-button>
-        <el-button type="primary" v-db-click @click="handleSubmit('formValidate')">提交</el-button>
+        <el-button v-db-click @click="close">إلغاء</el-button>
+        <el-button type="primary" v-db-click @click="handleSubmit('formValidate')">إرسال</el-button>
       </div>
     </el-form>
   </div>
@@ -36,7 +36,7 @@ export default {
         con: '',
       },
       ruleInline: {
-        con: [{ required: true, message: '请输入备注信息', trigger: 'change' }],
+        con: [{ required: true, message: 'الرجاء إدخال 备注信息', trigger: 'change' }],
       },
       formValidate: {
         con: '',

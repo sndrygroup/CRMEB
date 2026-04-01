@@ -10,7 +10,7 @@
                   <img src="../../../assets/images/f.png" />
                 </div>
                 <div class="txt">
-                  <div class="name">用户名称用户名称</div>
+                  <div class="name">اسم المستخدم称اسم المستخدم称</div>
                   <div class="phone acea-row row-center-wrapper">
                     绑定手机号<span class="iconfont iconjinru"></span>
                   </div>
@@ -111,14 +111,14 @@
                   <img :src="item.pic" v-if="item.pic && item.pic != ''" />
                   <span class="iconfont icontupian1" v-else></span>
                 </div>
-                <div>{{ item.name ? item.name : '服务名称' }}</div>
+                <div>{{ item.name ? item.name : '服务الاسم' }}</div>
               </div>
             </div>
             <div class="list-2" v-else-if="userData.my_menus_status == 2">
               <div class="acea-row row-middle item" v-for="(item, index) in MyMenus" :key="index" v-if="item.pic">
                 <img class="pictrue" :src="item.pic" v-if="item.pic && item.pic != ''" />
                 <span class="iconfont icontupian1" v-else></span>
-                <div class="name">{{ item.name ? item.name : '服务名称' }}</div>
+                <div class="name">{{ item.name ? item.name : '服务الاسم' }}</div>
                 <i class="el-icon-arrow-right"></i>
               </div>
             </div>
@@ -130,7 +130,7 @@
             @click="currentShow(3)"
           >
             <div class="title acea-row row-between-wrapper" v-if="userData.business_status == 1">
-              <div>商家管理</div>
+              <div>商家إدارة</div>
             </div>
             <div class="list acea-row" v-if="userData.business_status == 1">
               <div class="item" v-for="(item, index) in storeMenu" :key="index" v-if="item.pic">
@@ -144,7 +144,7 @@
               <div class="acea-row row-middle item" v-for="(item, index) in storeMenu" :key="index" v-if="item.pic">
                 <img class="pictrue" :src="item.pic" v-if="item.pic && item.pic != ''" />
                 <span class="iconfont icontupian1" v-else></span>
-                <div class="name">{{ item.name ? item.name : '服务名称' }}</div>
+                <div class="name">{{ item.name ? item.name : '服务الاسم' }}</div>
                 <i class="el-icon-arrow-right"></i>
               </div>
             </div>
@@ -225,7 +225,7 @@
                 v-model="userData.my_banner_status"
                 style="margin-bottom: 12px"
               />
-              <div class="info">建议尺寸：375 * 65px，拖拽图片可调整图片显示顺序哦，最多添加五张</div>
+              <div class="info">建议尺寸：375 * 65px，拖拽图片可调整图片显示顺序哦，最多إضافة五张</div>
               <uploadPic :listData="userData.routine_my_banner" :type="5"></uploadPic>
             </el-col>
           </div>
@@ -237,9 +237,9 @@
             </el-col>
           </div>
           <div class="c_row-item acea-row row-top" v-if="current == 3">
-            <el-col class="label" :span="4"> 商家管理： </el-col>
+            <el-col class="label" :span="4"> 商家إدارة： </el-col>
             <el-col :span="20" class="slider-box">
-              <div class="info">建议尺寸：86 * 86px，拖拽图片可调整图片显示顺序哦，最多添加五张</div>
+              <div class="info">建议尺寸：86 * 86px，拖拽图片可调整图片显示顺序哦，最多إضافة五张</div>
               <uploadPic :listData="storeMenu" :type="1"></uploadPic>
             </el-col>
           </div>

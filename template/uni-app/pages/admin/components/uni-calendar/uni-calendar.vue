@@ -4,7 +4,7 @@
 		<view v-if="insert || show" class="uni-calendar__content" :class="{ 'uni-calendar--fixed': !insert, 'uni-calendar--ani-show': aniMaskShow }">
 			<view v-if="!insert" class="uni-calendar__header uni-calendar--fixed-top">
 				<view class="uni-calendar__header-btn-box" @click="close">
-					<text class="uni-calendar__header-text uni-calendar--fixed-width">{{ $t(`取消`) }}</text>
+					<text class="uni-calendar__header-text uni-calendar--fixed-width">{{ $t(`إلغاء`) }}</text>
 				</view>
 				<view class="uni-calendar__header-btn-box" @click="confirm">
 					<text class="uni-calendar__header-text uni-calendar--fixed-width">{{ $t(`确定`) }}</text>
@@ -89,14 +89,14 @@ export default {
 			default: false
 		},
 		/**
-		 * 开始时间
+		 * 开始الوقت
 		 */
 		startDate: {
 			type: String,
 			default: ''
 		},
 		/**
-		 * 结束时间
+		 * 结束الوقت
 		 */
 		endDate: {
 			type: String,
@@ -151,7 +151,7 @@ export default {
 		this.init(this.cale.date.fullDate);
 	},
 	methods: {
-		// 取消穿透
+		// إلغاء穿透
 		clean() {},
 		init(date) {
 			this.weeks = this.cale.weeks;

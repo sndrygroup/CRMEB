@@ -140,7 +140,7 @@ export default {
       default: false,
     },
     scrollable: {
-      // 是否滚动，添加后控制单行效果取消
+      // 是否滚动，إضافة后控制单行效果إلغاء
       type: [Boolean, String],
       default: false,
     },

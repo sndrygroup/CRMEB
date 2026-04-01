@@ -73,7 +73,7 @@
 					</view>
 				</view>
 				<view>
-					<button class='money' type="primary" @click="verification">{{checked?'一键':'确认'}}核销({{numChecked}})</button>
+					<button class='money' type="primary" @click="verification">{{checked?'一键':'تأكيد'}}核销({{numChecked}})</button>
 				</view>
 			</view>
 		</view>
@@ -88,9 +88,9 @@
 					<view class="acea-row btn-box">
 						<view v-if="lets == 1 && list.total_num == parseInt(list.writeoff_count)+writeOffNum" class="btn" @click="ok(1)">知道了</view>
 						<navigator v-if="lets > 1 && list.total_num != parseInt(list.writeoff_count)+writeOffNum" :url='"/pages/admin/distribution/scanning/index?code="+attr.code' hover-class='none'
-							open-type="redirect" class="btn">返回列表</navigator>
+							open-type="redirect" class="btn">عودة列表</navigator>
 						<navigator v-if="(lets > 1 && list.total_num == parseInt(list.writeoff_count)+writeOffNum)||(lets==1&&list.total_num != parseInt(list.writeoff_count)+writeOffNum)"
-							url="/pages/admin/distribution/index" hover-class='none' open-type="redirect" class="btn">返回首页</navigator>
+							url="/pages/admin/distribution/index" hover-class='none' open-type="redirect" class="btn">عودة首页</navigator>
 						<view v-if="list.total_num != parseInt(list.writeoff_count)+writeOffNum" class="btn on" @click="ok(0)">继续核销</view>
 						<navigator v-if="lets > 1 && list.total_num == parseInt(list.writeoff_count)+writeOffNum" :url='"/pages/admin/distribution/scanning/index?code="+attr.code' open-type="redirect"
 							hover-class='none' class="btn">核销其他订单</navigator>
@@ -339,7 +339,7 @@
 				this.newList = newObj
 				if (that.checkModel.length == 0) {
 					that.$util.Tips({
-						title: '请选择商品'
+						title: 'الرجاء اختيار 商品'
 					});
 				} else {
 					uni.showLoading({

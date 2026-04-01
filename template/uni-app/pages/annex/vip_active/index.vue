@@ -9,9 +9,9 @@
 			</view>
 		</view>
 		<form class="form" @submit="active">
-			<input class="input" name="account" :placeholder="$t(`请输入卡号`)" placeholder-style="color:#C38D5D" />
-			<input class="input" name="password" :placeholder="$t(`请输入卡密`)" placeholder-style="color:#C38D5D" password />
-			<button class="button" form-type="submit">{{$t(`确认激活`)}}</button>
+			<input class="input" name="account" :placeholder="$t(`الرجاء إدخال 卡号`)" placeholder-style="color:#C38D5D" />
+			<input class="input" name="password" :placeholder="$t(`الرجاء إدخال 卡密`)" placeholder-style="color:#C38D5D" password />
+			<button class="button" form-type="submit">{{$t(`تأكيد激活`)}}</button>
 		</form>
 		<!-- 会员权益 -->
 		<view class="right-section">
@@ -72,13 +72,13 @@
 					};
 				if (!formData.account) {
 					return uni.showToast({
-						title: this.$t(`请输入卡号`),
+						title: this.$t(`الرجاء إدخال 卡号`),
 						icon: 'none'
 					});
 				}
 				if (!formData.password) {
 					return uni.showToast({
-						title: this.$t(`请输入卡密`),
+						title: this.$t(`الرجاء إدخال 卡密`),
 						icon: 'none'
 					});
 				}

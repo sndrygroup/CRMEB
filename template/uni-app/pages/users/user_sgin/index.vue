@@ -352,7 +352,7 @@
 					});
 			},
 			/**
-			 * 关闭签到提示
+			 * 关闭签到تنبيه
 			 */
 			close: function() {
 				this.active = false;

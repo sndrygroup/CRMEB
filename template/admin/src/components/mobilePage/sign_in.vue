@@ -98,7 +98,7 @@ export default {
   configName: 'c_sign_in',
   icon: '#iconzujian-qiandao',
   type: 1, // 0 基础组件 1 营销组件 2工具组件
-  defaultName: 'signIn', // 外面匹配名称
+  defaultName: 'signIn', // 外面匹配الاسم
   props: {
     index: {
       type: null,
@@ -139,7 +139,7 @@ export default {
   // mixins: [theme],
   data() {
     return {
-      // 默认初始化数据禁止修改
+      // 默认初始化数据禁止تعديل
       defaultConfig: {
         cname: '签到',
         name: 'signIn',

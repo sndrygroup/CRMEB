@@ -3,7 +3,7 @@
 		<view class='collectionGoods' v-if="collectProductList.length">
 			<view class="title-admin">
 				<view>{{$t(`当前共`)}} <text class="text"> {{count}} </text> {{$t(`件商品`)}}</view>
-				<view class="admin" @click="showRadio">{{checkbox_show?$t(`取消`):$t(`管理`)}}</view>
+				<view class="admin" @click="showRadio">{{checkbox_show?$t(`إلغاء`):$t(`إدارة`)}}</view>
 			</view>
 			<checkbox-group @change.stop="checkboxChange">
 				<view class='item acea-row' v-for="(item,index) in collectProductList" :key="index">
@@ -20,7 +20,7 @@
 						<view class='name line2'>{{item.store_name}}</view>
 						<view class='acea-row row-between-wrapper'>
 							<view class='money font-color'>{{$t(`￥`)}}{{item.price}}</view>
-							<!-- <view class='delete' @click.stop='delCollection(item.pid,index)'>删除</view> -->
+							<!-- <view class='delete' @click.stop='delCollection(item.pid,index)'>حذف</view> -->
 						</view>
 					</view>
 				</view>
@@ -157,7 +157,7 @@
 					});
 				} else {
 					return that.$util.Tips({
-						title: that.$t(`请选择商品`)
+						title: that.$t(`الرجاء اختيار 商品`)
 					});
 				}
 

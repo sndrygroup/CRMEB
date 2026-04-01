@@ -133,7 +133,7 @@
 						} else if (tagDate == nowDate && !this.getVer && !res.data.is_force) {
 							return
 						}
-						// 这里的返回的数据跟后台约定
+						// 这里的عودة的数据跟后台约定
 						let data = res.data;
 						// 循环获取当前设备对应的更新数据
 						vm.update_info = data;
@@ -154,7 +154,7 @@
 					vm.popup_show = true; //线上版本号大于当前安装的版本号  显示升级框
 					if (vm.tabbar) {
 						//页面是否有原生tabbar组件
-						// 创建原生view用来遮罩tabbar的点击事件 (如果是没有用原生的tabbar这一步可以取消)
+						// 创建原生view用来遮罩tabbar的点击事件 (如果是没有用原生的tabbar这一步可以إلغاء)
 						vm.viewObj = new plus.nativeObj.View("viewObj", {
 							bottom: "0px",
 							left: "0px",
@@ -169,10 +169,10 @@
 				}
 			},
 
-			// 取消更新
+			// إلغاء更新
 			closeUpdate() {
 				if (vm.update_info.is_force) {
-					// 强制更新，取消退出app
+					// 强制更新，إلغاء退出app
 					this.platform == "android" ?
 						plus.runtime.quit() :
 						plus.ios
@@ -186,8 +186,8 @@
 			},
 			// 立即更新
 			nowUpdate() {
-				if (vm.downing) return false; //如果正在下载就停止操作
-				vm.downing = true; //状态改变 正在下载中
+				if (vm.downing) return false; //如果正在下载就停止الخيارات
+				vm.downing = true; //الحالة改变 正在下载中
 
 				if (/\.apk$/.test(vm.update_info.url)) {
 					// 如果是apk地址
@@ -222,7 +222,7 @@
 							case 3: // 已接收到数据
 								vm.downSize = task.downloadedSize;
 								if (task.totalSize) {
-									vm.fileSize = task.totalSize; //服务器须返回正确的content-length才会有长度
+									vm.fileSize = task.totalSize; //服务器须عودة正确的content-length才会有长度
 								}
 								break;
 							case 4:

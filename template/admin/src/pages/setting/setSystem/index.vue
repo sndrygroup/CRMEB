@@ -227,7 +227,7 @@ export default {
     changeTab() {
       this.childrenList();
     },
-    // 提交表单 group
+    // إرسال表单 group
     onSubmit(formData) {
       request({
         url: this.FromData.action,

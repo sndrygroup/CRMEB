@@ -89,7 +89,7 @@ export default {
               },
               {
                 id: 1,
-                name: '营业时间',
+                name: '营业الوقت',
               },
               {
                 id: 2,

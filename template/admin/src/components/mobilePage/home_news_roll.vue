@@ -94,7 +94,7 @@ export default {
   cname: '新闻公告',
   configName: 'c_news_roll',
   type: 0, // 0 基础组件 1 营销组件 2工具组件
-  defaultName: 'news', // 外面匹配名称
+  defaultName: 'news', // 外面匹配الاسم
   icon: '#iconzujian-xinwenbobao',
   props: {
     index: {
@@ -135,7 +135,7 @@ export default {
   // mixins: [theme],
   data() {
     return {
-      // 默认初始化数据禁止修改
+      // 默认初始化数据禁止تعديل
       defaultConfig: {
         cname: '新闻公告',
         desc: '新闻公告',
@@ -184,7 +184,7 @@ export default {
         titleTxtConfig: {
           title: '标题文字',
           value: '商城头条',
-          place: '请输入标题文字',
+          place: 'الرجاء إدخال 标题文字',
           max: 4,
         },
         rollConfig: {
@@ -214,7 +214,7 @@ export default {
         textConfig: {
           title: '右侧文字',
           value: '更多',
-          place: '请输入右侧文字',
+          place: 'الرجاء إدخال 右侧文字',
           max: 4,
         },
         linkConfig: {
@@ -469,7 +469,7 @@ export default {
         },
         // logoConfig: {
         //     header: '图标设置',
-        //     title: '最多可添加1张图片，建议宽度130 * 36px',
+        //     title: '最多可إضافة1张图片，建议宽度130 * 36px',
         //     url: require('@/assets/images/news.png')
         // }
       },

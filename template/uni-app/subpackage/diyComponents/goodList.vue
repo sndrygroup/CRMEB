@@ -892,7 +892,7 @@ export default {
       id: 0,
       productValue: [],
       attrValue: "", //已选属性
-      storeName: "", //多属性产品名称
+      storeName: "", //多属性产品الاسم
       storeInfo: {},
       allList: [], // 全部列表
       leftList: [], // 左边列表
@@ -911,7 +911,7 @@ export default {
     // 监听列表数据变化
     tempArr: {
       handler(nVal, oVal) {
-        // 如果数据为空或新的列表数据少于旧的列表数据（通常为下拉刷新或切换排序或使用筛选器），初始化变量
+        // 如果数据为空或新的列表数据少于旧的列表数据（通常为下拉تحديث或切换排序或使用筛选器），初始化变量
         if (
           !this.tempArr.length ||
           (this.tempArr.length === this.updateNum &&
@@ -1124,7 +1124,7 @@ export default {
       }
       return this.dataConfig.name == "promotionList" ? imgRadius : borderRadius;
     },
-    /*商品名称样式*/
+    /*商品الاسم样式*/
     productStyle() {
       return {
         color: this.dataConfig.goodsNameColor.color[0].item,
@@ -1270,7 +1270,7 @@ export default {
         });
       });
     },
-    // 商品详情接口；
+    // 商品تفاصيل接口；
     getAttrs(id) {
       let that = this;
       getAttr(id, 0).then((res) => {

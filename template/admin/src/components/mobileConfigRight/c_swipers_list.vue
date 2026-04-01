@@ -50,7 +50,7 @@
     <template v-if="configData.list">
       <div class="add-btn" v-if="configData.list.length < configData.maxList">
         <el-button class="btn" type="primary" ghost @click="addBox">
-          <span class="iconfont iconjiahao"></span>添加
+          <span class="iconfont iconjiahao"></span>إضافة
         </el-button>
       </div>
     </template>
@@ -159,7 +159,7 @@ export default {
       this.activeIndex = index;
       this.modalPic = true;
     },
-    // 添加自定义弹窗
+    // إضافة自定义弹窗
     addCustomDialog(editorId) {
       window.UE.registerUI(
         'test-dialog',
@@ -207,7 +207,7 @@ export default {
       let data = this.defaults.menuConfig;
       this.defaults.picStyle.picList[this.defaults.picStyle.tabVal].link = data.list[0].info[0].value;
     },
-    // 删除
+    // حذف
     bindDelete(item, index) {
       if (this.configData.list.length == 1) {
         this.lastObj = this.configData.list[0];

@@ -25,14 +25,14 @@
       </button>
       <!-- #endif -->
       <view class="btn-clear" @click="getPoster()">
-        {{ $t("保存海报") }}
+        {{ $t("حفظ海报") }}
       </view>
     </template>
     <template v-if="posterImageStatus">
       <text class="iconfont icon-cha2 close" @click="posterImageClose"></text>
       <image class="poster-img" :src="posterImage"></image>
       <!-- #ifdef H5 -->
-      <view class="keep">{{ $t(`长按图片可以保存到手机`) }}</view>
+      <view class="keep">{{ $t(`长按图片可以حفظ到手机`) }}</view>
       <!-- #endif -->
     </template>
     <!-- #ifdef H5 || APP-PLUS -->
@@ -190,7 +190,7 @@ export default {
             // ctx.drawImage(loadedImages[3], startX, startY, avatarSize, avatarSize);
             const avatarX = startX + avatarSize / 2; // 头像中心点 X
             const avatarY = startY + avatarSize / 2; // 头像中心点 Y
-            ctx.save(); // 保存画布状态
+            ctx.save(); // حفظ画布الحالة
             ctx.beginPath();
             ctx.arc(avatarX, avatarY, avatarSize / 2, 0, Math.PI * 2); // 绘制圆形路径
             ctx.clip(); // 裁剪圆形区域
@@ -201,7 +201,7 @@ export default {
               avatarSize,
               avatarSize
             ); // 绘制头像
-            ctx.restore(); // 恢复画布状态
+            ctx.restore(); // 恢复画布الحالة
 
             // 绘制昵称
             ctx.setFontSize(nicknameFontSize);
@@ -363,13 +363,13 @@ export default {
         filePath: url,
         success: function (res) {
           that.$util.Tips({
-            title: that.$t(`保存成功`),
+            title: that.$t(`حفظ成功`),
             icon: "success",
           });
         },
         fail: function (res) {
           that.$util.Tips({
-            title: that.$t(`保存失败`),
+            title: that.$t(`حفظ失败`),
           });
         },
       });
@@ -377,12 +377,12 @@ export default {
     // #endif
     savePic(url) {
       var a = document.createElement("a"); // 生成一个a元素
-      a.download = "Gift"; // 设置图片名称
+      a.download = "Gift"; // 设置图片الاسم
       a.style.display = "none";
       a.href = url; // 将生成的URL设置为a.href属性
       document.body.appendChild(a); // 将a标签追加到文档对象中
       a.click(); // 触发a的单击事件
-      a.remove(); // 一次性的，用完就删除a标签
+      a.remove(); // 一次性的，用完就حذفa标签
     },
   },
 };

@@ -4,7 +4,7 @@
       <el-col :span="4" class="left-wrapper">
         <div class="tree_tit" v-db-click @click="addSort">
           <i class="el-icon-circle-plus"></i>
-          添加分组
+          إضافة分组
         </div>
         <div class="tree">
           <el-tree
@@ -30,8 +30,8 @@
                   <i class="el-icon-more el-icon--right"></i>
                   <template slot="dropdown">
                     <el-dropdown-menu>
-                      <el-dropdown-item command="1">编辑分组</el-dropdown-item>
-                      <el-dropdown-item v-if="data.id" command="2">删除分组</el-dropdown-item>
+                      <el-dropdown-item command="1">تحرير分组</el-dropdown-item>
+                      <el-dropdown-item v-if="data.id" command="2">حذف分组</el-dropdown-item>
                     </el-dropdown-menu>
                   </template>
                 </el-dropdown>
@@ -47,12 +47,12 @@
               <el-button v-auth="['marketing-channel_code-create']" type="primary" v-db-click @click="add"
                 >新建渠道码</el-button
               >
-              <!-- <el-button v-auth="['marketing-channel_code-create']" type="success" v-db-click @click="addSort">添加分组</el-button> -->
+              <!-- <el-button v-auth="['marketing-channel_code-create']" type="success" v-db-click @click="addSort">إضافة分组</el-button> -->
             </el-col>
             <el-col :span="6">
               <div class="flex">
-                <el-input class="mr10" v-model="tableFrom.name" search placeholder="请输入渠道码名称"> </el-input>
-                <el-button type="primary" v-db-click @click="userSearchs">搜索</el-button>
+                <el-input class="mr10" v-model="tableFrom.name" search placeholder="الرجاء إدخال 渠道码الاسم"> </el-input>
+                <el-button type="primary" v-db-click @click="userSearchs">بحث</el-button>
               </div>
             </el-col>
           </el-row>
@@ -70,7 +70,7 @@
                 </div>
               </template>
             </el-table-column>
-            <el-table-column label="渠道码名称" min-width="80">
+            <el-table-column label="渠道码الاسم" min-width="80">
               <template slot-scope="scope">
                 <span>{{ scope.row.name }}</span>
               </template>
@@ -92,7 +92,7 @@
                 }}</el-tag>
               </template>
             </el-table-column>
-            <el-table-column label="时间" min-width="80">
+            <el-table-column label="الوقت" min-width="80">
               <template slot-scope="scope">
                 <span v-if="scope.row.stop === 0"> 永久 </span>
                 <span v-if="scope.row.stop === 1">
@@ -110,7 +110,7 @@
                 </div>
               </template>
             </el-table-column>
-            <el-table-column label="状态" min-width="80">
+            <el-table-column label="الحالة" min-width="80">
               <template slot-scope="scope">
                 <el-switch
                   class="defineSwitch"
@@ -127,11 +127,11 @@
                 </el-switch>
               </template>
             </el-table-column>
-            <el-table-column label="操作" fixed="right" width="170">
+            <el-table-column label="الخيارات" fixed="right" width="170">
               <template slot-scope="scope">
-                <a v-db-click @click="edit(scope.row)">编辑</a>
+                <a v-db-click @click="edit(scope.row)">تحرير</a>
                 <el-divider direction="vertical"></el-divider>
-                <a v-db-click @click="del(scope.row, '删除二维码', scope.$index)">删除</a>
+                <a v-db-click @click="del(scope.row, 'حذف二维码', scope.$index)">حذف</a>
                 <el-divider direction="vertical"></el-divider>
                 <el-dropdown size="small" @command="changeMenu(scope.row, $event)" :transfer="true">
                   <span class="el-dropdown-link">更多<i class="el-icon-arrow-down el-icon--right"></i> </span>
@@ -320,7 +320,7 @@ export default {
         var url = canvas.toDataURL(); //得到图片的base64编码数据
         var a = document.createElement('a'); // 生成一个a元素
         var event = new MouseEvent('click'); // 创建一个单击事件
-        a.download = name || 'photo'; // 设置图片名称
+        a.download = name || 'photo'; // 设置图片الاسم
         a.href = url; // 将生成的URL设置为a.href属性
         a.dispatchEvent(event); // 触发a的单击事件
       };
@@ -365,11 +365,11 @@ export default {
         this.labelSort = data;
       });
     },
-    // 添加分类
+    // إضافة分类
     addSort() {
       this.$modalForm(wechatQrcodeCreate(0)).then(() => this.getUserLabelAll());
     },
-    //编辑标签
+    //تحرير标签
     labelEdit(item) {
       this.$modalForm(wechatQrcodeCreate(item.id)).then(() => this.getUserLabelAll(1));
     },
@@ -423,13 +423,13 @@ export default {
         nickname: '',
       };
     },
-    // 编辑
+    // تحرير
     edit(row) {
       this.$router.push({
         path: this.$routeProStr + '/marketing/channel_code/create?id=' + row.id,
       });
     },
-    // 添加
+    // إضافة
     add() {
       this.$router.push({
         path: this.$routeProStr + '/marketing/channel_code/create',
@@ -453,12 +453,12 @@ export default {
           this.$message.error(res.msg);
         });
     },
-    // 搜索
+    // بحث
     userSearchs() {
       this.formValidate.page = 1;
       this.getList();
     },
-    // 删除
+    // حذف
     del(row, tit, num) {
       let delfromData = {
         title: tit,
@@ -491,7 +491,7 @@ export default {
           this.$message.error(res.msg);
         });
     },
-    // 修改是否显示
+    // تعديل是否显示
     onchangeIsShow(row) {
       let data = {
         id: row.id,
@@ -510,7 +510,7 @@ export default {
       if (name == 1) {
         this.labelEdit(data);
       } else if (name == 2) {
-        this.deleteSort(data, '删除分类');
+        this.deleteSort(data, 'حذف分类');
       }
     },
   },

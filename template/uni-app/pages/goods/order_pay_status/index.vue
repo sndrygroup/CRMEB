@@ -15,7 +15,7 @@
 					<view class="itemCom">{{ orderId }}</view>
 				</view>
 				<view class="item acea-row row-between-wrapper">
-					<view>{{ $t(`下单时间`) }}</view>
+					<view>{{ $t(`下单الوقت`) }}</view>
 					<view class="itemCom">{{ order_pay_info._add_time }}</view>
 				</view>
 				<view class="item acea-row row-between-wrapper">
@@ -41,7 +41,7 @@
 			</view>
 			<!-- #ifdef H5 -->
 			<view @tap="getOrderPayInfo" v-if="order_pay_info.paid == 0">
-				<button class="returnBnt bg-color" hover-class="none">{{ $t(`刷新支付状态`) }}</button>
+				<button class="returnBnt bg-color" hover-class="none">{{ $t(`تحديث支付الحالة`) }}</button>
 			</view>
 			<!-- #endif -->
 			<view @tap="goOrderDetails" v-if="order_pay_info.paid == 0 && status == 1">
@@ -59,7 +59,7 @@
 			>
 				{{ $t(`邀请好友参团`) }}
 			</button>
-			<button @click="goIndex" class="returnBnt cart-color" formType="submit" hover-class="none" v-else>{{ $t(`返回首页`) }}</button>
+			<button @click="goIndex" class="returnBnt cart-color" formType="submit" hover-class="none" v-else>{{ $t(`عودة首页`) }}</button>
 			<view class="coupons" v-if="couponList.length">
 				<view class="title acea-row row-center-wrapper">
 					<view class="line"></view>
@@ -169,7 +169,7 @@ export default {
 		if (!options.order_id)
 			return this.$util.Tips(
 				{
-					title: this.$t(`缺少参数无法查看订单支付状态`)
+					title: this.$t(`缺少参数无法查看订单支付الحالة`)
 				},
 				{
 					tab: 3,
@@ -267,7 +267,7 @@ export default {
 		},
 		/**
 		 *
-		 * 支付完成查询支付状态
+		 * 支付完成查询支付الحالة
 		 *
 		 */
 		getOrderPayInfo: function () {
@@ -332,7 +332,7 @@ export default {
 		},
 		/**
 		 *
-		 * 去订单详情页面
+		 * 去订单تفاصيل页面
 		 */
 		goOrderDetails: function (e) {
 			let that = this;

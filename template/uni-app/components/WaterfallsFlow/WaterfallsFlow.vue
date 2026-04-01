@@ -65,7 +65,7 @@ export default {
 		// 监听列表数据变化
 		wfList: {
 			handler(nVal, oVal) {
-				// 如果数据为空或新的列表数据少于旧的列表数据（通常为下拉刷新或切换排序或使用筛选器），初始化变量
+				// 如果数据为空或新的列表数据少于旧的列表数据（通常为下拉تحديث或切换排序或使用筛选器），初始化变量
 
 				if (!this.wfList.length || (this.wfList.length === this.updateNum && this.wfList.length <= this.allList.length)) {
 					this.allList = [];

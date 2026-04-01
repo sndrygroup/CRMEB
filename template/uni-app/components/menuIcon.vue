@@ -42,7 +42,7 @@
 		data() {
 			return {
 				Active: false,
-				returnShow: true, //判断顶部返回是否出现
+				returnShow: true, //判断顶部عودة是否出现
 				homeTop: 20,
 				text_opacity: 0,
 				menuButton:{},
@@ -59,7 +59,7 @@
 						jumpType: 1
 					},
 					{
-						name: this.$t(`搜索`),
+						name: this.$t(`بحث`),
 						iconName: "icon-sousuo6",
 						path: '/pages/goods/goods_search/index',
 						jumpType: 0

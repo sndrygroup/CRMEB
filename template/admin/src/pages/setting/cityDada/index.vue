@@ -5,7 +5,7 @@
         <el-row>
           <el-col v-bind="grid">
             <div class="button acea-row row-middle">
-              <el-button type="primary" v-db-click @click="add(0)">添加省份</el-button>
+              <el-button type="primary" v-db-click @click="add(0)">إضافة省份</el-button>
               <el-button v-db-click @click="cleanCache">清除缓存</el-button>
             </div>
           </el-col>
@@ -23,23 +23,23 @@
             <span>{{ scope.row.id }}</span>
           </template>
         </el-table-column>
-        <el-table-column label="地区名称" min-width="300">
+        <el-table-column label="地区الاسم" min-width="300">
           <template slot-scope="scope">
             <span>{{ scope.row.label }}</span>
           </template>
         </el-table-column>
-        <el-table-column label="上级名称" min-width="300">
+        <el-table-column label="上级الاسم" min-width="300">
           <template slot-scope="scope">
             <span>{{ scope.row.parent_name }}</span>
           </template>
         </el-table-column>
-        <el-table-column label="操作" fixed="right" width="170">
+        <el-table-column label="الخيارات" fixed="right" width="170">
           <template slot-scope="scope">
-            <a v-if="scope.row.hasOwnProperty('children')" v-db-click @click="add(scope.row.city_id)">添加</a>
+            <a v-if="scope.row.hasOwnProperty('children')" v-db-click @click="add(scope.row.city_id)">إضافة</a>
             <el-divider direction="vertical" v-if="scope.row.hasOwnProperty('children')" />
-            <a v-db-click @click="edit(scope.row.id)">编辑</a>
+            <a v-db-click @click="edit(scope.row.id)">تحرير</a>
             <el-divider direction="vertical"></el-divider>
-            <a v-db-click @click="del(scope.row, '删除城市', scope.$index)">删除</a>
+            <a v-db-click @click="del(scope.row, 'حذف城市', scope.$index)">حذف</a>
           </template>
         </el-table-column>
       </el-table>
@@ -69,18 +69,18 @@ export default {
           width: 80,
         },
         {
-          title: '地区名称',
+          title: '地区الاسم',
           key: 'label',
           minWidth: 300,
           tree: true,
         },
         {
-          title: '上级名称',
+          title: '上级الاسم',
           key: 'parent_name',
           minWidth: 300,
         },
         {
-          title: '操作',
+          title: 'الخيارات',
           slot: 'action',
           fixed: 'right',
           minWidth: 120,
@@ -113,11 +113,11 @@ export default {
           this.$message.success(res.msg);
         });
     },
-    // 添加
+    // إضافة
     add(cityId) {
       this.$modalForm(cityAddApi(cityId)).then(() => this.getList(0));
     },
-    // 添加下级；
+    // إضافة下级；
     lower(cityId) {
       this.cityId = cityId;
       this.getList(cityId);
@@ -136,16 +136,16 @@ export default {
           that.$message.error(res.msg);
         });
     },
-    // 返回
+    // عودة
     goBack() {
       this.cityId = 0;
       this.getList(0);
     },
-    // 修改
+    // تعديل
     edit(id) {
       this.$modalForm(cityApi(id)).then(() => this.getList(this.cityId));
     },
-    // 删除
+    // حذف
     del(row, tit, num) {
       let delfromData = {
         title: tit,

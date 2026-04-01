@@ -109,7 +109,7 @@ export default function createWorkBook(header, title, data, foot, filename, shee
       let starKey = 0;
       let endKey = 0;
       /** 循环列 */
-      //需要操作第几列
+      //需要الخيارات第几列
       let sk = 0;
       for (let l = 0; l < data[h].length; l++) {
         if (Array.isArray(data[h][l])) {
@@ -167,7 +167,7 @@ export default function createWorkBook(header, title, data, foot, filename, shee
     }
   }
   /**
-   *  合并操作
+   *  合并الخيارات
    * @param {*} satarLcomun
    * @param {*} endLcomun
    * @param {*} starKey

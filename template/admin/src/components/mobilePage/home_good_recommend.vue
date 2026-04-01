@@ -164,7 +164,7 @@
                     color: toneConfig ? goodsNameColor : '#333',
                   }"
                 >
-                  {{ item.store_name || '这里是商品名称展示区域,商品名称展示区域,商品名称展示区域' }}
+                  {{ item.store_name || '这里是商品الاسم展示区域,商品الاسم展示区域,商品الاسم展示区域' }}
                 </div>
                 <img v-if="checkboxInfo.indexOf(1) != -1" src="../../assets/images/goods01.png" />
               </div>
@@ -256,7 +256,7 @@
                       color: toneConfig ? goodsNameColor : '#333',
                     }"
                   >
-                    {{ item.store_name || '商品名称商品商名称商品商…' }}
+                    {{ item.store_name || '商品الاسم商品商الاسم商品商…' }}
                   </div>
                 </div>
                 <div class="price" v-if="checkboxInfo.indexOf(2) != -1">
@@ -433,7 +433,7 @@ export default {
           name: 'checkboxInfo',
           type: [0, 2, 5], // Name, Price, Member Price (5)
           list: [
-            { id: 0, name: '商品名称' },
+            { id: 0, name: '商品الاسم' },
             { id: 2, name: '商品价格' },
             { id: 5, name: '会员价格' },
           ],
@@ -455,7 +455,7 @@ export default {
         bntConfig: {
           title: '按钮效果',
           tabVal: 1,
-          tabList: [{ name: '进入商品详情页' }, { name: '加入购物车' }],
+          tabList: [{ name: '进入商品تفاصيل页' }, { name: '加入购物车' }],
         },
         // Style Config
         titleRight: '列表样式', // List Style
@@ -657,7 +657,7 @@ export default {
           valList: [{ val: 8 }, { val: 8 }, { val: 8 }, { val: 8 }],
         },
         goodsName: {
-          title: '商品名称',
+          title: '商品الاسم',
           tabVal: 0,
           tabList: [
             { name: '加粗', style: 'bold' },
@@ -670,7 +670,7 @@ export default {
           tabList: [{ name: '跟随主题风格' }, { name: '自定义' }],
         },
         goodsNameColor: {
-          title: '商品名称',
+          title: '商品الاسم',
           default: [{ item: '#333333' }],
           color: [{ item: '#333333' }],
         },

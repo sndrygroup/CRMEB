@@ -1,11 +1,11 @@
 /**
- * 系统内置方法集，正常情况下您不应该修改或移除此文件
+ * 系统内置方法集，正常情况下您不应该تعديل或移除此文件
  * */
 
 import { cloneDeep } from 'lodash';
 
 /**
- * @description 根据当前路由，找打顶部菜单名称
+ * @description 根据当前路由，找打顶部菜单الاسم
  * @param {String} currentPath 当前路径
  * @param {Array} menuList 所有路径
  * */
@@ -61,7 +61,7 @@ function transferMenu(menu, headerName) {
 export { getHeaderName };
 
 /**
- * @description 根据当前路由，找打顶部菜单名称
+ * @description 根据当前路由，找打顶部菜单الاسم
  * @param {String} currentPath 当前路径
  * @param {Array} menuList 所有路径
  * */
@@ -71,7 +71,7 @@ function getHeaderSider(menuList) {
 
 export { getHeaderSider };
 /**
- * @description 根据当前路由，找以及菜单名称
+ * @description 根据当前路由，找以及菜单الاسم
  * @param {String} currentPath 当前路径
  * @param {Array} menuList 所有路径
  * */
@@ -205,13 +205,13 @@ function flattenSiderMenu(menuList, newList) {
 export { flattenSiderMenu };
 
 export const findFirstNonNullChildren = (arr) => {
-  // 如果数组为空，返回null
+  // 如果数组为空，عودةnull
   if (!arr || arr.length === 0) {
     return null;
   }
   // 找到第一个对象
   const firstObj = arr[0];
-  // 如果第一个对象没有children属性，返回该对象
+  // 如果第一个对象没有children属性，عودة该对象
   if (!firstObj.children) {
     return firstObj;
   }
@@ -221,13 +221,13 @@ export const findFirstNonNullChildren = (arr) => {
   if (Array.isArray(firstObj.children)) {
     return findFirstNonNullChildren(firstObj.children);
   }
-  // 如果数组中没有非null children属性，返回null
+  // 如果数组中没有非null children属性，عودةnull
   return null;
 };
 
 export const findFirstNonNullChildrenKeys = (obj, lastArr) => {
   let ids = lastArr;
-  // 如果第一个对象没有children属性，返回该对象
+  // 如果第一个对象没有children属性，عودة该对象
   if (!obj.children) {
     ids.push(obj.id);
     return ids;

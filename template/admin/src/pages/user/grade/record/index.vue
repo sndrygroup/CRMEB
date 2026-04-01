@@ -21,7 +21,7 @@
               <el-option v-for="item in payList" :value="item.val" :key="item.val" :label="item.label"></el-option>
             </el-select>
           </el-form-item>
-          <el-form-item label="购买时间：">
+          <el-form-item label="购买الوقت：">
             <el-date-picker
               clearable
               v-model="timeVal"
@@ -36,10 +36,10 @@
               style="width: 250px"
             ></el-date-picker>
           </el-form-item>
-          <el-form-item label="搜索：">
+          <el-form-item label="بحث：">
             <el-input
               clearable
-              placeholder="请输入用户名称搜索"
+              placeholder="الرجاء إدخال اسم المستخدم称بحث"
               v-model="formValidate.name"
               class="form_content_width"
             />
@@ -64,7 +64,7 @@
             <span>{{ scope.row.order_id }}</span>
           </template>
         </el-table-column>
-        <el-table-column label="用户名" min-width="80">
+        <el-table-column label="اسم المستخدم" min-width="80">
           <template slot-scope="scope">
             <span>{{ scope.row.user.nickname }}</span>
           </template>
@@ -94,7 +94,7 @@
             <span>{{ scope.row.pay_type }}</span>
           </template>
         </el-table-column>
-        <el-table-column label="购买时间" min-width="80">
+        <el-table-column label="购买الوقت" min-width="80">
           <template slot-scope="scope">
             <span>{{ scope.row.pay_time }}</span>
           </template>
@@ -195,17 +195,17 @@ export default {
     this.getMemberRecord();
   },
   methods: {
-    // 用户名搜索；
+    // اسم المستخدمبحث；
     selChange() {
       this.tablePage.page = 1;
       this.getMemberRecord();
     },
-    //用户类型搜索；
+    //用户类型بحث；
     userSearchs() {
       this.tablePage.page = 1;
       this.getMemberRecord();
     },
-    //支付方式搜索；
+    //支付方式بحث；
     paySearchs() {
       this.tablePage.page = 1;
       this.getMemberRecord();

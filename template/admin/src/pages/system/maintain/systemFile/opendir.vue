@@ -37,7 +37,7 @@
             <span>{{ scope.row.size }}</span>
           </template>
         </el-table-column>
-        <el-table-column label="更新时间" min-width="100">
+        <el-table-column label="更新الوقت" min-width="100">
           <template slot-scope="scope">
             <span>{{ scope.row.mtime }}</span>
           </template>
@@ -52,10 +52,10 @@
             </div>
           </template>
         </el-table-column>
-        <el-table-column label="操作" fixed="right" width="60">
+        <el-table-column label="الخيارات" fixed="right" width="60">
           <template slot-scope="scope">
             <el-button type="text" v-db-click @click="open(scope.row)" v-if="scope.row.isDir">打开</el-button>
-            <el-button type="text" v-db-click @click="edit(scope.row)" v-else>编辑</el-button>
+            <el-button type="text" v-db-click @click="edit(scope.row)" v-else>تحرير</el-button>
           </template>
         </el-table-column>
       </el-table>
@@ -83,16 +83,16 @@
       <div style="height: 100%">
         <div class="top-button">
           <el-button type="primary" id="savefile" class="diy-button" v-db-click @click="savefile(indexEditor)"
-            >保存</el-button
+            >حفظ</el-button
           >
-          <el-button id="refresh" class="diy-button" v-db-click @click="refreshfile">刷新</el-button>
+          <el-button id="refresh" class="diy-button" v-db-click @click="refreshfile">تحديث</el-button>
         </div>
         <div class="file-box">
           <div class="show-info">
             <div class="show-text" :title="navItem.pathname">目录: {{ navItem.pathname }}</div>
             <div class="diy-button-list">
-              <el-button class="diy-button" v-db-click @click="goBack(true)">返回上一级</el-button>
-              <el-button class="diy-button" v-db-click @click="getList(true, true)">刷新</el-button>
+              <el-button class="diy-button" v-db-click @click="goBack(true)">عودة上一级</el-button>
+              <el-button class="diy-button" v-db-click @click="getList(true, true)">تحديث</el-button>
             </div>
           </div>
           <div class="file-left">
@@ -114,7 +114,7 @@
                   >新建文件</DropdownItem
                 >
                 <DropdownItem v-db-click @click.native="handleContextRename()">重命名</DropdownItem>
-                <DropdownItem v-db-click @click.native="handleContextDelFolder()" style="color: #ed4014">删除</DropdownItem>
+                <DropdownItem v-db-click @click.native="handleContextDelFolder()" style="color: #ed4014">حذف</DropdownItem>
               </template> -->
             </el-tree>
           </div>
@@ -156,7 +156,7 @@
       </div>
       <el-form ref="formInline" :model="formFile" :rules="ruleInline" inline>
         <el-form-item prop="filename" class="diy-file">
-          <el-input type="text" class="diy-file" v-model="formFile.filename" placeholder="请输入名字">
+          <el-input type="text" class="diy-file" v-model="formFile.filename" placeholder="الرجاء إدخال 名字">
             <i class="el-icon-folder-opened" slot="prepend"></i>
           </el-input>
         </el-form-item>
@@ -164,7 +164,7 @@
           <el-button class="diy-button" v-db-click @click="handleSubmit('formInline')">确定</el-button>
         </el-form-item>
         <el-form-item>
-          <el-button class="diy-button" v-db-click @click="formExit()">取消</el-button>
+          <el-button class="diy-button" v-db-click @click="formExit()">إلغاء</el-button>
         </el-form-item>
         <div class="form-mask" v-show="formShow"></div>
       </el-form>
@@ -195,8 +195,8 @@ export default {
   name: 'opendir',
   data() {
     return {
-      modals: false, //编辑器开关
-      editor: '', //当前编辑器对象
+      modals: false, //تحرير器开关
+      editor: '', //当前تحرير器对象
       editorIndex: [
         //选项卡数组
         {
@@ -206,20 +206,20 @@ export default {
           icon: '',
         },
       ],
-      editorList: [], //编辑器数组
-      indexEditor: 0, //当前编辑器索引
+      editorList: [], //تحرير器数组
+      indexEditor: 0, //当前تحرير器索引
       code: '', //当前文件打开时的内容
       navList: [], //左侧导航数据
       navItem: {}, //左侧导航点击是选中的数据
       contextData: null, //左侧导航右键点击是产生的数据对象
 
-      fileType: '', // 文件操作类型 createFolder|创建文件夹 createFile|创建文件 delFolder|删除文件夹或者文件
+      fileType: '', // 文件الخيارات类型 createFolder|创建文件夹 createFile|创建文件 delFolder|حذف文件夹或者文件
       className: '', //全屏 class名
       // fullscreen:false,  // 是否全屏
-      isSave: true, //当前文件是否保存
+      isSave: true, //当前文件是否حفظ
 
-      isShowLogn: false, // 登录
-      isShowList: false, // 登录之后列表
+      isShowLogn: false, // تسجيل الدخول
+      isShowList: false, // تسجيل الدخول之后列表
 
       spinShow: false,
       loading: false,
@@ -242,7 +242,7 @@ export default {
         filename: '',
       },
       ruleInline: {
-        filename: [{ required: true, message: '请输入文件或文件夹的名字', trigger: 'blur' }],
+        filename: [{ required: true, message: 'الرجاء إدخال 文件或文件夹的名字', trigger: 'blur' }],
       },
       formShow: false, //表单开关
       formTitle: '', //表单标题
@@ -281,7 +281,7 @@ export default {
     /**
      * 文件列表
      * @param {Object} refresh   // 是否重新加载 bool
-     * @param {Object} is_edit   // 是否是编辑器中的刷新 bool
+     * @param {Object} is_edit   // 是否是تحرير器中的تحديث bool
      */
     getList(refresh, is_edit) {
       let params;
@@ -329,7 +329,7 @@ export default {
         });
     },
 
-    // 返回上级
+    // عودة上级
     goBack(is_edit) {
       this.formItem = {
         dir: this.dir,
@@ -363,7 +363,7 @@ export default {
       };
       this.open(data);
     },
-    // 编辑ß
+    // تحريرß
     edit(row) {
       this.navItem = row;
       this.spinShow = true;
@@ -391,7 +391,7 @@ export default {
       ).then(() => this.getList(true, false));
     },
     /**
-     * 保存
+     * حفظ
      * @param {Object} index   // 当前索引
      * @param {Object} type    // true 不更新当前本地数据，false或者为空 更新当前数据
      */
@@ -418,12 +418,12 @@ export default {
           that.catchFun(res);
         });
     },
-    // 刷新
+    // تحديث
     refreshfile() {
-      // 刷新编辑器
+      // تحديثتحرير器
       if (this.editorList[this.indexEditor]) this.openfile(this.editorList[this.indexEditor].path, true);
     },
-    //计算token过期时间
+    //计算token过期الوقت
     getExpiresTime(expiresTime) {
       let nowTimeNum = Math.round(new Date() / 1000);
       let expiresTimeNum = expiresTime - nowTimeNum;
@@ -539,7 +539,7 @@ export default {
       position.left = Number(position.left.slice(0, -2)) + 75 + 'px';
       this.contextData = data;
     },
-    // 文件操作类型 createFolder|创建文件夹 createFile|创建文件 delFolder|删除文件夹或者文件 renameFile|文件重命名
+    // 文件الخيارات类型 createFolder|创建文件夹 createFile|创建文件 delFolder|حذف文件夹或者文件 renameFile|文件重命名
     //创建文件夹
     handleContextCreateFolder() {
       this.formFile.filename = '';
@@ -554,12 +554,12 @@ export default {
       this.formShow = true;
       this.fileType = 'createFile';
     },
-    //删除文件
+    //حذف文件
     handleContextDelFolder() {
       let that = this;
       that.$Modal.confirm({
-        title: '删除文件夹和文件',
-        content: '您确定要删除改文件？',
+        title: 'حذف文件夹和文件',
+        content: '您确定要حذف改文件？',
         loading: true,
         onOk: () => {
           let data = {
@@ -570,14 +570,14 @@ export default {
             .then(async (res) => {
               that.loopDel(that.navList, that.contextData.nodeKey);
               that.$Modal.remove();
-              that.$message.success('删除成功');
+              that.$message.success('حذف成功');
             })
             .catch((res) => {
               that.catchFun(res);
             });
         },
         onCancel: () => {
-          that.$message.info('取消删除');
+          that.$message.info('إلغاءحذف');
         },
       });
     },
@@ -605,7 +605,7 @@ export default {
           }
           let data = res.data;
           that.code = data.content;
-          // 保存相对信息
+          // حفظ相对信息
 
           that.editorList[that.indexEditor].oldCode = that.code;
           this.$nextTick((e) => {
@@ -620,14 +620,14 @@ export default {
         });
     },
     /**
-     * 初始化编辑器
+     * 初始化تحرير器
      */
     initEditor() {
       let that = this;
       that.$nextTick(() => {
-        // 初始化编辑器，确保dom已经渲染
+        // 初始化تحرير器，确保dom已经渲染
         that.editor = monaco.editor.create(document.getElementById('container_' + that.indexEditor), {
-          value: that.code, //编辑器初始显示文字
+          value: that.code, //تحرير器初始显示文字
           language: 'sql', //语言支持自行查阅demo
           automaticLayout: true, //自动布局
           theme: 'vs', //官方自带三种主题vs, hc-black, or vs-dark
@@ -642,12 +642,12 @@ export default {
           tabSize: 4, // tab缩进长度
           autoClosingOvertype: 'always',
         });
-        //添加按键监听
+        //إضافة按键监听
         that.editor.addCommand(monaco.KeyMod.CtrlCmd | monaco.KeyCode.KEY_S, function () {
           that.savefile(that.indexEditor);
         });
         that.editor.onKeyUp(() => {
-          // 当键盘按下，判断当前编辑器文本与已保存的编辑器文本是否一致
+          // 当键盘按下，判断当前تحرير器文本与已حفظ的تحرير器文本是否一致
           if (that.editor.getValue() != that.code) {
             that.isSave = false;
             that.editorIndex[that.indexEditor].icon = 'md-warning';
@@ -684,7 +684,7 @@ export default {
       //设置新模型
       this.editorList[this.indexEditor].editor.setModel(newModel);
     },
-    // 文件操作类型 createFolder|创建文件夹 createFile|创建文件 delFolder|删除文件夹或者文件
+    // 文件الخيارات类型 createFolder|创建文件夹 createFile|创建文件 delFolder|حذف文件夹或者文件
     handleSubmit(name) {
       let that = this;
       let data = '';
@@ -745,7 +745,7 @@ export default {
               rename(data)
                 .then(async (res) => {
                   that.$set(that.contextData, 'title', that.formFile.filename);
-                  that.$message.success('修改成功');
+                  that.$message.success('تعديل成功');
                   if (that.formShow) that.formShow = false;
                 })
                 .catch((res) => {
@@ -813,7 +813,7 @@ export default {
     toggleEditor() {
       let index = Number(this.indexEditor);
       this.code = this.editorList[index].oldCode; //设置文件打开时的代码
-      this.editor = this.editorList[index].editor; //设置编辑器实例
+      this.editor = this.editorList[index].editor; //设置تحرير器实例
     },
     isEditMark(row) {
       try {
@@ -844,41 +844,41 @@ export default {
 
       // 关闭选项卡
       that.editorIndex[index].tab = false; // 关闭选项卡
-      // 判断当前文件有没有保存
+      // 判断当前文件有没有حفظ
       if (!that.editorList[index].isSave) {
         that.$Modal.confirm({
-          title: '文件未保存',
-          content: '您是否需要保存当前文件',
+          title: '文件未حفظ',
+          content: '您是否需要حفظ当前文件',
           loading: true,
           onOk: () => {
-            // 保存文件
+            // حفظ文件
             that.savefile(index);
           },
           onCancel: () => {
-            that.$message.info('取消保存');
+            that.$message.info('إلغاءحفظ');
           },
         });
       }
     },
-    //编辑器状态变化
+    //تحرير器الحالة变化
     editModalChange() {
       let that = this;
       that.editorList.forEach(function (value, index) {
         if (value.isSave === false) {
-          if (confirm(`${that.editorIndex[index].title}文件未保存,是否要保存该文件`)) {
-            // 保存当前文件
+          if (confirm(`${that.editorIndex[index].title}文件未حفظ,是否要حفظ该文件`)) {
+            // حفظ当前文件
             that.savefile(index, true);
           } else {
-            that.$message.info(`已取消${that.editorIndex[index].title}文件保存`);
+            that.$message.info(`已إلغاء${that.editorIndex[index].title}文件حفظ`);
           }
         }
-        // 销毁当前编辑器
+        // 销毁当前تحرير器
         that.editorList[index].editor.dispose();
         that.editorList[index].editor = null;
       });
       // 初始话数据
-      that.modals = false; //编辑器开关
-      that.editor = ''; //当前编辑器对象
+      that.modals = false; //تحرير器开关
+      that.editor = ''; //当前تحرير器对象
       that.editorIndex = [
         //选项卡数组
         {
@@ -888,8 +888,8 @@ export default {
           icon: '',
         },
       ];
-      that.editorList = []; //编辑器数组
-      that.indexEditor = '0'; //当前编辑器索引
+      that.editorList = []; //تحرير器数组
+      that.indexEditor = '0'; //当前تحرير器索引
       that.code = ''; //当前文件打开时的内容
       that.navList = []; //左侧导航数据
       that.navItem = {}; //左侧导航点击是选中的数据

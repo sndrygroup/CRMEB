@@ -5,7 +5,7 @@ import { Message } from 'element-ui';
 
 const service = axios.create({
   baseURL: location.protocol + '//' + location.hostname,
-  timeout: 10000, // 请求超时时间
+  timeout: 10000, // 请求超时الوقت
 });
 axios.defaults.withCredentials = true; // 携带cookie
 

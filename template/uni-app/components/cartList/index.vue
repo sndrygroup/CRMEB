@@ -32,7 +32,7 @@
 						<view class="noBnt" v-else-if="!item.attrStatus">{{$t(`已售罄`)}}</view>
 						<view class="noBnt" v-else-if="!item.status">{{$t(`已下架`)}}</view>
 						<view class="delTxt acea-row row-right" v-if="!item.status || !item.attrStatus"><text
-								@click="oneDel(item.id,index)">{{$t(`删除`)}}</text></view>
+								@click="oneDel(item.id,index)">{{$t(`حذف`)}}</text></view>
 					</view>
 				</view>
 			</view>

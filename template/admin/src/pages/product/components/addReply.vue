@@ -1,7 +1,7 @@
 <template>
   <el-dialog
     :visible.sync="visibleModal"
-    title="添加自评"
+    title="إضافة自评"
     width="720px"
     :close-on-click-modal="false"
     @close="onCancel"
@@ -27,10 +27,10 @@
           <i v-else class="el-icon-user" />
         </div>
       </el-form-item>
-      <el-form-item label="用户名称：">
+      <el-form-item label="اسم المستخدم称：">
         <el-input
           v-model="formData.nickname"
-          placeholder="请输入用户名称"
+          placeholder="الرجاء إدخال اسم المستخدم称"
           class="w100"
           maxlength="20"
           show-word-limit
@@ -40,7 +40,7 @@
         <el-input
           v-model="formData.comment"
           type="textarea"
-          placeholder="请输入评价文字"
+          placeholder="الرجاء إدخال 评价文字"
           class="w100"
           maxlength="200"
           show-word-limit
@@ -63,7 +63,7 @@
           </div>
         </div>
       </el-form-item>
-      <el-form-item label="评价时间：">
+      <el-form-item label="评价الوقت：">
         <el-date-picker
           clearable
           v-model="add_time"
@@ -168,13 +168,13 @@ export default {
     },
     onOk() {
       if (!this.goods.id) {
-        return this.$message.error('请选择商品');
+        return this.$message.error('الرجاء اختيار 商品');
       }
       if (!this.attr.pic) {
-        return this.$message.error('请选择商品规格');
+        return this.$message.error('الرجاء اختيار 商品规格');
       }
       if (!this.avatar.att_dir) {
-        return this.$message.error('请选择用户头像');
+        return this.$message.error('الرجاء اختيار 用户头像');
       }
       if (!this.formData.nickname) {
         return this.$message.error('请填写用户昵称');

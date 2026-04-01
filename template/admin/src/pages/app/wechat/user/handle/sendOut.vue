@@ -9,12 +9,12 @@
     >
       <el-row :gutter="24">
         <el-col v-bind="grid">
-          <el-form-item label="优惠券名称：" prop="status2" label-for="status2">
+          <el-form-item label="优惠券الاسم：" prop="status2" label-for="status2">
             <el-input
               search
               enter-button
               v-model="levelFrom.name"
-              placeholder="请输入优惠券名称"
+              placeholder="الرجاء إدخال 优惠券الاسم"
               @on-search="userSearchs"
               style="width: 100%"
             />
@@ -25,12 +25,12 @@
     <el-divider direction="vertical" dashed />
     <el-row>
       <el-col v-bind="grid" class="mb15">
-        <el-button type="primary" v-db-click @click="add">添加等级任务</el-button>
+        <el-button type="primary" v-db-click @click="add">إضافة等级任务</el-button>
       </el-col>
       <el-col :span="24" class="userAlert">
         <el-alert type="info" show-icon closable>
           <template slot="title">
-            添加等级任务,任务类型中的{$num}会自动替换成限定数量+系统预设的单位生成任务名
+            إضافة等级任务,任务类型中的{$num}会自动替换成限定数量+系统预设的单位生成任务名
           </template>
         </el-alert>
       </el-col>
@@ -48,12 +48,12 @@
           <span>{{ scope.row.id }}</span>
         </template>
       </el-table-column>
-      <el-table-column label="等级名称" min-width="100">
+      <el-table-column label="等级الاسم" min-width="100">
         <template slot-scope="scope">
           <span>{{ scope.row.level_name }}</span>
         </template>
       </el-table-column>
-      <el-table-column label="任务名称" min-width="100">
+      <el-table-column label="任务الاسم" min-width="100">
         <template slot-scope="scope">
           <span>{{ scope.row.name }}</span>
         </template>
@@ -91,11 +91,11 @@
           <span>{{ scope.row.illustrate }}</span>
         </template>
       </el-table-column>
-      <el-table-column label="操作" fixed="right" width="170">
+      <el-table-column label="الخيارات" fixed="right" width="170">
         <template slot-scope="scope">
-          <a v-db-click @click="edit(scope.row)">编辑 | </a>
+          <a v-db-click @click="edit(scope.row)">تحرير | </a>
           <el-divider direction="vertical"></el-divider>
-          <a v-db-click @click="del(scope.row, '删除等级任务', index)"> 删除</a>
+          <a v-db-click @click="del(scope.row, 'حذف等级任务', index)"> حذف</a>
         </template>
       </el-table-column>
     </el-table>
@@ -108,7 +108,7 @@
         @pagination="getList"
       />
     </div>
-    <!-- 新建 编辑表单-->
+    <!-- 新建 تحرير表单-->
     <edit-from ref="edits" :FromData="FromData" @submitFail="submitFail" :titleType="titleType"></edit-from>
   </el-dialog>
 </template>
@@ -159,12 +159,12 @@ export default {
   },
   methods: {
     ...mapMutations('userLevel', ['getTaskId', 'getlevelId']),
-    // 添加
+    // إضافة
     add() {
       this.ids = '';
       this.getFrom();
     },
-    // 新建 编辑表单
+    // 新建 تحرير表单
     getFrom() {
       let data = {
         id: this.ids,
@@ -181,7 +181,7 @@ export default {
           this.$message.error(res.msg);
         });
     },
-    // 编辑
+    // تحرير
     edit(row) {
       this.ids = row.id;
       this.getFrom();
@@ -190,7 +190,7 @@ export default {
     handleReset() {
       this.modals = false;
     },
-    // 表格搜索
+    // 表格بحث
     userSearchs() {
       this.getList();
     },
@@ -209,7 +209,7 @@ export default {
           this.$message.error(res.msg);
         });
     },
-    // 修改显示隐藏
+    // تعديل显示隐藏
     onchangeIsShow(row) {
       let data = {
         id: row.id,
@@ -237,11 +237,11 @@ export default {
           this.$message.error(res.msg);
         });
     },
-    // 新建编辑提交成功
+    // 新建تحريرإرسال成功
     submitFail() {
       this.getList();
     },
-    // 删除任务
+    // حذف任务
     del(row, tit, num) {
       let delfromData = {
         title: tit,

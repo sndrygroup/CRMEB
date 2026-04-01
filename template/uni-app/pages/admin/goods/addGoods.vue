@@ -1,17 +1,17 @@
 <template>
 	<view>
-		<!-- <NavBar titleText="添加商品" textSize="34rpx" iconColor="#333333" textColor="#333333" isScrolling showBack></NavBar> -->
+		<!-- <NavBar titleText="إضافة商品" textSize="34rpx" iconColor="#333333" textColor="#333333" isScrolling showBack></NavBar> -->
 		<view class="p-20">
 			<view class="w-full bg--w111-fff rd-16rpx pt-32 pr-30 pb-32 pl-30">
 				<view class="fs-30 fw-500 lh-42rpx">商品信息</view>
 				<view class="mt-30 flex-between-center">
-					<text class="fs-30 lh-42rpx">商品名称</text>
+					<text class="fs-30 lh-42rpx">商品الاسم</text>
 					<text class="text-24 text--w111-666">{{setFormData.store_name.length}}/40</text>
 				</view>
 				<view class="w-full bg--w111-f5f5f5 rd-12rpx p-20 mt-12">
 					<textarea v-model="setFormData.store_name"
 					:maxlength="40"
-					placeholder="请填写商品名称" placeholder-class="text--w111-ccc"
+					placeholder="请填写商品الاسم" placeholder-class="text--w111-ccc"
 					class="fs-30" auto-height />
 				</view>
 				<view class="mt-40">
@@ -37,7 +37,7 @@
 					<text class="fs-30 lh-42rpx">商品分类</text>
 					<view class="flex-y-center">
 						<text class="fs-30 text--w111-333 pr-12" v-if="setFormData.cate_id.length">已选择</text>
-						<text class="fs-30 text--w111-999 pr-12" v-else>请选择分类</text>
+						<text class="fs-30 text--w111-999 pr-12" v-else>الرجاء اختيار 分类</text>
 						<text class="iconfont icon-ic_rightarrow fs-36 text--w111-999"></text>
 					</view>
 				</view>
@@ -53,49 +53,49 @@
 				<view class="h-106 flex-between-center bb-e">
 					<text class="fs-30 lh-42rpx">售价</text>
 					<view class="flex-1 flex justify-end text-right">
-						<input type="digit" v-model="setFormData.attr.price" placeholder="请输入售价" placeholder-class=" text--w111-999" class="fs-32" />
+						<input type="digit" v-model="setFormData.attr.price" placeholder="الرجاء إدخال 售价" placeholder-class=" text--w111-999" class="fs-32" />
 					</view>
 				</view>
 				<view class="h-106 flex-between-center bb-e">
 					<text class="fs-30 lh-42rpx">成本价</text>
 					<view class="flex-1 flex justify-end text-right">
-						<input type="digit" v-model="setFormData.attr.cost" placeholder="请输入成本价" placeholder-class=" text--w111-999" class="fs-32" />
+						<input type="digit" v-model="setFormData.attr.cost" placeholder="الرجاء إدخال 成本价" placeholder-class=" text--w111-999" class="fs-32" />
 					</view>
 				</view>
 				<view class="h-106 flex-between-center bb-e">
 					<text class="fs-30 lh-42rpx">划线价</text>
 					<view class="flex-1 flex justify-end text-right">
-						<input type="digit" v-model="setFormData.attr.ot_price"  placeholder="请输入划线价" placeholder-class=" text--w111-999" class="fs-32" />
+						<input type="digit" v-model="setFormData.attr.ot_price"  placeholder="الرجاء إدخال 划线价" placeholder-class=" text--w111-999" class="fs-32" />
 					</view>
 				</view>
 				<view class="h-106 flex-between-center bb-e">
 					<text class="fs-30 lh-42rpx">库存</text>
 					<view class="flex-1 flex justify-end text-right">
-						<input type="number" v-model="setFormData.attr.stock" placeholder="请输入库存" placeholder-class=" text--w111-999" class="fs-32" />
+						<input type="number" v-model="setFormData.attr.stock" placeholder="الرجاء إدخال 库存" placeholder-class=" text--w111-999" class="fs-32" />
 					</view>
 				</view>
 				<view class="h-106 flex-between-center bb-e" v-show="isMore">
 					<text class="fs-30 lh-42rpx">商品编码</text>
 					<view class="flex-1 flex justify-end text-right">
-						<input type="number" v-model="setFormData.attr.bar_code" placeholder="请输入规格编码" placeholder-class=" text--w111-999" class="fs-32" />
+						<input type="number" v-model="setFormData.attr.bar_code" placeholder="الرجاء إدخال 规格编码" placeholder-class=" text--w111-999" class="fs-32" />
 					</view>
 				</view>
 				<view class="h-106 flex-between-center bb-e" v-show="isMore">
 					<text class="fs-30 lh-42rpx">条形码</text>
 					<view class="flex-1 flex justify-end text-right">
-						<input type="number" v-model="setFormData.attr.bar_code_number" placeholder="请输入条形码" placeholder-class=" text--w111-999" class="fs-32" />
+						<input type="number" v-model="setFormData.attr.bar_code_number" placeholder="الرجاء إدخال 条形码" placeholder-class=" text--w111-999" class="fs-32" />
 					</view>
 				</view>
 				<view class="h-106 flex-between-center bb-e" v-show="isMore">
 					<text class="fs-30 lh-42rpx">重量</text>
 					<view class="flex-1 flex justify-end text-right">
-						<input type="number" v-model="setFormData.attr.weight" placeholder="请输入重量" placeholder-class=" text--w111-999" class="fs-32" />
+						<input type="number" v-model="setFormData.attr.weight" placeholder="الرجاء إدخال 重量" placeholder-class=" text--w111-999" class="fs-32" />
 					</view>
 				</view>
 				<view class="h-106 flex-between-center bb-e" v-show="isMore">
 					<text class="fs-30 lh-42rpx">体积</text>
 					<view class="flex-1 flex justify-end text-right">
-						<input type="number" v-model="setFormData.attr.volume" placeholder="请输入体积" placeholder-class=" text--w111-999" class="fs-32" />
+						<input type="number" v-model="setFormData.attr.volume" placeholder="الرجاء إدخال 体积" placeholder-class=" text--w111-999" class="fs-32" />
 					</view>
 				</view>
 				<view class="h-106 flex-center text--w111-666" @tap="toggleMore">
@@ -104,7 +104,7 @@
 				</view>
 			</view>
 			<view class="w-full bg--w111-fff rd-16rpx mt-22 pt-32 pr-30 pl-30 pb-32">
-				<view class="fs-30 lh-42rpx">商品详情</view>
+				<view class="fs-30 lh-42rpx">商品تفاصيل</view>
 				<view class="fs-22 text--w111-999 mt-12">建议：图片尺寸为750*750px，最多上传10张</view>
 				<view class="grid-column-4 grid-gap-8rpx mt-20">
 					<view class="relative h-156" v-for="(item,index) in contentPicture" :key="index">
@@ -156,7 +156,7 @@
 					<view class="h-106 flex-between-center" v-if="setFormData.freight == 2">
 						<text class="fs-30 lh-42rpx">固定邮费</text>
 						<view class="flex-1 flex justify-end text-right">
-							<input type="digit" v-model="setFormData.postage" placeholder="请输入金额" placeholder-class=" text--w111-999" class="fs-32" />
+							<input type="digit" v-model="setFormData.postage" placeholder="الرجاء إدخال 金额" placeholder-class=" text--w111-999" class="fs-32" />
 						</view>
 					</view>
 					<view class="h-106 flex-between-center"
@@ -164,7 +164,7 @@
 						<text class="fs-30 lh-42rpx">运费模板</text>
 						<view class="flex-y-center">
 							<picker @change="bindPickerChange" :value="tempIndex" :range="templateList" range-key="name">
-								<view class="fs-30">{{templateList[tempIndex].name || '请选择'}}
+								<view class="fs-30">{{templateList[tempIndex].name || 'الرجاء اختيار '}}
 								<text class="iconfont icon-ic_rightarrow"></text>
 								</view>
 							</picker>
@@ -177,7 +177,7 @@
 			</view>
 			<view class="fixed-lb w-full pb-safe bg--w111-fff z-10">
 			    <view class="footer-box flex-center">
-			        <view class="w-690 h-88 flex-center bg-mer text--w111-fff fs-28 rd-44rpx" @tap="confirmSave">提交</view>
+			        <view class="w-690 h-88 flex-center bg-mer text--w111-fff fs-28 rd-44rpx" @tap="confirmSave">إرسال</view>
 			    </view>
 			</view>
 		</view>
@@ -339,21 +339,21 @@ export default {
 			this.setFormData.temp_id = this.templateList[this.tempIndex].id;
 		},
 		confirmSave(){
-			if(!this.setFormData.store_name) return this.$util.Tips({title: '请输入商品名称'});
+			if(!this.setFormData.store_name) return this.$util.Tips({title: 'الرجاء إدخال 商品الاسم'});
 			if(!this.setFormData.image) return this.$util.Tips({title: '请上传商品图片'});
-			if(!this.setFormData.cate_id) return this.$util.Tips({title: '请选择商品分类'});
+			if(!this.setFormData.cate_id) return this.$util.Tips({title: 'الرجاء اختيار 商品分类'});
 			if(!this.setFormData.unit_name) return this.$util.Tips({title: '请填写商品单位'});
 			if(!this.setFormData.attr.price) return this.$util.Tips({title: '请填写商品售价'});
 			if(!this.setFormData.attr.cost) return this.$util.Tips({title: '请填写商品成本价'});
 			if(!this.setFormData.attr.ot_price) return this.$util.Tips({title: '请填写商品划线价'});
 			if(!this.setFormData.attr.stock) return this.$util.Tips({title: '请填写商品库存'});
-			if(!this.setFormData.logistics.length) return this.$util.Tips({title: '请选择配送方式'});
-			if(this.setFormData.freight == 3 && this.setFormData.temp_id == 0) return this.$util.Tips({title: '请选择运费模版'});
+			if(!this.setFormData.logistics.length) return this.$util.Tips({title: 'الرجاء اختيار 配送方式'});
+			if(this.setFormData.freight == 3 && this.setFormData.temp_id == 0) return this.$util.Tips({title: 'الرجاء اختيار 运费模版'});
 			const html = this.buildEditorImageHtml(this.contentPicture);
 			this.$set(this.setFormData,'content',html);
 			productCreate(this.setFormData).then(res=>{
 				uni.showToast({
-					title: "提交成功",
+					title: "إرسال成功",
 					icon: 'none'
 				})
 				uni.redirectTo({

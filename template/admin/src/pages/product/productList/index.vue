@@ -5,10 +5,10 @@
         <el-form ref="artFrom" :model="artFrom" label-width="80px" label-position="right" inline @submit.native.prevent>
           <div class="acea-row search-form">
             <div class="search-form-box">
-              <el-form-item label="商品搜索：" label-for="store_name">
+              <el-form-item label="商品بحث：" label-for="store_name">
                 <el-input
                   clearable
-                  placeholder="请输入商品名称/关键字/ID"
+                  placeholder="الرجاء إدخال 商品الاسم/关键字/ID"
                   v-model="artFrom.store_name"
                   class="form_content_width"
                 />
@@ -80,7 +80,7 @@
                   </el-select>
                 </el-form-item>
 
-                <el-form-item label="添加时间：">
+                <el-form-item label="إضافةالوقت：">
                   <el-date-picker
                     class="form_range_content_width"
                     clearable
@@ -166,13 +166,13 @@
       </el-tabs>
       <div class="Button">
         <router-link v-auth="['product-product-save']" :to="$routeProStr + '/product/add_product'"
-          ><el-button type="primary" class="mr14">添加商品</el-button></router-link
+          ><el-button type="primary" class="mr14">إضافة商品</el-button></router-link
         >
         <el-button v-auth="['product-crawl-save']" type="success" class="mr14" v-db-click @click="onCopy"
           >商品采集</el-button
         >
         <el-dropdown class="bnt mr14" @command="batchSelect">
-          <el-button>批量修改<i class="el-icon-arrow-down el-icon--right"></i></el-button>
+          <el-button>批量تعديل<i class="el-icon-arrow-down el-icon--right"></i></el-button>
           <el-dropdown-menu slot="dropdown">
             <el-dropdown-item :command="1">商品分类</el-dropdown-item>
             <el-dropdown-item :command="2">物流设置</el-dropdown-item>
@@ -233,7 +233,7 @@
             </div>
           </template>
         </el-table-column>
-        <el-table-column label="商品名称" min-width="250">
+        <el-table-column label="商品الاسم" min-width="250">
           <template slot-scope="scope">
             <span>{{ scope.row.store_name }}</span>
           </template>
@@ -294,7 +294,7 @@
             <span>{{ scope.row.sort }}</span>
           </template>
         </el-table-column>
-        <el-table-column label="状态" min-width="100">
+        <el-table-column label="الحالة" min-width="100">
           <template slot-scope="scope">
             <el-switch
               class="defineSwitch"
@@ -311,11 +311,11 @@
             </el-switch>
           </template>
         </el-table-column>
-        <el-table-column label="操作" fixed="right" minWidth="100">
+        <el-table-column label="الخيارات" fixed="right" minWidth="100">
           <template slot-scope="scope">
             <!-- <a v-db-click @click="look(scope.row)">查看</a>
             <el-divider direction="vertical"></el-divider> -->
-            <a v-db-click @click="edit(scope.row)">编辑</a>
+            <a v-db-click @click="edit(scope.row)">تحرير</a>
             <el-divider direction="vertical"></el-divider>
             <el-dropdown size="small">
               <span class="el-dropdown-link">更多<i class="el-icon-arrow-down el-icon--right"></i> </span>
@@ -326,10 +326,10 @@
                   >
                 </el-dropdown-item>
                 <el-dropdown-item v-db-click @click.native="openModal(scope.row, 'vipPriceSet')"
-                  >会员价管理</el-dropdown-item
+                  >会员价إدارة</el-dropdown-item
                 >
                 <el-dropdown-item v-db-click @click.native="openModal(scope.row, 'brokerageSet')"
-                  >佣金管理</el-dropdown-item
+                  >佣金إدارة</el-dropdown-item
                 >
                 <el-dropdown-item
                   v-if="artFrom.type === '6'"
@@ -340,8 +340,8 @@
                 <el-dropdown-item
                   v-if="artFrom.type === '6'"
                   v-db-click
-                  @click.native="fullDel(scope.row, '彻底删除', scope.$index)"
-                  >彻底删除</el-dropdown-item
+                  @click.native="fullDel(scope.row, '彻底حذف', scope.$index)"
+                  >彻底حذف</el-dropdown-item
                 >
                 <el-dropdown-item v-else v-db-click @click.native="del(scope.row, '移入回收站', scope.$index)"
                   >移到回收站</el-dropdown-item
@@ -393,7 +393,7 @@
           <el-col :span="24" v-if="batchType == 1">
             <!--            <el-divider content-position="left">基础设置</el-divider>-->
             <el-form-item label="商品分类：" prop="cate_id">
-              <!-- <el-select v-model="batchFormData.cate_id" placeholder="请选择商品分类" multiple class="perW20">
+              <!-- <el-select v-model="batchFormData.cate_id" placeholder="الرجاء اختيار 商品分类" multiple class="perW20">
                 <el-option v-for="item in treeSelect" :disabled="item.pid === 0" :value="item.id" :key="item.id">{{
                   item.html + item.cate_name
                 }}</el-option>
@@ -428,14 +428,14 @@
                   :controls="false"
                   :min="0"
                   v-model="batchFormData.postage"
-                  placeholder="请输入金额"
+                  placeholder="الرجاء إدخال 金额"
                   class="perW20 maxW"
                 />
               </div>
             </el-form-item>
             <el-form-item label="" v-if="batchFormData.freight == 3" prop="temp_id">
               <div class="acea-row">
-                <el-select v-model="batchFormData.temp_id" clearable placeholder="请选择运费模板" style="width: 414px">
+                <el-select v-model="batchFormData.temp_id" clearable placeholder="الرجاء اختيار 运费模板" style="width: 414px">
                   <el-option
                     v-for="(item, index) in templateList"
                     :value="item.id"
@@ -454,7 +454,7 @@
                 v-model="batchFormData.give_integral"
                 :min="0"
                 :max="9999999999"
-                placeholder="请输入积分"
+                placeholder="الرجاء إدخال 积分"
                 style="width: 100%"
               />
             </el-form-item>
@@ -464,7 +464,7 @@
                   item.title
                 }}</el-tag>
               </div>
-              <el-button type="primary" v-db-click @click="addCoupon">添加优惠券</el-button>
+              <el-button type="primary" v-db-click @click="addCoupon">إضافة优惠券</el-button>
             </el-form-item>
             <el-form-item label="关联标签：" prop="label_id" v-if="batchType == 5">
               <div class="acea-row label_width">
@@ -508,7 +508,7 @@
                 size="large"
               >
               </el-switch>
-              <div class="tips-info">开启送礼后，移动端商品详情的底部菜单显示送礼按钮</div>
+              <div class="tips-info">开启送礼后，移动端商品تفاصيل的底部菜单显示送礼按钮</div>
             </el-form-item>
             <el-form-item v-if="batchFormData.is_gift" label="礼品附加费：">
               <el-input-number
@@ -533,7 +533,7 @@
     <!-- 商品标签 -->
     <el-dialog
       :visible.sync="tagShow"
-      title="请选择商品标签"
+      title="الرجاء اختيار 商品标签"
       :show-close="true"
       width="540px"
       :close-on-click-modal="false"
@@ -548,7 +548,7 @@
     <!-- 用户标签 -->
     <el-dialog
       :visible.sync="labelShow"
-      title="请选择用户标签"
+      title="الرجاء اختيار 用户标签"
       width="540px"
       :show-close="true"
       :close-on-click-modal="false"
@@ -806,7 +806,7 @@ export default {
       });
       data.label_id = activeIds;
       if (this.batchType == 2 && !this.batchFormData.logistics.length) {
-        return this.$message.warning('请选择物流方式');
+        return this.$message.warning('الرجاء اختيار 物流方式');
       }
       batchSetting(data)
         .then((res) => {
@@ -842,7 +842,7 @@ export default {
     // 批量设置商品
     batchSelect(type) {
       if (!this.ids.length) {
-        this.$message.warning('请选择要修改的商品');
+        this.$message.warning('الرجاء اختيار 要تعديل的商品');
       } else if (type === 7) {
         this.onDismount();
       } else if (type === 8) {
@@ -940,7 +940,7 @@ export default {
       let index = this.dataLabel.indexOf(this.dataLabel.filter((d) => d.id == label.id)[0]);
       this.dataLabel.splice(index, 1);
     },
-    // 添加优惠券
+    // إضافة优惠券
     addCoupon() {
       this.$refs.couponTemplates.isTemplate = true;
       this.$refs.couponTemplates.tableList();
@@ -990,7 +990,7 @@ export default {
     // 批量上架
     onShelves() {
       if (this.ids.length === 0) {
-        this.$message.warning('请选择要上架的商品');
+        this.$message.warning('الرجاء اختيار 要上架的商品');
       } else {
         let data = {
           ids: this.ids,
@@ -1009,7 +1009,7 @@ export default {
     // 批量下架
     onDismount() {
       if (this.ids.length === 0) {
-        this.$message.warning('请选择要下架的商品');
+        this.$message.warning('الرجاء اختيار 要下架的商品');
       } else {
         let data = {
           ids: this.ids,
@@ -1052,7 +1052,7 @@ export default {
       this.ids = ids;
       this.multipleSelection = uniqueArr;
     },
-    // 添加淘宝商品成功
+    // إضافة淘宝商品成功
     onClose() {
       this.modals = false;
     },
@@ -1145,7 +1145,7 @@ export default {
         });
       }
     },
-    // 表格搜索
+    // 表格بحث
     userSearchs() {
       this.artFrom.page = 1;
       this.goodHeade();
@@ -1166,7 +1166,7 @@ export default {
     },
     // 数据导出；
     exportData: function () {
-      let th = ['商品名称', '商品简介', '商品分类', '价格', '库存', '销量', '收藏人数'];
+      let th = ['商品الاسم', '商品简介', '商品分类', '价格', '库存', '销量', '收藏人数'];
       let filterVal = ['store_name', 'store_info', 'cate_name', 'price', 'stock', 'sales', 'collect'];
       this.where.page = 'nopage';
       getGoods(this.where).then((res) => {
@@ -1183,11 +1183,11 @@ export default {
     changeTemplate(msg) {
       this.attrTemplate = msg;
     },
-    // 编辑
+    // تحرير
     edit(row) {
       this.$router.push({ path: this.$routeProStr + '/product/add_product/' + row.id });
     },
-    // 确认
+    // تأكيد
     del(row, tit, num) {
       let delfromData = {
         title: tit,

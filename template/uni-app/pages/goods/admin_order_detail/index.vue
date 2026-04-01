@@ -59,11 +59,11 @@
 				</view>
 			</view>
 			<view class="item acea-row row-between">
-				<view>{{$t(`下单时间`)}}：</view>
+				<view>{{$t(`下单الوقت`)}}：</view>
 				<view class="conter">{{ orderInfo._add_time || '' }}</view>
 			</view>
 			<view class="item acea-row row-between">
-				<view>{{$t(`支付状态`)}}：</view>
+				<view>{{$t(`支付الحالة`)}}：</view>
 				<view class="conter">
 					{{ orderInfo.paid == 1 ? $t(`已支付`) : $t(`未支付`) }}
 				</view>
@@ -217,7 +217,7 @@
 </script>
 
 <style>
-	/*商户管理订单详情*/
+	/*商户إدارة订单تفاصيل*/
 	.pos-order-details .header {
 		background: linear-gradient(to right, #2291f8 0%, #1cd1dc 100%);
 		background: -webkit-linear-gradient(to right, #2291f8 0%, #1cd1dc 100%);
@@ -349,7 +349,7 @@
 		height: 100%;
 	}
 
-	/*订单详情*/
+	/*订单تفاصيل*/
 	.order-details .header {
 		padding: 0 30upx;
 		height: 150upx;

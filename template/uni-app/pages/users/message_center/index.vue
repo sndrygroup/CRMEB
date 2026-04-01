@@ -111,7 +111,7 @@
 					clientY: 0
 				},
 				actions: [{
-						name: '删除',
+						name: 'حذف',
 						color: '#fff',
 						fontsize: 28, //单位rpx
 						width: 70, //单位px
@@ -126,7 +126,7 @@
 					},
 				],
 				actionsIsLook: [{
-					name: '删除',
+					name: 'حذف',
 					color: '#fff',
 					fontsize: 28, //单位rpx
 					width: 70, //单位px
@@ -184,7 +184,7 @@
 					}
 				}
 			},
-			// 滑动点击操作
+			// 滑动点击الخيارات
 			bindClick(e, item) {
 				if (e.index == 0) {
 					msgLookDel({

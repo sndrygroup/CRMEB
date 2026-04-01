@@ -1,7 +1,7 @@
 import md5 from 'js-md5'; //引入MD5加密
 import { upload } from '@/api/upload.js'; // 这里指前端调用接口的api方法
 export const uploadByPieces = ({ file, pieceSize = 2, success, error, uploading }) => {
-  // 如果文件传入为空直接 return 返回
+  // 如果文件传入为空直接 return عودة
   if (!file) return;
   let fileMD5 = ''; // 总文件列表
   const chunkSize = pieceSize * 1024 * 1024; // 5MB一片
@@ -51,7 +51,7 @@ export const uploadByPieces = ({ file, pieceSize = 2, success, error, uploading 
       upload(fetchForm, config)
         .then((res) => {
           if (res.data.code == 1) {
-            // // 结合不同项目 将成功的信息返回出去
+            // // 结合不同项目 将成功的信息عودة出去
             // 下面如果在项目中没有用到可以不用打开注释
             uploading(chunkInfo.currentChunk + 1, chunkInfo.chunkCount);
             resolver(true);

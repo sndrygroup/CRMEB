@@ -11,7 +11,7 @@
 import request from "@/utils/request.js";
 
 /**
- * 获取抽奖详情信息
+ * 获取抽奖تفاصيل信息
  * 
  */
 export function getLotteryData(type, lottery_id) {

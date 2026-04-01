@@ -44,7 +44,7 @@
                 <div class="specifications-item-name mb18">
                   <el-input
                     v-model="item.value"
-                    placeholder="规格名称"
+                    placeholder="规格الاسم"
                     @change="attrChangeValue(index, item.value)"
                     @focus="handleFocus(item.value)"
                     class="specifications-item-name-input"
@@ -58,12 +58,12 @@
                     :true-label="1"
                     :false-label="0"
                     @change="(e) => addPic(e, index)"
-                    >添加规格图</el-checkbox
+                    >إضافة规格图</el-checkbox
                   >
                   <el-tooltip
                     class="item"
                     effect="dark"
-                    content="添加规格图片, 仅支持打开一个(建议尺寸:800*800)"
+                    content="إضافة规格图片, 仅支持打开一个(建议尺寸:800*800)"
                     placement="right"
                   >
                     <i class="el-icon-info"></i>
@@ -111,7 +111,7 @@
                     >
                       <el-input
                         :ref="'inputRef_' + index"
-                        placeholder="请输入规格值"
+                        placeholder="الرجاء إدخال 规格值"
                         v-model="formDynamic.attrsVal"
                         @keyup.enter.native="createAttr(formDynamic.attrsVal, index)"
                         @blur="createAttr(formDynamic.attrsVal, index)"
@@ -119,14 +119,14 @@
                         show-word-limit
                       >
                       </el-input>
-                      <div class="addfont" slot="reference" type="text" v-db-click>添加规格值</div>
+                      <div class="addfont" slot="reference" type="text" v-db-click>إضافة规格值</div>
                     </el-popover>
                   </draggable>
                 </div>
               </div>
             </div>
           </draggable>
-          <el-button v-if="attrs.length < 4" v-db-click @click="handleAddRole()">添加新规格</el-button>
+          <el-button v-if="attrs.length < 4" v-db-click @click="handleAddRole()">إضافة新规格</el-button>
           <el-button v-if="attrs.length >= 1" type="text" v-db-click @click="handleSaveAsTemplate()"
             >另存为模板</el-button
           >
@@ -165,7 +165,7 @@
                 <template v-if="scope.$index == 0">
                   <template v-if="item.key">
                     <div v-if="attrs.length && attrs[scope.column.index] && manyFormValidate.length">
-                      <el-select v-model="oneFormBatch[0][item.title]" :placeholder="`请选择${item.title}`" clearable>
+                      <el-select v-model="oneFormBatch[0][item.title]" :placeholder="`الرجاء اختيار ${item.title}`" clearable>
                         <el-option
                           v-for="val in attrs[scope.column.index].detail"
                           :key="val.value"
@@ -257,7 +257,7 @@
                   </template>
                   <template v-else-if="item.slot === 'selected_spec'"> -- </template>
                   <template v-else-if="item.slot === 'action'">
-                    <a v-db-click @click="batchAdd">批量修改</a>
+                    <a v-db-click @click="batchAdd">批量تعديل</a>
                     <el-divider direction="vertical"></el-divider>
                     <a v-db-click @click="batchDel">清空</a>
                   </template>
@@ -362,7 +362,7 @@
                       "
                       v-db-click
                       @click="addVirtual(scope.$index, 'manyFormValidate')"
-                      >添加卡密</el-button
+                      >إضافة卡密</el-button
                     >
                     <span
                       class="see"
@@ -512,7 +512,7 @@
 
       <el-col :span="24">
         <el-form-item
-          :label="formValidate.virtual_type == 1 ? '添加卡密/网盘：' : '选择优惠券：'"
+          :label="formValidate.virtual_type == 1 ? 'إضافة卡密/网盘：' : '选择优惠券：'"
           v-if="formValidate.virtual_type == 1 || formValidate.virtual_type == 2"
         >
           <el-button
@@ -534,7 +534,7 @@
             "
             v-db-click
             @click="addVirtual(0, 'oneFormValidate')"
-            >添加卡密</el-button
+            >إضافة卡密</el-button
           >
           <span
             class="see"
@@ -683,7 +683,7 @@ export default {
       row.index = rowIndex || '';
       column.index = columnIndex;
     },
-    // 规格图片添加开关
+    // 规格图片إضافة开关
     addPic(e, i) {
       if (e) {
         this.attrs.map((item, ii) => {

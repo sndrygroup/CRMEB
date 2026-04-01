@@ -12,7 +12,7 @@
         >
           <el-row :gutter="24" justify="end">
             <el-col :span="24" class="ivu-text-left">
-              <el-form-item label="时间选择：">
+              <el-form-item label="الوقت选择：">
                 <el-radio-group
                   v-model="formValidate.data"
                   type="button"
@@ -40,7 +40,7 @@
             </el-col>
             <el-col :span="24" class="ivu-text-left">
               <el-col :xl="7" :lg="10" :md="12" :sm="24" :xs="24">
-                <el-form-item label="操作名称：">
+                <el-form-item label="الخياراتالاسم：">
                   <el-select v-model="formValidate.type" style="width: 90%" clearable>
                     <el-option :value="1" label="男"></el-option>
                     <el-option :value="2" label="女"></el-option>
@@ -49,14 +49,14 @@
                 </el-form-item>
               </el-col>
               <el-col :xl="7" :lg="10" :md="12" :sm="24" :xs="24">
-                <el-form-item label="操作用户：">
-                  <el-input placeholder="请输入用户名称" v-model="formValidate.nickname" style="width: 90%"></el-input>
+                <el-form-item label="الخيارات用户：">
+                  <el-input placeholder="الرجاء إدخال اسم المستخدم称" v-model="formValidate.nickname" style="width: 90%"></el-input>
                 </el-form-item>
               </el-col>
               <el-col :xl="3" :lg="4" :md="12" :sm="24" :xs="24" class="btn_box">
                 <el-form-item>
                   <el-button type="primary" label="default" class="userSearch" v-db-click @click="userSearchs"
-                    >搜索</el-button
+                    >بحث</el-button
                   >
                 </el-form-item>
               </el-col>
@@ -70,12 +70,12 @@
             <span>{{ scope.row.id }}</span>
           </template>
         </el-table-column>
-        <el-table-column label="操作用户" min-width="130">
+        <el-table-column label="الخيارات用户" min-width="130">
           <template slot-scope="scope">
             <span>{{ scope.row.nickname }}</span>
           </template>
         </el-table-column>
-        <el-table-column label="操作名称" min-width="130">
+        <el-table-column label="الخياراتالاسم" min-width="130">
           <template slot-scope="scope">
             <span>{{ scope.row.type_name }}</span>
           </template>
@@ -85,7 +85,7 @@
             <span>{{ scope.row.headimgurl }}</span>
           </template>
         </el-table-column>
-        <el-table-column label="操作时间" min-width="130">
+        <el-table-column label="الخياراتالوقت" min-width="130">
           <template slot-scope="scope">
             <span> {{ scope.row.add_time ? scope.row.add_time : '' | formatDate }}</span>
           </template>
@@ -122,7 +122,7 @@ export default {
     return {
       timeVal: [],
       fromList: {
-        title: '选择时间',
+        title: '选择الوقت',
         custom: true,
         fromTxt: [
           { text: '全部', val: '' },
@@ -166,7 +166,7 @@ export default {
       this.formValidate.data = this.timeVal ? this.timeVal.join('-') : '';
       this.getList();
     },
-    // 选择时间
+    // 选择الوقت
     selectChange(tab) {
       this.formValidate.data = tab;
       this.timeVal = [];
@@ -188,7 +188,7 @@ export default {
           this.$message.error(res.msg);
         });
     },
-    // 搜索
+    // بحث
     userSearchs() {
       this.getList();
     },

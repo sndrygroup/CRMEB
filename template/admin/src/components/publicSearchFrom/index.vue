@@ -33,7 +33,7 @@
         </el-col>
         <el-col>
           <el-button class="mr">导出</el-button>
-          <span class="Refresh">刷新</span>
+          <span class="Refresh">تحديث</span>
         </el-col>
       </el-row>
       <el-row :gutter="24" class="withdrawal" v-if="isExist.existTwo">
@@ -44,7 +44,7 @@
           <TreeSelect v-model="paymentTxt" :data="treeData.payment" class="perW160" @change="changeTree" />
         </el-col>
         <el-col :span="6" class="item">
-          <el-input search enter-button placeholder="微信名称、姓名、支付宝账号、银行卡号" element-id="name" />
+          <el-input search enter-button placeholder="微信الاسم、姓名、支付宝账号、银行卡号" element-id="name" />
         </el-col>
       </el-row>
     </el-form>
@@ -96,7 +96,7 @@ export default {
   data() {
     return {
       date: '全部',
-      withdrawalTxt: '提现状态',
+      withdrawalTxt: '提现الحالة',
       paymentTxt: '提现方式',
     };
   },

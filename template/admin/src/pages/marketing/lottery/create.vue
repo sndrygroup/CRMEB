@@ -9,10 +9,10 @@
           type="text"
           v-db-click
           @click="$router.go(-1)"
-          >返回</el-button
+          >عودة</el-button
         >
         <el-divider direction="vertical"></el-divider>
-        <span class="ivu-page-header-title">{{ $route.query.lottery_id ? '编辑' : '新增' }}抽奖活动</span>
+        <span class="ivu-page-header-title">{{ $route.query.lottery_id ? 'تحرير' : '新增' }}抽奖活动</span>
       </div>
     </div>
     <el-card :bordered="false" shadow="never" class="ivu-mt" :body-style="{ padding: '0 20px 20px' }">
@@ -39,9 +39,9 @@
                 </el-form-item>
               </el-col>
               <el-col :span="24">
-                <el-form-item label="活动名称：" prop="name" label-for="name">
+                <el-form-item label="活动الاسم：" prop="name" label-for="name">
                   <el-input
-                    placeholder="请输入活动名称"
+                    placeholder="الرجاء إدخال 活动الاسم"
                     v-model="formValidate.name"
                     class="content_width"
                     maxlength="80"
@@ -50,7 +50,7 @@
                 </el-form-item>
               </el-col>
               <el-col :span="24">
-                <el-form-item label="活动时间：">
+                <el-form-item label="活动الوقت：">
                   <div class="acea-row row-middle">
                     <el-date-picker
                       v-model="formValidate.period"
@@ -82,7 +82,7 @@
                       multiple
                       v-model="formValidate.user_level"
                       class="content_width"
-                      placeholder="请选择用户等级"
+                      placeholder="الرجاء اختيار 用户等级"
                     >
                       <el-option
                         v-for="item in userLevelListApi"
@@ -100,7 +100,7 @@
                     <el-select
                       v-model="formValidate.is_svip"
                       clearable
-                      placeholder="请选择是否是付费会员"
+                      placeholder="الرجاء اختيار 是否是付费会员"
                       class="content_width"
                     >
                       <el-option
@@ -246,7 +246,7 @@
                         </div>
                       </template>
                     </el-table-column>
-                    <el-table-column label="名称" min-width="80">
+                    <el-table-column label="الاسم" min-width="80">
                       <template slot-scope="scope">
                         <div>{{ scope.row.name }}</div>
                       </template>
@@ -256,7 +256,7 @@
                         <div>{{ scope.row.type | typeName }}</div>
                       </template>
                     </el-table-column>
-                    <el-table-column label="提示语" min-width="80">
+                    <el-table-column label="تنبيه语" min-width="80">
                       <template slot-scope="scope">
                         <div>{{ scope.row.prompt }}</div>
                       </template>
@@ -285,9 +285,9 @@
                         ></el-input-number>
                       </template>
                     </el-table-column>
-                    <el-table-column label="操作" fixed="right" width="80">
+                    <el-table-column label="الخيارات" fixed="right" width="80">
                       <template slot-scope="scope">
-                        <a class="submission mr15" v-db-click @click="editGoods(scope.$index)">编辑</a>
+                        <a class="submission mr15" v-db-click @click="editGoods(scope.$index)">تحرير</a>
                       </template>
                     </el-table-column>
                   </el-table>
@@ -297,7 +297,7 @@
                     class="submission mr15 mt20"
                     v-db-click
                     @click="addGoods"
-                    >添加商品</el-button
+                    >إضافة商品</el-button
                   >
                 </el-form-item>
                 <el-form-item>
@@ -404,7 +404,7 @@
                   @editorContent="getEditorContent"
                 ></WangEditor>
               </el-form-item>
-              <el-form-item label="活动状态：" prop="status" label-for="status">
+              <el-form-item label="活动الحالة：" prop="status" label-for="status">
                 <el-switch
                   class="defineSwitch"
                   :active-value="1"
@@ -418,7 +418,7 @@
               </el-form-item>
             </div>
             <el-form-item>
-              <el-button type="primary" :loading="submitOpen" v-db-click @click="next('formValidate')">提交</el-button>
+              <el-button type="primary" :loading="submitOpen" v-db-click @click="next('formValidate')">إرسال</el-button>
             </el-form-item>
           </el-form>
         </el-col>
@@ -433,15 +433,15 @@
     <el-dialog :visible.sync="addGoodsModel" width="720px" :title="title" :close-on-click-modal="false">
       <addGoods ref="addGoodsForm" v-if="addGoodsModel" @addGoodsData="addGoodsData" :editData="editData"></addGoods>
       <div class="acea-row row-right mt20">
-        <el-button v-db-click @click="addGoodsModel = false">取消</el-button>
-        <el-button type="primary" v-db-click @click="submitAddGoods">提交</el-button>
+        <el-button v-db-click @click="addGoodsModel = false">إلغاء</el-button>
+        <el-button type="primary" v-db-click @click="submitAddGoods">إرسال</el-button>
       </div>
     </el-dialog>
     <!-- 用户标签 -->
     <el-dialog
       :visible.sync="selectLabelShow"
       scrollable
-      title="请选择用户标签"
+      title="الرجاء اختيار 用户标签"
       :closable="false"
       width="540px"
       :footer-hide="true"
@@ -466,7 +466,7 @@ import goodsList from '@/components/goodsList/index';
 import uploadPictures from '@/components/uploadPictures';
 import userLabel from '@/components/userLabel';
 import addGoods from './addGoods';
-import { lotteryNewDetailApi, lotteryDetailApi, lotteryCreateApi, lotteryEditApi } from '@/api/lottery'; //详情 创建 编辑
+import { lotteryNewDetailApi, lotteryDetailApi, lotteryCreateApi, lotteryEditApi } from '@/api/lottery'; //تفاصيل 创建 تحرير
 import { lotteryFrom } from './formRule/lotteryFrom';
 import { labelListApi } from '@/api/product';
 import { levelListApi } from '@/api/user';
@@ -504,7 +504,7 @@ export default {
           type: '4',
         },
       ],
-      title: '添加商品',
+      title: 'إضافة商品',
       loading: false,
       userLabelList: [], //用户标签列表
       userLevelListApi: [], //用户等级列表
@@ -513,7 +513,7 @@ export default {
       addGoodsModel: false,
       editData: {},
       myConfig: {
-        autoHeightEnabled: false, // 编辑器不自动被内容撑高
+        autoHeightEnabled: false, // تحرير器不自动被内容撑高
         initialFrameHeight: 500, // 初始容器高度
         initialFrameWidth: '100%', // 初始容器宽度
         UEDITOR_HOME_URL: '/UEditor/',
@@ -532,96 +532,96 @@ export default {
       specsData: [
         {
           type: 1, //类型 1：未中奖 2：积分  3:余额  4：红包 5:优惠券 6：站内商品
-          name: '', //活动名称
+          name: '', //活动الاسم
           num: 10, //奖品数量
           image: '', //奖品图片
           chance: 1, //中奖权重
           total: 0, //奖品数量
           percent: 0, //中奖概率
           min_try_num: 0, //抽奖次数尝试
-          prompt: '', //提示语
+          prompt: '', //تنبيه语
         },
         {
           type: 1, //类型 1：未中奖 2：积分  3:余额  4：红包 5:优惠券 6：站内商品
-          name: '', //活动名称
+          name: '', //活动الاسم
           num: 10, //奖品数量
           image: '', //奖品图片
           chance: 1, //中奖权重
           total: 0, //奖品数量
           percent: 0, //中奖概率
           min_try_num: 0, //抽奖次数尝试
-          prompt: '', //提示语
+          prompt: '', //تنبيه语
         },
         {
           type: 1, //类型 1：未中奖 2：积分  3:余额  4：红包 5:优惠券 6：站内商品
-          name: '', //活动名称
+          name: '', //活动الاسم
           num: 10, //奖品数量
           image: '', //奖品图片
           chance: 1, //中奖权重
           total: 0, //奖品数量
           percent: 0, //中奖概率
           min_try_num: 0, //抽奖次数尝试
-          prompt: '', //提示语
+          prompt: '', //تنبيه语
         },
         {
           type: 1, //类型 1：未中奖 2：积分  3:余额  4：红包 5:优惠券 6：站内商品
-          name: '', //活动名称
+          name: '', //活动الاسم
           num: 10, //奖品数量
           image: '', //奖品图片
           chance: 1, //中奖权重
           total: 0, //奖品数量
           percent: 0, //中奖概率
           min_try_num: 0, //抽奖次数尝试
-          prompt: '', //提示语
+          prompt: '', //تنبيه语
         },
         {
           type: 1, //类型 1：未中奖 2：积分  3:余额  4：红包 5:优惠券 6：站内商品
-          name: '', //活动名称
+          name: '', //活动الاسم
           num: 10, //奖品数量
           image: '', //奖品图片
           chance: 1, //中奖权重
           total: 0, //奖品数量
           percent: 0, //中奖概率
           min_try_num: 0, //抽奖次数尝试
-          prompt: '', //提示语
+          prompt: '', //تنبيه语
         },
         {
           type: 1, //类型 1：未中奖 2：积分  3:余额  4：红包 5:优惠券 6：站内商品
-          name: '', //活动名称
+          name: '', //活动الاسم
           num: 10, //奖品数量
           image: '', //奖品图片
           chance: 1, //中奖权重
           total: 0, //奖品数量
           percent: 0, //中奖概率
           min_try_num: 0, //抽奖次数尝试
-          prompt: '', //提示语
+          prompt: '', //تنبيه语
         },
         {
           type: 1, //类型 1：未中奖 2：积分  3:余额  4：红包 5:优惠券 6：站内商品
-          name: '', //活动名称
+          name: '', //活动الاسم
           num: 10, //奖品数量
           image: '', //奖品图片
           chance: 1, //中奖权重
           total: 0, //奖品数量
           percent: 0, //中奖概率
           min_try_num: 0, //抽奖次数尝试
-          prompt: '', //提示语
+          prompt: '', //تنبيه语
         },
         {
           type: 1, //类型 1：未中奖 2：积分  3:余额  4：红包 5:优惠券 6：站内商品
-          name: '', //活动名称
+          name: '', //活动الاسم
           num: 10, //奖品数量
           image: '', //奖品图片
           chance: 1, //中奖权重
           total: 0, //奖品数量
           percent: 0, //中奖概率
           min_try_num: 0, //抽奖次数尝试
-          prompt: '', //提示语
+          prompt: '', //تنبيه语
         },
       ],
       formValidate: {
         images: [],
-        name: '', //活动名称
+        name: '', //活动الاسم
         desc: '', //活动描述
         image: '', //活动背景图
         factor: '1', //抽奖类型：1:积分 2:余额 3：下单支付成功 4:订单评价',5:关注
@@ -631,7 +631,7 @@ export default {
         user_label: [], //参与用户标签
         is_svip: '', //参与用户是否付费会员
         prize_num: 0, //奖品数量
-        period: [], //活动时间
+        period: [], //活动الوقت
         prize: [], //奖品数组
         lottery_num_term: 1, //抽奖次数限制：1：每天2：每人
         lottery_num: 1, //抽奖次数
@@ -640,7 +640,7 @@ export default {
         is_personal_record: 0, //个人中奖纪录展示
         is_content: 0, //活动规格是否展示
         content: '', //富文本内容
-        status: 0, //状态
+        status: 0, //الحالة
       },
       ruleValidate: lotteryFrom,
       currentid: '',
@@ -735,7 +735,7 @@ export default {
     onchangeTime(e) {
       this.$set(this.formValidate, 'period', e);
     },
-    // 详情
+    // تفاصيل
     getInfo(e) {
       this.spinShow = true;
       lotteryDetailApi(this.lottery_id)
@@ -756,7 +756,7 @@ export default {
           } else {
             this.formValidate = {
               images: [],
-              name: '', //活动名称
+              name: '', //活动الاسم
               desc: '', //活动描述
               image: '', //活动背景图
               factor: e.toString(), //抽奖类型：1:积分 2:余额 3：下单支付成功 4:订单评价',5:关注
@@ -766,7 +766,7 @@ export default {
               user_label: [], //参与用户标签
               is_svip: '-1', //参与用户是否付费会员
               prize_num: 0, //奖品数量
-              period: [], //活动时间
+              period: [], //活动الوقت
               prize: [], //奖品数组
               lottery_num_term: 1, //抽奖次数限制：1：每天2：每人
               lottery_num: 1, //抽奖次数
@@ -775,96 +775,96 @@ export default {
               is_personal_record: 0, //个人中奖纪录展示
               is_content: 0, //活动规格是否展示
               content: '', //富文本内容
-              status: 0, //状态
+              status: 0, //الحالة
             };
             this.specsData = [
               {
                 type: 1, //类型 1：未中奖 2：积分  3:余额  4：红包 5:优惠券 6：站内商品
-                name: '', //活动名称
+                name: '', //活动الاسم
                 num: 10, //奖品数量
                 image: '', //奖品图片
                 chance: 1, //中奖权重
                 total: 0, //奖品数量
                 percent: 0, //中奖概率
                 min_try_num: 0, //抽奖次数尝试
-                prompt: '', //提示语
+                prompt: '', //تنبيه语
               },
               {
                 type: 1, //类型 1：未中奖 2：积分  3:余额  4：红包 5:优惠券 6：站内商品
-                name: '', //活动名称
+                name: '', //活动الاسم
                 num: 10, //奖品数量
                 image: '', //奖品图片
                 chance: 1, //中奖权重
                 total: 0, //奖品数量
                 percent: 0, //中奖概率
                 min_try_num: 0, //抽奖次数尝试
-                prompt: '', //提示语
+                prompt: '', //تنبيه语
               },
               {
                 type: 1, //类型 1：未中奖 2：积分  3:余额  4：红包 5:优惠券 6：站内商品
-                name: '', //活动名称
+                name: '', //活动الاسم
                 num: 10, //奖品数量
                 image: '', //奖品图片
                 chance: 1, //中奖权重
                 total: 0, //奖品数量
                 percent: 0, //中奖概率
                 min_try_num: 0, //抽奖次数尝试
-                prompt: '', //提示语
+                prompt: '', //تنبيه语
               },
               {
                 type: 1, //类型 1：未中奖 2：积分  3:余额  4：红包 5:优惠券 6：站内商品
-                name: '', //活动名称
+                name: '', //活动الاسم
                 num: 10, //奖品数量
                 image: '', //奖品图片
                 chance: 1, //中奖权重
                 total: 0, //奖品数量
                 percent: 0, //中奖概率
                 min_try_num: 0, //抽奖次数尝试
-                prompt: '', //提示语
+                prompt: '', //تنبيه语
               },
               {
                 type: 1, //类型 1：未中奖 2：积分  3:余额  4：红包 5:优惠券 6：站内商品
-                name: '', //活动名称
+                name: '', //活动الاسم
                 num: 10, //奖品数量
                 image: '', //奖品图片
                 chance: 1, //中奖权重
                 total: 0, //奖品数量
                 percent: 0, //中奖概率
                 min_try_num: 0, //抽奖次数尝试
-                prompt: '', //提示语
+                prompt: '', //تنبيه语
               },
               {
                 type: 1, //类型 1：未中奖 2：积分  3:余额  4：红包 5:优惠券 6：站内商品
-                name: '', //活动名称
+                name: '', //活动الاسم
                 num: 10, //奖品数量
                 image: '', //奖品图片
                 chance: 1, //中奖权重
                 total: 0, //奖品数量
                 percent: 0, //中奖概率
                 min_try_num: 0, //抽奖次数尝试
-                prompt: '', //提示语
+                prompt: '', //تنبيه语
               },
               {
                 type: 1, //类型 1：未中奖 2：积分  3:余额  4：红包 5:优惠券 6：站内商品
-                name: '', //活动名称
+                name: '', //活动الاسم
                 num: 10, //奖品数量
                 image: '', //奖品图片
                 chance: 1, //中奖权重
                 total: 0, //奖品数量
                 percent: 0, //中奖概率
                 min_try_num: 0, //抽奖次数尝试
-                prompt: '', //提示语
+                prompt: '', //تنبيه语
               },
               {
                 type: 1, //类型 1：未中奖 2：积分  3:余额  4：红包 5:优惠券 6：站内商品
-                name: '', //活动名称
+                name: '', //活动الاسم
                 num: 10, //奖品数量
                 image: '', //奖品图片
                 chance: 1, //中奖权重
                 total: 0, //奖品数量
                 percent: 0, //中奖概率
                 min_try_num: 0, //抽奖次数尝试
-                prompt: '', //提示语
+                prompt: '', //تنبيه语
               },
             ];
           }
@@ -966,17 +966,17 @@ export default {
     //新增商品
     addGoods() {
       this.addGoodsModel = true;
-      this.title = '添加商品';
+      this.title = 'إضافة商品';
       this.editData = {};
     },
-    //编辑商品
+    //تحرير商品
     editGoods(index) {
       this.addGoodsModel = true;
-      this.title = '添加奖品';
+      this.title = 'إضافة奖品';
       this.editData = this.specsData[index];
       this.editIndex = index;
     },
-    //删除商品
+    //حذف商品
     deleteGoods(index) {
       this.specsData.splice(index, 1);
     },
@@ -993,7 +993,7 @@ export default {
         ? this.$set(this.specsData, [this.editIndex], data)
         : this.specsData.length < 8
         ? this.specsData.push(data)
-        : this.$message.warning('最多添加8个奖品');
+        : this.$message.warning('最多إضافة8个奖品');
       this.getProbability();
       this.addGoodsModel = false;
       this.editIndex = null;
@@ -1017,7 +1017,7 @@ export default {
         }
       }
     },
-    //修改排序
+    //تعديل排序
     onDragDrop(a, b) {
       this.specsData.splice(b, 1, ...this.specsData.splice(a, 1, this.specsData[b]));
     },
@@ -1052,7 +1052,7 @@ export default {
         this.specsData = arr;
       });
     },
-    //时间格式转换
+    //الوقت格式转换
     formatDate(time) {
       if (time) {
         let date = new Date(time * 1000);

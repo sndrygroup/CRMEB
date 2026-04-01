@@ -12,8 +12,8 @@
         <el-form class="form" ref="formData" label-width="120px" label-position="right">
           <el-row :gutter="24">
             <el-col :xl="18" :lg="18" :md="18" :sm="24" :xs="24">
-              <el-form-item label="模板名称：" prop="name">
-                <el-input type="text" placeholder="请输入模板名称" :maxlength="20" v-model="formData.name" />
+              <el-form-item label="模板الاسم：" prop="name">
+                <el-input type="text" placeholder="الرجاء إدخال 模板الاسم" :maxlength="20" v-model="formData.name" />
               </el-form-item>
             </el-col>
           </el-row>
@@ -63,20 +63,20 @@
                       <el-input type="number" v-model="templateList[scope.$index].continue_price" />
                     </template>
                   </el-table-column>
-                  <el-table-column label="操作" fixed="right" width="100">
+                  <el-table-column label="الخيارات" fixed="right" width="100">
                     <template slot-scope="scope">
                       <a
                         v-if="scope.row.regionName !== '默认全国'"
                         v-db-click
                         @click="delCity(scope.row, '配送区域', scope.$index, 1)"
-                        >删除</a
+                        >حذف</a
                       >
                     </template>
                   </el-table-column>
                 </el-table>
                 <el-row class="addTop">
                   <el-col>
-                    <el-button type="primary" icon="md-add" v-db-click @click="addCity(1)">添加配送区域</el-button>
+                    <el-button type="primary" icon="md-add" v-db-click @click="addCity(1)">إضافة配送区域</el-button>
                   </el-col>
                 </el-row>
               </el-form-item>
@@ -115,13 +115,13 @@
                       <el-input type="number" v-model="appointList[scope.$index].a_price" />
                     </template>
                   </el-table-column>
-                  <el-table-column label="操作" fixed="right" width="100">
+                  <el-table-column label="الخيارات" fixed="right" width="100">
                     <template slot-scope="scope">
                       <a
                         v-if="scope.row.regionName !== '默认全国'"
                         v-db-click
                         @click="delCity(scope.row, '配送区域', scope.$index, 2)"
-                        >删除</a
+                        >حذف</a
                       >
                     </template>
                   </el-table-column>
@@ -131,7 +131,7 @@
                 </div>
                 <el-row class="addTop mt5" v-if="formData.appoint_check === 1">
                   <el-col>
-                    <el-button type="primary" icon="md-add" v-db-click @click="addCity(2)">添加包邮区域</el-button>
+                    <el-button type="primary" icon="md-add" v-db-click @click="addCity(2)">إضافة包邮区域</el-button>
                   </el-col>
                 </el-row>
               </el-form-item>
@@ -157,20 +157,20 @@
                       <el-input v-model="noDeliveryList[scope.$index].placeName" />
                     </template>
                   </el-table-column>
-                  <el-table-column label="操作" fixed="right" width="100">
+                  <el-table-column label="الخيارات" fixed="right" width="100">
                     <template slot-scope="scope">
                       <a
                         v-if="scope.row.regionName !== '默认全国'"
                         v-db-click
                         @click="delCity(scope.row, '配送区域', scope.$index, 3)"
-                        >删除</a
+                        >حذف</a
                       >
                     </template>
                   </el-table-column>
                 </el-table>
                 <el-row class="addTop" v-if="formData.no_delivery_check === 1">
                   <el-col>
-                    <el-button type="primary" icon="md-add" v-db-click @click="addCity(3)">添加不送达区域</el-button>
+                    <el-button type="primary" icon="md-add" v-db-click @click="addCity(3)">إضافة不送达区域</el-button>
                   </el-col>
                 </el-row>
               </el-form-item>
@@ -192,7 +192,7 @@
             <el-col>
               <el-form-item prop="store_name" label-for="store_name">
                 <el-button type="primary" v-db-click @click="handleSubmit">{{
-                  id ? '立即修改' : '立即提交'
+                  id ? '立即تعديل' : '立即إرسال'
                 }}</el-button>
               </el-form-item>
             </el-col>
@@ -317,7 +317,7 @@ export default {
           break;
       }
     },
-    // 单独添加配送区域
+    // 单独إضافة配送区域
     addCity(type) {
       this.selectArr = type == 1 ? this.noShippingArr : type == 2 ? this.yesShippingArr : this.noDeliveryArr;
       this.type = type;
@@ -325,11 +325,11 @@ export default {
       this.$refs.city.addressModal = true;
     },
     changeRadio() {},
-    // 提交
+    // إرسال
     handleSubmit: function () {
       let that = this;
       if (!that.formData.name.trim().length) {
-        return that.$message.error('请填写模板名称');
+        return that.$message.error('请填写模板الاسم');
       }
       for (let i = 0; i < that.templateList.length; i++) {
         if (that.templateList[i].first <= 0) {
@@ -397,7 +397,7 @@ export default {
         this.$message.success(res.msg);
       });
     },
-    // 删除
+    // حذف
     delCity(row, tit, num, type) {
       if (type === 1) {
         this.templateList.splice(num, 1);

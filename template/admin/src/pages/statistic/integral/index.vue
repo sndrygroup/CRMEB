@@ -4,7 +4,7 @@
       <el-form ref="formValidate" :model="formValidate" class="tabform" @submit.native.prevent>
         <el-row :gutter="24">
           <el-col :span="24">
-            <el-form-item label="订单时间：">
+            <el-form-item label="订单الوقت：">
               <el-radio-group
                 v-model="formValidate.data"
                 type="button"
@@ -77,7 +77,7 @@ export default {
       style: { height: '400px' },
 
       fromList: {
-        title: '选择时间',
+        title: '选择الوقت',
         custom: true,
         fromTxt: [
           { text: '全部', val: '' },

@@ -61,11 +61,11 @@ export default {
   },
   data() {
     return {
-      themeName: '请设置页面名称',
+      themeName: '请设置页面الاسم',
       themeInfo: '',
       activeMenu: 'home', // 默认选中商城首页
       collapsed: false,
-      isDirty: false, // 是否有未保存的修改
+      isDirty: false, // 是否有未حفظ的تعديل
     };
   },
   provide() {
@@ -97,12 +97,12 @@ export default {
     getThemeBaseInfo() {
       const id = this.$route.query.id || 0;
       if (!id) {
-        this.themeName = '请设置页面名称';
+        this.themeName = '请设置页面الاسم';
         return;
       }
       themeInfo(id, 'base')
         .then((res) => {
-          this.themeName = res.data.title || '请设置页面名称';
+          this.themeName = res.data.title || '请设置页面الاسم';
           this.themeInfo = res.data.info;
         })
         .catch((err) => {
@@ -127,11 +127,11 @@ export default {
       let id = this.$route.query.id || 0;
       saveThemeTitle(id, data)
         .then((res) => {
-          this.$message.success('保存成功');
+          this.$message.success('حفظ成功');
           if (id == 0) {
             let query = { ...this.$route.query, id: res.data.id };
             if (query.tid) {
-              delete query.tid; // 保存后移除 tid
+              delete query.tid; // حفظ后移除 tid
             }
             this.$router.replace({ query });
             // Update active component's pageId

@@ -3,7 +3,7 @@
     <div class="i-layout-page-header header-title">
       <span class="ivu-page-header-title mr20">{{ $route.meta.title }}</span>
       <div style="float: right">
-        <el-button class="bnt" type="primary" v-db-click @click="onsubmit('formValidate')">保存</el-button>
+        <el-button class="bnt" type="primary" v-db-click @click="onsubmit('formValidate')">حفظ</el-button>
       </div>
     </div>
     <div class="box-wrapper">
@@ -95,7 +95,7 @@ export default {
       },
       ruleValidate: {},
       myConfig: {
-        autoHeightEnabled: false, // 编辑器不自动被内容撑高
+        autoHeightEnabled: false, // تحرير器不自动被内容撑高
         initialFrameHeight: 500, // 初始容器高度
         initialFrameWidth: '100%', // 初始容器宽度
         UEDITOR_HOME_URL: '/UEditor/',
@@ -200,7 +200,7 @@ export default {
     getContent(val) {
       this.formValidate.content = val;
     },
-    // 提交数据
+    // إرسال数据
     onsubmit(name) {
       this.formValidate.content = this.content;
       setAgreement(this.formValidate)
@@ -211,7 +211,7 @@ export default {
           this.$message.error(res.msg);
         });
     },
-    //详情
+    //تفاصيل
     getAgreement() {
       getAgreement()
         .then(async (res) => {

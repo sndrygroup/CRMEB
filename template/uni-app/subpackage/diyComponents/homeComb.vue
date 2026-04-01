@@ -10,7 +10,7 @@
           :src="i.img"
         ></image>
       </view>
-      <!--搜索-->
+      <!--بحث-->
       <view class="my-main">
         <view class="mp-header" id="home" :style="[mpHeaderStyle]">
           <view

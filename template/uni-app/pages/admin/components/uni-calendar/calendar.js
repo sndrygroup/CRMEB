@@ -178,7 +178,7 @@ var calendar = {
   nStr3: ['\u6b63', '\u4e8c', '\u4e09', '\u56db', '\u4e94', '\u516d', '\u4e03', '\u516b', '\u4e5d', '\u5341', '\u51ac', '\u814a'],
 
   /**
-      * 返回农历y年一整年的总天数
+      * عودة农历y年一整年的总天数
       * @param lunar Year
       * @return Number
       * @eg:var count = calendar.lYearDays(1987) ;//count=387
@@ -190,7 +190,7 @@ var calendar = {
   },
 
   /**
-      * 返回农历y年闰月是哪个月；若y年没有闰月 则返回0
+      * عودة农历y年闰月是哪个月；若y年没有闰月 则عودة0
       * @param lunar Year
       * @return Number (0-12)
       * @eg:var leapMonth = calendar.leapMonth(1987) ;//leapMonth=6
@@ -200,7 +200,7 @@ var calendar = {
   },
 
   /**
-      * 返回农历y年闰月的天数 若该年没有闰月则返回0
+      * عودة农历y年闰月的天数 若该年没有闰月则عودة0
       * @param lunar Year
       * @return Number (0、29、30)
       * @eg:var leapMonthDay = calendar.leapDays(1987) ;//leapMonthDay=29
@@ -213,26 +213,26 @@ var calendar = {
   },
 
   /**
-      * 返回农历y年m月（非闰月）的总天数，计算m为闰月时的天数请使用leapDays方法
+      * عودة农历y年m月（非闰月）的总天数，计算m为闰月时的天数请使用leapDays方法
       * @param lunar Year
       * @return Number (-1、29、30)
       * @eg:var MonthDay = calendar.monthDays(1987,9) ;//MonthDay=29
       */
   monthDays: function (y, m) {
-    if (m > 12 || m < 1) { return -1 }// 月份参数从1至12，参数错误返回-1
+    if (m > 12 || m < 1) { return -1 }// 月份参数从1至12，参数错误عودة-1
     return ((this.lunarInfo[y - 1900] & (0x10000 >> m)) ? 30 : 29)
   },
 
   /**
-      * 返回公历(!)y年m月的天数
+      * عودة公历(!)y年m月的天数
       * @param solar Year
       * @return Number (-1、28、29、30、31)
       * @eg:var solarMonthDay = calendar.leapDays(1987) ;//solarMonthDay=30
       */
   solarDays: function (y, m) {
-    if (m > 12 || m < 1) { return -1 } // 若参数错误 返回-1
+    if (m > 12 || m < 1) { return -1 } // 若参数错误 عودة-1
     var ms = m - 1
-    if (ms == 1) { // 2月份的闰平规律测算后确认返回28或29
+    if (ms == 1) { // 2月份的闰平规律测算后تأكيدعودة28或29
       return (((y % 4 == 0) && (y % 100 != 0) || (y % 400 == 0)) ? 29 : 28)
     } else {
       return (this.solarMonth[ms])
@@ -265,7 +265,7 @@ var calendar = {
   },
 
   /**
-      * 传入offset偏移量返回干支
+      * 传入offset偏移量عودة干支
       * @param offset 相对甲子的偏移量
       * @return Cn string
       */
@@ -326,20 +326,20 @@ var calendar = {
   },
 
   /**
-      * 传入农历数字月份返回汉语通俗表示法
+      * 传入农历数字月份عودة汉语通俗表示法
       * @param lunar month
       * @return Cn string
       * @eg:var cnMonth = calendar.toChinaMonth(12) ;//cnMonth='腊月'
       */
   toChinaMonth: function (m) { // 月 => \u6708
-    if (m > 12 || m < 1) { return -1 } // 若参数错误 返回-1
+    if (m > 12 || m < 1) { return -1 } // 若参数错误 عودة-1
     var s = this.nStr3[m - 1]
     s += '\u6708'// 加上月字
     return s
   },
 
   /**
-      * 传入农历日期数字返回汉字表示法
+      * 传入农历日期数字عودة汉字表示法
       * @param lunar day
       * @return Cn string
       * @eg:var cnDay = calendar.toChinaDay(21) ;//cnMonth='廿一'
@@ -461,8 +461,8 @@ var calendar = {
 
     // 当月的两个节气
     // bugfix-2017-7-24 11:03:38 use lunar Year Param `y` Not `year`
-    var firstNode = this.getTerm(y, (m * 2 - 1))// 返回当月「节」为几日开始
-    var secondNode = this.getTerm(y, (m * 2))// 返回当月「节」为几日开始
+    var firstNode = this.getTerm(y, (m * 2 - 1))// عودة当月「节」为几日开始
+    var secondNode = this.getTerm(y, (m * 2))// عودة当月「节」为几日开始
 
     // 依据12节气修正干支月
     var gzM = this.toGanZhi((y - 1900) * 12 + m + 11)
@@ -515,7 +515,7 @@ var calendar = {
     }
     if (y < 1900 || y > 2100 || d > _day) { return -1 }// 参数合法性效验
 
-    // 计算农历的时间差
+    // 计算农历的الوقت差
     var offset = 0
     for (var i = 1900; i < y; i++) {
       offset += this.lYearDays(i)
@@ -532,7 +532,7 @@ var calendar = {
     }
     // 转换闰月农历 需补充该年闰月的前一个月的时差
     if (isLeapMonth) { offset += day }
-    // 1900年农历正月一日的公历时间为1900年1月30日0时0分0秒(该时间也是本农历的最开始起始点)
+    // 1900年农历正月一日的公历الوقت为1900年1月30日0时0分0秒(该الوقت也是本农历的最开始起始点)
     var stmap = Date.UTC(1900, 1, 30, 0, 0, 0)
     var calObj = new Date((offset + d - 31) * 86400000 + stmap)
     var cY = calObj.getUTCFullYear()

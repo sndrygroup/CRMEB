@@ -43,7 +43,7 @@
                       activeIndex = index;
                     }
                   "
-                  placeholder="请选择分类"
+                  placeholder="الرجاء اختيار 分类"
                   size="mini"
                   v-model="item.classPage.id"
                   :options="treeSelect"
@@ -63,7 +63,7 @@
     </div>
     <div v-if="configData.list">
       <div class="add-btn" @click="addHotTxt" v-if="configData.list.length < configData.max">
-        <el-button class="btn" type="primary" ghost> <span class="iconfont iconjiahao"></span>添加 </el-button>
+        <el-button class="btn" type="primary" ghost> <span class="iconfont iconjiahao"></span>إضافة </el-button>
       </div>
     </div>
     <!-- <linkaddress
@@ -196,7 +196,7 @@ export default {
         this.configData.list.push(obj);
       }
     },
-    // 删除数组
+    // حذف数组
     bindDelete(index) {
       if (this.configData.list.length == 1) {
         let itemObj = this.configData.list[0];

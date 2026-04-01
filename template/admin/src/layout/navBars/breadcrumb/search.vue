@@ -30,7 +30,7 @@ export default {
     };
   },
   methods: {
-    // 搜索弹窗打开
+    // بحث弹窗打开
     openSearch() {
       this.menuQuery = '';
       this.isShowSearch = true;
@@ -39,14 +39,14 @@ export default {
         this.$refs.layoutMenuAutocompleteRef.focus();
       });
     },
-    // 搜索弹窗关闭
+    // بحث弹窗关闭
     closeSearch() {
       setTimeout(() => {
         this.$emit('close');
         this.isShowSearch = false;
       }, 150);
     },
-    // 菜单搜索数据过滤
+    // 菜单بحث数据过滤
     menuSearch(queryString, cb) {
       if (!queryString) {
         let results = queryString ? this.tagsViewList.filter(this.createFilter(queryString)) : this.tagsViewList;
@@ -60,7 +60,7 @@ export default {
         });
       }
     },
-    // 菜单搜索过滤
+    // 菜单بحث过滤
     createFilter(queryString) {
       return (restaurant) => {
         return (

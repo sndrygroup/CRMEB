@@ -16,7 +16,7 @@
           </div>
         </div>
         <div class="text">
-          <div class="name acea-row row-middle">用户名称<img src="../../assets/images/vip-diy.png" /></div>
+          <div class="name acea-row row-middle">اسم المستخدم称<img src="../../assets/images/vip-diy.png" /></div>
           <div class="acea-row row-middle">
             <div
               class="progress"
@@ -78,7 +78,7 @@
             </div>
           </div>
           <div class="text">
-            <div class="name acea-row row-middle">用户名称<img src="../../assets/images/vip-diy.png" /></div>
+            <div class="name acea-row row-middle">اسم المستخدم称<img src="../../assets/images/vip-diy.png" /></div>
             <div class="acea-row row-middle">
               <div
                 class="progress"
@@ -131,7 +131,7 @@ export default {
   configName: 'c_userInfor',
   icon: '#iconzujian-yonghuxinxi',
   type: 0, // 0 基础组件 1 营销组件 2工具组件
-  defaultName: 'userInfor', // 外面匹配名称
+  defaultName: 'userInfor', // 外面匹配الاسم
   props: {
     index: {
       type: null,
@@ -172,7 +172,7 @@ export default {
   data() {
     return {
       configObj: null,
-      // 默认初始化数据禁止修改
+      // 默认初始化数据禁止تعديل
       defaultConfig: {
         cname: '用户信息',
         name: 'userInfor',

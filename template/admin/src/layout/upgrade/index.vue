@@ -66,7 +66,7 @@ export default {
         this.$router.push({ path: `${setting.routePre}/login` });
       }, 2000);
     },
-    // 延迟显示，防止刷新时界面显示太快
+    // 延迟显示，防止تحديث时界面显示太快
     delayShow() {
       setTimeout(() => {
         this.btnTxt = this.$t('message.upgrade.btnTwo');

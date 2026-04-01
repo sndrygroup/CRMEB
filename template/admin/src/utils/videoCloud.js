@@ -59,7 +59,7 @@ export default {
           TmpSecretId: config.credentials.tmpSecretId, // 临时密钥的 tmpSecretId
           TmpSecretKey: config.credentials.tmpSecretKey, // 临时密钥的 tmpSecretKey
           XCosSecurityToken: config.credentials.sessionToken, // 临时密钥的 sessionToken
-          ExpiredTime: config.expiredTime, // 临时密钥失效时间戳，是申请临时密钥时，时间戳加 durationSeconds
+          ExpiredTime: config.expiredTime, // 临时密钥失效الوقت戳，是申请临时密钥时，الوقت戳加 durationSeconds
         });
       },
     });
@@ -128,7 +128,7 @@ export default {
           videoIng(false, 0);
           resolve({ url: url, ETag: ETag });
         } else {
-          reject({ msg: '文件 ' + filename + ' 上传失败，状态码：' + xhr.statu });
+          reject({ msg: '文件 ' + filename + ' 上传失败，الحالة码：' + xhr.statu });
         }
       };
       xhr.onerror = function () {
@@ -150,14 +150,14 @@ export default {
     let filename = this.getVideoName(suffix);
     let formData = new FormData();
     let data = res.data;
-    // 注意formData里append添加的键的大小写
+    // 注意formData里appendإضافة的键的大小写
     formData.append('key', filename); // 存储在oss的文件路径
     formData.append('OSSAccessKeyId', data.accessid); // accessKeyId
     formData.append('policy', data.policy); // policy
     formData.append('Signature', data.signature); // 签名
     // 如果是base64文件，那么直接把base64字符串转成blob对象进行上传就可以了
     formData.append('file', fileObject);
-    formData.append('success_action_status', 200); // 成功后返回的操作码
+    formData.append('success_action_status', 200); // 成功后عودة的الخيارات码
     let url = data.host;
     let fileUrl = url + '/' + filename;
     videoIng(true, 100);
@@ -186,7 +186,7 @@ export default {
     const filename = this.getVideoName(suffix);
     const formData = new FormData();
     const data = res.data;
-    // 注意formData里append添加的键的大小写
+    // 注意formData里appendإضافة的键的大小写
     formData.append('key', filename);
     formData.append('AccessKeyId', data.accessid);
     formData.append('policy', data.policy);
@@ -275,7 +275,7 @@ export default {
           reject({ msg: errResult });
         },
         complete: (result) => {
-          // 接收成功后返回的信息
+          // 接收成功后عودة的信息
           console.log(result,'result');
           videoIng(false, 0);
           resolve({ url: res.data.cdn ? res.data.cdn + '/' + filename : fileUrl });
@@ -307,7 +307,7 @@ export default {
     videoIng(true, 100);
     return upload(formData);
   },
-  // 获取上传云存储视频名称
+  // 获取上传云存储视频الاسم
   getVideoName(suffix) {
     const now = new Date();
     const year = now.getFullYear();

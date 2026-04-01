@@ -1,6 +1,6 @@
 <template>
   <div>
-    <el-dialog title="编辑热区" :visible.sync="dialogVisible" @opened="openModal" fullscreen>
+    <el-dialog title="تحرير热区" :visible.sync="dialogVisible" @opened="openModal" fullscreen>
       <div class="operationFloor">
         <div class="imgBox" @mouseup.left.stop="changeStop()">
           <div ref="container" id="img-box-container" class="container">
@@ -210,9 +210,9 @@ export default {
       });
     },
     closeModal() {
-      this.$confirm('未保存内容，是否在离开前放弃保存？', '提示信息', {
+      this.$confirm('未حفظ内容，是否在离开前放弃حفظ？', 'تنبيه信息', {
         confirmButtonText: '确定',
-        cancelButtonText: '取消',
+        cancelButtonText: 'إلغاء',
         type: 'warning',
       })
         .then(() => {
@@ -221,7 +221,7 @@ export default {
         .catch(() => {
           this.$message({
             type: 'info',
-            message: '已取消',
+            message: '已إلغاء',
           });
         });
     },
@@ -268,12 +268,12 @@ export default {
       this.areaWidth = 0;
       this.areaHeight = 0;
     },
-    // 删除指定热区
+    // حذف指定热区
     delAreaBox(index) {
-      /* 删除某个热区 */
+      /* حذف某个热区 */
       this.areaData.splice(index, 1);
       this.$emit('delAreaData', this.areaData);
-      /* 删除后 每个热区按顺序重新编号 */
+      /* حذف后 每个热区按顺序重新编号 */
       if (this.areaData) {
         const arr = this.areaData.filter((i) => i.number > index);
         if (!arr) return;
@@ -285,7 +285,7 @@ export default {
         }
       }
     },
-    // 添加网址
+    // إضافة网址
     addURL(index, url) {
       let obj = {
         ...this.areaData[index],
@@ -293,15 +293,15 @@ export default {
       };
       this.$set(this.areaData, index, obj);
     },
-    // 保存热区信息
+    // حفظ热区信息
     saveAreaData() {
       if ((this.areaData && !this.areaData.length) || !this.checkData(this.areaData)) {
-        this.$message.error('热区是否配置链接、是否至少添加一个热区?');
+        this.$message.error('热区是否配置链接、是否至少إضافة一个热区?');
         return;
       }
       this.$emit('saveAreaData', this.areaData);
       this.dialogVisible = false;
-      this.$message.success('编辑成功!');
+      this.$message.success('تحرير成功!');
     },
     /**
      * 检查列表中每个元素是否都有 link 属性
@@ -318,13 +318,13 @@ export default {
       return isCheck;
     },
     /**
-     * @description 获取链接地址并打开添加链接的模态框
+     * @description 获取链接地址并打开إضافة链接的模态框
      * @param {number} index - 当前项的索引值
      */
     getLink(index) {
       // 设置当前项的索引值
       this.itemIndex = index;
-      // 打开添加链接的模态框
+      // 打开إضافة链接的模态框
       this.$refs.linkaddres.modals = true;
     },
     /**

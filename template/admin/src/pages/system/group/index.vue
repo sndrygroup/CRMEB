@@ -10,10 +10,10 @@
           @submit.native.prevent
           inline
         >
-          <el-form-item label="数据搜索：">
+          <el-form-item label="数据بحث：">
             <el-input
               clearable
-              placeholder="请输入ID,KEY,数据组名称,简介"
+              placeholder="الرجاء إدخال ID,KEY,数据组الاسم,简介"
               v-model="formValidate.title"
               class="form_content_width"
             />
@@ -25,7 +25,7 @@
       </div>
     </el-card>
     <el-card :bordered="false" shadow="never" class="ivu-mt">
-      <el-button type="primary" v-db-click @click="groupAdd('添加数据组')" class="mr20">添加数据组</el-button>
+      <el-button type="primary" v-db-click @click="groupAdd('إضافة数据组')" class="mr20">إضافة数据组</el-button>
       <el-table
         :data="tabList"
         ref="table"
@@ -45,7 +45,7 @@
             <span>{{ scope.row.config_name }}</span>
           </template>
         </el-table-column>
-        <el-table-column label="数据组名称" min-width="130">
+        <el-table-column label="数据组الاسم" min-width="130">
           <template slot-scope="scope">
             <span>{{ scope.row.name }}</span>
           </template>
@@ -55,13 +55,13 @@
             <span>{{ scope.row.info }}</span>
           </template>
         </el-table-column>
-        <el-table-column label="操作" fixed="right" width="170">
+        <el-table-column label="الخيارات" fixed="right" width="170">
           <template slot-scope="scope">
             <a v-db-click @click="goList(scope.row)">数据列表</a>
             <el-divider direction="vertical"></el-divider>
-            <a v-db-click @click="edit(scope.row, '编辑')">编辑</a>
+            <a v-db-click @click="edit(scope.row, 'تحرير')">تحرير</a>
             <el-divider direction="vertical"></el-divider>
-            <a v-db-click @click="del(scope.row, '删除数据组', scope.$index)">删除</a>
+            <a v-db-click @click="del(scope.row, 'حذف数据组', scope.$index)">حذف</a>
           </template>
         </el-table-column>
       </el-table>
@@ -75,7 +75,7 @@
         />
       </div>
     </el-card>
-    <!-- 新增 编辑-->
+    <!-- 新增 تحرير-->
     <group-from
       ref="groupfroms"
       :titleFrom="titleFrom"
@@ -151,19 +151,19 @@ export default {
           this.$message.error(res.msg);
         });
     },
-    // 表格搜索
+    // 表格بحث
     userSearchs() {
       this.formValidate.page = 1;
       this.getList();
     },
-    // 点击添加
+    // 点击إضافة
     groupAdd(title) {
       this.$refs.groupfroms.modals = true;
       this.titleFrom = title;
       this.addId = 'addId';
       this.groupId = 0;
     },
-    // 删除
+    // حذف
     del(row, tit, num) {
       let delfromData = {
         title: tit,
@@ -182,7 +182,7 @@ export default {
           this.$message.error(res.msg);
         });
     },
-    // 编辑
+    // تحرير
     edit(row, title) {
       this.titleFrom = title;
       this.groupId = row.id;

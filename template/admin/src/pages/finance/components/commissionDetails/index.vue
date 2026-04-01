@@ -8,15 +8,15 @@
       @submit.native.prevent
       inline
     >
-      <el-form-item label="订单搜索：" label-for="status1">
+      <el-form-item label="订单بحث：" label-for="status1">
         <el-input
           v-model="formValidate.keywords"
-          placeholder="请输入交易单号/交易人"
+          placeholder="الرجاء إدخال 交易单号/交易人"
           class="form_content_width"
         ></el-input>
       </el-form-item>
       <el-form-item>
-        <el-button type="primary" v-db-click @click="searchs">搜索</el-button>
+        <el-button type="primary" v-db-click @click="searchs">بحث</el-button>
       </el-form-item>
       <el-form-item>
         <el-button v-db-click @click="reset">重置</el-button>
@@ -40,7 +40,7 @@
           <span>{{ scope.row.order_id }}</span>
         </template>
       </el-table-column>
-      <el-table-column label="交易时间" min-width="130">
+      <el-table-column label="交易الوقت" min-width="130">
         <template slot-scope="scope">
           <span>{{ scope.row.add_time }}</span>
         </template>
@@ -168,7 +168,7 @@ export default {
       this.formValidate.page = 1;
       this.getList();
     },
-    // 时间
+    // الوقت
     onchangeTime(e) {
       this.formValidate.start_time = e[0];
       this.formValidate.end_time = e[1];

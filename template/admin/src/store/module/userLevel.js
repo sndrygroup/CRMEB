@@ -52,7 +52,7 @@ export default {
   },
   actions: {
     /**
-     * @description 初始化监听全屏状态
+     * @description 初始化监听全屏الحالة
      */
     listenFullscreen({ commit }) {
       return new Promise((resolve) => {

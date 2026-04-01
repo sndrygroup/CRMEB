@@ -17,7 +17,7 @@
 			</view>
 			<view class="trip-msg">
 				<view class="trip">
-					{{$t(`当您点击同意并开始时用产品服务时，即表示您已理解并同息该条款内容，该条款将对您产生法律约束力。如您拒绝，将无法继续下一步操作。`)}}
+					{{$t(`当您点击同意并开始时用产品服务时，即表示您已理解并同息该条款内容，该条款将对您产生法律约束力。如您拒绝，将无法继续下一步الخيارات。`)}}
 				</view>
 			</view>
 			<view class="main-color" @click.stop="privacy(3)">{{$t(`点击阅读`)}}{{agreementName}}</view>
@@ -25,7 +25,7 @@
 				<button class="save open" type="default" id="agree-btn" open-type="agreePrivacyAuthorization"
 					@agreeprivacyauthorization="handleAgree">{{$t(`同意并继续`)}}</button>
 				<button class="reject" @click="rejectAgreement">
-					{{$t(`取消`)}}
+					{{$t(`إلغاء`)}}
 				</button>
 			</view>
 		</view>

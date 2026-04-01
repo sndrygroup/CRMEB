@@ -261,7 +261,7 @@
               </view>
             </view>
 
-            <!-- 名称区域 -->
+            <!-- الاسم区域 -->
             <view v-if="item.name === 'name' && item.show" class="name-section">
               <view
                 class="title"

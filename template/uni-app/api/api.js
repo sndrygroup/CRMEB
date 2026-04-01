@@ -53,7 +53,7 @@ export function getServerType() {
 }
 
 /**
- * 获取登录授权login
+ * 获取تسجيل الدخول授权login
  *
  */
 export function getLogo() {
@@ -67,7 +67,7 @@ export function getLogo() {
 }
 
 /**
- * 保存form_id
+ * حفظform_id
  * @param string formId
  */
 export function setFormId(formId) {
@@ -175,7 +175,7 @@ export function getArticleBannerList() {
 }
 
 /**
- * 文章详情
+ * 文章تفاصيل
  * @param int id
  *
  */
@@ -190,7 +190,7 @@ export function getArticleDetails(id) {
 }
 
 /**
- * 手机号+验证码登录接口
+ * 手机号+验证码تسجيل الدخول接口
  * @param object data
  */
 export function loginMobile(data) {
@@ -251,7 +251,7 @@ export function phoneRegister(data) {
 }
 
 /**
- * 手机号修改密码
+ * 手机号تعديلكلمة المرور
  * @param object data
  *
  */
@@ -262,7 +262,7 @@ export function phoneRegisterReset(data) {
 }
 
 /**
- * 手机号+密码登录
+ * 手机号+كلمة المرورتسجيل الدخول
  * @param object data
  *
  */
@@ -273,7 +273,7 @@ export function phoneLogin(data) {
 }
 
 /**
- * 切换H5登录
+ * 切换H5تسجيل الدخول
  * @param object data
  */
 // #ifdef MP
@@ -285,7 +285,7 @@ export function switchH5Login() {
 // #endif
 
 /*
- * h5切换公众号登录
+ * h5切换公众号تسجيل الدخول
  * */
 // #ifdef H5
 export function switchH5Login() {
@@ -465,7 +465,7 @@ export function category(data) {
 }
 
 /**
- * 个人搜索历史
+ * 个人بحث历史
  * @param {Object} data
  */
 export function searchList(data) {
@@ -475,7 +475,7 @@ export function searchList(data) {
 }
 
 /**
- * 删除搜索历史
+ * حذفبحث历史
  */
 export function clearSearch() {
   return request.get("v2/user/clean_search");
@@ -490,7 +490,7 @@ export function siteConfig(data) {
 }
 
 /**
- * App微信登录
+ * App微信تسجيل الدخول
  * @returns {*}
  */
 export function wechatAppAuth(data) {

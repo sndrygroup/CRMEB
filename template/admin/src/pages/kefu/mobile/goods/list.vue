@@ -16,7 +16,7 @@
       <div class="search-box">
         <el-input
           type="text"
-          placeholder="搜索商品名称/ID"
+          placeholder="بحث商品الاسم/ID"
           v-model="searchTxt"
           style="border-radius: 0.39rem; background: #f5f6f9"
           :search="true"
@@ -150,7 +150,7 @@ export default {
     bindTab(item) {
       this.tabCur = item.key;
     },
-    // 搜索
+    // بحث
     bindSearch() {
       if (this.tabCur == 0) return this.getBuyList();
       if (this.tabCur == 1) return this.getVisit();

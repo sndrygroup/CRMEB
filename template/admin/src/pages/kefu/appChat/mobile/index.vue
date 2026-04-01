@@ -2,7 +2,7 @@
   <div class="chat-box">
     <div class="head-box">
       <div class="back" v-db-click @click="goBack"><span class="iconfont iconfanhui"></span></div>
-      <div class="title">{{ nickname ? nickname + '-' : '' }}对话详情</div>
+      <div class="title">{{ nickname ? nickname + '-' : '' }}对话تفاصيل</div>
     </div>
     <!-- 商品信息 -->
     <div class="broadcast-details_box" v-if="productId && productInfo.id">
@@ -106,7 +106,7 @@
         </el-upload>
       </div>
       <div class="input-box">
-        <el-input v-model="con" placeholder="请输入内容" />
+        <el-input v-model="con" placeholder="الرجاء إدخال 内容" />
         <span class="iconfont iconfasong" v-db-click @click="sendText" :class="{ isSend: isSend }"></span>
       </div>
       <div class="emoji" v-db-click @click="openBox(1)"><span class="iconfont iconbiaoqing2"></span></div>
@@ -292,10 +292,10 @@ export default {
       ws.$on('online', (data) => {
         if (data.online == 0 && data.uid == that.toUid) {
           that.$Modal.confirm({
-            title: '提示',
+            title: 'تنبيه',
             content: '客服已离线，是否需要反馈？',
             okText: '确定',
-            cancelText: '取消',
+            cancelText: 'إلغاء',
             onOk: () => {
               that.$router.replace({
                 path: '/kefu/mobile_feedback',
@@ -416,7 +416,7 @@ export default {
         }
       }, 300);
     },
-    // 订单详情
+    // 订单تفاصيل
     goOrderDetail(item) {
       this.$router.push({
         path: `/kefu/orderDetail/${item.orderInfo.id}`,
@@ -520,7 +520,7 @@ export default {
     // 发送消息
     sendText() {
       if (!this.isSend) {
-        this.$message.error('请输入内容');
+        this.$message.error('الرجاء إدخال 内容');
       }
       this.sendMsg(this.con, 1);
       this.con = '';
@@ -552,7 +552,7 @@ export default {
         }
       });
     },
-    //  商品详情页
+    //  商品تفاصيل页
     goProduct(item) {
       let url = window.location.protocol + '//' + window.location.host + '/pages/goods_details/index?id=' + item.msn;
       window.open(url, '_blank');

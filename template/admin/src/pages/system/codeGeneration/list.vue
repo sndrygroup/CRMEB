@@ -1,7 +1,7 @@
 <template>
   <div>
     <el-card :bordered="false" shadow="never" class="ivu-mt" v-loading="spinShow">
-      <el-button type="primary" v-db-click @click="groupAdd()" class="mr20">添加功能</el-button>
+      <el-button type="primary" v-db-click @click="groupAdd()" class="mr20">إضافة功能</el-button>
       <!-- <el-button type="success" v-db-click @click="buildCode()" class="mr20">重新发布</el-button> -->
       <el-table
         :data="tabList"
@@ -32,20 +32,20 @@
             <span>{{ scope.row.table_comment }}</span>
           </template>
         </el-table-column>
-        <el-table-column label="添加时间" min-width="130">
+        <el-table-column label="إضافةالوقت" min-width="130">
           <template slot-scope="scope">
             <span>{{ scope.row.add_time }}</span>
           </template>
         </el-table-column>
-        <el-table-column label="操作" fixed="right" width="200">
+        <el-table-column label="الخيارات" fixed="right" width="200">
           <template slot-scope="scope">
-            <a v-db-click @click="edit(scope.row, '编辑')">查看代码</a>
+            <a v-db-click @click="edit(scope.row, 'تحرير')">查看代码</a>
             <el-divider direction="vertical"></el-divider>
-            <a v-db-click @click="editItem(scope.row)">编辑</a>
+            <a v-db-click @click="editItem(scope.row)">تحرير</a>
             <el-divider direction="vertical"></el-divider>
             <a v-db-click @click="downLoad(scope.row)">下载</a>
             <el-divider direction="vertical"></el-divider>
-            <a v-db-click @click="del(scope.row, '删除', scope.$index)">删除</a>
+            <a v-db-click @click="del(scope.row, 'حذف', scope.$index)">حذف</a>
           </template>
         </el-table-column>
       </el-table>
@@ -72,7 +72,7 @@
         <span>{{ title }}</span>
       </p>
       <div class="file" style="height: 100%">
-        <el-button class="save" type="primary" v-db-click @click="pwdModal = true">保存</el-button>
+        <el-button class="save" type="primary" v-db-click @click="pwdModal = true">حفظ</el-button>
 
         <div class="file-box">
           <div class="file-fix"></div>
@@ -113,9 +113,9 @@
                   style="height: 100%; min-height: calc(100vh - 110px)"
                 ></div>
               </el-tab-pane>
-              <!-- <el-tab-pane label="用户管理" name="first">用户管理</el-tab-pane>
-              <el-tab-pane label="配置管理" name="second">配置管理</el-tab-pane>
-              <el-tab-pane label="角色管理" name="third">角色管理</el-tab-pane>
+              <!-- <el-tab-pane label="用户إدارة" name="first">用户إدارة</el-tab-pane>
+              <el-tab-pane label="配置إدارة" name="second">配置إدارة</el-tab-pane>
+              <el-tab-pane label="角色إدارة" name="third">角色إدارة</el-tab-pane>
               <el-tab-pane label="定时任务补偿" name="fourth">定时任务补偿</el-tab-pane> -->
             </el-tabs>
           </div>
@@ -138,11 +138,11 @@
     <el-dialog
       :visible.sync="pwdModal"
       width="470px"
-      title="文件管理密码"
+      title="文件إدارةكلمة المرور"
       :show-close="true"
       :close-on-click-modal="false"
     >
-      <el-input v-model="pwd" type="password" placeholder="请输入文件管理密码"></el-input>
+      <el-input v-model="pwd" type="password" placeholder="الرجاء إدخال 文件إدارةكلمة المرور"></el-input>
       <span slot="footer" class="dialog-footer">
         <el-button v-db-click @click="pwdModal = false">取 消</el-button>
         <el-button type="primary" v-db-click @click="crudSaveFile">确 定</el-button>
@@ -212,12 +212,12 @@ export default {
           minWidth: 130,
         },
         {
-          title: '添加时间',
+          title: 'إضافةالوقت',
           key: 'add_time',
           minWidth: 130,
         },
         {
-          title: '操作',
+          title: 'الخيارات',
           slot: 'action',
           fixed: 'right',
           minWidth: 150,
@@ -227,16 +227,16 @@ export default {
       titleFrom: '',
       groupId: 0,
       addId: '',
-      editorList: [], //编辑器数组
-      indexEditor: 0, //当前编辑器索引
+      editorList: [], //تحرير器数组
+      indexEditor: 0, //当前تحرير器索引
       code: '', //当前文件打开时的内容
       contextData: null, //左侧导航右键点击是产生的数据对象
 
-      fileType: '', // 文件操作类型 createFolder|创建文件夹 createFile|创建文件 delFolder|删除文件夹或者文件
+      fileType: '', // 文件الخيارات类型 createFolder|创建文件夹 createFile|创建文件 delFolder|حذف文件夹或者文件
       className: '', //全屏 class名
       spinShow: false,
-      modals: false, //编辑器开关
-      editor: '', //当前编辑器对象
+      modals: false, //تحرير器开关
+      editor: '', //当前تحرير器对象
       editorIndex: [],
       title: '',
       editId: 0,
@@ -317,18 +317,18 @@ export default {
           this.$message.error(res.msg);
         });
     },
-    // 表格搜索
+    // 表格بحث
     userSearchs() {
       this.formValidate.page = 1;
       this.getList();
     },
-    // 点击添加
+    // 点击إضافة
     groupAdd() {
       this.$router.push({
         name: 'system_code_generation',
       });
     },
-    // 删除
+    // حذف
     del(row, tit, num) {
       let delfromData = {
         title: tit,
@@ -347,7 +347,7 @@ export default {
           this.$message.error(res.msg);
         });
     },
-    // 编辑
+    // تحرير
     edit(row) {
       this.spinShow = true;
       // 创建代码容器
@@ -386,7 +386,7 @@ export default {
               that.code = data.content;
               this.initEditor(index, data.content);
               this.$nextTick((e) => {
-                // 保存相对信息
+                // حفظ相对信息
                 that.editorList[index].path = data.path;
                 that.editorList[index].oldCode = that.content;
                 that.editorIndex[index].title = data.name;
@@ -414,15 +414,15 @@ export default {
       }
     },
     /**
-     * 初始化编辑器
+     * 初始化تحرير器
      */
     initEditor(index, conetnt) {
       try {
         let that = this;
         that.$nextTick(() => {
-          // 初始化编辑器，确保dom已经渲染
+          // 初始化تحرير器，确保dom已经渲染
           that.editor = monaco.editor.create(document.getElementById('container_' + index), {
-            value: conetnt, //编辑器初始显示文字
+            value: conetnt, //تحرير器初始显示文字
             language: 'sql', //语言支持自行查阅demo
             automaticLayout: true, //自动布局
             theme: 'vs', //官方自带三种主题vs, hc-black, or vs-dark
@@ -471,17 +471,17 @@ export default {
       // 关闭文件列表展示
       if (this.loading) this.loading = false;
     },
-    //编辑器状态变化
+    //تحرير器الحالة变化
     editModalChange() {
       let that = this;
       that.editorList.forEach(function (value, index) {
-        // 销毁当前编辑器
+        // 销毁当前تحرير器
         that.editorList[index].editor.dispose();
         that.editorList[index].editor = null;
       });
       // 初始话数据
-      that.modals = false; //编辑器开关
-      that.editor = ''; //当前编辑器对象
+      that.modals = false; //تحرير器开关
+      that.editor = ''; //当前تحرير器对象
       that.editorIndex = [
         //选项卡数组
         {
@@ -491,8 +491,8 @@ export default {
           icon: '',
         },
       ];
-      that.editorList = []; //编辑器数组
-      that.indexEditor = '0'; //当前编辑器索引
+      that.editorList = []; //تحرير器数组
+      that.indexEditor = '0'; //当前تحرير器索引
       that.code = ''; //当前文件打开时的内容
       that.contextData = null; //左侧导航右键点击是产生的数据对象
     },
@@ -503,7 +503,7 @@ export default {
     toggleEditor(index) {
       index = Number(index);
       this.code = this.editorList[index].oldCode; //设置文件打开时的代码
-      this.editor = this.editorList[index].editor; //设置编辑器实例
+      this.editor = this.editorList[index].editor; //设置تحرير器实例
     },
     handleTabRemove(index) {
       let that = this;

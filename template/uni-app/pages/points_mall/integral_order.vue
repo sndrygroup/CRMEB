@@ -61,7 +61,7 @@
 							name="mark">
 						</textarea>
 						<view class="placeholder" @click="clickTextArea" v-show="!mark">
-							{{$t(`请添加备注（150字以内）`)}}
+							{{$t(`请إضافة备注（150字以内）`)}}
 						</view>
 					</view>
 				</view>
@@ -191,7 +191,7 @@
 				formIds: [], //收集formid
 				status: 0,
 				is_address: false,
-				toPay: false, //修复进入支付时页面隐藏从新刷新页面
+				toPay: false, //修复进入支付时页面隐藏从新تحديث页面
 				shippingType: 0,
 				system_store: {},
 				storePostage: 0,
@@ -236,7 +236,7 @@
 			this.from = 'routine'
 			// #endif
 			if (!options.unique) return this.$util.Tips({
-				title: this.$t(`请选择要购买的商品`)
+				title: this.$t(`الرجاء اختيار 要购买的商品`)
 			}, {
 				tab: 3,
 				url: 1
@@ -251,7 +251,7 @@
 			this.news = !options.new || options.new === '0' ? 0 : 1;
 			this.invChecked = options.invoice_id || '';
 			this.header_type = options.header_type || '1';
-			this.couponTitle = options.couponTitle || this.$t(`请选择`)
+			this.couponTitle = options.couponTitle || this.$t(`الرجاء اختيار `)
 			// #ifndef APP-PLUS
 			this.textareaStatus = true;
 			// #endif
@@ -321,7 +321,7 @@
 				let that = this
 				if (!that.addressId) {
 					return that.$util.Tips({
-						title: that.$t(`请选择收货地址`)
+						title: that.$t(`الرجاء اختيار 收货地址`)
 					});
 				}
 				if (parseFloat(that.resData.integral) < parseFloat(that.cartInfo.price))

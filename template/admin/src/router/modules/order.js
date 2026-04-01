@@ -28,7 +28,7 @@ export default {
       name: `${pre}list`,
       meta: {
         auth: ['admin-order-storeOrder-index'],
-        title: '订单管理',
+        title: '订单إدارة',
       },
       component: () => import('@/pages/order/orderList/index'),
     },
@@ -55,7 +55,7 @@ export default {
       name: `${pre}invoice`,
       meta: {
         auth: ['admin-order-startOrderInvoice-index'],
-        title: '发票管理',
+        title: '发票إدارة',
       },
       component: () => import('@/pages/order/invoice/index'),
     },

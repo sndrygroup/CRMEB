@@ -13,13 +13,13 @@
     <div class="item-content" v-if="configData.enable">
       <el-input
         v-model="configData.text"
-        placeholder="请输入文字"
+        placeholder="الرجاء إدخال 文字"
         maxlength="20"
         show-word-limit
         @change="handleChange"
       ></el-input>
       <div class="link-box" v-if="configData.link !== undefined">
-        <el-input v-model="configData.link" placeholder="请选择链接">
+        <el-input v-model="configData.link" placeholder="الرجاء اختيار 链接">
           <i slot="suffix" class="el-icon-link" @click="getLink"></i>
         </el-input>
       </div>

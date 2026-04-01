@@ -137,7 +137,7 @@
                 type="textarea"
                 :rows="7"
                 @keydown.enter.native="listen($event)"
-                placeholder="请输入文字内容"
+                placeholder="الرجاء إدخال 文字内容"
                 style="font-size: 14px; height: 150px"
               />
               <div class="send-btn">
@@ -166,7 +166,7 @@
         <div class="bg" v-db-click @click.stop="isProductBox = false"></div>
         <goodsDetail :goodsId="goodsId"></goodsDetail>
       </div>
-      <!-- 订单详情 -->
+      <!-- 订单تفاصيل -->
       <div v-if="isOrder">
         <el-dialog :visible.sync="isOrder" title="订单信息" width="720px" class="none-radius">
           <orderDetail :orderId="orderId"></orderDetail>
@@ -236,7 +236,7 @@ export default {
       text: '',
       limit: 20,
       upperId: 0,
-      online: true, //当前客服在线状态
+      online: true, //当前客服在线الحالة
       scrollTop: 0,
       isScroll: true,
       oldHeight: 0,
@@ -252,7 +252,7 @@ export default {
       },
       userOnline: {},
       newRecored: {}, //新对话信息
-      searchData: '', // 搜索文字
+      searchData: '', // بحث文字
       scrollNum: 0, //滚动次数
       transferId: '', //转接id
       bodyClose: false,
@@ -444,9 +444,9 @@ export default {
       // 上传照片
       let file = e;
       let param = new FormData(); // 创建form对象
-      param.append('filename', 'file'); // 通过append向form对象添加数据进去
-      param.append('file', file); // 通过append向form对象添加数据进去
-      // 添加请求头
+      param.append('filename', 'file'); // 通过append向form对象إضافة数据进去
+      param.append('file', file); // 通过append向form对象إضافة数据进去
+      // إضافة请求头
       uploadImg(param).then((res) => {
         this.sendMsg(res.data.url, 3);
       });
@@ -460,7 +460,7 @@ export default {
         this.$message.error(res.msg);
       }
     },
-    //订单详情
+    //订单تفاصيل
     lookOrder(item) {
       this.orderId = item.orderInfo.id;
       this.isOrder = true;
@@ -476,11 +476,11 @@ export default {
       });
       this.online = data;
     },
-    // 阻止浏览器默认换行操作
+    // 阻止浏览器默认换行الخيارات
     listen(event) {
       if (!event.shiftKey && event.keyCode == 13) {
         if (event.target.value == '') {
-          return this.$message.error('请输入消息');
+          return this.$message.error('الرجاء إدخال 消息');
         }
         this.sendMsg(event.target.value, 1);
         this.chatCon = '';
@@ -635,12 +635,12 @@ export default {
     bindPush(data) {
       this.sendMsg(data, 5);
     },
-    // 商品详情
+    // 商品تفاصيل
     lookGoods(item) {
       this.goodsId = item.msn;
       this.isProductBox = true;
     },
-    // 搜索用户
+    // بحث用户
     bindSearch(data) {
       this.searchData = data;
       this.oldHeight = 0;

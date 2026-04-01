@@ -18,12 +18,12 @@
 					<view class="item">
 						<view class="acea-row row-middle">
 							<image src="../static/code_1.png" style="width: 28rpx; height: 32rpx"></image>
-							<input type="password" :placeholder="$t(`填写登录密码`)" v-model="password" required />
+							<input type="password" :placeholder="$t(`填写تسجيل الدخولكلمة المرور`)" v-model="password" required />
 						</view>
 					</view>
 				</form>
 				<!-- <navigator class="forgetPwd" hover-class="none" url="/pages/users/retrievePassword/index">
-					<span class="iconfont icon-wenti"></span>忘记密码
+					<span class="iconfont icon-wenti"></span>忘记كلمة المرور
 				</navigator> -->
 			</view>
 			<view class="list" v-if="current !== 0 || appLoginStatus || appleLoginStatus">
@@ -50,19 +50,19 @@
 					</view>
 				</view> -->
 			</view>
-			<view class="logon" @click="loginMobile" v-if="current !== 0">{{ $t(`登录`) }}</view>
-			<view class="logon" @click="submit" v-if="current === 0">{{ $t(`登录`) }}</view>
+			<view class="logon" @click="loginMobile" v-if="current !== 0">{{ $t(`تسجيل الدخول`) }}</view>
+			<view class="logon" @click="submit" v-if="current === 0">{{ $t(`تسجيل الدخول`) }}</view>
 			<!-- #ifndef APP-PLUS -->
 			<view class="tips">
-				<view v-if="current == 0" @click="current = 1">{{ $t(`快速登录`) }}</view>
-				<view v-if="current == 1" @click="current = 0">{{ $t(`账号登录`) }}</view>
+				<view v-if="current == 0" @click="current = 1">{{ $t(`快速تسجيل الدخول`) }}</view>
+				<view v-if="current == 1" @click="current = 0">{{ $t(`账号تسجيل الدخول`) }}</view>
 			</view>
 			<!-- #endif -->
 			<!-- #ifdef APP-PLUS -->
 			<view class="appLogin" v-if="!appLoginStatus && !appleLoginStatus">
 				<view class="hds">
 					<span class="line"></span>
-					<p>{{ $t(`其他方式登录`) }}</p>
+					<p>{{ $t(`其他方式تسجيل الدخول`) }}</p>
 					<span class="line"></span>
 				</view>
 				<view class="btn-wrapper">
@@ -127,7 +127,7 @@ export default {
 			copyRight: '',
 			inAnimation: false,
 			protocol: false,
-			navList: [this.$t(`快速登录`), this.$t(`账号登录`)],
+			navList: [this.$t(`快速تسجيل الدخول`), this.$t(`账号تسجيل الدخول`)],
 			current: 1,
 			account: '',
 			password: '',
@@ -139,11 +139,11 @@ export default {
 			codeUrl: '',
 			codeVal: '',
 			isShowCode: false,
-			appLoginStatus: false, // 微信登录强制绑定手机号码状态
-			appUserInfo: null, // 微信登录保存的用户信息
-			appleLoginStatus: false, // 苹果登录强制绑定手机号码状态
+			appLoginStatus: false, // 微信تسجيل الدخول强制绑定手机号码الحالة
+			appUserInfo: null, // 微信تسجيل الدخولحفظ的用户信息
+			appleLoginStatus: false, // 苹果تسجيل الدخول强制绑定手机号码الحالة
 			appleUserInfo: null,
-			appleShow: false, // 苹果登录版本必须要求ios13以上的
+			appleShow: false, // 苹果تسجيل الدخول版本必须要求ios13以上的
 			keyLock: true,
 			captchaType: 'clickWord',
 			configData: Cache.get('BASIC_CONFIG')
@@ -191,7 +191,7 @@ export default {
 			if (str.indexOf('.')) return str.split('.')[0] >= 13;
 			return str >= 13;
 		},
-		// 苹果登录
+		// 苹果تسجيل الدخول
 		appleLogin() {
 			let self = this;
 			this.account = '';
@@ -203,7 +203,7 @@ export default {
 				});
 			}
 			uni.showLoading({
-				title: this.$t(`登录中`)
+				title: this.$t(`تسجيل الدخول中`)
 			});
 			uni.login({
 				provider: 'apple',
@@ -232,7 +232,7 @@ export default {
 				}
 			});
 		},
-		// 苹果登录Api
+		// 苹果تسجيل الدخولApi
 		appleLoginApi() {
 			let self = this;
 			appleLogin({
@@ -244,8 +244,8 @@ export default {
 				.then(({ data }) => {
 					if (data.isbind) {
 						uni.showModal({
-							title: self.$t(`提示`),
-							content: self.$t(`请绑定手机号后，继续操作`),
+							title: self.$t(`تنبيه`),
+							content: self.$t(`请绑定手机号后，继续الخيارات`),
 							showCancel: false,
 							success: function (res) {
 								if (res.confirm) {
@@ -269,19 +269,19 @@ export default {
 				})
 				.catch((error) => {
 					uni.showModal({
-						title: self.$t(`提示`),
+						title: self.$t(`تنبيه`),
 						content: self.$t(`错误信息`) + `${error}`,
 						success: function (res) {
 							if (res.confirm) {
 								console.log(self.$t(`用户点击确定`));
 							} else if (res.cancel) {
-								console.log(self.$t(`用户点击取消`));
+								console.log(self.$t(`用户点击إلغاء`));
 							}
 						}
 					});
 				});
 		},
-		// App微信登录
+		// App微信تسجيل الدخول
 		wxLogin() {
 			let self = this;
 			this.account = '';
@@ -293,7 +293,7 @@ export default {
 				});
 			}
 			uni.showLoading({
-				title: self.$t(`登录中`)
+				title: self.$t(`تسجيل الدخول中`)
 			});
 			uni.login({
 				provider: 'weixin',
@@ -319,7 +319,7 @@ export default {
 				},
 				fail() {
 					uni.showToast({
-						title: self.$t(`登录失败`),
+						title: self.$t(`تسجيل الدخول失败`),
 						icon: 'none',
 						duration: 2000
 					});
@@ -337,8 +337,8 @@ export default {
 				.then(({ data }) => {
 					if (data.isbind) {
 						uni.showModal({
-							title: self.$t(`提示`),
-							content: self.$t(`请绑定手机号后，继续操作`),
+							title: self.$t(`تنبيه`),
+							content: self.$t(`请绑定手机号后，继续الخيارات`),
 							showCancel: false,
 							success: function (res) {
 								if (res.confirm) {
@@ -362,13 +362,13 @@ export default {
 				})
 				.catch((error) => {
 					uni.showModal({
-						title: self.$t(`提示`),
+						title: self.$t(`تنبيه`),
 						content: self.$t(`错误信息`) + `${error}`,
 						success: function (res) {
 							if (res.confirm) {
 								console.log(self.$t(`用户点击确定`));
 							} else if (res.cancel) {
-								console.log(self.$t(`用户点击取消`));
+								console.log(self.$t(`用户点击إلغاء`));
 							}
 						}
 					});
@@ -404,7 +404,7 @@ export default {
 				});
 			if (!/^1(3|4|5|7|8|9|6)\d{9}$/i.test(that.account))
 				return that.$util.Tips({
-					title: that.$t(`请输入正确的手机号码`)
+					title: that.$t(`الرجاء إدخال 正确的手机号码`)
 				});
 			this.$refs.verify.show();
 		},
@@ -428,7 +428,7 @@ export default {
 				});
 			if (!/^1(3|4|5|7|8|9|6)\d{9}$/i.test(that.account))
 				return that.$util.Tips({
-					title: that.$t(`请输入正确的手机号码`)
+					title: that.$t(`الرجاء إدخال 正确的手机号码`)
 				});
 			if (!that.captcha)
 				return that.$util.Tips({
@@ -436,7 +436,7 @@ export default {
 				});
 			if (!/^[\w\d]+$/i.test(that.captcha))
 				return that.$util.Tips({
-					title: that.$t(`请输入正确的验证码`)
+					title: that.$t(`الرجاء إدخال 正确的验证码`)
 				});
 			if (that.appLoginStatus) {
 				that.wxLoginApi();
@@ -497,7 +497,7 @@ export default {
 				});
 			if (!/^1(3|4|5|7|8|9|6)\d{9}$/i.test(that.account))
 				return that.$util.Tips({
-					title: that.$t(`请输入正确的手机号码`)
+					title: that.$t(`الرجاء إدخال 正确的手机号码`)
 				});
 			if (!that.captcha)
 				return that.$util.Tips({
@@ -505,15 +505,15 @@ export default {
 				});
 			if (!/^[\w\d]+$/i.test(that.captcha))
 				return that.$util.Tips({
-					title: that.$t(`请输入正确的验证码`)
+					title: that.$t(`الرجاء إدخال 正确的验证码`)
 				});
 			if (!that.password)
 				return that.$util.Tips({
-					title: that.$t(`请填写密码`)
+					title: that.$t(`请填写كلمة المرور`)
 				});
 			if (/^([0-9]|[a-z]|[A-Z]){0,6}$/i.test(that.password))
 				return that.$util.Tips({
-					title: that.$t(`您输入的密码过于简单`)
+					title: that.$t(`您输入的كلمة المرور过于简单`)
 				});
 			register({
 				account: that.account,
@@ -547,7 +547,7 @@ export default {
 				});
 			if (!/^1(3|4|5|7|8|9|6)\d{9}$/i.test(that.account))
 				return that.$util.Tips({
-					title: that.$t(`请输入正确的手机号码`)
+					title: that.$t(`الرجاء إدخال 正确的手机号码`)
 				});
 			if (that.formItem == 2) that.type = 'register';
 
@@ -587,11 +587,11 @@ export default {
 				});
 			if (!/^[\w\d]{5,16}$/i.test(that.account))
 				return that.$util.Tips({
-					title: that.$t(`请输入正确的账号`)
+					title: that.$t(`الرجاء إدخال 正确的账号`)
 				});
 			if (!that.password)
 				return that.$util.Tips({
-					title: that.$t(`请填写密码`)
+					title: that.$t(`请填写كلمة المرور`)
 				});
 			if (this.keyLock) {
 				this.keyLock = !this.keyLock;

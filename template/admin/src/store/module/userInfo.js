@@ -21,7 +21,7 @@ export default {
     version: '',
     newOrderAudioLink: '',
     pageName: '',
-    //当删除数据并提交时存储默认数据(可视化)
+    //当حذف数据并إرسال时存储默认数据(可视化)
     uploadListDataswiperBg: {},
     uploadListDatamenus: {},
     uploadListDataactivity: {},
@@ -30,7 +30,7 @@ export default {
     txtListData: {},
   },
   mutations: {
-    //当删除数据并提交时存储默认数据(可视化)
+    //当حذف数据并إرسال时存储默认数据(可视化)
     uploadListswiperBg(state, data) {
       state.uploadListDataswiperBg = data;
     },

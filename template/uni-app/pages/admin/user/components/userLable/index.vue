@@ -5,7 +5,7 @@
 			<view class="accountTitle">
 				<view :style="{height:getHeight.barTop+'px'}"></view>
 				<view class="sysTitle acea-row row-center-wrapper" :style="{height:getHeight.barHeight+'px'}">
-					<view>添加标签</view>
+					<view>إضافة标签</view>
 				</view>
 			</view>
 			<view :style="{height:(getHeight.barTop+getHeight.barHeight)+'px'}"></view>
@@ -13,7 +13,7 @@
 			:style="'height: calc(100% - '+(getHeight.barTop+getHeight.barHeight*2+150)+'rpx - constant(safe-area-inset-bottom));height: calc(100% - '+(getHeight.barTop+getHeight.barHeight*2+150)+'rpx - env(safe-area-inset-bottom))'">
 			<!-- #endif -->
 			<!-- #ifndef MP -->
-			<view class="header">添加标签</view>
+			<view class="header">إضافة标签</view>
 			<view class="list" v-if="isStore">
 			<!-- #endif -->
 			  <scroll-view scroll-y="true" style="height: 100%">

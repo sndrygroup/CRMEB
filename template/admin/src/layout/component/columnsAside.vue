@@ -125,7 +125,7 @@ export default {
       }
       this.bus.$emit('oneCatName', resData.item[0].title);
       this.onColumnsAsideDown(resData.item[0].k);
-      // 刷新时，初始化一个路由设置自动收起菜单
+      // تحديث时，初始化一个路由设置自动收起菜单
       resData.children.length > 0
         ? (this.$store.state.themeConfig.themeConfig.isCollapse = false)
         : (this.$store.state.themeConfig.themeConfig.isCollapse = true);

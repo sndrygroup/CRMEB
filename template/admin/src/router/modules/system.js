@@ -51,7 +51,7 @@ export default {
       name: `${pre}code_data_dictionary_datalist`,
       meta: {
         auth: ['system-code-data_dictionary-dataList'],
-        title: '数据管理页面',
+        title: '数据إدارة页面',
         activeMenu: routePre + '/system/code_data_dictionary',
       },
       component: () => import('@/pages/system/codeDataDictionary/dataList'),
@@ -70,7 +70,7 @@ export default {
       name: `${pre}backend_routing`,
       meta: {
         auth: ['system-config-backend-routing'],
-        title: '接口管理',
+        title: '接口إدارة',
       },
       component: () => import('@/pages/system/backendRouting/index'),
     },
@@ -79,7 +79,7 @@ export default {
       name: `${pre}file`,
       meta: {
         auth: ['system-file'],
-        title: '附件管理',
+        title: '附件إدارة',
       },
       component: () => import('@/pages/system/file/index'),
     },
@@ -88,7 +88,7 @@ export default {
       name: `${pre}clear`,
       meta: {
         auth: ['system-clear'],
-        title: '刷新缓存',
+        title: 'تحديث缓存',
       },
       component: () => import('@/pages/system/clear/index'),
     },
@@ -133,7 +133,7 @@ export default {
       name: `${pre}opendir`,
       meta: {
         auth: ['system-maintain-system-file'],
-        title: '文件管理',
+        title: '文件إدارة',
       },
       component: () => import('@/pages/system/maintain/systemFile/opendir'),
     },
@@ -142,7 +142,7 @@ export default {
       name: `${pre}opendir_login`,
       meta: {
         auth: ['system-maintain-system-file'],
-        title: '文件管理入口',
+        title: '文件إدارة入口',
         activeMenu: routePre + '/system/maintain/system_file/opendir',
       },
       component: () => import('@/pages/system/maintain/systemFile/login'),

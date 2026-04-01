@@ -7,7 +7,7 @@
         class="sysTitle acea-row row-center-wrapper"
         :style="{ height: getHeight.barHeight + 'px' }"
       >
-        <view>商品管理</view>
+        <view>商品إدارة</view>
         <text class="iconfont icon-ic_leftarrow" @click="goarrow"></text>
       </view>
     </view>
@@ -20,7 +20,7 @@
         <text class="iconfont icon-ic_search"></text>
         <input
           class="inputs"
-          placeholder="请输入商品名称/ID"
+          placeholder="الرجاء إدخال 商品الاسم/ID"
           placeholder-class="placeholder"
           confirm-type="search"
           name="search"
@@ -28,7 +28,7 @@
           @confirm="searchSubmit"
         />
       </view>
-      <view @click="manageTap" v-if="administer">取消</view>
+      <view @click="manageTap" v-if="administer">إلغاء</view>
       <view class="edit acea-row row-center-wrapper" @click="manageTap" v-else>
         <text class="iconfont icon-ic_batch"></text>
       </view>
@@ -103,7 +103,7 @@
               <view
                 class="bnt on acea-row row-center-wrapper"
                 @tap="openDrawer(item)"
-                >编辑</view
+                >تحرير</view
               >
             </view>
           </view>
@@ -132,10 +132,10 @@
       </checkbox-group>
       <view class="acea-row row-middle">
         <view class="bnt acea-row row-center-wrapper" @click="editLabels"
-          >添加标签</view
+          >إضافة标签</view
         >
         <view class="bnt acea-row row-center-wrapper" @click="editClass"
-          >修改分类</view
+          >تعديل分类</view
         >
         <view
           class="bnt acea-row row-center-wrapper"
@@ -238,7 +238,7 @@ export default {
       ],
       editList: [
         {
-          name: "修改价格/库存",
+          name: "تعديل价格/库存",
         },
         {
           name: "商品分类",
@@ -260,8 +260,8 @@ export default {
       loadend: false,
       limit: 20,
       page: 1,
-      keyword: "", //搜索字段
-      type: "", //商品状态
+      keyword: "", //بحث字段
+      type: "", //商品الحالة
       visibleClass: false,
     };
   },
@@ -278,7 +278,7 @@ export default {
     this.productList();
   },
   methods: {
-    // 去详情页
+    // 去تفاصيل页
     goDetail(item) {
       if (!item.is_show) {
         this.$util.Tips({
@@ -298,7 +298,7 @@ export default {
     editClass() {
       if (!this.getIds().length) {
         this.$util.Tips({
-          title: "请选择商品",
+          title: "الرجاء اختيار 商品",
         });
         return;
       }
@@ -317,11 +317,11 @@ export default {
       this.visiblePrice = false;
       this.init();
     },
-    //批量编辑标签
+    //批量تحرير标签
     editLabels() {
       if (!this.getIds().length) {
         this.$util.Tips({
-          title: "请选择商品",
+          title: "الرجاء اختيار 商品",
         });
         return;
       }
@@ -344,7 +344,7 @@ export default {
       if (num) {
         if (!this.getIds().length) {
           this.$util.Tips({
-            title: "请选择商品",
+            title: "الرجاء اختيار 商品",
           });
           return;
         }
@@ -492,7 +492,7 @@ export default {
       if (value.length) {
         if (this.goodsList.length > 100) {
           this.$util.Tips({
-            title: "每次最多只提交100条数据",
+            title: "每次最多只إرسال100条数据",
           });
         }
         this.isAllSelect = true;

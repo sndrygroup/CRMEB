@@ -69,7 +69,7 @@
 	} from '@/config/app';
 	export default {
 		props: {
-			//打开状态 0=领取优惠券,1=使用优惠券
+			//打开الحالة 0=领取优惠券,1=使用优惠券
 			openType: {
 				type: Number,
 				default: 0,

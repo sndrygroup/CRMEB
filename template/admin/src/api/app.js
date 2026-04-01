@@ -54,7 +54,7 @@ export function routineCreateApi() {
 }
 
 /**
- * @description 小程序模板消息 -- 编辑表单
+ * @description 小程序模板消息 -- تحرير表单
  * @param {Object} param data {Object} 传值参数
  */
 export function routineEditApi(id) {
@@ -65,7 +65,7 @@ export function routineEditApi(id) {
 }
 
 /**
- * @description 小程序模板消息 -- 修改状态
+ * @description 小程序模板消息 -- تعديلالحالة
  * @param {Object} param data {Object} 传值参数
  */
 export function routineSetStatusApi(data) {
@@ -87,7 +87,7 @@ export function wechatMenuApi(data) {
 }
 
 /**
- * @description 公众号 --公众号配置-- 微信菜单提交
+ * @description 公众号 --公众号配置-- 微信菜单إرسال
  * @param {Object} param data {Object} 传值参数
  */
 export function MenuApi(data) {
@@ -121,7 +121,7 @@ export function wechatCreateApi() {
 }
 
 /**
- * @description 微信模板消息 -- 编辑表单
+ * @description 微信模板消息 -- تحرير表单
  * @param {Object} param data {Object} 传值参数
  */
 export function wechatEditApi(id) {
@@ -132,7 +132,7 @@ export function wechatEditApi(id) {
 }
 
 /**
- * @description 微信模板消息 -- 修改状态
+ * @description 微信模板消息 -- تعديلالحالة
  * @param {Object} param data {Object} 传值参数
  */
 export function wechatSetStatusApi(data) {
@@ -143,7 +143,7 @@ export function wechatSetStatusApi(data) {
 }
 
 /**
- * @description  自动回复 -- 关注回复 关键字回复 保存
+ * @description  自动回复 -- 关注回复 关键字回复 حفظ
  * @param {Object} param data {Object} 传值参数
  */
 export function replyApi(data) {
@@ -177,7 +177,7 @@ export function routineInfo() {
 // ==================== 小程序 CI 自动化上传 ====================
 
 /**
- * @description 获取小程序CI运行环境状态
+ * @description 获取小程序CI运行环境الحالة
  */
 export function routineCIEnvironment() {
   return request({
@@ -207,7 +207,7 @@ export function routineCIConfig() {
 }
 
 /**
- * @description 保存小程序上传密钥
+ * @description حفظ小程序上传密钥
  * @param {Object} data { key_content: 密钥内容 }
  */
 export function routineCISaveKey(data) {
@@ -255,7 +255,7 @@ export function keywordListApi(params) {
 }
 
 /**
- * @description  自动回复 -- 关键字 修改状态
+ * @description  自动回复 -- 关键字 تعديلالحالة
  * @param {Object} param data {Object} 传值参数
  */
 export function keywordsetStatusApi(data) {
@@ -266,7 +266,7 @@ export function keywordsetStatusApi(data) {
 }
 
 /**
- * @description  自动回复 -- 详情
+ * @description  自动回复 -- تفاصيل
  * @param {Object} param data {Object} 传值参数
  */
 export function keywordsinfoApi(url, data) {
@@ -278,7 +278,7 @@ export function keywordsinfoApi(url, data) {
 }
 
 /**
- * @description  图文管理 -- 新增
+ * @description  图文إدارة -- 新增
  * @param {Object} param data {Object} 传值参数
  */
 export function wechatNewsAddApi(data) {
@@ -290,7 +290,7 @@ export function wechatNewsAddApi(data) {
 }
 
 /**
- * @description  图文管理 -- 列表
+ * @description  图文إدارة -- 列表
  * @param {Object} param data {Object} 传值参数
  */
 export function wechatNewsListApi(params) {
@@ -302,7 +302,7 @@ export function wechatNewsListApi(params) {
 }
 
 /**
- * @description  图文管理 -- 详情
+ * @description  图文إدارة -- تفاصيل
  * @param {Object} param data {Object} 传值参数
  */
 export function wechatNewsInfotApi(id) {
@@ -313,7 +313,7 @@ export function wechatNewsInfotApi(id) {
 }
 
 /**
- * @description  图文管理 -- 发送图文
+ * @description  图文إدارة -- 发送图文
  * @param {Object} param data {Object} 传值参数
  */
 export function wechatPushApi(data) {
@@ -347,7 +347,7 @@ export function tagListtApi() {
 }
 
 /**
- * @description  微信用户 -- 用户分组和标签编辑
+ * @description  微信用户 -- 用户分组和标签تحرير
  * @param {String} param url {String} 请求地址
  */
 export function groupsEditApi(url) {
@@ -368,7 +368,7 @@ export function wechatTagListApi() {
 }
 
 /**
- * @description  用户标签 -- 添加表单
+ * @description  用户标签 -- إضافة表单
  */
 export function wechatTagCreateApi() {
   return request({
@@ -378,7 +378,7 @@ export function wechatTagCreateApi() {
 }
 
 /**
- * @description  用户标签 -- 编辑表单
+ * @description  用户标签 -- تحرير表单
  *  @param {Number} param id {Number} 标签id
  */
 export function wechatTagEditApi(id) {
@@ -399,7 +399,7 @@ export function wechatGroupListApi() {
 }
 
 /**
- * @description  用户分组 -- 添加表单
+ * @description  用户分组 -- إضافة表单
  */
 export function wechatGroupCreateApi() {
   return request({
@@ -409,7 +409,7 @@ export function wechatGroupCreateApi() {
 }
 
 /**
- * @description  用户分组 -- 编辑表单
+ * @description  用户分组 -- تحرير表单
  *  @param {Number} param id {Number} 标签id
  */
 export function wechatGroupEditApi(id) {
@@ -464,7 +464,7 @@ export function kefuAutoReplyListApi(params) {
 }
 
 /**
- * @description  客服自动回复添加编辑表单
+ * @description  客服自动回复إضافةتحرير表单
  * @param {Object} param data {Object} 传值参数
  */
 export function kefuAutoReplyForm(id) {
@@ -487,7 +487,7 @@ export function routineSchemeList(data) {
 }
 
 /**
- * @description 小程序链接 -- 创建修改表单
+ * @description 小程序链接 -- 创建تعديل表单
  * @param {Number} param id {Number} 标签id
  */
 export function routineSchemeForm(id) {
@@ -498,7 +498,7 @@ export function routineSchemeForm(id) {
 }
 
 /**
- * @description 小程序链接 -- 删除
+ * @description 小程序链接 -- حذف
  * @param {Number} param id {Number} 标签id
  */
 export function routineSchemeDel(id) {

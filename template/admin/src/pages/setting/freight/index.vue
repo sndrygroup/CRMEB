@@ -13,7 +13,7 @@
           <el-form-item label="是否显示：">
             <el-select
               v-model="levelFrom.is_show"
-              placeholder="请选择"
+              placeholder="الرجاء اختيار "
               clearable
               @change="userSearchs"
               class="form_content_width"
@@ -23,8 +23,8 @@
               <el-option value="0" label="不显示"></el-option>
             </el-select>
           </el-form-item>
-          <el-form-item label="搜索：" label-for="keyword">
-            <el-input class="form_content_width" v-model="levelFrom.keyword" placeholder="请输入物流公司名称或者编码" />
+          <el-form-item label="بحث：" label-for="keyword">
+            <el-input class="form_content_width" v-model="levelFrom.keyword" placeholder="الرجاء إدخال 物流公司الاسم或者编码" />
           </el-form-item>
           <el-form-item>
             <el-button type="primary" v-db-click @click="userSearchs">查询</el-button>
@@ -47,7 +47,7 @@
             <span>{{ scope.row.id }}</span>
           </template>
         </el-table-column>
-        <el-table-column label="物流公司名称" min-width="100">
+        <el-table-column label="物流公司الاسم" min-width="100">
           <template slot-scope="scope">
             <span>{{ scope.row.name }}</span>
           </template>
@@ -75,9 +75,9 @@
             </el-switch>
           </template>
         </el-table-column>
-        <el-table-column label="操作" fixed="right" width="80">
+        <el-table-column label="الخيارات" fixed="right" width="80">
           <template slot-scope="scope">
-            <a v-db-click @click="edit(scope.row)">编辑</a>
+            <a v-db-click @click="edit(scope.row)">تحرير</a>
           </template>
         </el-table-column>
       </el-table>
@@ -121,7 +121,7 @@ export default {
           width: 80,
         },
         {
-          title: '物流公司名称',
+          title: '物流公司الاسم',
           key: 'name',
           minWidth: 100,
         },
@@ -142,7 +142,7 @@ export default {
           minWidth: 120,
         },
         {
-          title: '操作',
+          title: 'الخيارات',
           slot: 'action',
           fixed: 'right',
           minWidth: 120,
@@ -172,7 +172,7 @@ export default {
     },
   },
   methods: {
-    // 删除
+    // حذف
     del(row, tit, num) {
       let delfromData = {
         title: tit,
@@ -190,7 +190,7 @@ export default {
           this.$message.error(res.msg);
         });
     },
-    // 修改是否显示
+    // تعديل是否显示
     onchangeIsShow(row) {
       let data = {
         id: row.id,
@@ -219,7 +219,7 @@ export default {
           this.$message.error(res.msg);
         });
     },
-    // 添加
+    // إضافة
     add() {
       this.$modalForm(freightCreateApi()).then(() => this.getList());
       // freightCreateApi().then(async res => {
@@ -229,7 +229,7 @@ export default {
       //     this.$message.error(res.msg);
       // })
     },
-    // 编辑
+    // تحرير
     edit(row) {
       this.$modalForm(freightEditApi(row.id)).then(() => this.getList());
       // freightEditApi(row.id).then(async res => {
@@ -239,7 +239,7 @@ export default {
       //     this.$message.error(res.msg);
       // })
     },
-    // 表格搜索
+    // 表格بحث
     userSearchs() {
       this.levelFrom.page = 1;
       this.getList();

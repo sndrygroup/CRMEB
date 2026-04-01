@@ -26,7 +26,7 @@
               >
             </el-alert>
             <div class="content-box">
-              <div class="left">小程序名称：</div>
+              <div class="left">小程序الاسم：</div>
               <div class="right">{{ pageData.routine_name || '未命名' }}</div>
             </div>
             <div class="content-box">
@@ -141,7 +141,7 @@ export default {
         var url = canvas.toDataURL(); //得到图片的base64编码数据
         var a = document.createElement('a'); // 生成一个a元素
         var event = new MouseEvent('click'); // 创建一个单击事件
-        a.download = name || 'photo'; // 设置图片名称
+        a.download = name || 'photo'; // 设置图片الاسم
         a.href = url; // 将生成的URL设置为a.href属性
         a.dispatchEvent(event); // 触发a的单击事件
       };

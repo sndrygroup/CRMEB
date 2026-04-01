@@ -10,10 +10,10 @@
           @submit.native.prevent
           inline
         >
-          <el-form-item label="搜索：">
+          <el-form-item label="بحث：">
             <el-input
               clearable
-              placeholder="请输入姓名、UID"
+              placeholder="الرجاء إدخال 姓名、UID"
               v-model="formValidate.keyword"
               class="form_content_width"
             />
@@ -64,12 +64,12 @@
                 <span>{{ scope.row.real_name }}</span>
               </template>
             </el-table-column>
-            <el-table-column label="申请状态" min-width="150">
+            <el-table-column label="申请الحالة" min-width="150">
               <template slot-scope="scope">
                 <el-tag>{{ scope.row.status == 0 ? '申请中' : scope.row.status == 1 ? '已同意' : '已拒绝' }}</el-tag>
               </template>
             </el-table-column>
-            <el-table-column label="申请时间" min-width="150">
+            <el-table-column label="申请الوقت" min-width="150">
               <template slot-scope="scope">
                 <span>{{ scope.row.add_time }}</span>
               </template>
@@ -79,13 +79,13 @@
                 <span>{{ scope.row.content }}</span>
               </template>
             </el-table-column>
-            <el-table-column label="操作" fixed="right" width="170">
+            <el-table-column label="الخيارات" fixed="right" width="170">
               <template slot-scope="scope">
                 <a v-if="scope.row.status == 0" v-db-click @click="examine(scope.row.id, scope.row.uid, 1)">同意</a>
                 <el-divider v-if="scope.row.status == 0" direction="vertical" />
                 <a v-if="scope.row.status == 0" v-db-click @click="examine(scope.row.id, scope.row.uid, 2)">拒绝</a>
                 <el-divider direction="vertical" v-if="scope.row.status == 0" />
-                <a v-db-click @click="del(scope.row, '删除申请', scope.$index)">删除</a>
+                <a v-db-click @click="del(scope.row, 'حذف申请', scope.$index)">حذف</a>
               </template>
             </el-table-column>
           </el-table>
@@ -221,9 +221,9 @@ export default {
             this.$message.error(res.msg);
           });
       } else {
-        this.$prompt('请输入拒绝理由', '提示', {
+        this.$prompt('الرجاء إدخال 拒绝理由', 'تنبيه', {
           confirmButtonText: '确定',
-          cancelButtonText: '取消',
+          cancelButtonText: 'إلغاء',
         })
           .then(({ value }) => {
             let data = {
@@ -237,14 +237,14 @@ export default {
           .catch(() => {
             this.$message({
               type: 'info',
-              message: '取消输入',
+              message: 'إلغاء输入',
             });
           });
       }
     },
-    // 编辑
+    // تحرير
     edit(row) {},
-    // 删除
+    // حذف
     del(row, tit, num) {
       let delfromData = {
         title: tit,

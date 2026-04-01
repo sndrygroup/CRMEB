@@ -9,7 +9,7 @@
             :style="{ paddingRight: navbarRight - 20 + 'px' }"
           >
             <view class="header acea-row row-center-wrapper">
-              <view class="item on">{{ $t(`商品详情`) }}</view>
+              <view class="item on">{{ $t(`商品تفاصيل`) }}</view>
             </view>
           </view>
         </view>
@@ -204,11 +204,11 @@
         <image class="poster-img" :src="posterImage"></image>
         <!-- #ifndef H5  -->
         <view class="save-poster" @click="savePosterPath">{{
-          $t(`保存到手机`)
+          $t(`حفظ到手机`)
         }}</view>
         <!-- #endif -->
         <!-- #ifdef H5 -->
-        <view class="keep">{{ $t(`长按图片可以保存到手机`) }}</view>
+        <view class="keep">{{ $t(`长按图片可以حفظ到手机`) }}</view>
         <!-- #endif -->
       </view>
       <view class="mask" v-if="posterImageStatus"></view>
@@ -344,13 +344,13 @@ export default {
       },
       showAnimate: false,
       showMenuIcon: false,
-      attrTxt: this.$t(`请选择`), //属性页面提示
+      attrTxt: this.$t(`الرجاء اختيار `), //属性页面تنبيه
       attrValue: "", //已选属性
       animated: false, //购物车动画
       id: 0, //商品id
       replyCount: 0, //总评论数量
       reply: [], //评论列表
-      storeInfo: {}, //商品详情
+      storeInfo: {}, //商品تفاصيل
       productValue: [], //系统属性
       couponList: [], //优惠券
       cart_num: 1, //购买数量
@@ -387,7 +387,7 @@ export default {
       navH: "",
       opacity: 0,
       scrollY: 0,
-      returnShow: true, //判断顶部返回是否出现
+      returnShow: true, //判断顶部عودة是否出现
       diff: "",
       is_money_level: 1,
       is_vip: 0, //是否是会员
@@ -544,7 +544,7 @@ export default {
     uni.$emit("scroll");
   },
   methods: {
-    // 操作菜单
+    // الخيارات菜单
     moreNav() {
       this.currentPage = !this.currentPage;
     },
@@ -670,7 +670,7 @@ export default {
       // #endif
     },
     /*
-     *去商品详情页
+     *去商品تفاصيل页
      */
     goDetail(item) {
       if (item.activity.length == 0) {
@@ -701,7 +701,7 @@ export default {
         return;
       }
     },
-    // 微信登录回调
+    // 微信تسجيل الدخول回调
     onLoadFun: function (e) {
       // this.getUserInfo();
       // this.get_product_collect();
@@ -811,7 +811,7 @@ export default {
           this.storeInfo.vip_price,
         );
         this.$set(this, "attrValue", "");
-        this.$set(this, "attrTxt", this.$t(`请选择`));
+        this.$set(this, "attrTxt", this.$t(`الرجاء اختيار `));
       }
     },
     setRealPrice(id, unique) {
@@ -833,7 +833,7 @@ export default {
     },
 
     /**
-     * 获取产品详情
+     * 获取产品تفاصيل
      *
      */
     getGoodsDetails() {
@@ -953,7 +953,7 @@ export default {
         })
         .catch((err) => {
           uni.hideLoading();
-          //状态异常返回上级页面
+          //الحالة异常عودة上级页面
           return that.$util.Tips(
             {
               title: err.toString(),
@@ -1022,7 +1022,7 @@ export default {
           this.storeInfo.vip_price,
         );
         this.$set(this, "attrValue", "");
-        this.$set(this, "attrTxt", this.$t(`请选择`));
+        this.$set(this, "attrTxt", this.$t(`الرجاء اختيار `));
       } else if (!productSelect && !productAttr.length) {
         this.$set(
           this.attr.productSelect,
@@ -1044,7 +1044,7 @@ export default {
           this.storeInfo.vip_price,
         );
         this.$set(this, "attrValue", "");
-        this.$set(this, "attrTxt", this.$t(`请选择`));
+        this.$set(this, "attrTxt", this.$t(`الرجاء اختيار `));
       }
     },
     /**
@@ -1202,7 +1202,7 @@ export default {
      *
      */
     joinCart: function (e) {
-      //是否登录
+      //是否تسجيل الدخول
       if (this.isLogin === false) {
         toLogin();
       } else {
@@ -1233,20 +1233,20 @@ export default {
       //只有关闭属性弹窗时进行加入购物车
       if (that.attr.cartAttr === true && that.isOpen === false)
         return (that.isOpen = true);
-      //如果有属性,没有选择,提示用户选择
+      //如果有属性,没有选择,تنبيه用户选择
       if (
         that.attr.productAttr.length &&
         productSelect === undefined &&
         that.isOpen === true
       )
         return that.$util.Tips({
-          title: that.$t(`产品库存不足，请选择其它属性`),
+          title: that.$t(`产品库存不足，الرجاء اختيار 其它属性`),
         });
       if (that.attr.productSelect.cart_num <= 0) {
         that.attr.productSelect.cart_num = 1;
         that.isOpen = false;
         return that.$util.Tips({
-          title: that.$t(`请选择数量`),
+          title: that.$t(`الرجاء اختيار 数量`),
         });
       }
       let q = {
@@ -1273,7 +1273,7 @@ export default {
             });
           } else {
             that.$util.Tips({
-              title: that.$t(`添加成功`),
+              title: that.$t(`إضافة成功`),
               success: () => {
                 that.getCartCount(true);
               },
@@ -1367,7 +1367,7 @@ export default {
       this.posters = false;
     },
     /*
-     * 保存到手机相册
+     * حفظ到手机相册
      */
     // #ifdef MP
     savePosterPath: function () {
@@ -1383,13 +1383,13 @@ export default {
                   success: function (res) {
                     that.posterImageClose();
                     that.$util.Tips({
-                      title: that.$t(`保存成功`),
+                      title: that.$t(`حفظ成功`),
                       icon: "success",
                     });
                   },
                   fail: function (res) {
                     that.$util.Tips({
-                      title: that.$t(`保存失败`),
+                      title: that.$t(`حفظ失败`),
                     });
                   },
                 });
@@ -1401,13 +1401,13 @@ export default {
               success: function (res) {
                 that.posterImageClose();
                 that.$util.Tips({
-                  title: that.$t(`保存成功`),
+                  title: that.$t(`حفظ成功`),
                   icon: "success",
                 });
               },
               fail: function (res) {
                 that.$util.Tips({
-                  title: that.$t(`保存失败`),
+                  title: that.$t(`حفظ失败`),
                 });
               },
             });
@@ -1424,13 +1424,13 @@ export default {
         success: function (res) {
           that.posterImageClose();
           that.$util.Tips({
-            title: that.$t(`保存成功`),
+            title: that.$t(`حفظ成功`),
             icon: "success",
           });
         },
         fail: function (res) {
           that.$util.Tips({
-            title: that.$t(`保存失败`),
+            title: that.$t(`حفظ失败`),
           });
         },
       });

@@ -43,7 +43,7 @@ export function setDefault(id) {
 }
 
 /**
- * @description 保存DIY数据
+ * @description حفظDIY数据
  * @param {Object} param data {Object} 传值参数
  */
 export function diySave(id, data) {
@@ -55,7 +55,7 @@ export function diySave(id, data) {
 }
 
 /**
- * @description 保存DIY数据
+ * @description حفظDIY数据
  * @param {Object} param data {Object} 传值参数
  */
 export function saveDiy(id, data) {
@@ -166,7 +166,7 @@ export function diyList(data) {
 }
 
 /**
- * @description 删除DIY数据
+ * @description حذفDIY数据
  * @param {Object} param data {Object} 传值参数
  */
 export function diyDel(id) {
@@ -199,7 +199,7 @@ export function storeStatus() {
 }
 
 /**
- * @description 添加模板
+ * @description إضافة模板
  * @param {Object} param data {Object} 传值参数
  */
 export function getDiyCreate() {
@@ -221,7 +221,7 @@ export function getRecovery(id) {
 }
 
 /**
- * @description 手动添加,弹窗列表数据
+ * @description 手动إضافة,弹窗列表数据
  * @param {Object} param data {Object} 传值参数
  */
 export function getProductList(params) {
@@ -233,7 +233,7 @@ export function getProductList(params) {
 }
 
 /**
- * @description 换色 -- 一键换色、分类提交；
+ * @description 换色 -- 一键换色、分类إرسال；
  */
 export function colorChange(status, name) {
   return request({
@@ -273,7 +273,7 @@ export function getRoutineCode(id) {
 }
 
 /**
- * @description 个人中心-提交信息；
+ * @description 个人中心-إرسال信息；
  */
 export function memberSave(data) {
   return request({
@@ -304,7 +304,7 @@ export function pageLink(id) {
 }
 
 /**
- * @description 页面链接-自定义链接提交；
+ * @description 页面链接-自定义链接إرسال；
  */
 export function saveLink(data, id) {
   return request({
@@ -334,7 +334,7 @@ export function exportDiyDataApi(id) {
 }
 
 /**
- * @description 保存DIY名称
+ * @description حفظDIYالاسم
  * @param {Object} param data {Object} 传值参数
  */
 export function diyUpdateName(id, data) {
@@ -372,7 +372,7 @@ export function diyProInfo(id, data) {
 }
 
 /**
- * @description 保存DIY数据
+ * @description حفظDIY数据
  * @param {Object} param data {Object} 传值参数
  */
 export function diyProSave(id, data) {
@@ -383,8 +383,8 @@ export function diyProSave(id, data) {
   });
 }
 /**
- * @description 保存商城主题
- * @param type 保存类型
+ * @description حفظ商城主题
+ * @param type حفظ类型
  * @param value diy格值
  */
 export function themeSave(id, data) {
@@ -463,9 +463,9 @@ export function importTheme(data) {
   });
 }
 /**
- * @description 保存主题名称
+ * @description حفظ主题الاسم
  * @param id 主题id
- * @param data 主题名称
+ * @param data 主题الاسم
  */
 export function saveThemeTitle(id, data) {
   return request({
@@ -476,7 +476,7 @@ export function saveThemeTitle(id, data) {
 }
 
 /**
- * @description 保存主题封面
+ * @description حفظ主题封面
  * @param id 主题id
  * @param data 封面图地址
  */
@@ -565,7 +565,7 @@ export function useThemeData(id, data) {
 }
 
 /**
- * @description 删除主题
+ * @description حذف主题
  * @param id 主题id
  */
 export function deleteTheme(id) {

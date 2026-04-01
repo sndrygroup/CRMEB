@@ -17,7 +17,7 @@
             item.title
           }}</el-tag>
         </div>
-        <el-button type="primary" v-db-click @click="addCoupon" v-if="!couponName.length">添加优惠券</el-button>
+        <el-button type="primary" v-db-click @click="addCoupon" v-if="!couponName.length">إضافة优惠券</el-button>
       </el-form-item>
       <el-form-item
         :label="[3, 4].includes(formValidate.type) ? '金额信息' : '积分数量'"
@@ -27,7 +27,7 @@
         <el-input-number
           :controls="false"
           v-model="formValidate.num"
-          placeholder="请输入金额数量"
+          placeholder="الرجاء إدخال 金额数量"
           :max="9999999999"
           :min="0.1"
           style="width: 300px"
@@ -53,11 +53,11 @@
           <i class="el-icon-picture-outline" style="font-size: 24px"></i>
         </div>
       </el-form-item>
-      <el-form-item label="奖品名称：" prop="name">
+      <el-form-item label="奖品الاسم：" prop="name">
         <el-input
           v-model="formValidate.name"
           :maxlength="10"
-          placeholder="请输入奖品名称"
+          placeholder="الرجاء إدخال 奖品الاسم"
           style="width: 300px"
         ></el-input>
       </el-form-item>
@@ -77,7 +77,7 @@
         <el-input-number
           :controls="false"
           v-model="formValidate.total"
-          placeholder="请输入奖品数量"
+          placeholder="الرجاء إدخال 奖品数量"
           :max="9999999999"
           :min="0"
           :precision="0"
@@ -88,23 +88,23 @@
         <el-input-number
           :controls="false"
           v-model="formValidate.percent"
-          placeholder="请输入奖品概率"
+          placeholder="الرجاء إدخال 奖品概率"
           :max="100"
           :min="0"
           :precision="2"
           style="width: 300px"
         ></el-input-number>
       </el-form-item>
-      <el-form-item label="提示语：" prop="prompt">
+      <el-form-item label="تنبيه语：" prop="prompt">
         <el-input
           v-model="formValidate.prompt"
           :maxlength="15"
-          placeholder="请输入提示语"
+          placeholder="الرجاء إدخال تنبيه语"
           style="width: 300px"
         ></el-input>
       </el-form-item>
       <!-- <el-form-item>
-        <el-button type="primary" v-db-click @click="handleSubmit('formValidate')">提交</el-button>
+        <el-button type="primary" v-db-click @click="handleSubmit('formValidate')">إرسال</el-button>
       </el-form-item> -->
     </el-form>
     <!-- 上传图片-->
@@ -146,29 +146,29 @@ export default {
       },
       formValidate: {
         type: 5, //类型 1：未中奖2：积分  3:余额  4：红包 5:优惠券 6：站内商品
-        name: '', //活动名称
+        name: '', //活动الاسم
         num: 0, //奖品数量
         image: '', //奖品图片
         chance: 1, //中奖权重
         product_id: 0, //商品id
         coupon_id: 0, //优惠券id
         total: 0, //奖品数量
-        prompt: '', //提示语
+        prompt: '', //تنبيه语
         goods_image: '', //自用商品图
-        coupon_title: '', //优惠券名称
+        coupon_title: '', //优惠券الاسم
       },
       ruleValidate: {
         name: [
           {
             required: true,
-            message: '商品名称',
+            message: '商品الاسم',
             trigger: 'blur',
           },
         ],
         goods_image: [
           {
             required: true,
-            message: '请添加商品',
+            message: '请إضافة商品',
             trigger: 'blur',
           },
         ],
@@ -176,7 +176,7 @@ export default {
           {
             required: true,
             type: 'number',
-            message: '请输入金额数量',
+            message: 'الرجاء إدخال 金额数量',
             trigger: 'blur',
           },
         ],
@@ -184,21 +184,21 @@ export default {
           {
             required: true,
             type: 'number',
-            message: '请输入商品权重',
+            message: 'الرجاء إدخال 商品权重',
             trigger: 'blur',
           },
         ],
         image: [
           {
             required: true,
-            message: '请选择奖品图片',
+            message: 'الرجاء اختيار 奖品图片',
             trigger: 'blur',
           },
         ],
         prompt: [
           {
             required: true,
-            message: '请输入提示语',
+            message: 'الرجاء إدخال تنبيه语',
             trigger: 'blur',
           },
         ],
@@ -245,7 +245,7 @@ export default {
       this.$refs[name].validate((valid) => {
         if (valid) {
           this.$emit('addGoodsData', this.formValidate);
-          this.$message.success('添加成功');
+          this.$message.success('إضافة成功');
         } else {
           this.$message.warning('请完善数据');
         }
@@ -266,7 +266,7 @@ export default {
     // 选择的商品
     getProductId(productList) {
       // if (productList.length > 1) {
-      //   this.$message.warning("最多添加一个商品");
+      //   this.$message.warning("最多إضافة一个商品");
       //   return;
       // }
       this.formValidate.product_id = productList.id;
@@ -284,7 +284,7 @@ export default {
     remove() {
       this.formValidate.image = '';
     },
-    // 添加优惠券
+    // إضافة优惠券
     addCoupon() {
       this.$refs.couponTemplates.isTemplate = true;
       this.$refs.couponTemplates.tableList();

@@ -10,11 +10,11 @@
           </el-form-item>
         </el-col>
         <el-col v-bind="grid">
-          <el-form-item label="商品搜索：" label-for="store_name">
+          <el-form-item label="商品بحث：" label-for="store_name">
             <el-input
               search
               enter-button
-              placeholder="请输入商品分类,id"
+              placeholder="الرجاء إدخال 商品分类,id"
               v-model="formValidate.name"
               style="width: 80%"
               @on-search="userSearchs"
@@ -132,7 +132,7 @@ export default {
           this.$message.error(res.msg);
         });
     },
-    // 表格搜索
+    // 表格بحث
     userSearchs() {
       this.getList();
     },

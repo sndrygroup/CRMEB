@@ -51,7 +51,7 @@
       :sysHeight="sysHeight"
     >
     </homeList>
-    <!-- 详情 -->
+    <!-- تفاصيل -->
     <view class="product-con">
       <scroll-view
         :scroll-top="scrollTop"
@@ -407,11 +407,11 @@
       <image class="poster-img" :src="posterImage"></image>
       <!-- #ifndef H5  -->
       <view class="save-poster" @click="savePosterPath">{{
-        $t(`保存到手机`)
+        $t(`حفظ到手机`)
       }}</view>
       <!-- #endif -->
       <!-- #ifdef H5 -->
-      <view class="keep">{{ $t(`长按图片可以保存到手机`) }}</view>
+      <view class="keep">{{ $t(`长按图片可以حفظ到手机`) }}</view>
       <!-- #endif -->
     </view>
     <view class="mask1" v-if="posterImageStatus"></view>
@@ -539,7 +539,7 @@ export default {
       },
       productValue: [],
       isOpen: false,
-      attr: this.$t(`请选择`),
+      attr: this.$t(`الرجاء اختيار `),
       attrValue: "",
       AllIndex: 2,
       maxAllIndex: 0,
@@ -547,7 +547,7 @@ export default {
       limitNum: 1,
       timeer: null,
       iSplus: false,
-      navList: [this.$t(`商品`), this.$t(`评价`), this.$t(`详情`)],
+      navList: [this.$t(`商品`), this.$t(`评价`), this.$t(`تفاصيل`)],
       opacity: 0,
       scrollY: 0,
       topArr: [],
@@ -765,7 +765,7 @@ export default {
       this.$set(this.attribute.productSelect, "cart_num", e);
       this.$set(this, "cart_num", e);
     },
-    // 返回
+    // عودة
     returns() {
       // #ifdef H5
       return history.back();
@@ -776,7 +776,7 @@ export default {
       });
       // #endif
     },
-    // 获取详情
+    // 获取تفاصيل
     combinationDetail() {
       var that = this;
       var data = that.id;
@@ -828,7 +828,7 @@ export default {
             that.skuArr.push(obj);
           }
           that.$set(that, "selectSku", that.skuArr[0]);
-          var navList = [that.$t(`商品`), that.$t(`详情`)];
+          var navList = [that.$t(`商品`), that.$t(`تفاصيل`)];
           if (res.data.replyCount) {
             navList.splice(1, 0, that.$t(`评价`));
           }
@@ -906,7 +906,7 @@ export default {
           .catch((err) => {});
     },
     //#endif
-    // setTime: function() { //到期时间戳
+    // setTime: function() { //到期الوقت戳
     // 	var that = this;
     // 	var endTimeList = that.pink;
     // 	that.pink.map(item => {
@@ -1012,7 +1012,7 @@ export default {
         self.$set(self.attribute.productSelect, "unique", "");
         self.$set(self.attribute.productSelect, "cart_num", 0);
         self.$set(self, "attrValue", "");
-        self.$set(self, "attrTxt", this.$t(`请选择`));
+        self.$set(self, "attrTxt", this.$t(`الرجاء اختيار `));
       } else if (!productSelect && !productAttr.length) {
         self.$set(
           self.attribute.productSelect,
@@ -1031,7 +1031,7 @@ export default {
         );
         self.$set(self.attribute.productSelect, "cart_num", 1);
         self.$set(self, "attrValue", "");
-        self.$set(self, "attrTxt", this.$t(`请选择`));
+        self.$set(self, "attrTxt", this.$t(`الرجاء اختيار `));
       }
     },
 
@@ -1185,14 +1185,14 @@ export default {
       //只有关闭属性弹窗时进行加入购物车
       if (this.attribute.cartAttr === true && this.isOpen == false)
         return (this.isOpen = true);
-      //如果有属性,没有选择,提示用户选择
+      //如果有属性,没有选择,تنبيه用户选择
       if (
         this.attribute.productAttr.length &&
         productSelect === undefined &&
         this.isOpen == true
       )
         return that.$util.Tips({
-          title: this.$t(`请选择`),
+          title: this.$t(`الرجاء اختيار `),
         });
       var data = {
         productId: that.storeInfo.product_id,
@@ -1305,7 +1305,7 @@ export default {
     },
 
     /*
-     * 保存到手机相册
+     * حفظ到手机相册
      */
     // #ifdef MP
     savePosterPath: function () {
@@ -1321,13 +1321,13 @@ export default {
                   success: function (res) {
                     that.posterImageClose();
                     that.$util.Tips({
-                      title: this.$t(`保存成功`),
+                      title: this.$t(`حفظ成功`),
                       icon: "success",
                     });
                   },
                   fail: function (res) {
                     that.$util.Tips({
-                      title: this.$t(`保存失败`),
+                      title: this.$t(`حفظ失败`),
                     });
                   },
                 });
@@ -1339,13 +1339,13 @@ export default {
               success: function (res) {
                 that.posterImageClose();
                 that.$util.Tips({
-                  title: this.$t(`保存成功`),
+                  title: this.$t(`حفظ成功`),
                   icon: "success",
                 });
               },
               fail: function (res) {
                 that.$util.Tips({
-                  title: this.$t(`保存失败`),
+                  title: this.$t(`حفظ失败`),
                 });
               },
             });
@@ -1362,13 +1362,13 @@ export default {
         success: function (res) {
           that.posterImageClose();
           that.$util.Tips({
-            title: this.$t(`保存成功`),
+            title: this.$t(`حفظ成功`),
             icon: "success",
           });
         },
         fail: function (res) {
           that.$util.Tips({
-            title: this.$t(`保存失败`),
+            title: this.$t(`حفظ失败`),
           });
         },
       });

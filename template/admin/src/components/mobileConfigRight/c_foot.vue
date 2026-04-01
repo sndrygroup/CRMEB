@@ -23,7 +23,7 @@
             </div>
           </div>
           <div class="c_row-item" v-if="navStyle != 2">
-            <el-col class="label" :span="4"> 名称 </el-col>
+            <el-col class="label" :span="4"> الاسم </el-col>
             <el-col class="slider-box" :span="20">
               <el-input v-model="item.name" placeholder="选填不超过10个字" />
             </el-col>
@@ -44,7 +44,7 @@
         </div>
       </div>
     </draggable>
-    <el-button class="add-btn" @click="addMenu" v-if="footConfig.length < 5">+ 添加板块</el-button>
+    <el-button class="add-btn" @click="addMenu" v-if="footConfig.length < 5">+ إضافة板块</el-button>
     <div>
       <el-dialog :visible.sync="modalPic" width="960px" title="上传底部菜单" :mask-closable="false">
         <uploadPictures
@@ -144,7 +144,7 @@ export default {
         this.$store.commit('mobildConfig/footUpdata', this.footConfig);
       });
     },
-    // 添加模块
+    // إضافة模块
     addMenu() {
       let obj = {
         imgList: [this.noPic, this.noPic],
@@ -155,11 +155,11 @@ export default {
     },
     deleteMenu(index) {
       this.$msgbox({
-        title: '提示',
-        message: '是否确定删除该菜单',
+        title: 'تنبيه',
+        message: '是否确定حذف该菜单',
         showCancelButton: true,
-        cancelButtonText: '取消',
-        confirmButtonText: '删除',
+        cancelButtonText: 'إلغاء',
+        confirmButtonText: 'حذف',
         iconClass: 'el-icon-warning',
         confirmButtonClass: 'btn-custom-cancel',
       })

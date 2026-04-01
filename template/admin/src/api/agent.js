@@ -23,7 +23,7 @@ export function agentListApi(params) {
 }
 
 /**
- * @description 修改上级用户
+ * @description تعديل上级用户
  * @param {Object} param params {Object} 传值参数
  */
 export function agentSpreadApi(data) {
@@ -142,7 +142,7 @@ export function divisionStatistics(data) {
 }
 
 /**
- * @description 代理商添加--表单
+ * @description 代理商إضافة--表单
  * @param {Object} param data {Object} 传值参数
  */
 export function agentFrom(uid) {
@@ -164,7 +164,7 @@ export function divisionFrom(id, type) {
 }
 
 /**
- * @description 事业部添加--表单
+ * @description 事业部إضافة--表单
  * @param {Object} param data {Object} 传值参数
  */
 export function regionFrom(uid) {
@@ -186,7 +186,7 @@ export function clerkList(data) {
 }
 
 /**
- * @description 事业部状态切换--列表
+ * @description 事业部الحالة切换--列表
  * @param {Object} param data {Object} 传值参数
  */
 export function isShowApi(data) {
@@ -197,7 +197,7 @@ export function isShowApi(data) {
 }
 
 /**
- * @description 员工添加--表单
+ * @description 员工إضافة--表单
  * @param {Object} param data {Object} 传值参数
  */
 export function staffAddFrom(uid) {

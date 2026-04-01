@@ -100,8 +100,8 @@
               </el-form-item>
             </div>
             <div class="right">
-              <el-button size="small" v-db-click @click="scanUploadGet">刷新图库</el-button>
-              <div class="tip">刷新图库按钮，可显示移动端上传成功的图片</div>
+              <el-button size="small" v-db-click @click="scanUploadGet">تحديث图库</el-button>
+              <div class="tip">تحديث图库按钮，可显示移动端上传成功的图片</div>
               <div class="img-box">
                 <div
                   v-for="(item, index) in ruleForm.imgList"
@@ -182,7 +182,7 @@ export default {
         region: '',
         imgList: [],
       },
-      rules: { type: [{ required: true, message: '请选择活动资源', trigger: 'change' }] },
+      rules: { type: [{ required: true, message: 'الرجاء اختيار 活动资源', trigger: 'change' }] },
       qrcode: '',
       scanToken: '',
       limit: 20,
@@ -358,7 +358,7 @@ export default {
           this.ruleForm.imgList = fileList;
         }
       } else {
-        // 从ruleForm对象的imgList数组中删除最后一个元素
+        // 从ruleForm对象的imgList数组中حذف最后一个元素
         this.ruleForm.imgList.splice(this.ruleForm.imgList.length, 1);
       }
     },

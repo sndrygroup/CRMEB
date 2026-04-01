@@ -1,7 +1,7 @@
 <template>
   <div class="layout-breadcrumb-seting">
     <el-drawer
-      title="主题编辑"
+      title="主题تحرير"
       :visible.sync="getThemeConfig.isDrawer"
       direction="rtl"
       destroy-on-close
@@ -82,7 +82,7 @@
           <div class="layout-breadcrumb-seting-bar-flex-value">
             <el-select
               v-model="getThemeConfig.themeStyle"
-              placeholder="请选择"
+              placeholder="الرجاء اختيار "
               size="mini"
               style="width: 90px"
               @change="setLocalTheme"
@@ -459,7 +459,7 @@ export default {
       else body.setAttribute('data-theme', '');
       this.setLocalThemeConfig();
     },
-    // 初始化：刷新页面时，设置了值，直接取缓存中的值进行初始化
+    // 初始化：تحديث页面时，设置了值，直接取缓存中的值进行初始化
     initLayoutConfig() {
       window.addEventListener('load', () => {
         // 默认样式

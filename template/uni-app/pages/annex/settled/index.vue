@@ -10,8 +10,8 @@
 						<view class="item">
 							<view class="acea-row row-middle">
 								<!-- <i class="icon iconfont icon-qiye"></i> -->
-								<text class="item-name">{{$t(`代理商名称`)}}</text>
-								<input type="text" maxlength="30" :placeholder="$t(`请输入代理商名称`)"
+								<text class="item-name">{{$t(`代理商الاسم`)}}</text>
+								<input type="text" maxlength="30" :placeholder="$t(`الرجاء إدخال 代理商الاسم`)"
 									v-model="merchantData.agent_name" @input="validateBtn"
 									placeholder-class='placeholder' />
 							</view>
@@ -20,7 +20,7 @@
 							<view class="acea-row row-middle">
 								<!-- <i class="icon iconfont icon-yonghu3"></i> -->
 								<text class="item-name">{{$t(`用户姓名`)}}</text>
-								<input type="text" :placeholder="$t(`请输入姓名`)" v-model="merchantData.name"
+								<input type="text" :placeholder="$t(`الرجاء إدخال 姓名`)" v-model="merchantData.name"
 									@input="validateBtn" placeholder-class='placeholder' />
 							</view>
 						</view>
@@ -28,7 +28,7 @@
 							<view class="acea-row row-middle">
 								<!-- <i class="icon iconfont icon-shoujihao"></i> -->
 								<text class="item-name">{{$t(`联系电话`)}}</text>
-								<input type="text" :placeholder="$t(`请输入手机号`)" v-model="merchantData.phone"
+								<input type="text" :placeholder="$t(`الرجاء إدخال 手机号`)" v-model="merchantData.phone"
 									@input="validateBtn" placeholder-class='placeholder' />
 							</view>
 						</view>
@@ -49,7 +49,7 @@
 							<view class="acea-row row-middle">
 								<!-- <i class="icon iconfont icon-shoujihao"></i> -->
 								<text class="item-name">{{$t(`邀请码`)}}</text>
-								<input type="text" :placeholder="$t(`请输入代理商邀请码`)" v-model="merchantData.division_invite"
+								<input type="text" :placeholder="$t(`الرجاء إدخال 代理商邀请码`)" v-model="merchantData.division_invite"
 									@input="validateBtn" placeholder-class='placeholder' />
 							</view>
 						</view>
@@ -79,7 +79,7 @@
 							<button class="settleAgree" @click="getAgentAgreement">《{{$t(`代理商协议`)}}》</button>
 						</view>
 						<button class='submitBtn' :class="isAgree === true ? 'on':''"
-							@click="formSubmit">{{$t(`提交申请`)}}</button>
+							@click="formSubmit">{{$t(`إرسال申请`)}}</button>
 
 					</view>
 					<view class='list' v-else>
@@ -101,14 +101,14 @@
 							<view class="acea-row row-middle row-between">
 								<!-- <i class="icon iconfont icon-shoujihao"></i> -->
 								<text class="item-name">{{$t(`分销员姓名`)}}</text>
-								<input class="text-right" type="text" :placeholder="$t(`请输入分销员姓名`)" v-model="form.real_name"
+								<input class="text-right" type="text" :placeholder="$t(`الرجاء إدخال 分销员姓名`)" v-model="form.real_name"
 									@input="validateBtn" placeholder-class='placeholder' />
 							</view>
 						</view><view class="item">
 							<view class="acea-row row-middle row-between">
 								<!-- <i class="icon iconfont icon-shoujihao"></i> -->
 								<text class="item-name">{{$t(`联系电话`)}}</text>
-								<input class="text-right" type="text" :placeholder="$t(`请输入手机号`)" v-model="form.phone"
+								<input class="text-right" type="text" :placeholder="$t(`الرجاء إدخال 手机号`)" v-model="form.phone"
 									@input="validateBtn" placeholder-class='placeholder' />
 							</view>
 						</view>
@@ -129,7 +129,7 @@
 							<view class="acea-row row-middle row-between">
 								<!-- <i class="icon iconfont icon-shoujihao"></i> -->
 								<text class="item-name">{{$t(`申请理由`)}}</text>
-								<textarea class="text-area" :placeholder="$t(`请输入申请理由`)" v-model="form.content" cols="3" rows="4" placeholder-class='placeholder'></textarea>
+								<textarea class="text-area" :placeholder="$t(`الرجاء إدخال 申请理由`)" v-model="form.content" cols="3" rows="4" placeholder-class='placeholder'></textarea>
 							</view>
 						</view>
 						<view class="item no-border  acea-row row-middle">
@@ -139,7 +139,7 @@
 							<button class="settleAgree" @click="getAgentAgreement">《{{$t(`分销员协议`)}}》</button>
 						</view>
 						<button class='submitBtn' :class="isAgree === true ? 'on':''"
-							@click="formSpeadSubmit">{{$t(`提交申请`)}}</button>
+							@click="formSpeadSubmit">{{$t(`إرسال申请`)}}</button>
 					</view>
 			</view>
 
@@ -164,9 +164,9 @@
 	<view class="settledSuccessMain" v-else-if='status == 0'>
 		<view class="settledSuccessful">
 			<image class="image" src="../static/success.png" alt="">
-				<view class="title">{{$t(`恭喜，您的资料提交成功！`)}}</view>
+				<view class="title">{{$t(`恭喜，您的资料إرسال成功！`)}}</view>
 				<view class="goHome" hover-class="none" @click="goHome">
-					{{$t(`返回首页`)}}
+					{{$t(`عودة首页`)}}
 				</view>
 		</view>
 	</view>
@@ -175,7 +175,7 @@
 			<image class="image" src="../static/success.png" alt="">
 				<view class="title">{{$t(`恭喜，您的资料通过审核！`)}}</view>
 				<view class="goHome" hover-class="none" @click="goHome">
-					{{$t(`返回首页`)}}
+					{{$t(`عودة首页`)}}
 				</view>
 		</view>
 	</view>
@@ -188,7 +188,7 @@
 					{{$t(`重新申请`)}}
 				</view>
 				<view class="goHome" hover-class="none" @click="goHome">
-					{{$t(`返回首页`)}}
+					{{$t(`عودة首页`)}}
 				</view>
 		</view>
 		
@@ -344,7 +344,7 @@
 					title: that.$t(`请填写手机号码`)
 				});
 				if (!/^1(3|4|5|7|8|9|6)\d{9}$/i.test(phone)) return that.$util.Tips({
-					title: that.$t(`请输入正确的手机号码`)
+					title: that.$t(`الرجاء إدخال 正确的手机号码`)
 				});
 				this.$refs.verify.show()
 			},
@@ -382,7 +382,7 @@
 						});
 					});
 			},
-			// 获取历史提交数据详情
+			// 获取历史إرسال数据تفاصيل
 			getHistoryData() {
 				getHistoryData().then(res => {
 					this.status = res.data.status
@@ -400,7 +400,7 @@
 					this.inloading = false
 				})
 			},
-			//获取代理商分类名称
+			//获取代理商分类الاسم
 			getCategoryName(id, arr) {
 				for (let i = 0; i < arr.length; i++) {
 					if (arr[i].merchant_category_id === id) {
@@ -458,7 +458,7 @@
 
 			},
 			/**
-			 * 删除图片
+			 * حذف图片
 			 * 
 			 */
 			DelPic: function(index) {
@@ -587,16 +587,16 @@
 					value = that.merchantData;
 
 				if (!value.agent_name) return that.$util.Tips({
-					title: that.$t(`请输入代理商名称`)
+					title: that.$t(`الرجاء إدخال 代理商الاسم`)
 				});
 				if (!value.name) return that.$util.Tips({
-					title: that.$t(`请输入姓名`)
+					title: that.$t(`الرجاء إدخال 姓名`)
 				});
 				if (!value.phone) return that.$util.Tips({
-					title: that.$t(`请输入手机号`)
+					title: that.$t(`الرجاء إدخال 手机号`)
 				});
 				if (!/^1(3|4|5|7|8|9|6)\d{9}$/i.test(value.phone)) return that.$util.Tips({
-					title: that.$t(`请输入正确的手机号码`)
+					title: that.$t(`الرجاء إدخال 正确的手机号码`)
 				});
 				if (!value.code) return that.$util.Tips({
 					title: that.$t(`填写验证码`)

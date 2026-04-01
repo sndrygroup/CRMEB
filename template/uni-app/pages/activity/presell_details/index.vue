@@ -47,7 +47,7 @@
 						</view>
 						<view class="presell_count">
 							<view>
-								<view>{{$t(`预售活动时间`)}}：</view>
+								<view>{{$t(`预售活动الوقت`)}}：</view>
 								<view v-if="storeInfo.start_time && storeInfo.stop_time" class="presell_time">
 									<view class='iconfont icon-shijian1'></view>
 									{{storeInfo.start_time}}
@@ -217,10 +217,10 @@
 			<image src="/static/images/poster-close.png" class="close" @click="posterImageClose"></image>
 			<image class="poster-img" :src="posterImage"></image>
 			<!-- #ifndef H5  -->
-			<view class="save-poster" @click="savePosterPath">{{$t(`保存到手机`)}}</view>
+			<view class="save-poster" @click="savePosterPath">{{$t(`حفظ到手机`)}}</view>
 			<!-- #endif -->
 			<!-- #ifdef H5 -->
-			<view class="keep">{{$t(`长按图片可以保存到手机`)}}</view>
+			<view class="keep">{{$t(`长按图片可以حفظ到手机`)}}</view>
 			<!-- #endif -->
 		</view>
 		<view class="mask" v-if="posterImageStatus"></view>
@@ -308,13 +308,13 @@
 					list: [],
 					count: []
 				},
-				attrTxt: that.$t(`请选择`), //属性页面提示
+				attrTxt: that.$t(`الرجاء اختيار `), //属性页面تنبيه
 				attrValue: '', //已选属性
 				animated: false, //购物车动画
 				id: 0, //商品id
 				replyCount: 0, //总评论数量
 				reply: [], //评论列表
-				storeInfo: {}, //商品详情
+				storeInfo: {}, //商品تفاصيل
 				productValue: [], //系统属性
 				couponList: [], //优惠券
 				cart_num: 1, //购买数量
@@ -369,7 +369,7 @@
 					table: 'width:100%',
 					video: 'width:100%'
 				},
-				returnShow: true, //判断顶部返回是否出现
+				returnShow: true, //判断顶部عودة是否出现
 				diff: '',
 				is_money_level: 1,
 				is_vip: 0, //是否是会员
@@ -543,7 +543,7 @@
 				}
 			},
 			/*
-			 *去商品详情页
+			 *去商品تفاصيل页
 			 */
 			goDetail(item) {
 				if (item.activity.length == 0) {
@@ -574,7 +574,7 @@
 					return;
 				}
 			},
-			// 微信登录回调
+			// 微信تسجيل الدخول回调
 			onLoadFun: function(e) {
 				// this.getUserInfo();
 				// this.get_product_collect();
@@ -652,7 +652,7 @@
 					this.$set(this.attr.productSelect, 'quota', productSelect.quota);
 					this.$set(this.attr.productSelect, 'vip_price', this.storeInfo.vip_price);
 					this.$set(this, 'attrValue', '');
-					this.$set(this, 'attrTxt', this.$t(`请选择`));
+					this.$set(this, 'attrTxt', this.$t(`الرجاء اختيار `));
 				}
 			},
 			/**
@@ -681,7 +681,7 @@
 				).exec();
 			},
 			/**
-			 * 获取产品详情
+			 * 获取产品تفاصيل
 			 *
 			 */
 			getGoodsDetails: function() {
@@ -708,7 +708,7 @@
 							that.skuArr.push(obj);
 						}
 						that.$set(that, "selectSku", that.skuArr[0]);
-						var navList = [that.$t(`商品`), that.$t(`评价`), that.$t(`详情`)];
+						var navList = [that.$t(`商品`), that.$t(`评价`), that.$t(`تفاصيل`)];
 						if (goodArray.length) {
 							navList.splice(2, 0, that.$t(`推荐`));
 						}
@@ -853,7 +853,7 @@
 					this.$set(this.attr.productSelect, 'quota', productSelect.quota);
 					this.$set(this.attr.productSelect, 'vip_price', this.storeInfo.vip_price);
 					this.$set(this, 'attrValue', '');
-					this.$set(this, 'attrTxt', this.$t(`请选择`));
+					this.$set(this, 'attrTxt', this.$t(`الرجاء اختيار `));
 				} else if (!productSelect && !productAttr.length) {
 					this.$set(this.attr.productSelect, 'store_name', this.storeInfo.store_name);
 					this.$set(this.attr.productSelect, 'image', this.storeInfo.image);
@@ -863,7 +863,7 @@
 					this.$set(this.attr.productSelect, 'cart_num', 1);
 					this.$set(this.attr.productSelect, 'vip_price', this.storeInfo.vip_price);
 					this.$set(this, 'attrValue', '');
-					this.$set(this, 'attrTxt', this.$t(`请选择`));
+					this.$set(this, 'attrTxt', this.$t(`الرجاء اختيار `));
 				}
 			},
 			/**
@@ -975,7 +975,7 @@
 			 *
 			 */
 			joinCart: function(e) {
-				//是否登录
+				//是否تسجيل الدخول
 				if (this.isLogin === false) {
 					toLogin();
 				} else {
@@ -998,10 +998,10 @@
 				}
 				//只有关闭属性弹窗时进行加入购物车
 				if (that.attr.cartAttr === true && that.isOpen === false) return (that.isOpen = true);
-				//如果有属性,没有选择,提示用户选择
+				//如果有属性,没有选择,تنبيه用户选择
 				if (that.attr.productAttr.length && productSelect === undefined && that.isOpen === true)
 					return that.$util.Tips({
-						title: that.$t(`产品库存不足，请选择其它属性`)
+						title: that.$t(`产品库存不足，الرجاء اختيار 其它属性`)
 					});
 				let q = {
 					productId: that.storeInfo.product_id,
@@ -1206,7 +1206,7 @@
 			},
 
 			/*
-			 * 保存到手机相册
+			 * حفظ到手机相册
 			 */
 			// #ifdef MP
 			copyCommand: function() {
@@ -1237,13 +1237,13 @@
 										success: function(res) {
 											that.posterImageClose();
 											that.$util.Tips({
-												title: that.$t(`保存成功`),
+												title: that.$t(`حفظ成功`),
 												icon: 'success'
 											});
 										},
 										fail: function(res) {
 											that.$util.Tips({
-												title: that.$t(`保存失败`)
+												title: that.$t(`حفظ失败`)
 											});
 										}
 									});
@@ -1255,13 +1255,13 @@
 								success: function(res) {
 									that.posterImageClose();
 									that.$util.Tips({
-										title: that.$t(`保存成功`),
+										title: that.$t(`حفظ成功`),
 										icon: 'success'
 									});
 								},
 								fail: function(res) {
 									that.$util.Tips({
-										title: that.$t(`保存失败`)
+										title: that.$t(`حفظ失败`)
 									});
 								}
 							});

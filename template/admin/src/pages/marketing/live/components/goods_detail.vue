@@ -3,7 +3,7 @@
     <div>
       <div class="box-container">
         <div class="list sp">
-          <label class="name">商品名称：</label>
+          <label class="name">商品الاسم：</label>
           <span class="info">{{ FormData.name }}</span>
         </div>
         <div class="list sp">

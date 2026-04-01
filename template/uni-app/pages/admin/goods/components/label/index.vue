@@ -15,7 +15,7 @@
           class="sysTitle acea-row row-center-wrapper"
           :style="{ height: getHeight.barHeight + 'px' }"
         >
-          <view>添加标签</view>
+          <view>إضافة标签</view>
         </view>
       </view>
       <view
@@ -34,7 +34,7 @@
       >
         <!-- #endif -->
         <!-- #ifndef MP -->
-        <view class="header">添加标签</view>
+        <view class="header">إضافة标签</view>
         <view class="list" v-if="isStore">
           <!-- #endif -->
           <scroll-view scroll-y="true" style="height: 100%">

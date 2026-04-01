@@ -12,8 +12,8 @@
         >
           <div class="acea-row search-form" v-if="!collapse">
             <div>
-              <el-form-item label="用户搜索：" label-for="nickname">
-                <el-input v-model="userFrom.nickname" placeholder="请输入用户" clearable class="form_content_width">
+              <el-form-item label="用户بحث：" label-for="nickname">
+                <el-input v-model="userFrom.nickname" placeholder="الرجاء إدخال 用户" clearable class="form_content_width">
                   <el-select v-model="field_key" slot="prepend" style="width: 100px">
                     <el-option value="all" label="全部"></el-option>
                     <el-option value="uid" label="UID"></el-option>
@@ -23,7 +23,7 @@
                 </el-input>
               </el-form-item>
               <el-form-item label="用户等级：" label-for="level">
-                <el-select v-model="level" placeholder="请选择用户等级" clearable class="form_content_width">
+                <el-select v-model="level" placeholder="الرجاء اختيار 用户等级" clearable class="form_content_width">
                   <el-option value="all" label="全部">全部</el-option>
                   <el-option
                     :value="item.id"
@@ -34,7 +34,7 @@
                 </el-select>
               </el-form-item>
               <el-form-item label="用户分组：">
-                <el-select v-model="group_id" placeholder="请选择用户分组" clearable class="form_content_width">
+                <el-select v-model="group_id" placeholder="الرجاء اختيار 用户分组" clearable class="form_content_width">
                   <el-option value="all" label="全部"></el-option>
                   <el-option
                     :value="item.id"
@@ -56,8 +56,8 @@
           </div>
           <div v-if="collapse" class="acea-row search-form">
             <div class="search-form-box">
-              <el-form-item label="用户搜索：" label-for="nickname">
-                <el-input v-model="userFrom.nickname" placeholder="请输入用户" clearable class="form_content_width">
+              <el-form-item label="用户بحث：" label-for="nickname">
+                <el-input v-model="userFrom.nickname" placeholder="الرجاء إدخال 用户" clearable class="form_content_width">
                   <el-select v-model="field_key" slot="prepend" style="width: 100px">
                     <el-option value="all" label="全部"></el-option>
                     <el-option value="uid" label="UID"></el-option>
@@ -67,7 +67,7 @@
                 </el-input>
               </el-form-item>
               <el-form-item label="用户等级：" label-for="level">
-                <el-select v-model="level" placeholder="请选择用户等级" clearable class="form_content_width">
+                <el-select v-model="level" placeholder="الرجاء اختيار 用户等级" clearable class="form_content_width">
                   <el-option value="all" label="全部">全部</el-option>
                   <el-option
                     :value="item.id"
@@ -78,7 +78,7 @@
                 </el-select>
               </el-form-item>
               <el-form-item label="用户分组：">
-                <el-select v-model="group_id" placeholder="请选择用户分组" clearable class="form_content_width">
+                <el-select v-model="group_id" placeholder="الرجاء اختيار 用户分组" clearable class="form_content_width">
                   <el-option value="all" label="全部"></el-option>
                   <el-option
                     :value="item.id"
@@ -89,7 +89,7 @@
                 </el-select>
               </el-form-item>
               <el-form-item label="分销等级：">
-                <el-select v-model="agent_level" placeholder="请选择分销等级" clearable class="form_content_width">
+                <el-select v-model="agent_level" placeholder="الرجاء اختيار 分销等级" clearable class="form_content_width">
                   <el-option value="all" label="全部"></el-option>
                   <el-option
                     :value="item.grade"
@@ -113,14 +113,14 @@
                 </div>
               </el-form-item>
               <el-form-item label="用户身份：">
-                <el-select v-model="userFrom.is_promoter" placeholder="请选择" clearable class="form_content_width">
+                <el-select v-model="userFrom.is_promoter" placeholder="الرجاء اختيار " clearable class="form_content_width">
                   <el-option value="" label="全部"></el-option>
                   <el-option value="1" label="推广员"></el-option>
                   <el-option value="0" label="普通用户"></el-option>
                 </el-select>
               </el-form-item>
               <el-form-item label="付费会员：" label-for="isMember">
-                <el-select v-model="userFrom.isMember" placeholder="请选择" clearable class="form_content_width">
+                <el-select v-model="userFrom.isMember" placeholder="الرجاء اختيار " clearable class="form_content_width">
                   <el-option value="" label="全部"></el-option>
                   <el-option value="1" label="是"></el-option>
                   <el-option value="0" label="否"></el-option>
@@ -217,14 +217,14 @@
                 />
               </el-form-item>
               <el-form-item label="访问情况：" label-for="user_time_type">
-                <el-select v-model="user_time_type" placeholder="请选择访问情况" clearable class="form_content_width">
+                <el-select v-model="user_time_type" placeholder="الرجاء اختيار 访问情况" clearable class="form_content_width">
                   <el-option value="" label="全部"></el-option>
-                  <el-option value="visitno" label="时间段未访问"></el-option>
-                  <el-option value="visit" label="时间段访问过"></el-option>
+                  <el-option value="visitno" label="الوقت段未访问"></el-option>
+                  <el-option value="visit" label="الوقت段访问过"></el-option>
                   <el-option value="add_time" label="首次访问"></el-option>
                 </el-select>
               </el-form-item>
-              <el-form-item label="访问时间：" label-for="user_time" v-if="user_time_type">
+              <el-form-item label="访问الوقت：" label-for="user_time" v-if="user_time_type">
                 <el-date-picker
                   clearable
                   v-model="timeVal"
@@ -242,7 +242,7 @@
               <!-- <el-form-item label="地区：" label-for="country">
                 <el-select
                   v-model="userFrom.country"
-                  placeholder="请选择国家"
+                  placeholder="الرجاء اختيار 国家"
                   clearable
                   @change="changeCountry"
                   class="form_content_width"
@@ -264,7 +264,7 @@
             </div>
 
             <el-form-item class="search-form-sub">
-              <el-button type="primary" label="default" v-db-click @click="userSearchs">搜索</el-button>
+              <el-button type="primary" label="default" v-db-click @click="userSearchs">بحث</el-button>
               <el-button class="ResetSearch" v-db-click @click="reset('userFrom')">重置</el-button>
               <a class="ivu-ml-8 font12 ml10" v-db-click @click="collapse = !collapse">
                 <template v-if="!collapse"> 展开 <i class="el-icon-arrow-down" /> </template>
@@ -282,7 +282,7 @@
       <el-row :gutter="24" justify="space-between">
         <el-col :span="24">
           <el-button v-auth="['admin-user-save']" type="primary" v-db-click @click="edit({ uid: 0 })"
-            >添加用户</el-button
+            >إضافة用户</el-button
           >
           <el-button v-auth="['admin-user-coupon']" v-db-click @click="onSend">发送优惠券</el-button>
           <el-button
@@ -388,29 +388,29 @@
             <div>{{ scope.row.now_money }}</div>
           </template>
         </el-table-column>
-        <el-table-column label="操作" fixed="right" width="120">
+        <el-table-column label="الخيارات" fixed="right" width="120">
           <template slot-scope="scope">
             <template v-if="scope.row.is_del != 1">
-              <a v-db-click @click="userDetail(scope.row)">详情</a>
+              <a v-db-click @click="userDetail(scope.row)">تفاصيل</a>
 
               <el-divider direction="vertical"></el-divider>
               <el-dropdown size="small" @command="changeMenu(scope.row, $event, scope.$index)" :transfer="true">
                 <span class="el-dropdown-link">更多<i class="el-icon-arrow-down el-icon--right"></i> </span>
                 <el-dropdown-menu slot="dropdown">
-                  <!-- <el-dropdown-item command="1">编辑</el-dropdown-item> -->
-                  <el-dropdown-item command="2">修改余额</el-dropdown-item>
-                  <el-dropdown-item command="8">修改积分</el-dropdown-item>
+                  <!-- <el-dropdown-item command="1">تحرير</el-dropdown-item> -->
+                  <el-dropdown-item command="2">تعديل余额</el-dropdown-item>
+                  <el-dropdown-item command="8">تعديل积分</el-dropdown-item>
                   <el-dropdown-item command="3">赠送会员</el-dropdown-item>
                   <!--                                <el-dropdown-item command="4" v-if="row.vip_name">清除等级</el-dropdown-item>-->
                   <el-dropdown-item command="5">设置分组</el-dropdown-item>
                   <el-dropdown-item command="6">设置标签</el-dropdown-item>
-                  <el-dropdown-item command="7">修改上级推广人</el-dropdown-item>
+                  <el-dropdown-item command="7">تعديل上级推广人</el-dropdown-item>
                   <el-dropdown-item command="99" v-if="scope.row.spread_uid">清除上级推广人</el-dropdown-item>
                 </el-dropdown-menu>
               </el-dropdown>
             </template>
             <template v-else>
-              <a v-db-click @click="userDetail(scope.row)">详情</a>
+              <a v-db-click @click="userDetail(scope.row)">تفاصيل</a>
             </template>
           </template>
         </el-table-column>
@@ -426,11 +426,11 @@
         />
       </div>
     </el-card>
-    <!-- 编辑表单 积分余额-->
+    <!-- تحرير表单 积分余额-->
     <edit-from ref="edits" :FromData="FromData" @submitFail="submitFail"></edit-from>
     <!-- 发送优惠券-->
     <send-from ref="sends" :userIds="ids.toString()"></send-from>
-    <!-- 会员详情-->
+    <!-- 会员تفاصيل-->
     <user-details ref="userDetails"></user-details>
     <!--发送图文消息 -->
     <el-dialog :visible.sync="modal13" title="发送消息" width="1200px" class="modelBox">
@@ -444,8 +444,8 @@
         :maxCols="maxCols"
       ></news-category>
     </el-dialog>
-    <!--修改推广人-->
-    <el-dialog :visible.sync="promoterShow" title="修改推广人" width="540px" :show-close="true">
+    <!--تعديل推广人-->
+    <el-dialog :visible.sync="promoterShow" title="تعديل推广人" width="540px" :show-close="true">
       <el-form ref="formInline" :model="formInline" label-width="100px" @submit.native.prevent>
         <el-form-item v-if="formInline" label="选择推广人：" prop="image">
           <div class="picBox" v-db-click @click="customer">
@@ -459,14 +459,14 @@
         </el-form-item>
       </el-form>
       <div class="acea-row row-right mt20">
-        <el-button v-db-click @click="cancel('formInline')">取消</el-button>
-        <el-button type="primary" v-db-click @click="putSend('formInline')">提交</el-button>
+        <el-button v-db-click @click="cancel('formInline')">إلغاء</el-button>
+        <el-button type="primary" v-db-click @click="putSend('formInline')">إرسال</el-button>
       </div>
     </el-dialog>
-    <el-dialog :visible.sync="customerShow" title="请选择商城用户" :show-close="true" width="1000px">
+    <el-dialog :visible.sync="customerShow" title="الرجاء اختيار 商城用户" :show-close="true" width="1000px">
       <customerInfo v-if="customerShow" @imageObject="imageObject"></customerInfo>
     </el-dialog>
-    <el-dialog :visible.sync="labelShow" append-to-body title="请选择用户标签" width="540px" :show-close="true">
+    <el-dialog :visible.sync="labelShow" append-to-body title="الرجاء اختيار 用户标签" width="540px" :show-close="true">
       <userLabel
         v-if="labelShow"
         :uid="labelActive.uid"
@@ -487,8 +487,8 @@
       <div class="demo-drawer__content">
         <userEdit ref="userEdit" v-if="modals" :userData="userData"></userEdit>
         <div class="fix_footer acea-row row-center">
-          <el-button v-db-click @click="modals = false">取消</el-button>
-          <el-button type="primary" v-db-click @click="setUser">提交</el-button>
+          <el-button v-db-click @click="modals = false">إلغاء</el-button>
+          <el-button type="primary" v-db-click @click="setUser">إرسال</el-button>
         </div>
       </div>
     </el-drawer>
@@ -496,7 +496,7 @@
     <el-dialog
       :visible.sync="selectLabelShow"
       append-to-body
-      title="请选择用户标签"
+      title="الرجاء اختيار 用户标签"
       width="540px"
       :show-close="true"
       :close-on-click-modal="false"
@@ -691,10 +691,10 @@ export default {
         ids.push(i.id);
       });
       data.label_id = ids;
-      // if (!data.real_name) return this.$message.warning("请输入真实姓名");
-      // if (!data.phone) return this.$message.warning("请输入手机号");
-      // if (!data.pwd) return this.$message.warning("请输入密码");
-      // if (!data.true_pwd) return this.$message.warning("请输入确认密码");
+      // if (!data.real_name) return this.$message.warning("الرجاء إدخال 真实姓名");
+      // if (!data.phone) return this.$message.warning("الرجاء إدخال 手机号");
+      // if (!data.pwd) return this.$message.warning("الرجاء إدخال كلمة المرور");
+      // if (!data.true_pwd) return this.$message.warning("الرجاء إدخال تأكيدكلمة المرور");
       if (data.uid) {
         editUser(data)
           .then((res) => {
@@ -727,7 +727,7 @@ export default {
       this.labelShow = false;
       this.selectLabelShow = false;
     },
-    // 提交
+    // إرسال
     putSend(name) {
       this.$refs[name].validate((valid) => {
         if (valid) {
@@ -822,7 +822,7 @@ export default {
     // 批量设置分组；
     setGroup() {
       if (this.ids.length === 0) {
-        this.$message.warning('请选择要设置分组的用户');
+        this.$message.warning('الرجاء اختيار 要设置分组的用户');
       } else {
         let uids = { uids: this.ids };
         this.$modalForm(userSetGroup(uids)).then(() => {
@@ -835,7 +835,7 @@ export default {
     // 批量设置标签；
     setLabel() {
       if (this.ids.length === 0) {
-        this.$message.warning('请选择要设置标签的用户');
+        this.$message.warning('الرجاء اختيار 要设置标签的用户');
       } else {
         this.is_batch = true;
         let uids = { uids: this.ids };
@@ -924,7 +924,7 @@ export default {
       this.$refs.userDetails.modals = true;
       this.$refs.userDetails.getDetails(row.uid);
     },
-    // 操作
+    // الخيارات
     changeMenu(row, name, index) {
       let uid = [];
       uid.push(row.uid);
@@ -1027,7 +1027,7 @@ export default {
       //     this.$message.error(res.msg);
       //   });
     },
-    // 删除
+    // حذف
     del(row, tit, num, name) {
       let delfromData = {
         title: tit,
@@ -1046,7 +1046,7 @@ export default {
           this.$message.error(res.msg);
         });
     },
-    // 清除会员删除成功
+    // 清除会员حذف成功
     submitModel() {
       this.getList();
     },
@@ -1135,7 +1135,7 @@ export default {
       this.getList();
     },
 
-    // 搜索
+    // بحث
     userSearchs() {
       // 清除已选用户
       this.ids = [];
@@ -1185,7 +1185,7 @@ export default {
       this.selectedIds = new Set();
       this.getList();
     },
-    // 获取编辑表单数据
+    // 获取تحرير表单数据
     getUserFrom(id) {
       getUserInfo(id)
         .then(async (res) => {
@@ -1200,7 +1200,7 @@ export default {
     getOtherFrom(id, type) {
       this.$modalForm(editOtherApi(id, type)).then(() => this.getList(1));
     },
-    // 修改状态
+    // تعديلالحالة
     onchangeIsShow(row) {
       let data = {
         id: row.uid,
@@ -1218,7 +1218,7 @@ export default {
     onSend() {
       console.log(this.ids);
       if (this.ids.length === 0) {
-        this.$message.warning('请选择要发送优惠券的用户');
+        this.$message.warning('الرجاء اختيار 要发送优惠券的用户');
       } else {
         this.$refs.sends.modals = true;
         this.$refs.sends.getList();
@@ -1227,16 +1227,16 @@ export default {
     // 发送图文消息
     onSendPic() {
       if (this.ids.length === 0) {
-        this.$message.warning('请选择要发送图文消息的用户');
+        this.$message.warning('الرجاء اختيار 要发送图文消息的用户');
       } else {
         this.modal13 = true;
       }
     },
-    // 编辑
+    // تحرير
     edit(row) {
       this.getUserFrom(row.uid);
     },
-    // 修改成功
+    // تعديل成功
     submitFail() {
       // this.getList();
     },
@@ -1245,7 +1245,7 @@ export default {
       this.userFrom[e.prop] = e.order;
       this.getList();
     },
-    //全选和取消全选时触发
+    //全选和إلغاء全选时触发
     handleSelectAll(selection) {
       let ids = [];
       selection.map((e) => {
@@ -1272,7 +1272,7 @@ export default {
     setChecked() {
       //将new Set()转化为数组
       this.ids = [...this.selectedIds];
-      // 找到绑定的table的ref对应的dom，找到table的objData对象，objData保存的是当前页的数据
+      // 找到绑定的table的ref对应的dom，找到table的objData对象，objDataحفظ的是当前页的数据
       let objData = this.$refs.table?.objData;
       if (!objData) return;
       for (let index in objData) {

@@ -127,7 +127,7 @@ export default {
 					filePath: that.result,
 					success: function () {
 						uni.showToast({
-							title: '二维码保存成功',
+							title: '二维码حفظ成功',
 							icon: 'success',
 							duration: 2000
 						});

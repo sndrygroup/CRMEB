@@ -29,7 +29,7 @@
 					</label>
 				</radio-group>
 			</view>
-			<button class="button" form-type="submit">{{ $t(`确认`) }}</button>
+			<button class="button" form-type="submit">{{ $t(`تأكيد`) }}</button>
 			<view class="alipay" v-html="alipayHtml"></view>
 		</form>
 	</view>
@@ -103,7 +103,7 @@ export default {
 					if (!offline_pay_status) {
 						uni.showModal({
 							title: this.$t(`支付提醒`),
-							content: this.$t(`线下支付已关闭，请点击确认按钮返回主页`),
+							content: this.$t(`线下支付已关闭，请点击تأكيد按钮عودة主页`),
 							showCancel: false,
 							success() {
 								uni.switchTab({
@@ -131,7 +131,7 @@ export default {
 				this.combData(method);
 			} else {
 				uni.showToast({
-					title: this.$t(`请输入支付金额`),
+					title: this.$t(`الرجاء إدخال 支付金额`),
 					icon: 'none'
 				});
 			}
@@ -183,7 +183,7 @@ export default {
 			}
 			this.paying = true;
 			uni.showLoading({
-				title: this.$t(`正在确认`)
+				title: this.$t(`正在تأكيد`)
 			});
 			offlineCreate(data)
 				.then((res) => {
@@ -317,7 +317,7 @@ export default {
 						},
 						fail: function () {
 							uni.showToast({
-								title: that.$t(`取消支付`),
+								title: that.$t(`إلغاء支付`),
 								icon: 'none',
 								success: function () {
 									that.paying = false;
@@ -350,7 +350,7 @@ export default {
 							this.paying = false;
 							if (err.errMsg == 'chooseWXPay:cancel') {
 								uni.showToast({
-									title: this.$t(`取消支付`),
+									title: this.$t(`إلغاء支付`),
 									icon: 'none'
 								});
 							}

@@ -15,7 +15,7 @@ import Setting from '@/setting';
 import router from '@/router';
 const service = axios.create({
   baseURL: Setting.apiBaseURL,
-  timeout: 100000, // 请求超时时间
+  timeout: 100000, // 请求超时الوقت
 });
 
 axios.defaults.withCredentials = true; // 携带cookie
@@ -68,14 +68,14 @@ service.interceptors.response.use(
         removeCookies('expires_time');
         removeCookies('uuid');
         router.replace({ name: 'login' }).catch(() => {});
-        return Promise.reject({ msg: '未登录' });
+        return Promise.reject({ msg: '未تسجيل الدخول' });
       case 402:
         removeCookies('kefuInfo');
         removeCookies('kefu_token');
         removeCookies('kefu_expires_time');
         removeCookies('kefu_uuid');
         router.replace({ path: '/kefu' }).catch(() => {});
-        return Promise.reject({ msg: '未登录' });
+        return Promise.reject({ msg: '未تسجيل الدخول' });
       case 403:
         router.replace({ name: 'system_opendir_login' }).catch(() => {});
         return Promise.reject({ msg: '没有权限' });

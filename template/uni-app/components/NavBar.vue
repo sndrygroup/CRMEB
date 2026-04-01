@@ -49,7 +49,7 @@ export default {
 			type: Boolean,
 			default: false
 		},
-		// 是否显示返回icon
+		// 是否显示عودةicon
 		showBack: {
 			type: Boolean,
 			default: false

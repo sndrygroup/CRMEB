@@ -12,7 +12,7 @@
                 type="text"
                 v-model="formInline.account"
                 prefix="ios-contact-outline"
-                placeholder="请输入当前手机号"
+                placeholder="الرجاء إدخال 当前手机号"
                 size="large"
               />
             </el-form-item>
@@ -21,7 +21,7 @@
                 type="password"
                 v-model="formInline.password"
                 prefix="ios-lock-outline"
-                placeholder="请输入密码"
+                placeholder="الرجاء إدخال كلمة المرور"
               />
             </el-form-item>
           </template>
@@ -31,7 +31,7 @@
                 type="text"
                 v-model="formInline.phone"
                 prefix="ios-lock-outline"
-                placeholder="请输入新手机号"
+                placeholder="الرجاء إدخال 新手机号"
                 size="large"
               />
             </el-form-item>
@@ -41,7 +41,7 @@
                   type="text"
                   v-model="formInline.verify_code"
                   prefix="ios-keypad-outline"
-                  placeholder="请输入验证码"
+                  placeholder="الرجاء إدخال 验证码"
                   size="large"
                 />
                 <el-button :disabled="!this.canClick" v-db-click @click="cutDown" size="large">{{ cutNUm }}</el-button>
@@ -54,7 +54,7 @@
                 type="text"
                 v-model="formInline.phone"
                 prefix="ios-contact-outline"
-                placeholder="请输入手机号"
+                placeholder="الرجاء إدخال 手机号"
               />
             </el-form-item>
             <el-form-item prop="password" class="maxInpt">
@@ -62,7 +62,7 @@
                 type="password"
                 v-model="formInline.password"
                 prefix="ios-lock-outline"
-                placeholder="请输入密码"
+                placeholder="الرجاء إدخال كلمة المرور"
               />
             </el-form-item>
           </template>
@@ -85,7 +85,7 @@
               v-db-click
               @click="handleSubmit2('formInline', current)"
               class="mb20"
-              >提交</el-button
+              >إرسال</el-button
             >
             <el-button
               v-if="current === 2"
@@ -95,9 +95,9 @@
               v-db-click
               @click="handleSubmit('formInline', current)"
               class="mb20"
-              >登录</el-button
+              >تسجيل الدخول</el-button
             >
-            <el-button long size="large" v-db-click @click="returns('formInline')" class="btn">返回 </el-button>
+            <el-button long size="large" v-db-click @click="returns('formInline')" class="btn">عودة </el-button>
           </el-form-item>
         </el-form>
       </div>
@@ -130,7 +130,7 @@ export default {
     };
     var validatePass = (rule, value, callback) => {
       if (value === '') {
-        callback(new Error('请输入密码'));
+        callback(new Error('الرجاء إدخال كلمة المرور'));
       } else {
         if (this.formInline.checkPass !== '') {
           this.$refs.formInline.validateField('checkPass');
@@ -151,11 +151,11 @@ export default {
       },
       ruleInline: {
         phone: [{ required: true, validator: validatePhone, trigger: 'blur' }],
-        verify_code: [{ required: true, message: '请输入验证码', trigger: 'blur' }],
-        password: [{ required: true, message: '请输入密码', trigger: 'blur' }],
+        verify_code: [{ required: true, message: 'الرجاء إدخال 验证码', trigger: 'blur' }],
+        password: [{ required: true, message: 'الرجاء إدخال كلمة المرور', trigger: 'blur' }],
         account: [{ required: true, validator: validatePhone, trigger: 'blur' }],
       },
-      stepList: ['验证账号信息', '修改手机号码', '登录'],
+      stepList: ['验证账号信息', 'تعديل手机号码', 'تسجيل الدخول'],
     };
   },
   methods: {
@@ -212,7 +212,7 @@ export default {
         }
       });
     },
-    //登录
+    //تسجيل الدخول
     handleSubmit(name, num) {
       this.$refs[name].validate((valid) => {
         if (valid) {
@@ -221,7 +221,7 @@ export default {
             password: this.formInline.password,
           })
             .then(async (res) => {
-              num === 1 ? this.$message.success('原手机号密码正确') : this.$message.success('登录成功');
+              num === 1 ? this.$message.success('原手机号كلمة المرور正确') : this.$message.success('تسجيل الدخول成功');
               num === 1 ? (this.current = 1) : this.$emit('on-Login');
             })
             .catch((res) => {

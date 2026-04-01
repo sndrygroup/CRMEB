@@ -11,7 +11,7 @@
 import request from '@/libs/request';
 
 /*
- * 登录
+ * تسجيل الدخول
  * */
 export function AccountLogin(data) {
   return request({
@@ -22,7 +22,7 @@ export function AccountLogin(data) {
 }
 
 /**
- * 退出登录
+ * 退出تسجيل الدخول
  * @constructor
  */
 export function AccountLogout() {
@@ -53,7 +53,7 @@ export function menusApi() {
 }
 
 /**
- * 搜索菜单数据
+ * بحث菜单数据
  */
 export function menusListApi() {
   return request({

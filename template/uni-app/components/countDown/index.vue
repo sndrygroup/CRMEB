@@ -30,7 +30,7 @@ export default {
       type: String,
       default: "",
     },
-    //距离开始提示文字
+    //距离开始تنبيه文字
     tipText: {
       type: String,
       default: "倒计时",
@@ -102,14 +102,14 @@ export default {
       let that = this;
 
       function runTime() {
-        //时间函数
-        let intDiff = that.datatime - Date.parse(new Date()) / 1000; //获取数据中的时间戳的时间差；
+        //الوقت函数
+        let intDiff = that.datatime - Date.parse(new Date()) / 1000; //获取数据中的الوقت戳的الوقت差；
         let day = 0,
           hour = 0,
           minute = 0,
           second = 0;
         if (intDiff > 0) {
-          //转换时间
+          //转换الوقت
           if (that.isDay === true) {
             day = Math.floor(intDiff / (60 * 60 * 24));
           } else {

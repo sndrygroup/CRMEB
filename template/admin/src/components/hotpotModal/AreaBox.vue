@@ -17,13 +17,13 @@
         {{ isSet ? '(已设置)' : '(未设置)' }}
       </div>
     </div>
-    <!--删除-->
+    <!--حذف-->
     <div class="del" @click.stop="del()">
       <i class="el-icon-close" size="16" />
     </div>
     <!--形变点-->
     <div class="shape" @mousedown.left.stop="shapeDown($event)" @mouseup.left.stop="mouseUp($event)" />
-    <!--编辑框-->
+    <!--تحرير框-->
 
     <div>
       <el-dialog :visible.sync="editBoxShow" title="设置热区" width="560px" append-to-body>
@@ -86,7 +86,7 @@ export default {
       url: '',
       editBoxShow: false,
       promptText: '双击设置热区',
-      // box操作初始点
+      // boxالخيارات初始点
       move: {
         // 拖动
         startX: 0,
@@ -114,14 +114,14 @@ export default {
     this.url = this.link;
   },
   methods: {
-    // 删除
+    // حذف
     del() {
       this.$emit('delAreaBox', this.areaDataIndex);
     },
-    // 添加网址
+    // إضافة网址
     addURL() {
       if (!this.url) {
-        this.$message.error('请输入链接');
+        this.$message.error('الرجاء إدخال 链接');
       } else {
         this.$emit('addURL', this.areaDataIndex, this.url);
         this.editBoxShow = false;

@@ -4,7 +4,7 @@
       <template v-if="curComponent">
         <template v-if="!curComponent.isLock">
           <li @click="handleAction('copy')">复制</li>
-          <li @click="handleAction('delete')">删除</li>
+          <li @click="handleAction('delete')">حذف</li>
           <li @click="handleAction('lock')">锁定</li>
           <li class="divider"></li>
           <li @click="handleAction('top')">置顶</li>
@@ -15,7 +15,7 @@
         <li v-else @click="handleAction('unlock')">解锁</li>
       </template>
       <template v-else>
-        <li class="disabled">暂无操作</li>
+        <li class="disabled">暂无الخيارات</li>
       </template>
     </ul>
   </div>

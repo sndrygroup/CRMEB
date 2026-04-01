@@ -16,7 +16,7 @@
           @submit.native.prevent
           inline
         >
-          <el-form-item label="时间选择：">
+          <el-form-item label="الوقت选择：">
             <el-date-picker
               clearable
               :editable="false"
@@ -39,10 +39,10 @@
               ></el-option>
             </el-select>
           </el-form-item>
-          <el-form-item label="搜索：" v-if="listTitle === 'man'">
+          <el-form-item label="بحث：" v-if="listTitle === 'man'">
             <el-input
               clearable
-              placeholder="请输入请姓名、电话、UID"
+              placeholder="الرجاء إدخال 请姓名、电话、UID"
               v-model="formValidate.nickname"
               class="form_content_width"
             ></el-input>
@@ -50,7 +50,7 @@
           <el-form-item label="订单号：" v-if="listTitle === 'order'">
             <el-input
               clearable
-              placeholder="请输入请订单号"
+              placeholder="الرجاء إدخال 请订单号"
               v-model="formValidate.order_id"
               class="form_content_width"
             ></el-input>
@@ -101,7 +101,7 @@
               <span>{{ scope.row.order_count }}</span>
             </template>
           </el-table-column>
-          <el-table-column label="绑定时间" min-width="130">
+          <el-table-column label="绑定الوقت" min-width="130">
             <template slot-scope="scope">
               <span>{{ scope.row.spread_time | formatDate }}</span>
             </template>
@@ -118,7 +118,7 @@
               <span>{{ scope.row.user_info }}</span>
             </template>
           </el-table-column>
-          <el-table-column label="时间" min-width="130">
+          <el-table-column label="الوقت" min-width="130">
             <template slot-scope="scope">
               <span>{{ scope.row._add_time }}</span>
             </template>
@@ -182,7 +182,7 @@ export default {
     return {
       modals: false,
       fromList: {
-        title: '选择时间',
+        title: '选择الوقت',
         custom: true,
         fromTxt: [
           { text: '全部', val: '' },
@@ -256,7 +256,7 @@ export default {
       this.formValidate.data = this.timeVal ? this.timeVal.join('-') : '';
       this.getList(this.rowsList, this.listTitle);
     },
-    // 选择时间
+    // 选择الوقت
     selectChange(tab) {
       this.formValidate.data = tab;
       this.timeVal = [];
@@ -290,7 +290,7 @@ export default {
     pageChange() {
       this.getList(this.rowsList, this.listTitle);
     },
-    // 搜索
+    // بحث
     userSearchs() {
       this.formValidate.page = 1;
       this.getList(this.rowsList, this.listTitle);

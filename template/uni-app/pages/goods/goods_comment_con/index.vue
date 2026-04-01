@@ -133,7 +133,7 @@
 				this.isShowAuth = e
 			},
 			/**
-			 * 获取某个产品详情
+			 * 获取某个产品تفاصيل
 			 * 
 			 */
 			getOrderProduct: function() {
@@ -147,7 +147,7 @@
 				this.scoreList[indexw].index = indexn;
 			},
 			/**
-			 * 删除图片
+			 * حذف图片
 			 * 
 			 */
 			DelPic: function(index) {

@@ -38,7 +38,7 @@
 				imgHost:HTTP_REQUEST_URL,
 				loading: false,
 				loadend: false,
-				loadTitle: this.$t(`加载更多`), //提示语
+				loadTitle: this.$t(`加载更多`), //تنبيه语
 				page: 1,
 				limit: 20,
 				expList: []

@@ -17,8 +17,8 @@
 			<view class="table" v-if="['me','user'].includes(showMsg.type)">
 				<view class="table-head">
 					<view class="nickname">{{showMsg.type === 'user' ? $t(`昵称`) : $t(`序号`)}}</view>
-					<view class="table-name">{{$t(`奖品名称`)}}</view>
-					<view class="table-name time">{{$t(`获奖时间`)}}</view>
+					<view class="table-name">{{$t(`奖品الاسم`)}}</view>
+					<view class="table-name time">{{$t(`获奖الوقت`)}}</view>
 				</view>
 				<view class="table-d">
 					<view class="table-body" v-for="(item,index) in showMsg.data" :key="index">

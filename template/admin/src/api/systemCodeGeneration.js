@@ -29,7 +29,7 @@ export function crudColumnType() {
   });
 }
 /**
- * @description 代码生成 - 第一步提交
+ * @description 代码生成 - 第一步إرسال
  */
 export function crudFilePath(data) {
   return request({
@@ -106,7 +106,7 @@ export function crudDataDictionaryList(id) {
   });
 }
 /**
- * @description 保存数据字典
+ * @description حفظ数据字典
  */
 export function saveCrudDataDictionaryList(id, data) {
   return request({
@@ -116,7 +116,7 @@ export function saveCrudDataDictionaryList(id, data) {
   });
 }
 /**
- * @description 代码生成 - 文件编辑
+ * @description 代码生成 - 文件تحرير
  */
 export function crudSaveFile(id, data) {
   return request({
@@ -137,7 +137,7 @@ export function getDataDictionaryList(data) {
   });
 }
 /**
- * @description 获取数据字典添加修改表单
+ * @description 获取数据字典إضافةتعديل表单
  */
 export function getDataDictionaryForm(id) {
   return request({

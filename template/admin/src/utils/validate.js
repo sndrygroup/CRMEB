@@ -142,7 +142,7 @@ export function required(message, opt = {}) {
     ...opt,
   };
 }
-bindMessage(required, '请输入%s');
+bindMessage(required, 'الرجاء إدخال %s');
 
 /**
  * 正确的金额

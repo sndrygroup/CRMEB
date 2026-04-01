@@ -23,7 +23,7 @@ export function accountListApi(data) {
 }
 
 /**
- * @description 对外账号 修改状态
+ * @description 对外账号 تعديلالحالة
  * @param {Object} param data {Object} 传值
  */
 export function setShowApi(data) {
@@ -34,7 +34,7 @@ export function setShowApi(data) {
 }
 
 /**
- * @description 添加对外账号
+ * @description إضافة对外账号
  * @param {Object} param data {Object} 传值
  */
 export function outSaveApi(data) {
@@ -46,7 +46,7 @@ export function outSaveApi(data) {
 }
 
 /**
- * @description 修改对外账号
+ * @description تعديل对外账号
  * @param {Object} param id {Number} 账号ID
  * @param {Object} param data {Object} 传值
  */
@@ -93,7 +93,7 @@ export function setUpPush(data) {
   });
 }
 /**
- * 添加/编辑接口
+ * إضافة/تحرير接口
  * @param {*} data
  * @returns
  */
@@ -106,7 +106,7 @@ export function interfaceSave(data) {
 }
 
 /**
- * 接口信息详情
+ * 接口信息تفاصيل
  * @param {*} data
  * @returns
  */
@@ -118,7 +118,7 @@ export function interfaceDet(id) {
 }
 
 /**
- * @description 修改名称
+ * @description تعديلالاسم
  * @param {Object} data data {Object} 传值
  */
 export function interfaceEditName(data) {
@@ -130,7 +130,7 @@ export function interfaceEditName(data) {
 }
 
 /**
- * @description 删除
+ * @description حذف
  */
 export function interfaceDel(id) {
   return request({
@@ -140,7 +140,7 @@ export function interfaceDel(id) {
 }
 
 /**
- * 接口信息详情
+ * 接口信息تفاصيل
  * @param {*} data
  * @returns
  */

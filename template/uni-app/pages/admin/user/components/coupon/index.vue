@@ -8,7 +8,7 @@
 			</view>
 			<view class="search acea-row row-middle" v-if="num !=2">
 				<text class="iconfont icon-ic_search"></text>
-				<input class="inputs" placeholder='请输入优惠券名称' placeholder-class='placeholder' confirm-type='search' name="search"
+				<input class="inputs" placeholder='الرجاء إدخال 优惠券الاسم' placeholder-class='placeholder' confirm-type='search' name="search"
 					v-model="keyword" @confirm="searchSubmit"></input>
 			</view>
 			<view class="list" v-if="couponList.length">

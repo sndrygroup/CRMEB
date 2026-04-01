@@ -2,7 +2,7 @@
   <div>
     <pages-header
       ref="pageHeader"
-      :title="$route.params.id ? '编辑砍价商品' : '添加砍价商品'"
+      :title="$route.params.id ? 'تحرير砍价商品' : 'إضافة砍价商品'"
       :backUrl="$routeProStr + '/marketing/store_bargain/index'"
     ></pages-header>
     <el-card :bordered="false" shadow="never" class="mt16">
@@ -73,9 +73,9 @@
               </el-col>
               <el-col :span="24">
                 <el-col v-bind="grid">
-                  <el-form-item label="砍价活动名称：" prop="title" label-for="title">
+                  <el-form-item label="砍价活动الاسم：" prop="title" label-for="title">
                     <el-input
-                      placeholder="请输入砍价活动名称"
+                      placeholder="الرجاء إدخال 砍价活动الاسم"
                       v-model="formValidate.title"
                       class="content_width"
                       maxlength="30"
@@ -88,7 +88,7 @@
                 <el-col v-bind="grid">
                   <el-form-item label="砍价活动简介：" prop="info" label-for="info">
                     <el-input
-                      placeholder="请输入砍价活动简介"
+                      placeholder="الرجاء إدخال 砍价活动简介"
                       type="textarea"
                       :rows="4"
                       v-model="formValidate.info"
@@ -100,7 +100,7 @@
                 </el-col>
               </el-col>
               <el-col :span="24">
-                <el-form-item label="活动时间：" prop="section_time">
+                <el-form-item label="活动الوقت：" prop="section_time">
                   <div>
                     <el-date-picker
                       clearable
@@ -115,7 +115,7 @@
                       style="width: 460px"
                       v-model="formValidate.section_time"
                     ></el-date-picker>
-                    <div class="grey">设置活动开启结束时间，用户可以在设置时间内发起参与砍价</div>
+                    <div class="grey">设置活动开启结束الوقت，用户可以在设置الوقت内发起参与砍价</div>
                   </div>
                 </el-form-item>
               </el-col>
@@ -146,7 +146,7 @@
                       :min="0"
                       :max="9999999999"
                       v-model="formValidate.postage"
-                      placeholder="请输入金额"
+                      placeholder="الرجاء إدخال 金额"
                       class="content_width"
                     />
                   </div>
@@ -158,7 +158,7 @@
                     <el-select
                       v-model="formValidate.temp_id"
                       clearable
-                      placeholder="请选择运费模板"
+                      placeholder="الرجاء اختيار 运费模板"
                       class="content_width"
                     >
                       <el-option
@@ -177,7 +177,7 @@
                   <div>
                     <el-input-number
                       :controls="false"
-                      placeholder="请输入砍价人数"
+                      placeholder="الرجاء إدخال 砍价人数"
                       element-id="people_num"
                       :min="2"
                       :max="10000"
@@ -195,7 +195,7 @@
                   <div>
                     <el-input-number
                       :controls="false"
-                      placeholder="请输入帮砍次数"
+                      placeholder="الرجاء إدخال 帮砍次数"
                       :min="1"
                       :max="10000"
                       :precision="0"
@@ -212,7 +212,7 @@
               <el-col :span="24">
                 <el-form-item label="单位：" prop="unit_name" label-for="unit_name">
                   <el-input
-                    placeholder="请输入单位"
+                    placeholder="الرجاء إدخال 单位"
                     element-id="unit_name"
                     v-model="formValidate.unit_name"
                     class="content_width"
@@ -240,7 +240,7 @@
                 <el-form-item label="排序：">
                   <el-input-number
                     :controls="false"
-                    placeholder="请输入排序"
+                    placeholder="الرجاء إدخال 排序"
                     element-id="sort"
                     :min="0"
                     :max="10000"
@@ -268,7 +268,7 @@
                 </el-form-item>
               </el-col>
               <el-col :span="24">
-                <el-form-item label="活动状态：" props="status" label-for="status">
+                <el-form-item label="活动الحالة：" props="status" label-for="status">
                   <el-switch
                     class="defineSwitch"
                     :active-value="1"
@@ -385,7 +385,7 @@
                 class="submission"
                 v-db-click
                 @click="next('formValidate')"
-                >{{ current === 3 ? '提交' : '下一步' }}</el-button
+                >{{ current === 3 ? 'إرسال' : '下一步' }}</el-button
               >
             </el-form-item>
           </el-form>
@@ -438,13 +438,13 @@ export default {
       submitOpen: false,
       spinShow: false,
       myConfig: {
-        autoHeightEnabled: false, // 编辑器不自动被内容撑高
+        autoHeightEnabled: false, // تحرير器不自动被内容撑高
         initialFrameHeight: 500, // 初始容器高度
         initialFrameWidth: '100%', // 初始容器宽度
         UEDITOR_HOME_URL: '/UEditor/',
         serverUrl: '',
       },
-      stepList: ['选择砍价商品', '填写基础信息', '修改商品详情', '修改商品规则'],
+      stepList: ['选择砍价商品', '填写基础信息', 'تعديل商品تفاصيل', 'تعديل商品规则'],
       isChoice: '',
       current: 0,
       modalPic: false,
@@ -520,12 +520,12 @@ export default {
       description: '',
       rule: '',
       ruleValidate: {
-        image: [{ required: true, message: '请选择主图', trigger: 'change' }],
+        image: [{ required: true, message: 'الرجاء اختيار 主图', trigger: 'change' }],
         images: [
           {
             required: true,
             type: 'array',
-            message: '请选择主图',
+            message: 'الرجاء اختيار 主图',
             trigger: 'change',
           },
           {
@@ -535,23 +535,23 @@ export default {
             trigger: 'change',
           },
         ],
-        title: [{ required: true, message: '请输入砍价活动名称', trigger: 'blur' }],
-        info: [{ required: true, message: '请输入砍价活动简介', trigger: 'blur' }],
-        store_name: [{ required: true, message: '请输入砍价商品名称', trigger: 'blur' }],
+        title: [{ required: true, message: 'الرجاء إدخال 砍价活动الاسم', trigger: 'blur' }],
+        info: [{ required: true, message: 'الرجاء إدخال 砍价活动简介', trigger: 'blur' }],
+        store_name: [{ required: true, message: 'الرجاء إدخال 砍价商品الاسم', trigger: 'blur' }],
         section_time: [
           {
             required: true,
             type: 'array',
-            message: '请选择活动时间',
+            message: 'الرجاء اختيار 活动الوقت',
             trigger: 'change',
           },
         ],
-        unit_name: [{ required: true, message: '请输入单位', trigger: 'blur' }],
+        unit_name: [{ required: true, message: 'الرجاء إدخال 单位', trigger: 'blur' }],
         price: [
           {
             required: true,
             type: 'number',
-            message: '请输入原价',
+            message: 'الرجاء إدخال 原价',
             trigger: 'blur',
           },
         ],
@@ -559,7 +559,7 @@ export default {
           {
             required: true,
             type: 'number',
-            message: '请输入最低购买价',
+            message: 'الرجاء إدخال 最低购买价',
             trigger: 'blur',
           },
         ],
@@ -573,7 +573,7 @@ export default {
           {
             required: true,
             type: 'number',
-            message: '请输入成本价',
+            message: 'الرجاء إدخال 成本价',
             trigger: 'blur',
           },
         ],
@@ -581,7 +581,7 @@ export default {
           {
             required: true,
             type: 'number',
-            message: '请输入帮砍次数',
+            message: 'الرجاء إدخال 帮砍次数',
             trigger: 'blur',
           },
         ],
@@ -589,7 +589,7 @@ export default {
           {
             required: true,
             type: 'number',
-            message: '请输入砍价人数',
+            message: 'الرجاء إدخال 砍价人数',
             trigger: 'blur',
           },
         ],
@@ -597,7 +597,7 @@ export default {
           {
             required: true,
             type: 'number',
-            message: '请输入库存',
+            message: 'الرجاء إدخال 库存',
             trigger: 'blur',
           },
         ],
@@ -605,14 +605,14 @@ export default {
           {
             required: true,
             type: 'number',
-            message: '请输入单次允许购买数量',
+            message: 'الرجاء إدخال 单次允许购买数量',
             trigger: 'blur',
           },
         ],
         temp_id: [
           {
             required: true,
-            message: '请选择运费模板',
+            message: 'الرجاء اختيار 运费模板',
             trigger: 'change',
             type: 'number',
           },
@@ -642,7 +642,7 @@ export default {
     this.productGetTemplate();
   },
   methods: {
-    // 详情内容
+    // تفاصيل内容
     getEditorContent(data) {
       this.description = data;
     },
@@ -650,7 +650,7 @@ export default {
     getEditorContent2(data) {
       this.rule = data;
     },
-    // 添加运费模板
+    // إضافة运费模板
     freight() {
       this.$refs.template.id = 0;
       this.$refs.template.isTemplate = true;
@@ -754,7 +754,7 @@ export default {
     onchangeTime(e) {
       this.formValidate.section_time = e;
     },
-    // 详情
+    // تفاصيل
     getInfo() {
       this.spinShow = true;
       bargainInfoApi(this.$route.params.id)
@@ -815,7 +815,7 @@ export default {
         this.$refs[name].validate((valid) => {
           if (valid) {
             if (this.currentid === '') {
-              return this.$message.error('请选择属性规格');
+              return this.$message.error('الرجاء اختيار 属性规格');
             } else {
               let val = this.specsData[this.currentid];
               // let formValidate = this.formValidate.attrs[0];
@@ -846,7 +846,7 @@ export default {
             }, 0);
           }
         } else {
-          this.$message.warning('请选择商品');
+          this.$message.warning('الرجاء اختيار 商品');
         }
       }
     },
@@ -910,7 +910,7 @@ export default {
         this.$message.error(error);
       }
     },
-    // 添加自定义弹窗
+    // إضافة自定义弹窗
     addCustomDialog(editorId) {
       window.UE.registerUI(
         'test-dialog',
@@ -919,7 +919,7 @@ export default {
           let dialog = new window.UE.ui.Dialog({
             // 指定弹出层中页面的路径，这里只能支持页面，路径参考常见问题 2
             iframeUrl: this.$routeProStr + '/widget.images/index.html?fodder=dialog',
-            // 需要指定当前的编辑器实例
+            // 需要指定当前的تحرير器实例
             editor: editor,
             // 指定 dialog 的名字
             name: uiName,

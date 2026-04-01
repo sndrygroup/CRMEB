@@ -22,7 +22,7 @@
       <el-col :span="24" v-if="formValidate.freight != 3 && formValidate.freight != 1">
         <el-form-item label="" :prop="formValidate.freight != 1 ? 'freight' : ''">
           <div class="acea-row">
-            <el-input-number :controls="false" :min="0" v-model="formValidate.postage" placeholder="请输入金额"
+            <el-input-number :controls="false" :min="0" v-model="formValidate.postage" placeholder="الرجاء إدخال 金额"
               class="input_width maxW input-number-unit-class" class-unit="元" />
           </div>
         </el-form-item>
@@ -30,7 +30,7 @@
       <el-col :span="24" v-if="formValidate.freight == 3">
         <el-form-item label="" prop="temp_id">
           <div class="acea-row">
-            <el-select v-model="formValidate.temp_id" clearable placeholder="请选择运费模板" class="input_width maxW">
+            <el-select v-model="formValidate.temp_id" clearable placeholder="الرجاء اختيار 运费模板" class="input_width maxW">
               <el-option v-for="(item, index) in templateList" :value="item.id" :key="index"
                 :label="item.name"></el-option>
             </el-select>

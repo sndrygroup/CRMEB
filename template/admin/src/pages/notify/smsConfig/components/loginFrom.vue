@@ -3,7 +3,7 @@
     <el-col :span="24">
       <div class="index_from page-account-container">
         <div class="page-account-top">
-          <span class="page-account-top-tit">一号通账户登录</span>
+          <span class="page-account-top-tit">一号通账户تسجيل الدخول</span>
         </div>
         <el-form
           ref="formInline"
@@ -17,7 +17,7 @@
               type="text"
               v-model="formInline.account"
               prefix="ios-contact-outline"
-              placeholder="请输入手机号"
+              placeholder="الرجاء إدخال 手机号"
             />
           </el-form-item>
           <el-form-item prop="sms_token" class="maxInpt">
@@ -25,17 +25,17 @@
               type="password"
               v-model="formInline.password"
               prefix="ios-lock-outline"
-              placeholder="请输入密码"
+              placeholder="الرجاء إدخال كلمة المرور"
             />
           </el-form-item>
           <el-form-item class="maxInpt">
             <el-button type="primary" long size="large" v-db-click @click="handleSubmit('formInline')" class="btn"
-              >登录</el-button
+              >تسجيل الدخول</el-button
             >
           </el-form-item>
         </el-form>
         <div class="page-account-other">
-          <span v-db-click @click="changePassword">忘记密码 |</span>
+          <span v-db-click @click="changePassword">忘记كلمة المرور |</span>
           <span v-db-click @click="changeReg"> 注册账户</span>
         </div>
       </div>
@@ -64,7 +64,7 @@ export default {
       },
       ruleInline: {
         account: [{ required: true, validator: validatePhone, trigger: 'blur' }],
-        password: [{ required: true, message: '请输入密码', trigger: 'blur' }],
+        password: [{ required: true, message: 'الرجاء إدخال كلمة المرور', trigger: 'blur' }],
       },
     };
   },
@@ -83,7 +83,7 @@ export default {
         if (valid) {
           configApi(this.formInline)
             .then(async (res) => {
-              this.$message.success('登录成功!');
+              this.$message.success('تسجيل الدخول成功!');
               this.$emit('on-Login');
             })
             .catch((res) => {
@@ -94,7 +94,7 @@ export default {
         }
       });
     },
-    // 休改密码
+    // 休改كلمة المرور
     changePassword() {
       this.$emit('on-change');
     },

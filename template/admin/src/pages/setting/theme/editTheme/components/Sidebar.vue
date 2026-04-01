@@ -2,7 +2,7 @@
   <div class="sidebar-container" :class="{ collapsed }">
     <div class="back-btn" @click="goBack">
       <i class="el-icon-arrow-left"></i>
-      <span v-if="!collapsed">返回</span>
+      <span v-if="!collapsed">عودة</span>
     </div>
 
     <div class="menu-list">
@@ -48,7 +48,7 @@ export default {
       menuList: [
         { key: 'home', name: '商城首页', icon: 'iconic_home' },
         { key: 'category', name: '商品分类', icon: 'icona-ic_Picturearrangement' },
-        { key: 'detail', name: '商品详情', icon: 'iconic_commodity' },
+        { key: 'detail', name: '商品تفاصيل', icon: 'iconic_commodity' },
         { key: 'user', name: '个人中心', icon: 'icona-ic_user1' },
         { key: 'theme', name: '商城风格', icon: 'iconic_zhuti' },
       ],
@@ -59,9 +59,9 @@ export default {
       if (this.activeMenu === key) return;
       let type = this.$route.query.type;
       if (this.unsaved) {
-        this.$confirm('确定离开此页面？系统可能不会保存您所做的更改。', '提示', {
-          confirmButtonText: '保存',
-          cancelButtonText: '不保存',
+        this.$confirm('确定离开此页面？系统可能不会حفظ您所做的更改。', 'تنبيه', {
+          confirmButtonText: 'حفظ',
+          cancelButtonText: '不حفظ',
           type: 'warning',
           distinguishCancelAndClose: true,
           showClose: false,
@@ -82,8 +82,8 @@ export default {
     },
     goBack() {
       let type = this.$route.query.type;
-      this.$confirm('确定离开此页面？系统可能不会保存您所做的更改。', '提示', {
-        confirmButtonText: '保存',
+      this.$confirm('确定离开此页面？系统可能不会حفظ您所做的更改。', 'تنبيه', {
+        confirmButtonText: 'حفظ',
         cancelButtonText: '退出',
         type: 'warning',
         distinguishCancelAndClose: true,

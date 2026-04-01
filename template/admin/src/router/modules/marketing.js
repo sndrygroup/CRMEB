@@ -47,7 +47,7 @@ export default {
       name: `${pre}storeCombinationCreate`,
       meta: {
         auth: ['marketing-store_combination-create'],
-        title: '添加拼团',
+        title: 'إضافة拼团',
         activeMenu: routePre + '/marketing/store_combination/index',
       },
       component: () => import('@/pages/marketing/storeCombination/create'),
@@ -85,7 +85,7 @@ export default {
       name: `${pre}storeCouponCreate`,
       meta: {
         auth: ['marketing-store_coupon_issue-create'],
-        title: '添加优惠券',
+        title: 'إضافة优惠券',
         activeMenu: routePre + '/marketing/store_coupon_issue/index',
       },
       component: () => import('@/pages/marketing/storeCouponIssue/create'),
@@ -132,7 +132,7 @@ export default {
       name: `${pre}bargainCreate`,
       meta: {
         auth: ['marketing-store_bargain-create'],
-        title: '添加砍价',
+        title: 'إضافة砍价',
         activeMenu: routePre + '/marketing/store_bargain/index',
       },
       component: () => import('@/pages/marketing/storeBargain/create'),
@@ -170,7 +170,7 @@ export default {
       name: `${pre}storeSeckillCreate`,
       meta: {
         auth: ['marketing-store_seckill-create'],
-        title: '添加秒杀',
+        title: 'إضافة秒杀',
         activeMenu: routePre + '/marketing/store_seckill/list',
       },
       component: () => import('@/pages/marketing/storeSeckill/create'),
@@ -180,7 +180,7 @@ export default {
       name: `${pre}storeSeckillCreate`,
       meta: {
         auth: ['marketing-store_seckill-create-more'],
-        title: '添加秒杀',
+        title: 'إضافة秒杀',
         activeMenu: routePre + '/marketing/store_seckill/list',
       },
       component: () => import('@/pages/marketing/storeSeckill/createMore'),
@@ -235,7 +235,7 @@ export default {
       name: `${pre}storeIntegralCreate`,
       meta: {
         auth: ['marketing-store_integral-create'],
-        title: '添加积分商品',
+        title: 'إضافة积分商品',
         activeMenu: routePre + '/marketing/store_integral/index',
       },
       component: () => import('@/pages/marketing/storeIntegral/create'),
@@ -263,7 +263,7 @@ export default {
       name: `${pre}live_room`,
       meta: {
         auth: true,
-        title: '直播间管理',
+        title: '直播间إدارة',
       },
       component: () => import('@/pages/marketing/live/index'),
     },
@@ -272,7 +272,7 @@ export default {
       name: `${pre}add_live_room`,
       meta: {
         auth: true,
-        title: '直播间管理',
+        title: '直播间إدارة',
         activeMenu: routePre + '/marketing/live/live_room',
       },
       component: () => import('@/pages/marketing/live/creat_live'),
@@ -282,7 +282,7 @@ export default {
       name: `${pre}live_goods`,
       meta: {
         auth: true,
-        title: '直播间商品管理',
+        title: '直播间商品إدارة',
       },
       component: () => import('@/pages/marketing/live/live_goods'),
     },
@@ -291,7 +291,7 @@ export default {
       name: `${pre}add_live_goods`,
       meta: {
         auth: true,
-        title: '直播间商品管理',
+        title: '直播间商品إدارة',
         activeMenu: routePre + '/marketing/live/live_goods',
       },
       component: () => import('@/pages/marketing/live/add_goods'),
@@ -301,7 +301,7 @@ export default {
       name: `${pre}anchor`,
       meta: {
         auth: true,
-        title: '主播管理',
+        title: '主播إدارة',
       },
       component: () => import('@/pages/marketing/live/anchor'),
     },
@@ -328,7 +328,7 @@ export default {
       name: `${pre}storePresellCreate`,
       meta: {
         auth: ['marketing-presell-create'],
-        title: '添加预售',
+        title: 'إضافة预售',
       },
       component: () => import('@/pages/marketing/storePresell/create'),
     },

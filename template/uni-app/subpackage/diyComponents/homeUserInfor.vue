@@ -910,7 +910,7 @@ export default {
       return { fontSize: "48rpx", color: "#ff9900" };
     },
     userName() {
-      if (!this.isLogin) return "请点击登录";
+      if (!this.isLogin) return "请点击تسجيل الدخول";
       return (this.userInfo && this.userInfo.nickname) || "";
     },
     userSubText() {

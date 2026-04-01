@@ -10,7 +10,7 @@
           @submit.native.prevent
           inline
         >
-          <el-form-item label="订单时间：">
+          <el-form-item label="订单الوقت：">
             <el-date-picker
               clearable
               v-model="timeVal"
@@ -57,7 +57,7 @@
             <div>{{ scope.row.relation }}</div>
           </template>
         </el-table-column>
-        <el-table-column label="交易时间" min-width="100">
+        <el-table-column label="交易الوقت" min-width="100">
           <template slot-scope="scope">
             <div>{{ scope.row.add_time }}</div>
           </template>
@@ -85,7 +85,7 @@
         </el-table-column>
         <el-table-column label="备注" width="100">
           <template slot-scope="scope">
-            <a class="item" v-db-click @click="setMark(scope.row)">修改备注</a>
+            <a class="item" v-db-click @click="setMark(scope.row)">تعديل备注</a>
           </template>
         </el-table-column>
       </el-table>
@@ -101,7 +101,7 @@
     </el-card>
     <!-- 拒绝通过-->
     <el-dialog :visible.sync="modals" title="备注" :close-on-click-modal="false" width="470px">
-      <el-input v-model="mark_msg.mark" type="textarea" :rows="4" placeholder="请输入备注" />
+      <el-input v-model="mark_msg.mark" type="textarea" :rows="4" placeholder="الرجاء إدخال 备注" />
       <div slot="footer">
         <el-button type="primary" size="small" v-db-click @click="oks">确定</el-button>
       </div>
@@ -245,7 +245,7 @@ export default {
           this.$message.error(res.msg);
         });
     },
-    // 编辑提交成功
+    // تحريرإرسال成功
     submitFail() {
       this.getList();
     },

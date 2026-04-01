@@ -1,6 +1,6 @@
 <template>
   <div class="diy-page">
-    <!-- 旧 Header 已迁移至新编辑模块顶部，移除该块 -->
+    <!-- 旧 Header 已迁移至新تحرير模块顶部，移除该块 -->
     <el-card :bordered="false" shadow="never">
       <div class="diy-wrapper" :style="'height:' + clientHeight + 'px;'">
         <!-- 左侧 -->
@@ -24,9 +24,9 @@
                 <div
                   class="list-group-item"
                   :class="{
-                    search: element.cname == '搜索框',
+                    search: element.cname == 'بحث框',
                     navbar: element.cname == '选项卡',
-                    homeComb: element.cname == '轮播搜索',
+                    homeComb: element.cname == '轮播بحث',
                     service: element.cname == '悬浮按钮',
                   }"
                   v-for="element in item.list"
@@ -35,7 +35,7 @@
                   v-show="item.isOpen"
                 >
                   <div>
-                    <div class="position" style="display: none">释放鼠标将组建添加到此处</div>
+                    <div class="position" style="display: none">释放鼠标将组建إضافة到此处</div>
                     <svg class="conter iconfont icon svg-icon" aria-hidden="true">
                       <use :xlink:href="element.icon"></use>
                     </svg>
@@ -182,7 +182,7 @@
                 <el-button class="data" @click="showTitle">页面设置</el-button>
                 <el-button class="data" @click="nameModal = true">另存模版</el-button>
                 <el-button class="data" @click="reast">重置</el-button>
-                <el-button v-if="!isMicroPage" class="data" @click="saveCover">保存为封面</el-button>
+                <el-button v-if="!isMicroPage" class="data" @click="saveCover">حفظ为封面</el-button>
               </div>
             </div>
           </div>
@@ -218,8 +218,8 @@
         </div>
       </div>
     </el-dialog>
-    <el-dialog :visible.sync="nameModal" width="470px" title="设置模版名称" :show-close="true">
-      <el-input v-model="saveName" placeholder="请输入模版名称"></el-input>
+    <el-dialog :visible.sync="nameModal" width="470px" title="设置模版الاسم" :show-close="true">
+      <el-input v-model="saveName" placeholder="الرجاء إدخال 模版الاسم"></el-input>
       <span slot="footer" class="dialog-footer">
         <el-button v-db-click @click="nameModal = false">取 消</el-button>
         <el-button type="primary" v-db-click @click="saveModal">确 定</el-button>
@@ -421,7 +421,7 @@ export default {
             resolve();
             return;
           }
-          // 给 URL 追加时间戳，避免浏览器缓存导致丢失 CORS 响应头
+          // 给 URL 追加الوقت戳，避免浏览器缓存导致丢失 CORS 响应头
           const separator = src.includes('?') ? '&' : '?';
           const cacheBustUrl = `${src}${separator}_t=${Date.now()}`;
           fetch(cacheBustUrl, { mode: 'cors', cache: 'no-store' })
@@ -441,15 +441,15 @@ export default {
       await Promise.all(tasks);
     },
 
-    // 保存为封面 - 截取长图并上传
+    // حفظ为封面 - 截取长图并上传
     saveCover() {
-      // 保存当前选中的组件索引
+      // حفظ当前选中的组件索引
       const previousActiveIndex = this.activeIndex;
       this.$message.info('正在生成封面图片，请稍候...');
 
       setTimeout(async () => {
         try {
-          // 取消选中状态
+          // إلغاء选中الحالة
           this.activeIndex = -999;
           this.rConfig = [];
 
@@ -460,7 +460,7 @@ export default {
           const container = document.getElementById('imgContainer');
           if (!container) {
             this.$message.error('未找到页面容器元素');
-            // 恢复选中状态
+            // 恢复选中الحالة
             this.activeIndex = previousActiveIndex;
             this.restoreActiveComponent(previousActiveIndex);
             return;
@@ -487,7 +487,7 @@ export default {
             async (blob) => {
               if (!blob) {
                 this.$message.error('图片生成失败');
-                // 恢复选中状态
+                // 恢复选中الحالة
                 this.activeIndex = previousActiveIndex;
                 this.restoreActiveComponent(previousActiveIndex);
                 return;
@@ -504,19 +504,19 @@ export default {
                 // 上传到后端
                 const res = await fileUpload(formData);
                 if (res.status === 200) {
-                  this.$message.success('封面保存成功！');
-                  // 这里可以根据需要将图片URL保存到页面配置中
+                  this.$message.success('封面حفظ成功！');
+                  // 这里可以根据需要将图片URLحفظ到页面配置中
                   this.coverUrl = res.data.src;
                   if (!this.mConfig.length) return this.$message.warning('请先配置DIY数据');
-                  if (!this.pageId) return this.$message.warning('请先保存DIY数据');
+                  if (!this.pageId) return this.$message.warning('请先حفظDIY数据');
                   saveThemeImage(this.pageId, { image: this.coverUrl, type: this.pageType });
                 } else {
-                  this.$message.error(res.msg || '封面保存失败');
+                  this.$message.error(res.msg || '封面حفظ失败');
                 }
               } catch (err) {
                 this.$message.error(err.msg || '上传失败，请重试');
               } finally {
-                // 恢复选中状态
+                // 恢复选中الحالة
                 this.activeIndex = previousActiveIndex;
                 this.restoreActiveComponent(previousActiveIndex);
               }
@@ -527,7 +527,7 @@ export default {
         } catch (error) {
           console.error('截图失败：', error);
           this.$message.error('生成封面失败，请重试');
-          // 恢复选中状态
+          // 恢复选中الحالة
           this.activeIndex = previousActiveIndex;
           this.restoreActiveComponent(previousActiveIndex);
         }
@@ -591,10 +591,10 @@ export default {
     },
     determine() {
       if (this.nameTxt.trim() == '') {
-        return this.$message.error('请输入模板名称');
+        return this.$message.error('الرجاء إدخال 模板الاسم');
       }
       if (this.pageId == 0) {
-        this.$message.success('修改成功');
+        this.$message.success('تعديل成功');
         return false;
       }
       diyUpdateName(this.pageId, { name: this.nameTxt })
@@ -609,10 +609,10 @@ export default {
     },
     returnTap() {
       this.$msgbox({
-        title: '温馨提示',
-        message: '确定离开此页面？系统可能不会保存您所做的更改。',
+        title: '温馨تنبيه',
+        message: '确定离开此页面？系统可能不会حفظ您所做的更改。',
         showCancelButton: true,
-        cancelButtonText: '取消',
+        cancelButtonText: 'إلغاء',
         confirmButtonText: '确定',
         iconClass: 'el-icon-warning',
         confirmButtonClass: 'btn-custom-cancel',
@@ -761,7 +761,7 @@ export default {
         });
         evt.added.list = this.mConfig;
         this.activeIndex = evt.added.newIndex;
-        // 保存组件名称
+        // حفظ组件الاسم
         this.$store.commit('mobildConfig/SETCONFIGNAME', data.name);
         this.$store.commit('mobildConfig/defaultArraySort', evt.added);
       }
@@ -797,7 +797,7 @@ export default {
           this.mConfig[index - 1].name == 'nav_bar' ||
           this.mConfig[index - 1].name == 'home_comb'
         ) {
-          return this.$message.warning('搜索框或选项卡或轮播搜索必须为顶部');
+          return this.$message.warning('بحث框或选项卡或轮播بحث必须为顶部');
         }
         this.swapArray(this.mConfig, index - 1, index);
       } else {
@@ -827,25 +827,25 @@ export default {
       this.$store.commit('mobildConfig/SETCONFIGNAME', item.name);
       this.$store.commit('mobildConfig/defaultArraySort', obj);
     },
-    // 组件添加
+    // 组件إضافة
     addDomCon(item, type, index) {
       if (item.name == 'search_box') {
-        if (this.isSearch) return this.$message.error('该组件只能添加一次');
-        if (this.isComb) return this.$message.error('轮播搜索不能和搜索组件与选项卡组件同时存在');
+        if (this.isSearch) return this.$message.error('该组件只能إضافة一次');
+        if (this.isComb) return this.$message.error('轮播بحث不能和بحث组件与选项卡组件同时存在');
         this.isSearch = true;
       }
       if (item.name == 'nav_bar') {
-        if (this.isTab) return this.$message.error('该组件只能添加一次');
-        if (this.isComb) return this.$message.error('轮播搜索不能和搜索组件与选项卡组件同时存在');
+        if (this.isTab) return this.$message.error('该组件只能إضافة一次');
+        if (this.isComb) return this.$message.error('轮播بحث不能和بحث组件与选项卡组件同时存在');
         this.isTab = true;
       }
       if (item.name == 'home_comb') {
-        if (this.isComb) return this.$message.error('该组件只能添加一次');
-        if (this.isSearch || this.isTab) return this.$message.error('轮播搜索不能和搜索组件与选项卡组件同时存在');
+        if (this.isComb) return this.$message.error('该组件只能إضافة一次');
+        if (this.isSearch || this.isTab) return this.$message.error('轮播بحث不能和بحث组件与选项卡组件同时存在');
         this.isComb = true;
       }
       if (item.name == 'home_service') {
-        if (this.isService) return this.$message.error('该组件只能添加一次');
+        if (this.isService) return this.$message.error('该组件只能إضافة一次');
         this.isService = true;
       }
       let obj = {};
@@ -892,13 +892,13 @@ export default {
       this.mConfig.forEach((el, index) => {
         el.num = new Date().getTime() * 1000 + index;
       });
-      // 保存组件名称
+      // حفظ组件الاسم
       obj.element = item;
       obj.list = this.mConfig;
       this.$store.commit('mobildConfig/SETCONFIGNAME', item.name);
       this.$store.commit('mobildConfig/defaultArraySort', obj);
     },
-    //中间页点击添加模块；
+    //中间页点击إضافة模块；
     bindAddDom(item, type, index) {
       // 复制
       if (type == 0) {
@@ -913,10 +913,10 @@ export default {
           }
         });
 
-        // 先调用 addDomCon 添加一个新组件，然后立即用 configData 覆盖它
+        // 先调用 addDomCon إضافة一个新组件，然后立即用 configData 覆盖它
         this.addDomCon(baseItem, type, index);
 
-        // 获取刚添加的组件（在 index+1 位置，因为 addDomCon 是 splice(index+1, 0, ...)）
+        // 获取刚إضافة的组件（在 index+1 位置，因为 addDomCon 是 splice(index+1, 0, ...)）
         let newIndex = index + 1;
         let newItem = this.mConfig[newIndex];
 
@@ -931,7 +931,7 @@ export default {
           timestamp: currentDefaultArray[newItem.num].timestamp,
         };
 
-        // 提交更新
+        // إرسال更新
         this.$store.commit('mobildConfig/UPDATEARR', { num: newItem.num, val: newConfig });
       } else {
         let i = item;
@@ -943,7 +943,7 @@ export default {
         this.addDomCon(i, type, index);
       }
     },
-    //左边配置模块点击添加；
+    //左边配置模块点击إضافة；
     addDom(item, type) {
       this.addDomCon(item, type);
     },
@@ -961,11 +961,11 @@ export default {
       obj[num].isHide = !obj[num].isHide;
       this.$store.commit('mobildConfig/UPDATEARR', { num: num, val: obj[num] });
     },
-    // 组件删除
+    // 组件حذف
     bindDelete(item, key) {
-      this.$confirm('确定要删除此组件吗？', '提示', {
+      this.$confirm('确定要حذف此组件吗？', 'تنبيه', {
         confirmButtonText: '确定',
-        cancelButtonText: '取消',
+        cancelButtonText: 'إلغاء',
         type: 'warning',
       })
         .then(() => {
@@ -993,12 +993,12 @@ export default {
               this.showTitle();
             }
           }
-          // 删除第几个配置
+          // حذف第几个配置
           this.$store.commit('mobildConfig/DELETEARRAY', item);
         })
         .catch(() => {});
     },
-    // 组件返回
+    // 组件عودة
     config(data) {
       let propsObj = this.propsObj;
       propsObj.data = data;
@@ -1111,7 +1111,7 @@ export default {
         .then((res) => {
           if (this.pageId != res.data.id && !title) {
             let query = { ...this.$route.query, id: res.data.id };
-            delete query.tid; // 保存后移除 tid
+            delete query.tid; // حفظ后移除 tid
             this.$router.replace({ query });
             this.pageId = res.data.id;
           }
@@ -1140,15 +1140,15 @@ export default {
         });
     },
     saveModal() {
-      if (!this.saveName) return this.$message.warning('请先输入模板名称');
+      if (!this.saveName) return this.$message.warning('请先输入模板الاسم');
       this.saveConfig(1, this.saveName);
     },
     closeWindow() {
       this.$msgbox({
-        title: '提示',
-        message: '关闭页面前请先保存数据，未保存的话数据会丢失',
+        title: 'تنبيه',
+        message: '关闭页面前请先حفظ数据，未حفظ的话数据会丢失',
         showCancelButton: true,
-        cancelButtonText: '取消',
+        cancelButtonText: 'إلغاء',
         confirmButtonText: '确定',
         iconClass: 'el-icon-warning',
         confirmButtonClass: 'btn-custom-cancel',
@@ -1161,10 +1161,10 @@ export default {
         })
         .catch(() => {});
     },
-    // 保存配置
+    // حفظ配置
     saveConfig(num, type, save) {
       if (this.mConfig.length == 0) {
-        return this.$message.error('暂未添加任何组件，保存失败！');
+        return this.$message.error('暂未إضافة任何组件，حفظ失败！');
       }
       if (num == 1) {
         this.loading = true;
@@ -1244,7 +1244,7 @@ export default {
               tempARR.push(tempItem);
               obj[el.timestamp] = el;
               this.mConfig.push(tempItem);
-              // 保存默认组件配置
+              // حفظ默认组件配置
               this.$store.commit('mobildConfig/ADDARRAY', {
                 num: el.timestamp,
                 val: el,
@@ -1273,9 +1273,9 @@ export default {
       if (this.pageId == 0) {
         this.$message.error('新增页面，无法重置');
       } else {
-        this.$confirm('此操作将清空模板内容, 是否继续?', '提示', {
+        this.$confirm('此الخيارات将清空模板内容, 是否继续?', 'تنبيه', {
           confirmButtonText: '确定',
-          cancelButtonText: '取消',
+          cancelButtonText: 'إلغاء',
           type: 'warning',
         }).then((res) => {
           this.mConfig = [];

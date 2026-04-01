@@ -14,11 +14,11 @@
         label-position="right"
         @submit.native.prevent
         inline
-        ><el-form-item v-if="type == 1" label="订单状态：" label-for="status">
+        ><el-form-item v-if="type == 1" label="订单الحالة：" label-for="status">
           <el-select
             v-model="pagination.status"
             clearable
-            placeholder="请选择订单状态"
+            placeholder="الرجاء اختيار 订单الحالة"
             @change="changeStatus"
             class="form_content_width"
           >
@@ -28,11 +28,11 @@
             <el-option value="4" label="交易完成"></el-option>
           </el-select>
         </el-form-item>
-        <el-form-item label="订单搜索：" label-for="title">
+        <el-form-item label="订单بحث：" label-for="title">
           <el-input
             clearable
             v-model="pagination.real_name"
-            placeholder="请输入用户姓名|手机号|UID"
+            placeholder="الرجاء إدخال 用户姓名|手机号|UID"
             class="form_content_width"
           />
         </el-form-item>
@@ -127,7 +127,7 @@ export default {
           key: 'total_price',
         },
         {
-          title: '最近参与时间',
+          title: '最近参与الوقت',
           key: 'add_time',
         },
       ],
@@ -141,7 +141,7 @@ export default {
           key: 'real_name',
         },
         {
-          title: '订单状态',
+          title: '订单الحالة',
           key: 'status',
         },
         {
@@ -153,11 +153,11 @@ export default {
           key: 'total_num',
         },
         {
-          title: '下单时间',
+          title: '下单الوقت',
           key: 'add_time',
         },
         {
-          title: '支付时间',
+          title: '支付الوقت',
           key: 'pay_time',
         },
       ],
@@ -239,7 +239,7 @@ export default {
       this.type = e.index;
       this.getList();
     },
-    // 搜索
+    // بحث
     searchList() {
       this.pagination.page = 1;
       this.getList();

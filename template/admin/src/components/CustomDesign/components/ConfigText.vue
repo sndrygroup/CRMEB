@@ -11,7 +11,7 @@
       <el-radio-group v-model="curComponent.propValue.textDecoration" size="small" @change="onChange">
         <el-radio label="none">无</el-radio>
         <el-radio label="underline">下划线</el-radio>
-        <el-radio label="line-through">删除线</el-radio>
+        <el-radio label="line-through">حذف线</el-radio>
       </el-radio-group>
     </el-form-item>
     <el-form-item label="对齐方式">

@@ -2,7 +2,7 @@
   <view>
     <!-- #ifdef MP || APP-PLUS -->
     <NavBar
-      titleText="订单详情"
+      titleText="订单تفاصيل"
       :iconColor="iconColor"
       :textColor="iconColor"
       :isScrolling="isScrolling"
@@ -57,7 +57,7 @@
       >
         <text class="iconfont icon-ic_notes"></text>
         <view class="p-20 flex-1 fs-28 flex-y-center">{{
-          orderInfo.remark || "订单未备注，点击添加备注信息"
+          orderInfo.remark || "订单未备注，点击إضافة备注信息"
         }}</view>
       </view>
       <view class="address" v-if="orderInfo.shipping_type == 1">
@@ -338,11 +338,11 @@
           </view>
         </view>
         <view class="item acea-row row-between">
-          <view>下单时间</view>
+          <view>下单الوقت</view>
           <view class="conter">{{ orderInfo._add_time }}</view>
         </view>
         <view class="item acea-row row-between">
-          <view>支付状态</view>
+          <view>支付الحالة</view>
           <view class="conter">
             {{ orderInfo.paid == 1 ? "已支付" : "未支付" }}
           </view>
@@ -557,7 +557,7 @@
           "
           @click="confirmShow = true"
         >
-          确认付款
+          تأكيد付款
         </view>
         <view
           class="bnt delivery"
@@ -601,11 +601,11 @@
     </view>
     <view v-if="confirmShow" class="mask"></view>
     <view v-if="confirmShow" class="confirm-popup">
-      <view class="title">确认付款</view>
-      <view class="info">确认该订单用户已付款</view>
+      <view class="title">تأكيد付款</view>
+      <view class="info">تأكيد该订单用户已付款</view>
       <view class="acea-row btn-box">
-        <view class="btn" @click="confirmShow = false">取消</view>
-        <view class="btn primary" @click="offlinePay">确认</view>
+        <view class="btn" @click="confirmShow = false">إلغاء</view>
+        <view class="btn primary" @click="offlinePay">تأكيد</view>
       </view>
     </view>
     <home></home>
@@ -836,7 +836,7 @@ export default {
       if (that.status == 0) {
         if (!isMoney(price)) {
           return that.$util.Tips({
-            title: "请输入正确的金额",
+            title: "الرجاء إدخال 正确的金额",
           });
         }
         data.price = price;
@@ -861,7 +861,7 @@ export default {
         if (this.isRefund) {
           if (!isMoney(refund_price)) {
             return that.$util.Tips({
-              title: "请输入正确的金额",
+              title: "الرجاء إدخال 正确的金额",
             });
           }
           data.price = refund_price;
@@ -892,7 +892,7 @@ export default {
       } else {
         if (!remark) {
           return this.$util.Tips({
-            title: "请输入备注",
+            title: "الرجاء إدخال 备注",
           });
         }
         data.remark = remark;
@@ -1050,7 +1050,7 @@ export default {
   color: #2291f8;
 }
 
-/*商户管理订单详情*/
+/*商户إدارة订单تفاصيل*/
 
 .pos-order-details .remarks {
   padding-left: 32rpx;
@@ -1142,7 +1142,7 @@ export default {
   height: 100%;
 }
 
-/*订单详情*/
+/*订单تفاصيل*/
 .order-details .header {
   padding: 48rpx 0 30rpx 12rpx;
 }

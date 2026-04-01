@@ -15,7 +15,7 @@
                   :key="index"
                 >
                 </el-input>
-                <el-input placeholder="请输入" v-model="specsVal" style="width: 10%" class="input">
+                <el-input placeholder="الرجاء إدخال " v-model="specsVal" style="width: 10%" class="input">
                   <i slot="suffix" class="el-input__icon el-icon-plus" v-db-click @click="confirm"></i>
                 </el-input>
                 <!--<el-button type="primary" v-db-click @click="confirm"></el-button>-->
@@ -32,7 +32,7 @@
                 <el-tag closable color="primary" v-for="(itemn, index) in item.attrVal" :key="index">{{
                   itemn
                 }}</el-tag>
-                <el-input placeholder="请输入" v-model="item.inputVal" style="width: 10%" class="input">
+                <el-input placeholder="الرجاء إدخال " v-model="item.inputVal" style="width: 10%" class="input">
                   <i slot="suffix" class="el-input__icon el-icon-plus" v-db-click @click="confirmAttr(index)"></i>
                 </el-input>
                 <!--<el-button type="primary" v-db-click @click="confirm"></el-button>-->
@@ -75,7 +75,7 @@ export default {
     },
     confirm() {
       if (this.specsVal === '') {
-        this.$message.error('请填写规格名称');
+        this.$message.error('请填写规格الاسم');
       } else {
         this.specs.push(this.specsVal);
         this.attrList.push({

@@ -8,7 +8,7 @@
 			</view>
 			<navigator url="/pages/goods/goods_search/index" class="search acea-row row-center-wrapper" hover-class="none">
 				<text class="iconfont icon-xiazai5"></text>
-				{{ $t(`搜索商品名称`) }}
+				{{ $t(`بحث商品الاسم`) }}
 			</navigator>
 		</view>
 		<view class="conter">
@@ -162,7 +162,7 @@ export default {
 			},
 			productValue: [],
 			attrValue: '', //已选属性
-			storeName: '', //多属性产品名称
+			storeName: '', //多属性产品الاسم
 			id: 0,
 			cartData: {
 				cartList: [],
@@ -212,7 +212,7 @@ export default {
 				that.cartData.iScart = false;
 			} else {
 				return that.$util.Tips({
-					title: this.$t(`请选择产品`)
+					title: this.$t(`الرجاء اختيار 产品`)
 				});
 			}
 		},
@@ -528,7 +528,7 @@ export default {
 			let that = this;
 			if (duo) {
 				let productSelect = that.productValue[this.attrValue];
-				//如果有属性,没有选择,提示用户选择
+				//如果有属性,没有选择,تنبيه用户选择
 				if (that.attr.productAttr.length && productSelect === undefined) {
 					return that.$util.Tips({
 						title: that.$t(`该产品没有更多库存了`)
@@ -536,7 +536,7 @@ export default {
 				}
 				if (that.attr.productSelect.cart_num <= 0) {
 					return that.$util.Tips({
-						title: that.$t(`最少添加 1 件商品`)
+						title: that.$t(`最少إضافة 1 件商品`)
 					});
 				}
 			}
@@ -552,7 +552,7 @@ export default {
 					if (duo) {
 						that.attr.cartAttr = false;
 						that.$util.Tips({
-							title: that.$t(`添加成功`)
+							title: that.$t(`إضافة成功`)
 						});
 						// that.page = 1;
 						// that.loadend = false;
@@ -618,7 +618,7 @@ export default {
 		getIsLogin() {
 			toLogin();
 		},
-		// 商品详情接口；
+		// 商品تفاصيل接口；
 		getAttrs(id) {
 			let that = this;
 			getAttr(id, 0).then((res) => {
@@ -630,7 +630,7 @@ export default {
 				that.DefaultSelect();
 			});
 		},
-		// 去详情页
+		// 去تفاصيل页
 		goDetail(item) {
 			goShopDetail(item, this.uid).then((res) => {
 				uni.navigateTo({

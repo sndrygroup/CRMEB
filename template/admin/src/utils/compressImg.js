@@ -6,7 +6,7 @@
 export default function compressImg(file) {
   return new Promise((resolve, reject) => {
     const reader = new FileReader();
-    // readAsDataURL 方法会读取指定的 Blob 或 File 对象。读取操作完成的时候，readyState 会变成已完成DONE，并触发 loadend (en-US) 事件，
+    // readAsDataURL 方法会读取指定的 Blob 或 File 对象。读取الخيارات完成的时候，readyState 会变成已完成DONE，并触发 loadend (en-US) 事件，
     // 同时 result 属性将包含一个data:URL格式的字符串（base64编码）以表示所读取文件的内容。
     reader.readAsDataURL(file);
     reader.onload = () => {
@@ -30,7 +30,7 @@ export default function compressImg(file) {
         ctx.drawImage(img, 0, 0, w, h);
 
         // canvas转图片达到图片压缩效果
-        // 返回一个包含图片展示的 data URI base64 在指定图片格式为 image/jpeg 或 image/webp的情况下，
+        // عودة一个包含图片展示的 data URI base64 在指定图片格式为 image/jpeg 或 image/webp的情况下，
         // 可以从 0 到 1 的区间内选择图片的质量。如果超出取值范围，将会使用默认值 0.92。其他参数会被忽略。
         const dataUrl = canvas.toDataURL('image/jpeg', 0.8);
         let newFile = dataURLtoFile(dataUrl, file.name);

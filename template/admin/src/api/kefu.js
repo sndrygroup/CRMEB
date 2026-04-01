@@ -11,7 +11,7 @@
 import request from '@/libs/request';
 
 /*
- * 登录
+ * تسجيل الدخول
  * */
 export function AccountLogin(data) {
   return request({
@@ -36,7 +36,7 @@ export function record(params) {
 }
 
 /**
- * 获取左侧用户详情
+ * 获取左侧用户تفاصيل
  * @constructor
  */
 export function userInfo(id) {
@@ -239,7 +239,7 @@ export function serviceList(params) {
 }
 
 /**
- * 退出登录
+ * 退出تسجيل الدخول
  * @constructor
  */
 export function AccountLogoutKefu() {
@@ -251,7 +251,7 @@ export function AccountLogoutKefu() {
 }
 
 /**
- * 获取扫码登录凭证
+ * 获取扫码تسجيل الدخول凭证
  * @constructor
  */
 export function getSanCodeKey() {
@@ -263,7 +263,7 @@ export function getSanCodeKey() {
 }
 
 /**
- * 商品详情
+ * 商品تفاصيل
  * @constructor
  */
 export function productInfo(id) {
@@ -298,7 +298,7 @@ export function orderRemark(data) {
 }
 
 /**
- * 订单详情
+ * 订单تفاصيل
  */
 export function orderInfo(id) {
   return request({
@@ -366,7 +366,7 @@ export function serviceCate(params) {
 }
 
 /**
- * 修改话术
+ * تعديل话术
  */
 export function serviceCateUpdate(id, params) {
   return request({
@@ -378,7 +378,7 @@ export function serviceCateUpdate(id, params) {
 }
 
 /**
- * 添加话术
+ * إضافة话术
  */
 export function addSpeeChcraft(data) {
   return request({
@@ -390,7 +390,7 @@ export function addSpeeChcraft(data) {
 }
 
 /**
- * 添加分类
+ * إضافة分类
  */
 export function addServiceCate(data) {
   return request({
@@ -402,7 +402,7 @@ export function addServiceCate(data) {
 }
 
 /**
- * 修改分类
+ * تعديل分类
  */
 export function editServiceCate(id, params) {
   return request({
@@ -414,7 +414,7 @@ export function editServiceCate(id, params) {
 }
 
 /**
- * 扫码登录情况
+ * 扫码تسجيل الدخول情况
  */
 export function scanStatus(key, params) {
   return request({
@@ -523,7 +523,7 @@ export function feedbackDataApi() {
 }
 
 /**
- * 客户端 反馈提示语
+ * 客户端 反馈تنبيه语
  * @constructor
  */
 export function feedbackFromApi(data) {
@@ -549,7 +549,7 @@ export function getOrderApi(order_id, params) {
 }
 
 /**
- * 客户端 商品详情
+ * 客户端 商品تفاصيل
  * @constructor
  */
 export function productApi(id) {

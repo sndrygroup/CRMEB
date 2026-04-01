@@ -33,7 +33,7 @@ export function getGoodsCategory(data) {
 }
 
 /**
- * @description 商品管理-- 列表
+ * @description 商品إدارة-- 列表
  */
 export function getGoods(params) {
   return request({
@@ -44,7 +44,7 @@ export function getGoods(params) {
 }
 
 /**
- * @description 商品管理-- 临时保存
+ * @description 商品إدارة-- 临时حفظ
  */
 export function productCache() {
   return request({
@@ -54,7 +54,7 @@ export function productCache() {
 }
 
 /**
- * @description 商品管理-- 取消临时保存
+ * @description 商品إدارة-- إلغاء临时حفظ
  */
 export function cacheDelete() {
   return request({
@@ -64,7 +64,7 @@ export function cacheDelete() {
 }
 
 /**
- * @description 商品管理-- 上下架
+ * @description 商品إدارة-- 上下架
  */
 export function PostgoodsIsShow(id, isShow) {
   return request({
@@ -86,7 +86,7 @@ export function productShowApi(data) {
 }
 
 /**
- * 添加虚拟评论
+ * إضافة虚拟评论
  * @param {*} data
  * @returns
  */
@@ -111,7 +111,7 @@ export function productUnshowApi(data) {
 }
 
 /**
- * @description 商品管理-- 分类
+ * @description 商品إدارة-- 分类
  */
 export function treeListApi(type) {
   return request({
@@ -121,7 +121,7 @@ export function treeListApi(type) {
 }
 
 /**
- * @description 商品管理-- 分类 new
+ * @description 商品إدارة-- 分类 new
  */
 export function cascaderListApi(type) {
   return request({
@@ -131,7 +131,7 @@ export function cascaderListApi(type) {
 }
 
 /**
- * @description 商品管理-- 详情
+ * @description 商品إدارة-- تفاصيل
  */
 export function productInfoApi(id) {
   return request({
@@ -141,7 +141,7 @@ export function productInfoApi(id) {
 }
 
 /**
- * @description 商品管理-- 提交
+ * @description 商品إدارة-- إرسال
  */
 export function productAddApi(data) {
   return request({
@@ -164,7 +164,7 @@ export function productListApi(params) {
 }
 
 /**
- * @description 商品分类 -- 添加表单
+ * @description 商品分类 -- إضافة表单
  * @param {Object} param params {Object} 传值参数
  */
 export function productCreateApi() {
@@ -175,7 +175,7 @@ export function productCreateApi() {
 }
 
 /**
- * @description 商品分类 -- 编辑表单
+ * @description 商品分类 -- تحرير表单
  * @param {Object} param params {Object} 传值参数
  */
 export function productEditApi(id) {
@@ -186,7 +186,7 @@ export function productEditApi(id) {
 }
 
 /**
- * @description 商品分类 -- 修改状态
+ * @description 商品分类 -- تعديلالحالة
  * @param {Object} param params {Object} 传值参数
  */
 export function setShowApi(data) {
@@ -242,7 +242,7 @@ export function copyConfigApi() {
 }
 
 /**
- * @description 商品管理 -- 获取京东、淘宝商品数据
+ * @description 商品إدارة -- 获取京东、淘宝商品数据
  * @param {Object} param data {Object} 传值参数
  */
 export function crawlFromApi(data) {
@@ -254,7 +254,7 @@ export function crawlFromApi(data) {
 }
 
 /**
- * @description 商品管理 -- 京东、淘宝商品数据提交
+ * @description 商品إدارة -- 京东、淘宝商品数据إرسال
  * @param {Object} param data {Object} 传值参数
  */
 export function crawlSaveApi(data) {
@@ -266,7 +266,7 @@ export function crawlSaveApi(data) {
 }
 
 /**
- * @description 商品管理 -- 生成属性
+ * @description 商品إدارة -- 生成属性
  * @param {Object} param data {Object} 传值参数
  */
 export function generateAttrApi(data, id, type) {
@@ -290,7 +290,7 @@ export function ruleListApi(params) {
 }
 
 /**
- * @description 商品属性 -- 添加
+ * @description 商品属性 -- إضافة
  * @param {Number} param id {Number} 属性id
  * @param {Object} param data {Object} 传值参数
  */
@@ -303,7 +303,7 @@ export function ruleAddApi(data, id) {
 }
 
 /**
- * @description 商品属性 -- 详情
+ * @description 商品属性 -- تفاصيل
  * @param {Number} param id {Number} 属性id
  */
 export function ruleInfoApi(id) {
@@ -367,7 +367,7 @@ export function storeProductApi(data) {
 }
 
 /**
- * @description 添加商品 -- 检测活动存在
+ * @description إضافة商品 -- 检测活动存在
  */
 export function checkActivityApi(id) {
   return request({
@@ -377,7 +377,7 @@ export function checkActivityApi(id) {
 }
 
 /**
- * @description 商品添加编辑-- 用户标签
+ * @description 商品إضافةتحرير-- 用户标签
  */
 export function labelListApi() {
   return request({
@@ -439,7 +439,7 @@ export function getProductTypeConfig() {
 }
 
 /**
- * @description 添加商品-- 商品标签
+ * @description إضافة商品-- 商品标签
  */
 export function productStoreLabel() {
   return request({
@@ -461,7 +461,7 @@ export function paramListApi(params) {
 }
 
 /**
- * @description 商品参数 -- 详情
+ * @description 商品参数 -- تفاصيل
  * @param {Number} param id {Number} 参数id
  */
 export function paramInfoApi(id) {
@@ -472,7 +472,7 @@ export function paramInfoApi(id) {
 }
 
 /**
- * @description 商品参数 -- 添加
+ * @description 商品参数 -- إضافة
  * @param {Object} param data {Object} 传值参数
  */
 export function paramSaveApi(data) {
@@ -496,7 +496,7 @@ export function labelCateListApi(params) {
 }
 
 /**
- * @description 商品标签分类 -- 添加
+ * @description 商品标签分类 -- إضافة
  * data 请求参数
  */
 export function productLabelCateFormApi(id) {
@@ -540,7 +540,7 @@ export function productLabelInfoApi(data) {
 }
 
 /**
- * @description 商品标签保存
+ * @description 商品标签حفظ
  * data 请求参数
  */
 export function productLabelSaveApi(data) {
@@ -551,7 +551,7 @@ export function productLabelSaveApi(data) {
   });
 }
 /**
- * @description 商品标签-- 修改状态
+ * @description 商品标签-- تعديلالحالة
  * @param {Object} param params {Object} 传值参数
  */
 export function labelStatusApi(data) {
@@ -561,7 +561,7 @@ export function labelStatusApi(data) {
   });
 }
 /**
- * @description 商品标签-- 修改状态
+ * @description 商品标签-- تعديلالحالة
  * @param {Object} param params {Object} 传值参数
  */
 export function labelIsShowApi(data) {
@@ -584,7 +584,7 @@ export function productProtectionListApi(data) {
 }
 
 /**
- * @description 商品保障服务 -- 添加
+ * @description 商品保障服务 -- إضافة
  * data 请求参数
  */
 export function productProtectionFormApi(id) {
@@ -607,7 +607,7 @@ export function productProtectionInfoApi(data) {
 }
 
 /**
- * @description 商品保障服务-- 修改状态
+ * @description 商品保障服务-- تعديلالحالة
  * @param {Object} param params {Object} 传值参数
  */
 export function protectionStatusApi(data) {
@@ -628,7 +628,7 @@ export function productBrokerage(id, type) {
 }
 
 /**
- * @description 佣金  提交
+ * @description 佣金  إرسال
  */
 export function productBrokerageUpdate(id, type, data) {
   return request({

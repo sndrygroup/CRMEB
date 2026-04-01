@@ -35,9 +35,9 @@
 				</view>
 				<view class='list' :class="{'bag-white': integralList.length}" :hidden='current!=0'>
 					<view class='tip acea-row row-middle' v-if="!isTime"><text
-							class='iconfont icon-shuoming'></text>{{$t(`提示：积分数值的高低会直接影响您的会员等级`)}}</view>
+							class='iconfont icon-shuoming'></text>{{$t(`تنبيه：积分数值的高低会直接影响您的会员等级`)}}</view>
 					<view class='tip acea-row row-middle' v-else><text
-							class='iconfont icon-shuoming'></text>{{$t(`提示：你有`)}}{{userInfo.clear_integral}}{{$t(`积分在`)}}{{ userInfo.clear_time | dateFormat }}{{$t(`过期，请尽快使用`)}}
+							class='iconfont icon-shuoming'></text>{{$t(`تنبيه：你有`)}}{{userInfo.clear_integral}}{{$t(`积分在`)}}{{ userInfo.clear_time | dateFormat }}{{$t(`过期，请尽快使用`)}}
 					</view>
 					<view class='item acea-row row-between-wrapper' v-for="(item,index) in integralList" :key="index">
 						<view>

@@ -25,7 +25,7 @@
           class="administrate acea-row row-center-wrapper"
           @click="manage"
         >
-          {{ footerswitch ? $t(`管理`) : $t(`取消`) }}
+          {{ footerswitch ? $t(`إدارة`) : $t(`إلغاء`) }}
         </view>
       </view>
       <view
@@ -219,7 +219,7 @@
           </form>
           <form @submit="subDel">
             <button class="bnt cart-color" formType="submit">
-              {{ $t(`删除`) }}
+              {{ $t(`حذف`) }}
             </button>
           </form>
         </view>
@@ -307,12 +307,12 @@ export default {
       hotLimit: 10,
       loading: false,
       loadend: false,
-      loadTitle: this.$t(`我也是有底线的`), //提示语
+      loadTitle: this.$t(`我也是有底线的`), //تنبيه语
       page: 1,
       limit: 20,
       loadingInvalid: false,
       loadendInvalid: false,
-      loadTitleInvalid: this.$t(`加载更多`), //提示语
+      loadTitleInvalid: this.$t(`加载更多`), //تنبيه语
       pageInvalid: 1,
       limitInvalid: 20,
       attr: {
@@ -323,7 +323,7 @@ export default {
       productValue: [], //系统属性
       storeInfo: {},
       attrValue: "", //已选属性
-      attrTxt: this.$t(`请选择`), //属性页面提示
+      attrTxt: this.$t(`الرجاء اختيار `), //属性页面تنبيه
       cartId: 0,
       product_id: 0,
       sysHeight: sysHeight,
@@ -420,14 +420,14 @@ export default {
       this.pdHeight = num;
       this.btmNum = btmNum;
     },
-    // 修改购物车
+    // تعديل购物车
     reGoCat: function () {
       let that = this,
         productSelect = that.productValue[this.attrValue];
-      //如果有属性,没有选择,提示用户选择
+      //如果有属性,没有选择,تنبيه用户选择
       if (that.attr.productAttr.length && productSelect === undefined)
         return that.$util.Tips({
-          title: that.$t(`产品库存不足，请选择其它`),
+          title: that.$t(`产品库存不足，الرجاء اختيار 其它`),
         });
 
       let q = {
@@ -443,7 +443,7 @@ export default {
         .then(function (res) {
           that.attr.cartAttr = false;
           that.$util.Tips({
-            title: that.$t(`添加购物车成功`),
+            title: that.$t(`إضافة购物车成功`),
             success: () => {
               that.loadend = false;
               that.page = 1;
@@ -466,7 +466,7 @@ export default {
       this.getGoodsDetails(item);
     },
     /**
-     * 获取产品详情
+     * 获取产品تفاصيل
      *
      */
     getGoodsDetails: function (item) {
@@ -512,7 +512,7 @@ export default {
         this.$set(this.attr.productSelect, "unique", "");
         this.$set(this.attr.productSelect, "cart_num", 0);
         this.$set(this, "attrValue", "");
-        this.$set(this, "attrTxt", this.$t(`请选择`));
+        this.$set(this, "attrTxt", this.$t(`الرجاء اختيار `));
       }
     },
     /**
@@ -558,7 +558,7 @@ export default {
         this.$set(this.attr.productSelect, "unique", "");
         this.$set(this.attr.productSelect, "cart_num", 0);
         this.$set(this, "attrValue", "");
-        this.$set(this, "attrTxt", this.$t(`请选择`));
+        this.$set(this, "attrTxt", this.$t(`الرجاء اختيار `));
       } else if (!productSelect && !productAttr.length) {
         this.$set(
           this.attr.productSelect,
@@ -575,7 +575,7 @@ export default {
         );
         this.$set(this.attr.productSelect, "cart_num", 1);
         this.$set(this, "attrValue", "");
-        this.$set(this, "attrTxt", this.$t(`请选择`));
+        this.$set(this, "attrTxt", this.$t(`الرجاء اختيار `));
       }
     },
     attrVal(val) {
@@ -634,7 +634,7 @@ export default {
         });
       else
         return that.$util.Tips({
-          title: that.$t(`请选择产品`),
+          title: that.$t(`الرجاء اختيار 产品`),
         });
     },
     getSelectValueProductId: function () {
@@ -670,7 +670,7 @@ export default {
           });
       } else {
         return that.$util.Tips({
-          title: that.$t(`请选择产品`),
+          title: that.$t(`الرجاء اختيار 产品`),
         });
       }
     },
@@ -684,7 +684,7 @@ export default {
         });
       } else {
         return that.$util.Tips({
-          title: that.$t(`请选择产品`),
+          title: that.$t(`الرجاء اختيار 产品`),
         });
       }
     },
@@ -834,10 +834,10 @@ export default {
       cart_num = Number(item.cart_num) - 1;
       if (cart_num < 1 || cart_num < item.min_qty) {
         status = true;
-        // 弹出确认框
+        // 弹出تأكيد框
         uni.showModal({
-          title: "提示",
-          content: "确定删除吗？",
+          title: "تنبيه",
+          content: "确定حذف吗？",
           success: (res) => {
             if (res.confirm) {
               this.cartCount = this.cartCount - item.cart_num;
@@ -846,7 +846,7 @@ export default {
                 that.cartList.valid.splice(index, 1);
                 this.$store.commit("indexData/setCartNum", that.cartCount);
               });
-              // 删除选中中的数据
+              // حذف选中中的数据
               this.selectValue = this.selectValue.filter((i) => i != item.id);
               this.switchSelect();
             }

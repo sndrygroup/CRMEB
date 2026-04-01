@@ -1,8 +1,8 @@
-<!-- 修改发送地址 -->
+<!-- تعديل发送地址 -->
 <template>
   <div class="order-address">
     <el-dialog
-      title="修改发送地址"
+      title="تعديل发送地址"
       :visible.sync="modals"
       width="50%"
       :close-on-click-modal="false"
@@ -21,7 +21,7 @@
         </el-form-item>
       </el-form>
       <div slot="footer">
-        <el-button v-db-click @click="modals = false">取消</el-button>
+        <el-button v-db-click @click="modals = false">إلغاء</el-button>
         <el-button type="primary" v-db-click @click="submitForm('form')">确定</el-button>
       </div>
     </el-dialog>
@@ -49,9 +49,9 @@ export default {
   computed: {
     rules() {
       return {
-        real_name: [{ required: true, message: '请输入收货人', trigger: 'blur' }],
-        user_phone: [{ required: true, message: '请输入手机号', trigger: 'blur' }],
-        user_address: [{ required: true, message: '请输入详细地址', trigger: 'blur' }],
+        real_name: [{ required: true, message: 'الرجاء إدخال 收货人', trigger: 'blur' }],
+        user_phone: [{ required: true, message: 'الرجاء إدخال 手机号', trigger: 'blur' }],
+        user_address: [{ required: true, message: 'الرجاء إدخال 详细地址', trigger: 'blur' }],
       };
     },
   },

@@ -71,7 +71,7 @@
 		height: 120rpx;
 	}
 
-	/*返回主页按钮*/
+	/*عودة主页按钮*/
 	.home {
 		position: fixed;
 		color: white;

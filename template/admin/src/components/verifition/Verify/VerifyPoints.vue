@@ -108,14 +108,14 @@ export default {
   },
   data() {
     return {
-      secretKey: '', // 后端返回的ase加密秘钥
+      secretKey: '', // 后端عودة的ase加密秘钥
       checkNum: 3, // 默认需要点击的字数
       fontPos: [], // 选中的坐标信息
       checkPosArr: [], // 用户点击的坐标
       num: 1, // 点击的记数
       pointBackImgBase: '', // 后端获取到的背景图片
-      poinTextList: [], // 后端返回的点击字体顺序
-      backToken: '', // 后端返回的token值
+      poinTextList: [], // 后端عودة的点击字体顺序
+      backToken: '', // 后端عودة的token值
       setSize: {
         imgHeight: 0,
         imgWidth: 0,
@@ -136,7 +136,7 @@ export default {
     },
   },
   watch: {
-    // type变化则全面刷新
+    // type变化则全面تحديث
     type: {
       immediate: true,
       handler() {
@@ -241,7 +241,7 @@ export default {
       const data = {
         captchaType: this.captchaType,
         clientUid: localStorage.getItem('point'),
-        ts: Date.now(), // 现在的时间戳
+        ts: Date.now(), // 现在的الوقت戳
       };
       ajCaptcha(data).then((res) => {
         if (res.repCode == '0000') {

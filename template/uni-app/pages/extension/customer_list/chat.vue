@@ -155,7 +155,7 @@
       <view class="input-box">
         <input
           type="text"
-          :placeholder="$t(`请输入内容`)"
+          :placeholder="$t(`الرجاء إدخال 内容`)"
           v-model="con"
           confirm-type="send"
           @confirm="sendText"
@@ -347,7 +347,7 @@ export default {
         this.$socket.onStart(this.$store.state.app.token, form_type);
       }
       uni.$once("socketOpen", () => {
-        // 登录
+        // تسجيل الدخول
         this.$socket.send({
           data: this.$store.state.app.token,
           //#ifdef MP || APP-PLUS
@@ -418,7 +418,7 @@ export default {
     uni.$on("online", (data) => {
       if (data.online == 0) {
         uni.showModal({
-          title: this.$t(`提示`),
+          title: this.$t(`تنبيه`),
           content: this.$t(`客服已下线，是否需要反馈？`),
           success: function (res) {
             if (res.confirm) {
@@ -441,7 +441,7 @@ export default {
         urls: [n],
       });
     },
-    // 返回
+    // عودة
     goBack() {
       uni.navigateBack();
     },
@@ -459,7 +459,7 @@ export default {
         url: `/pages/goods_details/index?id=${item.msn}`,
       });
     },
-    // 订单详情
+    // 订单تفاصيل
     goOrder(item) {
       if (this.userType) {
         uni.navigateTo({
@@ -580,7 +580,7 @@ export default {
     sendText() {
       if (!this.isSend) {
         return this.$util.Tips({
-          title: this.$t(`请输入内容`),
+          title: this.$t(`الرجاء إدخال 内容`),
         });
       }
       this.sendMsg(this.con, 1);

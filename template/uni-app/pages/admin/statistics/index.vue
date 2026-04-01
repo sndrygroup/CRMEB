@@ -128,8 +128,8 @@ export default {
 				type: ''
 			},
 			types: '', //类型|order=订单数|price=营业额
-			time: '', //时间|today=今天|yesterday=昨天|month=本月
-			title: '', //时间|today=今天|yesterday=昨天|month=本月
+			time: '', //الوقت|today=今天|yesterday=昨天|month=本月
+			title: '', //الوقت|today=今天|yesterday=昨天|month=本月
 			growth_rate: '', //增长率
 			increase_time: '', //增长率
 			increase_time_status: '', //增长率

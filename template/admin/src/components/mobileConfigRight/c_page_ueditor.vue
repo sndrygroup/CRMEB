@@ -20,7 +20,7 @@ export default {
   data() {
     return {
       myConfig: {
-        autoHeightEnabled: false, // 编辑器不自动被内容撑高
+        autoHeightEnabled: false, // تحرير器不自动被内容撑高
         initialFrameHeight: 350, // 初始容器高度
         initialFrameWidth: '100%', // 初始容器宽度
         UEDITOR_HOME_URL: '/admin/UEditor/',
@@ -57,7 +57,7 @@ export default {
     getEditorContent(data) {
       this.configData.val = data;
     },
-    // 添加自定义弹窗
+    // إضافة自定义弹窗
     addCustomDialog(editorId) {
       window.UE.registerUI(
         'test-dialog',

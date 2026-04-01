@@ -27,7 +27,7 @@
 			<view class="bg--w111-fff rd-16rpx pt-32 pr-24 pl-24 pb-32">
 				<view class="flex-between-center">
 					<view class="fs-32 fw-500 text--w111-333">
-						<text>物流详情</text>
+						<text>物流تفاصيل</text>
 					</view>
 				</view>
 				<view class="logisticsCon mt-50 relative" v-if="expressList.length">

@@ -282,7 +282,7 @@ export default {
 						title: err
 					});
 				});
-			// //props修改在小程序和APP端不成功，所以在这里使用回调函数传参，
+			// //propsتعديل在小程序和APP端不成功，所以在这里使用回调函数传参，
 		},
 		// 抽奖完成
 		luck_draw_finish(param) {

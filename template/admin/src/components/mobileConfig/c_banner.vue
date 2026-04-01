@@ -410,7 +410,7 @@ export default {
       }
       return data;
     },
-    // 提交
+    // إرسال
     handleSubmit(name) {
       let obj = {};
       obj.activeIndex = this.activeIndex;

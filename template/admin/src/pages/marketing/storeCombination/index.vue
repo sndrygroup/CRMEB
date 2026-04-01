@@ -10,10 +10,10 @@
           @submit.native.prevent
           inline
         >
-          <el-form-item label="上架状态：">
+          <el-form-item label="上架الحالة：">
             <el-select
               v-model="formValidate.is_show"
-              placeholder="请选择"
+              placeholder="الرجاء اختيار "
               clearable
               @change="userSearchs"
               class="form_content_width"
@@ -22,10 +22,10 @@
               <el-option :value="0" label="下架"></el-option>
             </el-select>
           </el-form-item>
-          <el-form-item label="拼团搜索：" prop="store_name" label-for="store_name">
+          <el-form-item label="拼团بحث：" prop="store_name" label-for="store_name">
             <el-input
               clearable
-              placeholder="请输入请输入拼团名称/ID"
+              placeholder="الرجاء إدخال الرجاء إدخال 拼团الاسم/ID"
               v-model="formValidate.store_name"
               class="form_content_width"
             />
@@ -38,7 +38,7 @@
     </el-card>
     <el-card :bordered="false" shadow="never" class="ivu-mt mt16">
       <el-button v-auth="['marketing-store_combination-create']" type="primary" v-db-click @click="add"
-        >添加拼团商品</el-button
+        >إضافة拼团商品</el-button
       >
       <el-button v-auth="['export-storeCombination']" class="export" v-db-click @click="exports">导出</el-button>
       <el-table
@@ -61,7 +61,7 @@
             </div>
           </template>
         </el-table-column>
-        <el-table-column label="拼团名称" min-width="130">
+        <el-table-column label="拼团الاسم" min-width="130">
           <template slot-scope="scope">
             <el-tooltip placement="top" :open-delay="600">
               <div slot="content">{{ scope.row.title }}</div>
@@ -104,20 +104,20 @@
             <span>{{ scope.row.quota }}</span>
           </template>
         </el-table-column>
-        <el-table-column label="活动状态" min-width="100">
+        <el-table-column label="活动الحالة" min-width="100">
           <template slot-scope="scope">
             <el-tag size="medium" v-show="scope.row.start_name === '进行中'">进行中</el-tag>
             <el-tag size="medium" type="warning" v-show="scope.row.start_name === '未开始'">未开始</el-tag>
             <el-tag size="medium" type="info" v-show="scope.row.start_name === '已结束'">已结束</el-tag>
           </template>
         </el-table-column>
-        <el-table-column label="活动时间" min-width="180">
+        <el-table-column label="活动الوقت" min-width="180">
           <template slot-scope="scope">
             <p>开始：{{ scope.row.start_time }}</p>
             <p>结束：{{ scope.row.stop_time }}</p>
           </template>
         </el-table-column>
-        <el-table-column label="上架状态" min-width="150">
+        <el-table-column label="上架الحالة" min-width="150">
           <template slot-scope="scope">
             <el-switch
               class="defineSwitch"
@@ -133,13 +133,13 @@
             </el-switch>
           </template>
         </el-table-column>
-        <el-table-column label="操作" fixed="right" width="170">
+        <el-table-column label="الخيارات" fixed="right" width="170">
           <template slot-scope="scope">
-            <a v-if="scope.row.stop_status === 0" v-db-click @click="edit(scope.row)">编辑</a>
+            <a v-if="scope.row.stop_status === 0" v-db-click @click="edit(scope.row)">تحرير</a>
             <el-divider direction="vertical" v-if="scope.row.stop_status === 0" />
             <a v-db-click @click="copy(scope.row)">复制</a>
             <el-divider direction="vertical"></el-divider>
-            <a v-db-click @click="del(scope.row, '删除拼团商品', scope.$index)">删除</a>
+            <a v-db-click @click="del(scope.row, 'حذف拼团商品', scope.$index)">حذف</a>
             <el-divider direction="vertical"></el-divider>
             <a v-db-click @click="viewInfo(scope.row)">统计</a>
           </template>
@@ -239,11 +239,11 @@ export default {
       });
     },
 
-    // 添加
+    // إضافة
     add() {
       this.$router.push({ path: this.$routeProStr + '/marketing/store_combination/create' });
     },
-    // 编辑
+    // تحرير
     edit(row) {
       this.$router.push({
         path: this.$routeProStr + '/marketing/store_combination/create/' + row.id + '/0',
@@ -255,7 +255,7 @@ export default {
         path: this.$routeProStr + '/marketing/store_combination/create/' + row.id + '/1',
       });
     },
-    // 删除
+    // حذف
     del(row, tit, num) {
       let delfromData = {
         title: tit,
@@ -296,12 +296,12 @@ export default {
           this.$message.error(res.msg);
         });
     },
-    // 表格搜索
+    // 表格بحث
     userSearchs() {
       this.formValidate.page = 1;
       this.getList();
     },
-    // 修改是否显示
+    // تعديل是否显示
     onchangeIsShow(row) {
       let data = {
         id: row.id,

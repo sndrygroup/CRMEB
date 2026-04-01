@@ -83,13 +83,13 @@ export function hideLoading() {
 		throw new Error('处理失败');
 	}
 }
-export function Modal(title = '提示', content = '这是一个模态弹窗!', obj = {
+export function Modal(title = 'تنبيه', content = '这是一个模态弹窗!', obj = {
 	showCancel: true,
-	cancelText: '取消',
+	cancelText: 'إلغاء',
 	confirmText: '确定'
 }) {
 	obj.cancelText = '确定';
-	obj.confirmText = '取消';
+	obj.confirmText = 'إلغاء';
 	return new Promise((reslove, reject) => {
 		uni.showModal({
 			title: title,

@@ -192,11 +192,11 @@
 import { mapState } from 'vuex';
 // import theme from "@/mixins/theme";
 export default {
-  name: 'banner', // 组件名称
-  cname: '轮播图', // 标题名称
+  name: 'banner', // 组件الاسم
+  cname: '轮播图', // 标题الاسم
   icon: '#iconzujian-lunbotu',
-  defaultName: 'swiperBg', // 外面匹配名称
-  configName: 'c_banner', // 右侧配置名称
+  defaultName: 'swiperBg', // 外面匹配الاسم
+  configName: 'c_banner', // 右侧配置الاسم
   type: 0, // 0 基础组件 1 营销组件 2工具组件
   props: {
     index: {
@@ -237,7 +237,7 @@ export default {
   // mixins: [theme],
   data() {
     return {
-      // 默认初始化数据禁止修改
+      // 默认初始化数据禁止تعديل
       defaultConfig: {
         cname: '轮播图',
         name: 'swiperBg',
@@ -337,7 +337,7 @@ export default {
                 {
                   title: '链接',
                   value: '',
-                  tips: '请输入链接',
+                  tips: 'الرجاء إدخال 链接',
                   max: 100,
                 },
               ],

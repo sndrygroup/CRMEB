@@ -156,7 +156,7 @@
         </view>
         <view>
           <button class="money" type="primary" @click="verification">
-            {{ checked ? "一键" : "确认" }}核销({{ numChecked }})
+            {{ checked ? "一键" : "تأكيد" }}核销({{ numChecked }})
           </button>
         </view>
       </view>
@@ -197,7 +197,7 @@
               hover-class="none"
               open-type="redirect"
               class="btn btn_no"
-              >返回列表</navigator
+              >عودة列表</navigator
             >
             <navigator
               v-if="
@@ -211,7 +211,7 @@
               hover-class="none"
               open-type="redirect"
               class="btn btn_no"
-              >返回首页</navigator
+              >عودة首页</navigator
             >
             <view
               v-if="
@@ -524,7 +524,7 @@ export default {
       this.newList = newObj;
       if (that.checkModel.length == 0) {
         that.$util.Tips({
-          title: "请选择商品",
+          title: "الرجاء اختيار 商品",
         });
       } else {
         uni.showLoading({

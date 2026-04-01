@@ -37,7 +37,7 @@ export default {
   icon: 'iconhuodongmofang1',
   configName: 'c_home_hot',
   type: -1, // -1 doing 0 基础组件 1 营销组件 2工具组件
-  defaultName: 'activeParty', // 外面匹配名称
+  defaultName: 'activeParty', // 外面匹配الاسم
   props: {
     index: {
       type: null,
@@ -73,7 +73,7 @@ export default {
   },
   data() {
     return {
-      // 默认初始化数据禁止修改
+      // 默认初始化数据禁止تعديل
       defaultConfig: {
         name: 'activeParty',
         timestamp: this.num,
@@ -83,17 +83,17 @@ export default {
         titleConfig: {
           title: '促销标题',
           value: '超值爆款',
-          place: '请输入标题',
+          place: 'الرجاء إدخال 标题',
           max: 10,
         },
         desConfig: {
           title: '促销简介',
           value: '美好生活由此开始',
-          place: '请输入简介',
+          place: 'الرجاء إدخال 简介',
           max: 8,
         },
         menuConfig: {
-          title: '最多可添加4个版块，图片建议尺寸140 * 140px；鼠标拖拽左侧圆点可 调整版块顺序',
+          title: '最多可إضافة4个版块，图片建议尺寸140 * 140px；鼠标拖拽左侧圆点可 调整版块顺序',
           maxList: 4,
           list: [
             {
@@ -114,7 +114,7 @@ export default {
                 {
                   title: '链接',
                   value: '',
-                  tips: '请输入链接',
+                  tips: 'الرجاء إدخال 链接',
                   max: 100,
                 },
               ],
@@ -137,7 +137,7 @@ export default {
                 {
                   title: '链接',
                   value: '',
-                  tips: '请输入链接',
+                  tips: 'الرجاء إدخال 链接',
                   max: 100,
                 },
               ],
@@ -160,7 +160,7 @@ export default {
                 {
                   title: '链接',
                   value: '',
-                  tips: '请输入链接',
+                  tips: 'الرجاء إدخال 链接',
                   max: 100,
                 },
               ],
@@ -183,7 +183,7 @@ export default {
                 {
                   title: '链接',
                   value: '',
-                  tips: '请输入链接',
+                  tips: 'الرجاء إدخال 链接',
                   max: 100,
                 },
               ],

@@ -10,7 +10,7 @@
       >
         <el-row :gutter="24">
           <el-col :span="24">
-            <el-form-item label="时间选择：">
+            <el-form-item label="الوقت选择：">
               <el-radio-group
                 v-model="formValidate.data"
                 type="button"
@@ -34,8 +34,8 @@
             </el-form-item>
           </el-col>
           <el-col v-bind="grid">
-            <el-form-item label="预售状态：">
-              <el-select v-model="formValidate.status" placeholder="请选择" clearable @change="userSearchs">
+            <el-form-item label="预售الحالة：">
+              <el-select v-model="formValidate.status" placeholder="الرجاء اختيار " clearable @change="userSearchs">
                 <el-option :value="1" label="进行中"></el-option>
                 <el-option :value="2" label="已失败"></el-option>
                 <el-option :value="3" label="已成功"></el-option>
@@ -64,7 +64,7 @@
             <span> {{ scope.row.nickname + ' / ' + scope.row.uid }}</span>
           </template>
         </el-table-column>
-        <el-table-column label="开启时间" min-width="130">
+        <el-table-column label="开启الوقت" min-width="130">
           <template slot-scope="scope">
             <span>{{ scope.row.add_time }}</span>
           </template>
@@ -94,21 +94,21 @@
             <span>{{ scope.row.num }}</span>
           </template>
         </el-table-column>
-        <el-table-column label="结束时间" min-width="130">
+        <el-table-column label="结束الوقت" min-width="130">
           <template slot-scope="scope">
             <span>{{ scope.row.datatime }}</span>
           </template>
         </el-table-column>
-        <el-table-column label="状态" min-width="130">
+        <el-table-column label="الحالة" min-width="130">
           <template slot-scope="scope">
             <el-tag color="blue" v-show="scope.row.status === 1">进行中</el-tag>
             <el-tag color="volcano" v-show="scope.row.status === 2">已失败</el-tag>
             <el-tag color="cyan" v-show="scope.row.status === 3">已成功</el-tag>
           </template>
         </el-table-column>
-        <el-table-column label="操作" fixed="right" width="100">
+        <el-table-column label="الخيارات" fixed="right" width="100">
           <template slot-scope="scope">
-            <a v-db-click @click="Info(scope.row)">查看详情</a>
+            <a v-db-click @click="Info(scope.row)">查看تفاصيل</a>
           </template>
         </el-table-column>
       </el-table>
@@ -123,8 +123,8 @@
       </div>
     </el-card>
 
-    <!-- 详情模态框-->
-    <el-dialog :visible.sync="modals" class="tableBox" title="查看详情" :close-on-click-modal="false" width="720px">
+    <!-- تفاصيل模态框-->
+    <el-dialog :visible.sync="modals" class="tableBox" title="查看تفاصيل" :close-on-click-modal="false" width="720px">
       <el-table
         ref="selection"
         :data="tabList3"
@@ -146,7 +146,7 @@
             </div>
           </template>
         </el-table-column>
-        <el-table-column label="用户名称" min-width="130">
+        <el-table-column label="اسم المستخدم称" min-width="130">
           <template slot-scope="scope">
             <span> {{ scope.row.nickname + ' / ' + scope.row.uid }}</span>
           </template>
@@ -156,7 +156,7 @@
             <span>{{ scope.row.price }}</span>
           </template>
         </el-table-column>
-        <el-table-column label="预售时间" min-width="130">
+        <el-table-column label="预售الوقت" min-width="130">
           <template slot-scope="scope">
             <span>{{ scope.row.add_time }}</span>
           </template>
@@ -186,7 +186,7 @@ export default {
       cardLists: [],
       modals: false,
       fromList: {
-        title: '选择时间',
+        title: '选择الوقت',
         custom: true,
         fromTxt: [
           { text: '全部', val: '' },
@@ -224,7 +224,7 @@ export default {
           minWidth: 150,
         },
         {
-          title: '开启时间',
+          title: '开启الوقت',
           key: 'add_time',
           minWidth: 150,
         },
@@ -254,17 +254,17 @@ export default {
           minWidth: 100,
         },
         {
-          title: '结束时间',
+          title: '结束الوقت',
           key: 'datatime',
           minWidth: 150,
         },
         {
-          title: '状态',
+          title: 'الحالة',
           slot: 'status',
           minWidth: 100,
         },
         {
-          title: '操作',
+          title: 'الخيارات',
           slot: 'action',
           fixed: 'right',
           minWidth: 170,
@@ -291,7 +291,7 @@ export default {
     this.getList();
   },
   methods: {
-    // 查看详情
+    // 查看تفاصيل
     Info(row) {
       this.modals = true;
       this.rows = row;
@@ -313,7 +313,7 @@ export default {
       this.formValidate.page = 1;
       this.getList();
     },
-    // 选择时间
+    // 选择الوقت
     selectChange(tab) {
       this.formValidate.page = 1;
       this.formValidate.data = tab;
@@ -340,7 +340,7 @@ export default {
       this.formValidate.page = index;
       this.getList();
     },
-    // 表格搜索
+    // 表格بحث
     userSearchs() {
       this.formValidate.page = 1;
       this.getList();

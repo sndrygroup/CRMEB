@@ -40,7 +40,7 @@
               search
               enter-button="确定"
               v-model="soure_link"
-              placeholder="请输入链接地址"
+              placeholder="الرجاء إدخال 链接地址"
               class="numPut"
               @on-search="add"
             />
@@ -49,13 +49,13 @@
         <div>
           <div v-if="isData">
             <el-col :span="24" class="">
-              <el-form-item label="商品名称：" prop="store_name">
-                <el-input v-model="formValidate.store_name" placeholder="请输入商品名称" />
+              <el-form-item label="商品الاسم：" prop="store_name">
+                <el-input v-model="formValidate.store_name" placeholder="الرجاء إدخال 商品الاسم" />
               </el-form-item>
             </el-col>
             <el-col :span="24">
               <el-form-item label="商品简介：" prop="store_info" label-for="store_info">
-                <el-input v-model="formValidate.store_info" type="textarea" :rows="3" placeholder="请输入商品简介" />
+                <el-input v-model="formValidate.store_info" type="textarea" :rows="3" placeholder="الرجاء إدخال 商品简介" />
               </el-form-item>
             </el-col>
             <el-col :span="24">
@@ -77,12 +77,12 @@
             </el-col>
             <el-col v-bind="grid">
               <el-form-item label="商品关键字：" prop="keyword" label-for="keyword">
-                <el-input v-model="formValidate.keyword" placeholder="请输入商品关键字" />
+                <el-input v-model="formValidate.keyword" placeholder="الرجاء إدخال 商品关键字" />
               </el-form-item>
             </el-col>
             <el-col v-bind="grid">
               <el-form-item label="单位：" prop="unit_name" label-for="unit_name">
-                <el-input v-model="formValidate.unit_name" placeholder="请输入单位" />
+                <el-input v-model="formValidate.unit_name" placeholder="الرجاء إدخال 单位" />
               </el-form-item>
             </el-col>
             <el-col v-bind="grid">
@@ -91,7 +91,7 @@
                   :controls="false"
                   class="perW100"
                   v-model="formValidate.ficti"
-                  placeholder="请输入虚拟销量"
+                  placeholder="الرجاء إدخال 虚拟销量"
                 />
               </el-form-item>
             </el-col>
@@ -101,7 +101,7 @@
                   :controls="false"
                   class="perW100"
                   v-model="formValidate.give_integral"
-                  placeholder="请输入积分"
+                  placeholder="الرجاء إدخال 积分"
                 />
               </el-form-item>
             </el-col>
@@ -119,7 +119,7 @@
             </el-col>
             <!--<el-col v-bind="grid">-->
             <!--<el-form-item label="邮费："  label-for="postage">-->
-            <!--<el-input-number controls-position="right"  v-model="formValidate.postage" placeholder="请输入邮费"  />-->
+            <!--<el-input-number controls-position="right"  v-model="formValidate.postage" placeholder="الرجاء إدخال 邮费"  />-->
             <!--</el-form-item>-->
             <!--</el-col>-->
             <el-col :span="24">
@@ -234,9 +234,9 @@
                           </template>
                         </template>
                       </el-table-column>
-                      <el-table-column label="操作" fixed="right" width="170">
+                      <el-table-column label="الخيارات" fixed="right" width="170">
                         <template slot-scope="">
-                          <a v-db-click @click="batchAdd">添加</a>
+                          <a v-db-click @click="batchAdd">إضافة</a>
                           <el-divider direction="vertical"></el-divider>
                           <a v-db-click @click="batchDel">清空</a>
                         </template>
@@ -327,9 +327,9 @@
                           </template>
                         </template>
                       </el-table-column>
-                      <el-table-column label="操作" fixed="right" width="170">
+                      <el-table-column label="الخيارات" fixed="right" width="170">
                         <template slot-scope="scope">
-                          <a v-db-click @click="delAttrTable(scope.$index)">删除</a>
+                          <a v-db-click @click="delAttrTable(scope.$index)">حذف</a>
                         </template>
                       </el-table-column>
                     </el-table>
@@ -338,7 +338,7 @@
               </el-form-item>
             </el-col>
             <el-col :span="24">
-              <el-form-item label="商品详情：">
+              <el-form-item label="商品تفاصيل：">
                 <WangEditor
                   style="width: 100%"
                   :content="formValidate.description"
@@ -354,7 +354,7 @@
                   class="submission"
                   v-db-click
                   @click="handleSubmit('formValidate')"
-                  >提交</el-button
+                  >إرسال</el-button
                 >
               </el-form-item>
             </el-col>
@@ -452,7 +452,7 @@ export default {
           minWidth: 95,
         },
         {
-          title: '操作',
+          title: 'الخيارات',
           slot: 'action',
           align: 'center',
           minWidth: 140,
@@ -484,7 +484,7 @@ export default {
         cate_id: [
           {
             required: true,
-            message: '请选择商品分类',
+            message: 'الرجاء اختيار 商品分类',
             trigger: 'change',
             type: 'array',
             min: '1',
@@ -493,7 +493,7 @@ export default {
         temp_id: [
           {
             required: true,
-            message: '请选择运费模板',
+            message: 'الرجاء اختيار 运费模板',
             trigger: 'change',
             type: 'number',
           },
@@ -630,7 +630,7 @@ export default {
     getEditorContent(data) {
       this.content = data;
     },
-    // 删除表格中的属性
+    // حذف表格中的属性
     delAttrTable(index) {
       this.items.splice(index, 1);
     },
@@ -646,7 +646,7 @@ export default {
         this.copyConfig.copy_num = res.data.copy_num;
       });
     },
-    // 删除图片
+    // حذف图片
     handleRemove(i) {
       this.formValidate.slider_image.splice(i, 1);
     },
@@ -669,7 +669,7 @@ export default {
       if (this.soure_link) {
         var reg = /(http|ftp|https):\/\/[\w\-_]+(\.[\w\-_]+)+([\w\-\.,@?^=%&:/~\+#]*[\w\-\@?^=%&/~\+#])?/;
         if (!reg.test(this.soure_link)) {
-          return this.$message.warning('请输入以http开头的地址！');
+          return this.$message.warning('الرجاء إدخال 以http开头的地址！');
         }
         this.spinShow = true;
         this.artFrom.url = this.soure_link;
@@ -692,10 +692,10 @@ export default {
             this.$message.error(res.msg);
           });
       } else {
-        this.$message.warning('请输入链接地址！');
+        this.$message.warning('الرجاء إدخال 链接地址！');
       }
     },
-    // 提交
+    // إرسال
     handleSubmit(name) {
       this.formValidate.description = this.content;
       this.$refs[name].validate((valid) => {
@@ -716,7 +716,7 @@ export default {
           // this.formValidate.items = [];
           crawlSaveApi(this.formValidate)
             .then((res) => {
-              this.$message.success('商品默认为不上架状态请手动上架商品!');
+              this.$message.success('商品默认为不上架الحالة请手动上架商品!');
               setTimeout(() => {
                 this.modal_loading = false;
               }, 500);
@@ -773,7 +773,7 @@ export default {
       newItems.splice(dst, 0, ...newItems.splice(src, 1));
       this.formValidate.slider_image = newItems;
     },
-    // 添加自定义弹窗
+    // إضافة自定义弹窗
     addCustomDialog(editorId) {
       window.UE.registerUI(
         'test-dialog',

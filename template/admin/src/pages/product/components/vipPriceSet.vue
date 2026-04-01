@@ -55,7 +55,7 @@
                   width="290"
                   trigger="click"
                 >
-                  <div class="pop-title">批量修改本列</div>
+                  <div class="pop-title">批量تعديل本列</div>
                   <div class="mt-14">
                     <el-radio-group v-model="vipSetType">
                       <el-radio :label="0">指定价格</el-radio>
@@ -72,8 +72,8 @@
                       </template>
                     </el-input>
                     <div class="acea-row row-right row-middle ml14">
-                      <el-button size="small" @click="closeVipSet">取消</el-button>
-                      <el-button size="small" type="primary" class="ml-14" @click="vipSetConfirm">确认</el-button>
+                      <el-button size="small" @click="closeVipSet">إلغاء</el-button>
+                      <el-button size="small" type="primary" class="ml-14" @click="vipSetConfirm">تأكيد</el-button>
                     </div>
                   </div>
                   <span class="iconfont iconbianji1" slot="reference" @click.stop="vipSetPopoverPopver = true"></span>
@@ -95,8 +95,8 @@
         </el-form-item>
       </el-form>
       <div slot="footer" class="dialog-footer">
-        <el-button @click="onCancel">取消</el-button>
-        <el-button type="primary" @click="submitForm" :disabled="disabled" class="ml-14">确认</el-button>
+        <el-button @click="onCancel">إلغاء</el-button>
+        <el-button type="primary" @click="submitForm" :disabled="disabled" class="ml-14">تأكيد</el-button>
       </div>
     </el-dialog>
   </div>

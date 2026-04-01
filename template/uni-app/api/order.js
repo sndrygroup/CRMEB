@@ -28,7 +28,7 @@ export function getCartList(data) {
 }
 
 /**
- * 修改购物车
+ * تعديل购物车
  * 
  */
 export function getResetCart(data) {
@@ -36,9 +36,9 @@ export function getResetCart(data) {
 }
 
 /**
- * 修改购物车数量
+ * تعديل购物车数量
  * @param int cartId  购物车id
- * @param int number 修改数量
+ * @param int number تعديل数量
  */
 export function changeCartNum(cartId, number) {
 	return request.post("cart/num", {
@@ -93,7 +93,7 @@ export function orderPay(data) {
 }
 
 /**
- * 删除已退款和拒绝退款的订单
+ * حذف已退款和拒绝退款的订单
  * @param string uni
  * 
  */
@@ -109,7 +109,7 @@ export function orderData() {
 }
 
 /**
- * 订单取消
+ * 订单إلغاء
  * @param string id
  * 
  */
@@ -120,7 +120,7 @@ export function orderCancel(id) {
 }
 
 /**
- * 删除已完成订单
+ * حذف已完成订单
  * @param string uni
  * 
  */
@@ -131,21 +131,21 @@ export function orderDel(uni) {
 }
 
 /**
- * 礼品订单详情
+ * 礼品订单تفاصيل
  * @param string uni 
  */
 export function getGiftOrderDetail(id) {
 	return request.get('order/gift_detail/' + id);
 }
 /**
- * 订单详情
+ * 订单تفاصيل
  * @param string uni 
  */
 export function getOrderDetail(uni, cart_id) {
 	return request.get('order/detail/' + uni + `${cart_id ? `/${cart_id}`:''}`);
 }
 /**
- * 退款订单详情
+ * 退款订单تفاصيل
  * @param string uni 
  */
 export function getRefundOrderDetail(uni, cart_id) {
@@ -206,7 +206,7 @@ export function orderRefundVerify(data) {
 }
 
 /**
- * 订单确认获取订单详细信息
+ * 订单تأكيد获取订单详细信息
  * @param string cartId
  */
 export function orderConfirm(data) {
@@ -214,7 +214,7 @@ export function orderConfirm(data) {
 }
 
 /**
- * 获取确认订单页面是否展示快递配送和到店自提
+ * 获取تأكيد订单页面是否展示快递配送和到店自提
  * @param string cartId
  */
 export function checkShipping(cartId, news) {
@@ -294,7 +294,7 @@ export function orderInvoiceList(data) {
 }
 
 /**
- * 开票订单详情
+ * 开票订单تفاصيل
  * @param {Object} id
  */
 export function orderInvoiceDetail(id) {
@@ -318,7 +318,7 @@ export function aliPay(key, quitUrl) {
 
 
 /**
- * 退货物流单号提交
+ * 退货物流单号إرسال
  * @param {Object} data
  */
 export function refundExpress(data) {
@@ -347,7 +347,7 @@ export function postRefundGoods(data) {
 }
 
 /**
- * 退款商品提交
+ * 退款商品إرسال
  */
 export function returnGoodsSubmit(id, data) {
 	return request.post(`order/refund/apply/${id}`, data);
@@ -362,7 +362,7 @@ export function getNewOrderList(data) {
 }
 
 /**
- * 退款订单详情
+ * 退款订单تفاصيل
  * @param string uni 
  */
 export function refundOrderDetail(uni) {

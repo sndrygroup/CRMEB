@@ -20,7 +20,7 @@ export default {
   configName: 'c_home_service',
   icon: '#iconzujian-xuanfuanniu',
   type: 2, // 0 基础组件 1 营销组件 2工具组件
-  defaultName: 'customerService', // 外面匹配名称
+  defaultName: 'customerService', // 外面匹配الاسم
   props: {
     index: {
       type: null,

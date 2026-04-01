@@ -1,10 +1,10 @@
 <template>
   <div class="customer">
     <el-form ref="formValidate" :model="formValidate" label-width="80px" inline @submit.native.prevent>
-      <el-form-item label="搜索用户：">
+      <el-form-item label="بحث用户：">
         <el-input
           clearable
-          placeholder="请输入用户UID、昵称或手机号"
+          placeholder="الرجاء إدخال 用户UID、昵称或手机号"
           v-model="formValidate.nickname"
           class="form_content_width"
         ></el-input>
@@ -62,7 +62,7 @@
           <span v-text="scope.row.subscribe === 1 ? '关注' : '未关注'"></span>
         </template>
       </el-table-column>
-      <el-table-column label="注册时间" min-width="180">
+      <el-table-column label="注册الوقت" min-width="180">
         <template slot-scope="scope">
           <div>{{ scope.row.add_time }}</div>
         </template>
@@ -94,7 +94,7 @@ export default {
       tableList2: [],
       timeVal: [],
       fromList: {
-        title: '选择时间',
+        title: '选择الوقت',
         custom: true,
         fromTxt: [
           { text: '全部', val: '' },
@@ -123,7 +123,7 @@ export default {
       this.formValidate.data = this.timeVal ? this.timeVal.join('-') : '';
       this.getListService();
     },
-    // 选择时间
+    // 选择الوقت
     selectChange(tab) {
       this.formValidate.data = tab;
       this.timeVal = [];
@@ -147,7 +147,7 @@ export default {
           this.$message.error(res.msg);
         });
     },
-    // 搜索
+    // بحث
     userSearchs() {
       this.formValidate.page = 1;
       this.getListService();

@@ -10,10 +10,10 @@
           @submit.native.prevent
           inline
         >
-          <el-form-item label="规则状态：">
+          <el-form-item label="规则الحالة：">
             <el-select
               v-model="roleData.is_show"
-              placeholder="请选择"
+              placeholder="الرجاء اختيار "
               clearable
               @change="getData"
               class="form_content_width"
@@ -22,8 +22,8 @@
               <el-option value="0" label="不显示"></el-option>
             </el-select>
           </el-form-item>
-          <el-form-item label="按钮名称：" prop="status2" label-for="status2">
-            <el-input clearable v-model="roleData.keyword" placeholder="请输入按钮名称" class="form_content_width" />
+          <el-form-item label="按钮الاسم：" prop="status2" label-for="status2">
+            <el-input clearable v-model="roleData.keyword" placeholder="الرجاء إدخال 按钮الاسم" class="form_content_width" />
           </el-form-item>
           <el-form-item>
             <el-button type="primary" v-db-click @click="getData">查询</el-button>
@@ -32,7 +32,7 @@
       </div>
     </el-card>
     <el-card :bordered="false" shadow="never" class="ivu-mt">
-      <el-button type="primary" v-db-click @click="menusAdd('添加规则')">添加规则 </el-button>
+      <el-button type="primary" v-db-click @click="menusAdd('إضافة规则')">إضافة规则 </el-button>
       <vxe-table
         :border="false"
         class="vxeTable mt14"
@@ -45,7 +45,7 @@
         :data="tableData"
         row-id="id"
       >
-        <vxe-table-column field="menu_name" tree-node title="按钮名称" min-width="100"></vxe-table-column>
+        <vxe-table-column field="menu_name" tree-node title="按钮الاسم" min-width="100"></vxe-table-column>
         <vxe-table-column field="unique_auth" title="前端权限" min-width="200"></vxe-table-column>
         <vxe-table-column field="menu_path" title="路由" min-width="240" tooltip="true">
           <template v-slot="{ row }">
@@ -54,7 +54,7 @@
             <span v-if="row.auth_type == 2">接口：[{{ row.methods }}]{{ row.api_url }}</span>
           </template>
         </vxe-table-column>
-        <vxe-table-column field="flag" title="规则状态" min-width="120">
+        <vxe-table-column field="flag" title="规则الحالة" min-width="120">
           <template v-slot="{ row }">
             <el-switch
               :active-value="1"
@@ -68,20 +68,20 @@
           </template>
         </vxe-table-column>
         <vxe-table-column field="mark" title="备注" min-width="120"></vxe-table-column>
-        <vxe-table-column field="date" title="操作" width="230" fixed="right">
+        <vxe-table-column field="date" title="الخيارات" width="230" fixed="right">
           <template v-slot="{ row }">
             <span>
               <a v-db-click @click="addRoute(row)" v-if="row.auth_type === 1 || row.auth_type === 3">选择权限</a>
               <el-divider direction="vertical" v-if="row.auth_type === 1 || row.auth_type === 3" />
-              <a v-db-click @click="addE(row, '添加子菜单')" v-if="row.auth_type === 1 || row.auth_type === 3"
-                >添加下级</a
+              <a v-db-click @click="addE(row, 'إضافة子菜单')" v-if="row.auth_type === 1 || row.auth_type === 3"
+                >إضافة下级</a
               >
-              <!-- <a v-db-click @click="addE(row, '添加规则')" v-else>添加规则</a> -->
+              <!-- <a v-db-click @click="addE(row, 'إضافة规则')" v-else>إضافة规则</a> -->
             </span>
             <el-divider direction="vertical" v-if="row.auth_type === 1 || row.auth_type === 3"></el-divider>
-            <a v-db-click @click="edit(row, '编辑')">编辑</a>
+            <a v-db-click @click="edit(row, 'تحرير')">تحرير</a>
             <el-divider direction="vertical"></el-divider>
-            <a v-db-click @click="del(row, '删除规则')">删除</a>
+            <a v-db-click @click="del(row, 'حذف规则')">حذف</a>
           </template>
         </vxe-table-column>
       </vxe-table>
@@ -98,17 +98,17 @@
       <div class="search-rule">
         <el-alert>
           <template slot="title">
-            1.接口可多选，可重复添加；<br />2.添加路由按照路由规则进行添加，即可在开发工具->接口管理里面点击同步；<br />3.同步完成即可在此选择对应的接口；
+            1.接口可多选，可重复إضافة；<br />2.إضافة路由按照路由规则进行إضافة，即可在开发工具->接口إدارة里面点击同步；<br />3.同步完成即可在此选择对应的接口；
           </template>
         </el-alert>
         <el-input
           class="mr10 mt10 form_content_width"
           v-model="searchRule"
-          placeholder="输入关键词搜索"
+          placeholder="输入关键词بحث"
           clearable
           ref="search"
         />
-        <el-button type="primary" v-db-click @click="searchRules">搜索</el-button>
+        <el-button type="primary" v-db-click @click="searchRules">بحث</el-button>
         <el-button v-db-click @click="init">重置</el-button>
       </div>
       <div class="route-list">
@@ -134,7 +134,7 @@
             v-db-click
             @click="selectRule(item)"
           >
-            <div>接口名称：{{ item.name }}</div>
+            <div>接口الاسم：{{ item.name }}</div>
             <div>请求方式：{{ item.method }}</div>
             <div>接口地址：{{ item.path }}</div>
           </div>
@@ -271,7 +271,7 @@ export default {
       this.children = this.foundationList[index] ? this.foundationList[index].children : [];
       this.searchRules();
     },
-    // 搜索规则
+    // بحث规则
     searchRules() {
       if (this.searchRule.trim()) {
         this.arrs = [];
@@ -321,7 +321,7 @@ export default {
         // this.seletRoute = [];
       });
     },
-    // 修改规则状态
+    // تعديل规则الحالة
     onchangeIsShow(row) {
       let data = {
         id: row.id,
@@ -346,7 +346,7 @@ export default {
     clearFrom() {
       this.formValidate = Object.assign({}, this.$options.data().formValidate);
     },
-    // 添加子菜单
+    // إضافة子菜单
     addE(row, title) {
       this.formValidate = {
         is_show: 0,
@@ -377,7 +377,7 @@ export default {
         this.formValidate.is_show_path = 0;
       }
     },
-    // 删除
+    // حذف
     del(row, tit) {
       let delfromData = {
         title: tit,
@@ -397,7 +397,7 @@ export default {
           this.$message.error(res.msg);
         });
     },
-    // 规则详情
+    // 规则تفاصيل
     menusDetails(id) {
       menusDetailsApi(id)
         .then(async (res) => {
@@ -408,7 +408,7 @@ export default {
           this.$message.error(res.msg);
         });
     },
-    // 编辑
+    // تحرير
     edit(row, title, index) {
       this.modals = true;
 
@@ -418,7 +418,7 @@ export default {
       this.$refs.menusFrom.valids = false;
       this.$refs.menusFrom.getAddFrom(row.id);
     },
-    // 添加
+    // إضافة
     menusAdd(title) {
       // this.formValidate = {};
       this.modals = true;

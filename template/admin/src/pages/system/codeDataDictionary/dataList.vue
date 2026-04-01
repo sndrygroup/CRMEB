@@ -9,7 +9,7 @@
           type="text"
           v-db-click
           @click="$router.go(-1)"
-          >返回</el-button
+          >عودة</el-button
         >
         <el-divider direction="vertical"></el-divider>
         <span class="ivu-page-header-title">{{ $route.meta.title }}</span>
@@ -17,7 +17,7 @@
     </div>
     <el-card :bordered="false" shadow="never" class="ivu-mt mt16">
       <el-button v-auth="['system-crud-data_dictionary']" type="primary" v-db-click @click="add"
-        >添加数据字典</el-button
+        >إضافة数据字典</el-button
       >
       <el-table
         :data="dictionaryList"
@@ -35,17 +35,17 @@
             <span>{{ scope.row.id }}</span>
           </template>
         </el-table-column>
-        <el-table-column prop="name" label="字典名称" min-width="100"> </el-table-column>
+        <el-table-column prop="name" label="字典الاسم" min-width="100"> </el-table-column>
         <el-table-column prop="value" label="字典数据" min-width="100"> </el-table-column>
         <el-table-column prop="sort" label="排序" min-width="100"> </el-table-column>
-        <el-table-column prop="add_time" label="添加时间" min-width="200"> </el-table-column>
-        <el-table-column fixed="right" label="操作" width="200">
+        <el-table-column prop="add_time" label="إضافةالوقت" min-width="200"> </el-table-column>
+        <el-table-column fixed="right" label="الخيارات" width="200">
           <template slot-scope="scope">
-            <a v-db-click @click="addSub(scope.row.id)">添加下级</a>
+            <a v-db-click @click="addSub(scope.row.id)">إضافة下级</a>
             <el-divider direction="vertical"></el-divider>
-            <a v-db-click @click="eidtOptions(scope.row.id)">编辑</a>
+            <a v-db-click @click="eidtOptions(scope.row.id)">تحرير</a>
             <el-divider direction="vertical"></el-divider>
-            <a v-db-click @click="del(scope.row, '删除', scope.$index)">删除</a>
+            <a v-db-click @click="del(scope.row, 'حذف', scope.$index)">حذف</a>
           </template>
         </el-table-column>
       </el-table>
@@ -129,7 +129,7 @@ export default {
         this.total = res.data.count;
       });
     },
-    // 删除
+    // حذف
     del(row, tit, num) {
       let delfromData = {
         title: tit,
@@ -147,7 +147,7 @@ export default {
           this.$message.error(res.msg);
         });
     },
-    // 添加
+    // إضافة
     add() {
       this.$modalForm(getDataDictionaryInfo(this.$route.query.id, 0, 0))
         .then((res) => {
@@ -155,7 +155,7 @@ export default {
         })
         .catch((err) => {});
     },
-    // 表格搜索
+    // 表格بحث
     searchs() {
       this.from.page = 1;
       this.getCrudDataDictionary();

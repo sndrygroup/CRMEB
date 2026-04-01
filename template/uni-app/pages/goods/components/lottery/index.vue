@@ -60,7 +60,7 @@
 				let index = event.currentTarget.dataset.index;
 				let that = this;
 				if (index == 8) {
-					// 点击抽奖之后知道获奖位置，修改父组件中lottery_draw_param的值
+					// 点击抽奖之后知道获奖位置，تعديل父组件中lottery_draw_param的值
 					this.$emit('get_winingIndex', function(res) {
 						let lottery_draw_param = res;
 						let win = new LotteryDraw({

@@ -7,11 +7,11 @@ module.exports = {
 
 	// H5请求配置
 	// #ifdef H5
-	// H5接口是浏览器地址，非单独部署不用修改
+	// H5接口是浏览器地址，非单独部署不用تعديل
 	HTTP_REQUEST_URL: window.location.protocol + "//" + window.location.host,
 	// #endif 
 
-	// 以下配置在不做二开的前提下,不需要做任何的修改
+	// 以下配置在不做二开的前提下,不需要做任何的تعديل
 	HEADER: {
 		'content-type': 'application/json',
 		//#ifdef H5
@@ -24,9 +24,9 @@ module.exports = {
 		'Form-type': 'app',
 		//#endif
 	},
-	// 回话密钥名称 请勿修改此配置
+	// 回话密钥الاسم 请勿تعديل此配置
 	TOKENNAME: 'Authori-zation',
-	// 缓存时间 0 永久
+	// 缓存الوقت 0 永久
 	EXPIRE: 0,
 	//分页最多显示条数
 	LIMIT: 10,

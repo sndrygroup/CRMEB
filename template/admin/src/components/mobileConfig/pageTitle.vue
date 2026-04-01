@@ -2,7 +2,7 @@
   <div class="box">
     <!-- <div class="c_row-item" v-if="this.$route.query.type !==2">
             <el-col class="label" :span="4">
-                模板名称
+                模板الاسم
             </el-col>
             <el-col span="19" class="slider-box">
                 <el-input v-model="name" placeholder="选填不超过15个字" maxlength="15" @change="changName" />
@@ -15,7 +15,7 @@
       </el-col>
     </div>
     <div class="c_row-item">
-      <el-col class="label" :span="4"> 页面状态 </el-col>
+      <el-col class="label" :span="4"> 页面الحالة </el-col>
       <el-col :span="19" class="slider-box">
         <el-switch v-model="isShow" @change="changeState"></el-switch>
       </el-col>

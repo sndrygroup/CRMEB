@@ -7,7 +7,7 @@
             <el-select
               clearable
               v-model="channel_type"
-              placeholder="请选择用户渠道"
+              placeholder="الرجاء اختيار 用户渠道"
               @change="changeTxt"
               class="form_content_width"
             >
@@ -19,7 +19,7 @@
               <el-option value="app" label="APP"></el-option>
             </el-select>
           </el-form-item>
-          <el-form-item label="选择时间:">
+          <el-form-item label="选择الوقت:">
             <el-date-picker
               clearable
               v-model="timeVal"

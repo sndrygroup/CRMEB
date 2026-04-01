@@ -2,15 +2,15 @@
   <div>
     <el-drawer
       :visible.sync="modal"
-      :title="formValidate.id ? '编辑事件' : '添加事件'"
+      :title="formValidate.id ? 'تحرير事件' : 'إضافة事件'"
       size="1000px"
       @closed="initData"
     >
       <el-form v-if="modal" class="pb-20" ref="formValidate" :model="formValidate" label-width="97px" label-colon>
-        <el-form-item label="事件名称：" required>
+        <el-form-item label="事件الاسم：" required>
           <el-row :gutter="16">
             <el-col :span="20">
-              <el-input v-model="formValidate.name" placeholder="请输入事件名称"></el-input>
+              <el-input v-model="formValidate.name" placeholder="الرجاء إدخال 事件الاسم"></el-input>
             </el-col>
           </el-row>
         </el-form-item>
@@ -30,7 +30,7 @@
                 v-model="formValidate.content"
                 type="textarea"
                 :autosize="{ minRows: 3, maxRows: 5 }"
-                placeholder="请输入事件说明"
+                placeholder="الرجاء إدخال 事件说明"
               ></el-input>
             </el-col>
           </el-row>
@@ -62,7 +62,7 @@
                 v-model="copyData"
                 type="textarea"
                 :autosize="{ minRows: 7, maxRows: 7 }"
-                placeholder="请输入事件说明"
+                placeholder="الرجاء إدخال 事件说明"
                 readonly
               ></el-input>
               <!-- <span class="text-area">{{ copyData }}</span> -->
@@ -70,10 +70,10 @@
           </el-row>
         </el-form-item>
 
-        <el-form-item label="开发密码：" required>
+        <el-form-item label="开发كلمة المرور：" required>
           <el-row :gutter="10">
             <el-col :span="24">
-              <el-input v-model="formValidate.password" type="password" placeholder="请输入系统开发密码，开发密码在crmeb/config/filesystem.php中修改password"></el-input>
+              <el-input v-model="formValidate.password" type="password" placeholder="الرجاء إدخال 系统开发كلمة المرور，开发كلمة المرور在crmeb/config/filesystem.php中تعديلpassword"></el-input>
             </el-col>
           </el-row>
         </el-form-item>
@@ -116,7 +116,7 @@ export default {
       },
       copyData: '',
       trip: '',
-      editor: '', //当前编辑器对象
+      editor: '', //当前تحرير器对象
     };
   },
   created() {
@@ -130,15 +130,15 @@ export default {
       this.copyData = taskData.data;
     },
     /**
-     * 初始化编辑器
+     * 初始化تحرير器
      */
     initEditor(conetnt = '') {
       try {
         let that = this;
         that.$nextTick(() => {
-          // 初始化编辑器，确保dom已经渲染
+          // 初始化تحرير器，确保dom已经渲染
           that.editor = monaco.editor.create(document.getElementById('container'), {
-            value: conetnt, //编辑器初始显示文字
+            value: conetnt, //تحرير器初始显示文字
             language: 'php', //语言支持自行查阅demo
             automaticLayout: true, //自动布局
             theme: 'vs-dark', //官方自带三种主题vs, hc-black, or vs-dark
@@ -203,12 +203,12 @@ export default {
         this.initEditor(res.data.customCode || '');
       });
     },
-    // 提交
+    // إرسال
     handleSubmit() {
       this.formValidate.customCode = this.editor.getValue();
       if (!this.formValidate.mark) {
         return this.$message.error({
-          message: '请选择事件类型',
+          message: 'الرجاء اختيار 事件类型',
           onClose: () => {
             // this.loading = false;
           },

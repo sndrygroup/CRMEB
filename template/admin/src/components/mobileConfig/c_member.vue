@@ -77,7 +77,7 @@ export default {
         if (nVal == 3 || nVal == 4) {
           if (this.configObj.nameColor.color[0].item == '#fff') this.configObj.nameColor.color[0].item = '#333';
           if (this.configObj.numColor.color[0].item == '#fff') this.configObj.numColor.color[0].item = '#333';
-          // 背景色也修改为 333
+          // 背景色也تعديل为 333
           if (this.configObj.compo.img - box - girdnentBgConfig.colorConfig.color[0].item == '#E93323')
             this.configObj.componentBgConfig.colorConfig.color[0].item = '#333';
           if (this.configObj.componentBgConfig.colorConfig.color[1].item == '#E93323')
@@ -715,9 +715,9 @@ export default {
       }
       if (!data.menuConfig) {
         this.$set(data, 'menuConfig', {
-          title: '操作内容设置',
+          title: 'الخيارات内容设置',
           listStyleName: '展示样式',
-          bnt: '添加',
+          bnt: 'إضافة',
           type: 1,
           listStyle: 0,
           maxList: 2,
@@ -737,7 +737,7 @@ export default {
                 {
                   title: '链接',
                   value: '',
-                  tips: '请输入链接',
+                  tips: 'الرجاء إدخال 链接',
                   max: 100,
                 },
               ],
@@ -757,7 +757,7 @@ export default {
                 {
                   title: '链接',
                   value: '',
-                  tips: '请输入链接',
+                  tips: 'الرجاء إدخال 链接',
                   max: 100,
                 },
               ],
@@ -847,14 +847,14 @@ export default {
           title: '快捷入口',
           listStyle: 0,
           maxList: 5,
-          bnt: '添加',
+          bnt: 'إضافة',
           list: [
             {
               img: '',
               icon: 'icon-yue',
               info: [
                 { title: '标题', value: '余额', tips: '选填，不超过4个字', max: 4 },
-                { title: '链接', value: '/pages/users/user_money/index', tips: '请输入链接', max: 100 },
+                { title: '链接', value: '/pages/users/user_money/index', tips: 'الرجاء إدخال 链接', max: 100 },
               ],
             },
             {
@@ -862,7 +862,7 @@ export default {
               icon: 'icon-jifen',
               info: [
                 { title: '标题', value: '积分', tips: '选填，不超过4个字', max: 4 },
-                { title: '链接', value: '/pages/users/user_integral/index', tips: '请输入链接', max: 100 },
+                { title: '链接', value: '/pages/users/user_integral/index', tips: 'الرجاء إدخال 链接', max: 100 },
               ],
             },
             {
@@ -870,7 +870,7 @@ export default {
               icon: 'icon-youhuiquan',
               info: [
                 { title: '标题', value: '优惠券', tips: '选填，不超过4个字', max: 4 },
-                { title: '链接', value: '/pages/users/user_coupon/index', tips: '请输入链接', max: 100 },
+                { title: '链接', value: '/pages/users/user_coupon/index', tips: 'الرجاء إدخال 链接', max: 100 },
               ],
             },
             {
@@ -878,7 +878,7 @@ export default {
               icon: 'icon-shoucang',
               info: [
                 { title: '标题', value: '收藏', tips: '选填，不超过4个字', max: 4 },
-                { title: '链接', value: '/pages/users/user_goods_collection/index', tips: '请输入链接', max: 100 },
+                { title: '链接', value: '/pages/users/user_goods_collection/index', tips: 'الرجاء إدخال 链接', max: 100 },
               ],
             },
             {
@@ -886,7 +886,7 @@ export default {
               icon: 'icon-zuji',
               info: [
                 { title: '标题', value: '浏览记录', tips: '选填，不超过4个字', max: 4 },
-                { title: '链接', value: '/pages/users/user_visit/index', tips: '请输入链接', max: 100 },
+                { title: '链接', value: '/pages/users/user_visit/index', tips: 'الرجاء إدخال 链接', max: 100 },
               ],
             },
           ],
@@ -917,7 +917,7 @@ export default {
         this.$set(data, 'rightEntryConfig', {
           title: '右侧入口',
           listStyleName: '展示样式',
-          bnt: '添加',
+          bnt: 'إضافة',
           type: 1,
           listStyle: -1,
           maxList: 1,
@@ -943,7 +943,7 @@ export default {
                 {
                   title: '链接',
                   value: '',
-                  tips: '请输入链接',
+                  tips: 'الرجاء إدخال 链接',
                   max: 100,
                 },
               ],
@@ -955,7 +955,7 @@ export default {
         this.$set(data, 'leftMenuConfig', {
           title: '左侧内容',
           listStyleName: '展示样式',
-          bnt: '添加',
+          bnt: 'إضافة',
           type: 1,
           listStyle: 1,
           maxList: 3,
@@ -975,7 +975,7 @@ export default {
                 {
                   title: '链接',
                   value: '',
-                  tips: '请输入链接',
+                  tips: 'الرجاء إدخال 链接',
                   max: 100,
                 },
               ],
@@ -995,7 +995,7 @@ export default {
                 {
                   title: '链接',
                   value: '',
-                  tips: '请输入链接',
+                  tips: 'الرجاء إدخال 链接',
                   max: 100,
                 },
               ],
@@ -1015,7 +1015,7 @@ export default {
                 {
                   title: '链接',
                   value: '',
-                  tips: '请输入链接',
+                  tips: 'الرجاء إدخال 链接',
                   max: 100,
                 },
               ],
@@ -1026,7 +1026,7 @@ export default {
       if (!data.memberConfig) {
         this.$set(data, 'memberConfig', {
           listStyleName: '展示样式',
-          bnt: '添加',
+          bnt: 'إضافة',
           type: 1,
           listStyle: -1,
           maxList: 2,
@@ -1052,7 +1052,7 @@ export default {
                 {
                   title: '链接',
                   value: '',
-                  tips: '请输入链接',
+                  tips: 'الرجاء إدخال 链接',
                   max: 100,
                 },
               ],
@@ -1078,7 +1078,7 @@ export default {
                 {
                   title: '链接',
                   value: '',
-                  tips: '请输入链接',
+                  tips: 'الرجاء إدخال 链接',
                   max: 100,
                 },
               ],
@@ -1137,7 +1137,7 @@ export default {
         this.$set(data, 'ms2RightsList', {
           title: '权益图标',
           listStyleName: '建议：40px*40px；鼠标拖拽版块可调整图片顺序',
-          bnt: '添加',
+          bnt: 'إضافة',
           type: 1,
           listStyle: -1,
           maxList: 2,
@@ -1147,7 +1147,7 @@ export default {
               icon: 'icon-zk',
               info: [
                 { title: '标题', value: '购物折扣', tips: '选填，不超过4个字', max: 6 },
-                { title: '链接', value: '', tips: '请输入链接', max: 100 },
+                { title: '链接', value: '', tips: 'الرجاء إدخال 链接', max: 100 },
               ],
             },
             {
@@ -1155,7 +1155,7 @@ export default {
               icon: 'icon-mz',
               info: [
                 { title: '标题', value: '专属徽章', tips: '选填，不超过4个字', max: 6 },
-                { title: '链接', value: '', tips: '请输入链接', max: 100 },
+                { title: '链接', value: '', tips: 'الرجاء إدخال 链接', max: 100 },
               ],
             },
           ],

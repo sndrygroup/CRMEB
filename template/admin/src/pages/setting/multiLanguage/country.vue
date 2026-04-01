@@ -10,18 +10,18 @@
           @submit.native.prevent
           inline
         >
-          <el-form-item label="搜索：">
+          <el-form-item label="بحث：">
             <div class="acea-row row-middle">
               <el-input
                 clearable
-                placeholder="请输入语言Code"
+                placeholder="الرجاء إدخال 语言Code"
                 v-model="formValidate.keyword"
                 class="form_content_width"
               />
             </div>
           </el-form-item>
           <el-form-item>
-            <el-button type="primary" v-db-click @click="selChange">搜索</el-button>
+            <el-button type="primary" v-db-click @click="selChange">بحث</el-button>
           </el-form-item>
         </el-form>
       </div>
@@ -29,7 +29,7 @@
     <el-card :bordered="false" shadow="never">
       <el-row>
         <el-col v-bind="grid">
-          <el-button type="primary" v-db-click @click="add">添加语言地区</el-button>
+          <el-button type="primary" v-db-click @click="add">إضافة语言地区</el-button>
         </el-col>
       </el-row>
       <el-table ref="table" :data="tabList" class="ivu-mt mt14" v-loading="loading" empty-text="暂无数据">
@@ -53,11 +53,11 @@
             <span>{{ scope.row.link_lang }}</span>
           </template>
         </el-table-column>
-        <el-table-column label="操作" fixed="right" width="100">
+        <el-table-column label="الخيارات" fixed="right" width="100">
           <template slot-scope="scope">
-            <a v-db-click @click="edit(scope.row)">编辑</a>
+            <a v-db-click @click="edit(scope.row)">تحرير</a>
             <el-divider direction="vertical"></el-divider>
-            <a v-db-click @click="del(scope.row, '删除地区语言', scope.$index)">删除</a>
+            <a v-db-click @click="del(scope.row, 'حذف地区语言', scope.$index)">حذف</a>
           </template>
         </el-table-column>
       </el-table>
@@ -110,14 +110,14 @@ export default {
     this.getList();
   },
   methods: {
-    // 添加
+    // إضافة
     add() {
       this.$modalForm(langCountryForm(0)).then(() => this.getList());
     },
     edit(row) {
       this.$modalForm(langCountryForm(row.id)).then(() => this.getList());
     },
-    // 删除
+    // حذف
     del(row, tit, num) {
       let delfromData = {
         title: tit,

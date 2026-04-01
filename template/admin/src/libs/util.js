@@ -9,7 +9,7 @@
 // +---------------------------------------------------------------------
 
 import Cookies from 'js-cookie';
-// cookie保存的天数
+// cookieحفظ的天数
 import config from '@/config';
 import { forEach, hasOneOf, objEqual } from '@/libs/tools';
 import { cloneDeep } from 'lodash';
@@ -157,8 +157,8 @@ export const getHomeRoute = (routers, homeName = 'home') => {
 
 /**
  * @param {*} list 现有标签导航列表
- * @param {*} newRoute 新添加的路由原信息对象
- * @description 如果该newRoute已经存在则不再添加
+ * @param {*} newRoute 新إضافة的路由原信息对象
+ * @description 如果该newRoute已经存在则不再إضافة
  */
 export const getNewTagList = (list, newRoute) => {
   const { name, path, meta } = newRoute;
@@ -351,7 +351,7 @@ export const routeEqual = (route1, route2) => {
 };
 
 /**
- * 判断打开的标签列表里是否已存在这个新添加的路由对象
+ * 判断打开的标签列表里是否已存在这个新إضافة的路由对象
  */
 export const routeHasExist = (tagNavList, routeItem) => {
   let len = tagNavList.length;

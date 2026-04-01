@@ -39,7 +39,7 @@
 				<view v-else>
 					<view class="refund-tip1">
 						<text class="iconfont icon-zhuyi-copy"></text>
-						{{ $t(`请联系管理员获取退货地址`) }}
+						{{ $t(`请联系إدارة员获取退货地址`) }}
 					</view>
 				</view>
 			</view>
@@ -150,7 +150,7 @@
 						<view class="item" v-if="orderInfo.shipping_type == 2">
 							<view class="rulesTitle acea-row row-middle">
 								<text class="iconfont icon-shijian"></text>
-								{{ $t(`营业时间`) }}
+								{{ $t(`营业الوقت`) }}
 							</view>
 							<view class="info">
 								{{ $t(`每日`) }}：
@@ -304,11 +304,11 @@
 					</view>
 				</view>
 				<view class="item acea-row row-between">
-					<view>{{ $t(`下单时间`) }}：</view>
+					<view>{{ $t(`下单الوقت`) }}：</view>
 					<view class="conter">{{ (orderInfo.add_time_y || '') + ' ' + (orderInfo.add_time_h || 0) }}</view>
 				</view>
 				<view class="item acea-row row-between">
-					<view>{{ $t(`支付状态`) }}：</view>
+					<view>{{ $t(`支付الحالة`) }}：</view>
 					<view class="conter" v-if="orderInfo.paid">{{ $t(`已支付`) }}</view>
 					<view class="conter" v-else>{{ $t(`未支付`) }}</view>
 				</view>
@@ -349,7 +349,7 @@
 				</view>
 				<view class="copy-text" @click="copyText()">{{ $t(`复制`) }}</view>
 			</view>
-			<!-- 退款订单详情 -->
+			<!-- 退款订单تفاصيل -->
 			<view class="wrapper" v-if="isGoodsReturn && orderInfo.cartInfo[0].productInfo.virtual_type != 3 && (is_gift == 0 || is_gift == 1)">
 				<view class="item acea-row row-between">
 					<view>{{ $t(`收货人`) }}：</view>
@@ -468,7 +468,7 @@
 				</view>
 				<view class="right-btn">
 					<view class="qs-btn" v-if="status.type == 0 || status.type == -9" @click.stop="cancelOrder">
-						{{ $t(`取消订单`) }}
+						{{ $t(`إلغاء订单`) }}
 					</view>
 					<view class="bnt bg-color" v-if="status.type == 0" @tap="pay_open(orderInfo.order_id)">{{ $t(`立即付款`) }}</view>
 					<view
@@ -490,7 +490,7 @@
 						{{ $t(`查看拼团`) }}
 					</view>
 					<view class="bnt bg-color" v-if="status.class_status == 3 && !split.length" @click="confirmOrder()">
-						{{ $t(`确认收货`) }}
+						{{ $t(`تأكيد收货`) }}
 					</view>
 					<view class="bnt bg-color" v-if="orderInfo.paid == 1 && !is_gift && isReturn != 1" @tap="goOrderConfirm">{{ $t(`再次购买`) }}</view>
 					<view class="bnt bg-color" v-if="orderInfo.paid == 1 && is_gift != 0 && orderInfo.gift_uid == 0" @tap="giftModalShow = true">{{ $t(`送给好友`) }}</view>
@@ -499,7 +499,7 @@
 						v-if="[1, 2, 4].includes(orderInfo.refund_type) && !orderInfo.is_cancel && orderInfo.type != 3 && orderInfo.refund_status != 2"
 						@tap="cancelRefundOrder"
 					>
-						{{ $t(`取消申请`) }}
+						{{ $t(`إلغاء申请`) }}
 					</view>
 					<view class="bnt bg-color refundBnt" v-if="orderInfo.refund_type == 4" @tap="refundInput">
 						{{ $t(`填写退货信息`) }}
@@ -513,7 +513,7 @@
 						{{ $t(`查看退货物流`) }}
 					</navigator>
 					<view class="bnt cancel" v-if="(status.type == 4 && !split.length) || status.type == -2" @tap="delOrder">
-						{{ $t(`删除订单`) }}
+						{{ $t(`حذف订单`) }}
 					</view>
 				</view>
 			</view>
@@ -526,10 +526,10 @@
 				<view class="refund-input-title">填写物流单号
 				</view>
 				<view class="refund-input-sty">
-					<input type="text" v-model="express_num" placeholder="请输入物流单号" />
+					<input type="text" v-model="express_num" placeholder="الرجاء إدخال 物流单号" />
 				</view>
 				<view class="refund-bth">
-					<view class="submit-refund" @click="refundSubmit()">提交</view>
+					<view class="submit-refund" @click="refundSubmit()">إرسال</view>
 				</view>
 			</view>
 		</view> -->
@@ -627,10 +627,10 @@ export default {
 				help_info: {},
 				system_store: {},
 				_status: {}
-			}, //订单详情
+			}, //订单تفاصيل
 			system_store: {},
 			isGoodsReturn: false, //是否为退款订单
-			status: {}, //订单底部按钮状态
+			status: {}, //订单底部按钮الحالة
 			refund_close: false,
 			isClose: false,
 			H5ShareBox: false,
@@ -719,19 +719,19 @@ export default {
 			this.getCustomerType();
 			let opt = wx.getEnterOptionsSync();
 			if (opt.scene == '1038' && opt.referrerInfo.appId == 'wxef277996acc166c3') {
-				// 代表从收银台小程序返回
+				// 代表从收银台小程序عودة
 				let extraData = opt.referrerInfo.extraData;
 				if (!extraData) {
-					// "当前通过物理按键返回，未接收到返参，建议自行查询交易结果";
+					// "当前通过物理按键عودة，未接收到返参，建议自行查询交易结果";
 					this.getOrderInfo();
 				} else {
 					if (extraData.code == 'success') {
 						// "支付成功";
 						this.getOrderInfo();
 					} else if (extraData.code == 'cancel') {
-						// "支付已取消";
+						// "支付已إلغاء";
 						this.$util.Tips({
-							title: this.$t(`支付已取消`)
+							title: this.$t(`支付已إلغاء`)
 						});
 					} else {
 						// "支付失败：" + extraData.errmsg;
@@ -819,15 +819,15 @@ export default {
 		cancelRefundOrder(orderId) {
 			let that = this;
 			uni.showModal({
-				title: that.$t(`取消申请`),
-				content: that.$t(`您确认放弃此次申请吗`),
+				title: that.$t(`إلغاء申请`),
+				content: that.$t(`您تأكيد放弃此次申请吗`),
 				success: (res) => {
 					if (res.confirm) {
 						cancelRefundOrder(that.order_id)
 							.then((res) => {
 								return that.$util.Tips(
 									{
-										title: that.$t(`操作成功`),
+										title: that.$t(`الخيارات成功`),
 										icon: 'success'
 									},
 									{
@@ -935,7 +935,7 @@ export default {
 			this.pay_order_id = '';
 		},
 		/**
-		 * 登录授权回调
+		 * تسجيل الدخول授权回调
 		 *
 		 */
 		onLoadFun: function () {
@@ -1008,7 +1008,7 @@ export default {
 						let giftStatus = res.data.gift_uid === this.$store.state.app.uid;
 						that.$set(that, 'is_gift', giftStatus ? 2 : 1);
 						uni.setNavigationBarTitle({
-							title: '礼物详情'
+							title: '礼物تفاصيل'
 						});
 						this.giftData = {
 							avatar: res.data.avatar,
@@ -1243,13 +1243,13 @@ export default {
 			};
 			if (type == 1 && combination_id > 0) status.class_status = 1; //查看拼团
 			if (type == 2 && delivery_type == 'express') status.class_status = 2; //查看物流
-			if (type == 2) status.class_status = 3; //确认收货
-			if (type == 4 || type == 0) status.class_status = 4; //删除订单
+			if (type == 2) status.class_status = 3; //تأكيد收货
+			if (type == 4 || type == 0) status.class_status = 4; //حذف订单
 			if (!seckill_id && !bargain_id && !combination_id && !discount_id && !orderInfo.type && (type == 3 || type == 4)) status.class_status = 5; //再次购买
 			this.$set(this, 'status', status);
 		},
 		/**
-		 * 去拼团详情
+		 * 去拼团تفاصيل
 		 *
 		 */
 		goJoinPink: function () {
@@ -1309,15 +1309,15 @@ export default {
 		defaultTake(orderId) {
 			let that = this;
 			uni.showModal({
-				title: that.$t(`确认收货`),
-				content: that.$t(`为保障权益，请收到货确认无误后，再确认收货`),
+				title: that.$t(`تأكيد收货`),
+				content: that.$t(`为保障权益，请收到货تأكيد无误后，再تأكيد收货`),
 				success: (res) => {
 					if (res.confirm) {
 						orderTake(orderId ? orderId : that.order_id)
 							.then((res) => {
 								return that.$util.Tips(
 									{
-										title: that.$t(`操作成功`),
+										title: that.$t(`الخيارات成功`),
 										icon: 'success'
 									},
 									function () {
@@ -1336,13 +1336,13 @@ export default {
 		},
 		/**
 		 *
-		 * 删除订单
+		 * حذف订单
 		 */
 		delOrder() {
 			let that = this;
 			uni.showModal({
-				title: this.$t(`删除订单`),
-				content: this.$t(`确定删除该订单`),
+				title: this.$t(`حذف订单`),
+				content: this.$t(`确定حذف该订单`),
 				success: (res) => {
 					if (res.confirm) {
 						(that.isReturn ? refundOrderDel : orderDel)(that.order_id)
@@ -1350,7 +1350,7 @@ export default {
 								if (that.status.type == -2) {
 									return that.$util.Tips(
 										{
-											title: that.$t(`删除成功`),
+											title: that.$t(`حذف成功`),
 											icon: 'success'
 										},
 										{
@@ -1361,7 +1361,7 @@ export default {
 								} else {
 									return that.$util.Tips(
 										{
-											title: that.$t(`删除成功`),
+											title: that.$t(`حذف成功`),
 											icon: 'success'
 										},
 										{
@@ -1378,7 +1378,7 @@ export default {
 							});
 					} else if (res.cancel) {
 						return that.$util.Tips({
-							title: that.$t(`已取消`)
+							title: that.$t(`已إلغاء`)
 						});
 					}
 				}
@@ -1387,8 +1387,8 @@ export default {
 		cancelOrder() {
 			let self = this;
 			uni.showModal({
-				title: this.$t(`提示`),
-				content: this.$t(`确认取消该订单`),
+				title: this.$t(`تنبيه`),
+				content: this.$t(`تأكيدإلغاء该订单`),
 				success: function (res) {
 					if (res.confirm) {
 						orderCancel(self.orderInfo.order_id)

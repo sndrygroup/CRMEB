@@ -229,7 +229,7 @@ export default {
   configName: 'c_home_coupon',
   icon: '#iconzujian-youhuiquan',
   type: 1, // 0 基础组件 1 营销组件 2工具组件
-  defaultName: 'coupon', // 外面匹配名称
+  defaultName: 'coupon', // 外面匹配الاسم
   props: {
     index: {
       type: null,
@@ -269,7 +269,7 @@ export default {
   // mixins: [theme],
   data() {
     return {
-      // 默认初始化数据禁止修改
+      // 默认初始化数据禁止تعديل
       defaultConfig: {
         cname: '优惠券',
         name: 'coupon',

@@ -5,7 +5,7 @@
 			<view class="ChangePassword">
 				<view class="list">
 					<view class="item">
-						<input type='number' :placeholder='$t(`请输入手机号`)' placeholder-class='placeholder'
+						<input type='number' :placeholder='$t(`الرجاء إدخال 手机号`)' placeholder-class='placeholder'
 							v-model="phone"></input>
 					</view>
 					<view class="item acea-row row-between-wrapper">
@@ -17,7 +17,7 @@
 						</button>
 					</view>
 				</view>
-				<button form-type="submit" class="confirmBnt bg-color">{{$t(`确认绑定`)}}</button>
+				<button form-type="submit" class="confirmBnt bg-color">{{$t(`تأكيد绑定`)}}</button>
 			</view>
 		</form>
 		<Verify @success="success" :captchaType="captchaType" :imgSize="{ width: '330px', height: '155px' }"
@@ -121,12 +121,12 @@
 				let that = this;
 				if (!that.phone) {
 					return that.$util.Tips({
-						title: that.$t(`请输入手机号`)
+						title: that.$t(`الرجاء إدخال 手机号`)
 					});
 				}
 				if (!(/^1(3|4|5|7|8|9|6)\d{9}$/i.test(that.phone))) {
 					return that.$util.Tips({
-						title: that.$t(`请输入正确的手机号码`)
+						title: that.$t(`الرجاء إدخال 正确的手机号码`)
 					});
 				}
 				if (!that.captcha) {
@@ -168,10 +168,10 @@
 			code() {
 				let that = this;
 				if (!that.phone) return that.$util.Tips({
-					title: that.$t(`请输入手机号`)
+					title: that.$t(`الرجاء إدخال 手机号`)
 				});
 				if (!(/^1(3|4|5|7|8|9|6)\d{9}$/i.test(that.phone))) return that.$util.Tips({
-					title: that.$t(`请输入正确的手机号码`)
+					title: that.$t(`الرجاء إدخال 正确的手机号码`)
 				});
 				this.$refs.verify.show()
 			},

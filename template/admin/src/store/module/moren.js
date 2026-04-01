@@ -67,7 +67,7 @@ export default {
             articleSort: {
               title: '排序类型',
               tabVal: 0,
-              tabList: [{ name: '综合' }, { name: '浏览量' }, { name: '发布时间' }],
+              tabList: [{ name: '综合' }, { name: '浏览量' }, { name: '发布الوقت' }],
             },
             articleSortRule: {
               title: '排序规则',
@@ -134,13 +134,13 @@ export default {
               max: 100000,
             },
             couponTime: {
-              title: '领取时间',
+              title: '领取الوقت',
               val: [],
             },
             couponSort: {
               title: '排序类型',
               tabVal: 0,
-              tabList: [{ name: '面值大小' }, { name: '发布时间' }],
+              tabList: [{ name: '面值大小' }, { name: '发布الوقت' }],
             },
             couponSortRule: {
               title: '排序规则',
@@ -325,13 +325,13 @@ export default {
               max: 100000,
             },
             couponTime: {
-              title: '领取时间',
+              title: '领取الوقت',
               val: [],
             },
             couponSort: {
               title: '排序类型',
               tabVal: 0,
-              tabList: [{ name: '面值大小' }, { name: '发布时间' }],
+              tabList: [{ name: '面值大小' }, { name: '发布الوقت' }],
             },
             couponSortRule: {
               title: '排序规则',
@@ -418,7 +418,7 @@ export default {
             val: true,
           },
           imgUrl: {
-            title: '最多可添加1张图片，图片建议宽度128 * 45px',
+            title: '最多可إضافة1张图片，图片建议宽度128 * 45px',
             url: '',
           },
           titleInfo: {
@@ -449,7 +449,7 @@ export default {
             val: true,
           },
           imgUrl: {
-            title: '最多可添加1张图片，图片建议宽度128 * 45px',
+            title: '最多可إضافة1张图片，图片建议宽度128 * 45px',
             url: '',
           },
           titleInfo: {
@@ -482,7 +482,7 @@ export default {
             val: true,
           },
           imgList: {
-            title: '最多可添加10张图片，建议宽度750px',
+            title: '最多可إضافة10张图片，建议宽度750px',
             max: 10,
             list: [
               {
@@ -527,7 +527,7 @@ export default {
             val: true,
           },
           imgList: {
-            title: '最多可添加10张图片，建议宽度750px',
+            title: '最多可إضافة10张图片，建议宽度750px',
             max: 10,
             list: [
               {
@@ -574,7 +574,7 @@ export default {
             val: true,
           },
           imgList: {
-            title: '最多可添加20个，图片建议宽度96*96px；鼠标拖拽左侧圆点可调整图标顺序',
+            title: '最多可إضافة20个，图片建议宽度96*96px；鼠标拖拽左侧圆点可调整图标顺序',
             max: 20,
             list: [
               {
@@ -701,7 +701,7 @@ export default {
                 info: [
                   {
                     title: '标题',
-                    value: '地址管理',
+                    value: '地址إدارة',
                     maxlength: 5,
                     tips: '请填写标题',
                   },
@@ -721,7 +721,7 @@ export default {
             val: true,
           },
           imgList: {
-            title: '最多可添加20个，图片建议宽度96*96px；鼠标拖拽左侧圆点可调整图标顺序',
+            title: '最多可إضافة20个，图片建议宽度96*96px；鼠标拖拽左侧圆点可调整图标顺序',
             max: 20,
             list: [
               {
@@ -848,7 +848,7 @@ export default {
                 info: [
                   {
                     title: '标题',
-                    value: '地址管理',
+                    value: '地址إدارة',
                     maxlength: 5,
                     tips: '请填写标题',
                   },
@@ -883,7 +883,7 @@ export default {
             val: true,
           },
           imgUrl: {
-            title: '最多可添加10个模板，图片建议宽度124 * 28px',
+            title: '最多可إضافة10个模板，图片建议宽度124 * 28px',
             url: '',
           },
           newList: {
@@ -913,7 +913,7 @@ export default {
             val: true,
           },
           imgUrl: {
-            title: '最多可添加10个模板，图片建议宽度124 * 28px',
+            title: '最多可إضافة10个模板，图片建议宽度124 * 28px',
             url: '',
           },
           newList: {
@@ -946,7 +946,7 @@ export default {
           },
           imgList: {
             isDelete: true,
-            title: '最多可添加3组模块，第一张336*298px,后两张416*124px',
+            title: '最多可إضافة3组模块，第一张336*298px,后两张416*124px',
             max: 3,
             list: [
               {
@@ -1028,7 +1028,7 @@ export default {
           },
           imgList: {
             isDelete: true,
-            title: '最多可添加3组模块，第一张336*298px,后两张416*124px',
+            title: '最多可إضافة3组模块，第一张336*298px,后两张416*124px',
             max: 3,
             list: [
               {
@@ -2099,7 +2099,7 @@ export default {
             val: true,
           },
           imgUrl: {
-            title: '最多可添加1张图片，图片建议宽度128 * 45px',
+            title: '最多可إضافة1张图片，图片建议宽度128 * 45px',
             url: '',
           },
         },
@@ -2108,7 +2108,7 @@ export default {
             val: true,
           },
           imgUrl: {
-            title: '最多可添加1张图片，图片建议宽度128 * 45px',
+            title: '最多可إضافة1张图片，图片建议宽度128 * 45px',
             url: '',
           },
         },

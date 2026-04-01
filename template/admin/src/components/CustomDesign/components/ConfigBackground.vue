@@ -13,7 +13,7 @@
       <el-color-picker v-model="curComponent.propValue.backgroundColor" @change="onChange" show-alpha></el-color-picker>
       <el-input
         v-model="curComponent.propValue.backgroundColor"
-        placeholder="请输入颜色"
+        placeholder="الرجاء إدخال 颜色"
         @change="onChange"
         style="margin-left: 10px; flex: 1"
       ></el-input>
@@ -30,7 +30,7 @@
       <el-color-picker v-model="curComponent.propValue.bgColor2" @change="onChange" show-alpha></el-color-picker>
       <el-input
         v-model="curComponent.propValue.bgColor2"
-        placeholder="请输入颜色"
+        placeholder="الرجاء إدخال 颜色"
         @change="onChange"
         style="margin-left: 10px; flex: 1"
       ></el-input>

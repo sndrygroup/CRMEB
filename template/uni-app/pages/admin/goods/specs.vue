@@ -31,7 +31,7 @@
 						</view>
 					</view> -->
           <view class="item acea-row row-middle">
-            <view class="name">规格名称</view>
+            <view class="name">规格الاسم</view>
             <view class="info">{{ item.suk }}</view>
           </view>
           <view class="item acea-row row-middle">
@@ -85,19 +85,19 @@
       </checkbox-group>
       <view class="acea-row row-middle">
         <view class="bnt acea-row row-center-wrapper" @click="manageTap"
-          >取消</view
+          >إلغاء</view
         >
         <view class="bnt on acea-row row-center-wrapper" @click="batchEdit"
-          >批量修改</view
+          >批量تعديل</view
         >
       </view>
     </view>
     <view class="footer acea-row row-between-wrapper" v-else>
       <view class="bnt acea-row row-center-wrapper" @click="manageTap"
-        >批量操作</view
+        >批量الخيارات</view
       >
       <view class="bnt on acea-row row-center-wrapper" @click="define"
-        >保存</view
+        >حفظ</view
       >
     </view>
     <edit-price
@@ -149,7 +149,7 @@ export default {
     batchEdit() {
       if (!this.getIds().length) {
         this.$util.Tips({
-          title: "请选择商品规格",
+          title: "الرجاء اختيار 商品规格",
         });
         return;
       }

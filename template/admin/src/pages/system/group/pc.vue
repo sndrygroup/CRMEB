@@ -4,12 +4,12 @@
       <span class="ivu-page-header-title mr20">{{ $route.meta.title }}</span>
       <div>
         <div style="float: right">
-          <el-button class="bnt" type="primary" v-db-click @click="save">保存</el-button>
+          <el-button class="bnt" type="primary" v-db-click @click="save">حفظ</el-button>
         </div>
       </div>
     </div> -->
     <pages-header ref="pageHeader" :title="$route.meta.title">
-      <el-button class="bnt" type="primary" v-db-click @click="save">保存</el-button>
+      <el-button class="bnt" type="primary" v-db-click @click="save">حفظ</el-button>
     </pages-header>
     <el-card :bordered="false" shadow="never" class="h100 mt16">
       <el-row class="box-wrapper">
@@ -37,7 +37,7 @@
               <img :src="pclogo" />
             </div>
             <div v-if="pageId == 'pc_home_banner'" class="pcmoddile_goods">
-              <div class="nofonts" v-if="tabList.list == ''">暂无照片，请添加~</div>
+              <div class="nofonts" v-if="tabList.list == ''">暂无照片，请إضافة~</div>
               <swiper v-else :options="swiperOption" class="pcswiperimg_goods">
                 <swiper-slide class="spcwiperimg_goods" v-for="(item, index) in tabList.list" :key="index">
                   <img :src="item.image" />
@@ -57,7 +57,7 @@
               <div class="right-box">
                 <div class="hot_imgs">
                   <div class="title">轮播图设置</div>
-                  <div class="title-text">建议尺寸：690 * 240px，拖拽图片可调整图片顺序哦，最多添加五张。</div>
+                  <div class="title-text">建议尺寸：690 * 240px，拖拽图片可调整图片顺序哦，最多إضافة五张。</div>
                   <div class="title-text">除轮播图外，页面其他内容仅供参考</div>
                   <div class="list-box">
                     <draggable
@@ -87,9 +87,9 @@
                         </div>
                         <div class="info">
                           <div class="info-item">
-                            <span>图片名称：</span>
+                            <span>图片الاسم：</span>
                             <div class="input-box">
-                              <el-input v-model="item.title" placeholder="请填写名称" />
+                              <el-input v-model="item.title" placeholder="请填写الاسم" />
                             </div>
                           </div>
                           <div class="info-item">
@@ -127,7 +127,7 @@
                         style="width: 100px; height: 35px; background-color: var(--prev-color-primary); color: #ffffff"
                         v-db-click
                         @click="addBox"
-                        >添加图片
+                        >إضافة图片
                       </el-button>
                     </div>
                   </template>
@@ -209,9 +209,9 @@
                         </div>
                         <div class="info">
                           <div class="info-item">
-                            <span>菜单名称：</span>
+                            <span>菜单الاسم：</span>
                             <div class="input-box">
-                              <el-input v-model="item.title" placeholder="请填写名称" />
+                              <el-input v-model="item.title" placeholder="请填写الاسم" />
                             </div>
                           </div>
                           <div class="info-item">
@@ -222,7 +222,7 @@
                             </div>
                           </div>
                           <!-- <div class="info-item">
-                            <span>是否需要登录：</span>
+                            <span>是否需要تسجيل الدخول：</span>
                             <div class="input-box">
                               <el-switch v-model="item.auth" active-value="1" inactive-value="0"> </el-switch>
                             </div>
@@ -239,7 +239,7 @@
                         style="width: 100px; height: 35px; background-color: var(--prev-color-primary); color: #ffffff"
                         v-db-click
                         @click="addMenu"
-                        >添加菜单
+                        >إضافة菜单
                       </el-button>
                     </div>
                   </template>
@@ -268,9 +268,9 @@
                         </div>
                         <div class="info">
                           <div class="info-item">
-                            <span>链接名称：</span>
+                            <span>链接الاسم：</span>
                             <div class="input-box">
-                              <el-input v-model="item.title" placeholder="请填写名称" />
+                              <el-input v-model="item.title" placeholder="请填写الاسم" />
                             </div>
                           </div>
                           <div class="info-item">
@@ -292,7 +292,7 @@
                         style="width: 100px; height: 35px; background-color: var(--prev-color-primary); color: #ffffff"
                         v-db-click
                         @click="addLink"
-                        >添加链接
+                        >إضافة链接
                       </el-button>
                     </div>
                   </template>
@@ -304,7 +304,7 @@
             <div class="content">
               <div class="right-box">
                 <div class="hot_imgs">
-                  <div class="title">关于我们-详情</div>
+                  <div class="title">关于我们-تفاصيل</div>
                   <WangEditor
                     style="width: 100%"
                     :content="formValidate.content"
@@ -318,7 +318,7 @@
       </el-row>
     </el-card>
     <!-- <div class="save">
-			<el-button type="primary" v-db-click @click="save" >保存</el-button>
+			<el-button type="primary" v-db-click @click="save" >حفظ</el-button>
 		</div> -->
     <linkaddress ref="linkaddres" @linkUrl="linkUrl"></linkaddress>
   </div>
@@ -419,7 +419,7 @@ export default {
       },
       activeIndex: 0,
       myConfig: {
-        autoHeightEnabled: false, // 编辑器不自动被内容撑高
+        autoHeightEnabled: false, // تحرير器不自动被内容撑高
         initialFrameHeight: 500, // 初始容器高度
         initialFrameWidth: '100%', // 初始容器宽度
         UEDITOR_HOME_URL: '/UEditor/',
@@ -449,7 +449,7 @@ export default {
       this.tabList.list[this.activeIndexs].url = e;
       // item.url = e
     },
-    // 提交数据
+    // إرسال数据
     onsubmit(name) {
       this.$refs[name].validate((valid) => {
         if (valid) {
@@ -465,7 +465,7 @@ export default {
         }
       });
     },
-    //详情
+    //تفاصيل
     getKfAdv() {
       getKfAdv()
         .then(async (res) => {
@@ -487,7 +487,7 @@ export default {
       });
     },
     setAboutUs(id) {
-      if (this.formValidate.content == '') return this.$message.warning('请输入内容');
+      if (this.formValidate.content == '') return this.$message.warning('الرجاء إدخال 内容');
       let data = {
         id: id,
         content: this.formValidate.content,
@@ -499,7 +499,7 @@ export default {
         this.$message.success(res.msg);
       });
     },
-    // 添加表单
+    // إضافة表单
     groupAdd() {
       this.$modalForm(groupDataAddApi({ config_name: this.pageId }, 'setting/group_data/create')).then(() =>
         this.info(),
@@ -552,7 +552,7 @@ export default {
         };
       } else {
         if (this.tabList.list.length == 5) {
-          this.$message.warning('最多添加5张');
+          this.$message.warning('最多إضافة5张');
         } else {
           let obj = JSON.parse(JSON.stringify(this.lastObj));
           this.tabList.list.push(obj);
@@ -561,7 +561,7 @@ export default {
     },
     addMenu() {
       if (this.menuList.length >= 6) {
-        return this.$message.warning('最多添加6个菜单');
+        return this.$message.warning('最多إضافة6个菜单');
       }
       this.menuList.push({
         title: '',
@@ -570,14 +570,14 @@ export default {
     },
     addLink() {
       if (this.linkList.length >= 20) {
-        return this.$message.warning('最多添加20个链接');
+        return this.$message.warning('最多إضافة20个链接');
       }
       this.linkList.push({
         title: '',
         url: '',
       });
     },
-    // 删除
+    // حذف
     bindDelete(item, index) {
       if (this.tabList.list.length == 1) {
         this.lastObj = this.tabList.list[0];
@@ -653,7 +653,7 @@ export default {
           this.$message.error(err.msg);
         });
     },
-    // 菜单保存
+    // 菜单حفظ
     saveMenu(config_name) {
       let data = {
         config_name: config_name,

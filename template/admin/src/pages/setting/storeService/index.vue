@@ -4,7 +4,7 @@
       <el-row class="mb20">
         <el-col :span="24">
           <el-button v-auth="['setting-store_service-add']" type="primary" v-db-click @click="add" class="mr10"
-            >添加客服</el-button
+            >إضافة客服</el-button
           >
         </el-col>
       </el-row>
@@ -27,12 +27,12 @@
             </div>
           </template>
         </el-table-column>
-        <el-table-column label="客服名称" min-width="130">
+        <el-table-column label="客服الاسم" min-width="130">
           <template slot-scope="scope">
             <span>{{ scope.row.wx_name }}</span>
           </template>
         </el-table-column>
-        <el-table-column label="客服状态" min-width="130">
+        <el-table-column label="客服الحالة" min-width="130">
           <template slot-scope="scope">
             <el-switch
               class="defineSwitch"
@@ -48,16 +48,16 @@
             </el-switch>
           </template>
         </el-table-column>
-        <el-table-column label="添加时间" min-width="130">
+        <el-table-column label="إضافةالوقت" min-width="130">
           <template slot-scope="scope">
             <span>{{ scope.row.add_time }}</span>
           </template>
         </el-table-column>
-        <el-table-column label="操作" fixed="right" width="170">
+        <el-table-column label="الخيارات" fixed="right" width="170">
           <template slot-scope="scope">
-            <a v-db-click @click="edit(scope.row)">编辑</a>
+            <a v-db-click @click="edit(scope.row)">تحرير</a>
             <el-divider direction="vertical"></el-divider>
-            <a v-db-click @click="del(scope.row, '删除客服', scope.$index)">删除</a>
+            <a v-db-click @click="del(scope.row, 'حذف客服', scope.$index)">حذف</a>
             <el-divider direction="vertical" v-if="scope.row.status" />
             <a v-db-click @click="goChat(scope.row)" v-if="scope.row.status">进入工作台</a>
           </template>
@@ -84,7 +84,7 @@
           no-filtered-userFrom-text="暂无筛选结果"
           :data="tableList3"
         >
-          <el-table-column label="用户名称" width="200">
+          <el-table-column label="اسم المستخدم称" width="200">
             <template slot-scope="scope">
               <span>{{ scope.row.nickname }}</span>
             </template>
@@ -96,7 +96,7 @@
               </div>
             </template>
           </el-table-column>
-          <el-table-column label="操作" fixed="right" width="170">
+          <el-table-column label="الخيارات" fixed="right" width="170">
             <template slot-scope="scope">
               <a v-db-click @click="look(scope.row)">查看对话</a>
             </template>
@@ -113,7 +113,7 @@
         </div>
       </div>
       <div v-if="!isChat">
-        <el-button type="primary" v-db-click @click="isChat = true">返回聊天记录</el-button>
+        <el-button type="primary" v-db-click @click="isChat = true">عودة聊天记录</el-button>
         <el-table
           v-loading="loading5"
           highlight-current-row
@@ -122,7 +122,7 @@
           no-filtered-userFrom-text="暂无筛选结果"
           :data="tableList5"
         >
-          <el-table-column label="用户名称" min-width="200">
+          <el-table-column label="اسم المستخدم称" min-width="200">
             <template slot-scope="scope">
               <span>{{ scope.row.nickname }}</span>
             </template>
@@ -139,7 +139,7 @@
               <span>{{ scope.row.msn }}</span>
             </template>
           </el-table-column>
-          <el-table-column label="发送时间" min-width="200">
+          <el-table-column label="发送الوقت" min-width="200">
             <template slot-scope="scope">
               <span>{{ scope.row.add_time }}</span>
             </template>
@@ -232,7 +232,7 @@ export default {
       },
       timeVal: [],
       fromList: {
-        title: '选择时间',
+        title: '选择الوقت',
         custom: true,
         fromTxt: [
           { text: '全部', val: '' },
@@ -348,7 +348,7 @@ export default {
           this.$message.error(res.msg);
         });
     },
-    // 修改成功
+    // تعديل成功
     submitFail() {
       this.getList();
     },
@@ -374,7 +374,7 @@ export default {
           this.$message.error(res.msg);
         });
     },
-    // 编辑
+    // تحرير
     edit(row) {
       if (this.eidtLoading) return;
       this.eidtLoading = true;
@@ -387,7 +387,7 @@ export default {
           this.eidtLoading = false;
         });
     },
-    // 添加
+    // إضافة
     add() {
       this.$modalForm(kefuaddApi()).then(() => this.getList());
     },
@@ -407,7 +407,7 @@ export default {
       this.formValidate.page = 1;
       this.getListService();
     },
-    // 选择时间
+    // 选择الوقت
     selectChange(tab) {
       this.formValidate.data = tab;
       this.timeVal = [];
@@ -436,12 +436,12 @@ export default {
       this.getListService();
       this.addFrom.uids = [];
     },
-    // 搜索
+    // بحث
     userSearchs() {
       this.formValidate.page = 1;
       this.getListService();
     },
-    // 删除
+    // حذف
     del(row, tit, num) {
       let delfromData = {
         title: tit,
@@ -474,7 +474,7 @@ export default {
           this.$message.error(res.msg);
         });
     },
-    // 修改是否显示
+    // تعديل是否显示
     onchangeIsShow(row) {
       let data = {
         id: row.id,
@@ -489,10 +489,10 @@ export default {
           this.$message.error(res.msg);
         });
     },
-    // 添加客服
+    // إضافة客服
     putRemark() {
       if (this.addFrom.uids.length === 0) {
-        return this.$message.warning('请选择要添加的客服');
+        return this.$message.warning('الرجاء اختيار 要إضافة的客服');
       }
       kefuAddApi(this.addFrom)
         .then(async (res) => {

@@ -86,7 +86,7 @@
                   v-else-if="!row.virtual_list.length && !row.stock && formValidate.virtual_type == 1"
                   v-db-click
                   @click="addVirtual(scope.$index, 'oneFormValidate')"
-                  >添加卡密</el-button
+                  >إضافة卡密</el-button
                 >
                 <span
                   class="see"
@@ -148,7 +148,7 @@
           <span class="brokerage">一级返佣：</span
           ><el-input-number
             :controls="false"
-            placeholder="请输入一级返佣"
+            placeholder="الرجاء إدخال 一级返佣"
             class="columnsBox input_width input-number-unit-class"
             class-unit="元"
             :value="manyBrokerage"
@@ -158,7 +158,7 @@
           <span class="brokerage">二级返佣：</span
           ><el-input-number
             :controls="false"
-            placeholder="请输入二级返佣"
+            placeholder="الرجاء إدخال 二级返佣"
             class="columnsBox input_width input-number-unit-class"
             class-unit="元"
             :value="manyBrokerageTwo"
@@ -168,7 +168,7 @@
         <span class="brokerage" v-if="formValidate.is_sub.indexOf(0) > -1">
           会员价：<el-input-number
             :controls="false"
-            placeholder="请输入会员价"
+            placeholder="الرجاء إدخال 会员价"
             :min="0"
             :max="9999999999"
             class="columnsBox input_width input-number-unit-class"
@@ -181,7 +181,7 @@
         <span class="brokerage" v-if="formValidate.is_sub.indexOf(0) > -1">
           会员折扣：<el-input-number
             :controls="false"
-            placeholder="请输入折扣比例"
+            placeholder="الرجاء إدخال 折扣比例"
             :min="0"
             :max="9999999999"
             class="columnsBox input_width input-number-unit-class"
@@ -254,7 +254,7 @@
                   v-else-if="!row.virtual_list.length && !row.stock && formValidate.virtual_type == 1"
                   v-db-click
                   @click="addVirtual(scope.$index + 1, 'manyFormValidate')"
-                  >添加卡密</el-button
+                  >إضافة卡密</el-button
                 >
                 <span
                   class="see"

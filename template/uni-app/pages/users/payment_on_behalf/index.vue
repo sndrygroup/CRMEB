@@ -60,11 +60,11 @@
 			</button>
 			<!-- #endif -->
 			<button v-if="!resData.paid && !resData.type" class="order-btn detail" @click="goOrderDetail()">
-				{{ $t(`查看订单详情`) }}
+				{{ $t(`查看订单تفاصيل`) }}
 			</button>
 			<button class="order-btn" v-if="!resData.paid && resData.type" @tap="payOpen()">{{ $t(`立即付款`) }}</button>
 			<button class="order-btn on-pay" v-if="resData.paid && resData.type">{{ $t(`订单已支付`) }}</button>
-			<button class="order-btn" v-if="resData.paid && !resData.type" @tap="goOrderDetail()">{{ $t(`查看订单详情`) }}</button>
+			<button class="order-btn" v-if="resData.paid && !resData.type" @tap="goOrderDetail()">{{ $t(`查看订单تفاصيل`) }}</button>
 			<view class="order-trip" v-if="resData.pay_uid === $store.state.app.uid && resData.type">
 				{{ $t(`如果订单申请退款，已支付金额将原路退还给您`) }}
 			</view>

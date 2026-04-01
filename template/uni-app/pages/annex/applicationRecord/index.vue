@@ -4,7 +4,7 @@
 			<view class="card-list" v-for="item in listData" :key="item.mer_intention_id">
 				<view class="card-top">
 					<view class="title">{{item.mer_name || ''}}</view>
-					<view class="time">{{$t(`提交时间`)}}：{{item.create_time || ''}}</view>
+					<view class="time">{{$t(`إرسالالوقت`)}}：{{item.create_time || ''}}</view>
 					<view v-if="item.fail_msg" class="reason">{{$t(`原因`)}}：{{item.fail_msg || ''}}</view>
 				</view>
 				<view class="line"></view>
@@ -84,7 +84,7 @@
 					})
 				}
 			},
-			//状态判断
+			//الحالة判断
 			statusText(number) {
 				// 使用对象
 				let statusData = {
@@ -98,9 +98,9 @@
 			statusBtn(number) {
 				// 使用对象
 				let statusData = {
-					0: this.$t(`编辑`),
+					0: this.$t(`تحرير`),
 					1: this.$t(`查看`),
-					2: this.$t(`重新提交`),
+					2: this.$t(`重新إرسال`),
 				};
 				return statusData[number]
 			},

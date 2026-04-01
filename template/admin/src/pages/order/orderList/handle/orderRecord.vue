@@ -7,12 +7,12 @@
             <span>{{ scope.row.oid }}</span>
           </template>
         </el-table-column>
-        <el-table-column label="操作记录" min-width="100">
+        <el-table-column label="الخيارات记录" min-width="100">
           <template slot-scope="scope">
             <span>{{ scope.row.change_message }}</span>
           </template>
         </el-table-column>
-        <el-table-column label="操作时间" min-width="100">
+        <el-table-column label="الخياراتالوقت" min-width="100">
           <template slot-scope="scope">
             <span>{{ scope.row.change_time }}</span>
           </template>

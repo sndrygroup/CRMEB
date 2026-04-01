@@ -10,10 +10,10 @@
           @submit.native.prevent
           inline
         >
-          <el-form-item label="搜索：">
+          <el-form-item label="بحث：">
             <el-input
               clearable
-              placeholder="请输入姓名、UID"
+              placeholder="الرجاء إدخال 姓名、UID"
               v-model="formValidate.keyword"
               class="form_content_width"
             />
@@ -29,7 +29,7 @@
         <el-col :xs="24" :sm="24" ref="rightBox">
           <el-row>
             <el-col v-bind="grid">
-              <el-button type="primary" v-db-click @click="groupAdd('0')" class="mr20">添加代理商</el-button>
+              <el-button type="primary" v-db-click @click="groupAdd('0')" class="mr20">إضافة代理商</el-button>
             </el-col>
           </el-row>
           <el-table
@@ -53,7 +53,7 @@
                 </div>
               </template>
             </el-table-column>
-            <el-table-column label="名称" min-width="130">
+            <el-table-column label="الاسم" min-width="130">
               <template slot-scope="scope">
                 <div class="acea-row">
                   <div v-text="scope.row.division_name" class="ml10"></div>
@@ -70,12 +70,12 @@
                 <span>{{ scope.row.agent_count }}</span>
               </template>
             </el-table-column>
-            <el-table-column label="截止时间" min-width="130">
+            <el-table-column label="截止الوقت" min-width="130">
               <template slot-scope="scope">
                 <span>{{ scope.row.division_end_time }}</span>
               </template>
             </el-table-column>
-            <el-table-column label="状态" min-width="130">
+            <el-table-column label="الحالة" min-width="130">
               <template slot-scope="scope">
                 <el-switch
                   :active-value="1"
@@ -88,15 +88,15 @@
                 </el-switch>
               </template>
             </el-table-column>
-            <el-table-column label="操作" fixed="right" width="220">
+            <el-table-column label="الخيارات" fixed="right" width="220">
               <template slot-scope="scope">
-                <a v-db-click @click="staffAdd(scope.row.uid)">添加员工</a>
+                <a v-db-click @click="staffAdd(scope.row.uid)">إضافة员工</a>
                 <el-divider direction="vertical"></el-divider>
                 <a v-db-click @click="jump(scope.row.uid)">查看员工</a>
                 <el-divider direction="vertical"></el-divider>
-                <a v-db-click @click="groupAdd(scope.row.uid)">编辑</a>
+                <a v-db-click @click="groupAdd(scope.row.uid)">تحرير</a>
                 <el-divider direction="vertical"></el-divider>
-                <a v-db-click @click="del(scope.row, '删除代理商', scope.$index, 2)">删除</a>
+                <a v-db-click @click="del(scope.row, 'حذف代理商', scope.$index, 2)">حذف</a>
               </template>
             </el-table-column>
           </el-table>
@@ -152,9 +152,9 @@
             <span> {{ scope.row.division_percent }}%</span>
           </template>
         </el-table-column>
-        <el-table-column label="操作" width="120">
+        <el-table-column label="الخيارات" width="120">
           <template slot-scope="scope">
-            <a v-db-click @click="del(scope.row, '删除员工', scope.$index, 3)">删除</a>
+            <a v-db-click @click="del(scope.row, 'حذف员工', scope.$index, 3)">حذف</a>
           </template>
         </el-table-column>
       </el-table>
@@ -264,7 +264,7 @@ export default {
           this.$message.error(res.msg);
         });
     },
-    // 添加表单
+    // إضافة表单
     groupAdd(id) {
       this.$modalForm(agentFrom(id))
         .then((res) => {
@@ -272,7 +272,7 @@ export default {
         })
         .catch((err) => {});
     },
-    //添加员工表单
+    //إضافة员工表单
     staffAdd(id) {
       this.$modalForm(staffAddFrom(id))
         .then((res) => {
@@ -280,7 +280,7 @@ export default {
         })
         .catch((err) => {});
     },
-    // 修改是否显示
+    // تعديل是否显示
     onchangeIsShow(row) {
       let data = {
         id: row.uid,
@@ -294,9 +294,9 @@ export default {
           this.$message.error(res.msg);
         });
     },
-    // 编辑
+    // تحرير
     edit(row) {},
-    // 删除
+    // حذف
     del(row, tit, num, type) {
       let delfromData = {
         title: tit,

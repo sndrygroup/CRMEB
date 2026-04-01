@@ -9,8 +9,8 @@
           :label-position="labelPosition"
           @submit.native.prevent
         >
-          <el-form-item label="批次名称：" label-for="title">
-            <el-input clearable v-model="gradeFrom.title" placeholder="请输入批次名称" class="form_content_width" />
+          <el-form-item label="批次الاسم：" label-for="title">
+            <el-input clearable v-model="gradeFrom.title" placeholder="الرجاء إدخال 批次الاسم" class="form_content_width" />
           </el-form-item>
           <el-form-item>
             <el-button type="primary" v-db-click @click="userSearchs">查询</el-button>
@@ -19,7 +19,7 @@
       </div>
     </el-card>
     <el-card :bordered="false" shadow="never" class="mt16">
-      <el-button type="primary" v-db-click @click="addBatch">添加批次</el-button>
+      <el-button type="primary" v-db-click @click="addBatch">إضافة批次</el-button>
       <el-button v-db-click @click="getMemberScan">卡密使用页面二维码</el-button>
       <el-table
         class="mt14"
@@ -34,7 +34,7 @@
             <span>{{ scope.row.id }}</span>
           </template>
         </el-table-column>
-        <el-table-column label="批次名称" min-width="100">
+        <el-table-column label="批次الاسم" min-width="100">
           <template slot-scope="scope">
             <span>{{ scope.row.title }}</span>
           </template>
@@ -54,7 +54,7 @@
             <span>{{ scope.row.use_num }}</span>
           </template>
         </el-table-column>
-        <el-table-column label="制卡时间" min-width="100">
+        <el-table-column label="制卡الوقت" min-width="100">
           <template slot-scope="scope">
             <span>{{ scope.row.add_time }}</span>
           </template>
@@ -77,17 +77,17 @@
             <span>{{ scope.row.remark }}</span>
           </template>
         </el-table-column>
-        <el-table-column label="制卡时间" min-width="100">
+        <el-table-column label="制卡الوقت" min-width="100">
           <template slot-scope="scope">
             <span>{{ scope.row.add_time }}</span>
           </template>
         </el-table-column>
-        <el-table-column label="操作" fixed="right" width="120">
+        <el-table-column label="الخيارات" fixed="right" width="120">
           <template slot-scope="scope">
             <el-dropdown size="small" @command="changeMenu(scope.row, $event, scope.$index)" :transfer="true">
               <span class="el-dropdown-link">更多<i class="el-icon-arrow-down el-icon--right"></i> </span>
               <el-dropdown-menu slot="dropdown">
-                <el-dropdown-item command="1">编辑批次名</el-dropdown-item>
+                <el-dropdown-item command="1">تحرير批次名</el-dropdown-item>
                 <el-dropdown-item command="2">查看卡列表</el-dropdown-item>
                 <el-dropdown-item command="3">导出</el-dropdown-item>
               </el-dropdown-menu>
@@ -105,20 +105,20 @@
         />
       </div>
     </el-card>
-    <el-dialog :visible.sync="modal" width="540px" :title="`${formValidate.id ? '编辑' : '添加'}批次`">
+    <el-dialog :visible.sync="modal" width="540px" :title="`${formValidate.id ? 'تحرير' : 'إضافة'}批次`">
       <!-- <form-create v-model="fapi" :rule="rule" @submit="onSubmit"></form-create> -->
       <el-form ref="formValidate" :model="formValidate" label-width="80px" @submit.native.prevent>
-        <el-form-item label="批次名称：">
-          <el-input placeholder="请输入批次名称" element-id="unit_name" v-model="formValidate.title" class="w100" />
+        <el-form-item label="批次الاسم：">
+          <el-input placeholder="الرجاء إدخال 批次الاسم" element-id="unit_name" v-model="formValidate.title" class="w100" />
         </el-form-item>
         <el-form-item label="备注：" v-if="formValidate.id">
-          <el-input type="textarea" placeholder="请输入备注" v-model="formValidate.remark" class="w100" />
+          <el-input type="textarea" placeholder="الرجاء إدخال 备注" v-model="formValidate.remark" class="w100" />
         </el-form-item>
         <template v-if="!formValidate.id">
           <el-form-item label="制卡数量：">
             <el-input-number
               :controls="false"
-              placeholder="请输入制卡数量"
+              placeholder="الرجاء إدخال 制卡数量"
               element-id="sort"
               :precision="0"
               :max="100000"
@@ -130,7 +130,7 @@
           <el-form-item label="体验天数：">
             <el-input-number
               :controls="false"
-              placeholder="请输入体验天数"
+              placeholder="الرجاء إدخال 体验天数"
               element-id="sort"
               :precision="0"
               :max="100000"
@@ -146,13 +146,13 @@
             </el-radio-group>
           </el-form-item>
           <el-form-item label="备注：">
-            <el-input type="textarea" placeholder="请输入备注" v-model="formValidate.remark" class="w100" />
+            <el-input type="textarea" placeholder="الرجاء إدخال 备注" v-model="formValidate.remark" class="w100" />
           </el-form-item>
         </template>
       </el-form>
       <div class="acea-row row-right">
-        <el-button v-db-click @click="modal = false">取消</el-button>
-        <el-button type="primary" v-db-click @click="onSubmit()">提交</el-button>
+        <el-button v-db-click @click="modal = false">إلغاء</el-button>
+        <el-button type="primary" v-db-click @click="onSubmit()">إرسال</el-button>
       </div>
     </el-dialog>
     <el-dialog :visible.sync="cardModal" title="卡列表" width="1000px">
@@ -248,7 +248,7 @@ export default {
           this.$message.error(err.msg);
         });
     },
-    // 批次名称查询
+    // 批次الاسم查询
     userSearchs() {
       this.gradeFrom.page = 1;
       this.getMemberBatch();
@@ -302,14 +302,14 @@ export default {
           break;
       }
     },
-    // 添加批次弹窗
+    // إضافة批次弹窗
     addBatch() {
       // this.fapi.resetFields();
       this.modal = true;
       this.formValidate.id = 0;
       this.formValidate.title = '';
     },
-    // 提交批次
+    // إرسال批次
     onSubmit() {
       if (this.formValidate.id) {
         memberBatchSetValue(this.formValidate.id, {

@@ -10,17 +10,17 @@
           @submit.native.prevent
           inline
         >
-          <el-form-item label="状态：" label-for="status1">
-            <el-select v-model="status" placeholder="请选择" @change="userSearchs" clearable class="form_content_width">
+          <el-form-item label="الحالة：" label-for="status1">
+            <el-select v-model="status" placeholder="الرجاء اختيار " @change="userSearchs" clearable class="form_content_width">
               <el-option value="all" label="全部"></el-option>
               <el-option value="1" label="开启"></el-option>
               <el-option value="0" label="关闭"></el-option>
             </el-select>
           </el-form-item>
-          <el-form-item label="搜索：" label-for="status2">
+          <el-form-item label="بحث：" label-for="status2">
             <el-input
               clearable
-              placeholder="请输入姓名或者账号"
+              placeholder="الرجاء إدخال 姓名或者账号"
               v-model="formValidate.name"
               class="form_content_width"
             />
@@ -32,7 +32,7 @@
       </div>
     </el-card>
     <el-card :bordered="false" shadow="never" class="ivu-mt">
-      <el-button v-auth="['setting-system_admin-add']" type="primary" v-db-click @click="add">添加管理员</el-button>
+      <el-button v-auth="['setting-system_admin-add']" type="primary" v-db-click @click="add">إضافةإدارة员</el-button>
       <el-table
         :data="list"
         class="mt14"
@@ -58,12 +58,12 @@
             </div>
           </template>
         </el-table-column>
-        <el-table-column label="最后一次登录时间" min-width="130">
+        <el-table-column label="最后一次تسجيل الدخولالوقت" min-width="130">
           <template slot-scope="scope">
             <span>{{ scope.row._last_time }}</span>
           </template>
         </el-table-column>
-        <el-table-column label="最后一次登录ip" min-width="130">
+        <el-table-column label="最后一次تسجيل الدخولip" min-width="130">
           <template slot-scope="scope">
             <span>{{ scope.row.last_ip }}</span>
           </template>
@@ -84,11 +84,11 @@
             </el-switch>
           </template>
         </el-table-column>
-        <el-table-column label="操作" fixed="right" width="100">
+        <el-table-column label="الخيارات" fixed="right" width="100">
           <template slot-scope="scope">
-            <a v-db-click @click="edit(scope.row)">编辑</a>
+            <a v-db-click @click="edit(scope.row)">تحرير</a>
             <el-divider direction="vertical"></el-divider>
-            <a v-db-click @click="del(scope.row, '删除管理员', scope.$index)">删除</a>
+            <a v-db-click @click="del(scope.row, 'حذفإدارة员', scope.$index)">حذف</a>
           </template>
         </el-table-column>
       </el-table>
@@ -102,7 +102,7 @@
         />
       </div>
     </el-card>
-    <!-- 添加 编辑 -->
+    <!-- إضافة تحرير -->
     <admin-from :FromData="FromData" ref="adminfrom" @submitFail="submitFail"></admin-from>
   </div>
 </template>
@@ -155,7 +155,7 @@ export default {
     this.getList();
   },
   methods: {
-    // 修改是否开启
+    // تعديل是否开启
     onchangeIsShow(row) {
       let data = {
         id: row.id,
@@ -188,7 +188,7 @@ export default {
           this.$message.error(res.msg);
         });
     },
-    // 添加表单
+    // إضافة表单
     add() {
       adminFromApi()
         .then(async (res) => {
@@ -199,7 +199,7 @@ export default {
           this.$message.error(res.msg);
         });
     },
-    // 编辑
+    // تحرير
     edit(row) {
       adminEditFromApi(row.id)
         .then(async (res) => {
@@ -213,7 +213,7 @@ export default {
           this.$message.error(res.msg);
         });
     },
-    // 删除
+    // حذف
     del(row, tit, num) {
       let delfromData = {
         title: tit,
@@ -231,7 +231,7 @@ export default {
           this.$message.error(res.msg);
         });
     },
-    // 表格搜索
+    // 表格بحث
     userSearchs() {
       this.formValidate.status = this.status === 'all' ? '' : this.status;
       this.formValidate.page = 1;

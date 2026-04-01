@@ -69,7 +69,7 @@
           style="width: 100%; height: 40px; border-color: var(--prev-color-primary); color: var(--prev-color-primary)"
           v-db-click
           @click="addBox"
-          >添加图片
+          >إضافة图片
         </el-button>
       </div>
     </template>
@@ -189,7 +189,7 @@ export default {
       this.activeIndex = index;
       this.modalPic = true;
     },
-    // 添加自定义弹窗
+    // إضافة自定义弹窗
     addCustomDialog(editorId) {
       window.UE.registerUI(
         'test-dialog',
@@ -226,7 +226,7 @@ export default {
         this.modalPic = false;
       });
     },
-    // 删除
+    // حذف
     bindDelete(item, index) {
       if (this.configData[this.configNum][this.name].list.length == 1) {
         let lastObj = this.configData[this.configNum][this.name].list[0];

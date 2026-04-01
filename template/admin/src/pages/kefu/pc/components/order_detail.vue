@@ -19,7 +19,7 @@
         <div class="msg-item">
           <div class="item"><span>订单ID：</span>{{ orderDetail.orderInfo.order_id }}</div>
           <div class="item" style="color: red">
-            <span style="color: red">订单状态：</span>{{ orderDetail.orderInfo._status._title }}
+            <span style="color: red">订单الحالة：</span>{{ orderDetail.orderInfo._status._title }}
           </div>
         </div>
         <div class="msg-item">
@@ -35,7 +35,7 @@
         </div>
         <div class="msg-item">
           <div class="item"><span>实际支付：</span>{{ orderDetail.orderInfo.pay_price }}</div>
-          <div class="item"><span>创建时间：</span>{{ orderDetail.orderInfo.add_time }}</div>
+          <div class="item"><span>创建الوقت：</span>{{ orderDetail.orderInfo.add_time }}</div>
         </div>
         <div class="msg-item">
           <div class="item"><span>支付方式：</span>{{ orderDetail.orderInfo._status._payType }}</div>
@@ -53,7 +53,7 @@
             <span>{{ scope.row.productInfo.id }}</span>
           </template>
         </el-table-column>
-        <el-table-column label="商品名称" min-width="130">
+        <el-table-column label="商品الاسم" min-width="130">
           <template slot-scope="scope">
             <div class="product_info">
               <img :src="scope.row.productInfo.image" alt="" />

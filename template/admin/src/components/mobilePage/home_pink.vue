@@ -358,7 +358,7 @@ export default {
   icon: '#iconzujian-pintuan',
   configName: 'c_home_pink',
   type: 1, // 0 基础组件 1 营销组件 2工具组件
-  defaultName: 'combination', // 外面匹配名称
+  defaultName: 'combination', // 外面匹配الاسم
   props: {
     index: {
       type: null,
@@ -398,7 +398,7 @@ export default {
   // mixins: [theme],
   data() {
     return {
-      // 默认初始化数据禁止修改
+      // 默认初始化数据禁止تعديل
       defaultConfig: {
         cname: '拼团',
         name: 'combination',
@@ -525,13 +525,13 @@ export default {
         titleTxtConfig: {
           title: '标题文字',
           value: '超值拼团',
-          place: '请输入标题文字',
+          place: 'الرجاء إدخال 标题文字',
           max: 6,
         },
         rightBntConfig: {
           title: '右侧按钮',
           value: '更多',
-          place: '请输入右侧按钮',
+          place: 'الرجاء إدخال 右侧按钮',
           max: 6,
         },
         goodStyleConfig: {
@@ -564,7 +564,7 @@ export default {
           list: [
             {
               id: 0,
-              name: '商品名称',
+              name: '商品الاسم',
             },
             {
               id: 1,
@@ -697,7 +697,7 @@ export default {
           min: 0,
         },
         tipsColor: {
-          title: '提示文字',
+          title: 'تنبيه文字',
           name: 'tipsColor',
           default: [
             {
@@ -711,7 +711,7 @@ export default {
           ],
         },
         tipsColor2: {
-          title: '提示文字',
+          title: 'تنبيه文字',
           name: 'tipsColor2',
           default: [
             {
@@ -757,7 +757,7 @@ export default {
           valList: [{ val: 0 }, { val: 0 }, { val: 0 }, { val: 0 }],
         },
         goodsName: {
-          title: '商品名称',
+          title: '商品الاسم',
           tabVal: 1,
           tabList: [
             {
@@ -771,7 +771,7 @@ export default {
           ],
         },
         goodsNameColor: {
-          title: '商品名称',
+          title: '商品الاسم',
           name: 'goodsNameColor',
           default: [
             {

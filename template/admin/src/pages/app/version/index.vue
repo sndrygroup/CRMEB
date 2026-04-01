@@ -54,11 +54,11 @@
             <span>{{ scope.row.url }}</span>
           </template>
         </el-table-column>
-        <el-table-column label="操作" fixed="right" width="120">
+        <el-table-column label="الخيارات" fixed="right" width="120">
           <template slot-scope="scope">
-            <a v-db-click @click="edit(scope.row)">编辑</a>
+            <a v-db-click @click="edit(scope.row)">تحرير</a>
             <el-divider direction="vertical"></el-divider>
-            <a v-db-click @click="del(scope.row, '删除版本', scope.$index)">删除</a>
+            <a v-db-click @click="del(scope.row, 'حذف版本', scope.$index)">حذف</a>
           </template>
         </el-table-column>
       </el-table>
@@ -106,7 +106,7 @@ export default {
     this.getList();
   },
   methods: {
-    // 修改成功
+    // تعديل成功
     submitFail() {
       this.getList();
     },
@@ -117,7 +117,7 @@ export default {
       this.isChat = true;
       this.getListRecord();
     },
-    // 添加
+    // إضافة
     add() {
       this.$modalForm(versionCrate(0)).then((res) => {
         this.getList();
@@ -137,13 +137,13 @@ export default {
           this.loading = false;
         });
     },
-    // 添加
+    // إضافة
     edit(row) {
       this.$modalForm(versionCrate(row.id)).then((res) => {
         this.getList();
       });
     },
-    // 删除
+    // حذف
     del(row, tit, num) {
       let delfromData = {
         title: tit,

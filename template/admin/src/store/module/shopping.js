@@ -24,7 +24,7 @@ export default {
           val: true,
         },
         imgList: {
-          title: '最多可添加10张图片，建议宽度750px',
+          title: '最多可إضافة10张图片，建议宽度750px',
           max: 10,
           list: [
             {

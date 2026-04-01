@@ -3,7 +3,7 @@
     <!--    <div class="i-layout-page-header header-title">-->
     <!--      <div class="fl_header">-->
     <!--        <router-link v-if="$route.params.id != 49" :to="{ path: $routeProStr + '/system/config/system_group/index' }"-->
-    <!--          ><el-button size="small" type="text">返回</el-button></router-link-->
+    <!--          ><el-button size="small" type="text">عودة</el-button></router-link-->
     <!--        >-->
     <!--        <el-divider direction="vertical" v-if="$route.params.id != 49" />-->
     <!--        <span class="ivu-page-header-title mr20" style="padding: 0" v-text="$route.meta.title"></span>-->
@@ -23,7 +23,7 @@
           <el-form-item label="是否显示：">
             <el-select
               v-model="formValidate.status"
-              placeholder="请选择"
+              placeholder="الرجاء اختيار "
               clearable
               @change="userSearchs"
               class="form_content_width"
@@ -36,7 +36,7 @@
       </div>
     </el-card>
     <el-card :bordered="false" shadow="never" class="ivu-mt mt14">
-      <el-button type="primary" v-db-click @click="groupAdd('添加数据')" class="mr20">添加数据</el-button>
+      <el-button type="primary" v-db-click @click="groupAdd('إضافة数据')" class="mr20">إضافة数据</el-button>
       <el-table
         :data="tabList"
         ref="table"
@@ -70,9 +70,9 @@
               </el-switch>
             </template>
             <template v-else-if="item.slot === 'action'">
-              <a v-db-click @click="edit(scope.row, '编辑')">编辑</a>
+              <a v-db-click @click="edit(scope.row, 'تحرير')">تحرير</a>
               <el-divider direction="vertical"></el-divider>
-              <a v-db-click @click="del(scope.row, '删除这条信息', scope.$index)">删除</a>
+              <a v-db-click @click="del(scope.row, 'حذف这条信息', scope.$index)">حذف</a>
             </template>
           </template>
         </el-table-column>
@@ -180,7 +180,7 @@ export default {
           this.$message.error(res.msg);
         });
     },
-    // 返回
+    // عودة
     back() {
       this.$router.push({ path: this.$routeProStr + '/system/config/system_group/index' });
     },
@@ -277,12 +277,12 @@ export default {
           this.$message.error(res.msg);
         });
     },
-    // 表格搜索
+    // 表格بحث
     userSearchs() {
       this.formValidate.page = 1;
       this.getList();
     },
-    // 添加表单
+    // إضافة表单
     groupAdd() {
       this.$modalForm(
         groupDataAddApi(
@@ -291,7 +291,7 @@ export default {
         ),
       ).then(() => this.getList());
     },
-    // 修改是否显示
+    // تعديل是否显示
     onchangeIsShow(row) {
       groupDataSetApi(this.getUrl(`/set_status/${row.id}/${row.status}`))
         .then(async (res) => {
@@ -302,14 +302,14 @@ export default {
           this.$message.error(res.msg);
         });
     },
-    // 编辑
+    // تحرير
     edit(row) {
       let data = {
         gid: row.gid,
       };
       this.$modalForm(groupDataEditApi(data, this.getUrl(`/${row.id}/edit`))).then(() => this.getList());
     },
-    // 删除
+    // حذف
     del(row, tit, num) {
       let delfromData = {
         title: tit,

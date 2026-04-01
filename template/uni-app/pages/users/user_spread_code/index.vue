@@ -20,12 +20,12 @@
 				</block>
 			</swiper>
 			<!-- #ifndef H5  -->
-			<view class='keep bg-color' @click='savePosterPathMp(posterImage[swiperIndex])'>{{$t(`保存海报`)}}</view>
+			<view class='keep bg-color' @click='savePosterPathMp(posterImage[swiperIndex])'>{{$t(`حفظ海报`)}}</view>
 			<!-- #endif -->
 			<!-- #ifndef MP || APP-PLUS -->
 			<div class="preserve acea-row row-center-wrapper">
 				<div class="line"></div>
-				<div class="tip">{{$t(`长按保存图片`)}}</div>
+				<div class="tip">{{$t(`长按حفظ图片`)}}</div>
 				<div class="line"></div>
 			</div>
 			<!-- #endif -->
@@ -287,13 +287,13 @@
 										filePath: url,
 										success: function(res) {
 											that.$util.Tips({
-												title: that.$t(`保存成功`),
+												title: that.$t(`حفظ成功`),
 												icon: 'success'
 											});
 										},
 										fail: function(res) {
 											that.$util.Tips({
-												title: that.$t(`保存失败`),
+												title: that.$t(`حفظ失败`),
 											});
 										}
 									});
@@ -304,13 +304,13 @@
 								filePath: url,
 								success: function(res) {
 									that.$util.Tips({
-										title: that.$t(`保存成功`),
+										title: that.$t(`حفظ成功`),
 										icon: 'success'
 									});
 								},
 								fail: function(res) {
 									that.$util.Tips({
-										title: that.$t(`保存失败`),
+										title: that.$t(`حفظ失败`),
 									});
 								}
 							});
@@ -326,13 +326,13 @@
 					filePath: url,
 					success: function(res) {
 						that.$util.Tips({
-							title: that.$t(`保存成功`),
+							title: that.$t(`حفظ成功`),
 							icon: 'success'
 						});
 					},
 					fail: function(res) {
 						that.$util.Tips({
-							title: that.$t(`保存失败`),
+							title: that.$t(`حفظ失败`),
 						});
 					}
 				});

@@ -116,7 +116,7 @@ export default {
           this.$dialog.error(err.msg);
         });
     },
-    //获取用户详情
+    //获取用户تفاصيل
     getUserInfo() {
       userInfo(this.$route.params.uid)
         .then((res) => {

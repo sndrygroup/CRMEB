@@ -12,7 +12,7 @@
         >
           <el-form-item label="是否有效：">
             <el-select
-              placeholder="请选择"
+              placeholder="الرجاء اختيار "
               clearable
               v-model="tableFrom.status"
               @change="userSearchs"
@@ -24,12 +24,12 @@
             </el-select>
           </el-form-item>
           <el-form-item label="领取人：" label-for="nickname">
-            <el-input placeholder="请输入领取人" v-model="tableFrom.nickname" clearable class="form_content_width" />
+            <el-input placeholder="الرجاء إدخال 领取人" v-model="tableFrom.nickname" clearable class="form_content_width" />
           </el-form-item>
-          <el-form-item label="优惠券搜索：" label-for="coupon_title">
+          <el-form-item label="优惠券بحث：" label-for="coupon_title">
             <el-input
               clearable
-              placeholder="请输入优惠券名称"
+              placeholder="الرجاء إدخال 优惠券الاسم"
               v-model="tableFrom.coupon_title"
               class="form_content_width"
             />
@@ -47,7 +47,7 @@
             <span>{{ scope.row.id }}</span>
           </template>
         </el-table-column>
-        <el-table-column label="优惠券名称" min-width="150">
+        <el-table-column label="优惠券الاسم" min-width="150">
           <template slot-scope="scope">
             <span>{{ scope.row.coupon_title }}</span>
           </template>
@@ -67,12 +67,12 @@
             <span>{{ scope.row.use_min_price }}</span>
           </template>
         </el-table-column>
-        <el-table-column label="开始使用时间" min-width="150">
+        <el-table-column label="开始使用الوقت" min-width="150">
           <template slot-scope="scope">
             <span>{{ scope.row.start_time | formatDate }}</span>
           </template>
         </el-table-column>
-        <el-table-column label="结束使用时间" min-width="150">
+        <el-table-column label="结束使用الوقت" min-width="150">
           <template slot-scope="scope">
             <span>{{ scope.row.end_time | formatDate }}</span>
           </template>
@@ -88,7 +88,7 @@
             <i class="el-icon-close" v-else style="color: #ed5565; font-size: 14px" />
           </template>
         </el-table-column>
-        <el-table-column label="状态" min-width="150">
+        <el-table-column label="الحالة" min-width="150">
           <template slot-scope="scope">
             <span>{{ scope.row.status }}</span>
           </template>
@@ -170,7 +170,7 @@ export default {
           this.$message.error(res.msg);
         });
     },
-    // 表格搜索
+    // 表格بحث
     userSearchs() {
       this.tableFrom.page = 1;
       this.getList();

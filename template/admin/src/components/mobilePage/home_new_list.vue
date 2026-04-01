@@ -248,7 +248,7 @@ export default {
   icon: '#iconzujian-wenzhangliebiao',
   configName: 'c_new_list',
   type: 0, // 0 基础组件 1 营销组件 2工具组件
-  defaultName: 'articleList', // 外面匹配名称
+  defaultName: 'articleList', // 外面匹配الاسم
   props: {
     index: {
       type: null,
@@ -288,7 +288,7 @@ export default {
   // mixins: [theme],
   data() {
     return {
-      // 默认初始化数据禁止修改
+      // 默认初始化数据禁止تعديل
       defaultConfig: {
         cname: '文章列表',
         desc: '文章列表介绍',
@@ -411,7 +411,7 @@ export default {
           list: [
             {
               id: 0,
-              name: '时间日期',
+              name: 'الوقت日期',
             },
             {
               id: 1,
@@ -488,7 +488,7 @@ export default {
           ],
         },
         timeColor: {
-          title: '时间日期',
+          title: 'الوقت日期',
           default: [
             {
               item: '#999999',

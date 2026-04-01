@@ -3,13 +3,13 @@
     <!-- Toolbar -->
     <div class="header">
       <div class="left">
-        <span class="close-btn" @click="$emit('close')"><i class="icon el-icon-arrow-left"></i>返回</span>
+        <span class="close-btn" @click="$emit('close')"><i class="icon el-icon-arrow-left"></i>عودة</span>
         <span class="title">设计组件</span>
       </div>
       <div class="center"></div>
       <div class="right">
-        <el-button size="small" @click="save(false)">保存</el-button>
-        <el-button type="primary" size="small" @click="save(true)">保存关闭</el-button>
+        <el-button size="small" @click="save(false)">حفظ</el-button>
+        <el-button type="primary" size="small" @click="save(true)">حفظ关闭</el-button>
       </div>
     </div>
 
@@ -104,7 +104,7 @@
               :class="{ active: index === snapshotIndex }"
               @click="handleHistorySelect(index)"
             >
-              <span class="type">{{ item.type || '操作' }}</span>
+              <span class="type">{{ item.type || 'الخيارات' }}</span>
               <div class="right-info">
                 <span class="time">{{ item.time }}</span>
                 <span class="iconfont icon-check" v-if="index === snapshotIndex">
@@ -116,7 +116,7 @@
           </div>
         </div>
         <div class="component-actions" v-if="curComponent" :style="actionBarStyle">
-          <div class="action-item" title="删除" @click="deleteComponent(curComponentIndex)">
+          <div class="action-item" title="حذف" @click="deleteComponent(curComponentIndex)">
             <span class="iconfont iconshanchu3"></span>
           </div>
           <div class="action-item" title="复制" @click="copyComponent(curComponent)">
@@ -313,15 +313,15 @@ export default {
       this.componentData.splice(index, 1);
       this.curComponent = null;
       this.curComponentIndex = -1;
-      this.recordSnapshot('删除组件');
+      this.recordSnapshot('حذف组件');
     },
     toggleHide(item) {
       this.$set(item, 'isHidden', !item.isHidden);
     },
     editName(item) {
-      this.$prompt('请输入组件名称', '修改名称', {
+      this.$prompt('الرجاء إدخال 组件الاسم', 'تعديلالاسم', {
         confirmButtonText: '确定',
-        cancelButtonText: '取消',
+        cancelButtonText: 'إلغاء',
         inputValue: item.label,
       })
         .then(({ value }) => {
@@ -335,7 +335,7 @@ export default {
       const s = date.getSeconds().toString().padStart(2, '0');
       return `${h}:${m}:${s}`;
     },
-    recordSnapshot(type = '操作') {
+    recordSnapshot(type = 'الخيارات') {
       // 简单的撤销重做实现
       this.snapshotIndex++;
       this.snapshotData[this.snapshotIndex] = {
@@ -344,7 +344,7 @@ export default {
         type,
         time: this.formatTime(new Date()),
       };
-      // 删除后续的历史记录
+      // حذف后续的历史记录
       if (this.snapshotIndex < this.snapshotData.length - 1) {
         this.snapshotData = this.snapshotData.slice(0, this.snapshotIndex + 1);
       }
@@ -432,7 +432,7 @@ export default {
       this.historyVisible = false;
     },
     handleAttrChange() {
-      this.recordSnapshot('修改属性');
+      this.recordSnapshot('تعديل属性');
     },
     handleUpdateGroup() {
       this.recordSnapshot('调整对齐/位置');
@@ -446,7 +446,7 @@ export default {
       if (close) {
         this.$emit('close');
       } else {
-        this.$message.success('保存成功');
+        this.$message.success('حفظ成功');
       }
     },
     handleMultiSelect(ids) {
@@ -475,7 +475,7 @@ export default {
         this.curComponent = null;
         this.curComponentIndex = -1;
         this.activeComponentIds = [];
-        this.recordSnapshot('删除组件');
+        this.recordSnapshot('حذف组件');
       } else if (this.curComponent) {
         this.deleteComponent(this.curComponentIndex);
       }

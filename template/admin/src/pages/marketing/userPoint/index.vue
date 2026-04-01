@@ -11,18 +11,18 @@
       >
         <el-row :gutter="24">
           <el-col :xl="6" :lg="10" :md="10" :sm="24" :xs="24">
-            <el-form-item label="搜索：" label-for="store_name">
+            <el-form-item label="بحث：" label-for="store_name">
               <el-input
                 search
                 enter-button
-                placeholder="请输入用户ID,标题"
+                placeholder="الرجاء إدخال 用户ID,标题"
                 v-model="tableFrom.nickname"
                 @on-search="userSearchs"
               />
             </el-form-item>
           </el-col>
           <el-col :xl="6" :lg="10" :md="10" :sm="24" :xs="24">
-            <el-form-item label="选择时间：" label-for="user_time">
+            <el-form-item label="选择الوقت：" label-for="user_time">
               <el-date-picker
                 clearable
                 :editable="false"
@@ -79,7 +79,7 @@
             <span>{{ scope.row.mark }}</span>
           </template>
         </el-table-column>
-        <el-table-column label="添加时间" min-width="130">
+        <el-table-column label="إضافةالوقت" min-width="130">
           <template slot-scope="scope">
             <span>{{ scope.row.add_time }}</span>
           </template>
@@ -190,7 +190,7 @@ export default {
           this.$message.error(res.msg);
         });
     },
-    // 表格搜索
+    // 表格بحث
     userSearchs() {
       this.tableFrom.page = 1;
       this.getList();

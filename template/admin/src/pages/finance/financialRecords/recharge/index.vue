@@ -10,7 +10,7 @@
           inline
           @submit.native.prevent
         >
-          <el-form-item label="时间选择：">
+          <el-form-item label="الوقت选择：">
             <el-date-picker
               clearable
               v-model="timeVal"
@@ -30,7 +30,7 @@
             <el-select
               clearable
               v-model="formValidate.paid"
-              placeholder="请选择"
+              placeholder="الرجاء اختيار "
               @change="selChange"
               class="form_content_width"
             >
@@ -39,10 +39,10 @@
               <el-option value="0" label="未支付"></el-option>
             </el-select>
           </el-form-item>
-          <el-form-item label="搜索：">
+          <el-form-item label="بحث：">
             <el-input
               clearable
-              placeholder="请输入用户昵称、订单号"
+              placeholder="الرجاء إدخال 用户昵称、订单号"
               v-model="formValidate.nickname"
               class="form_content_width"
             />
@@ -94,12 +94,12 @@
             <span>{{ scope.row._recharge_type }}</span>
           </template>
         </el-table-column>
-        <el-table-column label="支付时间" min-width="130">
+        <el-table-column label="支付الوقت" min-width="130">
           <template slot-scope="scope">
             <span>{{ scope.row._pay_time }}</span>
           </template>
         </el-table-column>
-        <el-table-column label="操作" width="100">
+        <el-table-column label="الخيارات" width="100">
           <template slot-scope="scope">
             <a
               href="javascript:void(0);"
@@ -114,7 +114,7 @@
               v-if="scope.row.paid === 0"
               v-db-click
               @click="del(scope.row, '此条充值记录', scope.$index)"
-              >删除</a
+              >حذف</a
             >
             <span class="refund" v-if="scope.row.refund_price > 0">已退款</span>
           </template>
@@ -181,7 +181,7 @@ export default {
     this.getUserRecharge();
   },
   methods: {
-    // 删除
+    // حذف
     del(row, tit, num) {
       let delfromData = {
         title: tit,
@@ -214,7 +214,7 @@ export default {
           this.$message.error(res.msg);
         });
     },
-    // 编辑提交成功
+    // تحريرإرسال成功
     submitFail() {
       this.getList();
       this.getUserRecharge();
@@ -227,7 +227,7 @@ export default {
       this.getList();
       this.getUserRecharge();
     },
-    // 选择时间
+    // 选择الوقت
     selectChange(tab) {
       this.formValidate.data = tab;
       this.timeVal = [];

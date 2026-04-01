@@ -27,7 +27,7 @@
 					<baseMoney :money="infoData.true_extract_price" symbolSize="48" integerSize="72" decimalSize="72" color="#333333" weight></baseMoney>
 				</view>
 				<view class="fs-26 text--w111-999">可在“微信支付-服务-钱包-账单”查看明细</view>
-				<view class="w-504 h-80 rd-40rpx flex-center bg-color fs-28 text--w111-fff mt-52" @tap="backList">返回列表</view>
+				<view class="w-504 h-80 rd-40rpx flex-center bg-color fs-28 text--w111-fff mt-52" @tap="backList">عودة列表</view>
 			</view>
 			<view class="fixed-lb w-full pb-safe" v-if="!showBack">
 				<view class="w-full h-128 px-20 flex-center">
@@ -100,7 +100,7 @@ export default {
 					package: that.infoData.package_info,
 					success: (res) => {
 						that.showBack = true;
-						// res.err_msg将在页面展示成功后返回应用时返回ok，并不代表付款成功
+						// res.err_msg将在页面展示成功后عودة应用时عودةok，并不代表付款成功
 						console.log('success:', res);
 					},
 					fail: (res) => {
@@ -123,7 +123,7 @@ export default {
 				if (WeixinJSBridge) {
 					WeixinJSBridge.invoke('requestMerchantTransfer', configAppMessage, function (res) {
 						if (res.err_msg === 'requestMerchantTransfer:ok') {
-							// res.err_msg将在页面展示成功后返回应用时返回success，并不代表付款成功
+							// res.err_msg将在页面展示成功后عودة应用时عودةsuccess，并不代表付款成功
 							that.showBack = true;
 						}
 					});

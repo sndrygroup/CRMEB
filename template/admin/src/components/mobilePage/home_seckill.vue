@@ -399,7 +399,7 @@ export default {
   configName: 'c_home_seckill',
   icon: '#iconzujian-miaosha',
   type: 1, // 0 基础组件 1 营销组件 2工具组件
-  defaultName: 'seckill', // 外面匹配名称
+  defaultName: 'seckill', // 外面匹配الاسم
   props: {
     index: {
       type: null,
@@ -441,7 +441,7 @@ export default {
   data() {
     return {
       configObj: null,
-      // 默认初始化数据禁止修改
+      // 默认初始化数据禁止تعديل
       defaultConfig: {
         cname: '秒杀',
         name: 'seckill',
@@ -605,13 +605,13 @@ export default {
         titleTxtConfig: {
           title: '标题文字',
           value: '限时秒杀',
-          place: '请输入标题文字',
+          place: 'الرجاء إدخال 标题文字',
           max: 6,
         },
         rightBntConfig: {
           title: '右侧按钮',
           value: '更多',
-          place: '请输入右侧按钮',
+          place: 'الرجاء إدخال 右侧按钮',
           max: 6,
         },
         goodStyleConfig: {
@@ -644,7 +644,7 @@ export default {
           list: [
             {
               id: 0,
-              name: '商品名称',
+              name: '商品الاسم',
             },
             {
               id: 1,
@@ -877,7 +877,7 @@ export default {
           valList: [{ val: 0 }, { val: 0 }, { val: 0 }, { val: 0 }],
         },
         goodsName: {
-          title: '商品名称',
+          title: '商品الاسم',
           tabVal: 1,
           tabList: [
             {
@@ -891,7 +891,7 @@ export default {
           ],
         },
         goodsNameColor: {
-          title: '商品名称',
+          title: '商品الاسم',
           name: 'goodsNameColor',
           default: [
             {

@@ -75,7 +75,7 @@
               <vxe-input v-model="row.trip" type="text"></vxe-input>
             </template>
           </vxe-column> -->
-          <vxe-column title="操作" width="120">
+          <vxe-column title="الخيارات" width="120">
             <template #default="{ row }">
               <vxe-button
                 type="text"
@@ -85,11 +85,11 @@
                 @click="insertRow(row, 'xTable')"
                 >插入</vxe-button
               >
-              <vxe-button type="text" status="primary" v-db-click @click="removeRow(row, 'xTable')">删除</vxe-button>
+              <vxe-button type="text" status="primary" v-db-click @click="removeRow(row, 'xTable')">حذف</vxe-button>
             </template>
           </vxe-column>
         </vxe-table>
-        <el-button class="mt10" type="primary" v-db-click @click="insertEvent('xTable')">添加参数</el-button>
+        <el-button class="mt10" type="primary" v-db-click @click="insertEvent('xTable')">إضافة参数</el-button>
       </div>
       <div v-show="paramsType === 'Body'">
         <el-radio-group v-model="bodyType" class="mt10">
@@ -149,7 +149,7 @@
               <vxe-input v-model="row.trip" type="text"></vxe-input>
             </template>
           </vxe-column> -->
-          <vxe-column title="操作" width="120">
+          <vxe-column title="الخيارات" width="120">
             <template #default="{ row }">
               <vxe-button
                 type="text"
@@ -159,7 +159,7 @@
                 @click="insertRow(row, 'yTable')"
                 >插入</vxe-button
               >
-              <vxe-button type="text" status="primary" v-db-click @click="removeRow(row, 'yTable')">删除</vxe-button>
+              <vxe-button type="text" status="primary" v-db-click @click="removeRow(row, 'yTable')">حذف</vxe-button>
             </template>
           </vxe-column>
         </vxe-table>
@@ -167,7 +167,7 @@
           <el-input v-model="jsonBody" type="textarea" :rows="8" placeholder="请求数据" />
         </div>
         <el-button v-if="bodyType == 'form-data'" class="mt10" type="primary" v-db-click @click="insertEvent('yTable')"
-          >添加参数</el-button
+          >إضافة参数</el-button
         >
       </div>
 
@@ -194,7 +194,7 @@
               <vxe-input v-model="row.value" type="text"></vxe-input>
             </template>
           </vxe-column>
-          <vxe-column title="操作" width="100">
+          <vxe-column title="الخيارات" width="100">
             <template #default="{ row }">
               <vxe-button
                 type="text"
@@ -204,11 +204,11 @@
                 @click="insertRow(row, 'zTable')"
                 >插入</vxe-button
               >
-              <vxe-button type="text" status="primary" v-db-click @click="removeRow(row, 'zTable')">删除</vxe-button>
+              <vxe-button type="text" status="primary" v-db-click @click="removeRow(row, 'zTable')">حذف</vxe-button>
             </template>
           </vxe-column>
         </vxe-table>
-        <el-button class="mt10" type="primary" v-db-click @click="insertEvent('zTable')">添加参数</el-button>
+        <el-button class="mt10" type="primary" v-db-click @click="insertEvent('zTable')">إضافة参数</el-button>
       </div>
     </div>
     <div class="res mt10 mb10" v-if="codes">
@@ -263,7 +263,7 @@ export default {
       bodyType: 'form-data',
       interfaceData: undefined,
       paramsType: 'Params',
-      editor: '', //当前编辑器对象
+      editor: '', //当前تحرير器对象
       codes: '',
       jsonBody: '',
     };

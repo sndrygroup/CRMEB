@@ -11,15 +11,15 @@
       <el-row :gutter="24">
         <el-col :span="24">
           <el-col :span="8">
-            <el-form-item label="模板名称：" prop="rule_name">
-              <el-input placeholder="请输入模板名称" :maxlength="20" v-model.trim="formDynamic.name" />
+            <el-form-item label="模板الاسم：" prop="rule_name">
+              <el-input placeholder="الرجاء إدخال 模板الاسم" :maxlength="20" v-model.trim="formDynamic.name" />
             </el-form-item>
           </el-col>
         </el-col>
         <el-col :span="24">
           <el-col :span="8">
             <el-form-item label="排序：" prop="rule_name">
-              <el-input type="number" placeholder="请输入排序" :maxlength="20" v-model.trim="formDynamic.sort" />
+              <el-input type="number" placeholder="الرجاء إدخال 排序" :maxlength="20" v-model.trim="formDynamic.sort" />
             </el-form-item>
           </el-col>
         </el-col>
@@ -34,7 +34,7 @@
                     </div>
                   </template>
                 </el-table-column>
-                <el-table-column label="参数名称" min-width="80">
+                <el-table-column label="参数الاسم" min-width="80">
                   <template slot-scope="scope">
                     <el-input v-model="scope.row.name"></el-input>
                   </template>
@@ -45,9 +45,9 @@
                   </template>
                 </el-table-column>
 
-                <el-table-column label="操作" fixed="right" width="80">
+                <el-table-column label="الخيارات" fixed="right" width="80">
                   <template slot-scope="scope">
-                    <a class="submission mr15" v-db-click @click="deleteRow(scope.$index)">删除</a>
+                    <a class="submission mr15" v-db-click @click="deleteRow(scope.$index)">حذف</a>
                   </template>
                 </el-table-column>
               </el-table>
@@ -57,7 +57,7 @@
                 class="submission mr15 mt20"
                 v-db-click
                 @click="handleAddRole"
-                >添加参数</el-button
+                >إضافة参数</el-button
               >
             </div>
           </el-form-item>
@@ -65,7 +65,7 @@
       </el-row>
     </el-form>
     <span slot="footer" class="dialog-footer">
-      <el-button v-db-click @click="onClose">取消</el-button>
+      <el-button v-db-click @click="onClose">إلغاء</el-button>
       <el-button type="primary" :loading="modal_loading" v-db-click @click="handleSubmit('formDynamic')"
         >确定</el-button
       >
@@ -176,15 +176,15 @@ export default {
     deleteRow(index) {
       this.formDynamic.value.splice(index, 1);
     },
-    // 添加按钮
+    // إضافة按钮
     addBtn() {
       this.isBtn = true;
     },
-    //修改排序
+    //تعديل排序
     onDragDrop(a, b) {
       this.formDynamic.value.splice(b, 1, ...this.formDynamic.value.splice(a, 1, this.formDynamic.value[b]));
     },
-    // 详情
+    // تفاصيل
     getIofo(row) {
       this.ids = row.id;
       paramInfoApi(row.id)
@@ -196,12 +196,12 @@ export default {
           this.$message.error(res.msg);
         });
     },
-    // 提交
+    // إرسال
     handleSubmit(name) {
       this.$refs[name].validate((valid) => {
         if (valid) {
           if (this.formDynamic.value.length === 0) {
-            return this.$message.warning('请至少添加一条商品规格！');
+            return this.$message.warning('请至少إضافة一条商品规格！');
           }
           this.modal_loading = true;
           paramSaveApi(this.formDynamic)
@@ -235,7 +235,7 @@ export default {
       this.attrsVal = '';
       this.ids = 0;
     },
-    // 删除
+    // حذف
     handleRemove(index) {
       this.formDynamic.value.splice(index, 1);
     },

@@ -15,11 +15,11 @@
         <div class="ivu-description-list-title">订单信息</div>
         <el-row class="mb10">
           <el-col :span="12">订单ID：{{ orderDatalist.orderInfo.order_id }}</el-col>
-          <el-col :span="12" class="fontColor1">订单状态：{{ orderDatalist.orderInfo.status_name }}</el-col>
+          <el-col :span="12" class="fontColor1">订单الحالة：{{ orderDatalist.orderInfo.status_name }}</el-col>
         </el-row>
         <el-row class="mb10">
           <el-col :span="12"
-            >商品名称：{{ orderDatalist.orderInfo.store_name + ' | '
+            >商品الاسم：{{ orderDatalist.orderInfo.store_name + ' | '
             }}{{ orderDatalist.orderInfo.suk ? orderDatalist.orderInfo.suk : '' }}</el-col
           >
         </el-row>
@@ -28,7 +28,7 @@
           <el-col :span="12">商品总积分：{{ orderDatalist.orderInfo.total_price }}</el-col>
         </el-row>
         <el-row class="mb10">
-          <el-col :span="12" class="mb10">创建时间：{{ orderDatalist.orderInfo.add_time }}</el-col>
+          <el-col :span="12" class="mb10">创建الوقت：{{ orderDatalist.orderInfo.add_time }}</el-col>
           <el-col :span="12" class="mb10" v-if="orderDatalist.orderInfo.remark"
             >商家备注：{{ orderDatalist.orderInfo.remark }}</el-col
           >

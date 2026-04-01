@@ -75,11 +75,11 @@ const frameIn = [
         name: `systemFiles`,
         meta: {
           auth: ['admin-setting-files'],
-          title: '文件管理',
+          title: '文件إدارة',
         },
         component: () => import('@/pages/setting/userFile/index'),
       },
-      // 刷新页面 必须保留
+      // تحديث页面 必须保留
       {
         path: 'refresh',
         name: 'refresh',

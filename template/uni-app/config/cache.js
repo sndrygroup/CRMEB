@@ -15,17 +15,17 @@ module.exports = {
 	UID:'UID',
 	//用户信息
 	USER_INFO: 'USER_INFO',
-	//token过期时间
+	//token过期الوقت
 	EXPIRES_TIME: 'EXPIRES_TIME',
-	//微信登录
+	//微信تسجيل الدخول
 	WX_AUTH: 'WX_AUTH',
-	//公众号登录code
+	//公众号تسجيل الدخولcode
 	STATE_KEY: 'wx_authorize_state',
-	//登录类型
+	//تسجيل الدخول类型
 	LOGINTYPE: 'loginType',
-	//登录跳转地址
+	//تسجيل الدخول跳转地址
 	BACK_URL: 'login_back_url',
-	//小程序登录状态code
+	//小程序تسجيل الدخولالحالةcode
 	STATE_R_KEY: 'roution_authorize_state',
 	//logo 地址
 	LOGO_URL: 'LOGO_URL',

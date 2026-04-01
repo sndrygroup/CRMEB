@@ -44,7 +44,7 @@ export default {
   state: {
     // 顶部菜单
     header: [],
-    // 一级菜单名称
+    // 一级菜单الاسم
     oneMenuName: '',
     // 侧栏菜单
     sider: [],
@@ -57,7 +57,7 @@ export default {
   },
   getters: {
     /**
-     * @description 根据 user 里登录用户权限，对侧边菜单进行鉴权过滤
+     * @description 根据 user 里تسجيل الدخول用户权限，对侧边菜单进行鉴权过滤
      * */
     filterSider(state, getters, rootState) {
       const userInfo = rootState.user.info;
@@ -72,7 +72,7 @@ export default {
     // 处理顶部路由递归
 
     /**
-     * @description 根据 user 里登录用户权限，对顶栏菜单进行鉴权过滤
+     * @description 根据 user 里تسجيل الدخول用户权限，对顶栏菜单进行鉴权过滤
      * */
     filterHeader(state, getters, rootState) {
       //  调用递归函数

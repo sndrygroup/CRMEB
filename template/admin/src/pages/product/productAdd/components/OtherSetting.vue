@@ -6,11 +6,11 @@
         <el-input
           class="content_width"
           v-model.trim="formValidate.keyword"
-          placeholder="请输入商品关键字"
+          placeholder="الرجاء إدخال 商品关键字"
           maxlength="100"
           show-word-limit
         />
-        <div class="tips-info">PC端的SEO优化以及可以根据关键字进行商品搜索</div>
+        <div class="tips-info">PC端的SEO优化以及可以根据关键字进行商品بحث</div>
       </el-form-item>
     </el-col>
     <el-col :span="24">
@@ -20,7 +20,7 @@
           v-model.trim="formValidate.store_info"
           type="textarea"
           :rows="3"
-          placeholder="请输入商品简介"
+          placeholder="الرجاء إدخال 商品简介"
           maxlength="100"
           show-word-limit
         />
@@ -31,12 +31,12 @@
       <el-form-item label="商品口令：">
         <el-input
           v-model.trim="formValidate.command_word"
-          placeholder="请输入商品口令"
+          placeholder="الرجاء إدخال 商品口令"
           type="textarea"
           :rows="3"
           class="content_width"
         />
-        <div class="tips-info">将其他平台的商品口令填写保存，移动端进入商品详情的时候自动复制</div>
+        <div class="tips-info">将其他平台的商品口令填写حفظ，移动端进入商品تفاصيل的时候自动复制</div>
       </el-form-item>
     </el-col>
 
@@ -62,8 +62,8 @@
             item.title
           }}</el-checkbox>
         </el-checkbox-group>
-        <el-button v-else type="primary" v-db-click @click="addProtection">添加保障</el-button>
-        <div class="tips-info">商品详情中显示的服务保障信息，可多选</div>
+        <el-button v-else type="primary" v-db-click @click="addProtection">إضافة保障</el-button>
+        <div class="tips-info">商品تفاصيل中显示的服务保障信息，可多选</div>
       </el-form-item>
     </el-col>
     <el-col :span="24">
@@ -82,7 +82,7 @@
             ref="selection"
             :data="formValidate.params_list"
           >
-            <el-table-column label="参数名称" min-width="80">
+            <el-table-column label="参数الاسم" min-width="80">
               <template slot-scope="scope">
                 <el-input v-model="scope.row.name"></el-input>
               </template>
@@ -92,9 +92,9 @@
                 <el-input v-model="scope.row.value"></el-input>
               </template>
             </el-table-column>
-            <el-table-column label="操作" fixed="right" width="80">
+            <el-table-column label="الخيارات" fixed="right" width="80">
               <template slot-scope="scope">
-                <a class="submission mr15" v-db-click @click="deleteRow(scope.$index)">删除</a>
+                <a class="submission mr15" v-db-click @click="deleteRow(scope.$index)">حذف</a>
               </template>
             </el-table-column>
           </el-table>
@@ -104,7 +104,7 @@
             class="submission mr15 mt20"
             v-db-click
             @click="handleAddParams"
-            >添加参数</el-button
+            >إضافة参数</el-button
           >
         </div>
       </el-form-item>
@@ -133,11 +133,11 @@
               ></el-option>
             </el-select>
             <el-checkbox v-model="item.status">必填</el-checkbox>
-            <div class="addfont" v-db-click @click="delcustom(index)">删除</div>
+            <div class="addfont" v-db-click @click="delcustom(index)">حذف</div>
           </div>
         </div>
         <div class="addCustomBox" v-show="customBtn">
-          <div class="btn" v-db-click @click="addcustom">+ 添加表单</div>
+          <div class="btn" v-db-click @click="addcustom">+ إضافة表单</div>
           <div class="tips-info">用户下单时需填写的信息，最多可设置10条，设置了自定义表单的商品不能加入购物车</div>
         </div>
       </el-form-item>

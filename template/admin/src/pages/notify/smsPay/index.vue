@@ -3,7 +3,7 @@
     <div class="i-layout-page-header header_top">
       <div class="i-layout-page-header fl_header">
         <router-link :to="{ path: $routeProStr + '/setting/sms/sms_config/index' }"
-          ><el-button size="small" type="text">返回</el-button></router-link
+          ><el-button size="small" type="text">عودة</el-button></router-link
         >
         <el-divider direction="vertical"></el-divider>
         <span class="ivu-page-header-title mr20" style="padding: 0">{{ $route.meta.title }}</span>
@@ -71,7 +71,7 @@
           </el-col>
           <el-col :xs="11" :sm="13" :md="19" :lg="20">
             <span class="list-goods-list-item-pay"
-              >微信支付<i v-if="code.invalid">{{ '  （ 支付码过期时间：' + code.invalid + ' ）' }}</i></span
+              >微信支付<i v-if="code.invalid">{{ '  （ 支付码过期الوقت：' + code.invalid + ' ）' }}</i></span
             >
           </el-col>
         </el-col>
@@ -108,14 +108,14 @@ export default {
     this.onIsLogin();
   },
   methods: {
-    // 查看是否登录
+    // 查看是否تسجيل الدخول
     onIsLogin() {
       this.spinShow = true;
       isLoginApi()
         .then(async (res) => {
           let data = res.data;
           if (!data.status) {
-            this.$message.warning('请先登录');
+            this.$message.warning('请先تسجيل الدخول');
             this.$router.push({
               path: this.$routeProStr + '/setting/sms/sms_config/index?url=' + this.$route.path,
               query: {

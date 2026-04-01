@@ -7,11 +7,11 @@
     ></pages-header>
     <el-card :bordered="false" shadow="never" class="mt16">
       <el-form :model="formData" label-width="100px" :rules="ruleValidate">
-        <el-form-item label="渠道码名称：">
+        <el-form-item label="渠道码الاسم：">
           <el-input
             clearable
             v-model="formData.name"
-            placeholder="请输入渠道码名称"
+            placeholder="الرجاء إدخال 渠道码الاسم"
             class="content_width"
             maxlength="20"
             show-word-limit
@@ -65,7 +65,7 @@
               :max="10000"
               :precision="0"
               v-model="formData.time"
-              placeholder="请输入天数"
+              placeholder="الرجاء إدخال 天数"
               class="content_width input-number-unit-class"
               class-unit="天"
             ></el-input-number>
@@ -132,12 +132,12 @@
         </el-form-item>
         <el-form-item>
           <el-button class="submit" type="primary" v-db-click @click="save" :loading="loading" :disabled="disabled"
-            >立即提交</el-button
+            >立即إرسال</el-button
           >
         </el-form-item>
       </el-form>
     </el-card>
-    <el-dialog :visible.sync="customerShow" title="请选择商城用户" :show-close="true" width="1000px">
+    <el-dialog :visible.sync="customerShow" title="الرجاء اختيار 商城用户" :show-close="true" width="1000px">
       <customerInfo v-if="customerShow" @imageObject="imageObject"></customerInfo>
     </el-dialog>
     <!--图文消息 -->
@@ -154,7 +154,7 @@
     <el-dialog
       :visible.sync="labelShow"
       scrollable
-      title="请选择用户标签"
+      title="الرجاء اختيار 用户标签"
       :closable="false"
       width="540px"
       :footer-hide="true"
@@ -223,14 +223,14 @@ export default {
         name: [
           {
             required: true,
-            message: '请填写二维码名称',
+            message: '请填写二维码الاسم',
             trigger: 'blur',
           },
         ],
         cate_id: [
           {
             required: true,
-            message: '请选择二维码分组',
+            message: 'الرجاء اختيار 二维码分组',
             trigger: 'change',
           },
         ],
@@ -352,13 +352,13 @@ export default {
     // 创建
     save() {
       if (!this.formData.name) {
-        return this.$message.error('请输入二维码名称');
+        return this.$message.error('الرجاء إدخال 二维码الاسم');
       }
       if (!this.formData.cate_id) {
-        return this.$message.error('请选择分组');
+        return this.$message.error('الرجاء اختيار 分组');
       }
       if (!this.dataLabel.length) {
-        return this.$message.error('请选择用户标签');
+        return this.$message.error('الرجاء اختيار 用户标签');
       } else {
         let ids = [];
         this.dataLabel.map((i) => {
@@ -367,7 +367,7 @@ export default {
         this.formData.label_id = ids;
       }
       if (!this.formData.uid) {
-        return this.$message.error('请选择推广员');
+        return this.$message.error('الرجاء اختيار 推广员');
       }
       if (this.isReceiveTime) {
         if (this.formData.time < 1) {
@@ -378,7 +378,7 @@ export default {
       }
       if (this.formData.type === 'text' || this.formData.type === 'url') {
         if (!this.formData.content.content.trim()) {
-          return this.$message.error('请输入内容');
+          return this.$message.error('الرجاء إدخال 内容');
         }
       }
       if (this.formData.type === 'voice' || this.formData.type === 'image') {
@@ -388,7 +388,7 @@ export default {
       }
       if (this.formData.type === 'news') {
         if (!this.formData.content.list.title.trim()) {
-          return this.$message.error('请选择图文消息');
+          return this.$message.error('الرجاء اختيار 图文消息');
         }
       }
       this.disabled = false;

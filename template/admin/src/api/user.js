@@ -11,7 +11,7 @@
 import request from '@/libs/request';
 
 /**
- * @description 用户管理--列表
+ * @description 用户إدارة--列表
  * @param {Object} param data {Object} 传值参数
  */
 export function userList(data) {
@@ -23,7 +23,7 @@ export function userList(data) {
 }
 
 /**
- * @description 编辑表单数据
+ * @description تحرير表单数据
  * @param {Number} param id {Number} 会员id
  */
 export function getUserData(id) {
@@ -58,8 +58,8 @@ export function memberCardStatus(data) {
 }
 
 /**
- * @description 会员管理修改显示
- * @param {Object} param data {Object} 传入的状态值，用户id
+ * @description 会员إدارةتعديل显示
+ * @param {Object} param data {Object} 传入的الحالة值，用户id
  */
 export function isShowApi(data) {
   return request({
@@ -93,7 +93,7 @@ export function sendCouponApi(data) {
 }
 
 /**
- * @description 修改积分余额表单
+ * @description تعديل积分余额表单
  * @param {Number} param id {Number} 用户id
  */
 export function editOtherApi(id, type) {
@@ -104,7 +104,7 @@ export function editOtherApi(id, type) {
 }
 
 /**
- * @description 会员管理-详情
+ * @description 会员إدارة-تفاصيل
  * @param {Number} param id {Number} 用户id
  */
 export function detailsApi(id) {
@@ -115,7 +115,7 @@ export function detailsApi(id) {
 }
 
 /**
- * @description 会员管理详情中tab选项
+ * @description 会员إدارةتفاصيل中tab选项
  * @param {Number} param id {Number} 用户id
  */
 export function infoApi(data) {
@@ -139,7 +139,7 @@ export function levelListApi(data) {
 }
 
 /**
- * @description 会员等级-编辑表单
+ * @description 会员等级-تحرير表单
  * @param {Number} param id {Number} 会员等级id
  */
 export function levelEditApi(id) {
@@ -150,7 +150,7 @@ export function levelEditApi(id) {
 }
 
 /**
- * @description 会员等级-修改显示隐藏
+ * @description 会员等级-تعديل显示隐藏
  * @param {Number} param id {Number} 会员等级id
  */
 export function setShowApi(data) {
@@ -161,7 +161,7 @@ export function setShowApi(data) {
 }
 
 /**
- * @description 会员等级-编辑表单
+ * @description 会员等级-تحرير表单
  * @param {Number} param id {Number} 会员等级id
  */
 // export function addApi (data) {
@@ -185,7 +185,7 @@ export function taskListApi(id, data) {
 }
 
 /**
- * @description 会员等级任务-修改显示隐藏
+ * @description 会员等级任务-تعديل显示隐藏
  * @param {Number} param data.id {Number} 会员等级任务id
  * @param {Number} param data.is_show {Number} 会员等级任务显示隐藏
  */
@@ -209,7 +209,7 @@ export function setTaskMustApi(data) {
 }
 
 /**
- * @description 会员等级任务-新建表单 编辑表单
+ * @description 会员等级任务-新建表单 تحرير表单
  * @param {Object} param data {Object} 会员等级任务对象传值
  */
 export function createTaskApi(data) {
@@ -233,7 +233,7 @@ export function createApi(id) {
 }
 
 /**
- * @description 会员管理 --- 赠送会员等级
+ * @description 会员إدارة --- 赠送会员等级
  * @param {Number} param id {Number} 会员id
  */
 export function giveLevelApi(id) {
@@ -244,7 +244,7 @@ export function giveLevelApi(id) {
 }
 
 /**
- * @description 会员管理 --- 赠送会员时长
+ * @description 会员إدارة --- 赠送会员时长
  * @param {Number} param id {Number} 会员id
  */
 export function giveLevelTimeApi(id) {
@@ -255,7 +255,7 @@ export function giveLevelTimeApi(id) {
 }
 
 /**
- * @description 会员等级-删除
+ * @description 会员等级-حذف
  * @param {Number} param id {Number} 会员等级id
  */
 export function delLevelApi(id) {
@@ -278,7 +278,7 @@ export function userGroupApi(data) {
 }
 
 /**
- * @description 会员删除 --- 删除分组
+ * @description 会员حذف --- حذف分组
  * @param {Number} param id {Number} 会员id
  */
 export function groupDelApi(id) {
@@ -289,7 +289,7 @@ export function groupDelApi(id) {
 }
 
 /**
- * @description 会员添加表单/删除表单 --- 表单
+ * @description 会员إضافة表单/حذف表单 --- 表单
  * @param {Number} param id {Number} 会员id
  */
 export function groupAddApi(id) {
@@ -300,7 +300,7 @@ export function groupAddApi(id) {
 }
 
 /**
- * @description 个人中心 --- 修改密码
+ * @description 个人中心 --- تعديلكلمة المرور
  * data 请求参数
  */
 export function updtaeAdmin(data) {
@@ -311,7 +311,7 @@ export function updtaeAdmin(data) {
   });
 }
 /**
- * @description 文件管理 --- 设置密码
+ * @description 文件إدارة --- 设置كلمة المرور
  * data 请求参数
  */
 export function setFilePassword(data) {
@@ -359,7 +359,7 @@ export function userLabelAll(data) {
 }
 
 /**
- * 添加用户
+ * إضافة用户
  */
 export function getUserSaveForm() {
   return request({
@@ -379,7 +379,7 @@ export function userSynchro() {
 }
 
 /**
- * @description 获取用户标签分类编辑表单
+ * @description 获取用户标签分类تحرير表单
  * data 请求参数
  */
 export function userLabelEdit(id) {
@@ -447,7 +447,7 @@ export function memberBatchSave(id, data) {
 }
 
 /**
- * 列表操作（启用，名称修改）
+ * 列表الخيارات（启用，الاسمتعديل）
  * @param {*} id id
  */
 export function memberBatchSetValue(id, data) {
@@ -492,7 +492,7 @@ export function userMemberShip() {
 }
 
 /**
- * 编辑会员类型
+ * تحرير会员类型
  * @param {*} id id
  * @param {*} data data
  */
@@ -536,7 +536,7 @@ export function memberRight() {
 }
 
 /**
- * 会员权益编辑
+ * 会员权益تحرير
  * @param {*} data
  */
 export function memberRightSave(data) {
@@ -548,7 +548,7 @@ export function memberRightSave(data) {
 }
 
 /**
- * 编辑会员协议
+ * تحرير会员协议
  * @param {*} id
  */
 export function memberAgreementSave(id, data) {
@@ -579,7 +579,7 @@ export function agentAgreement() {
 }
 
 /**
- * 代理商保存协议
+ * 代理商حفظ协议
  * @param {*} id
  */
 export function agentAgreementSave(data) {
@@ -624,7 +624,7 @@ export function setUser(data) {
 }
 
 /**
- * @description 编辑用户
+ * @description تحرير用户
  * @param {Object} param data {Object} 传值参数
  */
 export function editUser(data) {
@@ -635,7 +635,7 @@ export function editUser(data) {
   });
 }
 /**
- * @description 编辑用户
+ * @description تحرير用户
  * @param {Object} param data {Object} 传值参数
  */
 export function saveSetLabel(data) {

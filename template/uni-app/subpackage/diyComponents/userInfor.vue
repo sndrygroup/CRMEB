@@ -19,7 +19,7 @@
           ></image>
         </view>
         <view class="text">
-          <view v-if="!isLogin" class="name">{{ $t(`请点击登录`) }}</view>
+          <view v-if="!isLogin" class="name">{{ $t(`请点击تسجيل الدخول`) }}</view>
           <view v-else class="name acea-row row-middle">
             <view class="nameCon line1">{{ diyInfo.nickname }}</view>
             <view

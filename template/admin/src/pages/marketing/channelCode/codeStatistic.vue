@@ -3,7 +3,7 @@
     <!-- <div class="i-layout-page-header header-title">
       <div class="fl_header">
         <span>
-          <el-button icon="ios-arrow-back" size="small" type="text" v-db-click @click="$router.go(-1)">返回</el-button>
+          <el-button icon="ios-arrow-back" size="small" type="text" v-db-click @click="$router.go(-1)">عودة</el-button>
         </span>
         <el-divider direction="vertical"></el-divider>
         <span class="ivu-page-header-title">{{ $route.meta.title }}</span>
@@ -60,7 +60,7 @@ export default {
       loading: false,
       loading2: false,
       fromList: {
-        title: '选择时间',
+        title: '选择الوقت',
         custom: true,
         fromTxt: [
           { text: '全部', val: '' },

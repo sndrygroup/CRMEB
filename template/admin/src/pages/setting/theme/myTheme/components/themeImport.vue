@@ -20,7 +20,7 @@
         </div>
         <template v-else>
           <img class="el-upload-dragger__icon mb20" src="@/assets/images/upload-theme-icon.png" alt="" />
-          <div class="el-upload__text">将文件拖到此处，或<em>点击添加</em></div>
+          <div class="el-upload__text">将文件拖到此处，或<em>点击إضافة</em></div>
           <div class="el-upload__trip">支持 .zip，限50M以内</div>
         </template>
       </el-upload>
@@ -29,7 +29,7 @@
         <div class="el-upload__text">{{ fileName }}</div>
         <div class="flex mt12" v-if="fileUrl && !importLoading">
           <div class="active-btn" @click="selectFile">重新上传</div>
-          <div class="active-btn" @click="fileUrl = ''">删除</div>
+          <div class="active-btn" @click="fileUrl = ''">حذف</div>
         </div>
         <div class="el-upload__trip" v-if="importLoading">
           正在导入，您可关闭当前弹窗，稍候可在列表查看导入结果
@@ -113,7 +113,7 @@ export default {
         url: this.fileUrl,
       })
         .then((res) => {
-          // 返回导入结果
+          // عودة导入结果
           this.importStatus = true;
           this.importLoading = false;
           this.statusImage = require('@/assets/images/file-success.png');

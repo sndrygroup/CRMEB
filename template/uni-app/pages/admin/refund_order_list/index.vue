@@ -6,7 +6,7 @@
 		<view class="searchCon acea-row">
 			<view class="search acea-row row-middle">
 				<text class="iconfont icon-ic_search"></text>
-				<input class="inputs" placeholder='请输入订单号/售后单号/用户ID/手机号' placeholder-class='placeholder' confirm-type='search' name="search" v-model="where.keywords"
+				<input class="inputs" placeholder='الرجاء إدخال 订单号/售后单号/用户ID/手机号' placeholder-class='placeholder' confirm-type='search' name="search" v-model="where.keywords"
 					@confirm="searchSubmit"></input>
 			</view>
 			<!-- <view class="btn" @click="filterShow = true">
@@ -102,7 +102,7 @@
 							退款审核
 						</view>
 						<view class="btn" v-if="item.refund_type == 5" @click="goLogistics(item)">查看物流</view>
-						<view class="btn on" v-if="item.refund_type == 5" @click="modify(item, 2, 1)">确认收货</view>
+						<view class="btn on" v-if="item.refund_type == 5" @click="modify(item, 2, 1)">تأكيد收货</view>
 					</view>
 				</view>
 			</view>
@@ -305,7 +305,7 @@ import home from '@/components/home';
 					this.init();
 				}
 			},
-			// 商品操作
+			// 商品الخيارات
 			modify: function(item, status, type) {
 				if (this.openErp && status != 1) return
 				this.change = true;
@@ -348,7 +348,7 @@ import home from '@/components/home';
 				if (that.status == 0) {
 					if (!isMoney(price)) {
 						return that.$util.Tips({
-							title: '请输入正确的金额'
+							title: 'الرجاء إدخال 正确的金额'
 						});
 					}
 					data.price = price;
@@ -384,7 +384,7 @@ import home from '@/components/home';
 						// );
 						if (!isMoney(refund_price)) {
 							return that.$util.Tips({
-								title: '请输入正确的金额'
+								title: 'الرجاء إدخال 正确的金额'
 							});
 						}
 						data.price = refund_price;
@@ -423,7 +423,7 @@ import home from '@/components/home';
 				} else {
 					if (!remark) {
 						return this.$util.Tips({
-							title: '请输入备注'
+							title: 'الرجاء إدخال 备注'
 						})
 					}
 					data.remark = remark;

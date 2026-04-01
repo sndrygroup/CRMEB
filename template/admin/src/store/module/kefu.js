@@ -24,7 +24,7 @@ export default {
   },
   actions: {
     /**
-     * @description 退出登录
+     * @description 退出تسجيل الدخول
      * */
     logoutKefu({ commit, dispatch }, { confirm = false, vm } = {}) {
       async function logout() {
@@ -41,7 +41,7 @@ export default {
             removeCookies('kefu_expires_time');
             removeCookies('kefuInfo');
             removeCookies('kefu_uuid');
-            // 删除localStorage
+            // حذفlocalStorage
             // 清空 vuex 用户信息
             // 跳转路由
             router.push({

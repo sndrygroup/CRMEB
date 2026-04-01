@@ -18,7 +18,7 @@
         <div class="tip">{{ configData.info }}</div>
       </div>
     </div>
-    <div class="bnt" @click="openFloorModal">+ 编辑热区</div>
+    <div class="bnt" @click="openFloorModal">+ تحرير热区</div>
     <div>
       <el-dialog :visible.sync="modalPic" width="960px" :title="'上传图片'">
         <uploadPictures
@@ -121,7 +121,7 @@ export default {
      * @param {Object} areaData - 区域数据对象
      */
     handleAreaData(areaData) {
-      // 打印保存的数据
+      // 打印حفظ的数据
       this.configData.list = areaData;
     },
   },

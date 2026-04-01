@@ -32,11 +32,11 @@
 									</view>
 									<navigator v-if="!isOrder" class="navigator"
 										:url="`/pages/users/user_invoice_form/index?from=order_confirm&id=${item.id}&${urlQuery}`"
-										hover-class="none"><text class="iconfont icon-bianji"></text>{{$t(`编辑`)}}
+										hover-class="none"><text class="iconfont icon-bianji"></text>{{$t(`تحرير`)}}
 									</navigator>
 									<navigator v-else class="navigator"
 										:url="`/pages/users/user_invoice_form/index?from=order_details&id=${item.id}&order_id=${orderId}`"
-										hover-class="none"><text class="iconfont icon-bianji"></text>{{$t(`编辑`)}}
+										hover-class="none"><text class="iconfont icon-bianji"></text>{{$t(`تحرير`)}}
 									</navigator>
 								</view>
 							</view>
@@ -45,21 +45,21 @@
 				</radio-group>
 				<view v-else class="empty">
 					<image :src="imgHost + '/statics/images/noInvoice.png'"></image>
-					<view>{{$t(`您还没有添加发票信息哟`)}}~</view>
+					<view>{{$t(`您还没有إضافة发票信息哟`)}}~</view>
 				</view>
 			</scroll-view>
 			<view class="popup-ft">
 				<navigator v-if="!isOrder" class="navigator"
 					:url="`/pages/users/user_invoice_form/index?from=order_confirm&${urlQuery}`" hover-class="none">
-					<text class="iconfont icon-fapiao"></text>{{$t(`添加新的抬头`)}}
+					<text class="iconfont icon-fapiao"></text>{{$t(`إضافة新的抬头`)}}
 				</navigator>
 				<navigator v-else class="navigator"
 					:url="`/pages/users/user_invoice_form/index?order_id=${orderId}&from=order_details&${urlQuery}`"
 					hover-class="none">
-					<text class="iconfont icon-fapiao"></text>{{$t(`添加新的抬头`)}}
+					<text class="iconfont icon-fapiao"></text>{{$t(`إضافة新的抬头`)}}
 				</navigator>
 				<button class="button" plain @click="invCancel">{{$t(`不开发票`)}}</button>
-				<button class="button" plain @click="invSub">{{$t(`确认提交`)}}</button>
+				<button class="button" plain @click="invSub">{{$t(`تأكيدإرسال`)}}</button>
 			</view>
 		</view>
 	</view>

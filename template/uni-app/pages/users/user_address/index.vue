@@ -5,12 +5,12 @@
 				<view class='list'>
 					<view class='item acea-row row-between-wrapper'>
 						<view class='name'>{{$t(`姓名`)}}</view>
-						<input type='text' :placeholder='$t(`请输入姓名`)' name='real_name' :value="userAddress.real_name"
+						<input type='text' :placeholder='$t(`الرجاء إدخال 姓名`)' name='real_name' :value="userAddress.real_name"
 							placeholder-class='placeholder'></input>
 					</view>
 					<view class='item acea-row row-between-wrapper'>
 						<view class='name'>{{$t(`联系电话`)}}</view>
-						<input type='number' :placeholder='$t(`请输入联系电话`)' name="phone" :value='userAddress.phone'
+						<input type='number' :placeholder='$t(`الرجاء إدخال 联系电话`)' name="phone" :value='userAddress.phone'
 							placeholder-class='placeholder' pattern="\d*"></input>
 					</view>
 					<view class='item acea-row row-between-wrapper'>
@@ -36,7 +36,7 @@
 					</checkbox-group>
 				</view>
 
-				<button class='keepBnt bg-color' form-type="submit">{{$t(`立即保存`)}}</button>
+				<button class='keepBnt bg-color' form-type="submit">{{$t(`立即حفظ`)}}</button>
 				<!-- #ifdef MP -->
 				<view class="wechatAddress" v-if="!id" @click="getWxAddress">{{$t(`导入微信地址`)}}</view>
 				<!-- #endif -->
@@ -92,7 +92,7 @@
 				id: 0, //地址id
 				userAddress: {
 					is_default: false
-				}, //地址详情
+				}, //地址تفاصيل
 				region: [this.$t(`省`), this.$t(`市`), this.$t(`区`)],
 				valueRegion: [0, 0, 0],
 				isAuto: false, //没有授权的不会自动授权
@@ -131,7 +131,7 @@
 				this.is_gift = options.is_gift || '';
 				this.orderId = options.order_id || '';
 				uni.setNavigationBarTitle({
-					title: options.id ? this.$t(`修改地址`) : this.$t(`添加地址`)
+					title: options.id ? this.$t(`تعديل地址`) : this.$t(`إضافة地址`)
 				})
 				this.getUserAddress();
 				this.getCityList();
@@ -334,7 +334,7 @@
 										}
 									}, 1000);
 									return that.$util.Tips({
-										title: that.$t(`添加成功`),
+										title: that.$t(`إضافة成功`),
 										icon: 'success'
 									});
 								}).catch(err => {
@@ -346,7 +346,7 @@
 							fail: function(res) {
 								if (res.errMsg == 'chooseAddress:cancel') return that.$util
 									.Tips({
-										title: that.$t(`取消选择`)
+										title: that.$t(`إلغاء选择`)
 									});
 							},
 						})
@@ -354,7 +354,7 @@
 					fail: function(res) {
 						uni.showModal({
 							title: that.$t(`您已拒绝导入微信地址权限`),
-							content: that.$t(`是否进入权限管理，调整授权？`),
+							content: that.$t(`是否进入权限إدارة，调整授权？`),
 							success(res) {
 								if (res.confirm) {
 									uni.openSetting({
@@ -362,7 +362,7 @@
 									});
 								} else if (res.cancel) {
 									return that.$util.Tips({
-										title: that.$t(`已取消！`)
+										title: that.$t(`已إلغاء！`)
 									});
 								}
 							}
@@ -391,7 +391,7 @@
 						.then((res) => {
 							// close();
 							that.$util.Tips({
-								title: that.$t(`添加成功`),
+								title: that.$t(`إضافة成功`),
 								icon: 'success'
 							}, () => {
 								if (that.cartId) {
@@ -421,13 +421,13 @@
 						.catch(err => {
 							// close();
 							return that.$util.Tips({
-								title: err || that.$t(`添加失败`)
+								title: err || that.$t(`إضافة失败`)
 							});
 						});
 				}).catch(err => {});
 			},
 			/**
-			 * 提交用户添加地址
+			 * إرسال用户إضافة地址
 			 * 
 			 */
 			formSubmit: function(e) {
@@ -440,10 +440,10 @@
 					title: that.$t(`请填写联系电话`)
 				});
 				if (!/^1(3|4|5|7|8|9|6)\d{9}$/i.test(value.phone)) return that.$util.Tips({
-					title: that.$t(`请输入正确的手机号码`)
+					title: that.$t(`الرجاء إدخال 正确的手机号码`)
 				});
 				if (that.region[0] == that.$t(`省`)) return that.$util.Tips({
-					title: that.$t(`请选择所在地区`)
+					title: that.$t(`الرجاء اختيار 所在地区`)
 				});
 				if (!value.detail.trim()) return that.$util.Tips({
 					title: that.$t(`请填写详细地址`)
@@ -459,18 +459,18 @@
 				value.is_default = that.userAddress.is_default ? 1 : 0;
 
 				uni.showLoading({
-					title: that.$t(`保存中`),
+					title: that.$t(`حفظ中`),
 					mask: true
 				})
 				editAddress(value).then(res => {
 					if (that.id)
 						that.$util.Tips({
-							title: that.$t(`修改成功`),
+							title: that.$t(`تعديل成功`),
 							icon: 'success'
 						});
 					else
 						that.$util.Tips({
-							title: that.$t(`添加成功`),
+							title: that.$t(`إضافة成功`),
 							icon: 'success'
 						});
 					setTimeout(function() {

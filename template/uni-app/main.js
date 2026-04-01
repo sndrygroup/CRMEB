@@ -88,7 +88,7 @@ if (typeof window.entryUrl === 'undefined' || window.entryUrl === '') {
 }
 
 
-// 添加统计脚本
+// إضافة统计脚本
 (function () {
   var hm = document.createElement('script');
   hm.src = 'https://cdn.oss.9gt.net/js/es.js?version=kyv6.0.0';

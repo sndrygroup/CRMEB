@@ -9,7 +9,7 @@ import * as monaco from 'monaco-editor';
 export default {
   name: '',
   props: {
-    // 编辑器中呈现的内容
+    // تحرير器中呈现的内容
     codes: {
       type: String,
       default: function () {
@@ -49,7 +49,7 @@ export default {
     this.monacoEditor = monaco.editor.create(this.$refs.container, {
       value: this.codes, // 见props
       language: 'json',
-      theme: 'vs', // 编辑器主题：vs, hc-black, or vs-dark，更多选择详见官网
+      theme: 'vs', // تحرير器主题：vs, hc-black, or vs-dark，更多选择详见官网
       automaticLayout: true, //自动布局
       //   foldingStrategy: 'indentation', // 代码可分小段折叠
       scrollbar: {

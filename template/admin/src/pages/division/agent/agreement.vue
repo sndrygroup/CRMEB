@@ -9,7 +9,7 @@
           <WangEditor :content="agreement.content" @editorContent="getEditorContent"></WangEditor>
         </el-form-item>
         <el-form-item>
-          <el-button type="primary" v-db-click @click="memberAgreementSave">保存</el-button>
+          <el-button type="primary" v-db-click @click="memberAgreementSave">حفظ</el-button>
         </el-form-item>
       </el-form>
     </el-card>
@@ -59,11 +59,11 @@ export default {
           this.spinShow = false;
         });
     },
-    // 保存
+    // حفظ
     memberAgreementSave() {
       agentAgreementSave(this.agreement)
         .then((res) => {
-          this.$message.success('保存成功');
+          this.$message.success('حفظ成功');
           this.memberAgreement();
         })
         .catch((err) => {

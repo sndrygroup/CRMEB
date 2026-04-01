@@ -12,10 +12,10 @@
           :label-position="labelPosition"
           @submit.native.prevent
         >
-          <el-form-item label="打印机名称：">
+          <el-form-item label="打印机الاسم：">
             <el-input
               v-model="specsFrom.keyword"
-              placeholder="请输入打印机名称"
+              placeholder="الرجاء إدخال 打印机الاسم"
               class="form_content_width"
               clearable
               @clear="specsSearchs"
@@ -38,7 +38,7 @@
       </div>
     </el-card>
     <el-card :bordered="false" shadow="never" class="ivu-mt mt16">
-      <el-button type="primary" v-db-click @click="add">添加打印机</el-button>
+      <el-button type="primary" v-db-click @click="add">إضافة打印机</el-button>
       <!-- 商品参数表格 -->
       <el-table
         :data="list"
@@ -54,7 +54,7 @@
             <span>{{ scope.row.id }}</span>
           </template>
         </el-table-column>
-        <el-table-column label="打印机名称" min-width="120">
+        <el-table-column label="打印机الاسم" min-width="120">
           <template slot-scope="scope">
             <span>{{ scope.row.print_name }}</span>
           </template>
@@ -76,7 +76,7 @@
             <span>{{ scope.row.times }}</span>
           </template>
         </el-table-column>
-        <el-table-column label="创建时间" min-width="130">
+        <el-table-column label="创建الوقت" min-width="130">
           <template slot-scope="scope">
             <span>{{ scope.row.add_time }}</span>
           </template>
@@ -97,13 +97,13 @@
             </el-switch>
           </template>
         </el-table-column>
-        <el-table-column label="操作" fixed="right" width="170">
+        <el-table-column label="الخيارات" fixed="right" width="170">
           <template slot-scope="scope">
             <a @click="setting(scope.row.id)">设计</a>
             <el-divider direction="vertical" />
-            <a @click="edit(scope.row.id)">编辑</a>
+            <a @click="edit(scope.row.id)">تحرير</a>
             <el-divider direction="vertical" />
-            <a @click="del(scope.row, '删除打印机', scope.$index)">删除</a>
+            <a @click="del(scope.row, 'حذف打印机', scope.$index)">حذف</a>
           </template>
         </el-table-column>
       </el-table>
@@ -157,7 +157,7 @@ export default {
           width: 80,
         },
         {
-          title: '打印机名称',
+          title: '打印机الاسم',
           key: 'print_name',
           minWidth: 100,
         },
@@ -177,7 +177,7 @@ export default {
           width: 200,
         },
         {
-          title: '创建时间',
+          title: '创建الوقت',
           key: 'add_time',
           width: 200,
         },
@@ -187,7 +187,7 @@ export default {
           width: 200,
         },
         {
-          title: '操作',
+          title: 'الخيارات',
           slot: 'action',
           fixed: 'right',
           width: 140,
@@ -241,7 +241,7 @@ export default {
       this.specsFrom.page = index;
       this.getList();
     },
-    // 修改是否显示
+    // تعديل是否显示
     onchangeIsShow(row) {
       let data = {
         id: row.id,
@@ -255,13 +255,13 @@ export default {
           this.$message.error(res.msg);
         });
     },
-    // 添加
+    // إضافة
     add() {
       this.$modalForm(printForm(0)).then(() => {
         this.getList();
       });
     },
-    //修改
+    //تعديل
     edit(id) {
       this.$modalForm(printForm(id)).then(() => {
         this.getList();
@@ -273,7 +273,7 @@ export default {
         query: { id: id },
       });
     },
-    // 删除
+    // حذف
     del(row, tit, num) {
       let delfromData = {
         title: tit,

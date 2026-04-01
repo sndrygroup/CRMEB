@@ -52,7 +52,7 @@
 						after: 'dialog_after'
 					},
 					{
-						name: this.$t(`搜索`),
+						name: this.$t(`بحث`),
 						icon: 'icon-sousuo6',
 						url: '/pages/goods/goods_search/index',
 						after: 'dialog_after'

@@ -10,7 +10,7 @@
           @submit.native.prevent
           inline
         >
-          <el-form-item label="退款状态：">
+          <el-form-item label="退款الحالة：">
             <el-select
               v-model="pagination.refund_type"
               clearable
@@ -23,7 +23,7 @@
               }}</el-option>
             </el-select>
           </el-form-item>
-          <el-form-item label="退款时间：">
+          <el-form-item label="退款الوقت：">
             <el-date-picker
               clearable
               v-model="timeVal"
@@ -39,8 +39,8 @@
               class="mr20"
             ></el-date-picker>
           </el-form-item>
-          <el-form-item label="订单搜索：" label-for="title">
-            <el-input clearable v-model="pagination.order_id" placeholder="请输入订单号" class="form_content_width" />
+          <el-form-item label="订单بحث：" label-for="title">
+            <el-input clearable v-model="pagination.order_id" placeholder="الرجاء إدخال 订单号" class="form_content_width" />
           </el-form-item>
           <el-form-item>
             <el-button type="primary" v-db-click @click="orderSearch">查询</el-button>
@@ -65,7 +65,7 @@
               style="display: block"
               @click="changeMenu(scope.row, '2')"
             ></span>
-            <span v-if="scope.row.is_del === 1" style="color: #ed4014; display: block">用户已删除</span>
+            <span v-if="scope.row.is_del === 1" style="color: #ed4014; display: block">用户已حذف</span>
           </template>
         </el-table-column>
         <el-table-column label="原订单号" min-width="150">
@@ -91,11 +91,11 @@
               <el-tooltip placement="top" :open-delay="300">
                 <div slot="content">
                   <div>
-                    <span>商品名称：</span>
+                    <span>商品الاسم：</span>
                     <span>{{ item.cart_info.productInfo.store_name || '--' }}</span>
                   </div>
                   <div>
-                    <span>规格名称：</span>
+                    <span>规格الاسم：</span>
                     <span>{{
                       item.cart_info.productInfo.attrInfo ? item.cart_info.productInfo.attrInfo.suk : '---'
                     }}</span>
@@ -124,12 +124,12 @@
             <span>{{ scope.row.pay_price }}</span>
           </template>
         </el-table-column>
-        <el-table-column label="发起退款时间" min-width="120">
+        <el-table-column label="发起退款الوقت" min-width="120">
           <template slot-scope="scope">
             <span>{{ scope.row.add_time }}</span>
           </template>
         </el-table-column>
-        <el-table-column label="退款状态" min-width="100">
+        <el-table-column label="退款الحالة" min-width="100">
           <template slot-scope="scope">
             <div v-if="scope.row.refund_type == 1">仅退款</div>
             <div v-else-if="scope.row.refund_type == 2">退货退款</div>
@@ -145,7 +145,7 @@
             <div v-else-if="scope.row.refund_type == 6">已退款</div>
           </template>
         </el-table-column>
-        <el-table-column label="订单状态" min-width="120">
+        <el-table-column label="订单الحالة" min-width="120">
           <template slot-scope="scope">
             <span>{{ scope.row.store_order_status }}</span>
           </template>
@@ -160,7 +160,7 @@
             </div>
           </template>
         </el-table-column>
-        <el-table-column fixed="right" label="操作" width="80">
+        <el-table-column fixed="right" label="الخيارات" width="80">
           <template slot-scope="scope">
             <el-dropdown size="small" @command="changeMenu(scope.row, $event)">
               <span class="el-dropdown-link">更多<i class="el-icon-arrow-down el-icon--right"></i> </span>
@@ -171,7 +171,7 @@
                   v-show="scope.row._status === 1 && scope.row.paid === 0 && scope.row.pay_type === 'offline'"
                   >立即支付</el-dropdown-item
                 >
-                <el-dropdown-item command="2">订单详情</el-dropdown-item>
+                <el-dropdown-item command="2">订单تفاصيل</el-dropdown-item>
                 <el-dropdown-item
                   command="4"
                   v-show="
@@ -195,7 +195,7 @@
                   v-show="[1, 2, 5].includes(scope.row.refund_type) && scope.row.is_pink_cancel === 0"
                   >不退款</el-dropdown-item
                 >
-                <el-dropdown-item command="8" v-show="scope.row.is_del == 1">删除订单</el-dropdown-item>
+                <el-dropdown-item command="8" v-show="scope.row.is_del == 1">حذف订单</el-dropdown-item>
               </el-dropdown-menu>
             </el-dropdown>
           </template>
@@ -211,11 +211,11 @@
         />
       </div>
     </el-card>
-    <!-- 编辑 退款 退积分 不退款-->
+    <!-- تحرير 退款 退积分 不退款-->
     <edit-from ref="edits" :FromData="FromData" @submitFail="submitFail"></edit-from>
-    <!-- 会员详情-->
+    <!-- 会员تفاصيل-->
     <user-details ref="userDetails"></user-details>
-    <!-- 详情 -->
+    <!-- تفاصيل -->
     <details-from ref="detailss" :orderDatalist="orderDatalist" :orderId="orderId" :is_refund="1"></details-from>
     <!-- 备注 -->
     <order-remark ref="remarks" remarkType="refund" :orderId="orderId" @submitFail="submitFail"></order-remark>
@@ -291,7 +291,7 @@ export default {
       this.animal = e;
       this.qrcodeShow();
     },
-    // 具体日期搜索()；
+    // 具体日期بحث()；
     onchangeTime(e) {
       this.pagination.page = 1;
       this.timeVal = e || [];
@@ -302,13 +302,13 @@ export default {
       this.$refs.userDetails.modals = true;
       this.$refs.userDetails.getDetails(row.uid);
     },
-    // 操作
+    // الخيارات
     changeMenu(row, name) {
       this.orderId = row.id;
       switch (name) {
         case '1':
           this.delfromData = {
-            title: '修改立即支付',
+            title: 'تعديل立即支付',
             url: `/order/pay_offline/${row.id}`,
             method: 'post',
             ids: '',
@@ -321,7 +321,7 @@ export default {
             .catch((res) => {
               this.$message.error(res.msg);
             });
-          // this.modalTitleSs = '修改立即支付';
+          // this.modalTitleSs = 'تعديل立即支付';
           break;
         case '2':
           this.getData(row.order_id, 2);
@@ -344,7 +344,7 @@ export default {
           break;
         case '8':
           this.delfromData = {
-            title: '删除订单',
+            title: 'حذف订单',
             url: `/order/del/${row.store_order_id}`,
             method: 'DELETE',
             ids: '',
@@ -354,7 +354,7 @@ export default {
         case '10':
           this.delfromData = {
             title: '立即打印订单',
-            info: '您确认打印此订单吗?',
+            info: '您تأكيد打印此订单吗?',
             url: `/order/print/${row.id}`,
             method: 'get',
             ids: '',
@@ -372,7 +372,7 @@ export default {
         case '11':
           this.delfromData = {
             title: '立即打印电子面单',
-            info: '您确认打印此电子面单吗?',
+            info: '您تأكيد打印此电子面单吗?',
             url: `/order/order_dump/${row.id}`,
             method: 'get',
             ids: '',
@@ -388,12 +388,12 @@ export default {
           break;
         default:
           this.delfromData = {
-            title: '删除订单',
+            title: 'حذف订单',
             url: `/order/del/${row.id}`,
             method: 'DELETE',
             ids: '',
           };
-          // this.modalTitleSs = '删除订单';
+          // this.modalTitleSs = 'حذف订单';
           this.delOrder(row, this.delfromData);
       }
     },
@@ -431,7 +431,7 @@ export default {
           this.$message.error(res.msg);
         });
     },
-    // 获取详情表单数据
+    // 获取تفاصيل表单数据
     getData(id, type) {
       let fun;
       if (type == 2) {
@@ -457,7 +457,7 @@ export default {
           this.$message.error(res.msg);
         });
     },
-    // 删除单条订单
+    // حذف单条订单
     delOrder(row, data) {
       if (row.is_del === 1) {
         this.$modalSure(data)
@@ -469,14 +469,14 @@ export default {
             this.$message.error(res.msg);
           });
       } else {
-        this.$message.error('您选择的的订单存在用户未删除的订单，无法删除用户未删除的订单！');
+        this.$message.error('您选择的的订单存在用户未حذف的订单，无法حذف用户未حذف的订单！');
       }
     },
-    // 修改成功
+    // تعديل成功
     submitFail() {
       this.getOrderList();
     },
-    // 订单选择状态
+    // 订单选择الحالة
     selectChange2(tab) {
       this.pagination.page = 1;
       this.getOrderList(tab);
@@ -508,7 +508,7 @@ export default {
       this.pagination.page = 1;
       this.getOrderList();
     },
-    // 订单搜索
+    // 订单بحث
     orderSearch() {
       this.pagination.page = 1;
       this.getOrderList();

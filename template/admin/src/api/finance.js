@@ -45,7 +45,7 @@ export function commissionListApi(data) {
 }
 
 /**
- * @description 佣金记录 -- 详情
+ * @description 佣金记录 -- تفاصيل
  * @param {Number} param id {Number} 佣金记录ID
  */
 export function commissionDetailApi(id) {
@@ -80,7 +80,7 @@ export function cashListApi(data) {
 }
 
 /**
- * @description 提现申请 -- 编辑表单
+ * @description 提现申请 -- تحرير表单
  * @param {Number} param id {Number} 提现申请id
  */
 export function cashEditApi(id) {
@@ -186,7 +186,7 @@ export function exportUserRechargeApi(data) {
 }
 
 /**
- * @description 财务管理 -- 资金流水统计
+ * @description 财务إدارة -- 资金流水统计
  * @param {Number} param data {Number} 请求参数data
  */
 export function getFlowList(data) {
@@ -208,7 +208,7 @@ export function setMarks(id, data) {
   });
 }
 /**
- * @description 财务管理 -- 余额列表
+ * @description 财务إدارة -- 余额列表
  * @param {Number} param data {Number} 请求参数data
  */
 export function getBalanceList(data) {

@@ -4,7 +4,7 @@
 			<view class="bargain-record" ref="container">
 				<view class="item" v-for="(item, index) in bargain" :key="index">
 					<view class="exchange_record-time">
-						<view class="">{{ $t(`兑换时间`) }}：{{ item.add_time }}</view>
+						<view class="">{{ $t(`兑换الوقت`) }}：{{ item.add_time }}</view>
 						<view class="status">
 							{{ $t(item.status_name) }}
 						</view>
@@ -27,7 +27,7 @@
 								{{ $t(`查看物流`) }}
 							</view>
 							<view class="bnt bg-color-red" @click="goDetail(item.order_id)">
-								{{ $t(`查看详情`) }}
+								{{ $t(`查看تفاصيل`) }}
 							</view>
 							<!-- <view class="bnt bg-color-red" v-else @click="goList">重开一个</view> -->
 						</view>

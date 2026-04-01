@@ -14,7 +14,7 @@
       <el-table-column label="订单号" min-width="150">
         <template slot-scope="scope">
           <span v-text="scope.row.order_id" style="display: block"></span>
-          <span v-if="scope.row.is_del == 1" style="color: #ed4014; display: block">用户已删除</span>
+          <span v-if="scope.row.is_del == 1" style="color: #ed4014; display: block">用户已حذف</span>
         </template>
       </el-table-column>
       <el-table-column label="用户信息" min-width="100">
@@ -36,17 +36,17 @@
           <span>{{ scope.row.total_price }}</span>
         </template>
       </el-table-column>
-      <el-table-column label="订单状态" min-width="100">
+      <el-table-column label="订单الحالة" min-width="100">
         <template slot-scope="scope">
           <span>{{ scope.row.status_name }}</span>
         </template>
       </el-table-column>
-      <el-table-column label="下单时间" min-width="100">
+      <el-table-column label="下单الوقت" min-width="100">
         <template slot-scope="scope">
           <span>{{ scope.row.add_time }}</span>
         </template>
       </el-table-column>
-      <el-table-column label="操作" fixed="right" width="150">
+      <el-table-column label="الخيارات" fixed="right" width="150">
         <template slot-scope="scope">
           <a v-db-click @click="sendOrder(scope.row)" v-if="scope.row.status === 1">发送货</a>
           <a v-db-click @click="delivery(scope.row)" v-if="scope.row.status === 2">配送信息</a>
@@ -56,7 +56,7 @@
               <span class="el-dropdown-link">更多<i class="el-icon-arrow-down el-icon--right"></i> </span>
 
               <el-dropdown-menu slot="dropdown">
-                <el-dropdown-item command="2">订单详情</el-dropdown-item>
+                <el-dropdown-item command="2">订单تفاصيل</el-dropdown-item>
                 <el-dropdown-item command="3">订单记录</el-dropdown-item>
                 <el-dropdown-item command="11" v-show="scope.row.status >= 1 && scope.row.express_dump"
                   >电子面单打印</el-dropdown-item
@@ -65,7 +65,7 @@
                 <!-- <el-dropdown-item name="10" v-show="scope.row._status >= 2">订单打印</el-dropdown-item> -->
                 <el-dropdown-item command="4" v-show="scope.row.status !== 4">订单备注</el-dropdown-item>
                 <el-dropdown-item command="8" v-show="scope.row.status === 2">已收货</el-dropdown-item>
-                <el-dropdown-item command="9" v-show="scope.row.is_del === 1">删除订单</el-dropdown-item>
+                <el-dropdown-item command="9" v-show="scope.row.is_del === 1">حذف订单</el-dropdown-item>
               </el-dropdown-menu>
             </el-dropdown>
           </template>
@@ -81,11 +81,11 @@
         @pagination="getList"
       />
     </div>
-    <!-- 编辑 退款 退积分 不退款-->
+    <!-- تحرير 退款 退积分 不退款-->
     <edit-from ref="edits" :FromData="FromData" @submitFail="submitFail"></edit-from>
-    <!-- 会员详情-->
+    <!-- 会员تفاصيل-->
     <user-details ref="userDetails"></user-details>
-    <!-- 详情 -->
+    <!-- تفاصيل -->
     <details-from ref="detailss" :orderDatalist="orderDatalist" :orderId="orderId"></details-from>
     <!-- 备注 -->
     <order-remark ref="remarks" :orderId="orderId" @submitFail="submitFail"></order-remark>
@@ -217,7 +217,7 @@ export default {
       this.$refs.userDetails.modals = true;
       this.$refs.userDetails.getDetails(row.uid);
     },
-    // 操作
+    // الخيارات
     changeMenu(row, name) {
       this.orderId = row.id;
       switch (name) {
@@ -243,7 +243,7 @@ export default {
           break;
         case '8':
           this.delfromData = {
-            title: '修改确认收货',
+            title: 'تعديلتأكيد收货',
             url: `marketing/integral/order/take/${row.id}`,
             method: 'put',
             ids: '',
@@ -256,12 +256,12 @@ export default {
             .catch((res) => {
               this.$message.error(res.msg);
             });
-          // this.modalTitleSs = '修改确认收货';
+          // this.modalTitleSs = 'تعديلتأكيد收货';
           break;
         case '10':
           this.delfromData = {
             title: '立即打印订单',
-            info: '您确认打印此订单吗?',
+            info: '您تأكيد打印此订单吗?',
             url: `marketing/integral/order/print/${row.id}`,
             method: 'get',
             ids: '',
@@ -279,7 +279,7 @@ export default {
         case '11':
           this.delfromData = {
             title: '立即打印电子面单',
-            info: '您确认打印此电子面单吗?',
+            info: '您تأكيد打印此电子面单吗?',
             url: `/order/order_dump/${row.id}`,
             method: 'get',
             ids: '',
@@ -295,16 +295,16 @@ export default {
           break;
         default:
           this.delfromData = {
-            title: '删除订单',
+            title: 'حذف订单',
             url: `marketing/integral/order/del/${row.id}`,
             method: 'DELETE',
             ids: '',
           };
-          // this.modalTitleSs = '删除订单';
+          // this.modalTitleSs = 'حذف订单';
           this.delOrder(row, this.delfromData);
       }
     },
-    // 立即支付 /确认收货//删除单条订单
+    // 立即支付 /تأكيد收货//حذف单条订单
     submitModel() {
       this.getList();
     },
@@ -354,11 +354,11 @@ export default {
       this.getIsDel(isDel);
       this.getisDelIdListl(selection);
     },
-    // 编辑
+    // تحرير
     edit(row) {
       this.getOrderData(row.id);
     },
-    // 删除单条订单
+    // حذف单条订单
     delOrder(row, data) {
       if (row.is_del === 1) {
         this.$modalSure(data)
@@ -370,10 +370,10 @@ export default {
             this.$message.error(res.msg);
           });
       } else {
-        this.$message.error('您选择的的订单存在用户未删除的订单，无法删除用户未删除的订单！');
+        this.$message.error('您选择的的订单存在用户未حذف的订单，无法حذف用户未حذف的订单！');
       }
     },
-    // 获取编辑表单数据
+    // 获取تحرير表单数据
     getOrderData(id) {
       getOrdeDatas(id)
         .then(async (res) => {
@@ -388,7 +388,7 @@ export default {
           this.$message.error(res.msg);
         });
     },
-    // 获取详情表单数据
+    // 获取تفاصيل表单数据
     getData(id) {
       getIntegralOrderDataInfo(id)
         .then(async (res) => {
@@ -408,7 +408,7 @@ export default {
           this.$message.error(res.msg);
         });
     },
-    // 修改成功
+    // تعديل成功
     submitFail() {
       this.$emit('updata');
       this.getList();

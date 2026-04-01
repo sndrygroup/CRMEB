@@ -586,7 +586,7 @@ class MpHtmlParser {
   section = () => this.data.substring(this.start, this.i);
   siblings = () =>
     this.STACK.length ? this.STACK[this.STACK.length - 1].children : this.DOM;
-  // 状态机
+  // الحالة机
   Text(c) {
     if (c == "<") {
       var next = this.data[this.i + 1],

@@ -93,7 +93,7 @@ export default {
   methods: {
     init() {
       const editor = this.$refs.editor;
-      // 初始化编辑器
+      // 初始化تحرير器
       this.Quill = new Quill(editor, this.options);
       // 默认值
       this.Quill.pasteHTML(this.currentValue);

@@ -1,5 +1,5 @@
 /**
- * 修改一下配置时，需要每次都清理 `window.localStorage` 浏览器永久缓存，配置才会生效
+ * تعديل一下配置时，需要每次都清理 `window.localStorage` 浏览器永久缓存，配置才会生效
  */
 const themeConfigModule = {
   namespaced: true,
@@ -21,7 +21,7 @@ const themeConfigModule = {
       /**
        * 菜单 / 顶栏
        * 请注意：
-       * 需要同时修改 `/@/theme/common/var.scss` 对应的值，
+       * 需要同时تعديل `/@/theme/common/var.scss` 对应的值，
        */
       // 默认顶栏导航背景颜色
       topBar: '#ffffff',
@@ -71,8 +71,8 @@ const themeConfigModule = {
        * 其它设置
        */
       // 默认 Tagsview 风格，可选 1、 tags-style-one，自行扩展：
-      // 1、需修改 @/layout/navBars/breadcrumb/setings.vue `getThemeConfig.tagsStyle` el-option
-      // 2、需修改 @/layout/navBars/tagsView/tagsView.vue 代码最底部注释部分 css 样式
+      // 1、需تعديل @/layout/navBars/breadcrumb/setings.vue `getThemeConfig.tagsStyle` el-option
+      // 2、需تعديل @/layout/navBars/tagsView/tagsView.vue 代码最底部注释部分 css 样式
       tagsStyle: 'tags-style-five',
       // 主页面切换动画：可选值"<slide-right|slide-left|opacitys>"，默认 slide-right
       animation: 'opacitys',
@@ -94,9 +94,9 @@ const themeConfigModule = {
        */
       // 网站主标题（菜单导航、浏览器当前网页标题）
       globalTitle: 'crmeb-admin',
-      // 网站副标题（登录页顶部文字）
+      // 网站副标题（تسجيل الدخول页顶部文字）
       globalViceTitle: '',
-      // 网站描述（登录页顶部文字）
+      // 网站描述（تسجيل الدخول页顶部文字）
       globalViceDes: 'vue2',
       // 默认初始语言，可选值"<zh-cn|en|zh-tw>"，默认 zh-cn
       globalI18n: 'zh-cn',

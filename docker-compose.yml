@@ -1,0 +1,83 @@
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: naqrah_app
+    ports:
+      - "20199:20199"
+    volumes:
+      - .:/var/www/html
+    depends_on:
+      - db
+      - redis
+
+  queue:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: naqrah_queue
+    command: php think queue:listen --queue
+    volumes:
+      - .:/var/www/html
+    depends_on:
+      - app
+
+  timer:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: naqrah_timer
+    command: php think timer start --d
+    volumes:
+      - .:/var/www/html
+    depends_on:
+      - app
+
+  workerman:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: naqrah_workerman
+    command: php think workerman start --d
+    ports:
+      - "20002:20002"
+      - "20003:20003"
+    volumes:
+      - .:/var/www/html
+    depends_on:
+      - app
+
+  webserver:
+    image: nginx:alpine
+    container_name: naqrah_nginx
+    ports:
+      - "20199:80"
+    volumes:
+      - .:/var/www/html
+      - ./nginx.conf:/etc/nginx/conf.d/default.conf
+    depends_on:
+      - app
+
+  db:
+    image: mysql:8.0
+    container_name: naqrah_db
+    # هذا السطر يحل مشكلة الـ sql_mode
+    command: --sql-mode="" 
+    environment:
+      MYSQL_DATABASE: crmeb_db
+      MYSQL_ROOT_PASSWORD: root
+    ports:
+      - "3306:3306"
+    volumes:
+      - naqrah_mysql_data:/var/lib/mysql
+
+  redis:
+    image: redis:alpine
+    container_name: naqrah_redis
+    ports:
+      - "6379:6379"
+
+volumes:
+  naqrah_mysql_data:

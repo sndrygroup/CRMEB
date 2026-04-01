@@ -2,7 +2,7 @@
   <div v-loading="spinShow">
     <pages-header
       ref="pageHeader"
-      :title="$route.params.id ? '编辑秒杀商品' : '添加秒杀商品'"
+      :title="$route.params.id ? 'تحرير秒杀商品' : 'إضافة秒杀商品'"
       :backUrl="$routeProStr + '/marketing/store_seckill/list'"
     ></pages-header>
     <el-card :bordered="false" shadow="never" class="mt16">
@@ -25,7 +25,7 @@
                   <el-form-item label="活动标题：" label-for="title">
                     <el-input
                       clearable
-                      placeholder="请输入活动标题"
+                      placeholder="الرجاء إدخال 活动标题"
                       v-model="formValidate.title"
                       class="content_width"
                       maxlength="80"
@@ -36,7 +36,7 @@
               </el-col>
 
               <el-col :span="24">
-                <el-form-item label="活动时间：">
+                <el-form-item label="活动الوقت：">
                   <div>
                     <el-date-picker
                       clearable
@@ -51,13 +51,13 @@
                       class="content_width"
                       v-model="formValidate.section_time"
                     ></el-date-picker>
-                    <div class="grey">设置活动开启结束时间，用户可以在有效时间内参与秒杀</div>
+                    <div class="grey">设置活动开启结束الوقت，用户可以在有效الوقت内参与秒杀</div>
                   </div>
                 </el-form-item>
               </el-col>
 
               <el-col :span="24">
-                <el-form-item label="开始时间：">
+                <el-form-item label="开始الوقت：">
                   <div>
                     <el-select v-model="formValidate.time_ids" multiple class="content_width">
                       <el-option
@@ -68,7 +68,7 @@
                       ></el-option>
                     </el-select>
                     <div class="grey">
-                      选择产品开始时间段，该时间段内用户可参与购买；其它时间段会显示活动未开始或已结束。如活动超过一天，则活动期内，每天都会定时开启
+                      选择产品开始الوقت段，该الوقت段内用户可参与购买；其它الوقت段会显示活动未开始或已结束。如活动超过一天，则活动期内，每天都会定时开启
                     </div>
                   </div>
                 </el-form-item>
@@ -79,7 +79,7 @@
                     <el-input-number
                       :controls="false"
                       :min="1"
-                      placeholder="请输入数量限制"
+                      placeholder="الرجاء إدخال 数量限制"
                       element-id="num"
                       :precision="0"
                       :max="10000"
@@ -98,7 +98,7 @@
                     <el-input-number
                       :controls="false"
                       :min="1"
-                      placeholder="请输入单次购买数量限制"
+                      placeholder="الرجاء إدخال 单次购买数量限制"
                       element-id="once_num"
                       :precision="0"
                       :max="10000"
@@ -130,7 +130,7 @@
                 </el-form-item>
               </el-col>
               <el-col :span="24">
-                <el-form-item label="活动状态：" props="status" label-for="status">
+                <el-form-item label="活动الحالة：" props="status" label-for="status">
                   <el-switch
                     class="defineSwitch"
                     :active-value="1"
@@ -148,20 +148,20 @@
               <el-col :span="24">
                 <div class="acea-row row-between-wrapper">
                   <div>
-                    <el-button type="primary" @click="addGoods">添加商品</el-button>
+                    <el-button type="primary" @click="addGoods">إضافة商品</el-button>
                     <el-button @click="batchSet" class="ml20" :disabled="!isAllChecked && !checkPidList.length"
                       >批量设置</el-button
                     >
                     <el-button @click="delAll" class="ml20" :disabled="!isAllChecked && !checkPidList.length"
-                      >批量删除</el-button
+                      >批量حذف</el-button
                     >
                   </div>
                   <div class="goodsWord">
-                    <el-form-item label="商品搜索：">
+                    <el-form-item label="商品بحث：">
                       <el-input
                         class="w_input240"
                         v-model="keyword"
-                        placeholder="请输入商品关键词"
+                        placeholder="الرجاء إدخال 商品关键词"
                         @input="searchWord"
                       ></el-input>
                     </el-form-item>
@@ -205,7 +205,7 @@
                           v-else
                           v-model="row.price"
                           min="0"
-                          placeholder="请输入秒杀价"
+                          placeholder="الرجاء إدخال 秒杀价"
                           type="float"
                           digits="2"
                           step="1"
@@ -219,7 +219,7 @@
                           v-else
                           v-model="row.quota"
                           min="0"
-                          placeholder="请输入限量"
+                          placeholder="الرجاء إدخال 限量"
                           type="integer"
                         ></vxe-input>
                       </template>
@@ -233,9 +233,9 @@
                         </el-switch>
                       </template>
                     </vxe-column>
-                    <vxe-column field="date" title="操作" min-width="100" fixed="right" align="center">
+                    <vxe-column field="date" title="الخيارات" min-width="100" fixed="right" align="center">
                       <template v-slot="{ row }">
-                        <a @click="del(row, $event)" v-if="row.parent == 1">删除</a>
+                        <a @click="del(row, $event)" v-if="row.parent == 1">حذف</a>
                       </template>
                     </vxe-column>
                   </vxe-table>
@@ -251,7 +251,7 @@
                   class="submission"
                   v-db-click
                   @click="next('formValidate')"
-                  >{{ current === 1 ? '提交' : '下一步' }}</el-button
+                  >{{ current === 1 ? 'إرسال' : '下一步' }}</el-button
                 >
               </el-form-item>
             </el-col>
@@ -289,7 +289,7 @@
             class="w_input315"
             v-model="formBatch.price"
             min="0"
-            placeholder="请输入秒杀价"
+            placeholder="الرجاء إدخال 秒杀价"
             type="float"
             digits="2"
             step="1"
@@ -300,14 +300,14 @@
             class="w_input315"
             v-model="formBatch.quota"
             min="0"
-            placeholder="请输入限量"
+            placeholder="الرجاء إدخال 限量"
             type="integer"
           ></el-input>
         </el-form-item>
       </el-form>
       <div slot="footer">
-        <el-button @click="modalsSet = false">取消</el-button>
-        <el-button type="primary" @click="okBatch">保存</el-button>
+        <el-button @click="modalsSet = false">إلغاء</el-button>
+        <el-button type="primary" @click="okBatch">حفظ</el-button>
       </div>
     </el-dialog>
   </div>
@@ -369,7 +369,7 @@ export default {
         xs: 8,
       },
       myConfig: {
-        autoHeightEnabled: false, // 编辑器不自动被内容撑高
+        autoHeightEnabled: false, // تحرير器不自动被内容撑高
         initialFrameHeight: 500, // 初始容器高度
         initialFrameWidth: '100%', // 初始容器宽度
         UEDITOR_HOME_URL: '/UEditor/',
@@ -398,12 +398,12 @@ export default {
       picTit: '',
       tableIndex: 0,
       ruleValidate: {
-        image: [{ required: true, message: '请选择主图', trigger: 'change' }],
+        image: [{ required: true, message: 'الرجاء اختيار 主图', trigger: 'change' }],
         images: [
           {
             required: true,
             type: 'array',
-            message: '请选择主图',
+            message: 'الرجاء اختيار 主图',
             trigger: 'change',
           },
           {
@@ -413,22 +413,22 @@ export default {
             trigger: 'change',
           },
         ],
-        title: [{ required: true, message: '请输入商品标题', trigger: 'blur' }],
-        info: [{ required: true, message: '请输入秒杀活动简介', trigger: 'blur' }],
+        title: [{ required: true, message: 'الرجاء إدخال 商品标题', trigger: 'blur' }],
+        info: [{ required: true, message: 'الرجاء إدخال 秒杀活动简介', trigger: 'blur' }],
         section_time: [
           {
             required: true,
             type: 'array',
-            message: '请选择活动时间',
+            message: 'الرجاء اختيار 活动الوقت',
             trigger: 'change',
           },
         ],
-        unit_name: [{ required: true, message: '请输入单位', trigger: 'blur' }],
+        unit_name: [{ required: true, message: 'الرجاء إدخال 单位', trigger: 'blur' }],
         price: [
           {
             required: true,
             type: 'number',
-            message: '请输入秒杀价',
+            message: 'الرجاء إدخال 秒杀价',
             trigger: 'blur',
           },
         ],
@@ -436,7 +436,7 @@ export default {
           {
             required: true,
             type: 'number',
-            message: '请输入原价',
+            message: 'الرجاء إدخال 原价',
             trigger: 'blur',
           },
         ],
@@ -444,7 +444,7 @@ export default {
           {
             required: true,
             type: 'number',
-            message: '请输入成本价',
+            message: 'الرجاء إدخال 成本价',
             trigger: 'blur',
           },
         ],
@@ -452,7 +452,7 @@ export default {
           {
             required: true,
             type: 'number',
-            message: '请输入库存',
+            message: 'الرجاء إدخال 库存',
             trigger: 'blur',
           },
         ],
@@ -460,7 +460,7 @@ export default {
           {
             required: true,
             type: 'number',
-            message: '请输入购买数量限制',
+            message: 'الرجاء إدخال 购买数量限制',
             trigger: 'blur',
           },
         ],
@@ -468,14 +468,14 @@ export default {
           {
             required: true,
             type: 'number',
-            message: '请输入单次购买数量限制',
+            message: 'الرجاء إدخال 单次购买数量限制',
             trigger: 'blur',
           },
         ],
         temp_id: [
           {
             required: true,
-            message: '请选择运费模板',
+            message: 'الرجاء اختيار 运费模板',
             trigger: 'change',
             type: 'number',
           },
@@ -483,7 +483,7 @@ export default {
         time_ids: [
           {
             required: true,
-            message: '请选择开始时间',
+            message: 'الرجاء اختيار 开始الوقت',
             trigger: 'change',
             type: 'Array',
           },
@@ -492,7 +492,7 @@ export default {
       copy: 0,
       modalsSet: false,
       isAllChecked: false,
-      checkPidList: [], //父级有关id集合 （需求禁止删除子级，用于删除整个商品）
+      checkPidList: [], //父级有关id集合 （需求禁止حذف子级，用于حذف整个商品）
       searchTableData: [],
       tableData: [],
       keyword: '',
@@ -526,7 +526,7 @@ export default {
     batchSet() {
       this.modalsSet = true;
     },
-    //删除
+    //حذف
     del(row) {
       // this.tableData = this.tableData.filter((item) => item.id !== row.id);
       if (this.searchTableData.length) {
@@ -555,7 +555,7 @@ export default {
         this.checkPidList.splice(index, 1);
       }
     },
-    //批量删除
+    //批量حذف
     delAll() {
       if (this.isAllChecked && (this.tableData.length == this.searchTableData.length || !this.searchTableData.length)) {
         this.tableData = [];
@@ -613,7 +613,7 @@ export default {
       }
       this.isAllChecked = this.$refs.xTree.isAllCheckboxChecked();
     },
-    // 添加运费模板
+    // إضافة运费模板
     freight() {
       this.$refs.template.id = 0;
       this.$refs.template.isTemplate = true;
@@ -673,7 +673,7 @@ export default {
     },
     okBatch() {
       if (this.formBatch.price == '' && this.formBatch.quota == '') {
-        return this.$Message.error('请输入秒杀价或限量');
+        return this.$Message.error('الرجاء إدخال 秒杀价或限量');
       }
       if (this.isAllChecked && (this.tableData.length == this.searchTableData.length || !this.searchTableData.length)) {
         this.tableData.forEach((item) => {
@@ -694,7 +694,7 @@ export default {
                 if (this.formBatch.price != '') {
                   x.price = this.formBatch.price;
                 }
-                // 批量设置限量不为空，则修改规格上架的限量
+                // 批量设置限量不为空，则تعديل规格上架的限量
                 if (this.formBatch.quota != '' && x.status) {
                   x.quota = this.formBatch.quota;
                 }
@@ -709,7 +709,7 @@ export default {
     onchangeTime(e) {
       this.formValidate.section_time = e;
     },
-    // 详情
+    // تفاصيل
     getInfo() {
       this.spinShow = true;
       seckillActivityInfoApi(this.$route.params.id)

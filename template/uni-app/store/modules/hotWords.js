@@ -11,7 +11,7 @@
 export default {
 	namespaced: true,
 	state: {
-		// 搜索关键字
+		// بحث关键字
 		hotWord: []
 	},
 	getters: {},

@@ -15,7 +15,7 @@
                   <el-form-item label="通知标题：">
                     <el-input
                       v-model="formData.system_title"
-                      placeholder="请输入通知标题"
+                      placeholder="الرجاء إدخال 通知标题"
                       style="width: 500px"
                     ></el-input>
                   </el-form-item>
@@ -27,7 +27,7 @@
                         v-model="formData.system_text"
                         type="textarea"
                         :autosize="{ minRows: 5, maxRows: 8 }"
-                        placeholder="请输入通知内容"
+                        placeholder="الرجاء إدخال 通知内容"
                         style="width: 500px"
                       >
                       </el-input>
@@ -51,7 +51,7 @@
                     </div>
                     <div class="tips-info" v-if="formData.type_n == 3">可点击右下角图标,插入自定义变量</div>
                   </el-form-item>
-                  <el-form-item label="状态：" prop="is_system">
+                  <el-form-item label="الحالة：" prop="is_system">
                     <el-radio-group v-model="formData.is_system">
                       <el-radio :label="1">开启</el-radio>
                       <el-radio :label="2">关闭</el-radio>
@@ -70,7 +70,7 @@
                         type="textarea"
                         :disabled="formData.type_n != 3"
                         :autosize="{ minRows: 5, maxRows: 8 }"
-                        placeholder="请输入通知内容"
+                        placeholder="الرجاء إدخال 通知内容"
                         style="width: 500px"
                       ></el-input>
                       <div class="value-list" v-if="formData.type_n == 3">
@@ -93,7 +93,7 @@
                     </div>
                     <div class="tips-info" v-if="formData.type_n == 3">可点击右下角图标,插入自定义变量</div>
                   </el-form-item>
-                  <el-form-item label="状态：" prop="is_sms">
+                  <el-form-item label="الحالة：" prop="is_sms">
                     <el-radio-group v-model="formData.is_sms">
                       <el-radio :label="1">开启</el-radio>
                       <el-radio :label="2">关闭</el-radio>
@@ -105,12 +105,12 @@
                     <el-input
                       v-model="formData.tempkey"
                       :disabled="formData.type_n !== 3"
-                      placeholder="请输入通模板编号"
+                      placeholder="الرجاء إدخال 通模板编号"
                       style="width: 500px"
                     ></el-input>
                   </el-form-item>
                   <el-form-item label="模板ID：">
-                    <el-input v-model="formData.tempid" placeholder="请输入模板ID" style="width: 500px"></el-input>
+                    <el-input v-model="formData.tempid" placeholder="الرجاء إدخال 模板ID" style="width: 500px"></el-input>
                   </el-form-item>
                   <el-form-item label="模板：">
                     <div class="content">
@@ -119,7 +119,7 @@
                         v-model="formData.content"
                         type="textarea"
                         :autosize="{ minRows: 5, maxRows: 8 }"
-                        placeholder="请输入模板"
+                        placeholder="الرجاء إدخال 模板"
                         style="width: 500px"
                         @input="handleContentChange"
                       ></el-input>
@@ -138,7 +138,7 @@
                   <el-form-item label="跳转链接：">
                     <el-input
                       v-model="formData.wechat_link"
-                      placeholder="请输入模版跳转链接，可携带参数"
+                      placeholder="الرجاء إدخال 模版跳转链接，可携带参数"
                       style="width: 500px"
                     ></el-input>
                   </el-form-item>
@@ -151,7 +151,7 @@
                       开启之后，点击模版消息，跳转小程序对应的页面，需要小程序已经审核上线才可使用
                     </div>
                   </el-form-item>
-                  <el-form-item label="状态：" prop="is_wechat">
+                  <el-form-item label="الحالة：" prop="is_wechat">
                     <el-radio-group v-model="formData.is_wechat">
                       <el-radio :label="1">开启</el-radio>
                       <el-radio :label="2">关闭</el-radio>
@@ -163,12 +163,12 @@
                     <el-input
                       v-model="formData.tempkey"
                       :disabled="formData.type_n !== 3"
-                      placeholder="请输入通模板编号"
+                      placeholder="الرجاء إدخال 通模板编号"
                       style="width: 500px"
                     ></el-input>
                   </el-form-item>
                   <el-form-item label="模板ID：">
-                    <el-input v-model="formData.tempid" placeholder="请输入模板ID" style="width: 500px"></el-input>
+                    <el-input v-model="formData.tempid" placeholder="الرجاء إدخال 模板ID" style="width: 500px"></el-input>
                   </el-form-item>
                   <el-form-item label="模板：">
                     <div class="content">
@@ -177,7 +177,7 @@
                         v-model="formData.content"
                         type="textarea"
                         :autosize="{ minRows: 5, maxRows: 8 }"
-                        placeholder="请输入模板"
+                        placeholder="الرجاء إدخال 模板"
                         style="width: 500px"
                         @input="handleContentChange"
                       ></el-input>
@@ -196,11 +196,11 @@
                   <el-form-item label="跳转链接：">
                     <el-input
                       v-model="formData.routine_link"
-                      placeholder="请输入模版跳转链接，可携带参数"
+                      placeholder="الرجاء إدخال 模版跳转链接，可携带参数"
                       style="width: 500px"
                     ></el-input>
                   </el-form-item>
-                  <el-form-item label="状态：" prop="is_routine">
+                  <el-form-item label="الحالة：" prop="is_routine">
                     <el-radio-group v-model="formData.is_routine">
                       <el-radio :label="1">开启</el-radio>
                       <el-radio :label="2">关闭</el-radio>
@@ -216,7 +216,7 @@
                         v-model="formData.ent_wechat_text"
                         type="textarea"
                         :autosize="{ minRows: 5, maxRows: 8 }"
-                        placeholder="请输入通知内容"
+                        placeholder="الرجاء إدخال 通知内容"
                         style="width: 500px"
                       ></el-input>
                       <div class="value-list" v-if="formData.type_n == 3">
@@ -241,10 +241,10 @@
                   </el-form-item>
                   <el-form-item label="机器人链接：">
                     <div class="content">
-                      <el-input v-model="formData.url" placeholder="请输入机器人链接" style="width: 500px"></el-input>
+                      <el-input v-model="formData.url" placeholder="الرجاء إدخال 机器人链接" style="width: 500px"></el-input>
                     </div>
                   </el-form-item>
-                  <el-form-item label="状态：" prop="is_ent_wechat">
+                  <el-form-item label="الحالة：" prop="is_ent_wechat">
                     <el-radio-group v-model="formData.is_ent_wechat">
                       <el-radio :label="1">开启</el-radio>
                       <el-radio :label="2">关闭</el-radio>
@@ -252,7 +252,7 @@
                   </el-form-item>
                 </div>
                 <el-form-item>
-                  <el-button type="primary" v-db-click @click="handleSubmit('formData')">提交</el-button>
+                  <el-button type="primary" v-db-click @click="handleSubmit('formData')">إرسال</el-button>
                 </el-form-item>
               </el-form>
             </el-tab-pane>
@@ -301,21 +301,21 @@ export default {
         name: [
           {
             required: true,
-            message: '请输入通知场景',
+            message: 'الرجاء إدخال 通知场景',
             trigger: 'blur',
           },
         ],
         title: [
           {
             required: true,
-            message: '请输入通知场景',
+            message: 'الرجاء إدخال 通知场景',
             trigger: 'blur',
           },
         ],
         content: [
           {
             required: true,
-            message: '请输入通知内容',
+            message: 'الرجاء إدخال 通知内容',
             trigger: 'blur',
           },
         ],
@@ -369,7 +369,7 @@ export default {
           if (init) this.tagName = this.tabsList[0].slot;
           this.formData = res.data;
           this.formData.type_n = res.data.type; // - -!
-          this.formData.type = name; // 类型名称
+          this.formData.type = name; // 类型الاسم
           this.formData.id = id;
           this.keyList = res.data.key_list || [];
           this.loading = false;

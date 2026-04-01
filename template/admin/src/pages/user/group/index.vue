@@ -3,7 +3,7 @@
     <el-card :bordered="false" shadow="never" class="ivu-mt">
       <el-row>
         <el-col v-bind="grid">
-          <el-button v-auth="['admin-user-group']" type="primary" v-db-click @click="add">添加分组</el-button>
+          <el-button v-auth="['admin-user-group']" type="primary" v-db-click @click="add">إضافة分组</el-button>
         </el-col>
       </el-row>
       <el-table
@@ -25,11 +25,11 @@
             <span>{{ scope.row.group_name }}</span>
           </template>
         </el-table-column>
-        <el-table-column fixed="right" label="操作" width="100">
+        <el-table-column fixed="right" label="الخيارات" width="100">
           <template slot-scope="scope">
-            <a v-db-click @click="edit(scope.row.id)">修改</a>
+            <a v-db-click @click="edit(scope.row.id)">تعديل</a>
             <el-divider direction="vertical"></el-divider>
-            <a v-db-click @click="del(scope.row, '删除分组', scope.$index)">删除</a>
+            <a v-db-click @click="del(scope.row, 'حذف分组', scope.$index)">حذف</a>
           </template>
         </el-table-column>
       </el-table>
@@ -83,7 +83,7 @@ export default {
     this.getList();
   },
   methods: {
-    // 添加
+    // إضافة
     add() {
       this.$modalForm(groupAddApi(0))
         .then(() => this.getList())
@@ -106,11 +106,11 @@ export default {
           this.$message.error(res.msg);
         });
     },
-    // 修改
+    // تعديل
     edit(id) {
       this.$modalForm(groupAddApi(id)).then(() => this.getList());
     },
-    // 删除
+    // حذف
     del(row, tit, num) {
       let delfromData = {
         title: tit,

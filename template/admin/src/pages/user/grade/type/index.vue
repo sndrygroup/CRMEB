@@ -1,7 +1,7 @@
 <template>
   <div>
     <el-card :bordered="false" shadow="never" class="ivu-mt">
-      <!-- <el-button type="primary" v-db-click @click="addType">添加类型</el-button> -->
+      <!-- <el-button type="primary" v-db-click @click="addType">إضافة类型</el-button> -->
       <el-table
         class="mt14"
         :data="tbody"
@@ -53,15 +53,15 @@
             <span>{{ scope.row.sort }}</span>
           </template>
         </el-table-column>
-        <el-table-column label="操作" fixed="right" width="170">
+        <el-table-column label="الخيارات" fixed="right" width="170">
           <template slot-scope="scope">
-            <a href="javascript:" v-db-click @click="editType(scope.row)">编辑</a>
+            <a href="javascript:" v-db-click @click="editType(scope.row)">تحرير</a>
             <!-- <el-divider direction="vertical" v-if="scope.row.type !== 'free' && scope.row.type !== 'ever'" />
             <a
               v-if="scope.row.type !== 'free' && scope.row.type !== 'ever'"
               href="javascript:"
-              v-db-click @click="del(scope.row, '删除类型', scope.$index)"
-              >删除</a
+              v-db-click @click="del(scope.row, 'حذف类型', scope.$index)"
+              >حذف</a
             > -->
           </template>
         </el-table-column>
@@ -89,7 +89,7 @@ export default {
       loading: false,
       modal: false,
       rowEdit: {},
-      rowModelType: '编辑',
+      rowModelType: 'تحرير',
       options: {
         form: {
           labelWidth: '100px',
@@ -120,7 +120,7 @@ export default {
               type: 'string',
               max: 10,
               min: 1,
-              message: '请输入长度为1-10的名称',
+              message: 'الرجاء إدخال 长度为1-10的الاسم',
               requred: true,
             },
           ],
@@ -207,7 +207,7 @@ export default {
             min: 1,
             max: 1000000,
             disabled: false,
-            placeholder: '请输入排序',
+            placeholder: 'الرجاء إدخال 排序',
             controls: false,
           },
           style: {
@@ -341,7 +341,7 @@ export default {
           }
         }
       });
-      this.rowModelType = '编辑';
+      this.rowModelType = 'تحرير';
       this.rowEdit = JSON.parse(JSON.stringify(row));
       this.modal = true;
     },

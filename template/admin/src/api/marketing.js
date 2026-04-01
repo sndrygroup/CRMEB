@@ -24,7 +24,7 @@ export function couponListApi(params) {
 
 /**
  * @description 优惠券制作--新增表单
- * type:添加优惠券类型0：通用，1：品类，2：商品
+ * type:إضافة优惠券类型0：通用，1：品类，2：商品
  */
 export function couponCreateApi(type) {
   return request({
@@ -34,7 +34,7 @@ export function couponCreateApi(type) {
 }
 
 /**
- * @description 优惠券制作--编辑表单
+ * @description 优惠券制作--تحرير表单
  */
 export function couponEditeApi(id) {
   return request({
@@ -55,7 +55,7 @@ export function couponSendApi(id) {
 }
 
 /**
- * @description 已发布管理--列表
+ * @description 已发布إدارة--列表
  * @param {Object} param params {Object} 传值参数
  */
 export function releasedListApi(params) {
@@ -67,7 +67,7 @@ export function releasedListApi(params) {
 }
 
 /**
- * @description 已发布管理--领取记录
+ * @description 已发布إدارة--领取记录
  * @param {Number} param id {Number} 已发布优惠券id
  */
 export function releasedissueLogApi(id, params) {
@@ -79,7 +79,7 @@ export function releasedissueLogApi(id, params) {
 }
 
 /**
- * @description 已发布管理--修改状态表单
+ * @description 已发布إدارة--تعديلالحالة表单
  * @param {Number} param id {Number} 已发布优惠券id
  */
 export function releaseStatusApi(id) {
@@ -101,7 +101,7 @@ export function couponStatusApi(data) {
 }
 
 /**
- * @description 优惠券制作--保存
+ * @description 优惠券制作--حفظ
  */
 export function couponSaveApi(data) {
   return request({
@@ -147,7 +147,7 @@ export function bargainListApi(params) {
 }
 
 /**
- * @description 砍价商品 -- 详情
+ * @description 砍价商品 -- تفاصيل
  * @param {Number} param id {Number} 砍价商品id
  */
 export function bargainInfoApi(id) {
@@ -158,7 +158,7 @@ export function bargainInfoApi(id) {
 }
 
 /**
- * @description 砍价商品 -- 保存编辑
+ * @description 砍价商品 -- حفظتحرير
  * @param {Object} param data {Object} 传值参数
  */
 export function bargainCreatApi(data) {
@@ -170,7 +170,7 @@ export function bargainCreatApi(data) {
 }
 
 /**
- * @description 砍价商品 -- 修改状态
+ * @description 砍价商品 -- تعديلالحالة
  * @param {Object} param data {Object} 传值参数
  */
 export function bargainSetStatusApi(data) {
@@ -180,7 +180,7 @@ export function bargainSetStatusApi(data) {
   });
 }
 /**
- * @description 预售商品 -- 修改状态
+ * @description 预售商品 -- تعديلالحالة
  * @param {Object} param data {Object} 传值参数
  */
 export function advanceSetStatusApi(data) {
@@ -203,7 +203,7 @@ export function presellListApi(params) {
 }
 
 /**
- * @description 预售商品 -- 保存编辑
+ * @description 预售商品 -- حفظتحرير
  * @param {Object} param data {Object} 传值参数
  */
 export function presellCreatApi(data) {
@@ -215,7 +215,7 @@ export function presellCreatApi(data) {
 }
 
 /**
- * @description 预售商品 -- 详情
+ * @description 预售商品 -- تفاصيل
  * @param {Number} param id {Number} 拼团商品id
  */
 export function presellInfoApi(id) {
@@ -238,7 +238,7 @@ export function combinationListApi(params) {
 }
 
 /**
- * @description 拼团商品 -- 修改状态
+ * @description 拼团商品 -- تعديلالحالة
  * @param {Object} param data {Object} 传值参数
  */
 export function combinationSetStatusApi(data) {
@@ -260,7 +260,7 @@ export function statisticsApi() {
 }
 
 /**
- * @description 拼团商品 -- 详情
+ * @description 拼团商品 -- تفاصيل
  * @param {Number} param id {Number} 拼团商品id
  */
 export function combinationInfoApi(id) {
@@ -271,7 +271,7 @@ export function combinationInfoApi(id) {
 }
 
 /**
- * @description 拼团商品 -- 保存编辑
+ * @description 拼团商品 -- حفظتحرير
  * @param {Object} param data {Object} 传值参数
  */
 export function combinationCreatApi(data) {
@@ -316,7 +316,7 @@ export function seckillListApi(params) {
 }
 
 /**
- * @description 秒杀商品 -- 详情
+ * @description 秒杀商品 -- تفاصيل
  */
 export function seckillInfoApi(id) {
   return request({
@@ -326,7 +326,7 @@ export function seckillInfoApi(id) {
 }
 
 /**
- * @description 秒杀商品 -- 保存编辑
+ * @description 秒杀商品 -- حفظتحرير
  */
 export function seckillAddApi(data) {
   return request({
@@ -337,7 +337,7 @@ export function seckillAddApi(data) {
 }
 
 /**
- * @description 秒杀商品 -- 修改状态
+ * @description 秒杀商品 -- تعديلالحالة
  */
 export function seckillStatusApi(data) {
   return request({
@@ -358,7 +358,7 @@ export function seckillActivityListApi(params) {
 }
 
 /**
- * @description 秒杀商品 -- 批量保存编辑
+ * @description 秒杀商品 -- 批量حفظتحرير
  */
 export function seckillActivityAddApi(data) {
   return request({
@@ -368,7 +368,7 @@ export function seckillActivityAddApi(data) {
   });
 }
 /**
- * @description 批量秒杀活动 -- 详情
+ * @description 批量秒杀活动 -- تفاصيل
  */
 export function seckillActivityInfoApi(id) {
   return request({
@@ -378,7 +378,7 @@ export function seckillActivityInfoApi(id) {
 }
 
 /**
- * @description 秒杀活动 -- 修改状态
+ * @description 秒杀活动 -- تعديلالحالة
  */
 export function seckillActivityStatusApi(data) {
   return request({
@@ -453,7 +453,7 @@ export function bargainUserInfoApi(id) {
 }
 
 /**
- * @description 已发布管理 -- 删除
+ * @description 已发布إدارة -- حذف
  */
 export function delCouponReleased(id) {
   return request({
@@ -518,7 +518,7 @@ export function integralProductListApi(params) {
 }
 
 /**
- * @description 积分商品 -- 保存编辑
+ * @description 积分商品 -- حفظتحرير
  */
 export function integralAddApi(data) {
   return request({
@@ -529,7 +529,7 @@ export function integralAddApi(data) {
 }
 
 /**
- * @description 积分商品 -- (多个) 保存
+ * @description 积分商品 -- (多个) حفظ
  */
 export function integralAddBatch(data) {
   return request({
@@ -540,7 +540,7 @@ export function integralAddBatch(data) {
 }
 
 /**
- * @description 积分商品 -- 详情
+ * @description 积分商品 -- تفاصيل
  */
 export function integralInfoApi(id) {
   return request({
@@ -549,7 +549,7 @@ export function integralInfoApi(id) {
   });
 }
 /**
- * @description 积分商品 -- 修改状态
+ * @description 积分商品 -- تعديلالحالة
  */
 export function integralIsShowApi(data) {
   return request({
@@ -558,7 +558,7 @@ export function integralIsShowApi(data) {
   });
 }
 /**
- * @description 积分订单管理--列表
+ * @description 积分订单إدارة--列表
  * @param {Object} param data {Object} 传值参数
  */
 export function integralOrderList(data) {
@@ -601,7 +601,7 @@ export function getExpressData(status) {
 }
 
 /**
- * @description 订单表单详情数据
+ * @description 订单表单تفاصيل数据
  * @param {Number} param id {Number} 订单id
  */
 export function getIntegralOrderDataInfo(id) {
@@ -636,7 +636,7 @@ export function getIntegralOrderRecord(data) {
 }
 
 /**
- * @description 发送货提交表单
+ * @description 发送货إرسال表单
  * @param {Number} param data.id {Number} 订单id
  * @param {Object} param data.datas {Object} 表单信息
  */
@@ -649,7 +649,7 @@ export function integralOrderPutDelivery(data) {
 }
 
 /**
- * @description 修改备注信息
+ * @description تعديل备注信息
  * @param {Number} param data.id {Number} 订单id
  * @param {String} param data.remark {String} 备注信息
  */
@@ -918,7 +918,7 @@ export function addSignRewards(data) {
   });
 }
 /**
- * 编辑签到奖励
+ * تحرير签到奖励
  */
 export function editSignRewards(id) {
   return request({
@@ -928,7 +928,7 @@ export function editSignRewards(id) {
 }
 
 /**
- * 编辑新人礼
+ * تحرير新人礼
  */
 export function editNewbie(data) {
   return request({
@@ -938,7 +938,7 @@ export function editNewbie(data) {
   });
 }
 /**
- * 编辑新人礼
+ * تحرير新人礼
  */
 export function getNewbie(data) {
   return request({

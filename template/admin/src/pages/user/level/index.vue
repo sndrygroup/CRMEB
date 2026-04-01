@@ -10,10 +10,10 @@
           inline
           @submit.native.prevent
         >
-          <el-form-item label="等级状态：" label-for="status1">
+          <el-form-item label="等级الحالة：" label-for="status1">
             <el-select
               v-model="levelFrom.is_show"
-              placeholder="请选择"
+              placeholder="الرجاء اختيار "
               clearable
               element-id="status1"
               @change="userSearchs"
@@ -23,8 +23,8 @@
               <el-option value="0" label="不显示"></el-option>
             </el-select>
           </el-form-item>
-          <el-form-item label="等级名称：" label-for="title">
-            <el-input clearable v-model="levelFrom.title" placeholder="请输入等级名称" class="form_content_width" />
+          <el-form-item label="等级الاسم：" label-for="title">
+            <el-input clearable v-model="levelFrom.title" placeholder="الرجاء إدخال 等级الاسم" class="form_content_width" />
           </el-form-item>
           <el-form-item>
             <el-button type="primary" v-db-click @click="userSearchs">查询</el-button>
@@ -33,7 +33,7 @@
       </div>
     </el-card>
     <el-card :bordered="false" shadow="never" class="ivu-mt mt16">
-      <el-button v-auth="['admin-user-level_add']" type="primary" v-db-click @click="add">添加用户等级</el-button>
+      <el-button v-auth="['admin-user-level_add']" type="primary" v-db-click @click="add">إضافة用户等级</el-button>
       <el-table
         :data="levelLists"
         ref="table"
@@ -62,7 +62,7 @@
             </div>
           </template>
         </el-table-column>
-        <el-table-column label="等级名称" min-width="120">
+        <el-table-column label="等级الاسم" min-width="120">
           <template slot-scope="scope">
             <span>{{ scope.row.name }}</span>
           </template>
@@ -95,11 +95,11 @@
             </el-switch>
           </template>
         </el-table-column>
-        <el-table-column fixed="right" label="操作" width="100">
+        <el-table-column fixed="right" label="الخيارات" width="100">
           <template slot-scope="scope">
-            <a v-db-click @click="edit(scope.row)">编辑</a>
+            <a v-db-click @click="edit(scope.row)">تحرير</a>
             <el-divider direction="vertical"></el-divider>
-            <a v-db-click @click="del(scope.row, '删除等级', scope.$index)">删除</a>
+            <a v-db-click @click="del(scope.row, 'حذف等级', scope.$index)">حذف</a>
           </template>
         </el-table-column>
       </el-table>
@@ -167,7 +167,7 @@ export default {
   methods: {
     ...mapMutations('userLevel', ['getlevelId']),
 
-    // 删除
+    // حذف
     del(row, tit, num) {
       let delfromData = {
         title: tit,
@@ -186,11 +186,11 @@ export default {
           this.$message.error(res.msg);
         });
     },
-    // 删除成功
+    // حذف成功
     // submitModel () {
     //     this.levelLists.splice(this.delfromData.num, 1)
     // },
-    // 修改是否显示
+    // تعديل是否显示
     onchangeIsShow(row) {
       let data = {
         id: row.id,
@@ -220,23 +220,23 @@ export default {
           this.$message.error(res.msg);
         });
     },
-    // 添加
+    // إضافة
     add() {
       this.levelId = 0;
       this.$modalForm(createApi({ id: this.levelId })).then(() => this.getList());
     },
-    // 编辑
+    // تحرير
     edit(row) {
       this.levelId = row.id;
       this.$modalForm(createApi({ id: this.levelId })).then(() => this.getList());
       this.getlevelId(this.levelId);
     },
-    // 表格搜索
+    // 表格بحث
     userSearchs() {
       this.levelFrom.page = 1;
       this.getList();
     },
-    // 修改成功
+    // تعديل成功
     submitFail() {
       this.getList();
     },

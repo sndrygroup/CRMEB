@@ -1,19 +1,19 @@
 const lotteryFrom = {
-  name: [{ required: true, message: '请输入活动名称', trigger: 'blur' }],
-  factor: [{ required: true, type: 'number', message: '请选择活动类型', trigger: 'change' }],
-  attends_user: [{ required: true, type: 'number', message: '请选择参与用户', trigger: 'change' }],
-  factor_num: [{ required: true, type: 'number', message: '请输入抽奖次数', trigger: 'blur' }],
+  name: [{ required: true, message: 'الرجاء إدخال 活动الاسم', trigger: 'blur' }],
+  factor: [{ required: true, type: 'number', message: 'الرجاء اختيار 活动类型', trigger: 'change' }],
+  attends_user: [{ required: true, type: 'number', message: 'الرجاء اختيار 参与用户', trigger: 'change' }],
+  factor_num: [{ required: true, type: 'number', message: 'الرجاء إدخال 抽奖次数', trigger: 'blur' }],
   prize: [
     {
       required: true,
       type: 'array',
-      message: '请添加抽奖奖品(8条)',
+      message: '请إضافة抽奖奖品(8条)',
       trigger: 'change',
     },
     {
       type: 'array',
       min: 8,
-      message: '请添加抽奖奖品(8条)',
+      message: '请إضافة抽奖奖品(8条)',
       trigger: 'change',
     },
   ],
@@ -21,7 +21,7 @@ const lotteryFrom = {
     {
       required: true,
       type: 'number',
-      message: '请输入邀请新用户最多可获得抽奖多少次',
+      message: 'الرجاء إدخال 邀请新用户最多可获得抽奖多少次',
       trigger: 'blur',
     },
   ],
@@ -29,7 +29,7 @@ const lotteryFrom = {
     {
       required: true,
       type: 'number',
-      message: '请输入关注额外抽多少次',
+      message: 'الرجاء إدخال 关注额外抽多少次',
       trigger: 'blur',
     },
   ],

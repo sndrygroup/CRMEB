@@ -32,7 +32,7 @@ export default {
       name: `${pre}systemRole`,
       meta: {
         auth: ['setting-system-role'],
-        title: '身份管理',
+        title: '身份إدارة',
       },
       component: () => import('@/pages/setting/systemRole/index'),
     },
@@ -41,7 +41,7 @@ export default {
       name: `${pre}systemAdmin`,
       meta: {
         auth: ['setting-system-list'],
-        title: '管理员列表',
+        title: 'إدارة员列表',
       },
       component: () => import('@/pages/setting/systemAdmin/index'),
     },
@@ -103,7 +103,7 @@ export default {
       name: `${pre}notification`,
       meta: {
         auth: ['setting-notification'],
-        title: '消息管理',
+        title: '消息إدارة',
       },
       component: () => import('@/pages/setting/notification/index'),
     },
@@ -112,7 +112,7 @@ export default {
       name: `${pre}notificationEdit`,
       meta: {
         auth: ['setting-notification'],
-        title: '消息编辑',
+        title: '消息تحرير',
         activeMenu: routePre + '/setting/notification/index',
       },
       component: () => import('@/pages/setting/notification/notificationEdit'),
@@ -203,7 +203,7 @@ export default {
     //   name: `${pre}groupDataOrder`,
     //   meta: {
     //     auth: ['setting-system-group_data-order'],
-    //     title: '订单详情动态图'
+    //     title: '订单تفاصيل动态图'
     //   },
     //   component: () => import('@/pages/system/group/list')
     // },
@@ -230,7 +230,7 @@ export default {
       name: `${pre}groupDataNew`,
       meta: {
         auth: ['setting-system-group_data-search'],
-        title: '热门搜索',
+        title: '热门بحث',
       },
       component: () => import('@/pages/system/group/list'),
     },
@@ -329,7 +329,7 @@ export default {
       name: `${pre}service`,
       meta: {
         auth: ['setting-store-service'],
-        title: '客服管理',
+        title: '客服إدارة',
       },
       component: () => import('@/pages/setting/storeService/index'),
     },
@@ -427,7 +427,7 @@ export default {
       name: `${pre}link`,
       meta: {
         auth: ['admin-setting-pages-link'],
-        title: '链接管理',
+        title: '链接إدارة',
       },
       component: () => import('@/pages/setting/link'),
     },
@@ -690,7 +690,7 @@ export default {
       name: `${pre}langInfo`,
       meta: {
         auth: ['admin-lang-info'],
-        title: '语言详情',
+        title: '语言تفاصيل',
       },
       component: () => import('@/pages/setting/multiLanguage/langList'),
     },

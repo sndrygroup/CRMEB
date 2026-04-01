@@ -189,7 +189,7 @@ export default {
       styleConfig: [],
       loading: false,
       loadend: false,
-      loadTitle: "下拉加载更多", //提示语
+      loadTitle: "下拉加载更多", //تنبيه语
       page: 1,
       limit: this.$config.LIMIT,
       numConfig: 0,
@@ -479,7 +479,7 @@ export default {
       uni.hideLoading();
       this.domOffsetTop = data.top;
     },
-    // 去商品详情
+    // 去商品تفاصيل
     goGoodsDetail(item) {
       goShopDetail(item, this.uid).then((res) => {
         uni.navigateTo({
@@ -719,7 +719,7 @@ export default {
       this.isPreview = false;
       applyTheme();
       this.diyData();
-      // 去掉 theme_id 刷新当前页面
+      // 去掉 theme_id تحديث当前页面
       // uni.reLaunch({ url: "/pages/index/index" });
     },
     getDiyData() {

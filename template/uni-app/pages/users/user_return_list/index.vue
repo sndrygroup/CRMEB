@@ -82,9 +82,9 @@
 				type: 0,
 				loading: false,
 				loadend: false,
-				loadTitle: this.$t(`加载更多`), //提示语
+				loadTitle: this.$t(`加载更多`), //تنبيه语
 				orderList: [], //订单数组
-				orderStatus: -3, //订单状态
+				orderStatus: -3, //订单الحالة
 				page: 1,
 				limit: 20,
 				isAuto: false, //没有授权的不会自动授权
@@ -144,11 +144,11 @@
 				this.isShowAuth = e
 			},
 			/**
-			 * 去订单详情
+			 * 去订单تفاصيل
 			 */
 			goOrderDetails: function(order_id) {
 				if (!order_id) return that.$util.Tips({
-					title: that.$t(`缺少订单号无法查看订单详情`)
+					title: that.$t(`缺少订单号无法查看订单تفاصيل`)
 				});
 				uni.navigateTo({
 					url: '/pages/goods/order_details/index?order_id=' + order_id + '&isReturn=1'

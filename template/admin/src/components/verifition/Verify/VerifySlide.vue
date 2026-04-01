@@ -132,14 +132,14 @@ export default {
   },
   data() {
     return {
-      secretKey: '', // 后端返回的加密秘钥 字段
+      secretKey: '', // 后端عودة的加密秘钥 字段
       passFlag: '', // 是否通过的标识
       backImgBase: '', // 验证码背景图片
       blockBackImgBase: '', // 验证滑块的背景图片
-      backToken: '', // 后端返回的唯一token值
-      startMoveTime: '', // 移动开始的时间
-      endMovetime: '', // 移动结束的时间
-      tipsBackColor: '', // 提示词的背景颜色
+      backToken: '', // 后端عودة的唯一token值
+      startMoveTime: '', // 移动开始的الوقت
+      endMovetime: '', // 移动结束的الوقت
+      tipsBackColor: '', // تنبيه词的背景颜色
       tipWords: '',
       text: '',
       finishText: '',
@@ -158,7 +158,7 @@ export default {
       leftBarBorderColor: '#ddd',
       iconColor: undefined,
       iconClass: 'icon-right',
-      status: false, // 鼠标状态
+      status: false, // 鼠标الحالة
       isEnd: false, // 是够验证完成
       showRefresh: true,
       transitionLeft: '',
@@ -174,7 +174,7 @@ export default {
     },
   },
   watch: {
-    // type变化则全面刷新
+    // type变化则全面تحديث
     type: {
       immediate: true,
       handler() {
@@ -244,7 +244,7 @@ export default {
         var x = e.touches[0].pageX;
       }
       this.startLeft = Math.floor(x - this.barArea.getBoundingClientRect().left);
-      this.startMoveTime = +new Date(); // 开始滑动的时间
+      this.startMoveTime = +new Date(); // 开始滑动的الوقت
       if (this.isEnd == false) {
         this.text = '';
         this.moveBlockBackgroundColor = '#337ab7';
@@ -367,7 +367,7 @@ export default {
       const data = {
         captchaType: this.captchaType,
         clientUid: localStorage.getItem('slider'),
-        ts: Date.now(), // 现在的时间戳
+        ts: Date.now(), // 现在的الوقت戳
       };
       ajCaptcha(data)
         .then((res) => {

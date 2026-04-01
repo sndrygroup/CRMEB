@@ -25,7 +25,7 @@
             <span>{{ scope.row.id }}</span>
           </template>
         </el-table-column>
-        <el-table-column label="优惠券名称" min-width="120">
+        <el-table-column label="优惠券الاسم" min-width="120">
           <template slot-scope="scope">
             <span>{{ scope.row.title }}</span>
           </template>
@@ -65,7 +65,7 @@
             <span v-else>不限时</span>
           </template>
         </el-table-column>
-        <el-table-column label="状态" min-width="100">
+        <el-table-column label="الحالة" min-width="100">
           <template slot-scope="scope">
             <el-tag size="medium" v-show="scope.row.status === 1">正常</el-tag>
             <el-tag size="medium" type="danger" v-show="scope.row.status === 0">未开启</el-tag>

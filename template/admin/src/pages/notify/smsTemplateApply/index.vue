@@ -3,7 +3,7 @@
     <div class="i-layout-page-header header_top">
       <div class="i-layout-page-header fl_header">
         <router-link :to="{ path: $routeProStr + '/setting/sms/sms_config/index' }"
-          ><el-button size="small" type="text">返回</el-button></router-link
+          ><el-button size="small" type="text">عودة</el-button></router-link
         >
         <el-divider direction="vertical"></el-divider>
         <span class="ivu-page-header-title mr20" style="padding: 0">{{ $route.meta.title }}</span>
@@ -20,7 +20,7 @@
         <el-row :gutter="24" v-if="$route.path === $routeProStr + '/setting/sms/sms_template_apply/index'">
           <!--                    <el-col v-bind="grid">-->
           <!--                        <el-form-item label="模板类型：">-->
-          <!--                            <el-select v-model="levelFrom.type" placeholder="请选择" clearable  @change="userSearchs">-->
+          <!--                            <el-select v-model="levelFrom.type" placeholder="الرجاء اختيار " clearable  @change="userSearchs">-->
           <!--                                <el-option value="1">验证码</el-option>-->
           <!--                                <el-option value="2">通知</el-option>-->
           <!--                                <el-option value="3">推广</el-option>-->
@@ -28,16 +28,16 @@
           <!--                        </el-form-item>-->
           <!--                    </el-col>-->
           <!--                    <el-col v-bind="grid">-->
-          <!--                        <el-form-item label="模板状态：">-->
-          <!--                            <el-select v-model="levelFrom.status" placeholder="请选择" clearable  @change="userSearchs">-->
+          <!--                        <el-form-item label="模板الحالة：">-->
+          <!--                            <el-select v-model="levelFrom.status" placeholder="الرجاء اختيار " clearable  @change="userSearchs">-->
           <!--                                <el-option value="1">可用</el-option>-->
           <!--                                <el-option value="0">不可用</el-option>-->
           <!--                            </el-select>-->
           <!--                        </el-form-item>-->
           <!--                    </el-col>-->
           <!--                    <el-col v-bind="grid">-->
-          <!--                        <el-form-item label="模板名称：" >-->
-          <!--                            <el-input search enter-button  v-model="levelFrom.title" placeholder="请输入模板名称" @on-search="userSearchs"/>-->
+          <!--                        <el-form-item label="模板الاسم：" >-->
+          <!--                            <el-input search enter-button  v-model="levelFrom.title" placeholder="الرجاء إدخال 模板الاسم" @on-search="userSearchs"/>-->
           <!--                        </el-form-item>-->
           <!--                    </el-col>-->
           <el-col :span="24">
@@ -47,7 +47,7 @@
         <el-row :gutter="24" v-else>
           <el-col v-bind="grid">
             <el-form-item label="是否拥有：">
-              <el-select v-model="levelFrom.is_have" placeholder="请选择" clearable @change="userSearchs">
+              <el-select v-model="levelFrom.is_have" placeholder="الرجاء اختيار " clearable @change="userSearchs">
                 <el-option value="1" label="有"></el-option>
                 <el-option value="0" label="没有"></el-option>
               </el-select>
@@ -161,14 +161,14 @@ export default {
     },
   },
   methods: {
-    // 查看是否登录
+    // 查看是否تسجيل الدخول
     onIsLogin() {
       this.spinShow = true;
       isLoginApi()
         .then(async (res) => {
           let data = res.data;
           if (!data.status) {
-            this.$message.warning('请先登录');
+            this.$message.warning('请先تسجيل الدخول');
             this.$router.push(this.$routeProStr + '/setting/sms/sms_config/index?url=' + this.$route.path);
           } else {
             this.getList();
@@ -206,7 +206,7 @@ export default {
           minWidth: 110,
         },
         {
-          title: '模板名称',
+          title: '模板الاسم',
           key: 'title',
           minWidth: 150,
         },
@@ -221,7 +221,7 @@ export default {
           minWidth: 100,
         },
         {
-          title: '模板状态',
+          title: '模板الحالة',
           slot: 'status',
           minWidth: 100,
         },
@@ -251,7 +251,7 @@ export default {
           this.$message.error(res.msg);
         });
     },
-    // 添加
+    // إضافة
     add() {
       tempCreateApi()
         .then(async (res) => {
@@ -262,12 +262,12 @@ export default {
           this.$message.error(res.msg);
         });
     },
-    // 表格搜索
+    // 表格بحث
     userSearchs() {
       this.levelFrom.page = 1;
       this.getList();
     },
-    // 修改成功
+    // تعديل成功
     submitFail() {
       this.getList();
     },

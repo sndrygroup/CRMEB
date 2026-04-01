@@ -10,7 +10,7 @@
         <view
           class="myApplet w-324 h-62 text-center rd-12rpx lh-62rpx fs-24 bg--w111-fff text-w111-303133"
         >
-          点击添加到我的小程序
+          点击إضافة到我的小程序
           <text
             class="iconfont icon-ic_close2 text--w111-ccc ml-16"
             @click="myApplet = false"
@@ -18,7 +18,7 @@
         </view>
       </view>
       <!-- #endif -->
-      <!-- 轮播搜索 -->
+      <!-- 轮播بحث -->
       <homeComb
         v-if="showHomeComb"
         :dataConfig="homeCombData"
@@ -28,7 +28,7 @@
         @storeTap="storeTap"
       ></homeComb>
 
-      <!-- 顶部搜索框 -->
+      <!-- 顶部بحث框 -->
       <headerSerch
         v-if="isHeaderSerch"
         :dataConfig="headerSerchCombData"
@@ -179,7 +179,7 @@
               v-else-if="item.name == 'follow'"
               :dataConfig="item"
             ></follow>
-            <!-- 商品详情 -->
+            <!-- 商品تفاصيل -->
             <productInfo
               v-else-if="item.name == 'productInfo'"
               :dataConfig="item"
@@ -344,12 +344,12 @@ export default {
       type: Object,
       default: () => ({}),
     },
-    // 是否为首页（用于控制小程序添加到我的小程序提示等）
+    // 是否为首页（用于控制小程序إضافة到我的小程序تنبيه等）
     isHome: {
       type: Boolean,
       default: false,
     },
-    // 页面滚动状态
+    // 页面滚动الحالة
     isScrolled: {
       type: Boolean,
       default: false,
@@ -391,7 +391,7 @@ export default {
       type: Array,
       default: () => [],
     },
-    // 视频播放状态
+    // 视频播放الحالة
     productVideoStatus: {
       type: Boolean,
       default: false,
@@ -401,7 +401,7 @@ export default {
       type: Number,
       default: 0,
     },
-    // 网络错误状态
+    // 网络错误الحالة
     errorNetwork: {
       type: Boolean,
       default: false,
@@ -545,7 +545,7 @@ export default {
       }
 
       let temp = [];
-      // 重置状态
+      // 重置الحالة
       this.showHomeComb = false;
       this.isHeaderSerch = false;
       this.showCateNav = false;

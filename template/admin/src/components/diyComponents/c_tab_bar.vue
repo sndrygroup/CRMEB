@@ -18,7 +18,7 @@
             </div>
           </div>
           <div class="c_row-item">
-            <el-col class="label" :span="4"> 名称 </el-col>
+            <el-col class="label" :span="4"> الاسم </el-col>
             <el-col :span="19" class="slider-box">
               <el-input v-model="item.name" placeholder="选填不超过10个字" />
             </el-col>
@@ -42,7 +42,7 @@
         style="width: 100%; height: 40px; border-color: var(--prev-color-primary); color: var(--prev-color-primary)"
         v-db-click
         @click="addMenu"
-        >添加图文导航
+        >إضافة图文导航
       </el-button>
     </div>
     <div>
@@ -123,7 +123,7 @@ export default {
     },
   },
   methods: {
-    // 添加模块
+    // إضافة模块
     addMenu() {
       if (this.configData[this.configNum][this.name].list.length == 0) {
         this.configData[this.configNum][this.name].list.push(this.lastObj);
@@ -138,11 +138,11 @@ export default {
     },
     deleteMenu(index) {
       this.$msgbox({
-        title: '提示',
-        message: '是否确定删除该菜单',
+        title: 'تنبيه',
+        message: '是否确定حذف该菜单',
         showCancelButton: true,
-        cancelButtonText: '取消',
-        confirmButtonText: '删除',
+        cancelButtonText: 'إلغاء',
+        confirmButtonText: 'حذف',
         iconClass: 'el-icon-warning',
         confirmButtonClass: 'btn-custom-cancel',
       })

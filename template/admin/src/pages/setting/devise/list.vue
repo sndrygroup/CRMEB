@@ -4,7 +4,7 @@
       <span class="ivu-page-header-title mr20">{{ $route.meta.title }}</span>
       <div>
         <div style="float: right" v-if="cardShow == 1 || cardShow == 2">
-          <el-button class="bnt" type="primary" v-db-click @click="submit" :loading="loadingExist">保存</el-button>
+          <el-button class="bnt" type="primary" v-db-click @click="submit" :loading="loadingExist">حفظ</el-button>
           <el-button v-if="cardShow == 1" class="bnt ml20" v-db-click @click="reast">重置</el-button>
         </div>
       </div>
@@ -18,7 +18,7 @@
         <div class="table-box">
           <div class="acea-row row-between-wrapper">
             <div class="button acea-row row-middle">
-              <el-button class="m-r-10" type="primary" @click="createdPage">添加页面</el-button>
+              <el-button class="m-r-10" type="primary" @click="createdPage">إضافة页面</el-button>
               <el-upload
                 :action="UploadPath"
                 :before-upload="beforeUpload"
@@ -47,7 +47,7 @@
                 <span>{{ scope.row.id }}</span>
               </template>
             </el-table-column>
-            <el-table-column label="模板名称" min-width="130">
+            <el-table-column label="模板الاسم" min-width="130">
               <template slot-scope="scope">
                 <span>{{ scope.row.name }}</span>
               </template>
@@ -58,17 +58,17 @@
                 <el-tag type="info" size="medium" v-else class="mr10">专题页</el-tag>
               </template>
             </el-table-column>
-            <el-table-column label="添加时间" min-width="130">
+            <el-table-column label="إضافةالوقت" min-width="130">
               <template slot-scope="scope">
                 <span>{{ scope.row.add_time }}</span>
               </template>
             </el-table-column>
-            <el-table-column label="更新时间" min-width="130">
+            <el-table-column label="更新الوقت" min-width="130">
               <template slot-scope="scope">
                 <span>{{ scope.row.update_time }}</span>
               </template>
             </el-table-column>
-            <el-table-column label="操作" fixed="right" width="210">
+            <el-table-column label="الخيارات" fixed="right" width="210">
               <template slot-scope="scope">
                 <div
                   style="display: inline-block"
@@ -84,9 +84,9 @@
                       scope.row.template_name || 'moren'
                     }`"
                   >
-                    编辑</a
+                    تحرير</a
                   >
-                  <a v-else class="target">编辑</a>
+                  <a v-else class="target">تحرير</a>
                 </div>
                 <el-divider
                   direction="vertical"
@@ -94,7 +94,7 @@
                 />
 
                 <div style="display: inline-block" v-if="scope.row.id != 1 && scope.row.status != 1">
-                  <a v-db-click @click="del(scope.row, '删除此模板', scope.$index)">删除</a>
+                  <a v-db-click @click="del(scope.row, 'حذف此模板', scope.$index)">حذف</a>
                 </div>
                 <el-divider
                   direction="vertical"
@@ -152,7 +152,7 @@
         </el-card>
       </div>
       <span slot="footer" class="dialog-footer">
-        <el-button type="primary" v-db-click @click="handleSubmit('formItem')">提交</el-button>
+        <el-button type="primary" v-db-click @click="handleSubmit('formItem')">إرسال</el-button>
       </span>
     </el-dialog>
     <el-dialog :visible.sync="modal" width="540px" title="预览">
@@ -232,7 +232,7 @@ export default {
       },
       isTemplate: false,
       ruleValidate: {
-        link: [{ required: true, message: '请输入移动端链接', trigger: 'blur' }],
+        link: [{ required: true, message: 'الرجاء إدخال 移动端链接', trigger: 'blur' }],
       },
       url: window.location.origin,
       header: {},
@@ -282,7 +282,7 @@ export default {
           const url = URL.createObjectURL(blob);
           const a = document.createElement('a');
           a.href = url;
-          a.download = res.data.filename; // 设置下载文件的名称
+          a.download = res.data.filename; // 设置下载文件的الاسم
           document.body.appendChild(a);
           a.click(); // 模拟点击触发下载
           document.body.removeChild(a); // 清理DOM
@@ -388,7 +388,7 @@ export default {
           this.recovery(row);
           break;
         case '3':
-          this.del(row, '删除此模板', index);
+          this.del(row, 'حذف此模板', index);
           break;
         default:
       }
@@ -417,12 +417,12 @@ export default {
         this.total = data.count;
       });
     },
-    // 编辑
+    // تحرير
     edit(row) {
       this.formItem.id = row.id;
       if (!row.is_diy) {
         if (!row.status) {
-          this.$message.error('请先设为首页在进行编辑');
+          this.$message.error('请先设为首页在进行تحرير');
         } else {
           this.$router.push({
             path: this.$routeProStr + '/setting/pages/diy',
@@ -431,21 +431,21 @@ export default {
         }
       }
     },
-    // 添加
+    // إضافة
     // add() {
     //   this.$modalForm(getDiyCreate()).then(() => this.diyProList());
     // },
-    // 添加
+    // إضافة
     add() {
       // this.$router.push({
       //   path: this.$routeProStr + '/setting/pages/diy_index',
       //   query: { id: 0, name: '首页', type: 1 },
       // });
     },
-    // 删除
+    // حذف
     del(row) {
       let delfromData = {
-        title: '删除',
+        title: 'حذف',
         num: 2000,
         url: 'diy/del/' + row.id,
         method: 'DELETE',
@@ -464,10 +464,10 @@ export default {
     // 使用模板
     async setStatus(row) {
       this.$msgbox({
-        title: '提示',
+        title: 'تنبيه',
         message: '是否把该模板设为首页',
         showCancelButton: true,
-        cancelButtonText: '取消',
+        cancelButtonText: 'إلغاء',
         confirmButtonText: '确定',
         iconClass: 'el-icon-warning',
         confirmButtonClass: 'btn-custom-cancel',

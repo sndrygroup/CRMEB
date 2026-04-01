@@ -15,7 +15,7 @@
             </el-tooltip>
           </template>
         </el-table-column>
-        <el-table-column label="状态" width="180">
+        <el-table-column label="الحالة" width="180">
           <template slot-scope="scope">
             <span v-if="typeof scope.row.value === 'boolean'">
               <i v-if="scope.row.value === true" class="el-icon-check"></i>
@@ -32,7 +32,7 @@
     </el-dialog>
     <el-dialog :visible.sync="modalCopyright" title="版权信息" width="550px">
       <div class="auth">
-        <div class="update">修改版权信息:</div>
+        <div class="update">تعديل版权信息:</div>
         <el-input style="width: 460px" v-model="copyrightText" />
       </div>
       <div class="auth">
@@ -50,7 +50,7 @@
       </div>
       <span slot="footer" class="dialog-footer">
         <el-button v-db-click @click="modalCopyright = false">取 消</el-button>
-        <el-button type="primary" v-db-click @click="saveCopyRight">保存</el-button>
+        <el-button type="primary" v-db-click @click="saveCopyRight">حفظ</el-button>
       </span>
     </el-dialog>
     <el-dialog :visible.sync="modalPic" width="1024px" title="上传授权图片" :close-on-click-modal="false">
@@ -128,17 +128,17 @@ export default {
       loading: false,
       trips: [
         {
-          title: '温馨提示',
+          title: '温馨تنبيه',
           message:
             '您的【长连接】未开启，没有开启会导致系统默认客服无法使用,后台订单通知无法收到。请尽快执行命令开启！！<a href="https://doc.crmeb.com/single/v54/13667" target="_blank">点击查看开启方法</a>',
         },
         {
-          title: '温馨提示',
+          title: '温馨تنبيه',
           message:
-            '您的【定时任务】未开启，没有开启会导致自动收货、未支付自动取消订单、订单自动好评、拼团到期退款等任务无法正常执行。请尽快执行命令开启！！<a href="https://doc.crmeb.com/single/v54/13667" target="_blank">点击查看开启方法</a>',
+            '您的【定时任务】未开启，没有开启会导致自动收货、未支付自动إلغاء订单、订单自动好评、拼团到期退款等任务无法正常执行。请尽快执行命令开启！！<a href="https://doc.crmeb.com/single/v54/13667" target="_blank">点击查看开启方法</a>',
         },
         {
-          title: '温馨提示',
+          title: '温馨تنبيه',
           message:
             '您的【消息队列】未开启，没有开启会导致异步任务无法执行。请尽快执行命令开启！！<a href="https://doc.crmeb.com/single/v54/13667" target="_blank">点击查看开启方法</a>',
         },
@@ -158,7 +158,7 @@ export default {
       } else if (z === 'environment') {
         return '系统环境要求';
       } else if (z === 'permissions') {
-        return '权限状态';
+        return '权限الحالة';
       } else if (z === 'process') {
         return '启动进程';
       }
@@ -195,7 +195,7 @@ export default {
         this.getAuth();
       });
     },
-    //保存版权信息
+    //حفظ版权信息
     saveCopyRight() {
       saveCrmebCopyRight({
         copyright: this.copyrightText,

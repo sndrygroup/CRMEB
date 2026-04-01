@@ -22,7 +22,7 @@
           <el-form-item label="筛选条件：">
             <el-input
               enter-button
-              placeholder="请输入搜索内容"
+              placeholder="الرجاء إدخال بحث内容"
               v-model="formValidate.real_name"
               class="form_content_width"
               clearable
@@ -33,7 +33,7 @@
                 <el-option value="uid" label="UID"></el-option>
                 <el-option value="real_name" label="用户姓名"></el-option>
                 <el-option value="user_phone" label="用户电话"></el-option>
-                <el-option value="title" label="商品名称(模糊)"></el-option>
+                <el-option value="title" label="商品الاسم(模糊)"></el-option>
               </el-select>
             </el-input>
           </el-form-item>
@@ -49,9 +49,9 @@
             </el-select>
           </el-form-item>
           <el-form-item label="">
-            <el-button type="primary" v-db-click @click="userSearchs">搜索</el-button>
+            <el-button type="primary" v-db-click @click="userSearchs">بحث</el-button>
             <el-button v-db-click @click="exports">导出</el-button>
-            <!-- <el-button class="mr15" v-db-click @click="refresh">刷新</el-button> -->
+            <!-- <el-button class="mr15" v-db-click @click="refresh">تحديث</el-button> -->
           </el-form-item>
         </el-form>
       </div>
@@ -88,11 +88,11 @@
               <el-tooltip placement="top" :open-delay="300">
                 <div slot="content">
                   <div>
-                    <span>商品名称：</span>
+                    <span>商品الاسم：</span>
                     <span>{{ item.cart_info.productInfo.store_name || '--' }}</span>
                   </div>
                   <div>
-                    <span>规格名称：</span>
+                    <span>规格الاسم：</span>
                     <span>{{
                       item.cart_info.productInfo.attrInfo ? item.cart_info.productInfo.attrInfo.suk : '---'
                     }}</span>
@@ -126,17 +126,17 @@
             <span>{{ scope.row.store_name }}</span>
           </template>
         </el-table-column>
-        <el-table-column label="支付状态" min-width="80">
+        <el-table-column label="支付الحالة" min-width="80">
           <template slot-scope="scope">
             <span>{{ scope.row.pay_type_name }}</span>
           </template>
         </el-table-column>
-        <el-table-column label="订单状态" min-width="80">
+        <el-table-column label="订单الحالة" min-width="80">
           <template slot-scope="scope">
             <span> {{ scope.row.status_name.status_name }}</span>
           </template>
         </el-table-column>
-        <el-table-column label="下单时间" min-width="150">
+        <el-table-column label="下单الوقت" min-width="150">
           <template slot-scope="scope">
             <span>{{ scope.row.add_time }}</span>
           </template>
@@ -212,7 +212,7 @@ export default {
       this.formValidate.data = this.timeVal ? this.timeVal.join('-') : '';
       this.getList();
     },
-    // 选择时间
+    // 选择الوقت
     selectChange(tab) {
       this.formValidate.page = 1;
       this.formValidate.data = tab;

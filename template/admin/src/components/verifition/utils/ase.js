@@ -1,7 +1,7 @@
 import CryptoJS from 'crypto-js';
 /**
  * @word 要加密的内容
- * @keyWord String  服务器随机返回的关键字
+ * @keyWord String  服务器随机عودة的关键字
  *  */
 export function aesEncrypt(word, keyWord = 'XwKsGlMcdPMEhR1B') {
   var key = CryptoJS.enc.Utf8.parse(keyWord);
@@ -12,7 +12,7 @@ export function aesEncrypt(word, keyWord = 'XwKsGlMcdPMEhR1B') {
 
 /**
  * @word hash256要加密的内容
- * @keyWord String  服务器随机返回的关键字
+ * @keyWord String  服务器随机عودة的关键字
  *  */
 export function aesEncryptHash(word, keyWord = 'XwKsGlMcdPMEhR1B') {
   var key = CryptoJS.enc.Utf8.parse(keyWord);

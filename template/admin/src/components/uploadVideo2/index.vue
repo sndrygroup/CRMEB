@@ -5,7 +5,7 @@
         <div class="trees-coadd">
           <div v-if="isPage" class="tree_tit" v-db-click @click="addSort">
             <i class="el-icon-circle-plus"></i>
-            添加分类
+            إضافة分类
           </div>
           <div class="scollhide">
             <div :class="isPage ? 'tree' : 'isTree'">
@@ -41,8 +41,8 @@
                       <template slot="dropdown">
                         <el-dropdown-menu>
                           <el-dropdown-item command="1">新增分类</el-dropdown-item>
-                          <el-dropdown-item v-if="data.id" command="2">编辑分类</el-dropdown-item>
-                          <el-dropdown-item v-if="data.id" command="3">删除</el-dropdown-item>
+                          <el-dropdown-item v-if="data.id" command="2">تحرير分类</el-dropdown-item>
+                          <el-dropdown-item v-if="data.id" command="3">حذف</el-dropdown-item>
                         </el-dropdown-menu>
                       </template>
                     </el-dropdown>
@@ -97,7 +97,7 @@
               :disabled="!checkPicList.length && !ids.length"
               v-db-click
               @click.stop="editPicList()"
-              >删除视频</el-button
+              >حذف视频</el-button
             >
             <el-cascader
               v-model="pids"
@@ -115,7 +115,7 @@
             <el-input
               class="mr8"
               v-model="fileData.real_name"
-              placeholder="请输入视频名"
+              placeholder="الرجاء إدخال 视频名"
               size="small"
               style="width: 150px"
               @change="searchFile"
@@ -169,7 +169,7 @@
                   <el-input size="small" type="text" v-model="item.real_name" v-else @blur="bindTxt(item)" />
                   <div class="operate-height">
                     <span class="operate mr10" v-db-click @click="editPicList(item.att_id)" v-if="item.isShowEdit"
-                      >删除</span
+                      >حذف</span
                     >
                     <span class="operate mr10" v-db-click @click="item.isEdit = !item.isEdit" v-if="item.isShowEdit"
                       >改名</span
@@ -192,7 +192,7 @@
             no-filtered-data-text="暂无筛选结果"
           >
             <el-table-column type="selection" width="60" :reserve-selection="true"> </el-table-column>
-            <el-table-column label="视频名称" min-width="190">
+            <el-table-column label="视频الاسم" min-width="190">
               <template slot-scope="scope">
                 <div class="df-aic">
                   <div class="tabBox_img mr10">
@@ -210,14 +210,14 @@
                 </div>
               </template>
             </el-table-column>
-            <el-table-column label="上传时间" min-width="100">
+            <el-table-column label="上传الوقت" min-width="100">
               <template slot-scope="scope">
                 <span>{{ scope.row.time }}</span>
               </template>
             </el-table-column>
-            <el-table-column label="操作" fixed="right" width="170">
+            <el-table-column label="الخيارات" fixed="right" width="170">
               <template slot-scope="scope">
-                <a v-db-click @click="editPicList(scope.row)">删除</a>
+                <a v-db-click @click="editPicList(scope.row)">حذف</a>
                 <el-divider direction="vertical"></el-divider>
                 <a v-db-click @click="scope.row.isEdit = !scope.row.isEdit">{{
                   scope.row.isEdit ? '确定' : '重命名'
@@ -256,7 +256,7 @@
     <!-- 输入链接弹窗 -->
     <el-dialog title="输入视频链接" append-to-body :visible.sync="inputModal" width="400px">
       <div class="flex">
-        <el-input class="mr-20" v-model="inputUrl" placeholder="请输入视频链接" />
+        <el-input class="mr-20" v-model="inputUrl" placeholder="الرجاء إدخال 视频链接" />
         <el-button type="primary" @click="uploadByUrl">使用</el-button>
       </div>
     </el-dialog>
@@ -471,11 +471,11 @@ export default {
     onDel(node) {
       let method = node.cate_id ? routeDel : routeCateDel;
       this.$msgbox({
-        title: '提示',
-        message: '是否确定删除该菜单',
+        title: 'تنبيه',
+        message: '是否确定حذف该菜单',
         showCancelButton: true,
-        cancelButtonText: '取消',
-        confirmButtonText: '删除',
+        cancelButtonText: 'إلغاء',
+        confirmButtonText: 'حذف',
         iconClass: 'el-icon-warning',
         confirmButtonClass: 'btn-custom-cancel',
       })
@@ -507,7 +507,7 @@ export default {
           });
       }
     },
-    // 添加分类
+    // إضافة分类
     addSort() {
       this.append({ id: this.treeId || 0 });
     },
@@ -574,7 +574,7 @@ export default {
         ids: id,
       };
       let delfromData = {
-        title: '删除选中视频',
+        title: 'حذف选中视频',
         url: `file/file/delete`,
         method: 'POST',
         ids: ids,
@@ -589,13 +589,13 @@ export default {
           this.$message.error(res.msg);
         });
     },
-    // 删除视频
+    // حذف视频
     editPicList(id) {
       let ids = {
         ids: id || this.ids.toString(),
       };
       let delfromData = {
-        title: '删除选中视频',
+        title: 'حذف选中视频',
         url: `file/file/delete`,
         method: 'POST',
         ids: ids,
@@ -629,16 +629,16 @@ export default {
       this.fileData.page = 1;
       this.getFileList();
     },
-    // 点击添加
+    // 点击إضافة
     append(data) {
       this.treeId = data.id;
       this.getFrom();
     },
-    // 删除分类
+    // حذف分类
     remove(data, tit) {
       this.tits = tit;
       let delfromData = {
-        title: '删除 [ ' + data.title + ' ] ' + '分类',
+        title: 'حذف [ ' + data.title + ' ] ' + '分类',
         url: `file/category/${data.id}`,
         method: 'DELETE',
         ids: '',
@@ -653,11 +653,11 @@ export default {
           this.$message.error(res.msg);
         });
     },
-    // 编辑树表单
+    // تحرير树表单
     editPic(data) {
       this.$modalForm(categoryEditApi(data.id)).then(() => this.getList());
     },
-    // 搜索分类
+    // بحث分类
     changePage() {
       this.getList('search');
     },
@@ -872,7 +872,7 @@ export default {
     // 上传视频链接
     uploadByUrl() {
       if (!this.inputUrl) {
-        this.$message.error('请输入视频链接');
+        this.$message.error('الرجاء إدخال 视频链接');
         return;
       }
       this.$emit('getVideo', this.inputUrl);
@@ -885,7 +885,7 @@ export default {
       let len = it[0].length + it1.length;
       item.editName = len < 10 ? item.real_name : item.real_name.substr(0, 4) + '...' + item.real_name.substr(-5, 5);
     },
-    // 修改视频文字上传
+    // تعديل视频文字上传
     bindTxt(item) {
       if (item.real_name == '') {
         this.$message.error('请填写内容');

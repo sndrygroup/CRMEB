@@ -22,8 +22,8 @@
 						</radio>
 						<!-- #endif -->
 						<view class='acea-row row-middle'>
-							<view @click='editAddress(item.id)'><text class='iconfont icon-bianji'></text>{{$t(`编辑`)}}</view>
-							<view @click='delAddress(index)'><text class='iconfont icon-shanchu'></text>{{$t(`删除`)}}</view>
+							<view @click='editAddress(item.id)'><text class='iconfont icon-bianji'></text>{{$t(`تحرير`)}}</view>
+							<view @click='delAddress(index)'><text class='iconfont icon-shanchu'></text>{{$t(`حذف`)}}</view>
 						</view>
 					</view>
 				</view>
@@ -40,17 +40,17 @@
 			<view class='footer acea-row row-between-wrapper'>
 				<!-- #ifdef APP-PLUS -->
 				<view class='addressBnt bg-color on' @click='addAddress'><text
-						class='iconfont icon-tianjiadizhi'></text>{{$t(`添加新地址`)}}</view>
+						class='iconfont icon-tianjiadizhi'></text>{{$t(`إضافة新地址`)}}</view>
 				<!-- #endif -->
 				<!-- #ifdef MP-->
 				<view class='addressBnt bg-color' @click='addAddress'><text
-						class='iconfont icon-tianjiadizhi'></text>{{$t(`添加新地址`)}}</view>
+						class='iconfont icon-tianjiadizhi'></text>{{$t(`إضافة新地址`)}}</view>
 				<view class='addressBnt wxbnt' @click='getWxAddress'><text class='iconfont icon-weixin2'></text>{{$t(`导入微信地址`)}}
 				</view>
 				<!-- #endif -->
 				<!-- #ifdef H5-->
 				<view class='addressBnt bg-color' :class="this.$wechat.isWeixin()?'':'on'" @click='addAddress'><text
-						class='iconfont icon-tianjiadizhi'></text>{{$t(`添加新地址`)}}</view>
+						class='iconfont icon-tianjiadizhi'></text>{{$t(`إضافة新地址`)}}</view>
 				<view class='addressBnt wxbnt' @click='getAddress' v-if="this.$wechat.isWeixin()"><text
 						class='iconfont icon-weixin2'></text>{{$t(`导入微信地址`)}}</view>
 				<!-- #endif -->
@@ -160,7 +160,7 @@
 									type: 1
 								}).then(res => {
 									that.$util.Tips({
-										title: that.$t(`添加成功`),
+										title: that.$t(`إضافة成功`),
 										icon: 'success'
 									}, function() {
 										that.getAddressList(true);
@@ -174,7 +174,7 @@
 							fail: function(res) {
 								if (res.errMsg == 'chooseAddress:cancel') return that.$util
 									.Tips({
-										title: that.$t(`取消选择`)
+										title: that.$t(`إلغاء选择`)
 									});
 							},
 						})
@@ -182,7 +182,7 @@
 					fail: function(res) {
 						uni.showModal({
 							title: this.$t(`您已拒绝导入微信地址权限`),
-							content: this.$t(`是否进入权限管理，调整授权？`),
+							content: this.$t(`是否进入权限إدارة，调整授权？`),
 							success(res) {
 								if (res.confirm) {
 									uni.openSetting({
@@ -190,7 +190,7 @@
 									});
 								} else if (res.cancel) {
 									return that.$util.Tips({
-										title: that.$t(`已取消`)
+										title: that.$t(`已إلغاء`)
 									});
 								}
 							}
@@ -220,7 +220,7 @@
 						})
 						.then(() => {
 							that.$util.Tips({
-								title: that.$t(`添加成功`),
+								title: that.$t(`إضافة成功`),
 								icon: 'success'
 							}, function() {
 								// close();
@@ -230,7 +230,7 @@
 						.catch(err => {
 							// close();
 							return that.$util.Tips({
-								title: err || that.$t(`添加失败`)
+								title: err || that.$t(`إضافة失败`)
 							});
 						});
 				});
@@ -295,7 +295,7 @@
 				});
 			},
 			/**
-			 * 编辑地址
+			 * تحرير地址
 			 */
 			editAddress: function(id) {
 				let cartId = this.cartId,
@@ -311,17 +311,17 @@
 				})
 			},
 			/**
-			 * 删除地址
+			 * حذف地址
 			 */
 			delAddress: function(index) {
 				let that = this,
 					address = this.addressList[index];
 				if (address == undefined) return that.$util.Tips({
-					title: that.$t(`您删除的地址不存在!`)
+					title: that.$t(`您حذف的地址不存在!`)
 				});
 				delAddress(address.id).then(res => {
 					that.$util.Tips({
-						title: that.$t(`删除成功`),
+						title: that.$t(`حذف成功`),
 						icon: 'success'
 					}, function() {
 						that.addressList.splice(index, 1);

@@ -30,19 +30,19 @@
     <view class="followCode" v-if="followCode">
       <view class="pictrue">
         <view class="title">{{ $t(`关注公众号`) }}</view>
-        <view class="tips">{{ $t(`活动福利，第一时间了解`) }}</view>
+        <view class="tips">{{ $t(`活动福利，第一الوقت了解`) }}</view>
         <view class="code-bg">
           <image class="imgs" :src="dataConfig.codeConfig.url" mode=""></image>
         </view>
         <!-- #ifdef MP || APP-PLUS -->
-        <view class="btn" @tap="savePic">{{ $t(`保存图片`) }}</view>
+        <view class="btn" @tap="savePic">{{ $t(`حفظ图片`) }}</view>
         <!-- #endif -->
         <!-- #ifdef H5 -->
         <view class="btn" v-show="isWeixin" @tap="savePic">{{
-          $t(`长按保存图片`)
+          $t(`长按حفظ图片`)
         }}</view>
         <view class="btn" v-show="!isWeixin" @tap="savePic">{{
-          $t(`保存图片`)
+          $t(`حفظ图片`)
         }}</view>
         <!-- #endif -->
         <view
@@ -185,12 +185,12 @@ export default {
     savePic() {
       // #ifdef H5
       var a = document.createElement("a"); // 生成一个a元素
-      a.download = "wechat"; // 设置图片名称
+      a.download = "wechat"; // 设置图片الاسم
       a.style.display = "none";
       a.href = this.dataConfig.codeConfig.url; // 将生成的URL设置为a.href属性
       document.body.appendChild(a); // 将a标签追加到文档对象中
       a.click(); // 触发a的单击事件
-      a.remove(); // 一次性的，用完就删除a标签
+      a.remove(); // 一次性的，用完就حذفa标签
       // #endif
       // #ifdef MP
       let _that = this;
@@ -208,13 +208,13 @@ export default {
                       success: function (res) {
                         _that.closeFollowCode();
                         _that.$util.Tips({
-                          title: "保存成功",
+                          title: "حفظ成功",
                           icon: "success",
                         });
                       },
                       fail: function (res) {
                         _that.$util.Tips({
-                          title: "保存失败",
+                          title: "حفظ失败",
                         });
                       },
                     });
@@ -226,13 +226,13 @@ export default {
                   success: function (res) {
                     _that.closeFollowCode();
                     _that.$util.Tips({
-                      title: "保存成功",
+                      title: "حفظ成功",
                       icon: "success",
                     });
                   },
                   fail: function (res) {
                     _that.$util.Tips({
-                      title: "保存失败",
+                      title: "حفظ失败",
                     });
                   },
                 });
@@ -252,13 +252,13 @@ export default {
             success: function (res) {
               thatApp.posterImageClose();
               thatApp.$util.Tips({
-                title: "保存成功",
+                title: "حفظ成功",
                 icon: "success",
               });
             },
             fail: function (res) {
               thatApp.$util.Tips({
-                title: "保存失败",
+                title: "حفظ失败",
               });
             },
           });

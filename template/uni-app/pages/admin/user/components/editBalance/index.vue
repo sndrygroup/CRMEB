@@ -1,14 +1,14 @@
 <template>
 	<base-drawer mode="bottom" :visible="visible" background-color="transparent" mask maskClosable @close="closeDrawer">
 		<view class="edit-balance rd-t-40rpx">
-			<view class="title">修改{{type? '积分' : '余额'}}
+			<view class="title">تعديل{{type? '积分' : '余额'}}
 			  <view class="close acea-row row-center-wrapper" @tap="closeDrawer">
 				  <text class="iconfont icon-iconfontguanbi"></text>
 			  </view>
 			</view>
 			<view class="list">
 				<view class="item acea-row row-between-wrapper">
-					<view>修改{{type? '积分' : '余额'}}</view>
+					<view>تعديل{{type? '积分' : '余额'}}</view>
 					<view class="acea-row row-middle">
 						<view class="itemn acea-row row-middle" :class="current == index?'on':''" v-for="(item, index) in navList" :key="index" @click="navTap(index)">
 							<text class="iconfont" :class="current == index?'icon-ic_Selected':'icon-ic_unselect'"></text>
@@ -25,7 +25,7 @@
 				</view>
 			</view>
 			<view class="footer acea-row row-between-wrapper">
-				<view class="bnt acea-row row-center-wrapper" @click="closeDrawer">取消</view>
+				<view class="bnt acea-row row-center-wrapper" @click="closeDrawer">إلغاء</view>
 				<view class="bnt on acea-row row-center-wrapper" @click="define">确定</view>
 			</view>
 		</view>

@@ -4,7 +4,7 @@
       <el-col v-bind="grid1" class="left-wrapper">
         <div class="tree_tit" v-db-click @click="addSort">
           <i class="el-icon-circle-plus"></i>
-          添加分类
+          إضافة分类
         </div>
         <div class="tree">
           <el-tree
@@ -30,8 +30,8 @@
                   <i class="el-icon-more el-icon--right"></i>
                   <template slot="dropdown">
                     <el-dropdown-menu>
-                      <el-dropdown-item command="1">编辑分类</el-dropdown-item>
-                      <el-dropdown-item v-if="data.id" command="2">删除分类</el-dropdown-item>
+                      <el-dropdown-item command="1">تحرير分类</el-dropdown-item>
+                      <el-dropdown-item v-if="data.id" command="2">حذف分类</el-dropdown-item>
                     </el-dropdown-menu>
                   </template>
                 </el-dropdown>
@@ -45,9 +45,9 @@
           <el-row class="mb14">
             <el-col :span="24">
               <el-button v-auth="['setting-store_service-add']" type="primary" v-db-click @click="add"
-                >添加话术</el-button
+                >إضافة话术</el-button
               >
-              <!-- <el-button v-auth="['setting-store_service-add']" type="success" v-db-click @click="addSort">添加分类</el-button> -->
+              <!-- <el-button v-auth="['setting-store_service-add']" type="success" v-db-click @click="addSort">إضافة分类</el-button> -->
             </el-col>
           </el-row>
           <el-table
@@ -75,7 +75,7 @@
                 </el-tooltip>
               </template>
             </el-table-column>
-            <el-table-column label="详情" min-width="120">
+            <el-table-column label="تفاصيل" min-width="120">
               <template slot-scope="scope">
                 <el-tooltip placement="top" :open-delay="600">
                   <div slot="content">{{ scope.row.message }}</div>
@@ -88,16 +88,16 @@
                 <span>{{ scope.row.sort }}</span>
               </template>
             </el-table-column>
-            <el-table-column label="添加时间" min-width="150">
+            <el-table-column label="إضافةالوقت" min-width="150">
               <template slot-scope="scope">
                 <span>{{ scope.row.add_time }}</span>
               </template>
             </el-table-column>
-            <el-table-column label="操作" fixed="right" width="170">
+            <el-table-column label="الخيارات" fixed="right" width="170">
               <template slot-scope="scope">
-                <a v-db-click @click="edit(scope.row)">编辑</a>
+                <a v-db-click @click="edit(scope.row)">تحرير</a>
                 <el-divider direction="vertical"></el-divider>
-                <a v-db-click @click="del(scope.row, '删除客服', scope.$index)">删除</a>
+                <a v-db-click @click="del(scope.row, 'حذف客服', scope.$index)">حذف</a>
               </template>
             </el-table-column>
           </el-table>
@@ -174,7 +174,7 @@ export default {
       tableList3: [],
       columns3: [
         {
-          title: '用户名称',
+          title: 'اسم المستخدم称',
           key: 'nickname',
           width: 200,
         },
@@ -183,7 +183,7 @@ export default {
           slot: 'headimgurl',
         },
         {
-          title: '操作',
+          title: 'الخيارات',
           slot: 'action',
         },
       ],
@@ -215,7 +215,7 @@ export default {
       },
       timeVal: [],
       fromList: {
-        title: '选择时间',
+        title: '选择الوقت',
         custom: true,
         fromTxt: [
           { text: '全部', val: '' },
@@ -267,11 +267,11 @@ export default {
         this.labelSort = data;
       });
     },
-    // 添加分类
+    // إضافة分类
     addSort() {
       this.$modalForm(speechcraftcateCreate()).then(() => this.getUserLabelAll());
     },
-    //编辑标签
+    //تحرير标签
     labelEdit(item) {
       this.$modalForm(speechcraftcateEdit(item.id)).then(() => this.getUserLabelAll(1));
     },
@@ -302,7 +302,7 @@ export default {
       if (name == 1) {
         this.labelEdit(data);
       } else if (name == 2) {
-        this.deleteSort(data, '删除分类');
+        this.deleteSort(data, 'حذف分类');
       }
     },
     // 显示标签小菜单
@@ -386,7 +386,7 @@ export default {
       this.formValidate5.page = index;
       this.getChatlist();
     },
-    // 修改成功
+    // تعديل成功
     submitFail() {
       this.getList();
     },
@@ -416,11 +416,11 @@ export default {
       this.formValidate3.page = index;
       this.getListRecord();
     },
-    // 编辑
+    // تحرير
     edit(row) {
       this.$modalForm(speechcraftEdit(row.id)).then(() => this.getList());
     },
-    // 添加
+    // إضافة
     add() {
       this.$modalForm(speechcraftCreate()).then(() => this.getList());
     },
@@ -440,7 +440,7 @@ export default {
       this.formValidate.page = 1;
       this.getListService();
     },
-    // 选择时间
+    // 选择الوقت
     selectChange(tab) {
       this.formValidate.data = tab;
       this.timeVal = [];
@@ -470,12 +470,12 @@ export default {
       this.getListService();
       this.addFrom.uids = [];
     },
-    // 搜索
+    // بحث
     userSearchs() {
       this.formValidate.page = 1;
       this.getListService();
     },
-    // 删除
+    // حذف
     del(row, tit, num) {
       let delfromData = {
         title: tit,
@@ -508,7 +508,7 @@ export default {
           this.$message.error(res.msg);
         });
     },
-    // 修改是否显示
+    // تعديل是否显示
     onchangeIsShow(row) {
       let data = {
         id: row.id,
@@ -522,10 +522,10 @@ export default {
           this.$message.error(res.msg);
         });
     },
-    // 添加客服
+    // إضافة客服
     putRemark() {
       if (this.addFrom.uids.length === 0) {
-        return this.$message.warning('请选择要添加的客服');
+        return this.$message.warning('الرجاء اختيار 要إضافة的客服');
       }
       kefuAddApi(this.addFrom)
         .then(async (res) => {

@@ -12,18 +12,18 @@
         <div class="index_from page-account-container">
           <div :style="{ display: !loginType ? 'block' : 'none' }">
             <div class="page-account-top">
-              <div class="page-account-top-logo">客服登录</div>
+              <div class="page-account-top-logo">客服تسجيل الدخول</div>
             </div>
             <el-form ref="formInline" :model="formInline" :rules="ruleInline" @keyup.enter="handleSubmit('formInline')">
               <el-form-item class="mb20" prop="username">
-                <el-input type="text" v-model="formInline.username" placeholder="请输入用户名" size="large" />
+                <el-input type="text" v-model="formInline.username" placeholder="الرجاء إدخال اسم المستخدم" size="large" />
               </el-form-item>
               <el-form-item class="mb20" prop="password">
-                <el-input type="password" v-model="formInline.password" placeholder="请输入密码" size="large" />
+                <el-input type="password" v-model="formInline.password" placeholder="الرجاء إدخال كلمة المرور" size="large" />
               </el-form-item>
               <el-form-item>
                 <el-button type="primary" size="large" v-db-click @click="handleSubmit('formInline')" class="btn"
-                  >登录
+                  >تسجيل الدخول
                 </el-button>
               </el-form-item>
             </el-form>
@@ -33,13 +33,13 @@
           </div>
           <div :style="{ display: loginType ? 'block' : 'none' }">
             <div class="page-account-top">
-              <div class="page-account-top-logo">微信扫码登录</div>
+              <div class="page-account-top-logo">微信扫码تسجيل الدخول</div>
             </div>
             <div class="code-box">
               <div class="qrcode" ref="qrCodeUrl"></div>
               <div class="rxpired-box" v-show="rxpired">
                 <p>已过期</p>
-                <el-button type="primary" v-db-click @click="bindRefresh">点击刷新</el-button>
+                <el-button type="primary" v-db-click @click="bindRefresh">点击تحديث</el-button>
               </div>
             </div>
             <div class="qh_box" v-db-click @click="loginType = 0"><span class="iconfont iconzhanghaomima"></span></div>
@@ -78,9 +78,9 @@ export default {
         code: '',
       },
       ruleInline: {
-        username: [{ required: true, message: '请输入用户名', trigger: 'blur' }],
-        password: [{ required: true, message: '请输入密码', trigger: 'blur' }],
-        code: [{ required: true, message: '请输入验证码', trigger: 'blur' }],
+        username: [{ required: true, message: 'الرجاء إدخال اسم المستخدم', trigger: 'blur' }],
+        password: [{ required: true, message: 'الرجاء إدخال كلمة المرور', trigger: 'blur' }],
+        code: [{ required: true, message: 'الرجاء إدخال 验证码', trigger: 'blur' }],
       },
       errorNum: 0,
       jigsaw: null,
@@ -176,7 +176,7 @@ export default {
       })
         .then(async (res) => {
           let expires = this.getExpiresTime(res.data.exp_time);
-          // 记录用户登录信息
+          // 记录用户تسجيل الدخول信息
           setCookies('kefu_uuid', res.data.kefuInfo.uid, expires);
           setCookies('kefu_token', res.data.token, expires);
           setCookies('kefu_expires_time', res.data.exp_time, expires);
@@ -197,7 +197,7 @@ export default {
           let data = res === undefined ? {} : res;
           this.errorNum++;
           this.captchas();
-          this.$message.error(data.msg || '登录失败');
+          this.$message.error(data.msg || 'تسجيل الدخول失败');
           if (this.jigsaw) this.jigsaw.reset();
         });
     },
@@ -247,7 +247,7 @@ export default {
           this.$message.error(error.msg);
         });
     },
-    // 扫码登录情况
+    // 扫码تسجيل الدخول情况
     getScanStatus() {
       scanStatus(this.codeKey)
         .then(async (res) => {
@@ -260,11 +260,11 @@ export default {
           // 1=正在扫描
           if (res.data.status == 1) {
           }
-          // 3 扫描成功正在登录
+          // 3 扫描成功正在تسجيل الدخول
           if (res.data.status == 3) {
             window.clearInterval(this.scanTime);
             let expires = this.getExpiresTime(res.data.exp_time);
-            // 记录用户登录信息
+            // 记录用户تسجيل الدخول信息
             setCookies('kefu_uuid', res.data.kefuInfo.uid, expires);
             setCookies('kefu_token', res.data.token, expires);
             setCookies('kefu_expires_time', res.data.exp_time, expires);
@@ -287,7 +287,7 @@ export default {
           this.rxpired = true;
         });
     },
-    // 刷新二维码
+    // تحديث二维码
     bindRefresh() {
       this.$refs.qrCodeUrl.innerHTML = '';
       this.rxpired = false;

@@ -11,7 +11,7 @@
       >
         <el-row :gutter="24">
           <el-col span="10">
-            <el-form-item label="操作时间：">
+            <el-form-item label="الخياراتالوقت：">
               <el-date-picker
                 clearable
                 :editable="false"
@@ -41,7 +41,7 @@
             </el-form-item>
           </el-col>
           <el-col :span="7">
-            <el-form-item label="状态：">
+            <el-form-item label="الحالة：">
               <el-select v-model="formValidate.status" clearable @change="statusSearchs">
                 <el-option
                   v-for="item in statusList"
@@ -60,7 +60,7 @@
             <span>{{ scope.row.id }}</span>
           </template>
         </el-table-column>
-        <el-table-column label="操作时间" min-width="130">
+        <el-table-column label="الخياراتالوقت" min-width="130">
           <template slot-scope="scope">
             <span>{{ scope.row.add_time }}</span>
           </template>
@@ -80,12 +80,12 @@
             <span>{{ scope.row.title }}</span>
           </template>
         </el-table-column>
-        <el-table-column label="状态" min-width="130">
+        <el-table-column label="الحالة" min-width="130">
           <template slot-scope="scope">
             <span>{{ scope.row.status_cn }}</span>
           </template>
         </el-table-column>
-        <el-table-column label="操作" fixed="right" width="170">
+        <el-table-column label="الخيارات" fixed="right" width="170">
           <template slot-scope="scope">
             <template v-if="scope.row.is_show_log">
               <a v-db-click @click="deliveryLook(scope.row)">查看</a>
@@ -251,11 +251,11 @@ export default {
         //     value: '4'
         // },
         // {
-        //     label: '批量删除商品规格',
+        //     label: '批量حذف商品规格',
         //     value: '5'
         // },
         {
-          label: '批量删除订单',
+          label: '批量حذف订单',
           value: '6',
         },
         {
@@ -307,7 +307,7 @@ export default {
           key: 'delivery_id',
         },
         {
-          title: '处理状态',
+          title: '处理الحالة',
           key: 'status_cn',
         },
         {
@@ -325,7 +325,7 @@ export default {
           key: 'fictitious_content',
         },
         {
-          title: '处理状态',
+          title: '处理الحالة',
           key: 'status_cn',
         },
         {
@@ -347,7 +347,7 @@ export default {
           key: 'delivery_id',
         },
         {
-          title: '处理状态',
+          title: '处理الحالة',
           key: 'status_cn',
         },
         {
@@ -408,19 +408,19 @@ export default {
           this.loading = false;
         });
     },
-    // 搜索-操作时间
+    // بحث-الخياراتالوقت
     onchangeTime(time) {
       this.timeVal = time || [];
       this.formValidate.data = this.timeVal[0] ? (this.timeVal ? this.timeVal.join('-') : '') : '';
       this.page1.pageNum = 1;
       this.getQueue();
     },
-    // 搜索-类型
+    // بحث-类型
     typeSearchs() {
       this.page1.pageNum = 1;
       this.getQueue();
     },
-    // 搜索-状态
+    // بحث-الحالة
     statusSearchs() {
       this.page1.pageNum = 1;
       this.getQueue();
@@ -481,10 +481,10 @@ export default {
         // 停止任务
         case '3':
           this.$msgbox({
-            title: '谨慎操作',
-            message: '确认停止该任务？',
+            title: '谨慎الخيارات',
+            message: 'تأكيد停止该任务？',
             showCancelButton: true,
-            cancelButtonText: '取消',
+            cancelButtonText: 'إلغاء',
             confirmButtonText: '确定',
             iconClass: 'el-icon-warning',
             confirmButtonClass: 'btn-custom-cancel',

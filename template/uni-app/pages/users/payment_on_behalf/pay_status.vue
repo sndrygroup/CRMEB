@@ -15,7 +15,7 @@
 				</view>
 			</view>
 		</view>
-		<button @click="goIndex" class='returnBnt' formType="submit" hover-class='none'>{{$t(`返回首页`)}}</button>
+		<button @click="goIndex" class='returnBnt' formType="submit" hover-class='none'>{{$t(`عودة首页`)}}</button>
 	</view>
 </template>
 
@@ -57,7 +57,7 @@
 		onLoad(options) {
 			this.options = options
 			if (!options.order_id) return this.$util.Tips({
-				title: this.$t(`缺少参数无法查看订单支付状态`)
+				title: this.$t(`缺少参数无法查看订单支付الحالة`)
 			}, {
 				tab: 3,
 				url: 1
@@ -93,7 +93,7 @@
 				this.getDetail();
 			},
 			/**
-			 * 支付完成查询支付状态
+			 * 支付完成查询支付الحالة
 			 */
 			getOrderPayInfo() {
 				let that = this;

@@ -8,7 +8,7 @@
             <el-radio :label="1">自定义佣金</el-radio>
           </el-radio-group>
           <div class="fs-12 tips-info" v-show="formData.is_sub">
-            切换到默认比例时，表格中编辑的返佣金额会被清空，请谨慎操作
+            切换到默认比例时，表格中تحرير的返佣金额会被清空，请谨慎الخيارات
           </div>
         </el-form-item>
         <el-form-item label-width="0">
@@ -46,8 +46,8 @@
                       </template>
                     </el-input>
                     <div class="acea-row row-right row-middle ml14">
-                      <el-button size="small" @click="closePop">取消</el-button>
-                      <el-button size="small" type="primary" @click="brokerageOneSetUp">确认</el-button>
+                      <el-button size="small" @click="closePop">إلغاء</el-button>
+                      <el-button size="small" type="primary" @click="brokerageOneSetUp">تأكيد</el-button>
                     </div>
                   </div>
                   <span class="iconfont iconbianji1" slot="reference"></span>
@@ -99,8 +99,8 @@
                       </template>
                     </el-input>
                     <div class="acea-row row-right row-middle ml14">
-                      <el-button size="small" @click="closePop">取消</el-button>
-                      <el-button size="small" type="primary" @click="brokerageTwoSetUp">确认</el-button>
+                      <el-button size="small" @click="closePop">إلغاء</el-button>
+                      <el-button size="small" type="primary" @click="brokerageTwoSetUp">تأكيد</el-button>
                     </div>
                   </div>
 
@@ -134,8 +134,8 @@
         </el-form-item>
       </el-form>
       <div slot="footer" class="dialog-footer">
-        <el-button @click="onCancel">取消</el-button>
-        <el-button type="primary" @click="submitForm" :disabled="disabled" class="ml-14">确认</el-button>
+        <el-button @click="onCancel">إلغاء</el-button>
+        <el-button type="primary" @click="submitForm" :disabled="disabled" class="ml-14">تأكيد</el-button>
       </div>
     </el-dialog>
   </div>

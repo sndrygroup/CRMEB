@@ -22,7 +22,7 @@ export function getTable(data) {
   });
 }
 /**
- * @description 权限--刷新菜单及权限
+ * @description 权限--تحديث菜单及权限
  * @param {Object} param data {Object} 传值参数
  */
 export function getMenusUnique(data) {
@@ -34,7 +34,7 @@ export function getMenusUnique(data) {
 }
 
 /**
- * 权限 -- 添加
+ * 权限 -- إضافة
  */
 export function addMenus() {
   return request({
@@ -44,7 +44,7 @@ export function addMenus() {
 }
 
 /**
- * 权限 -- 编辑
+ * 权限 -- تحرير
  * @param id
  */
 export function editMenus(id) {
@@ -55,7 +55,7 @@ export function editMenus(id) {
 }
 
 /**
- * @description 添加 编辑
+ * @description إضافة تحرير
  * @param {Object} param data {Object} 集合
  * @param {String} param data.url {String} 地址
  * @param {String} param data.method {String} 请求方式
@@ -70,7 +70,7 @@ export function addMenusApi(data) {
 }
 
 /**
- * @description 表单详情
+ * @description 表单تفاصيل
  * @param {Number} param id {Number} 规则id
  */
 export function menusDetailsApi(id) {
@@ -81,9 +81,9 @@ export function menusDetailsApi(id) {
 }
 
 /**
- * @description 修改显示
+ * @description تعديل显示
  * @param {Number} param data.id {Number} 规则id
- * @param {Number} param data.is_show {Number} 状态值
+ * @param {Number} param data.is_show {Number} الحالة值
  */
 export function isShowApi(data) {
   return request({

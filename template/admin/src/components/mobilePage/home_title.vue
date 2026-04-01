@@ -45,7 +45,7 @@ export default {
   icon: '#iconzujian-biaoti',
   configName: 'c_home_title',
   type: 2, // 0 基础组件 1 营销组件 2工具组件
-  defaultName: 'titles', // 外面匹配名称
+  defaultName: 'titles', // 外面匹配الاسم
   props: {
     index: {
       type: null,
@@ -99,15 +99,15 @@ export default {
           min: 0,
         },
         titleConfig: {
-          title: '标题名称',
+          title: '标题الاسم',
           value: '标题',
-          place: '请输入标题',
+          place: 'الرجاء إدخال 标题',
           max: 10,
         },
         titleConfigRight: {
           title: '右侧文字',
           value: '更多',
-          place: '请输入右侧文字',
+          place: 'الرجاء إدخال 右侧文字',
           max: 5,
         },
         buttonConfig: {
@@ -125,7 +125,7 @@ export default {
         linkConfig: {
           title: '链接',
           value: '',
-          place: '请输入链接地址',
+          place: 'الرجاء إدخال 链接地址',
           max: 100,
           type: 'link',
         },

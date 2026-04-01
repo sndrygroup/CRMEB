@@ -10,12 +10,12 @@
           @submit.native.prevent
           inline
         >
-          <el-form-item label="活动搜索：" label-for="title">
-            <el-input placeholder="请输入活动名称，ID" v-model="tableFrom.title" clearable class="form_content_width" />
+          <el-form-item label="活动بحث：" label-for="title">
+            <el-input placeholder="الرجاء إدخال 活动الاسم，ID" v-model="tableFrom.title" clearable class="form_content_width" />
           </el-form-item>
-          <el-form-item label="活动状态：">
+          <el-form-item label="活动الحالة：">
             <el-select
-              placeholder="请选择"
+              placeholder="الرجاء اختيار "
               clearable
               v-model="tableFrom.status"
               @change="searchs"
@@ -30,7 +30,7 @@
               <el-option v-for="item in timeList" :value="item.id" :key="item.id" :label="item.time_name"></el-option>
             </el-select>
           </el-form-item>
-          <el-form-item label="活动时间：">
+          <el-form-item label="活动الوقت：">
             <el-date-picker
               clearable
               v-model="timeVal"
@@ -52,7 +52,7 @@
     </el-card>
     <el-card :bordered="false" shadow="never" class="ivu-mt mt16">
       <el-button v-auth="['marketing-store_seckill-create']" type="primary" v-db-click @click="add"
-        >添加秒杀活动</el-button
+        >إضافة秒杀活动</el-button
       >
       <el-table
         :data="tableList"
@@ -97,13 +97,13 @@
             </el-tag>
           </template>
         </el-table-column>
-        <el-table-column label="活动时间" min-width="210">
+        <el-table-column label="活动الوقت" min-width="210">
           <template slot-scope="scope">
             <div>开始: {{ scope.row.start_day }}</div>
             <div>结束: {{ scope.row.end_day }}</div>
           </template>
         </el-table-column>
-        <el-table-column label="状态" min-width="100">
+        <el-table-column label="الحالة" min-width="100">
           <template slot-scope="scope">
             <el-switch
               class="defineSwitch"
@@ -119,11 +119,11 @@
             </el-switch>
           </template>
         </el-table-column>
-        <el-table-column label="操作" fixed="right" width="100">
+        <el-table-column label="الخيارات" fixed="right" width="100">
           <template slot-scope="scope">
-            <a v-db-click @click="edit(scope.row)">编辑</a>
+            <a v-db-click @click="edit(scope.row)">تحرير</a>
             <el-divider direction="vertical" />
-            <a v-db-click @click="del(scope.row, '删除秒杀活动', scope.$index)">删除</a>
+            <a v-db-click @click="del(scope.row, 'حذف秒杀活动', scope.$index)">حذف</a>
           </template>
         </el-table-column>
       </el-table>
@@ -201,22 +201,22 @@ export default {
           minWidth: 130,
         },
         {
-          title: '秒杀状态',
+          title: '秒杀الحالة',
           key: 'start_name',
           minWidth: 100,
         },
         {
-          title: '结束时间',
+          title: '结束الوقت',
           slot: 'stop_time',
           minWidth: 100,
         },
         {
-          title: '状态',
+          title: 'الحالة',
           slot: 'status',
           minWidth: 100,
         },
         {
-          title: '操作',
+          title: 'الخيارات',
           slot: 'action',
           fixed: 'right',
           minWidth: 130,
@@ -276,7 +276,7 @@ export default {
       }
       this.getList();
     },
-    // 添加
+    // إضافة
     add() {
       this.$router.push({ path: this.$routeProStr + '/marketing/store_seckill/create_more' });
     },
@@ -310,13 +310,13 @@ export default {
       });
     },
 
-    // 编辑
+    // تحرير
     edit(row) {
       this.$router.push({
         path: this.$routeProStr + '/marketing/store_seckill/create_more/' + row.id,
       });
     },
-    // 删除
+    // حذف
     del(row, tit, num) {
       let delfromData = {
         title: tit,
@@ -355,12 +355,12 @@ export default {
           this.$message.error(res.msg);
         });
     },
-    // 表格搜索
+    // 表格بحث
     searchs() {
       this.tableFrom.page = 1;
       this.getList();
     },
-    // 修改是否显示
+    // تعديل是否显示
     onchangeIsShow(row) {
       let data = {
         id: row.id,

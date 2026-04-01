@@ -115,7 +115,7 @@
           </div>
           <div class="info" :style="{ borderRadius: bgRadius2 }">
             <div class="title line2">
-              {{ item.store_name || '这里是商品名称展示区域,商品名称展示区域,商品名称展示区域' }}
+              {{ item.store_name || '这里是商品الاسم展示区域,商品الاسم展示区域,商品الاسم展示区域' }}
             </div>
             <div class="pictrue">
               <img src="../../assets/images/goods01.png" />
@@ -157,7 +157,7 @@ export default {
   desc: '商品选项卡',
   icon: '#iconzujian-shangpinxuanxiangka',
   type: 0, // 0 基础组件 1 营销组件 2工具组件
-  defaultName: 'promotionList', // 外面匹配名称
+  defaultName: 'promotionList', // 外面匹配الاسم
   props: {
     index: {
       type: null,
@@ -197,7 +197,7 @@ export default {
   // mixins: [theme],
   data() {
     return {
-      // 默认初始化数据禁止修改
+      // 默认初始化数据禁止تعديل
       defaultConfig: {
         cname: '商品选项卡',
         desc: '商品选项卡',
@@ -246,7 +246,7 @@ export default {
           ],
         },
         tabConfig: {
-          title: '点击下方选项卡可进行编辑；鼠标拖拽版块可调整顺序',
+          title: '点击下方选项卡可进行تحرير；鼠标拖拽版块可调整顺序',
           max: '',
           tabCur: 0,
           classList: [],
@@ -309,7 +309,7 @@ export default {
           tabVal: 1,
           tabList: [
             {
-              name: '进入商品详情页',
+              name: '进入商品تفاصيل页',
             },
             {
               name: '商品加购',

@@ -1,9 +1,9 @@
 <template>
   <el-dialog :visible.sync="modals_son" :title="title" :close-on-click-modal="false" width="900px">
-    <el-button type="primary" id="savefile" class="mr5 mb15" v-db-click @click="savefile">保存</el-button>
+    <el-button type="primary" id="savefile" class="mr5 mb15" v-db-click @click="savefile">حفظ</el-button>
     <el-button id="undo" class="mr5 mb15" v-db-click @click="undofile">撤销</el-button>
     <el-button id="redo" class="mr5 mb15" v-db-click @click="redofile">回退</el-button>
-    <el-button id="refresh" class="mb15" v-db-click @click="refreshfile">刷新</el-button>
+    <el-button id="refresh" class="mb15" v-db-click @click="refreshfile">تحديث</el-button>
     <textarea ref="mycode" class="codesql public_text" v-model="code" style="height: 80vh"></textarea>
   </el-dialog>
 </template>
@@ -58,8 +58,8 @@ export default {
   data() {
     return {
       editor: '',
-      isShowLogn: false, // 登录
-      isShowList: false, // 登录之后列表
+      isShowLogn: false, // تسجيل الدخول
+      isShowList: false, // تسجيل الدخول之后列表
       spinShow: false,
       loading: false,
 
@@ -105,7 +105,7 @@ export default {
         Ctrl: 'autocomplete',
       }, //自定义快捷键
     });
-    //代码自动提示功能，记住使用cursorActivity事件不要使用change事件，这是一个坑，那样页面直接会卡死
+    //代码自动تنبيه功能，记住使用cursorActivity事件不要使用change事件，这是一个坑，那样页面直接会卡死
     editor.on('cursorActivity', function () {
       editor.showHint();
     });
@@ -115,7 +115,7 @@ export default {
     this.onIsLogin();
   },
   methods: {
-    // 保存
+    // حفظ
     savefile() {
       let data = {
         comment: this.editor.getValue(),
@@ -138,7 +138,7 @@ export default {
     redofile() {
       this.editor.redo();
     },
-    // 刷新
+    // تحديث
     refreshfile() {
       this.editor.refresh();
     },

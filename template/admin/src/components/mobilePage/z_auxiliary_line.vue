@@ -19,7 +19,7 @@ export default {
   configName: 'c_auxiliary_line',
   icon: '#iconzujian-fuzhuxian',
   type: 2, // 0 基础组件 1 营销组件 2工具组件
-  defaultName: 'guide', // 外面匹配名称
+  defaultName: 'guide', // 外面匹配الاسم
   props: {
     index: {
       type: null,
@@ -56,7 +56,7 @@ export default {
   },
   data() {
     return {
-      // 默认初始化数据禁止修改
+      // 默认初始化数据禁止تعديل
       defaultConfig: {
         cname: '辅助线',
         name: 'guide',

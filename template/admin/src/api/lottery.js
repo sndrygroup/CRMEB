@@ -21,7 +21,7 @@ export function lotteryListApi(data) {
 }
 
 /**
- * @description 九宫格抽奖 -- 详情
+ * @description 九宫格抽奖 -- تفاصيل
  * @param id 抽奖活动id
  */
 export function lotteryDetailApi(id) {
@@ -32,7 +32,7 @@ export function lotteryDetailApi(id) {
 }
 
 /**
- * @description 九宫格抽奖 -- 新版详情
+ * @description 九宫格抽奖 -- 新版تفاصيل
  * @param id 抽奖活动id
  */
 export function lotteryNewDetailApi(type) {
@@ -54,7 +54,7 @@ export function lotteryCreateApi(data) {
 }
 /**
  **
- * @description 九宫格抽奖 -- 修改/编辑
+ * @description 九宫格抽奖 -- تعديل/تحرير
  */
 export function lotteryEditApi(id, data) {
   return request({
@@ -66,7 +66,7 @@ export function lotteryEditApi(id, data) {
 
 /**
  **
- * @description 九宫格抽奖 -- 删除
+ * @description 九宫格抽奖 -- حذف
  */
 export function lotteryDelApi(id) {
   return request({
@@ -77,7 +77,7 @@ export function lotteryDelApi(id) {
 
 /**
  **
- * @description 九宫格抽奖 -- 显示状态
+ * @description 九宫格抽奖 -- 显示الحالة
  */
 export function lotteryStatusApi(data) {
   return request({
@@ -134,7 +134,7 @@ export function factorListApi(data) {
 
 /**
  **
- * @description 抽奖配置保存
+ * @description 抽奖配置حفظ
  */
 export function factorUseApi(data) {
   return request({
@@ -145,7 +145,7 @@ export function factorUseApi(data) {
 }
 
 /**
- * @description 抽奖状态切换
+ * @description 抽奖الحالة切换
  * @param data {Object} 传值
  */
 export function lotteryStatus(data) {

@@ -65,7 +65,7 @@ export default {
   cname: '选项卡',
   icon: '#iconzujian-xuanxiangka1',
   type: 0, // 0 基础组件 1 营销组件 2工具组件
-  defaultName: 'tabNav', // 外面匹配名称
+  defaultName: 'tabNav', // 外面匹配الاسم
   props: {
     index: {
       type: null,
@@ -105,7 +105,7 @@ export default {
   // mixins: [theme],
   data() {
     return {
-      // 默认初始化数据禁止修改
+      // 默认初始化数据禁止تعديل
       defaultConfig: {
         cname: '选项卡',
         desc: '选项卡介绍',
@@ -155,7 +155,7 @@ export default {
                 title: '显示文字',
                 val: '首页',
                 max: 6,
-                pla: '请输入分类名称',
+                pla: 'الرجاء إدخال 分类الاسم',
               },
               dataType: {
                 title: '数据类型',
@@ -183,7 +183,7 @@ export default {
                 title: '显示文字',
                 val: '标题标题',
                 max: 6,
-                pla: '请输入分类名称',
+                pla: 'الرجاء إدخال 分类الاسم',
               },
               dataType: {
                 title: '数据类型',
@@ -211,7 +211,7 @@ export default {
                 title: '显示文字',
                 val: '标题标题',
                 max: 6,
-                pla: '请输入分类名称',
+                pla: 'الرجاء إدخال 分类الاسم',
               },
               dataType: {
                 title: '数据类型',
@@ -239,7 +239,7 @@ export default {
                 title: '显示文字',
                 val: '标题标题',
                 max: 6,
-                pla: '请输入分类名称',
+                pla: 'الرجاء إدخال 分类الاسم',
               },
               dataType: {
                 title: '数据类型',

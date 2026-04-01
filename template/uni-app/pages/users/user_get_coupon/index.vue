@@ -88,7 +88,7 @@ export default {
 			couponsList: [],
 			loading: false,
 			loadend: false,
-			loadTitle: this.$t(`加载更多`), //提示语
+			loadTitle: this.$t(`加载更多`), //تنبيه语
 			page: 1,
 			limit: 20,
 			isAuto: false, //没有授权的不会自动授权

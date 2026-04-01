@@ -6,7 +6,7 @@
 /**
  * 验证百分比（不可以小数）
  * @param val 当前值字符串
- * @returns 返回处理后的字符串
+ * @returns عودة处理后的字符串
  */
 export function verifyNumberPercentage(val) {
   // 匹配空格
@@ -17,14 +17,14 @@ export function verifyNumberPercentage(val) {
   v = v.replace(/^0/g, '');
   // 数字超过100，赋值成最大值100
   v = v.replace(/^[1-9]\d\d{1,3}$/, '100');
-  // 返回结果
+  // عودة结果
   return v;
 }
 
 /**
  * 验证百分比（可以小数）
  * @param val 当前值字符串
- * @returns 返回处理后的字符串
+ * @returns عودة处理后的字符串
  */
 export function verifyNumberPercentageFloat(val) {
   let v = verifyNumberIntegerAndFloat(val);
@@ -32,7 +32,7 @@ export function verifyNumberPercentageFloat(val) {
   v = v.replace(/^[1-9]\d\d{1,3}$/, '100');
   // 超过100之后不给再输入值
   v = v.replace(/^100\.$/, '100');
-  // 返回结果
+  // عودة结果
   return v;
 }
 
@@ -50,7 +50,7 @@ export function verifyNumberIntegerAndFloat(val) {
   v = v.replace('.', '$#$').replace(/\./g, '').replace('$#$', '.');
   // 小数点后面保留2位
   v = v.replace(/^(\\-)*(\d+)\.(\d\d).*$/, '$1$2.$3');
-  // 返回结果
+  // عودة结果
   return v;
 }
 
@@ -66,7 +66,7 @@ export function verifiyNumberInteger(val) {
   v = v.replace(/^0\d$/g, '0');
   // 只匹配数字
   v = v.replace(/[^\d]/g, '');
-  // 返回结果
+  // عودة结果
   return v;
 }
 
@@ -76,7 +76,7 @@ export function verifyCnAndSpace(val) {
   let v = val.replace(/[\u4e00-\u9fa5\s]+/g, '');
   // 匹配空格
   v = v.replace(/(^\s*)|(\s*$)/g, '');
-  // 返回结果
+  // عودة结果
   return v;
 }
 
@@ -86,7 +86,7 @@ export function verifyEnAndSpace(val) {
   let v = val.replace(/[a-zA-Z]+/g, '');
   // 匹配空格
   v = v.replace(/(^\s*)|(\s*$)/g, '');
-  // 返回结果
+  // عودة结果
   return v;
 }
 
@@ -94,7 +94,7 @@ export function verifyEnAndSpace(val) {
 export function verifyAndSpace(val) {
   // 匹配空格
   let v = val.replace(/(^\s*)|(\s*$)/g, '');
-  // 返回结果
+  // عودة结果
   return v;
 }
 
@@ -108,27 +108,27 @@ export function verifyNumberComma(val) {
   v[0] = v[0].replace(/\B(?=(\d{3})+(?!\d))/g, ',');
   // 数组转字符串
   v = v.join('.');
-  // 返回结果
+  // عودة结果
   return v;
 }
 
-// 匹配文字变色（搜索时）
+// 匹配文字变色（بحث时）
 export function verifyTextColor(val, text = '', color = 'red') {
-  // 返回内容，添加颜色
+  // عودة内容，إضافة颜色
   let v = text.replace(new RegExp(val, 'gi'), `<span style='color: ${color}'>${val}</span>`);
-  // 返回结果
+  // عودة结果
   return v;
 }
 
 // 数字转中文大写
 export function verifyNumberCnUppercase(val, unit = '仟佰拾亿仟佰拾万仟佰拾元角分', v = '') {
-  // 当前内容字符串添加 2个0，为什么??
+  // 当前内容字符串إضافة 2个0，为什么??
   val += '00';
-  // 返回某个指定的字符串值在字符串中首次出现的位置，没有出现，则该方法返回 -1
+  // عودة某个指定的字符串值在字符串中首次出现的位置，没有出现，则该方法عودة -1
   let lookup = val.indexOf('.');
   // substring：不包含结束下标内容，substr：包含结束下标内容
   if (lookup >= 0) val = val.substring(0, lookup) + val.substr(lookup + 1, 2);
-  // 根据内容 val 的长度，截取返回对应大写
+  // 根据内容 val 的长度，截取عودة对应大写
   unit = unit.substr(unit.length - val.length);
   // 循环截取拼接大写
   for (let i = 0; i < val.length; i++) {
@@ -143,7 +143,7 @@ export function verifyNumberCnUppercase(val, unit = '仟佰拾亿仟佰拾万仟
     .replace(/零+元/, '元')
     .replace(/亿零{0,3}万/, '亿')
     .replace(/^元/, '零元');
-  // 返回结果
+  // عودة结果
   return v;
 }
 
@@ -163,36 +163,36 @@ export function verifyTelPhone(val) {
   else return true;
 }
 
-// 登录账号 (字母开头，允许5-16字节，允许字母数字下划线)
+// تسجيل الدخول账号 (字母开头，允许5-16字节，允许字母数字下划线)
 export function verifyAccount(val) {
-  // false: 登录账号不正确
+  // false: تسجيل الدخول账号不正确
   if (!/^[a-zA-Z][a-zA-Z0-9_]{4,15}$/.test(val)) return false;
-  // true: 登录账号正确
+  // true: تسجيل الدخول账号正确
   else return true;
 }
 
-// 密码 (以字母开头，长度在6~16之间，只能包含字母、数字和下划线)
+// كلمة المرور (以字母开头，长度在6~16之间，只能包含字母、数字和下划线)
 export function verifyPassword(val) {
-  // false: 密码不正确
+  // false: كلمة المرور不正确
   if (!/^[a-zA-Z]\w{5,15}$/.test(val)) return false;
-  // true: 密码正确
+  // true: كلمة المرور正确
   else return true;
 }
 
-// 强密码 (字母+数字+特殊字符，长度在6-16之间)
+// 强كلمة المرور (字母+数字+特殊字符，长度在6-16之间)
 export function verifyPasswordPowerful(val) {
-  // false: 强密码不正确
+  // false: 强كلمة المرور不正确
   if (
     !/^(?![a-zA-z]+$)(?!\d+$)(?![!@#$%^&\\.*]+$)(?![a-zA-z\d]+$)(?![a-zA-z!@#$%^&\\.*]+$)(?![\d!@#$%^&\\.*]+$)[a-zA-Z\d!@#$%^&\\.*]{6,16}$/.test(
       val,
     )
   )
     return false;
-  // true: 强密码正确
+  // true: 强كلمة المرور正确
   else return true;
 }
 
-// 密码强度
+// كلمة المرور强度
 export function verifyPasswordStrength(val) {
   let v = '';
   // 弱：纯数字，纯字母，纯特殊字符
@@ -206,7 +206,7 @@ export function verifyPasswordStrength(val) {
     )
   )
     v = '强';
-  // 返回结果
+  // عودة结果
   return v;
 }
 

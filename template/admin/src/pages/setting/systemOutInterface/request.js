@@ -4,7 +4,7 @@ import { getCookies, removeCookies } from '@/libs/util';
 
 const service = axios.create({
   baseURL: Setting.apiBaseURL,
-  timeout: 10000, // 请求超时时间
+  timeout: 10000, // 请求超时الوقت
 });
 axios.defaults.withCredentials = true; // 携带cookie
 
@@ -71,7 +71,7 @@ export default service;
 // function sendRequest(url, method, params, header) {
 //   const instance = axios.create({
 //     baseURL: Setting.apiBaseURL, // 请求的根域名
-//     timeout: 1000, // 请求超时时间
+//     timeout: 1000, // 请求超时الوقت
 //     headers: {
 //       'X-Custom-Header': header, // 自定义头信息
 //     },

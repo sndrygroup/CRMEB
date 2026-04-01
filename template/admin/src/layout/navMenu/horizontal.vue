@@ -67,7 +67,7 @@ export default {
       this.$refs.elMenuHorizontalScrollRef.$refs.wrap.scrollLeft =
         this.$refs.elMenuHorizontalScrollRef.$refs.wrap.scrollLeft + eventDelta / 4;
     },
-    // 初始化数据，页面刷新时，滚动条滚动到对应位置
+    // 初始化数据，页面تحديث时，滚动条滚动到对应位置
     initElMenuOffsetLeft() {
       this.$nextTick(() => {
         let els = document.querySelector('.el-menu.el-menu--horizontal li.is-active');

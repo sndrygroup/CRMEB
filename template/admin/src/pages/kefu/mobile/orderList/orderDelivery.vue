@@ -65,7 +65,7 @@
           <input type="text" placeholder="填写快递单号" v-model="expFrom.delivery_id" class="mode input-input" />
         </div>
         <div class="item acea-row row-between-wrapper" v-if="expFrom.express_record_type === 1">
-          <div class="tip">顺丰请输入单号：收件人或寄件人手机号后四位,</div>
+          <div class="tip">顺丰الرجاء إدخال 单号：收件人或寄件人手机号后四位,</div>
           <div class="tip">例如：SF000000000000:3941</div>
         </div>
       </div>
@@ -132,7 +132,7 @@
       ></textarea>
     </div>
     <div style="height: 1.2rem"></div>
-    <div class="confirm" v-db-click @click="saveInfo">确认提交</div>
+    <div class="confirm" v-db-click @click="saveInfo">تأكيدإرسال</div>
   </div>
 </template>
 <script>
@@ -198,7 +198,7 @@ export default {
       pickerVisibleName: false, // 送货人选择
       pickerVisibleExpTemp: false, //电子面单选择
       expTempData: [], // 面单数据
-      tempName: '', // 面单名称
+      tempName: '', // 面单الاسم
       tempImg: '', //面单图片
       deliveryList: [], // 送货人数据
     };
@@ -354,11 +354,11 @@ export default {
       // save.type = that.expFrom.type;
       switch (type) {
         case '1':
-          if (this.expFrom.type === 1 && !that.expFrom.delivery_name) return that.$dialog.error('请输入快递公司');
+          if (this.expFrom.type === 1 && !that.expFrom.delivery_name) return that.$dialog.error('الرجاء إدخال 快递公司');
           if (this.expFrom.type === 1 && this.expFrom.express_record_type === 1 && !that.expFrom.delivery_id)
-            return that.$dialog.error('请输入快递单号');
+            return that.$dialog.error('الرجاء إدخال 快递单号');
           if (this.expFrom.type === 1 && !that.expFrom.express_temp_id && this.expFrom.express_record_type === 2)
-            return that.$dialog.error('请选择电子面单');
+            return that.$dialog.error('الرجاء اختيار 电子面单');
           that.setInfo(that.expFrom);
           break;
         case '2':

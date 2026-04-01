@@ -3,7 +3,7 @@
     <el-card :bordered="false" shadow="never" class="ivu-mt">
       <el-row>
         <el-col v-bind="grid">
-          <el-button v-auth="['admin-user-label_add']" type="primary" v-db-click @click="add">添加主播</el-button>
+          <el-button v-auth="['admin-user-label_add']" type="primary" v-db-click @click="add">إضافة主播</el-button>
         </el-col>
       </el-row>
       <el-table
@@ -20,7 +20,7 @@
             <span>{{ scope.row.id }}</span>
           </template>
         </el-table-column>
-        <el-table-column label="名称" min-width="300">
+        <el-table-column label="الاسم" min-width="300">
           <template slot-scope="scope">
             <span>{{ scope.row.name }}</span>
           </template>
@@ -35,11 +35,11 @@
             <span>{{ scope.row.wechat }}</span>
           </template>
         </el-table-column>
-        <el-table-column label="操作" fixed="right" width="170">
+        <el-table-column label="الخيارات" fixed="right" width="170">
           <template slot-scope="scope">
-            <a v-db-click @click="edit(scope.row.id)">修改</a>
+            <a v-db-click @click="edit(scope.row.id)">تعديل</a>
             <el-divider direction="vertical"></el-divider>
-            <a v-db-click @click="del(scope.row, '删除主播', scope.$index)">删除</a>
+            <a v-db-click @click="del(scope.row, 'حذف主播', scope.$index)">حذف</a>
           </template>
         </el-table-column>
       </el-table>
@@ -93,15 +93,15 @@ export default {
     this.getList();
   },
   methods: {
-    // 添加
+    // إضافة
     add() {
       this.$modalForm(liveAuchorAdd(0)).then(() => this.getList());
     },
-    // 修改
+    // تعديل
     edit(id) {
       this.$modalForm(liveAuchorAdd(id)).then(() => this.getList());
     },
-    // 删除
+    // حذف
     del(row, tit, num) {
       let delfromData = {
         title: tit,

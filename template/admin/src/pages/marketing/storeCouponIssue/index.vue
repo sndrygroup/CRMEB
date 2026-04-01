@@ -10,10 +10,10 @@
           @submit.native.prevent
           inline
         >
-          <el-form-item label="优惠券名称：" label-for="coupon_title">
+          <el-form-item label="优惠券الاسم：" label-for="coupon_title">
             <el-input
               v-model="tableFrom.coupon_title"
-              placeholder="请输入优惠券名称"
+              placeholder="الرجاء إدخال 优惠券الاسم"
               class="form_content_width"
               maxlength="18"
               show-word-limit
@@ -23,7 +23,7 @@
           <el-form-item label="优惠券类型：" label-for="coupon_type">
             <el-select
               v-model="tableFrom.coupon_type"
-              placeholder="请选择"
+              placeholder="الرجاء اختيار "
               clearable
               @change="userSearchs"
               class="form_content_width"
@@ -36,7 +36,7 @@
           <el-form-item label="是否有效：" label-for="status">
             <el-select
               v-model="tableFrom.status"
-              placeholder="请选择"
+              placeholder="الرجاء اختيار "
               clearable
               @change="userSearchs"
               class="form_content_width"
@@ -48,7 +48,7 @@
           <el-form-item label="发放方式：" label-for="status">
             <el-select
               v-model="receive_type"
-              placeholder="请选择"
+              placeholder="الرجاء اختيار "
               clearable
               @change="userSearchs"
               class="form_content_width"
@@ -66,7 +66,7 @@
     </el-card>
     <el-card :bordered="false" shadow="never" class="ivu-mt mt16">
       <el-button v-auth="['admin-marketing-store_coupon-add']" type="primary" icon="md-add" v-db-click @click="add"
-        >添加优惠券</el-button
+        >إضافة优惠券</el-button
       >
       <el-table
         :data="tableList"
@@ -82,7 +82,7 @@
             <span>{{ scope.row.id }}</span>
           </template>
         </el-table-column>
-        <el-table-column label="优惠券名称" min-width="150">
+        <el-table-column label="优惠券الاسم" min-width="150">
           <template slot-scope="scope">
             <span>{{ scope.row.coupon_title }}</span>
           </template>
@@ -114,7 +114,7 @@
             <span v-else>不限时</span>
           </template>
         </el-table-column>
-        <el-table-column label="使用时间" min-width="100">
+        <el-table-column label="使用الوقت" min-width="100">
           <template slot-scope="scope">
             <div v-if="scope.row.start_use_time">
               {{ scope.row.start_use_time | formatDate }} -
@@ -145,15 +145,15 @@
             </el-switch>
           </template>
         </el-table-column>
-        <el-table-column label="操作" fixed="right" width="200">
+        <el-table-column label="الخيارات" fixed="right" width="200">
           <template slot-scope="scope">
             <a v-db-click @click="receive(scope.row)">领取记录</a>
             <el-divider direction="vertical"></el-divider>
-            <a v-db-click @click="edit(scope.row)">编辑</a>
+            <a v-db-click @click="edit(scope.row)">تحرير</a>
             <el-divider direction="vertical"></el-divider>
             <a v-db-click @click="copy(scope.row)">复制</a>
             <el-divider direction="vertical"></el-divider>
-            <a v-db-click @click="couponDel(scope.row, '删除发布的优惠券', scope.$index)">删除</a>
+            <a v-db-click @click="couponDel(scope.row, 'حذف发布的优惠券', scope.$index)">حذف</a>
           </template>
         </el-table-column>
       </el-table>
@@ -183,7 +183,7 @@
             <span>{{ scope.row.uid }}</span>
           </template>
         </el-table-column>
-        <el-table-column label="用户名" min-width="150">
+        <el-table-column label="اسم المستخدم" min-width="150">
           <template slot-scope="scope">
             <span>{{ scope.row.nickname }}</span>
           </template>
@@ -195,7 +195,7 @@
             </div>
           </template>
         </el-table-column>
-        <el-table-column label="领取时间" min-width="150">
+        <el-table-column label="领取الوقت" min-width="150">
           <template slot-scope="scope">
             <span>{{ scope.row.add_time }}</span>
           </template>
@@ -308,7 +308,7 @@ export default {
       this.receiveFrom.page = index;
       this.getReceivelist(this.rows);
     },
-    // 删除
+    // حذف
     couponDel(row, tit, num) {
       let delfromData = {
         title: tit,
@@ -344,12 +344,12 @@ export default {
           this.$message.error(res.msg);
         });
     },
-    // 表格搜索
+    // 表格بحث
     userSearchs() {
       this.tableFrom.page = 1;
       this.getList();
     },
-    // 添加优惠券
+    // إضافة优惠券
     add() {
       this.$router.push({ path: this.$routeProStr + '/marketing/store_coupon_issue/create' });
     },

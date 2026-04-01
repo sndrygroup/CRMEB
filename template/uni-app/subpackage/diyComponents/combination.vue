@@ -435,7 +435,7 @@ export default {
     titleUrl() {
       return this.dataConfig.imgConfig.url;
     },
-    /*标题提示文字*/
+    /*标题تنبيه文字*/
     tipsColor() {
       return {
         color: this.styleConfig
@@ -474,7 +474,7 @@ export default {
       }
       return borderRadius;
     },
-    /*商品名称样式*/
+    /*商品الاسم样式*/
     productStyle() {
       return {
         color: this.dataConfig.goodsNameColor.color[0].item,

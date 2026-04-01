@@ -27,7 +27,7 @@ export function ajCaptchaCheck(data) {
 }
 
 /**
- * @description 表格--删除
+ * @description 表格--حذف
  * @param {Number} param id {Number} 配置id
  */
 export function tableDelApi(data) {
@@ -40,7 +40,7 @@ export function tableDelApi(data) {
 }
 
 /**
- * 获取消息提醒
+ * 获إلغاء息提醒
  */
 export function jnoticeRequest() {
   return request({

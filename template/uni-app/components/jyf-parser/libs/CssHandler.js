@@ -44,7 +44,7 @@ class CssParser {
 	}
 	section = () => this.data.substring(this.start, this.i);
 	isLetter = c => (c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z');
-	// 状态机
+	// الحالة机
 	Space(c) {
 		if (c == '.' || c == '#' || this.isLetter(c)) {
 			this.start = this.i;

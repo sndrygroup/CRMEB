@@ -94,7 +94,7 @@ export default {
     },
   },
   created() {
-    // 监听非本页面调用 0 刷新当前，1 关闭当前，2 关闭其它，3 关闭全部
+    // 监听非本页面调用 0 تحديث当前，1 关闭当前，2 关闭其它，3 关闭全部
     this.bus.$on('onCurrentContextmenuClick', (data) => {
       this.onCurrentContextmenuClick(data);
     });
@@ -236,7 +236,7 @@ export default {
 
       this.initTagsViewList();
     },
-    // 存储 tagsViewList 到浏览器临时缓存中，页面刷新时，保留记录
+    // 存储 tagsViewList 到浏览器临时缓存中，页面تحديث时，保留记录
     addBrowserSetSession(tagNavList) {
       this.setTagNavList(tagNavList);
     },
@@ -253,10 +253,10 @@ export default {
       this.setTagNavList(arr);
       // 初始化当前元素(li)的下标
       this.getTagsRefsIndex(this.$route.path);
-      // 添加初始化横向滚动条移动到对应位置
+      // إضافة初始化横向滚动条移动到对应位置
       this.tagsViewmoveToCurrentTag();
     },
-    // 添加 tagsView：未设置隐藏（isHide）也添加到在 tagsView 中
+    // إضافة tagsView：未设置隐藏（isHide）也إضافة到在 tagsView 中
     addTagsView(path, to) {
       if (this.tagsViewList.some((v) => v.path === path)) return false;
       const item = this.tagsViewRoutesList.find((v) => v.path === path);
@@ -302,7 +302,7 @@ export default {
         }
       });
     },
-    // 1、刷新当前 tagsView：
+    // 1、تحديث当前 tagsView：
     refreshCurrentTagsView(path) {
       this.bus.$emit('onTagsViewRefreshRouterView', path);
     },
@@ -365,7 +365,7 @@ export default {
     },
   },
   destroyed() {
-    // 取消非本页面调用监听（fun/tagsView）
+    // إلغاء非本页面调用监听（fun/tagsView）
     this.bus.$off('onCurrentContextmenuClick');
   },
 };

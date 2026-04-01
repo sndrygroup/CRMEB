@@ -55,7 +55,7 @@ export function setAdminOrderRemark(data) {
   });
 }
 /**
- * 订单详情
+ * 订单تفاصيل
  */
 export function getAdminOrderDetail(orderId) {
   return request.get(
@@ -68,7 +68,7 @@ export function getAdminOrderDetail(orderId) {
 }
 
 /**
- * 退款订单详情
+ * 退款订单تفاصيل
  */
 export function getAdminRefundOrderDetail(orderId) {
   return request.get(
@@ -94,7 +94,7 @@ export function getAdminOrderDelivery(orderId) {
 }
 
 /**
- * 订单发货保存
+ * 订单发货حفظ
  */
 export function setAdminOrderDelivery(id, data) {
   return request.post("admin/order/delivery/keep/" + id, data, {
@@ -110,7 +110,7 @@ export function getStatisticsTime(data) {
   });
 }
 /**
- * 线下付款订单确认付款
+ * 线下付款订单تأكيد付款
  */
 export function setOfflinePay(data) {
   return request.post("admin/order/offline", data, {
@@ -118,7 +118,7 @@ export function setOfflinePay(data) {
   });
 }
 /**
- * 订单确认退款
+ * 订单تأكيد退款
  */
 export function setOrderRefund(data) {
   return request.post("admin/order/refund", data, {
@@ -201,7 +201,7 @@ export function agreeExpress(data) {
 }
 
 /**
- * 商家管理统计
+ * 商家إدارة统计
  */
 export function getManageStatistics() {
   return request.get(
@@ -256,7 +256,7 @@ export function getProductCate() {
 }
 
 /**
- * 商品标签修改
+ * 商品标签تعديل
  */
 export function postBatchProcess(data) {
   return request.post("admin/manage/product/save_label", data, {
@@ -265,7 +265,7 @@ export function postBatchProcess(data) {
 }
 
 /**
- * 商品分类修改
+ * 商品分类تعديل
  */
 export function postManageSaveCate(data) {
   return request.post("admin/manage/product/save_cate", data, {
@@ -292,14 +292,14 @@ export function postUpdateAttrs(id, data) {
 }
 
 /**
- * 统计管理-获取订单可拆分商品列表
+ * 统计إدارة-获取订单可拆分商品列表
  */
 export function orderSplitInfo(id) {
   return request.get("admin/order/split_cart_info/" + id);
 }
 
 /**
- * 统计管理-提交
+ * 统计إدارة-إرسال
  */
 export function orderSplitDelivery(id, data) {
   return request.put("admin/order/split_delivery/" + id, data);
@@ -313,7 +313,7 @@ export function getUserList(data) {
 }
 
 /**
- * 平台-修改余额、积分
+ * 平台-تعديل余额、积分
  */
 export function postUserUpdateOther(uid, data) {
   return request.post(`admin/manage/user/update/${uid}`, data);
@@ -327,7 +327,7 @@ export function getGroupList() {
 }
 
 /**
- * 平台-修改用户信息
+ * 平台-تعديل用户信息
  */
 export function postUserUpdate(data) {
   return request.post(`admin/user/update`, data);
@@ -355,7 +355,7 @@ export function getLevelList() {
 }
 
 /**
- * 平台-用户详情
+ * 平台-用户تفاصيل
  */
 export function getUserInfo(uid) {
   return request.get(`admin/manage/user/info/${uid}`);
@@ -369,7 +369,7 @@ export function adminRefundList(data) {
 }
 
 /**
- * 订单详情(退款)
+ * 订单تفاصيل(退款)
  */
 export function getAdminRefundDetail(orderId) {
   return request.get(

@@ -24,7 +24,7 @@
                   v-db-click
                   @click="codeImg"
                   >【小程序直播】</span
-                >须知直播状态</span
+                >须知直播الحالة</span
               >
             </el-alert>
           </el-col>
@@ -47,10 +47,10 @@
             </el-form-item>
           </el-col>
           <el-col :span="24">
-            <el-form-item label="直播间名称：" prop="name">
+            <el-form-item label="直播间الاسم：" prop="name">
               <el-input
                 enter-button
-                placeholder="请输入直播间名称"
+                placeholder="الرجاء إدخال 直播间الاسم"
                 element-id="name"
                 v-model="formValidate.name"
                 class="content_width"
@@ -87,13 +87,13 @@
           </el-col>
           <!--<el-col :span="24">-->
           <!--<el-form-item label="主播昵称：">-->
-          <!--<el-input enter-button  placeholder="请输入主播昵称" element-id="anchor_name" v-model="formValidate.anchor_name" style="width: 60%;"/>-->
+          <!--<el-input enter-button  placeholder="الرجاء إدخال 主播昵称" element-id="anchor_name" v-model="formValidate.anchor_name" style="width: 60%;"/>-->
           <!--</el-form-item>-->
           <!--</el-col>-->
           <el-col :span="24">
             <el-form-item label="联系电话：">
               <el-input
-                placeholder="请输入主播联系电话"
+                placeholder="الرجاء إدخال 主播联系电话"
                 v-model="formValidate.phone"
                 class="content_width"
                 maxlength="11"
@@ -102,12 +102,12 @@
             </el-form-item>
           </el-col>
           <el-col :span="24">
-            <el-form-item label="直播时间：" prop="name">
+            <el-form-item label="直播الوقت：" prop="name">
               <el-date-picker
                 clearable
                 type="datetimerange"
                 format="yyyy-MM-dd HH:mm"
-                placeholder="请选择直播时间"
+                placeholder="الرجاء اختيار 直播الوقت"
                 class="content_width"
                 v-model="timeVal"
                 @change="selectDate"
@@ -193,13 +193,13 @@
               v-db-click
               @click="handleSubmit('formItem')"
             >
-              提交
+              إرسال
             </el-button>
             <!-- <el-button
               type="primary"
               v-db-click @click="handleSubmit('formItem')"
               style="width: 19%; margin-left: 99px"
-              >提交</el-button
+              >إرسال</el-button
             > -->
           </el-col>
         </el-row>
@@ -397,12 +397,12 @@ export default {
         this.modalPic = false;
       });
     },
-    // 保存
+    // حفظ
     handleSubmit(name) {
       this.loading = true;
       liveAdd(this.formValidate)
         .then((res) => {
-          this.$message.success('添加成功');
+          this.$message.success('إضافة成功');
           setTimeout(() => {
             this.loading = false;
             this.$router.push({ path: this.$routeProStr + '/marketing/live/live_room' });

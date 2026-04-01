@@ -9,7 +9,7 @@
 				<input type="text" v-model="codeNum" :placeholder="$t(`输入验证码`)" maxlength="6" />
 				<button class="code" :disabled="disabled" @click="code">{{text}}</button>
 			</view>
-			<view class="sub_btn" @click="loginBtn">{{$t(`立即登录`)}}</view>
+			<view class="sub_btn" @click="loginBtn">{{$t(`立即تسجيل الدخول`)}}</view>
 		</view>
 
 		<Verify @success="success" :captchaType="captchaType" :imgSize="{ width: '330px', height: '155px' }"
@@ -96,7 +96,7 @@
 					title: that.$t(`请填写手机号码`)
 				});
 				if (!/^1(3|4|5|7|8|9|6)\d{9}$/i.test(that.account)) return that.$util.Tips({
-					title: that.$t(`请输入正确的手机号码`)
+					title: that.$t(`الرجاء إدخال 正确的手机号码`)
 				});
 				this.$refs.verify.show();
 			},
@@ -116,7 +116,7 @@
 					this.$emit('close', new_user)
 				}
 			},
-			// 登录
+			// تسجيل الدخول
 			loginBtn() {
 				let that = this
 				// #ifdef MP
@@ -124,16 +124,16 @@
 					title: that.$t(`请填写手机号码`)
 				});
 				if (!/^1(3|4|5|7|8|9|6)\d{9}$/i.test(that.account)) return that.$util.Tips({
-					title: that.$t(`请输入正确的手机号码`)
+					title: that.$t(`الرجاء إدخال 正确的手机号码`)
 				});
 				if (!that.codeNum) return that.$util.Tips({
 					title: that.$t(`请填写验证码`)
 				});
 				if (!/^[\w\d]+$/i.test(that.codeNum)) return that.$util.Tips({
-					title: that.$t(`请输入正确的验证码`)
+					title: that.$t(`الرجاء إدخال 正确的验证码`)
 				});
 				uni.showLoading({
-					title: that.$t(`正在登录中`)
+					title: that.$t(`正在تسجيل الدخول中`)
 				});
 				Routine.getCode()
 					.then(code => {
@@ -148,16 +148,16 @@
 					title: that.$t(`请填写手机号码`)
 				});
 				if (!/^1(3|4|5|7|8|9|6)\d{9}$/i.test(that.account)) return that.$util.Tips({
-					title: that.$t(`请输入正确的手机号码`)
+					title: that.$t(`الرجاء إدخال 正确的手机号码`)
 				});
 				if (!that.codeNum) return that.$util.Tips({
 					title: that.$t(`请填写验证码`)
 				});
 				if (!/^[\w\d]+$/i.test(that.codeNum)) return that.$util.Tips({
-					title: that.$t(`请输入正确的验证码`)
+					title: that.$t(`الرجاء إدخال 正确的验证码`)
 				});
 				uni.showLoading({
-					title: that.$t(`正在登录中`)
+					title: that.$t(`正在تسجيل الدخول中`)
 				});
 				if (!this.authKey) {
 					let key = this.$Cache.get('snsapiKey');
@@ -224,14 +224,14 @@
 					// #ifdef MP
 					if (!new_user) {
 						that.$util.Tips({
-							title: that.$t(`登录成功`),
+							title: that.$t(`تسجيل الدخول成功`),
 							icon: 'success'
 						}, {
 							tab: 3
 						})
 					} else {
 						that.$util.Tips({
-							title: that.$t(`登录成功`),
+							title: that.$t(`تسجيل الدخول成功`),
 							icon: 'success'
 						})
 					}

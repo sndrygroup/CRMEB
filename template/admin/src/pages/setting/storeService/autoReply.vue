@@ -13,7 +13,7 @@
           <el-form-item label="回复类型：" prop="type" label-for="type">
             <el-select
               v-model="formValidate.type"
-              placeholder="请选择"
+              placeholder="الرجاء اختيار "
               clearable
               @change="userSearchs"
               class="form_content_width"
@@ -23,7 +23,7 @@
             </el-select>
           </el-form-item>
           <el-form-item label="关键字：" prop="key" label-for="key">
-            <el-input clearable v-model="formValidate.key" placeholder="请输入关键字" class="form_content_width" />
+            <el-input clearable v-model="formValidate.key" placeholder="الرجاء إدخال 关键字" class="form_content_width" />
           </el-form-item>
           <el-form-item>
             <el-button type="primary" v-db-click @click="userSearchs">查询</el-button>
@@ -32,7 +32,7 @@
       </div>
     </el-card>
     <el-card :bordered="false" shadow="never" class="ivu-mt">
-      <el-button type="primary" v-db-click @click="add">添加自动回复</el-button>
+      <el-button type="primary" v-db-click @click="add">إضافة自动回复</el-button>
       <el-table
         :data="tabList"
         ref="table"
@@ -81,11 +81,11 @@
             </el-switch>
           </template>
         </el-table-column>
-        <el-table-column label="操作" fixed="right" width="170">
+        <el-table-column label="الخيارات" fixed="right" width="170">
           <template slot-scope="scope">
-            <a v-db-click @click="edit(scope.row)">编辑</a>
+            <a v-db-click @click="edit(scope.row)">تحرير</a>
             <el-divider direction="vertical"></el-divider>
-            <a v-db-click @click="del(scope.row, '客服自动回复', scope.$index)">删除</a>
+            <a v-db-click @click="del(scope.row, '客服自动回复', scope.$index)">حذف</a>
           </template>
         </el-table-column>
       </el-table>
@@ -147,7 +147,7 @@ export default {
           minWidth: 120,
         },
         {
-          title: '操作',
+          title: 'الخيارات',
           slot: 'action',
           fixed: 'right',
           minWidth: 120,
@@ -185,7 +185,7 @@ export default {
           this.$message.error(res.msg);
         });
     },
-    // 修改是否显示
+    // تعديل是否显示
     onchangeIsShow(row) {
       let data = {
         id: row.id,
@@ -199,16 +199,16 @@ export default {
           this.$message.error(res.msg);
         });
     },
-    // 表格搜索
+    // 表格بحث
     userSearchs() {
       this.formValidate.page = 1;
       this.getList();
     },
-    // 添加
+    // إضافة
     add() {
       this.$modalForm(kefuAutoReplyForm(0)).then(() => this.getList());
     },
-    // 编辑
+    // تحرير
     edit(row) {
       this.$modalForm(kefuAutoReplyForm(row.id)).then(() => this.getList());
     },

@@ -35,7 +35,7 @@
 		emits: ['click'],
 		mixins: [colors],
 		props: {
-			// name: '删除',
+			// name: 'حذف',
 			// color: '#fff',
 			// fontsize: 32,//单位rpx
 			// width: 80, //单位px

@@ -3,7 +3,7 @@
     <cards-data :cardLists="cardLists" v-if="cardLists.length >= 0"></cards-data>
     <el-card :bordered="false" shadow="never" class="ivu-mb-16">
       <div class="acea-row row-middle">
-        <span class="label_text">时间选择：</span>
+        <span class="label_text">الوقت选择：</span>
         <el-date-picker
           clearable
           v-model="timeVal"

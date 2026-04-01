@@ -3,7 +3,7 @@ import JSEncrypt from 'jsencrypt';
 
 /**
  * @word hash256要加密的内容
- * @keyWord String  服务器随机返回的关键字
+ * @keyWord String  服务器随机عودة的关键字
  *  */
 export function aesEncryptHash(word, keyWord = 'XwKsGlMcdPMEhR1B') {
   var key = CryptoJS.enc.Utf8.parse(keyWord);
@@ -13,7 +13,7 @@ export function aesEncryptHash(word, keyWord = 'XwKsGlMcdPMEhR1B') {
 }
 /**
  * @word key加密
- * @keyWord String  服务器随机返回的关键字
+ * @keyWord String  服务器随机عودة的关键字
  *  */
 export function encryptWithKey(password, publicKey) {
   const encryptor = new JSEncrypt();

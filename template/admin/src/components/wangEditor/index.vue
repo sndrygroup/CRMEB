@@ -181,7 +181,7 @@ export default {
       this.editor.config.zIndex = 0;
       //   this.editor.config.uploadImgMaxSize = this.uploadSize * 1024 * 1024
       this.editor.config.compatibleMode = () => {
-        // 返回 true 表示使用兼容模式；返回 false 使用标准模式
+        // عودة true 表示使用兼容模式；عودة false 使用标准模式
         return true;
       };
       this.editor.config.onchange = (newHtml) => {

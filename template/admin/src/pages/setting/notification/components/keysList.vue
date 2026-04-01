@@ -6,17 +6,17 @@
         type="text"
         v-model.trim="item.key"
         style="width: 150px"
-        placeholder="请输入字段名称"
+        placeholder="الرجاء إدخال 字段الاسم"
         disabled
       ></el-input>
 
       <span class="mr10 virtual-title">-></span>
 
-      <el-select v-model="item.value" placeholder="请选择">
+      <el-select v-model="item.value" placeholder="الرجاء اختيار ">
         <el-option v-for="item in variableList" :key="item.value" :label="item.label" :value="item.value"> </el-option>
       </el-select>
 
-      <!-- <el-button v-if="keyList.length" class="deteal-btn mr10" v-db-click @click="remove(index)"> 删除 </el-button> -->
+      <!-- <el-button v-if="keyList.length" class="deteal-btn mr10" v-db-click @click="remove(index)"> حذف </el-button> -->
     </div>
 
     <div class="add-more">

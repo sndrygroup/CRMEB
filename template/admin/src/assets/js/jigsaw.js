@@ -267,7 +267,7 @@ class jigsaw {
     const left = parseInt(this.block.style.left);
     return {
       spliced: Math.abs(left - this.x) < 10,
-      verified: stddev !== 0, // 简单验证拖动轨迹，为零时表示Y轴上下没有波动，可能非人为操作
+      verified: stddev !== 0, // 简单验证拖动轨迹，为零时表示Y轴上下没有波动，可能非人为الخيارات
     };
   }
 

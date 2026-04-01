@@ -8,14 +8,14 @@
         <el-form ref="formInline" :model="formInline" :rules="ruleInline" @submit.native.prevent>
           <!--<el-form-item prop="account">-->
           <!--<el-input type="text" v-model="formInline.account" prefix="ios-contact-outline"-->
-          <!--placeholder="请输入短信平台账号" />-->
+          <!--placeholder="الرجاء إدخال 短信平台账号" />-->
           <!--</el-form-item>-->
           <el-form-item prop="phone" class="maxInpt">
             <el-input
               type="number"
               v-model="formInline.phone"
               prefix="ios-contact-outline"
-              placeholder="请输入您的手机号"
+              placeholder="الرجاء إدخال 您的手机号"
             />
           </el-form-item>
           <el-form-item prop="password" class="maxInpt">
@@ -23,19 +23,19 @@
               type="password"
               v-model="formInline.password"
               prefix="ios-lock-outline"
-              placeholder="请输入密码"
+              placeholder="الرجاء إدخال كلمة المرور"
             />
           </el-form-item>
           <!--<el-form-item prop="password">-->
           <!--<el-input type="password" v-model="formInline.password" prefix="ios-lock-outline"-->
-          <!--placeholder="请确认短信平台密码/token" />-->
+          <!--placeholder="请تأكيد短信平台كلمة المرور/token" />-->
           <!--</el-form-item>-->
           <!-- <el-form-item prop="url" class="maxInpt">
-            <el-input type="text" v-model="formInline.url" prefix="ios-contact-outline" placeholder="请输入网址域名" />
+            <el-input type="text" v-model="formInline.url" prefix="ios-contact-outline" placeholder="الرجاء إدخال 网址域名" />
           </el-form-item> -->
           <!--<el-form-item prop="sign">-->
           <!--<el-input type="text" v-model="formInline.sign" prefix="ios-contact-outline"-->
-          <!--placeholder="请输入短信签名，例如：CRMEB" />-->
+          <!--placeholder="الرجاء إدخال 短信签名，例如：CRMEB" />-->
           <!--</el-form-item>-->
           <el-form-item prop="verify_code" class="maxInpt">
             <div class="code">
@@ -43,7 +43,7 @@
                 type="text"
                 v-model="formInline.verify_code"
                 prefix="ios-keypad-outline"
-                placeholder="请输入验证码"
+                placeholder="الرجاء إدخال 验证码"
               />
               <el-button :disabled="!canClick" v-db-click @click="cutDown">{{ cutNUm }}</el-button>
             </div>
@@ -55,7 +55,7 @@
           </el-form-item>
         </el-form>
         <div class="page-account-other">
-          <span v-db-click @click="changelogo">立即登录</span>
+          <span v-db-click @click="changelogo">立即تسجيل الدخول</span>
         </div>
       </div>
     </el-col>
@@ -86,12 +86,12 @@ export default {
         phone: '',
       },
       ruleInline: {
-        account: [{ required: true, message: '请输入短信平台账号', trigger: 'blur' }],
-        password: [{ required: true, message: '请输入密码', trigger: 'blur' }],
-        // url: [{ required: true, message: '请输入网址域名', trigger: 'blur' }],
+        account: [{ required: true, message: 'الرجاء إدخال 短信平台账号', trigger: 'blur' }],
+        password: [{ required: true, message: 'الرجاء إدخال كلمة المرور', trigger: 'blur' }],
+        // url: [{ required: true, message: 'الرجاء إدخال 网址域名', trigger: 'blur' }],
         phone: [{ required: true, validator: validatePhone, trigger: 'blur' }],
-        sign: [{ required: true, message: '请输入短信签名', trigger: 'blur' }],
-        verify_code: [{ required: true, message: '请输入验证码', trigger: 'blur' }],
+        sign: [{ required: true, message: 'الرجاء إدخال 短信签名', trigger: 'blur' }],
+        verify_code: [{ required: true, message: 'الرجاء إدخال 验证码', trigger: 'blur' }],
       },
     };
   },
@@ -143,7 +143,7 @@ export default {
         }
       });
     },
-    // 立即登录
+    // 立即تسجيل الدخول
     changelogo() {
       this.$emit('on-change');
     },

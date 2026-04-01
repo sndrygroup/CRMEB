@@ -4,7 +4,7 @@
       <el-col v-bind="grid1" class="left-wrapper">
         <div class="tree_tit" v-db-click @click="addSort">
           <i class="el-icon-circle-plus"></i>
-          添加分类
+          إضافة分类
         </div>
         <div class="tree">
           <el-tree
@@ -30,8 +30,8 @@
                   <i class="el-icon-more el-icon--right"></i>
                   <template slot="dropdown">
                     <el-dropdown-menu>
-                      <el-dropdown-item command="1">编辑分类</el-dropdown-item>
-                      <el-dropdown-item v-if="data.id" command="2">删除分类</el-dropdown-item>
+                      <el-dropdown-item command="1">تحرير分类</el-dropdown-item>
+                      <el-dropdown-item v-if="data.id" command="2">حذف分类</el-dropdown-item>
                     </el-dropdown-menu>
                   </template>
                 </el-dropdown>
@@ -44,8 +44,8 @@
         <el-card :bordered="false" shadow="never" class="left-radius-none">
           <el-row>
             <el-col>
-              <el-button v-auth="['admin-user-label_add']" type="primary" v-db-click @click="add">添加标签</el-button>
-              <!-- <el-button v-auth="['admin-user-label_add']" type="success" v-db-click @click="addSort">添加分类</el-button> -->
+              <el-button v-auth="['admin-user-label_add']" type="primary" v-db-click @click="add">إضافة标签</el-button>
+              <!-- <el-button v-auth="['admin-user-label_add']" type="success" v-db-click @click="addSort">إضافة分类</el-button> -->
             </el-col>
           </el-row>
           <el-table
@@ -62,21 +62,21 @@
                 <span>{{ scope.row.id }}</span>
               </template>
             </el-table-column>
-            <el-table-column label="标签名称" width="80">
+            <el-table-column label="标签الاسم" width="80">
               <template slot-scope="scope">
                 <span>{{ scope.row.label_name }}</span>
               </template>
             </el-table-column>
-            <el-table-column label="分类名称" min-width="80">
+            <el-table-column label="分类الاسم" min-width="80">
               <template slot-scope="scope">
                 <span>{{ scope.row.cate_name }}</span>
               </template>
             </el-table-column>
-            <el-table-column fixed="right" label="操作" width="100">
+            <el-table-column fixed="right" label="الخيارات" width="100">
               <template slot-scope="scope">
-                <a v-db-click @click="edit(scope.row.id)">修改</a>
+                <a v-db-click @click="edit(scope.row.id)">تعديل</a>
                 <el-divider direction="vertical"></el-divider>
-                <a v-db-click @click="del(scope.row, '删除分类', scope.$index)">删除</a>
+                <a v-db-click @click="del(scope.row, 'حذف分类', scope.$index)">حذف</a>
               </template>
             </el-table-column>
           </el-table>
@@ -145,7 +145,7 @@ export default {
     this.getUserLabelAll();
   },
   methods: {
-    // 添加
+    // إضافة
     add() {
       this.$modalForm(userLabelAddApi(0, this.labelFrom.label_cate)).then(() => this.getList());
     },
@@ -164,11 +164,11 @@ export default {
           this.$message.error(res.msg);
         });
     },
-    // 修改
+    // تعديل
     edit(id) {
       this.$modalForm(userLabelAddApi(id)).then(() => this.getList());
     },
-    // 删除
+    // حذف
     del(row, tit, num) {
       let delfromData = {
         title: tit,
@@ -216,11 +216,11 @@ export default {
         }
       });
     },
-    //编辑标签
+    //تحرير标签
     labelEdit(item) {
       this.$modalForm(userLabelEdit(item.id)).then(() => this.getUserLabelAll(1));
     },
-    // 添加分类
+    // إضافة分类
     addSort() {
       this.$modalForm(userLabelCreate()).then(() => this.getUserLabelAll());
     },
@@ -250,7 +250,7 @@ export default {
       if (name == 1) {
         this.labelEdit(data);
       } else if (name == 2) {
-        this.deleteSort(data, '删除分类');
+        this.deleteSort(data, 'حذف分类');
       }
     },
     bindMenuItem(name, index) {

@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="item">
-      <span>直播间名称：</span>
+      <span>直播间الاسم：</span>
       {{ datas.name }}
     </div>
     <div class="item">
@@ -17,7 +17,7 @@
         <i class="el-icon-picture-outline" style="font-size: 24px"></i>
       </div>
     </div>
-    <el-button type="primary" style="width: 100%" v-db-click @click="bindSub">提交</el-button>
+    <el-button type="primary" style="width: 100%" v-db-click @click="bindSub">إرسال</el-button>
     <el-dialog :visible.sync="modals" title="商品列表" class="paymentFooter" width="1000px">
       <goods-list
         ref="goodslist"

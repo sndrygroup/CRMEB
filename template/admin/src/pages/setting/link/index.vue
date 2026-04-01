@@ -6,7 +6,7 @@
           <div class="trees-coadd">
             <div class="tree_tit" v-db-click @click="append">
               <i class="el-icon-circle-plus"></i>
-              添加分类
+              إضافة分类
             </div>
             <div class="scollhide">
               <div class="tree" v-if="treeData.length">
@@ -37,8 +37,8 @@
                         <template slot="dropdown">
                           <el-dropdown-menu>
                             <el-dropdown-item v-if="data.pid == 1" command="1">新增分类</el-dropdown-item>
-                            <el-dropdown-item v-if="data.id" command="2">编辑分类</el-dropdown-item>
-                            <el-dropdown-item v-if="data.id" command="3">删除</el-dropdown-item>
+                            <el-dropdown-item v-if="data.id" command="2">تحرير分类</el-dropdown-item>
+                            <el-dropdown-item v-if="data.id" command="3">حذف</el-dropdown-item>
                           </el-dropdown-menu>
                         </template>
                       </el-dropdown>
@@ -50,7 +50,7 @@
           </div>
         </div>
         <div class="conter">
-          <el-button type="primary" @click="addLink">添加链接</el-button>
+          <el-button type="primary" @click="addLink">إضافة链接</el-button>
           <el-table
             :data="linkList"
             ref="couponTable"
@@ -65,7 +65,7 @@
                 <span>{{ scope.row.id }}</span>
               </template>
             </el-table-column>
-            <el-table-column label="名称" width="150">
+            <el-table-column label="الاسم" width="150">
               <template slot-scope="scope">
                 <span>{{ scope.row.name }}</span>
               </template>
@@ -84,16 +84,16 @@
                 </el-tooltip>
               </template>
             </el-table-column>
-            <el-table-column label="添加时间" minWidth="90">
+            <el-table-column label="إضافةالوقت" minWidth="90">
               <template slot-scope="scope">
                 <span>{{ scope.row.add_time }}</span>
               </template>
             </el-table-column>
-            <el-table-column label="操作" fixed="right" width="90">
+            <el-table-column label="الخيارات" fixed="right" width="90">
               <template slot-scope="scope">
-                <a v-db-click @click="edit(scope.row)">编辑</a>
+                <a v-db-click @click="edit(scope.row)">تحرير</a>
                 <el-divider direction="vertical"></el-divider>
-                <a v-db-click @click="del(scope.row, '删除链接', scope.$index)">删除</a>
+                <a v-db-click @click="del(scope.row, 'حذف链接', scope.$index)">حذف</a>
               </template>
             </el-table-column>
           </el-table>
@@ -117,14 +117,14 @@
       :close-on-click-modal="false"
     >
       <el-form :model="linkForm" ref="linkForm" label-width="80px">
-        <el-form-item label="名称:" prop="name">
-          <el-input v-model="linkForm.name" placeholder="请输入名称"></el-input>
+        <el-form-item label="الاسم:" prop="name">
+          <el-input v-model="linkForm.name" placeholder="الرجاء إدخال الاسم"></el-input>
         </el-form-item>
         <el-form-item label="跳转链接:" prop="url">
-          <el-input v-model="linkForm.url" placeholder="请输入跳转链接"></el-input>
+          <el-input v-model="linkForm.url" placeholder="الرجاء إدخال 跳转链接"></el-input>
         </el-form-item>
         <el-form-item label="排序:" prop="url">
-          <el-input v-model="linkForm.sort" placeholder="请输入排序"></el-input>
+          <el-input v-model="linkForm.sort" placeholder="الرجاء إدخال 排序"></el-input>
         </el-form-item>
         <el-form-item label="是否开启:" prop="url">
           <el-switch v-model="linkForm.status" :active-value="1" :inactive-value="0"></el-switch>
@@ -237,7 +237,7 @@ export default {
         ids: id,
       };
       let delfromData = {
-        title: '删除选中图片',
+        title: 'حذف选中图片',
         url: `file/file/delete`,
         method: 'POST',
         ids: ids,
@@ -252,13 +252,13 @@ export default {
           this.$message.error(res.msg);
         });
     },
-    // 删除图片
+    // حذف图片
     editPicList(id) {
       let ids = {
         ids: id || this.ids.toString(),
       };
       let delfromData = {
-        title: '删除选中图片',
+        title: 'حذف选中图片',
         url: `file/file/delete`,
         method: 'POST',
         ids: ids,
@@ -316,15 +316,15 @@ export default {
         }
       }
     },
-    // 点击添加
+    // 点击إضافة
     append() {
       this.getFrom();
     },
-    // 删除分类
+    // حذف分类
     remove(data, tit) {
       this.tits = tit;
       let delfromData = {
-        title: '删除 [ ' + data.title + ' ] ' + '分类',
+        title: 'حذف [ ' + data.title + ' ] ' + '分类',
         url: `diy/link/category/del/${data.id}`,
         method: 'DELETE',
         ids: '',
@@ -339,7 +339,7 @@ export default {
           this.$message.error(res.msg);
         });
     },
-    // 编辑树表单
+    // تحرير树表单
     editLinkCategory(data, type) {
       this.$modalForm(linkCategoryFormApi(type ? data.id : 0, data.id ? data.id : 1)).then(() => this.getList());
     },

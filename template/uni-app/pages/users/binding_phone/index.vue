@@ -15,10 +15,10 @@
 		<!-- #endif -->
 		<view class="page-msg">
 			<view class="title">
-				{{pageType == 1?$t('绑定手机号'):$t('手机号登录')}}
+				{{pageType == 1?$t('绑定手机号'):$t('手机号تسجيل الدخول')}}
 			</view>
 			<view class="tip">
-				{{pageType == 1?$t('登录注册需绑定手机号'):$t('首次登录会自动注册')}}
+				{{pageType == 1?$t('تسجيل الدخول注册需绑定手机号'):$t('首次تسجيل الدخول会自动注册')}}
 			</view>
 		</view>
 		<view class="page-form">
@@ -37,7 +37,7 @@
 				</button>
 			</view>
 			<view class="btn" @click="submitData">
-				{{$t(`${pageType == 1 ? '绑定手机号' : '立即登录'}`)}}
+				{{$t(`${pageType == 1 ? '绑定手机号' : '立即تسجيل الدخول'}`)}}
 			</view>
 		</view>
 		<view class="protocol" v-if="pageType == 0 && !canGetPrivacySetting">
@@ -96,7 +96,7 @@
 		data() {
 			return {
 				statusBarHeight: statusBarHeight,
-				pageType: 1, // 0 登录 1 绑定手机
+				pageType: 1, // 0 تسجيل الدخول 1 绑定手机
 				phone: '',
 				captcha: '',
 				text: '获取验证码',
@@ -123,7 +123,7 @@
 			this.backUrl = options.backUrl || ''
 			if (options.pageType) {
 				this.pageType = options.pageType || 1
-				this.pageTitle = options.pageType == 1 ? '绑定手机号' : '手机号登录'
+				this.pageTitle = options.pageType == 1 ? '绑定手机号' : '手机号تسجيل الدخول'
 			}
 			let pages = getCurrentPages();
 			let prePage = pages[pages.length - 2];
@@ -169,7 +169,7 @@
 				}
 				if (!(/^1(3|4|5|7|8|9|6)\d{9}$/i.test(that.phone))) {
 					that.$util.Tips({
-						title: that.$t(`请输入正确的手机号码`)
+						title: that.$t(`الرجاء إدخال 正确的手机号码`)
 					});
 					return false
 				}
@@ -185,7 +185,7 @@
 				if (!this.rules()) return
 
 				uni.showLoading({
-					title: this.$t(`正在登录中`)
+					title: this.$t(`正在تسجيل الدخول中`)
 				});
 				Routine.getCode()
 					.then(code => {
@@ -219,7 +219,7 @@
 			},
 			phoneAuth(key) {
 				uni.showLoading({
-					title: this.$t(`正在登录中`)
+					title: this.$t(`正在تسجيل الدخول中`)
 				});
 				let met
 				// #ifdef MP
@@ -261,7 +261,7 @@
 					} else {
 						// #ifdef MP
 						that.$util.Tips({
-							title: that.$t(`登录成功`),
+							title: that.$t(`تسجيل الدخول成功`),
 							icon: 'success'
 						}, {
 							tab: 3,
@@ -270,7 +270,7 @@
 						// #endif
 						// #ifndef MP
 						that.$util.Tips({
-							title: that.$t(`登录成功`),
+							title: that.$t(`تسجيل الدخول成功`),
 							icon: 'success'
 						}, {
 							tab: 4,
@@ -308,7 +308,7 @@
 					title: that.$t(`请填写手机号码`)
 				});
 				if (!(/^1(3|4|5|7|8|9|6)\d{9}$/i.test(that.phone))) return that.$util.Tips({
-					title: that.$t(`请输入正确的手机号码`)
+					title: that.$t(`الرجاء إدخال 正确的手机号码`)
 				});
 				this.$refs.verify.show();
 				return;
@@ -319,7 +319,7 @@
 			closeEdit() {
 				this.isShow = false
 				this.$util.Tips({
-					title: this.$t(`登录成功`),
+					title: this.$t(`تسجيل الدخول成功`),
 					icon: 'success'
 				}, {
 					tab: 3,

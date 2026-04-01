@@ -12,7 +12,7 @@ export default {
   name: 'rightBtn',
   props: ['activeIndex', 'configObj'],
   methods: {
-    // 右侧确认保存配置
+    // 右侧تأكيدحفظ配置
     handleSubmit(name) {
       let obj = {};
       obj.activeIndex = this.activeIndex;

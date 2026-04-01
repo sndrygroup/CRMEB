@@ -38,7 +38,7 @@
             </div>
           </div>
           <!-- <div class="acea-row row-center-wrapper">
-            <el-button class="mt20" type="primary" v-db-click @click="handleAdd">添加图文</el-button>
+            <el-button class="mt20" type="primary" v-db-click @click="handleAdd">إضافة图文</el-button>
           </div> -->
         </el-col>
         <el-col :xl="18" :lg="18" :md="12" :sm="24" :xs="24">
@@ -54,17 +54,17 @@
             <el-row :gutter="24">
               <el-col :span="24" class="ml40">
                 <el-form-item label="标题：" prop="title">
-                  <el-input style="width: 60%" v-model="saveForm.title" type="text" placeholder="请输入文章标题" />
+                  <el-input style="width: 60%" v-model="saveForm.title" type="text" placeholder="الرجاء إدخال 文章标题" />
                 </el-form-item>
               </el-col>
               <el-col :span="24" class="ml40">
                 <el-form-item label="作者：" prop="author">
-                  <el-input style="width: 60%" v-model="saveForm.author" type="text" placeholder="请输入作者名称" />
+                  <el-input style="width: 60%" v-model="saveForm.author" type="text" placeholder="الرجاء إدخال 作者الاسم" />
                 </el-form-item>
               </el-col>
               <el-col :span="24" class="ml40">
                 <el-form-item label="摘要：" prop="synopsis">
-                  <el-input style="width: 60%" v-model="saveForm.synopsis" type="textarea" placeholder="请输入摘要" />
+                  <el-input style="width: 60%" v-model="saveForm.synopsis" type="textarea" placeholder="الرجاء إدخال 摘要" />
                 </el-form-item>
               </el-col>
               <el-col :span="24" class="ml40">
@@ -84,7 +84,7 @@
               </el-col>
               <el-col :span="24" class="ml40">
                 <el-form-item>
-                  <el-button type="primary" class="submission" v-db-click @click="subFrom('saveForm')">提交</el-button>
+                  <el-button type="primary" class="submission" v-db-click @click="subFrom('saveForm')">إرسال</el-button>
                 </el-form-item>
               </el-col>
               <el-dialog :visible.sync="modalPic" width="1024px" title="上传文章图" :close-on-click-modal="false">
@@ -141,18 +141,18 @@ export default {
     };
     return {
       myConfig: {
-        autoHeightEnabled: false, // 编辑器不自动被内容撑高
+        autoHeightEnabled: false, // تحرير器不自动被内容撑高
         initialFrameHeight: 500, // 初始容器高度
         initialFrameWidth: '100%', // 初始容器宽度
         UEDITOR_HOME_URL: '/UEditor/',
         serverUrl: '',
       },
       ruleValidate: {
-        title: [{ required: true, message: '请输入标题', trigger: 'blur' }],
-        author: [{ required: true, message: '请输入作者', trigger: 'blur' }],
+        title: [{ required: true, message: 'الرجاء إدخال 标题', trigger: 'blur' }],
+        author: [{ required: true, message: 'الرجاء إدخال 作者', trigger: 'blur' }],
         image_input: [{ required: true, validator: validateUpload, trigger: 'change' }],
-        content: [{ required: true, message: '请输入正文', trigger: 'change' }],
-        synopsis: [{ required: true, message: '请输入文章摘要', trigger: 'blur' }],
+        content: [{ required: true, message: 'الرجاء إدخال 正文', trigger: 'change' }],
+        synopsis: [{ required: true, message: 'الرجاء إدخال 文章摘要', trigger: 'blur' }],
       },
       isChoice: '单选',
       dragging: null,
@@ -227,7 +227,7 @@ export default {
       this.saveForm.image_input = pc.att_dir;
       this.modalPic = false;
     },
-    // 添加图文按钮
+    // إضافة图文按钮
     handleAdd() {
       if (!this.check()) return false;
       let obj = {
@@ -249,16 +249,16 @@ export default {
       });
       this.content = this.saveForm.content;
     },
-    // 删除
+    // حذف
     del(i) {
       if (i === 0) {
-        this.$message.warning('不能再删除了');
+        this.$message.warning('不能再حذف了');
       } else {
         this.list.splice(i, 1);
         this.saveForm = {};
       }
     },
-    // 详情
+    // تفاصيل
     info() {
       wechatNewsInfotApi(this.$route.params.id)
         .then(async (res) => {
@@ -271,7 +271,7 @@ export default {
           this.$message.error(res.msg);
         });
     },
-    // 提交数据
+    // إرسال数据
     subFrom(name) {
       this.$refs[name].validate((valid) => {
         if (valid) {
@@ -299,42 +299,42 @@ export default {
     check() {
       for (let index in this.list) {
         if (!this.list[index].title) {
-          this.$message.warning('请输入文章的标题');
+          this.$message.warning('الرجاء إدخال 文章的标题');
           return false;
         } else if (!this.list[index].author) {
-          this.$message.warning('请输入文章的作者');
+          this.$message.warning('الرجاء إدخال 文章的作者');
           return false;
         } else if (!this.list[index].synopsis) {
-          this.$message.warning('请输入文章的摘要');
+          this.$message.warning('الرجاء إدخال 文章的摘要');
           return false;
         } else if (!this.list[index].image_input) {
-          this.$message.warning('请输入文章的图文封面');
+          this.$message.warning('الرجاء إدخال 文章的图文封面');
           return false;
         } else if (!this.list[index].content) {
-          this.$message.warning('请输入文章的内容');
+          this.$message.warning('الرجاء إدخال 文章的内容');
           return false;
         } else {
           return true;
         }
       }
       // if(!this.saveForm.title){
-      //     this.$message.warning('请输入文章的标题');
+      //     this.$message.warning('الرجاء إدخال 文章的标题');
       //     return false;
       // }
       // else if(!this.saveForm.author){
-      //     this.$message.warning('请输入文章的作者');
+      //     this.$message.warning('الرجاء إدخال 文章的作者');
       //     return false;
       // }
       // else if(!this.saveForm.synopsis){
-      //     this.$message.warning('请输入文章的摘要');
+      //     this.$message.warning('الرجاء إدخال 文章的摘要');
       //     return false;
       // }
       // else if(!this.saveForm.image_input){
-      //     this.$message.warning('请输入文章的图文封面');
+      //     this.$message.warning('الرجاء إدخال 文章的图文封面');
       //     return false;
       // }
       // else if(!this.saveForm.content){
-      //     this.$message.warning('请输入文章的内容');
+      //     this.$message.warning('الرجاء إدخال 文章的内容');
       //     return false;
       // }else{
       //     return true

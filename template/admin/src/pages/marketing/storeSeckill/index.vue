@@ -4,14 +4,14 @@
       <div class="padding-add">
         <el-form ref="tableFrom" :model="tableFrom" :label-width="labelWidth" label-position="right"
           @submit.native.prevent inline>
-          <el-form-item label="商品搜索：" label-for="store_name">
-            <el-input placeholder="请输入商品名称，ID" v-model="tableFrom.store_name" clearable class="form_content_width" />
+          <el-form-item label="商品بحث：" label-for="store_name">
+            <el-input placeholder="الرجاء إدخال 商品الاسم，ID" v-model="tableFrom.store_name" clearable class="form_content_width" />
           </el-form-item>
-          <el-form-item label="活动搜索：" label-for="store_name">
-            <el-input placeholder="请输入活动名称" v-model="tableFrom.activity_name" clearable class="form_content_width" />
+          <el-form-item label="活动بحث：" label-for="store_name">
+            <el-input placeholder="الرجاء إدخال 活动الاسم" v-model="tableFrom.activity_name" clearable class="form_content_width" />
           </el-form-item>
-          <el-form-item label="活动状态：">
-            <el-select placeholder="请选择" clearable v-model="tableFrom.status" @change="userSearchs"
+          <el-form-item label="活动الحالة：">
+            <el-select placeholder="الرجاء اختيار " clearable v-model="tableFrom.status" @change="userSearchs"
               class="form_content_width">
               <el-option value="1" label="开启"></el-option>
               <el-option value="0" label="关闭"></el-option>
@@ -22,7 +22,7 @@
               <el-option v-for="item in timeList" :value="item.id" :key="item.id" :label="item.time_name"></el-option>
             </el-select>
           </el-form-item> -->
-          <el-form-item label="活动时间：">
+          <el-form-item label="活动الوقت：">
             <el-date-picker clearable v-model="timeVal" type="daterange" :editable="false" @change="onchangeTime"
               format="yyyy/MM/dd" value-format="yyyy/MM/dd" start-placeholder="开始日期" end-placeholder="结束日期"
               style="width: 250px"></el-date-picker>
@@ -35,7 +35,7 @@
     </el-card>
     <el-card :bordered="false" shadow="never" class="ivu-mt mt16">
       <!-- <el-button v-auth="['marketing-store_seckill-create']" type="primary" v-db-click @click="add"
-        >添加秒杀商品</el-button
+        >إضافة秒杀商品</el-button
       > -->
       <el-button v-auth="['export-storeSeckill']" class="export" v-db-click @click="exports">导出</el-button>
       <el-table :data="tableList" v-loading="loading" highlight-current-row no-userFrom-text="暂无数据"
@@ -68,7 +68,7 @@
             </el-tooltip>
           </template>
         </el-table-column>
-        <el-table-column label="活动名称" min-width="100">
+        <el-table-column label="活动الاسم" min-width="100">
           <template slot-scope="scope">
             <el-tooltip placement="top" :open-delay="600">
               <div slot="content">{{ scope.row.activity_name }}</div>
@@ -96,18 +96,18 @@
             <span>{{ scope.row.quota }}</span>
           </template>
         </el-table-column>
-        <el-table-column label="秒杀状态" min-width="90">
+        <el-table-column label="秒杀الحالة" min-width="90">
           <template slot-scope="scope">
             <span>{{ scope.row.start_name }}</span>
           </template>
         </el-table-column>
-        <el-table-column label="活动时间" min-width="190">
+        <el-table-column label="活动الوقت" min-width="190">
           <template slot-scope="scope">
             <p>开始：{{ scope.row.start_time}}</p>
             <p>结束：{{ scope.row.stop_time}}</p>
           </template>
         </el-table-column>
-        <el-table-column label="状态" min-width="100">
+        <el-table-column label="الحالة" min-width="100">
           <template slot-scope="scope">
             <el-switch class="defineSwitch" :active-value="1" :inactive-value="0" v-model="scope.row.status"
               :value="scope.row.status" @change="onchangeIsShow(scope.row)" size="large" active-text="开启"
@@ -115,13 +115,13 @@
             </el-switch>
           </template>
         </el-table-column>
-        <el-table-column label="操作" fixed="right" width="100">
+        <el-table-column label="الخيارات" fixed="right" width="100">
           <template slot-scope="scope">
-            <!-- <a v-if="scope.row.stop_status === 0" v-db-click @click="edit(scope.row)">编辑</a>
+            <!-- <a v-if="scope.row.stop_status === 0" v-db-click @click="edit(scope.row)">تحرير</a>
             <el-divider direction="vertical" v-if="scope.row.stop_status === 0" />
             <a v-db-click @click="copy(scope.row)">复制</a>
             <el-divider direction="vertical"></el-divider>
-            <a v-db-click @click="del(scope.row, '删除秒杀商品', scope.$index)">删除</a>
+            <a v-db-click @click="del(scope.row, 'حذف秒杀商品', scope.$index)">حذف</a>
             <el-divider direction="vertical"></el-divider> -->
             <a v-db-click @click="viewInfo(scope.row)">统计</a>
           </template>
@@ -196,22 +196,22 @@ export default {
           minWidth: 130,
         },
         {
-          title: '秒杀状态',
+          title: '秒杀الحالة',
           key: 'start_name',
           minWidth: 100,
         },
         {
-          title: '结束时间',
+          title: '结束الوقت',
           slot: 'stop_time',
           minWidth: 100,
         },
         {
-          title: '状态',
+          title: 'الحالة',
           slot: 'status',
           minWidth: 100,
         },
         {
-          title: '操作',
+          title: 'الخيارات',
           slot: 'action',
           fixed: 'right',
           minWidth: 130,
@@ -272,7 +272,7 @@ export default {
       }
       this.getList();
     },
-    // 添加
+    // إضافة
     add() {
       this.$router.push({ path: this.$routeProStr + '/marketing/store_seckill/create' });
     },
@@ -306,7 +306,7 @@ export default {
       });
     },
 
-    // 编辑
+    // تحرير
     edit(row) {
       this.$router.push({
         path: this.$routeProStr + '/marketing/store_seckill/create/' + row.id + '/0',
@@ -318,7 +318,7 @@ export default {
         path: this.$routeProStr + '/marketing/store_seckill/create/' + row.id + '/1',
       });
     },
-    // 删除
+    // حذف
     del(row, tit, num) {
       let delfromData = {
         title: tit,
@@ -358,12 +358,12 @@ export default {
           this.$message.error(res.msg);
         });
     },
-    // 表格搜索
+    // 表格بحث
     userSearchs() {
       this.tableFrom.page = 1;
       this.getList();
     },
-    // 修改是否显示
+    // تعديل是否显示
     onchangeIsShow(row) {
       let data = {
         id: row.id,

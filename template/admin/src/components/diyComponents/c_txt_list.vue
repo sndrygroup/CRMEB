@@ -65,7 +65,7 @@
           type="primary"
           ghost
           style="width: 100%; height: 40px; border-color: var(--prev-color-primary); color: var(--prev-color-primary)"
-          >添加模块</el-button
+          >إضافة模块</el-button
         >
       </div>
     </div>
@@ -153,7 +153,7 @@ export default {
         this.datas[this.name].list.push(obj);
       }
     },
-    // 删除数组
+    // حذف数组
     bindDelete(index) {
       if (this.datas[this.name].list.length == 1) {
         let itemObj = this.datas[this.name].list[0];

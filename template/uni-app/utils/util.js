@@ -20,12 +20,12 @@ export default {
    * opt  object | string
    * to_url object | string
    * 例:
-   * this.Tips('/pages/test/test'); 跳转不提示
-   * this.Tips({title:'提示'},'/pages/test/test'); 提示并跳转
-   * this.Tips({title:'提示'},{tab:1,url:'/pages/index/index'}); 提示并跳转值table上
-   * tab=1 一定时间后跳转至 table上
-   * tab=2 一定时间后跳转至非 table上
-   * tab=3 一定时间后返回上页面
+   * this.Tips('/pages/test/test'); 跳转不تنبيه
+   * this.Tips({title:'تنبيه'},'/pages/test/test'); تنبيه并跳转
+   * this.Tips({title:'تنبيه'},{tab:1,url:'/pages/index/index'}); تنبيه并跳转值table上
+   * tab=1 一定الوقت后跳转至 table上
+   * tab=2 一定الوقت后跳转至非 table上
+   * tab=3 一定الوقت后عودة上页面
    * tab=4 关闭所有页面，打开到应用内的某个页面
    * tab=5 关闭当前页面，跳转到应用内的某个页面
    */
@@ -51,7 +51,7 @@ export default {
           url = to_url.url || "";
         switch (tab) {
           case 1:
-            //一定时间后跳转至 table
+            //一定الوقت后跳转至 table
             setTimeout(function () {
               uni.switchTab({
                 url: url,
@@ -67,7 +67,7 @@ export default {
             }, endtime);
             break;
           case 3:
-            //返回上页面
+            //عودة上页面
             setTimeout(function () {
               // #ifndef H5
               uni.navigateBack({
@@ -101,7 +101,7 @@ export default {
           to_url && to_url();
         }, endtime);
       } else {
-        //没有提示时跳转不延迟
+        //没有تنبيه时跳转不延迟
         setTimeout(
           function () {
             uni.navigateTo({
@@ -114,7 +114,7 @@ export default {
     }
   },
   /**
-   * 移除数组中的某个数组并组成新的数组返回
+   * 移除数组中的某个数组并组成新的数组عودة
    * @param array array 需要移除的数组
    * @param int index 需要移除的数组的键值
    * @param string | int 值
@@ -641,7 +641,7 @@ export default {
             canvas.clearRect(0, 0, canvasWidth, canvasHeight);
             canvas.drawImage(ress.path, 0, 0, canvasWidth, canvasHeight);
             canvas.save();
-            // 这里的画布drawImage是一种异步属性  可能存在未绘制全就执行了draw的问题  so添加延迟
+            // 这里的画布drawImage是一种异步属性  可能存在未绘制全就执行了draw的问题  soإضافة延迟
             setTimeout((e) => {
               canvas.draw(true, () => {
                 uni.canvasToTempFilePath({
@@ -785,7 +785,7 @@ export default {
     return 0;
   },
   /*
-   * 获取当前时间
+   * 获取当前الوقت
    */
   getNowTime() {
     let today = new Date();
@@ -796,7 +796,7 @@ export default {
     let minute = today.getMinutes(); // 获取当前分钟
     let second = today.getSeconds(); // 获取当前秒钟
 
-    // 格式化输出当前时间
+    // 格式化输出当前الوقت
     let nowTime =
       year + "/" + month + "/" + day + " " + hour + ":" + minute + ":" + second;
     return nowTime;
@@ -848,9 +848,9 @@ export default {
   },
   $h: {
     //除法函数，用来得到精确的除法结果
-    //说明：javascript的除法结果会有误差，在两个浮点数相除的时候会比较明显。这个函数返回较为精确的除法结果。
+    //说明：javascript的除法结果会有误差，在两个浮点数相除的时候会比较明显。这个函数عودة较为精确的除法结果。
     //调用：$h.Div(arg1,arg2)
-    //返回值：arg1除以arg2的精确结果
+    //عودة值：arg1除以arg2的精确结果
     Div: function (arg1, arg2) {
       arg1 = parseFloat(arg1);
       arg2 = parseFloat(arg2);
@@ -869,9 +869,9 @@ export default {
       return this.Mul(r1 / r2, Math.pow(10, t2 - t1));
     },
     //加法函数，用来得到精确的加法结果
-    //说明：javascript的加法结果会有误差，在两个浮点数相加的时候会比较明显。这个函数返回较为精确的加法结果。
+    //说明：javascript的加法结果会有误差，在两个浮点数相加的时候会比较明显。这个函数عودة较为精确的加法结果。
     //调用：$h.Add(arg1,arg2)
-    //返回值：arg1加上arg2的精确结果
+    //عودة值：arg1加上arg2的精确结果
     Add: function (arg1, arg2) {
       arg2 = parseFloat(arg2);
       var r1, r2, m;
@@ -889,9 +889,9 @@ export default {
       return (this.Mul(arg1, m) + this.Mul(arg2, m)) / m;
     },
     //减法函数，用来得到精确的减法结果
-    //说明：javascript的加法结果会有误差，在两个浮点数相加的时候会比较明显。这个函数返回较为精确的减法结果。
+    //说明：javascript的加法结果会有误差，在两个浮点数相加的时候会比较明显。这个函数عودة较为精确的减法结果。
     //调用：$h.Sub(arg1,arg2)
-    //返回值：arg1减去arg2的精确结果
+    //عودة值：arg1减去arg2的精确结果
     Sub: function (arg1, arg2) {
       arg1 = parseFloat(arg1);
       arg2 = parseFloat(arg2);
@@ -912,9 +912,9 @@ export default {
       return ((this.Mul(arg1, m) - this.Mul(arg2, m)) / m).toFixed(n);
     },
     //乘法函数，用来得到精确的乘法结果
-    //说明：javascript的乘法结果会有误差，在两个浮点数相乘的时候会比较明显。这个函数返回较为精确的乘法结果。
+    //说明：javascript的乘法结果会有误差，在两个浮点数相乘的时候会比较明显。这个函数عودة较为精确的乘法结果。
     //调用：$h.Mul(arg1,arg2)
-    //返回值：arg1乘以arg2的精确结果
+    //عودة值：arg1乘以arg2的精确结果
     Mul: function (arg1, arg2) {
       arg1 = parseFloat(arg1);
       arg2 = parseFloat(arg2);

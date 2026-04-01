@@ -17,10 +17,10 @@
           </el-option>
         </el-select>
       </el-form-item>
-      <el-form-item label="商品搜索：">
+      <el-form-item label="商品بحث：">
         <el-input
           clearable
-          placeholder="请输入商品名称/关键字/ID"
+          placeholder="الرجاء إدخال 商品الاسم/关键字/ID"
           v-model="formValidate.store_name"
           class="form_content_width"
         />
@@ -58,7 +58,7 @@
           </div>
         </template>
       </el-table-column>
-      <el-table-column label="商品名称" min-width="250">
+      <el-table-column label="商品الاسم" min-width="250">
         <template slot-scope="scope">
           <span>{{ scope.row.store_name }}</span>
         </template>
@@ -77,7 +77,7 @@
         :limit.sync="formValidate.limit"
         @pagination="pageChange"
       />
-      <el-button type="primary" v-db-click @click="ok" v-if="many === 'many' && !diy" class="ml15">提交</el-button>
+      <el-button type="primary" v-db-click @click="ok" v-if="many === 'many' && !diy" class="ml15">إرسال</el-button>
     </div>
   </div>
 </template>
@@ -364,7 +364,7 @@ export default {
         this.$message.warning('请先选择商品');
       }
     },
-    // 表格搜索
+    // 表格بحث
     userSearchs() {
       this.currentid = 0;
       this.productRow = {};

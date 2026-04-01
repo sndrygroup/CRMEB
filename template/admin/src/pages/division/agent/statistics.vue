@@ -10,7 +10,7 @@
           @submit.native.prevent
           inline
         >
-          <el-form-item label="时间范围：">
+          <el-form-item label="الوقت范围：">
             <el-date-picker
               clearable
               v-model="timeVal"
@@ -63,7 +63,7 @@
                 </div>
               </template>
             </el-table-column>
-            <el-table-column label="名称" min-width="130">
+            <el-table-column label="الاسم" min-width="130">
               <template slot-scope="scope">
                 <div class="acea-row">
                   <div v-text="scope.row.name"></div>
@@ -244,7 +244,7 @@ export default {
       this.formValidate.page = index;
       this.getList();
     },
-    // 添加排序方法
+    // إضافة排序方法
     handleSortChange({ prop, order }) {
       this.formValidate.sort = prop;
       this.formValidate.order = order === 'ascending' ? 'asc' : 'desc';

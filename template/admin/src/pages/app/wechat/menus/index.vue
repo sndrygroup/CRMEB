@@ -46,7 +46,7 @@
                 <el-tab-pane label="菜单信息" name="name1">
                   <el-col :span="24" class="userAlert">
                     <div class="box-card right">
-                      <el-alert type="info" show-icon closable title="已添加子菜单，仅可设置菜单名称"></el-alert>
+                      <el-alert type="info" show-icon closable title="已إضافة子菜单，仅可设置菜单الاسم"></el-alert>
                       <el-form
                         ref="formValidate"
                         :model="formValidate"
@@ -54,11 +54,11 @@
                         label-width="100px"
                         class="mt20"
                       >
-                        <el-form-item label="菜单名称" prop="name">
-                          <el-input v-model="formValidate.name" placeholder="请填写菜单名称" class="spwidth"></el-input>
+                        <el-form-item label="菜单الاسم" prop="name">
+                          <el-input v-model="formValidate.name" placeholder="请填写菜单الاسم" class="spwidth"></el-input>
                         </el-form-item>
-                        <el-form-item label="规则状态" prop="type">
-                          <el-select v-model="formValidate.type" placeholder="请选择规则状态" class="spwidth">
+                        <el-form-item label="规则الحالة" prop="type">
+                          <el-select v-model="formValidate.type" placeholder="الرجاء اختيار 规则الحالة" class="spwidth">
                             <el-option value="click" label="关键字"></el-option>
                             <el-option value="view" label="跳转网页"></el-option>
                             <el-option value="miniprogram" label="小程序"></el-option>
@@ -103,8 +103,8 @@
                 </el-tab-pane>
               </el-tabs>
               <el-col :span="24" v-if="isTrue">
-                <el-button size="small" type="danger" v-db-click @click="deltMenus">删除</el-button>
-                <el-button type="primary" v-db-click @click="submenus('formValidate')">保存并发布</el-button>
+                <el-button size="small" type="danger" v-db-click @click="deltMenus">حذف</el-button>
+                <el-button type="primary" v-db-click @click="submenus('formValidate')">حفظ并发布</el-button>
               </el-col>
             </el-col>
           </el-col>
@@ -132,14 +132,14 @@ export default {
       },
       ruleValidate: {
         name: [
-          { required: true, message: '请填写菜单名称', trigger: 'blur' },
+          { required: true, message: '请填写菜单الاسم', trigger: 'blur' },
           { min: 1, max: 14, message: '长度在 1 到 14 个字符', trigger: 'blur' },
         ],
         key: [{ required: true, message: '请填写关键字', trigger: 'blur' }],
         appid: [{ required: true, message: '请填写appid', trigger: 'blur' }],
         pagepath: [{ required: true, message: '请填写备用网页', trigger: 'blur' }],
         url: [{ required: true, message: '请填写跳转地址', trigger: 'blur' }],
-        type: [{ required: true, message: '请选择规则状态', trigger: 'change' }],
+        type: [{ required: true, message: 'الرجاء اختيار 规则الحالة', trigger: 'change' }],
       },
       parentMenuId: null,
       list: [],
@@ -156,7 +156,7 @@ export default {
     }
   },
   methods: {
-    // 添加一级字段函数
+    // إضافة一级字段函数
     defaultMenusData() {
       return {
         type: 'click',
@@ -164,7 +164,7 @@ export default {
         sub_button: [],
       };
     },
-    // 添加二级字段函数
+    // إضافة二级字段函数
     defaultChildData() {
       return {
         type: 'click',
@@ -182,7 +182,7 @@ export default {
           this.$message.error(res.msg);
         });
     },
-    // 点击保存提交
+    // 点击حفظإرسال
     submenus(name) {
       if (this.isTrue && !this.checkedMenuId && this.checkedMenuId !== 0) {
         this.putData();
@@ -231,7 +231,7 @@ export default {
         this.parentMenuId = index;
         this.isTrue = true;
       } else {
-        this.$message.warning('二级菜单最多只能添加5个!');
+        this.$message.warning('二级菜单最多只能إضافة5个!');
         return false;
       }
     },
@@ -252,15 +252,15 @@ export default {
       if (this.checkedMenuId === null) return true;
       if (!this.isTrue) return true;
       if (!this.formValidate.name) {
-        this.$message.warning('请输入按钮名称!');
+        this.$message.warning('الرجاء إدخال 按钮الاسم!');
         return false;
       }
       if (this.formValidate.type === 'click' && !this.formValidate.key) {
-        this.$message.warning('请输入关键字!');
+        this.$message.warning('الرجاء إدخال 关键字!');
         return false;
       }
       if (this.formValidate.type === 'view' && !reg.test(this.formValidate.url)) {
-        this.$message.warning('请输入正确的跳转地址!');
+        this.$message.warning('الرجاء إدخال 正确的跳转地址!');
         return false;
       }
       if (
@@ -272,12 +272,12 @@ export default {
       }
       return true;
     },
-    // 删除
+    // حذف
     deltMenus() {
       if (this.isTrue) {
-        this.$confirm('确认删除此菜单吗?', '提示', {
+        this.$confirm('تأكيدحذف此菜单吗?', 'تنبيه', {
           confirmButtonText: '确定',
-          cancelButtonText: '取消',
+          cancelButtonText: 'إلغاء',
           type: 'warning',
           beforeClose(action, instance, done) {
             if (action == 'confirm') {
@@ -314,10 +314,10 @@ export default {
           })
           .catch(() => {});
       } else {
-        this.$message.warning('请选择菜单!');
+        this.$message.warning('الرجاء اختيار 菜单!');
       }
     },
-    // 确认删除
+    // تأكيدحذف
     del() {
       this.parentMenuId === null
         ? this.list.splice(this.checkedMenuId, 1)

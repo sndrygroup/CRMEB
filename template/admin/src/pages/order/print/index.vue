@@ -15,7 +15,7 @@
         </div>
         <div class="info">
           <div><span class="name">订单编号：</span>{{ orderData.order_id }}</div>
-          <div><span class="name">支付时间：</span>{{ orderData.pay_time }}</div>
+          <div><span class="name">支付الوقت：</span>{{ orderData.pay_time }}</div>
           <div><span class="name">支付方式：</span>{{ orderData.pay_type }}</div>
         </div>
       </div>
@@ -26,7 +26,7 @@
               <span class="nickname">{{ scope.row.index }} </span>
             </template>
           </el-table-column>
-          <el-table-column label="商品名称" width="170">
+          <el-table-column label="商品الاسم" width="170">
             <template slot-scope="scope">
               <span class="nickname">{{ scope.row.name }} </span>
             </template>

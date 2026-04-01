@@ -1,7 +1,7 @@
 <template>
   <view>
     <view class="scan">
-      <view class="header">请选择要核销的订单</view>
+      <view class="header">الرجاء اختيار 要核销的订单</view>
       <view class="box">
         <view
           class="content"
@@ -33,7 +33,7 @@
             <image :src="item.image" mode=""></image>
             <view class="content_box_title acea-row row-column row-between">
               <p class="textbox">订单号：{{ item.order_id }}</p>
-              <p class="attribute">下单时间：{{ item.add_time }}</p>
+              <p class="attribute">下单الوقت：{{ item.add_time }}</p>
               <view class="txt">
                 <p class="attribute">订单实付：¥{{ item.pay_price }}</p>
               </view>
@@ -67,14 +67,14 @@
             <view v-else class="small_font">该订单仍有其他待核销商品</view>
           </view>
           <view class="acea-row btn-box">
-            <view v-if="!isAll" class="btn" @click="ok(1)">返回列表</view>
-            <!-- <navigator v-if="!isAll" :url='"/pages/admin/distribution/scanning/index?code="+attr.code' hover-class='none' open-type="redirect" class="btn btn_no">返回列表</navigator> -->
+            <view v-if="!isAll" class="btn" @click="ok(1)">عودة列表</view>
+            <!-- <navigator v-if="!isAll" :url='"/pages/admin/distribution/scanning/index?code="+attr.code' hover-class='none' open-type="redirect" class="btn btn_no">عودة列表</navigator> -->
             <navigator
               v-if="isAll"
               url="/pages/admin/work/index"
               hover-class="none"
               class="btn btn_no"
-              >返回工作台</navigator
+              >عودة工作台</navigator
             >
             <view v-if="!isAll" class="btn on" @click="ok(2)">继续核销</view>
             <view v-if="isAll" class="btn on" @click="ok(3)">核销其他订单</view>

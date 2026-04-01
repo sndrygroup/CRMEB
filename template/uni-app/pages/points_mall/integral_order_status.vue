@@ -13,7 +13,7 @@
 					<view class='itemCom'>{{orderId}}</view>
 				</view>
 				<view class='item acea-row row-between-wrapper'>
-					<view>{{$t(`兑换时间`)}}</view>
+					<view>{{$t(`兑换الوقت`)}}</view>
 					<view class='itemCom'>{{order_pay_info.add_time}}</view>
 				</view>
 				<view class='item acea-row row-between-wrapper'>
@@ -28,14 +28,14 @@
 				<view class='item acea-row row-between-wrapper'
 					v-if="order_pay_info.paid==0 && order_pay_info.pay_type != 'offline'">
 					<view>{{$t(`失败原因`)}}</view>
-					<view class='itemCom'>{{status==2 ? $t(`取消兑换`):msg}}</view>
+					<view class='itemCom'>{{status==2 ? $t(`إلغاء兑换`):msg}}</view>
 				</view>
 			</view>
 			<!--失败时： 重新购买 -->
 			<view @tap="goOrderDetails">
-				<button formType="submit" class='returnBnt bg-color' hover-class='none'>{{$t(`查看详情`)}}</button>
+				<button formType="submit" class='returnBnt bg-color' hover-class='none'>{{$t(`查看تفاصيل`)}}</button>
 			</view>
-			<button @click="goIndex" class='returnBnt cart-color' formType="submit" hover-class='none'>{{$t(`返回首页`)}}</button>
+			<button @click="goIndex" class='returnBnt cart-color' formType="submit" hover-class='none'>{{$t(`عودة首页`)}}</button>
 		</view>
 		<!-- #ifdef MP -->
 		<!-- <authorize @onLoadFun="onLoadFun" :isAuto="isAuto" :isShowAuth="isShowAuth" @authColse="authColse"></authorize> -->
@@ -95,7 +95,7 @@
 		},
 		onLoad: function(options) {
 			if (!options.order_id) return this.$util.Tips({
-				title: this.$t(`缺少参数无法查看订单兑换状态`)
+				title: this.$t(`缺少参数无法查看订单兑换الحالة`)
 			}, {
 				tab: 3,
 				url: 1
@@ -129,7 +129,7 @@
 			},
 			/**
 			 * 
-			 * 兑换完成查询兑换状态
+			 * 兑换完成查询兑换الحالة
 			 * 
 			 */
 			getOrderPayInfo: function() {
@@ -164,7 +164,7 @@
 			},
 			/**
 			 * 
-			 * 去订单详情页面
+			 * 去订单تفاصيل页面
 			 */
 			goOrderDetails: function(e) {
 				let that = this;

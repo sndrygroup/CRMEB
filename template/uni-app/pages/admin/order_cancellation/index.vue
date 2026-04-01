@@ -4,7 +4,7 @@
 			<view class="header"></view>
 			<view class="whiteBg">
 				<view class="input">
-					<input type="number" placeholder="请输入核销码" v-model="verify_code" />
+					<input type="number" placeholder="الرجاء إدخال 核销码" v-model="verify_code" />
 				</view>
 				<view class="bnt" @click="codeChange">{{ $t(`立即核销`) }}</view>
 			</view>
@@ -33,7 +33,7 @@
 				</view>
 				<view class="tip">{{ $t(`确定要核销此订单吗`) }}</view>
 				<view class="btn sure" @click="confirm">{{ $t(`确定核销`) }}</view>
-				<view class="btn cancel" @click="cancel">{{ $t(`取消`) }}</view>
+				<view class="btn cancel" @click="cancel">{{ $t(`إلغاء`) }}</view>
 			</view>
 			<view class="mask"></view>
 		</view>
@@ -78,7 +78,7 @@ export default {
 	},
 	methods: {
 		/**
-		 * 去订单详情
+		 * 去订单تفاصيل
 		 */
 		goOrderDetails: function (id, type) {
 			if (type == 'integral') {
@@ -97,11 +97,11 @@ export default {
 			let ref = /[0-9]{12}/;
 			if (!this.verify_code)
 				return self.$util.Tips({
-					title: this.$t(`请输入核销码`)
+					title: this.$t(`الرجاء إدخال 核销码`)
 				});
 			if (!ref.test(this.verify_code))
 				return self.$util.Tips({
-					title: this.$t(`请输入正确的核销码`)
+					title: this.$t(`الرجاء إدخال 正确的核销码`)
 				});
 			self.$util.Tips({
 				title: this.$t(`查询中`)
@@ -170,7 +170,7 @@ export default {
 				});
 		},
 		/**
-		 * 取消
+		 * إلغاء
 		 */
 		cancel: function () {
 			this.iShidden = false;

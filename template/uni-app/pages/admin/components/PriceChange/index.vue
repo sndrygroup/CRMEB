@@ -45,7 +45,7 @@
 			</view>
 			<view class="modify" @click="save">
 				{{
-          status == 1 || orderInfo.refund_status == 0 ? $t(`立即修改`) : (isRefund === 1 ? $t(`确认退款`) : $t(`同意退货`))
+          status == 1 || orderInfo.refund_status == 0 ? $t(`立即تعديل`) : (isRefund === 1 ? $t(`تأكيد退款`) : $t(`同意退货`))
         }}
 			</view>
 			<view class="modify1" @click="refuse" v-if="orderInfo.refund_status == 1">

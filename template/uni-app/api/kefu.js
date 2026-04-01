@@ -11,8 +11,8 @@
 import request from "@/utils/request.js";
 
 /**
- * 客服登录
- * @param data object 用户账号密码
+ * 客服تسجيل الدخول
+ * @param data object 用户账号كلمة المرور
  */
 export function kefuLogin(data) {
   return request.post("login", data, {
@@ -137,7 +137,7 @@ export function feedBackPost(data) {
 }
 
 /**
- * 检测登录code
+ * 检测تسجيل الدخولcode
  * @constructor
  */
 export function codeStauts(data) {
@@ -158,7 +158,7 @@ export function getWorkermanUrl(data) {
 }
 
 /**
- * 客服扫码登录code
+ * 客服扫码تسجيل الدخولcode
  * @constructor
  */
 export function kefuScanLogin(data) {

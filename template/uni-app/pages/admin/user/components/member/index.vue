@@ -31,7 +31,7 @@
             <input
               type="numeric"
               v-model="numeral"
-              placeholder="请输入时长"
+              placeholder="الرجاء إدخال 时长"
               placeholder-class="placeholder"
             />
             <text class="iconfont icon-ic_edit"></text>
@@ -40,7 +40,7 @@
       </view>
       <view class="footer acea-row row-between-wrapper">
         <view class="bnt acea-row row-center-wrapper" @click="closeDrawer"
-          >取消</view
+          >إلغاء</view
         >
         <view class="bnt on acea-row row-center-wrapper" @click="define"
           >确定</view

@@ -22,7 +22,7 @@ export default {
     defaultConfig: {
       headerSerch: {
         imgUrl: {
-          title: '最多可添加1张图片，图片建议宽度128 * 45px',
+          title: '最多可إضافة1张图片，图片建议宽度128 * 45px',
           url: '',
         },
         hotList: {
@@ -41,7 +41,7 @@ export default {
           val: true,
         },
         imgList: {
-          title: '最多可添加10张图片，建议宽度750px',
+          title: '最多可إضافة10张图片，建议宽度750px',
           max: 10,
           list: [
             {
@@ -86,7 +86,7 @@ export default {
           val: true,
         },
         imgList: {
-          title: '最多可添加20个，图片建议宽度96*96px；鼠标拖拽左侧圆点可调整图标顺序',
+          title: '最多可إضافة20个，图片建议宽度96*96px；鼠标拖拽左侧圆点可调整图标顺序',
           max: 20,
           list: [
             {
@@ -213,7 +213,7 @@ export default {
               info: [
                 {
                   title: '标题',
-                  value: '地址管理',
+                  value: '地址إدارة',
                   maxlength: 5,
                   tips: '请填写标题',
                 },

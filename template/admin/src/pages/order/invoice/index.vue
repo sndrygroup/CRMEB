@@ -10,7 +10,7 @@
           inline
           @submit.native.prevent
         >
-          <el-form-item label="创建时间：">
+          <el-form-item label="创建الوقت：">
             <el-date-picker
               clearable
               v-model="timeVal"
@@ -26,8 +26,8 @@
               class="mr20"
             ></el-date-picker>
           </el-form-item>
-          <el-form-item label="搜索：" prop="real_name" label-for="real_name">
-            <el-input clearable v-model="orderData.real_name" placeholder="请输入" class="form_content_width">
+          <el-form-item label="بحث：" prop="real_name" label-for="real_name">
+            <el-input clearable v-model="orderData.real_name" placeholder="الرجاء إدخال " class="form_content_width">
               <el-select v-model="orderData.field_key" slot="prepend" style="width: 100px">
                 <el-option value="all" label="全部"></el-option>
                 <el-option value="order_id" label="订单号"></el-option>
@@ -80,18 +80,18 @@
             <div v-else>企业</div>
           </template>
         </el-table-column>
-        <el-table-column label="下单时间" min-width="130">
+        <el-table-column label="下单الوقت" min-width="130">
           <template slot-scope="scope">
             <span>{{ scope.row.add_time }}</span>
           </template>
         </el-table-column>
-        <el-table-column label="开票状态" min-width="130">
+        <el-table-column label="开票الحالة" min-width="130">
           <template slot-scope="scope">
             <div v-if="scope.row.is_invoice === 1">已开票</div>
             <div v-else>未开票</div>
           </template>
         </el-table-column>
-        <el-table-column label="订单状态" min-width="130">
+        <el-table-column label="订单الحالة" min-width="130">
           <template slot-scope="scope">
             <div v-if="scope.row.status === 0">未发货</div>
             <div v-else-if="scope.row.status === 1">待收货</div>
@@ -100,7 +100,7 @@
             <div v-else-if="scope.row.status === -2">已退款</div>
           </template>
         </el-table-column>
-        <el-table-column label="操作" fixed="right" width="300">
+        <el-table-column label="الخيارات" fixed="right" width="300">
           <template slot-scope="scope">
             <template v-if="tablists.elec_invoice && tablists.elec_invoice == 1">
               <a
@@ -141,7 +141,7 @@
               >
               <el-divider v-if="scope.row.is_invoice !== 1 && scope.row.refund_status == 0" direction="vertical" />
             </template>
-            <a v-if="scope.row.status != -2" v-db-click @click="edit(scope.row)">操作</a>
+            <a v-if="scope.row.status != -2" v-db-click @click="edit(scope.row)">الخيارات</a>
             <el-divider v-if="scope.row.status != -2" direction="vertical" />
             <a v-db-click @click="orderInfo(scope.row.id)">订单信息</a>
           </template>
@@ -157,7 +157,7 @@
         />
       </div>
     </el-card>
-    <el-dialog :visible.sync="invoiceShow" title="发票详情" class="order_box" width="720px" @closed="cancel">
+    <el-dialog :visible.sync="invoiceShow" title="发票تفاصيل" class="order_box" width="720px" @closed="cancel">
       <el-form ref="formInline" :model="formInline" label-width="80px" @submit.native.prevent>
         <div v-if="invoiceDetails.header_type === 1 && invoiceDetails.type === 1">
           <div class="list">
@@ -250,14 +250,14 @@
             </el-row>
           </div>
         </div>
-        <el-form-item label="开票状态：" style="margin-top: 14px">
+        <el-form-item label="开票الحالة：" style="margin-top: 14px">
           <el-radio-group v-model="formInline.is_invoice" @input="kaiInvoice(formInline.is_invoice)">
             <el-radio :label="1">已开票</el-radio>
             <el-radio :label="0">未开票</el-radio>
           </el-radio-group>
         </el-form-item>
         <el-form-item label="发票编号：" v-if="formInline.is_invoice === 1">
-          <el-input v-model="formInline.invoice_number" placeholder="请输入发票编号"></el-input>
+          <el-input v-model="formInline.invoice_number" placeholder="الرجاء إدخال 发票编号"></el-input>
         </el-form-item>
         <el-form-item label="发票备注：" v-if="formInline.is_invoice === 1">
           <el-input
@@ -265,7 +265,7 @@
             value="备注"
             type="textarea"
             :autosize="{ minRows: 2, maxRows: 5 }"
-            placeholder="请输入发票备注"
+            placeholder="الرجاء إدخال 发票备注"
           ></el-input>
         </el-form-item>
         <div class="acea-row row-right">
@@ -273,7 +273,7 @@
         </div>
       </el-form>
     </el-dialog>
-    <el-dialog :visible.sync="orderShow" title="订单详情" class="order_box" width="720px">
+    <el-dialog :visible.sync="orderShow" title="订单تفاصيل" class="order_box" width="720px">
       <orderDetall :orderId="orderId" @detall="detall" v-if="orderShow"></orderDetall>
     </el-dialog>
     <el-dialog
@@ -354,10 +354,10 @@ export default {
 
   methods: {
     openNegative(row) {
-      // 弹窗确认
-      this.$confirm('确定开具负数发票？', '提示', {
+      // 弹窗تأكيد
+      this.$confirm('确定开具负数发票？', 'تنبيه', {
         confirmButtonText: '确定',
-        cancelButtonText: '取消',
+        cancelButtonText: 'إلغاء',
         type: 'warning',
       }).then(() => {
         redInvoiceIssuance(row.invoice_id).then((res) => {
@@ -471,13 +471,13 @@ export default {
           this.$message.error(err.msg);
         });
     },
-    // 精确搜索()
+    // 精确بحث()
     orderSearch() {
       this.orderData.page = 1;
       this.getTabs();
       this.getList();
     },
-    // 具体日期搜索()；
+    // 具体日期بحث()；
     onchangeTime(e) {
       this.orderData.page = 1;
       this.timeVal = e || [];
@@ -485,12 +485,12 @@ export default {
       this.getList();
       this.getTabs();
     },
-    //订单状态搜索()
+    //订单الحالةبحث()
     selectChange() {
       this.orderData.page = 1;
       this.getList();
     },
-    //订单搜索()
+    //订单بحث()
     onClickTab() {
       this.orderData.page = 1;
       this.orderData.type = this.currentTab;

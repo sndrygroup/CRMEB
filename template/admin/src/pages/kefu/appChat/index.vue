@@ -128,7 +128,7 @@
               </div>
             </div>
             <div class="editor-bd">
-              <textarea v-model="chatCont" placeholder="请输入文字内容" @keydown.enter="ctrlEnter"></textarea>
+              <textarea v-model="chatCont" placeholder="الرجاء إدخال 文字内容" @keydown.enter="ctrlEnter"></textarea>
             </div>
             <div class="editor-ft">
               <button :disabled="!chatCont" v-db-click @click.stop="sendMessage">发送</button>
@@ -245,7 +245,7 @@ export default {
       audioSrc: '',
       upperId: 0,
       uploadData: {},
-      is_tourist: 1, // 0登录状态，1未登录状态游客
+      is_tourist: 1, // 0تسجيل الدخولالحالة，1未تسجيل الدخولالحالة游客
       text: '',
       isLoad: false,
       page: 1,

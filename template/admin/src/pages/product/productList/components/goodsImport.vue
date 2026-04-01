@@ -3,7 +3,7 @@
   <div class="goods-import">
     <!-- 下载模板 -->
     <div class="download acea-row row-middle">
-      <span>上传前请先按Excel模板中的格式编辑内容</span>
+      <span>上传前请先按Excel模板中的格式تحرير内容</span>
       <img src="@/assets/images/excel-icon.png" alt="" />
       <a href="/product_migration.xlsx" download class="download-text cup">下载Excel模板</a>
     </div>
@@ -23,7 +23,7 @@
       >
         <template>
           <img class="el-upload-dragger__icon mb20" src="@/assets/images/upload-icon.png" alt="" />
-          <div class="el-upload__text">将文件拖到此处，或<em>点击添加</em></div>
+          <div class="el-upload__text">将文件拖到此处，或<em>点击إضافة</em></div>
           <div class="el-upload__trip">支持 .xls，.xlsx，限10M以内</div>
         </template>
       </el-upload>
@@ -32,7 +32,7 @@
         <div class="el-upload__text">{{ fileName }}</div>
         <div class="flex mt12" v-if="fileUrl && !importLoading">
           <div class="active-btn" @click="selectFile">重新上传</div>
-          <div class="active-btn" @click="fileUrl = ''">删除</div>
+          <div class="active-btn" @click="fileUrl = ''">حذف</div>
         </div>
         <div class="el-upload__trip" v-if="importLoading">
           正在导入，您可关闭当前弹窗，稍候可在列表查看导入结果
@@ -47,7 +47,7 @@
           {{ resultData.jump }} 个
         </div>
         <div class="el-upload__trip" v-if="resultData.fail > 0">
-          您可以下载失败数据，修改后再重新导入 <span class="active-btn" @click="downloadFailData">下载失败数据</span>
+          您可以下载失败数据，تعديل后再重新导入 <span class="active-btn" @click="downloadFailData">下载失败数据</span>
         </div>
         <div>
           <el-button class="btn-import" size="small" @click="selectFile">再次导入</el-button>
@@ -142,7 +142,7 @@ export default {
         file: this.fileUrl,
       })
         .then((res) => {
-          // 返回导入结果
+          // عودة导入结果
           this.importStatus = true;
           this.resultData = res.data;
         })

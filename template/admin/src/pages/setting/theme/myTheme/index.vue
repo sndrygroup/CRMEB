@@ -7,9 +7,9 @@
       </div>
     </div>
 
-    <!-- 顶部操作栏 -->
+    <!-- 顶部الخيارات栏 -->
     <div class="content-area">
-      <!-- 顶部操作栏 -->
+      <!-- 顶部الخيارات栏 -->
       <div class="action-bar">
         <div class="left-actions">
           <el-button type="primary" @click="handleAdd">新建主题</el-button>
@@ -17,8 +17,8 @@
           <img class="theme-in" src="https://www.crmeb.com/static/images/zhutishichang.png" alt="" @click="toTheme" />
         </div>
         <div class="right-actions flex">
-          <el-input v-model="searchKeyword" placeholder="请输入主题名称" class="search-input m-r-10"> </el-input>
-          <el-button type="primary" @click="getList">搜索</el-button>
+          <el-input v-model="searchKeyword" placeholder="الرجاء إدخال 主题الاسم" class="search-input m-r-10"> </el-input>
+          <el-button type="primary" @click="getList">بحث</el-button>
         </div>
       </div>
 
@@ -34,7 +34,7 @@
                 <div class="scan-text">扫码预览</div>
               </div>
 
-              <!-- 中间操作栏 -->
+              <!-- 中间الخيارات栏 -->
               <div class="middle-actions">
                 <div class="tag-row">
                   <span class="theme-tag">{{ item.type }}</span>
@@ -43,16 +43,16 @@
                   </span>
                   <div v-if="!item.is_use" class="line"></div>
                   <span v-if="!item.is_use" class="action-text" @click="handleDelete(item)">
-                    <span class="iconfont iconshanchu3"></span> 删除
+                    <span class="iconfont iconshanchu3"></span> حذف
                   </span>
                 </div>
                 <div class="theme-name-overlay line2">{{ item.title || '未命名主题' }}</div>
-                <div class="update-time">修改时间：{{ item.up_time }}</div>
+                <div class="update-time">تعديلالوقت：{{ item.up_time }}</div>
               </div>
 
               <!-- 底部按钮 -->
               <div class="bottom-buttons">
-                <el-button size="small" @click="handleEdit(item)">编辑主题</el-button>
+                <el-button size="small" @click="handleEdit(item)">تحرير主题</el-button>
                 <el-button type="primary" size="small" @click="handleUse(item)">使用主题</el-button>
               </div>
             </div>
@@ -234,13 +234,13 @@ export default {
         });
     },
     handleDelete(item) {
-      this.$confirm('确认删除该主题吗？', '提示', {
+      this.$confirm('تأكيدحذف该主题吗？', 'تنبيه', {
         type: 'warning',
       })
         .then(() => {
           deleteTheme(item.id)
             .then((res) => {
-              this.$message.success('删除成功');
+              this.$message.success('حذف成功');
               let index = this.themeList.findIndex((e) => e.id === item.id);
               if (index !== -1) {
                 this.themeList.splice(index, 1);
@@ -252,22 +252,22 @@ export default {
               this.getList();
             })
             .catch((err) => {
-              this.$message.error(err.msg || '删除失败');
+              this.$message.error(err.msg || 'حذف失败');
             });
         })
         .catch(() => {});
     },
     handleEdit(item) {
-      // 跳转编辑页
+      // 跳转تحرير页
       this.$router.push({
         path: this.$routeProStr + '/setting/edit_theme',
         query: { id: item.id, type: 'home' },
       });
     },
     handleUse(item) {
-      this.$confirm('确认使用该主题吗？', '提示', {
+      this.$confirm('تأكيد使用该主题吗？', 'تنبيه', {
         confirmButtonText: '确定',
-        cancelButtonText: '取消',
+        cancelButtonText: 'إلغاء',
         type: 'warning',
       }).then(() => {
         useTheme(item.id)

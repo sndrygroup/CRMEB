@@ -10,7 +10,7 @@
     >
       <el-row :gutter="24" justify="end">
         <el-col :span="24" class="ivu-text-left">
-          <el-form-item label="订单状态：">
+          <el-form-item label="订单الحالة：">
             <el-radio-group v-model="DataList.status" type="button" @input="selectChange(DataList.status)">
               <el-radio-button :label="item.label" v-for="(item, i) in typeName" :key="i">{{
                 item.name + '(' + item.num + ')'
@@ -20,7 +20,7 @@
         </el-col>
         <el-col :span="24" class="ivu-text-left">
           <el-col v-bind="grid">
-            <el-form-item label="创建时间：">
+            <el-form-item label="创建الوقت：">
               <el-radio-group v-model="DataList.data" type="button" @input="timeChange(DataList.data)">
                 <el-radio-button label="today">今天</el-radio-button>
                 <el-radio-button label="yesterday">昨天</el-radio-button>
@@ -79,7 +79,7 @@ export default {
         xs: 24,
       },
       // collapse: false,
-      // 搜索条件
+      // بحث条件
       DataList: {
         status: '',
         data: '',
@@ -95,15 +95,15 @@ export default {
     ...mapState('order', ['orderChartType']),
   },
   methods: {
-    // 订单选择状态
+    // 订单选择الحالة
     selectChange(status) {
       this.$emit('getTypeNum', status);
     },
-    // 时间状态
+    // الوقتالحالة
     timeChange(time) {
       this.$emit('getSeachTime', time);
     },
-    // 订单号搜索
+    // 订单号بحث
     orderSearch(num) {
       this.getOrderNum(num);
       this.$emit('getList');
@@ -115,7 +115,7 @@ export default {
     handleSubmit() {
       this.$emit('on-submit', this.data);
     },
-    // 刷新
+    // تحديث
     Refresh() {
       this.$emit('getList');
     },

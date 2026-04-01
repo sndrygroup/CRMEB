@@ -17,12 +17,12 @@
         <template slot="title">
           启动定时任务两种方式：<br />
           1、使用命令启动：php think timer start
-          --d；如果更改了执行周期、编辑是否开启、删除定时任务需要重新启动下定时任务确保生效；<br />
+          --d；如果更改了执行周期、تحرير是否开启、حذف定时任务需要重新启动下定时任务确保生效；<br />
           2、使用接口触发定时任务，建议每分钟调用一次，接口地址 {{ apiBaseURL }}api/crontab/run <br />
         </template>
       </el-alert>
       <el-button v-if="currentTab === '1'" type="primary" v-db-click @click="addTask" class="mt14"
-        >添加定时任务</el-button
+        >إضافة定时任务</el-button
       >
       <el-table :data="tableData" v-loading="loading" class="ivu-mt">
         <el-table-column label="标题" min-width="150">
@@ -55,16 +55,16 @@
             </el-switch>
           </template>
         </el-table-column>
-        <el-table-column label="操作" width="100">
+        <el-table-column label="الخيارات" width="100">
           <template slot-scope="scope">
-            <a v-db-click @click="edit(scope.row.id)">编辑</a>
+            <a v-db-click @click="edit(scope.row.id)">تحرير</a>
             <el-divider direction="vertical" v-if="currentTab === '1'"></el-divider>
             <a
               v-if="currentTab === '1'"
               v-permission="'seckill'"
               v-db-click
-              @click="handleDelete(scope.row, '删除定时任务', scope.$index)"
-              >删除</a
+              @click="handleDelete(scope.row, 'حذف定时任务', scope.$index)"
+              >حذف</a
             >
           </template>
         </el-table-column>
@@ -149,7 +149,7 @@ export default {
     edit(id) {
       this.$refs.addTask.timerInfo(id);
     },
-    // 删除
+    // حذف
     handleDelete(row, tit, num) {
       let delfromData = {
         title: tit,

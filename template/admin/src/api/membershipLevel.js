@@ -24,7 +24,7 @@ export function membershipDataListApi(data) {
 }
 
 /**
- * @description 组合数据列表 -- 编辑表单
+ * @description 组合数据列表 -- تحرير表单
  * @param {Number} param id {Number} 组合数据列表id
  * @param {Object} param data {Object} 组合数据id对象
  */
@@ -59,7 +59,7 @@ export function getTaskNumFormApi(id) {
   });
 }
 /**
- * @description 组合数据列表 -- 修改状态
+ * @description 组合数据列表 -- تعديلالحالة
  * @param {Object} param data {Object} 组合数据列表传值
  */
 export function membershipSetApi(url) {
@@ -71,7 +71,7 @@ export function membershipSetApi(url) {
 }
 
 /**
- * @description 组合数据列表 -- 修改状态
+ * @description 组合数据列表 -- تعديلالحالة
  * @param {Object} param data {Object} 组合数据列表传值
  */
 export function levelTaskSetApi(url) {
@@ -96,7 +96,7 @@ export function levelTaskListDataAddApi(data) {
 }
 
 /**
- * @description 组合数据列表 -- 编辑表单
+ * @description 组合数据列表 -- تحرير表单
  * @param {Number} param id {Number} 组合数据列表id
  * @param {Object} param data {Object} 组合数据id对象
  */

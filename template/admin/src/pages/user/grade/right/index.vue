@@ -11,12 +11,12 @@
         no-userFrom-text="暂无数据"
         no-filtered-userFrom-text="暂无筛选结果"
       >
-        <el-table-column label="权益名称" min-width="120">
+        <el-table-column label="权益الاسم" min-width="120">
           <template slot-scope="scope">
             <span>{{ scope.row.title }}</span>
           </template>
         </el-table-column>
-        <el-table-column label="展示名称" min-width="120">
+        <el-table-column label="展示الاسم" min-width="120">
           <template slot-scope="scope">
             <span>{{ scope.row.show_title }}</span>
           </template>
@@ -33,7 +33,7 @@
             <span>{{ scope.row.explain }}</span>
           </template>
         </el-table-column>
-        <el-table-column label="权益状态" min-width="120">
+        <el-table-column label="权益الحالة" min-width="120">
           <template slot-scope="scope">
             <el-switch
               class="defineSwitch"
@@ -48,9 +48,9 @@
             </el-switch>
           </template>
         </el-table-column>
-        <el-table-column label="操作" fixed="right" width="170">
+        <el-table-column label="الخيارات" fixed="right" width="170">
           <template slot-scope="scope">
-            <a v-db-click @click="edit(scope.row)">编辑</a>
+            <a v-db-click @click="edit(scope.row)">تحرير</a>
           </template>
         </el-table-column>
       </el-table>
@@ -58,16 +58,16 @@
         <pagination v-if="total" :total="total" :page.sync="page" :limit.sync="limit" @pagination="getRightList" />
       </div>
     </el-card>
-    <el-dialog :visible.sync="modal1" title="编辑会员权益" width="540px">
+    <el-dialog :visible.sync="modal1" title="تحرير会员权益" width="540px">
       <el-form ref="form" :model="form" :rules="rules" label-width="90px">
         <el-input v-model="form.id" style="display: none"></el-input>
         <el-input v-model="form.status" style="display: none"></el-input>
         <el-input v-model="form.right_type" style="display: none"></el-input>
-        <el-form-item label="权益名称：" prop="title">
-          <el-input v-model.trim="form.title" placeholder="请输入权益名称" disabled class="w100"></el-input>
+        <el-form-item label="权益الاسم：" prop="title">
+          <el-input v-model.trim="form.title" placeholder="الرجاء إدخال 权益الاسم" disabled class="w100"></el-input>
         </el-form-item>
-        <el-form-item label="展示名称：" prop="show_title">
-          <el-input v-model.trim="form.show_title" placeholder="请输入展示名称" class="w100"></el-input>
+        <el-form-item label="展示الاسم：" prop="show_title">
+          <el-input v-model.trim="form.show_title" placeholder="الرجاء إدخال 展示الاسم" class="w100"></el-input>
         </el-form-item>
         <el-form-item label="权益图标：" prop="image">
           <div class="image-group" v-db-click @click="callImage">
@@ -81,7 +81,7 @@
             v-model.trim="form.explain"
             type="textarea"
             :autosize="{ minRows: 2, maxRows: 10 }"
-            placeholder="请输入权益简介"
+            placeholder="الرجاء إدخال 权益简介"
             class="w100"
           ></el-input>
         </el-form-item>
@@ -98,7 +98,7 @@
         </el-form-item>
         <el-form-item>
           <div class="acea-row row-right">
-            <el-button type="primary" v-db-click @click="formSubmit('form')">提交</el-button>
+            <el-button type="primary" v-db-click @click="formSubmit('form')">إرسال</el-button>
           </div>
         </el-form-item>
       </el-form>
@@ -141,11 +141,11 @@ export default {
         status: 1,
       },
       rules: {
-        title: [{ required: true, message: '请输入权益名称', trigger: 'blur' }],
-        show_title: [{ required: true, message: '请输入展示名称', trigger: 'blur' }],
+        title: [{ required: true, message: 'الرجاء إدخال 权益الاسم', trigger: 'blur' }],
+        show_title: [{ required: true, message: 'الرجاء إدخال 展示الاسم', trigger: 'blur' }],
         image: [{ required: true, message: '请上传权益图标' }],
-        explain: [{ required: true, message: '请输入权益简介', trigger: 'blur' }],
-        number: [{ required: true, type: 'integer', message: '请输入正整数' }],
+        explain: [{ required: true, message: 'الرجاء إدخال 权益简介', trigger: 'blur' }],
+        number: [{ required: true, type: 'integer', message: 'الرجاء إدخال 正整数' }],
       },
       modal2: false,
       gridPic: {
@@ -185,7 +185,7 @@ export default {
           this.$message.error(err);
         });
     },
-    // 改变状态
+    // 改变الحالة
     statusChange(row) {
       this.form.id = row.id;
       this.form.right_type = row.right_type;
@@ -197,7 +197,7 @@ export default {
       this.form.status = row.status;
       this.rightSave();
     },
-    // 编辑
+    // تحرير
     edit(row) {
       this.modal1 = true;
       this.form.id = row.id;
@@ -209,7 +209,7 @@ export default {
       this.form.explain = row.explain;
       this.form.number = row.number;
     },
-    // 修改
+    // تعديل
     rightSave() {
       memberRightSave(this.form)
         .then((res) => {

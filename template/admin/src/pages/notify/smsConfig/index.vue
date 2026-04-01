@@ -26,14 +26,14 @@ export default {
     return {
       imgUrl: require('@/assets/images/ren.png'),
       spinShow: false,
-      isShowLogn: false, // 登录
-      isShow: false, // 修改密码
+      isShowLogn: false, // تسجيل الدخول
+      isShow: false, // تعديلكلمة المرور
       isShowReg: false, // 注册
-      isShowList: false, // 登录之后列表
+      isShowList: false, // تسجيل الدخول之后列表
       smsAccount: '',
       accountInfo: {},
-      isForgetPhone: false, // 修改手机号
-      isIndex: false, // 判断忘记密码返回的路径
+      isForgetPhone: false, // تعديل手机号
+      isIndex: false, // 判断忘记كلمة المرورعودة的路径
       sms: { open: 0 }, // 短信信息
       query: { open: 0 }, // 物流查询
       dump: { open: 0 }, // 电子面单打印
@@ -129,7 +129,7 @@ export default {
           this.spinShow = false;
         });
     },
-    // 查看是否登录
+    // 查看是否تسجيل الدخول
     onIsLogin() {
       this.spinShow = true;
       isLoginApi()
@@ -147,7 +147,7 @@ export default {
           this.$message.error(res.msg);
         });
     },
-    // 退出登录
+    // 退出تسجيل الدخول
     signOut() {
       logoutApi()
         .then(async (res) => {
@@ -158,12 +158,12 @@ export default {
           this.$message.error(res.msg);
         });
     },
-    // 修改密码
+    // تعديلكلمة المرور
     onChangePassswordIndex() {
       this.isIndex = true;
       this.passsword();
     },
-    // 忘记密码
+    // 忘记كلمة المرور
     onChangePasssword() {
       this.isIndex = false;
       this.passsword();
@@ -183,13 +183,13 @@ export default {
       this.isShow = false;
       this.isShowReg = true;
     },
-    // 立即登录
+    // 立即تسجيل الدخول
     logoup() {
       this.isShowLogn = true;
       this.isShow = false;
       this.isShowReg = false;
     },
-    // 登录跳转
+    // تسجيل الدخول跳转
     onLogin() {
       let url = this.$route.query.url;
       if (url) {
@@ -203,7 +203,7 @@ export default {
         this.getServeInfo();
       }
     },
-    // 密码返回
+    // كلمة المرورعودة
     goback() {
       if (this.isIndex) {
         this.isShowList = true;
@@ -213,7 +213,7 @@ export default {
         this.isShow = false;
       }
     },
-    // 手机号返回
+    // 手机号عودة
     gobackPhone() {
       this.isShowList = true;
       this.isForgetPhone = false;

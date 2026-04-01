@@ -8,9 +8,9 @@
       @submit.native.prevent
       inline
     >
-      <el-form-item label="订单状态：">
+      <el-form-item label="订单الحالة：">
         <el-select
-          placeholder="请选择"
+          placeholder="الرجاء اختيار "
           clearable
           v-model="orderData.is_show"
           @change="selectChange2"
@@ -22,7 +22,7 @@
           <el-option value="3" label="交易完成"></el-option>
         </el-select>
       </el-form-item>
-      <el-form-item label="创建时间：">
+      <el-form-item label="创建الوقت：">
         <el-date-picker
           clearable
           v-model="timeVal"
@@ -37,15 +37,15 @@
           style="width: 250px"
         ></el-date-picker>
       </el-form-item>
-      <el-form-item label="订单搜索：" prop="real_name" label-for="real_name">
-        <el-input clearable v-model="orderData.real_name" placeholder="请输入" class="form_content_width">
+      <el-form-item label="订单بحث：" prop="real_name" label-for="real_name">
+        <el-input clearable v-model="orderData.real_name" placeholder="الرجاء إدخال " class="form_content_width">
           <el-select v-model="orderData.field_key" slot="prepend" style="width: 100px">
             <el-option value="all" label="全部"></el-option>
             <el-option value="order_id" label="订单号"></el-option>
             <el-option value="uid" label="UID"></el-option>
             <el-option value="real_name" label="用户姓名"></el-option>
             <el-option value="user_phone" label="用户电话"></el-option>
-            <el-option value="store_name" label="商品名称(模糊)"></el-option>
+            <el-option value="store_name" label="商品الاسم(模糊)"></el-option>
           </el-select>
         </el-input>
       </el-form-item>
@@ -82,7 +82,7 @@ export default {
   data() {
     return {
       currentTab: '',
-      // 搜索条件
+      // بحث条件
       orderData: {
         status: '',
         data: '',
@@ -239,7 +239,7 @@ export default {
       this.$emit('getList', 1);
       this.$emit('order-data', this.orderData);
     },
-    // 选择时间
+    // 选择الوقت
     selectChange(tab) {
       this.$store.dispatch('integralOrder/getOrderTabs', { data: tab });
       this.orderData.data = tab;
@@ -248,7 +248,7 @@ export default {
       this.$emit('getList');
       this.$emit('order-data', this.orderData);
     },
-    // 订单选择状态
+    // 订单选择الحالة
     selectChange2(tab) {
       this.getOrderStatus(tab);
       this.$emit('getList', 1);
@@ -257,12 +257,12 @@ export default {
       this.getOrderType(type);
       this.$emit('getList', 1);
     },
-    // 时间状态
+    // الوقتالحالة
     timeChange(time) {
       this.getOrderTime(time);
       this.$emit('getList');
     },
-    // 订单号搜索
+    // 订单号بحث
     orderSearch() {
       this.getOrderNum(this.orderData.real_name);
       this.getfieldKey(this.orderData.field_key);
@@ -272,10 +272,10 @@ export default {
     onClickTab() {
       this.$emit('onChangeType', this.currentTab);
     },
-    // 批量删除
+    // 批量حذف
     delAll() {
       if (this.delIdList.length === 0) {
-        this.$message.error('请先选择删除的订单！');
+        this.$message.error('请先选择حذف的订单！');
       } else {
         if (this.isDels) {
           this.delIdList.filter((item) => {
@@ -287,7 +287,7 @@ export default {
             where: this.orderData,
           };
           let delfromData = {
-            title: '删除订单',
+            title: 'حذف订单',
             url: `/order/dels`,
             method: 'post',
             ids: idss,
@@ -301,7 +301,7 @@ export default {
               this.$message.error(res.msg);
             });
         } else {
-          this.$message.error('您选择的的订单存在用户未删除的订单，无法删除用户未删除的订单！');
+          this.$message.error('您选择的的订单存在用户未حذف的订单，无法حذف用户未حذف的订单！');
         }
       }
     },
@@ -314,7 +314,7 @@ export default {
     handleSubmit() {
       this.$emit('on-submit', this.data);
     },
-    // 刷新
+    // تحديث
     Refresh() {
       this.$emit('getList');
     },
@@ -377,22 +377,22 @@ export default {
           this.fileList = [];
         });
     },
-    // 手动批量发货-取消
+    // 手动批量发货-إلغاء
     manualModalCancel() {
       this.fileList = [];
       this.$refs.upload.clearFiles();
     },
-    // 自动批量发货-取消
+    // 自动批量发货-إلغاء
     autoModalOk() {
       if (this.isAll == '全部' || this.formSelection.length) {
         this.$refs.send.modals = true;
         this.$refs.send.getList();
         this.$refs.send.getDeliveryList();
       } else {
-        this.$message.error('请选择本页订单');
+        this.$message.error('الرجاء اختيار 本页订单');
       }
     },
-    // 自动批量发货-取消
+    // 自动批量发货-إلغاء
     autolModalCancel() {},
     submitFail() {
       otherBatchDelivery();

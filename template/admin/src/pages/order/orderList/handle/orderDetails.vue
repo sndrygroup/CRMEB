@@ -1,6 +1,6 @@
 <template>
   <div>
-    <el-drawer title="订单详情" :size="1000" :visible.sync="modals" wrapperClosable :before-close="handleClose">
+    <el-drawer title="订单تفاصيل" :size="1000" :visible.sync="modals" wrapperClosable :before-close="handleClose">
       <div v-if="orderDatalist">
         <div class="head">
           <div class="full">
@@ -14,7 +14,7 @@
           </div>
           <ul class="list">
             <li class="item">
-              <div class="title">订单状态</div>
+              <div class="title">订单الحالة</div>
               <div>
                 {{ orderDatalist.orderInfo._status._title }}
                 {{
@@ -41,7 +41,7 @@
               <div>{{ (orderDatalist.orderInfo.pay_type | payType) || '其它方式' }}</div>
             </li>
             <li class="item">
-              <div class="title">支付时间</div>
+              <div class="title">支付الوقت</div>
               <div>{{ orderDatalist.orderInfo._pay_time }}</div>
             </li>
           </ul>
@@ -52,7 +52,7 @@
               <div class="title">用户信息</div>
               <ul class="list">
                 <li class="item">
-                  <div>用户名称：</div>
+                  <div>اسم المستخدم称：</div>
                   <div class="value">{{ orderDatalist.userInfo.real_name }}</div>
                 </li>
                 <li class="item">
@@ -92,7 +92,7 @@
               <div class="title">订单信息</div>
               <ul class="list">
                 <li class="item">
-                  <div>创建时间：</div>
+                  <div>创建الوقت：</div>
                   <div class="value">{{ orderDatalist.orderInfo._add_time }}</div>
                 </li>
                 <li class="item">
@@ -238,7 +238,7 @@
                   class="item"
                   v-if="orderDatalist.orderInfo.invoice.header_type === 2 && orderDatalist.orderInfo.invoice.type === 1"
                 >
-                  <div>开票状态：</div>
+                  <div>开票الحالة：</div>
                   <div class="value">{{ orderDatalist.orderInfo.invoice.is_invoice ? '已开票' : '未开票' }}</div>
                 </li>
               </ul>
@@ -342,12 +342,12 @@
                   <span>{{ scope.row.oid }}</span>
                 </template>
               </el-table-column>
-              <el-table-column label="操作记录" min-width="100">
+              <el-table-column label="الخيارات记录" min-width="100">
                 <template slot-scope="scope">
                   <span>{{ scope.row.change_message }}</span>
                 </template>
               </el-table-column>
-              <el-table-column label="操作时间" min-width="100">
+              <el-table-column label="الخياراتالوقت" min-width="100">
                 <template slot-scope="scope">
                   <span>{{ scope.row.change_time }}</span>
                 </template>

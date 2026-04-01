@@ -84,7 +84,7 @@
               </div>
             </div>
             <div class="info-item" v-if="configData.type">
-              <span class="span">状态</span>
+              <span class="span">الحالة</span>
               <el-switch v-model="item.show" />
             </div>
           </div>
@@ -235,7 +235,7 @@ export default {
     handleIconSelect(icon) {
       this.$set(this.configData.list[this.activeIndex], 'icon', icon);
     },
-    // 添加自定义弹窗
+    // إضافة自定义弹窗
     addCustomDialog(editorId) {
       window.UE.registerUI(
         'test-dialog',
@@ -283,7 +283,7 @@ export default {
       let data = this.defaults.menuConfig;
       this.defaults.picStyle.picList[this.defaults.picStyle.tabVal].link = data.list[0].info[0].value;
     },
-    // 删除
+    // حذف
     bindDelete(item, index) {
       if (this.configData.list.length == 1) {
         this.lastObj = this.configData.list[0];

@@ -3,7 +3,7 @@
     <el-card :bordered="false" shadow="never" class="ivu-mt">
       <el-row>
         <el-col v-bind="grid">
-          <el-button type="primary" v-db-click @click="add">添加语言</el-button>
+          <el-button type="primary" v-db-click @click="add">إضافة语言</el-button>
         </el-col>
       </el-row>
       <el-table
@@ -20,7 +20,7 @@
             <span>{{ scope.row.id }}</span>
           </template>
         </el-table-column>
-        <el-table-column label="语言名称" min-width="200">
+        <el-table-column label="语言الاسم" min-width="200">
           <template slot-scope="scope">
             <div class="acea-scope.row scope.row-middle">
               <span>{{ scope.row.language_name }}</span>
@@ -33,7 +33,7 @@
             <span>{{ scope.row.file_name }}</span>
           </template>
         </el-table-column>
-        <el-table-column label="状态" min-width="150">
+        <el-table-column label="الحالة" min-width="150">
           <template slot-scope="scope">
             <el-switch
               class="defineSwitch"
@@ -49,11 +49,11 @@
             </el-switch>
           </template>
         </el-table-column>
-        <el-table-column label="操作" fixed="right" width="170">
+        <el-table-column label="الخيارات" fixed="right" width="170">
           <template slot-scope="scope">
-            <a v-db-click @click="edit(scope.row, '编辑语言', index)">编辑</a>
+            <a v-db-click @click="edit(scope.row, 'تحرير语言', index)">تحرير</a>
             <el-divider direction="vertical"></el-divider>
-            <a v-db-click @click="del(scope.row, '删除语言', scope.$index)">删除</a>
+            <a v-db-click @click="del(scope.row, 'حذف语言', scope.$index)">حذف</a>
           </template>
         </el-table-column>
       </el-table>
@@ -107,7 +107,7 @@ export default {
     this.getList();
   },
   methods: {
-    // 添加
+    // إضافة
     add() {
       this.$modalForm(langTypeForm(0)).then(() => this.getList());
     },
@@ -126,11 +126,11 @@ export default {
           this.$message.error(res.msg);
         });
     },
-    // 编辑
+    // تحرير
     edit(row) {
       this.$modalForm(langTypeForm(row.id)).then(() => this.getList());
     },
-    // 删除
+    // حذف
     del(row, tit, num) {
       let delfromData = {
         title: tit,
@@ -149,7 +149,7 @@ export default {
           this.$message.error(res.msg);
         });
     },
-    // 修改状态
+    // تعديلالحالة
     changeSwitch(row) {
       langTypeStatus(row.id, row.status)
         .then((res) => {

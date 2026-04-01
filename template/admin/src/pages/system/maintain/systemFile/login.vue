@@ -4,11 +4,11 @@
       <el-col :span="24">
         <div class="index_from page-account-container">
           <div class="page-account-top">
-            <span class="page-account-top-tit">文件管理登录</span>
+            <span class="page-account-top-tit">文件إدارةتسجيل الدخول</span>
           </div>
           <el-form ref="formInline" :model="formInline" :rules="ruleInline" @submit.native.prevent>
             <!-- <el-form-item prop="sms_account" class="maxInpt">
-            <el-input type="text" v-model="formInline.account" prefix="ios-contact-outline" placeholder="请输入手机号" />
+            <el-input type="text" v-model="formInline.account" prefix="ios-contact-outline" placeholder="الرجاء إدخال 手机号" />
           </el-form-item> -->
             <el-form-item prop="sms_token" class="maxInpt">
               <el-input
@@ -16,13 +16,13 @@
                 size="large"
                 v-model="formInline.password"
                 prefix="ios-lock-outline"
-                placeholder="请输入密码"
+                placeholder="الرجاء إدخال كلمة المرور"
               />
-              <div class="trip">提示：密码配置在 /config/filesystem.php 文件中修改 'password' => '密码'</div>
+              <div class="trip">تنبيه：كلمة المرور配置在 /config/filesystem.php 文件中تعديل 'password' => 'كلمة المرور'</div>
             </el-form-item>
             <el-form-item class="maxInpt">
               <el-button type="primary" long size="large" v-db-click @click="handleSubmit('formInline')" class="btn"
-                >登录</el-button
+                >تسجيل الدخول</el-button
               >
             </el-form-item>
           </el-form>
@@ -55,7 +55,7 @@ export default {
       },
       ruleInline: {
         // account: [{ required: true, validator: validatePhone, trigger: 'blur' }],
-        password: [{ required: true, message: '请输入密码', trigger: 'blur' }],
+        password: [{ required: true, message: 'الرجاء إدخال كلمة المرور', trigger: 'blur' }],
       },
     };
   },
@@ -74,10 +74,10 @@ export default {
         if (valid) {
           opendirLoginApi(this.formInline)
             .then(async (res) => {
-              this.$message.success('登录成功!');
+              this.$message.success('تسجيل الدخول成功!');
               //   this.$emit('on-Login', res.data);
               let expires = this.getExpiresTime(res.data.expires_time);
-              // 记录用户登录信息
+              // 记录用户تسجيل الدخول信息
               setCookies('file_token', res.data.token, expires);
               this.$router.push({
                 path: this.$routeProStr + '/system/maintain/system_file/opendir',
@@ -91,7 +91,7 @@ export default {
         }
       });
     },
-    //计算token过期时间
+    //计算token过期الوقت
     getExpiresTime(expiresTime) {
       let nowTimeNum = Math.round(new Date() / 1000);
       let expiresTimeNum = expiresTime - nowTimeNum;

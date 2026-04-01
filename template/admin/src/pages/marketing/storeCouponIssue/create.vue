@@ -2,17 +2,17 @@
   <div>
     <pages-header
       ref="pageHeader"
-      :title="$route.params.id && isEdit ? '编辑优惠券' : '添加优惠券'"
+      :title="$route.params.id && isEdit ? 'تحرير优惠券' : 'إضافة优惠券'"
       :backUrl="$routeProStr + '/marketing/store_coupon_issue/index'"
     ></pages-header>
     <el-card :bordered="false" shadow="never" class="mt16">
       <el-form :model="formData" label-width="160px">
-        <el-form-item label="优惠券名称：">
+        <el-form-item label="优惠券الاسم：">
           <el-input
             v-model="formData.coupon_title"
             maxlength="18"
             show-word-limit
-            placeholder="请输入优惠券名称"
+            placeholder="الرجاء إدخال 优惠券الاسم"
             class="content_width"
           ></el-input>
         </el-form-item>
@@ -44,7 +44,7 @@
           </el-radio-group>
           <div class="tip">
             用户领取：用户需要手动领取优惠券；<br />
-            系统赠送：1.后台发放指定用户。2.添加到商品里面用户购买该商品获得。3.设置新人礼页面新用户注册赠送优惠券；
+            系统赠送：1.后台发放指定用户。2.إضافة到商品里面用户购买该商品获得。3.设置新人礼页面新用户注册赠送优惠券；
           </div>
         </el-form-item>
         <el-form-item label="优惠劵类型：">
@@ -111,7 +111,7 @@
         <el-form-item label="有效期：">
           <el-radio-group v-model="isCouponTime" :disabled="isEdit">
             <el-radio :label="1">天数</el-radio>
-            <el-radio :label="0">时间段</el-radio>
+            <el-radio :label="0">الوقت段</el-radio>
           </el-radio-group>
         </el-form-item>
         <el-form-item v-show="isCouponTime" label="">
@@ -142,7 +142,7 @@
           ></el-date-picker>
         </el-form-item>
 
-        <el-form-item label="领取时间：" v-if="formData.receive_type != 2 && formData.receive_type != 3">
+        <el-form-item label="领取الوقت：" v-if="formData.receive_type != 2 && formData.receive_type != 3">
           <el-radio-group v-model="isReceiveTime" :disabled="isEdit">
             <el-radio :label="1">限时</el-radio>
             <el-radio :label="0">不限时</el-radio>
@@ -192,7 +192,7 @@
           ></el-input-number>
           <div class="info">填写每个用户可以领取多少张</div>
         </el-form-item>
-        <el-form-item label="状态：">
+        <el-form-item label="الحالة：">
           <el-radio-group v-model="formData.status">
             <el-radio :label="1">开启</el-radio>
             <el-radio :label="0">关闭</el-radio>
@@ -200,7 +200,7 @@
         </el-form-item>
         <el-form-item>
           <el-button type="primary" v-db-click @click="save" :disabled="disabled">{{
-            isEdit ? '立即保存' : '立即创建'
+            isEdit ? '立即حفظ' : '立即创建'
           }}</el-button>
         </el-form-item>
       </el-form>
@@ -336,16 +336,16 @@ export default {
     // 创建
     save() {
       if (!this.formData.coupon_title) {
-        return this.$message.error('请输入优惠券名称');
+        return this.$message.error('الرجاء إدخال 优惠券الاسم');
       }
       if (this.formData.type === 2) {
         if (!this.formData.product_id) {
-          return this.$message.error('请选择商品');
+          return this.$message.error('الرجاء اختيار 商品');
         }
       }
       if (this.formData.type === 1) {
         if (!this.formData.category_id) {
-          return this.$message.error('请选择品类');
+          return this.$message.error('الرجاء اختيار 品类');
         }
       }
       if (this.formData.coupon_price <= 0) {
@@ -367,12 +367,12 @@ export default {
       } else {
         this.formData.coupon_time = 0;
         if (!this.formData.start_use_time) {
-          return this.$message.error('请选择使用有效期限');
+          return this.$message.error('الرجاء اختيار 使用有效期限');
         }
       }
       if (this.isReceiveTime) {
         if (!this.formData.start_time) {
-          return this.$message.error('请选择领取时间');
+          return this.$message.error('الرجاء اختيار 领取الوقت');
         }
       } else {
         this.formData.start_time = 0;
@@ -418,7 +418,7 @@ export default {
           this.$message.error(err.msg);
         });
     },
-    // 使用有效期--时间段
+    // 使用有效期--الوقت段
     dateChange(time) {
       this.formData.start_use_time = time[0];
       this.formData.end_use_time = time[1];
@@ -449,7 +449,7 @@ export default {
     cancel() {
       this.modals = false;
     },
-    // 删除商品
+    // حذف商品
     remove(productId) {
       for (let index = 0; index < this.productList.length; index++) {
         if (this.productList[index].product_id == productId) {

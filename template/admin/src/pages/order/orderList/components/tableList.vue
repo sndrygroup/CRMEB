@@ -15,7 +15,7 @@
       <el-tab-pane name="3" label="待评价"></el-tab-pane>
       <el-tab-pane name="4" label="已完成"></el-tab-pane>
       <el-tab-pane name="-2" label="已退款"></el-tab-pane>
-      <el-tab-pane name="-4" label="已删除"></el-tab-pane>
+      <el-tab-pane name="-4" label="已حذف"></el-tab-pane>
     </el-tabs>
     <div class="acea-row">
       <el-button v-auth="['order-write']" type="primary" v-db-click @click="writeOff">订单核销</el-button>
@@ -23,7 +23,7 @@
       <!-- <el-upload class="mr14" :action="expressUrl" :headers="header" :on-success="upExpress">
         <el-button class="export" type="primary">批量发货</el-button>
       </el-upload> -->
-      <el-button v-auth="['order-dels']" v-db-click @click="delAll">批量删除</el-button>
+      <el-button v-auth="['order-dels']" v-db-click @click="delAll">批量حذف</el-button>
       <el-button v-auth="['export-storeOrder']" class="export" v-db-click @click="exportList">订单导出</el-button>
       <!-- <el-button class="export" v-db-click @click="exportDeliveryList">发货单导出</el-button> -->
     </div>
@@ -46,9 +46,9 @@
         <template slot-scope="scope">
           <div>{{ scope.row.order_id }}</div>
           <div class="pink_name" :style="{ color: scope.row.color }">{{ scope.row.pink_name }}</div>
-          <span v-if="scope.row.is_del === 1" style="color: #ed4014; display: block">用户已删除</span>
+          <span v-if="scope.row.is_del === 1" style="color: #ed4014; display: block">用户已حذف</span>
           <span v-if="scope.row.is_cancel === 1 && scope.row.is_del === 0" style="color: #ed4014; display: block"
-            >用户已取消</span
+            >用户已إلغاء</span
           >
           <span v-if="scope.row.refund_type === 6" style="color: #ed4014; display: block">订单已退款</span>
         </template>
@@ -66,11 +66,11 @@
             <el-tooltip placement="top" :open-delay="300">
               <div slot="content">
                 <div>
-                  <span>商品名称：</span>
+                  <span>商品الاسم：</span>
                   <span>{{ item.cart_info.productInfo.store_name || '--' }}</span>
                 </div>
                 <div>
-                  <span>规格名称：</span>
+                  <span>规格الاسم：</span>
                   <span>{{
                     item.cart_info.productInfo.attrInfo ? item.cart_info.productInfo.attrInfo.suk : '---'
                   }}</span>
@@ -104,12 +104,12 @@
           <span>{{ scope.row.pay_type_name || '--' }}</span>
         </template>
       </el-table-column>
-      <el-table-column label="支付时间" min-width="150">
+      <el-table-column label="支付الوقت" min-width="150">
         <template slot-scope="scope">
           <span>{{ scope.row._pay_time || '--' }}</span>
         </template>
       </el-table-column>
-      <el-table-column label="订单状态" min-width="100">
+      <el-table-column label="订单الحالة" min-width="100">
         <template slot-scope="scope">
           <div v-html="scope.row.status_name.status_name" class="pt5"></div>
           <div v-if="!scope.row.is_all_refund && scope.row.refund.length" class="trip">部分退款中</div>
@@ -133,9 +133,9 @@
           </div>
         </template>
       </el-table-column>
-      <el-table-column label="操作" fixed="right" width="170">
+      <el-table-column label="الخيارات" fixed="right" width="170">
         <template slot-scope="scope">
-          <a v-db-click @click="changeMenu(scope.row, '2')">详情</a>
+          <a v-db-click @click="changeMenu(scope.row, '2')">تفاصيل</a>
           <el-divider direction="vertical" />
           <a
             v-db-click
@@ -198,14 +198,14 @@
                     scope.row.is_del !== 1 &&
                     scope.row.is_cancel !== 1
                   "
-                  >确认付款</el-dropdown-item
+                  >تأكيد付款</el-dropdown-item
                 >
-                <el-dropdown-item v-show="scope.row._status === 1 && scope.row.is_del !== 1 && scope.row.is_cancel !== 1" command="15">订单编辑</el-dropdown-item>
+                <el-dropdown-item v-show="scope.row._status === 1 && scope.row.is_del !== 1 && scope.row.is_cancel !== 1" command="15">订单تحرير</el-dropdown-item>
                 <el-dropdown-item command="11" v-show="scope.row._status >= 3 && scope.row.express_dump"
                   >电子面单打印</el-dropdown-item
                 >
                 <el-dropdown-item command="10" v-show="scope.row._status >= 2">小票打印</el-dropdown-item>
-                <el-dropdown-item command="14" v-show="scope.row.status === 0">修改地址</el-dropdown-item>
+                <el-dropdown-item command="14" v-show="scope.row.status === 0">تعديل地址</el-dropdown-item>
                 <el-dropdown-item
                   command="4"
                   v-show="
@@ -224,7 +224,7 @@
                 <!--                            <el-dropdown-item command="6"  v-show='scope.row._status !==1 && (scope.row.use_integral > 0 && scope.row.use_integral >= scope.row.back_integral) '>退积分</el-dropdown-item>-->
                 <!--                            <el-dropdown-item command="7"  v-show='scope.row._status === 3'>不退款</el-dropdown-item>-->
                 <el-dropdown-item command="8" v-show="scope.row._status === 4">已收货</el-dropdown-item>
-                <el-dropdown-item command="9">删除订单</el-dropdown-item>
+                <el-dropdown-item command="9">حذف订单</el-dropdown-item>
                 <el-dropdown-item command="12" v-show="scope.row.kuaidi_label">快递面单打印</el-dropdown-item>
                 <el-dropdown-item command="13" v-show="scope.row.paid">配货单打印</el-dropdown-item>
               </el-dropdown-menu>
@@ -236,13 +236,13 @@
     <div class="acea-row row-right page">
       <pagination v-if="total" :total="total" :page.sync="page.page" :limit.sync="page.limit" @pagination="getList" />
     </div>
-    <!-- 编辑 退款 退积分 不退款-->
+    <!-- تحرير 退款 退积分 不退款-->
     <edit-from ref="edits" :FromData="FromData" @submitFail="submitFail"></edit-from>
-    <!-- 详情 -->
+    <!-- تفاصيل -->
     <details-from ref="details" :orderDatalist="orderDatalist" :orderId="orderId"></details-from>
     <!-- 备注 -->
     <order-remark ref="remarks" :orderId="orderId" @submitFail="submitFail"></order-remark>
-    <!-- 取消寄件 -->
+    <!-- إلغاء寄件 -->
     <order-shipment ref="shipment" :orderId="orderId" @submitFail="submitFail"></order-shipment>
     <!-- 发送货 -->
     <order-send
@@ -295,14 +295,14 @@
           <el-input
             style="width: 414px"
             type="text"
-            placeholder="请输入12位核销码"
+            placeholder="الرجاء إدخال 12位核销码"
             v-model.number="writeOffFrom.code"
           />
         </el-form-item>
       </el-form>
       <div slot="footer">
         <el-button type="primary" v-db-click @click="ok('writeOffFrom')">立即核销</el-button>
-        <el-button v-db-click @click="del('writeOffFrom')">取消</el-button>
+        <el-button v-db-click @click="del('writeOffFrom')">إلغاء</el-button>
       </div>
     </el-dialog>
     <el-dialog
@@ -479,13 +479,13 @@ export default {
     beforeUpload(file) {
       return isFileUpload(file);
     },
-    // 操作
+    // الخيارات
     changeMenu(row, name) {
       this.orderId = row.id;
       switch (name) {
         case '1':
           this.delfromData = {
-            title: '修改订单为已支付',
+            title: 'تعديل订单为已支付',
             url: `/order/pay_offline/${row.id}`,
             method: 'post',
             ids: '',
@@ -499,7 +499,7 @@ export default {
             .catch((res) => {
               this.$message.error(res.msg);
             });
-          // this.modalTitleSs = '修改立即支付';
+          // this.modalTitleSs = 'تعديل立即支付';
           break;
         case '2':
           this.getData(row.id);
@@ -527,7 +527,7 @@ export default {
         //   break;
         case '8':
           this.delfromData = {
-            title: '修改确认收货',
+            title: 'تعديلتأكيد收货',
             url: `/order/take/${row.id}`,
             method: 'put',
             ids: '',
@@ -540,7 +540,7 @@ export default {
             .catch((res) => {
               this.$message.error(res.msg);
             });
-          // this.modalTitleSs = '修改确认收货';
+          // this.modalTitleSs = 'تعديلتأكيد收货';
           break;
         case '10':
           this.delfromData = {
@@ -562,7 +562,7 @@ export default {
         case '11':
           this.delfromData = {
             title: '立即打印电子面单',
-            info: '您确认打印此电子面单吗?',
+            info: '您تأكيد打印此电子面单吗?',
             url: `/order/order_dump/${row.id}`,
             method: 'get',
             ids: '',
@@ -602,12 +602,12 @@ export default {
           break;  
         default:
           this.delfromData = {
-            title: '删除订单',
+            title: 'حذف订单',
             url: `/order/del/${row.id}`,
             method: 'DELETE',
             ids: '',
           };
-          // this.modalTitleSs = '删除订单';
+          // this.modalTitleSs = 'حذف订单';
           this.delOrder(row, this.delfromData);
       }
     },
@@ -626,7 +626,7 @@ export default {
         }`,
       });
     },
-    // 立即支付 /确认收货//删除单条订单
+    // 立即支付 /تأكيد收货//حذف单条订单
     submitModel() {
       this.getList();
     },
@@ -676,7 +676,7 @@ export default {
       //将new Set()转化为数组
       let ids = [...this.selectedIds];
       this.getisDelIdListl(ids);
-      // 找到绑定的table的ref对应的dom，找到table的objData对象，objData保存的是当前页的数据
+      // 找到绑定的table的ref对应的dom，找到table的objData对象，objDataحفظ的是当前页的数据
       let objData = this.$refs.table.objData;
       for (let index in objData) {
         if (this.selectedIds.has(objData[index].id)) {
@@ -691,11 +691,11 @@ export default {
         this.getIsDel(0);
       }
     },
-    // 编辑
+    // تحرير
     edit(row) {
       this.getOrderData(row.id);
     },
-    // 删除单条订单
+    // حذف单条订单
     delOrder(row, data) {
       if (row.is_del === 1) {
         this.$modalSure(data)
@@ -707,10 +707,10 @@ export default {
             this.$message.error(res.msg);
           });
       } else {
-        this.$message.error('您选择的的订单存在用户未删除的订单，无法删除用户未删除的订单！');
+        this.$message.error('您选择的的订单存在用户未حذف的订单，无法حذف用户未حذف的订单！');
       }
     },
-    // 获取编辑表单数据
+    // 获取تحرير表单数据
     getOrderData(id) {
       getOrdeDatas(id)
         .then(async (res) => {
@@ -721,7 +721,7 @@ export default {
           this.$message.error(res.msg);
         });
     },
-    // 获取详情表单数据
+    // 获取تفاصيل表单数据
     getData(id) {
       getDataInfo(id)
         .then(async (res) => {
@@ -743,12 +743,12 @@ export default {
     },
     submitSuccess() {
       editAddress(this.addressData).then(() => {
-        this.$message.success('修改成功');
+        this.$message.success('تعديل成功');
         this.addressData = {};
         this.$refs.address.modals = false;
       });
     },
-    // 修改成功
+    // تعديل成功
     submitFail() {
       this.getList();
       this.$emit('changeGetTabs');
@@ -814,10 +814,10 @@ export default {
     bindWrite(row) {
       let self = this;
       this.$msgbox({
-        title: '提示',
+        title: 'تنبيه',
         message: '确定要核销该订单吗？',
         showCancelButton: true,
-        cancelButtonText: '取消',
+        cancelButtonText: 'إلغاء',
         confirmButtonText: '确定',
         iconClass: 'el-icon-warning',
         confirmButtonClass: 'btn-custom-cancel',
@@ -855,17 +855,17 @@ export default {
       this.getOrderStatus(this.currentTab == 'null' ? '' : this.currentTab);
       this.getList();
     },
-    // 批量删除
+    // 批量حذف
     delAll() {
       if (this.delIdList.length === 0) {
-        this.$message.error('请先选择删除的订单！');
+        this.$message.error('请先选择حذف的订单！');
       } else {
         if (this.isDels) {
           let idss = {
             ids: this.delIdList,
           };
           let delfromData = {
-            title: '删除订单',
+            title: 'حذف订单',
             url: `/order/dels`,
             method: 'post',
             ids: idss,
@@ -879,7 +879,7 @@ export default {
               this.$message.error(res.msg);
             });
         } else {
-          this.$message.error('您选择的的订单存在用户未删除的订单，无法删除用户未删除的订单！');
+          this.$message.error('您选择的的订单存在用户未حذف的订单，无法حذف用户未حذف的订单！');
         }
       }
     },

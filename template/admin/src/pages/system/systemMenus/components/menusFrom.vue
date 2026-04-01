@@ -19,11 +19,11 @@
             </el-form-item>
           </el-col>
           <el-col v-bind="grid">
-            <el-form-item :label="!authType ? '接口名称：' : '按钮名称：'" prop="menu_name">
+            <el-form-item :label="!authType ? '接口الاسم：' : '按钮الاسم：'" prop="menu_name">
               <div class="add">
                 <el-input
                   v-model="formValidate.menu_name"
-                  :placeholder="!authType ? '请输入接口名称' : '请输入按钮名称'"
+                  :placeholder="!authType ? 'الرجاء إدخال 接口الاسم' : 'الرجاء إدخال 按钮الاسم'"
                 >
                 </el-input>
                 <!-- <el-button class="ml10 df" v-show="!authType" v-db-click @click="getRuleList()" icon="ios-apps"></el-button> -->
@@ -43,7 +43,7 @@
           </el-col>
           <el-col v-bind="grid" v-if="authType != 2">
             <el-form-item label="页面地址：" prop="menu_path">
-              <el-input v-model="formValidate.menu_path" placeholder="请输入页面地址" @change="changeUnique">
+              <el-input v-model="formValidate.menu_path" placeholder="الرجاء إدخال 页面地址" @change="changeUnique">
                 <template #prepend>
                   <span>{{ $routeProStr }}</span>
                 </template>
@@ -62,33 +62,33 @@
           </el-col>
           <el-col v-bind="grid" v-if="authType == 2">
             <el-form-item label="接口地址：" prop="api_url">
-              <el-input v-model="formValidate.api_url" placeholder="请输入接口地址" @change="changeUnique"> </el-input>
+              <el-input v-model="formValidate.api_url" placeholder="الرجاء إدخال 接口地址" @change="changeUnique"> </el-input>
             </el-form-item>
           </el-col>
           <el-col v-bind="grid">
             <el-form-item label="权限标识：" prop="unique_auth">
-              <el-input v-model="formValidate.unique_auth" placeholder="请输入权限标识"></el-input>
+              <el-input v-model="formValidate.unique_auth" placeholder="الرجاء إدخال 权限标识"></el-input>
             </el-form-item>
           </el-col>
           <el-col v-bind="grid" v-if="authType != 2">
             <el-form-item label="图标：">
-              <el-input v-model="formValidate.icon" placeholder="请选择图标，点击右面图标">
+              <el-input v-model="formValidate.icon" placeholder="الرجاء اختيار 图标，点击右面图标">
                 <el-button slot="append" icon="el-icon-picture-outline" v-db-click @click="iconClick"></el-button>
               </el-input>
             </el-form-item>
           </el-col>
           <el-col v-bind="grid">
             <el-form-item label="备注：">
-              <el-input v-model="formValidate.mark" placeholder="请输入备注" number></el-input>
+              <el-input v-model="formValidate.mark" placeholder="الرجاء إدخال 备注" number></el-input>
             </el-form-item>
           </el-col>
           <el-col v-bind="grid">
             <el-form-item label="排序：">
-              <el-input type="number" v-model="formValidate.sort" placeholder="请输入排序" number></el-input>
+              <el-input type="number" v-model="formValidate.sort" placeholder="الرجاء إدخال 排序" number></el-input>
             </el-form-item>
           </el-col>
           <el-col v-bind="grid">
-            <el-form-item label="状态：">
+            <el-form-item label="الحالة：">
               <el-radio-group v-model="formValidate.is_show" @input="changeShow">
                 <el-radio :label="item.value" v-for="(item, i) in isShowRadio" :key="i">
                   <span>{{ item.label }}</span>
@@ -106,7 +106,7 @@
     <el-dialog :visible.sync="modal12" width="720px" title="图标选择">
       <el-input
         v-model="iconVal"
-        placeholder="输入关键词搜索,注意全是英文"
+        placeholder="输入关键词بحث,注意全是英文"
         clearable
         style="width: 300px"
         @change="upIcon(iconVal)"
@@ -129,12 +129,12 @@
         <el-input
           class="mr10"
           v-model="searchRule"
-          placeholder="输入关键词搜索"
+          placeholder="输入关键词بحث"
           clearable
           style="width: 300px"
           ref="search"
         />
-        <el-button type="primary" v-db-click @click="searchRules">搜索</el-button>
+        <el-button type="primary" v-db-click @click="searchRules">بحث</el-button>
         <el-button v-db-click @click="init">重置</el-button>
       </div>
       <div class="rule">
@@ -147,7 +147,7 @@
           v-db-click
           @click="selectRule(item)"
         >
-          <div>接口名称：{{ item.real_name }}</div>
+          <div>接口الاسم：{{ item.real_name }}</div>
           <div>请求方式：{{ item.method }}</div>
           <div>接口地址：{{ item.rule }}</div>
         </div>
@@ -325,11 +325,11 @@ export default {
         this.ruleModal = false;
       });
     },
-    // 搜索
+    // بحث
     upIcon(n) {
       this.searchData = this.list.filter((item) => item.indexOf(this.iconVal) > -1);
     },
-    // 搜索规则
+    // بحث规则
     searchRules() {
       if (this.searchRule.trim()) {
         this.arrs = [];
@@ -369,7 +369,7 @@ export default {
       this.formValidate.icon = n;
       this.modal12 = false;
     },
-    // 提交
+    // إرسال
     handleSubmit(name) {
       //判断是否选择父级分类
       if (this.formValidate.path) {
@@ -382,7 +382,7 @@ export default {
         datas: this.formValidate,
       };
       if (!this.formValidate.menu_name) {
-        return this.$message.warning('请填写菜单/按钮/接口名称');
+        return this.$message.warning('请填写菜单/按钮/接口الاسم');
       }
       if (!this.formValidate.menu_path && this.authType != 2) {
         return this.$message.warning('请填写页面/按钮地址');

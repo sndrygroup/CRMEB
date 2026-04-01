@@ -49,7 +49,7 @@
         </el-col>
       </el-row>
       <div slot="footer">
-        <el-button v-db-click @click="close">取消</el-button>
+        <el-button v-db-click @click="close">إلغاء</el-button>
         <el-button type="primary" v-db-click @click="confirm">确定</el-button>
       </div>
     </el-dialog>

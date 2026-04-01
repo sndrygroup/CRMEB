@@ -6,7 +6,7 @@
         <span class="expand-value" v-text="row.total_price"></span>
       </el-col>
       <el-col :span="6">
-        <span class="expand-key">下单时间：</span>
+        <span class="expand-key">下单الوقت：</span>
         <span class="expand-value" v-text="row.add_time"></span>
       </el-col>
       <el-col :span="6">

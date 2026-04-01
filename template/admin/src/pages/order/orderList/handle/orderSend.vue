@@ -46,15 +46,15 @@
       </el-form-item>
       <template v-if="['2', '3'].includes(formItem.express_record_type) && formItem.type == 1">
         <el-form-item label="寄件人姓名：">
-          <el-input v-model="formItem.to_name" placeholder="请输入寄件人姓名" style="width: 60%"></el-input>
+          <el-input v-model="formItem.to_name" placeholder="الرجاء إدخال 寄件人姓名" style="width: 60%"></el-input>
         </el-form-item>
         <el-form-item label="寄件人电话：">
-          <el-input v-model="formItem.to_tel" placeholder="请输入寄件人电话" style="width: 60%"></el-input>
+          <el-input v-model="formItem.to_tel" placeholder="الرجاء إدخال 寄件人电话" style="width: 60%"></el-input>
         </el-form-item>
         <el-form-item label="寄件人地址：">
           <el-input
             v-model="formItem.to_addr"
-            placeholder="请输入寄件人地址"
+            placeholder="الرجاء إدخال 寄件人地址"
             style="width: 60%"
             @blur="watchPrice"
           ></el-input>
@@ -66,7 +66,7 @@
             <el-select
               v-model="formItem.delivery_name"
               filterable
-              placeholder="请选择快递公司"
+              placeholder="الرجاء اختيار 快递公司"
               style="width: 60%"
               @change="expressChange"
             >
@@ -84,7 +84,7 @@
           <el-select
             v-model="formItem.service_type"
             filterable
-            placeholder="请选择业务类型"
+            placeholder="الرجاء اختيار 业务类型"
             style="width: 60%"
             @change="watchPrice"
           >
@@ -92,9 +92,9 @@
           </el-select>
         </el-form-item>
         <el-form-item v-if="formItem.express_record_type === '1' && formItem.type == 1" label="快递单号：">
-          <el-input v-model="formItem.delivery_id" placeholder="请输入快递单号" style="width: 60%"></el-input>
+          <el-input v-model="formItem.delivery_id" placeholder="الرجاء إدخال 快递单号" style="width: 60%"></el-input>
           <div class="trips" v-if="formItem.delivery_name == '顺丰速运'">
-            <p>顺丰请输入单号 :收件人或寄件人手机号后四位，</p>
+            <p>顺丰الرجاء إدخال 单号 :收件人或寄件人手机号后四位，</p>
             <p>例如：SF000000000000:3941</p>
           </div>
         </el-form-item>
@@ -102,7 +102,7 @@
           <el-form-item label="电子面单：" class="express_temp_id">
             <el-select
               v-model="formItem.express_temp_id"
-              placeholder="请选择电子面单"
+              placeholder="الرجاء اختيار 电子面单"
               style="width: 60%"
               @change="expressTempChange"
             >
@@ -126,16 +126,16 @@
               <el-radio :label="2">后天</el-radio>
             </el-radio-group>
           </el-form-item>
-          <el-form-item label="取件时间：" v-if="formItem.express_record_type == 3">
+          <el-form-item label="取件الوقت：" v-if="formItem.express_record_type == 3">
             <el-time-picker
               is-range
               v-model="formItem.pickup_time"
               format="HH:mm"
               value-format="HH:mm"
               range-separator="-"
-              start-placeholder="开始时间"
-              end-placeholder="结束时间"
-              placeholder="选择时间范围"
+              start-placeholder="开始الوقت"
+              end-placeholder="结束الوقت"
+              placeholder="选择الوقت范围"
             />
           </el-form-item>
         </template>
@@ -144,7 +144,7 @@
         <el-form-item label="送货人：" :prop="formItem.type == '2' ? 'sh_delivery' : ''">
           <el-select
             v-model="formItem.sh_delivery"
-            placeholder="请选择送货人"
+            placeholder="الرجاء اختيار 送货人"
             style="width: 60%"
             @change="shDeliveryChange"
           >
@@ -182,7 +182,7 @@
             <span slot="close">关闭</span>
           </el-switch>
           <div class="trips">
-            <p>可选择表格中的商品单独发货，发货后会生成新的订单且不能撤回，请谨慎操作！</p>
+            <p>可选择表格中的商品单独发货，发货后会生成新的订单且不能撤回，请谨慎الخيارات！</p>
           </div>
           <el-table
             v-if="splitSwitch && manyFormValidate.length"
@@ -238,8 +238,8 @@
       </div>
     </el-form>
     <div slot="footer">
-      <el-button v-db-click @click="cancel">取消</el-button>
-      <el-button type="primary" v-db-click @click="putSend">提交</el-button>
+      <el-button v-db-click @click="cancel">إلغاء</el-button>
+      <el-button type="primary" v-db-click @click="putSend">إرسال</el-button>
     </div>
     <!-- <viewer @inited="inited">
             <img :src="temp.pic" style="display:none" />
@@ -306,7 +306,7 @@ export default {
       selectData: [],
       serviceTypeList: [],
       sendPrice: 0,
-      ruleValidate: { sh_delivery: [{ required: true, message: '请输入送货人', trigger: 'change' }] },
+      ruleValidate: { sh_delivery: [{ required: true, message: 'الرجاء إدخال 送货人', trigger: 'change' }] },
       deliveryErrorMsg: '',
       isLoading: true,
       userSendmsg: {},
@@ -487,7 +487,7 @@ export default {
       });
     },
 
-    // 提交
+    // إرسال
     putSend(name) {
       let data = {
         id: this.orderId,
@@ -503,7 +503,7 @@ export default {
         } else if (this.formItem.to_tel === '') {
           return this.$message.error('寄件人电话不能为空');
         } else if (!/^1(3|4|5|7|8|9|6)\d{9}$/i.test(this.formItem.to_tel)) {
-          return this.$message.error('请输入正确的手机号码');
+          return this.$message.error('الرجاء إدخال 正确的手机号码');
         } else if (this.formItem.to_addr === '') {
           return this.$message.error('寄件人地址不能为空');
         }

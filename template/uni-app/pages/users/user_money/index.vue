@@ -224,7 +224,7 @@
 			},
 			// #endif
 			/**
-			 * 获取用户详情
+			 * 获取用户تفاصيل
 			 */
 			getUserInfo: function() {
 				let that = this;

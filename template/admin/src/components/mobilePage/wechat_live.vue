@@ -202,7 +202,7 @@ export default {
   cname: '小程序直播',
   configName: 'c_wechat_live',
   type: 1, // 0 基础组件 1 营销组件 2工具组件
-  defaultName: 'liveBroadcast', // 外面匹配名称
+  defaultName: 'liveBroadcast', // 外面匹配الاسم
   icon: '#iconzujian-xiaochengxuzhibo',
   props: {
     index: {
@@ -240,7 +240,7 @@ export default {
   },
   data() {
     return {
-      // 默认初始化数据禁止修改
+      // 默认初始化数据禁止تعديل
       defaultConfig: {
         cname: '小程序直播',
         name: 'liveBroadcast',
@@ -287,7 +287,7 @@ export default {
             },
             {
               id: 1,
-              name: '用户名称',
+              name: 'اسم المستخدم称',
             },
           ],
         },

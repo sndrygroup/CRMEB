@@ -35,7 +35,7 @@
               <div class="c_row-item">
                 <div class="title">选择方式</div>
                 <div class="flex-1">
-                  <el-select v-model="item.tabVal" placeholder="请选择" @change="tabChange" style="width: 100%">
+                  <el-select v-model="item.tabVal" placeholder="الرجاء اختيار " @change="tabChange" style="width: 100%">
                     <el-option
                       v-for="(itemn, indexn) in typeList"
                       :value="itemn.activeValue"
@@ -66,11 +66,11 @@
               </div>
               <div v-else>
                 <div class="c_row-item" v-if="item.tabVal == 2">
-                  <el-col class="label" :span="4">品牌名称</el-col>
+                  <el-col class="label" :span="4">品牌الاسم</el-col>
                   <el-col :span="19" class="slider-box">
                     <el-cascader
                       @change="brandChange"
-                      placeholder="请选择品牌"
+                      placeholder="الرجاء اختيار 品牌"
                       size="mini"
                       v-model="item.brandConfig.brandVal"
                       :options="brandData"
@@ -86,7 +86,7 @@
                   <el-col :span="19" class="slider-box">
                     <el-cascader
                       @change="sliderChange"
-                      placeholder="请选择分类"
+                      placeholder="الرجاء اختيار 分类"
                       size="mini"
                       v-model="item.selectConfig.activeValue"
                       :options="treeSelect"
@@ -164,7 +164,7 @@
     </div>
     <div v-if="configData.list">
       <div class="add-btn" @click="addHotTxt">
-        <el-button style="width: 100%; height: 40px">+ 添加</el-button>
+        <el-button style="width: 100%; height: 40px">+ إضافة</el-button>
       </div>
     </div>
     <!-- 商品标签 -->
@@ -410,7 +410,7 @@ export default {
         this.configData.list.push(obj);
       }
     },
-    // 删除数组
+    // حذف数组
     bindDelete(index) {
       if (this.configData.list.length == 1) {
         let itemObj = this.configData.list[0];

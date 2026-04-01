@@ -6,7 +6,7 @@
           <div class="icon">
             <i class="iconfont iconyonghuguanli" style="color: #0256ff"></i>
           </div>
-          <p>用户管理</p>
+          <p>用户إدارة</p>
         </router-link>
       </el-card>
     </el-col>
@@ -36,7 +36,7 @@
           <div class="icon">
             <i class="iconfont icondingdanguanli" style="color: #b37feb"></i>
           </div>
-          <p>订单管理</p>
+          <p>订单إدارة</p>
         </router-link>
       </el-card>
     </el-col>
@@ -56,7 +56,7 @@
           <div class="icon">
             <i class="iconfont iconwenzhangguanli" style="color: #7da2ff"></i>
           </div>
-          <p>文章管理</p>
+          <p>文章إدارة</p>
         </router-link>
       </el-card>
     </el-col>
@@ -66,7 +66,7 @@
           <div class="icon">
             <i class="iconfont iconfenxiaoguanli" style="color: #ff7d00"></i>
           </div>
-          <p>分销管理</p>
+          <p>分销إدارة</p>
         </router-link>
       </el-card>
     </el-col>

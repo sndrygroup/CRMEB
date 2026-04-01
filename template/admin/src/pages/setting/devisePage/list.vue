@@ -3,7 +3,7 @@
     <el-card :bordered="false" shadow="never" class="ivu-mt">
       <el-row>
         <el-col v-bind="grid">
-          <el-button v-auth="['admin-template']" type="primary" v-db-click @click="add">添加模板</el-button>
+          <el-button v-auth="['admin-template']" type="primary" v-db-click @click="add">إضافة模板</el-button>
         </el-col>
       </el-row>
       <el-table
@@ -20,7 +20,7 @@
             <span>{{ scope.row.id }}</span>
           </template>
         </el-table-column>
-        <el-table-column label="页面名称" min-width="130">
+        <el-table-column label="页面الاسم" min-width="130">
           <template slot-scope="scope">
             <span>{{ scope.row.name }}</span>
           </template>
@@ -30,24 +30,24 @@
             <span>{{ scope.row.template_name }}</span>
           </template>
         </el-table-column>
-        <el-table-column label="添加时间" min-width="130">
+        <el-table-column label="إضافةالوقت" min-width="130">
           <template slot-scope="scope">
             <span>{{ scope.row.add_time }}</span>
           </template>
         </el-table-column>
-        <el-table-column label="更新时间" min-width="130">
+        <el-table-column label="更新الوقت" min-width="130">
           <template slot-scope="scope">
             <span>{{ scope.row.update_time }}</span>
           </template>
         </el-table-column>
-        <el-table-column label="操作" fixed="right" width="170">
+        <el-table-column label="الخيارات" fixed="right" width="170">
           <template slot-scope="scope">
             <div style="display: inline-block" v-if="scope.row.status != 1">
               <a v-db-click @click="setStatus(scope.row, index)">设为首页</a>
             </div>
             <el-divider direction="vertical" v-if="scope.row.status != 1" />
             <div style="display: inline-block" v-if="scope.row.status || scope.row.type">
-              <a v-db-click @click="edit(scope.row)">编辑</a>
+              <a v-db-click @click="edit(scope.row)">تحرير</a>
             </div>
             <el-divider direction="vertical" v-if="scope.row.status || scope.row.type" />
             <template>
@@ -56,7 +56,7 @@
                 <el-dropdown-menu slot="dropdown">
                   <el-dropdown-item command="1" v-show="!scope.row.type">设置默认数据</el-dropdown-item>
                   <el-dropdown-item command="2" v-show="!scope.row.type">恢复默认数据</el-dropdown-item>
-                  <el-dropdown-item command="3" v-show="scope.row.id != 1">删除模板</el-dropdown-item>
+                  <el-dropdown-item command="3" v-show="scope.row.id != 1">حذف模板</el-dropdown-item>
                 </el-dropdown-menu>
               </el-dropdown>
             </template>
@@ -94,8 +94,8 @@
         </el-card>
       </div>
       <span slot="footer" class="dialog-footer">
-        <el-button v-db-click @click="cancel">取消</el-button>
-        <el-button type="primary" v-db-click @click="handleSubmit('formItem')">提交</el-button>
+        <el-button v-db-click @click="cancel">إلغاء</el-button>
+        <el-button type="primary" v-db-click @click="handleSubmit('formItem')">إرسال</el-button>
       </span>
     </el-dialog>
   </div>
@@ -124,7 +124,7 @@ export default {
         link: '',
       },
       ruleValidate: {
-        link: [{ required: true, message: '请输入移动端链接', trigger: 'blur' }],
+        link: [{ required: true, message: 'الرجاء إدخال 移动端链接', trigger: 'blur' }],
       },
     };
   },
@@ -158,7 +158,7 @@ export default {
           this.recovery(row);
           break;
         case '3':
-          this.del(row, '删除此模板', index);
+          this.del(row, 'حذف此模板', index);
           break;
         default:
       }
@@ -174,7 +174,7 @@ export default {
           this.$message.error(err.msg);
         });
     },
-    // 添加
+    // إضافة
     add() {
       this.$modalForm(getDiyCreate()).then(() => this.getList());
     },
@@ -186,7 +186,7 @@ export default {
         this.list = res.data.list;
       });
     },
-    // 编辑
+    // تحرير
     edit(row) {
       this.formItem.id = row.id;
       if (row.type) {
@@ -195,7 +195,7 @@ export default {
         this.$router.push({ path: this.$routeProStr + '/setting/pages/diy', query: { id: row.id, type: 0 } });
       }
     },
-    // 删除
+    // حذف
     del(row, tit, num) {
       let delfromData = {
         title: tit,

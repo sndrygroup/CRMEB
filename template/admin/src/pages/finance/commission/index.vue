@@ -4,7 +4,7 @@
       <div class="padding-add">
         <el-form ref="formValidate" :label-width="labelWidth" label-position="right" inline @submit.native.prevent>
           <el-form-item label="昵称/ID：">
-            <el-input placeholder="请输入" v-model="formValidate.nickname" clearable class="form_content_width" />
+            <el-input placeholder="الرجاء إدخال " v-model="formValidate.nickname" clearable class="form_content_width" />
           </el-form-item>
           <el-form-item label="佣金范围：" class="tab_data">
             <el-input-number :controls="false" :min="0" class="mr10" v-model="formValidate.price_min" />
@@ -117,7 +117,7 @@ export default {
           this.$message.error(res.msg);
         });
     },
-    // 搜索
+    // بحث
     userSearchs() {
       this.formValidate.page = 1;
       this.getList();
@@ -138,7 +138,7 @@ export default {
           this.$message.error(res.msg);
         });
     },
-    // 详情
+    // تفاصيل
     Info(row) {
       this.$refs.commission.modals = true;
       this.$refs.commission.getDetails(row.uid);

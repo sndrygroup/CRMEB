@@ -14,9 +14,9 @@
           </div>
           <div class="info">
             <div class="info-item" v-if="item.hasOwnProperty('name')">
-              <span>{{ type == 1 ? '管理名称：' : type == 5 ? '广告名称' : '服务名称：' }}</span>
+              <span>{{ type == 1 ? 'إدارةالاسم：' : type == 5 ? '广告الاسم' : '服务الاسم：' }}</span>
               <div class="input-box">
-                <el-input v-model="item.name" :placeholder="type == 5 ? '请输入名称' : '服务中心'" :maxlength="4" />
+                <el-input v-model="item.name" :placeholder="type == 5 ? 'الرجاء إدخال الاسم' : '服务中心'" :maxlength="4" />
               </div>
             </div>
             <div class="info-item">
@@ -55,7 +55,7 @@
     <template v-if="listData">
       <div class="add-btn" v-if="type == 2 || (type == 5 && listData.length < 5)">
         <el-button type="primary" ghost style="width: 100px; color: #fff; font-size: 13px" v-db-click @click="addBox"
-          >添加{{ type == 5 ? '广告' : '服务' }}</el-button
+          >إضافة{{ type == 5 ? '广告' : '服务' }}</el-button
         >
       </div>
     </template>
@@ -140,7 +140,7 @@ export default {
       this.activeIndex = index;
       this.modalPic = true;
     },
-    // 添加自定义弹窗
+    // إضافة自定义弹窗
     addCustomDialog(editorId) {
       window.UE.registerUI(
         'test-dialog',
@@ -177,7 +177,7 @@ export default {
         this.modalPic = false;
       });
     },
-    // 删除
+    // حذف
     bindDelete(item, index) {
       if (this.listData.length == 1) {
         this.lastObj = this.listData[0];

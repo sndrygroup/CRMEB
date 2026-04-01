@@ -8,7 +8,7 @@ var _this = null;
 export default class AlertMenu extends BtnMenu {
   constructor(editor) {
     _this = editor;
-    // data-title属性表示当鼠标悬停在该按钮上时提示该按钮的功能简述
+    // data-title属性表示当鼠标悬停在该按钮上时تنبيه该按钮的功能简述
     const $elem = E.$(
       `<div class="w-e-menu" data-title="视频">
                 <div class="iconfont iconshipin"></div>

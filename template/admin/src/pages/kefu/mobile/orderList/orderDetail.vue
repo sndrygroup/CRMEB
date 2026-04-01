@@ -14,7 +14,7 @@
       <span
         class="line1"
         style="text-align: left"
-        v-text="orderInfo.remark ? orderInfo.remark : '订单未备注，点击添加备注信息'"
+        v-text="orderInfo.remark ? orderInfo.remark : '订单未备注，点击إضافة备注信息'"
         v-db-click
         @click="modify(1)"
       />
@@ -64,11 +64,11 @@
         </div>
       </div>
       <div class="item acea-row row-between">
-        <div>支付时间：</div>
+        <div>支付الوقت：</div>
         <div class="conter">{{ orderInfo._pay_time }}</div>
       </div>
       <div class="item acea-row row-between">
-        <div>支付状态：</div>
+        <div>支付الحالة：</div>
         <div class="conter">
           {{ title }}
         </div>
@@ -133,7 +133,7 @@
         v-db-click
         @click="offlinePay"
       >
-        确认付款
+        تأكيد付款
       </div>
       <router-link
         class="bnt delivery"

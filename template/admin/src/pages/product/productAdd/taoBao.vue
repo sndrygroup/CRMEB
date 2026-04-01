@@ -20,7 +20,7 @@
       @submit.native.prevent
     >
       <el-form-item label="链接地址：">
-        <el-input clearable v-model="soure_link" placeholder="请输入链接地址" class="numPut" />
+        <el-input clearable v-model="soure_link" placeholder="الرجاء إدخال 链接地址" class="numPut" />
         <el-button type="primary" class="ml15" v-db-click @click="add">确定</el-button>
       </el-form-item>
     </el-form>
@@ -80,7 +80,7 @@ export default {
       if (this.soure_link) {
         var reg = /(http|ftp|https):\/\/[\w\-_]+(\.[\w\-_]+)+([\w\-\.,@?^=%&:/~\+#]*[\w\-\@?^=%&/~\+#])?/;
         if (!reg.test(this.soure_link)) {
-          return this.$message.warning('请输入以http开头的地址！');
+          return this.$message.warning('الرجاء إدخال 以http开头的地址！');
         }
         this.spinShow = true;
         this.artFrom.url = this.soure_link;
@@ -95,7 +95,7 @@ export default {
             this.$message.error(res.msg);
           });
       } else {
-        this.$message.warning('请输入链接地址！');
+        this.$message.warning('الرجاء إدخال 链接地址！');
       }
     },
   },

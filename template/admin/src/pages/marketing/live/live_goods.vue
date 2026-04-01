@@ -11,7 +11,7 @@
           class="tabform"
           @submit.native.prevent
         >
-          <el-form-item label="审核状态：">
+          <el-form-item label="审核الحالة：">
             <el-select v-model="formValidate.status" clearable @change="selChange" class="form_content_width">
               <el-option
                 v-for="(item, index) in treeData.withdrawal"
@@ -21,10 +21,10 @@
               ></el-option>
             </el-select>
           </el-form-item>
-          <el-form-item label="搜索：">
+          <el-form-item label="بحث：">
             <el-input
               clearable
-              placeholder="请输入商品名称/ID"
+              placeholder="الرجاء إدخال 商品الاسم/ID"
               v-model="formValidate.kerword"
               class="form_content_width"
             />
@@ -36,8 +36,8 @@
       </div>
     </el-card>
     <el-card :bordered="false" shadow="never" class="ivu-mt mt16">
-      <el-button v-auth="['setting-system_menus-add']" type="primary" v-db-click @click="menusAdd('添加直播间')"
-        >添加商品
+      <el-button v-auth="['setting-system_menus-add']" type="primary" v-db-click @click="menusAdd('إضافة直播间')"
+        >إضافة商品
       </el-button>
       <!-- <el-button
         v-auth="['setting-system_menus-add']"
@@ -60,7 +60,7 @@
             <span>{{ scope.row.product_id }}</span>
           </template>
         </el-table-column>
-        <el-table-column label="商品名称" min-width="120">
+        <el-table-column label="商品الاسم" min-width="120">
           <template slot-scope="scope">
             <div class="product_box">
               <div v-viewer>
@@ -85,7 +85,7 @@
             <span>{{ scope.row.product.stock }}</span>
           </template>
         </el-table-column>
-        <el-table-column label="审核状态" min-width="80">
+        <el-table-column label="审核الحالة" min-width="80">
           <template slot-scope="scope">
             <div>{{ scope.row.audit_status | liveStatusFilter }}</div>
           </template>
@@ -107,11 +107,11 @@
             </el-switch>
           </template>
         </el-table-column>
-        <el-table-column label="操作" fixed="right" width="170">
+        <el-table-column label="الخيارات" fixed="right" width="170">
           <template slot-scope="scope">
-            <a v-db-click @click="edit(scope.row, '编辑')">详情</a>
+            <a v-db-click @click="edit(scope.row, 'تحرير')">تفاصيل</a>
             <el-divider direction="vertical"></el-divider>
-            <a v-db-click @click="del(scope.row, '删除这条信息', scope.$index)">删除</a>
+            <a v-db-click @click="del(scope.row, 'حذف这条信息', scope.$index)">حذف</a>
           </template>
         </el-table-column>
       </el-table>
@@ -125,8 +125,8 @@
         />
       </div>
     </el-card>
-    <!--详情-->
-    <el-dialog :visible.sync="modals" title="商品详情" class="paymentFooter" scrollable width="720px">
+    <!--تفاصيل-->
+    <el-dialog :visible.sync="modals" title="商品تفاصيل" class="paymentFooter" scrollable width="720px">
       <goodsFrom ref="goodsDetail" :FormData="FormData" />
     </el-dialog>
   </div>
@@ -178,14 +178,14 @@ export default {
       },
       columns1: [
         { key: 'product_id', title: '商品ID', minWidth: 35 },
-        { slot: 'name', minWidth: 35, title: '商品名称' },
+        { slot: 'name', minWidth: 35, title: '商品الاسم' },
         { key: 'price', minWidth: 35, title: '直播价' },
         { slot: 'cost_price', minWidth: 35, title: '原价' },
         { slot: 'stock', minWidth: 35, title: '库存' },
-        { slot: 'status', minWidth: 35, title: '审核状态' },
+        { slot: 'status', minWidth: 35, title: '审核الحالة' },
         { slot: 'is_mer_show', title: '是否显示', minWidth: 80 },
         // {"key": "sort", "title": "排序", "minWidth": 35},
-        { slot: 'action', fixed: 'right', title: '操作', minWidth: 120 },
+        { slot: 'action', fixed: 'right', title: 'الخيارات', minWidth: 120 },
       ],
       tabList: [],
       loading: false,
@@ -236,7 +236,7 @@ export default {
       this.formValidate.page = 1;
       this.getList();
     },
-    // 添加商品
+    // إضافة商品
     menusAdd() {
       this.$router.push({
         path: this.$routeProStr + '/marketing/live/add_live_goods',
@@ -263,7 +263,7 @@ export default {
           this.$message.error(error.msg);
         });
     },
-    // 删除
+    // حذف
     del(row, tit, num) {
       let delfromData = {
         title: tit,

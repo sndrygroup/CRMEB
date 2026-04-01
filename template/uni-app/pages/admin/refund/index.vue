@@ -27,7 +27,7 @@
 			</view>
 			<view class="btn-box">
 				<view class="btn" :style="{ width: isSplit?'auto':'100%'}" @click="openRefund">
-					确认
+					تأكيد
 					<text v-if="isSplit">({{ numTotal }})</text>
 				</view>
 			</view>

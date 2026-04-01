@@ -33,7 +33,7 @@
           <div v-if="imgList.length < limit" class="btn" v-db-click @click="selectImgs">
             {{ imgList.length ? '继续选择' : '选择图片' }}
           </div>
-          <div class="btn upload" :class="{ 'no-pic': !imgList.length }" v-db-click @click="submitUpload">确认上传</div>
+          <div class="btn upload" :class="{ 'no-pic': !imgList.length }" v-db-click @click="submitUpload">تأكيد上传</div>
         </div>
       </div>
     </div>

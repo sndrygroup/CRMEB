@@ -13,7 +13,7 @@
       </div>
       <div style="text-align: center" v-if="rCom.length">
         <el-button type="primary" style="width: 100%; margin: 0 auto; height: 40px" v-db-click @click="saveConfig"
-          >保存</el-button
+          >حفظ</el-button
         >
       </div>
     </div>
@@ -133,7 +133,7 @@ export default {
         this.bus.$emit('upData', data);
       });
     },
-    // 保存数据
+    // حفظ数据
     saveConfig() {
       let data = this.$store.state.moren.defaultConfig;
       if (this.name.name == 'tabBar') {
@@ -146,14 +146,14 @@ export default {
           }
         }
         if (data.tabBar.default.tabBarList.list.length < 2) {
-          return this.$message.error('您最少应添加2个导航');
+          return this.$message.error('您最少应إضافة2个导航');
         }
       }
 
       diySave(this.pageId, {
         value: data,
       }).then((res) => {
-        this.$message.success('保存成功');
+        this.$message.success('حفظ成功');
       });
     },
     // 对象转数组

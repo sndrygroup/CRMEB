@@ -10,10 +10,10 @@
           @submit.native.prevent
           inline
         >
-          <el-form-item label="搜索：">
+          <el-form-item label="بحث：">
             <el-input
               clearable
-              placeholder="请输入姓名、UID"
+              placeholder="الرجاء إدخال 姓名、UID"
               v-model="formValidate.keyword"
               class="form_content_width"
             />
@@ -49,7 +49,7 @@
                 <span>{{ scope.row.uid }}</span>
               </template>
             </el-table-column>
-            <el-table-column label="代理商名称" min-width="150">
+            <el-table-column label="代理商الاسم" min-width="150">
               <template slot-scope="scope">
                 <span>{{ scope.row.agent_name }}</span>
               </template>
@@ -59,7 +59,7 @@
                 <span>{{ scope.row.phone }}</span>
               </template>
             </el-table-column>
-            <el-table-column label="事业部名称" min-width="150">
+            <el-table-column label="事业部الاسم" min-width="150">
               <template slot-scope="scope">
                 <span>{{ scope.row.division_name }}</span>
               </template>
@@ -73,12 +73,12 @@
                 </div>
               </template>
             </el-table-column>
-            <el-table-column label="申请时间" min-width="150">
+            <el-table-column label="申请الوقت" min-width="150">
               <template slot-scope="scope">
                 <span>{{ scope.row.add_time }}</span>
               </template>
             </el-table-column>
-            <el-table-column label="申请状态" min-width="150">
+            <el-table-column label="申请الحالة" min-width="150">
               <template slot-scope="scope">
                 <el-tag>{{ scope.row.status == 0 ? '申请中' : scope.row.status == 1 ? '已同意' : '已拒绝' }}</el-tag>
               </template>
@@ -88,13 +88,13 @@
                 <el-tag>{{ scope.row.division_invite }}</el-tag>
               </template>
             </el-table-column>
-            <el-table-column label="操作" fixed="right" width="170">
+            <el-table-column label="الخيارات" fixed="right" width="170">
               <template slot-scope="scope">
                 <a v-if="scope.row.status == 0" v-db-click @click="groupAdd(scope.row.id, 1)">同意</a>
                 <el-divider v-if="scope.row.status == 0" direction="vertical" />
                 <a v-if="scope.row.status == 0" v-db-click @click="groupAdd(scope.row.id, 0)">拒绝</a>
                 <el-divider direction="vertical" v-if="scope.row.status == 0" />
-                <a v-db-click @click="del(scope.row, '删除申请', scope.$index)">删除</a>
+                <a v-db-click @click="del(scope.row, 'حذف申请', scope.$index)">حذف</a>
               </template>
             </el-table-column>
           </el-table>
@@ -228,7 +228,7 @@ export default {
       this.clerkReqData.page = index;
       this.getClerkList();
     },
-    // 添加表单
+    // إضافة表单
     groupAdd(id, type) {
       this.$modalForm(divisionFrom(id, type))
         .then((res) => {
@@ -236,7 +236,7 @@ export default {
         })
         .catch((err) => {});
     },
-    // 修改是否显示
+    // تعديل是否显示
     onchangeIsShow(row) {
       let data = {
         id: row.uid,
@@ -250,9 +250,9 @@ export default {
           this.$message.error(res.msg);
         });
     },
-    // 编辑
+    // تحرير
     edit(row) {},
-    // 删除
+    // حذف
     del(row, tit, num) {
       let delfromData = {
         title: tit,

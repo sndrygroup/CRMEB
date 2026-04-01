@@ -17,19 +17,19 @@
         <div class="button acea-row row-between-wrapper" :class="configData.list.length == 0 ? 'on' : ''">
           <div class="bnt acea-row row-center-wrapper" @click="addHotTxt">
             <span class="iconfont iconjia"></span>
-            添加单个选项
+            إضافة单个选项
           </div>
           <Poptip placement="bottom" trigger="click" width="256" transfer padding="8px" v-model="visible">
             <div class="bnt acea-row row-center-wrapper">
               <span class="iconfont iconjia"></span>
-              批量添加选项
+              批量إضافة选项
             </div>
             <div class="batchItem on" slot="content">
-              <div class="title">批量添加选项</div>
-              <div class="tips">可按回车键添加多个选项</div>
+              <div class="title">批量إضافة选项</div>
+              <div class="tips">可按回车键إضافة多个选项</div>
               <el-input v-model="batchWord" type="textarea" :autosize="{ minRows: 3, maxRows: 5 }" />
               <div class="batchBnt acea-row row-right">
-                <el-button @click.stop="cancel(1)">取消</el-button>
+                <el-button @click.stop="cancel(1)">إلغاء</el-button>
                 <el-button type="primary" class="ml10" @click.stop="cancel(2)">确定</el-button>
               </div>
             </div>
@@ -92,7 +92,7 @@ export default {
       };
       this.configData.list.push(obj);
     },
-    // 删除数组
+    // حذف数组
     bindDelete(index) {
       this.configData.list.splice(index, 1);
     },

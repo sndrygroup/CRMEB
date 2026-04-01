@@ -24,7 +24,7 @@ const dialog = {
   loading,
 };
 
-const icons = { error: '操作失败', success: '操作成功' };
+const icons = { error: 'الخيارات失败', success: 'الخيارات成功' };
 Object.keys(icons).reduce((dialog, key) => {
   dialog[key] = (mes, obj = {}) => {
     return new Promise(function (resolve) {
@@ -42,7 +42,7 @@ Object.keys(icons).reduce((dialog, key) => {
   return dialog;
 }, dialog);
 
-dialog.message = (mes = '操作失败', obj = {}) => {
+dialog.message = (mes = 'الخيارات失败', obj = {}) => {
   return new Promise(function (resolve) {
     toast({
       mes,

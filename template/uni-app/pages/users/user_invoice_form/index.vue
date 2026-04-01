@@ -23,7 +23,7 @@
 				</view>
 				<view class="acea-row row-middle">
 					<view>{{$t(`发票抬头`)}}</view>
-					<input name="name" :value="name" :placeholder="header_type === '1' ? $t(`需要开具发票的姓名`) : $t(`需要开具发票的企业名称`)" />
+					<input name="name" :value="name" :placeholder="header_type === '1' ? $t(`需要开具发票的姓名`) : $t(`需要开具发票的企业الاسم`)" />
 				</view>
 				<view v-show="header_type === '2'" class="acea-row row-middle">
 					<view>{{$t(`税号`)}}</view>
@@ -62,8 +62,8 @@
 				</label>
 			</checkbox-group>
 			<view class="button-section">
-				<button class="button" form-type="submit">{{$t(`保存`)}}</button>
-				<navigator class="navigator" :url="backUrl" hover-class="none">{{$t(`取消`)}}</navigator>
+				<button class="button" form-type="submit">{{$t(`حفظ`)}}</button>
+				<navigator class="navigator" :url="backUrl" hover-class="none">{{$t(`إلغاء`)}}</navigator>
 			</view>
 		</form>
 		<view :class="{ mask: popupType }"></view>
@@ -115,11 +115,11 @@
 						info: this.$t(`纸质发票开出后将以邮寄形式交付`)
 					}
 				],
-				id: '', // 修改时为必须参数
+				id: '', // تعديل时为必须参数
 				header_type: '1', // 抬头类型1: 个人2： 企业
 				type: '1', // 发票类型1：普通2：专用
 				drawer_phone: '', // 开票人手机号
-				name: '', // 名称（发票抬头）
+				name: '', // الاسم（发票抬头）
 				duty_number: '', // 税号（个人为非必需，企业是必需参数）
 				tell: '', // 公司注册电话
 				address: '', // 注册地址
@@ -154,7 +154,7 @@
 		onLoad(options) {
 
 			if (options.id) uni.setNavigationBarTitle({
-				title: '编辑发票'
+				title: 'تحرير发票'
 			})
 			for (let key in options) {
 				switch (key) {
@@ -216,7 +216,7 @@
 					});
 				});
 			},
-			// 保存
+			// حفظ
 			formSubmit(e) {
 				let that = this;
 				const formData = e.detail.value;
@@ -224,13 +224,13 @@
 				if (formData.header_type === '1') {
 					if (!formData.name) {
 						return uni.showToast({
-							title: that.$t(`请输入需要开具发票的姓名`),
+							title: that.$t(`الرجاء إدخال 需要开具发票的姓名`),
 							icon: 'none'
 						});
 					}
 					if (!formData.drawer_phone) {
 						return uni.showToast({
-							title: that.$t(`请输入您的手机号`),
+							title: that.$t(`الرجاء إدخال 您的手机号`),
 							icon: 'none'
 						});
 					}
@@ -242,7 +242,7 @@
 					}
 					if (!formData.email) {
 						return uni.showToast({
-							title: that.$t(`请输入您的联系邮箱`),
+							title: that.$t(`الرجاء إدخال 您的联系邮箱`),
 							icon: 'none'
 						});
 					}
@@ -257,13 +257,13 @@
 					if (formData.type === '1') {
 						if (!formData.name) {
 							return uni.showToast({
-								title: that.$t(`请输入需要开具发票的企业名称`),
+								title: that.$t(`الرجاء إدخال 需要开具发票的企业الاسم`),
 								icon: 'none'
 							});
 						}
 						if (!formData.duty_number) {
 							return uni.showToast({
-								title: that.$t(`请输入纳税人识别号`),
+								title: that.$t(`الرجاء إدخال 纳税人识别号`),
 								icon: 'none'
 							});
 						}
@@ -275,7 +275,7 @@
 						}
 						if (!formData.drawer_phone) {
 							return uni.showToast({
-								title: that.$t(`请输入您的手机号`),
+								title: that.$t(`الرجاء إدخال 您的手机号`),
 								icon: 'none'
 							});
 						}
@@ -287,7 +287,7 @@
 						}
 						if (!formData.email) {
 							return uni.showToast({
-								title: that.$t(`请输入您的联系邮箱`),
+								title: that.$t(`الرجاء إدخال 您的联系邮箱`),
 								icon: 'none'
 							});
 						}
@@ -301,13 +301,13 @@
 					if (formData.type === '2') {
 						if (!formData.name) {
 							return uni.showToast({
-								title: that.$t(`请输入需要开具发票的企业名称`),
+								title: that.$t(`الرجاء إدخال 需要开具发票的企业الاسم`),
 								icon: 'none'
 							});
 						}
 						if (!formData.duty_number) {
 							return uni.showToast({
-								title: that.$t(`请输入纳税人识别号`),
+								title: that.$t(`الرجاء إدخال 纳税人识别号`),
 								icon: 'none'
 							});
 						}
@@ -319,7 +319,7 @@
 						}
 						if (!formData.drawer_phone) {
 							return uni.showToast({
-								title: that.$t(`请输入您的手机号`),
+								title: that.$t(`الرجاء إدخال 您的手机号`),
 								icon: 'none'
 							});
 						}
@@ -331,7 +331,7 @@
 						}
 						if (!formData.email) {
 							return uni.showToast({
-								title: that.$t(`请输入您的联系邮箱`),
+								title: that.$t(`الرجاء إدخال 您的联系邮箱`),
 								icon: 'none'
 							});
 						}
@@ -343,13 +343,13 @@
 						}
 						if (!formData.bank) {
 							return uni.showToast({
-								title: that.$t(`请输入您的开户银行`),
+								title: that.$t(`الرجاء إدخال 您的开户银行`),
 								icon: 'none'
 							});
 						}
 						if (!formData.card_number) {
 							return uni.showToast({
-								title: that.$t(`请输入您的银行账号`),
+								title: that.$t(`الرجاء إدخال 您的银行账号`),
 								icon: 'none'
 							});
 						}
@@ -361,13 +361,13 @@
 						}
 						if (!formData.address) {
 							return uni.showToast({
-								title: that.$t(`请输入您所在的企业地址`),
+								title: that.$t(`الرجاء إدخال 您所在的企业地址`),
 								icon: 'none'
 							});
 						}
 						if (!formData.tell) {
 							return uni.showToast({
-								title: that.$t(`请输入您的企业电话`),
+								title: that.$t(`الرجاء إدخال 您的企业电话`),
 								icon: 'none'
 							});
 						}
@@ -377,7 +377,7 @@
 				formData.id = this.id;
 
 				uni.showLoading({
-					title: that.$t(`保存中`)
+					title: that.$t(`حفظ中`)
 				});
 				invoiceSave(formData).then(res => {
 					uni.showToast({

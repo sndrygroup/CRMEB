@@ -14,7 +14,7 @@
         >
       </div>
       <div class="search-box">
-        <el-input placeholder="搜索快捷回复" style="width: 100%" v-model="searchTxt" />
+        <el-input placeholder="بحث快捷回复" style="width: 100%" v-model="searchTxt" />
       </div>
     </div>
     <div class="main">
@@ -37,8 +37,8 @@
               <span class="iconfont iconDot" v-db-click @click.top="bindEdit(item, scope.$index)"></span>
 
               <div class="edit-wrapper" v-show="item.isEdit">
-                <div class="edit-item" v-db-click @click="editSort(item)">编辑</div>
-                <div class="edit-item" v-db-click @click="delSort(item, '删除分类', scope.$index)">删除</div>
+                <div class="edit-item" v-db-click @click="editSort(item)">تحرير</div>
+                <div class="edit-item" v-db-click @click="delSort(item, 'حذف分类', scope.$index)">حذف</div>
               </div>
               <div class="edit-bg" v-show="item.isEdit" v-db-click @click.stop="item.isEdit = false"></div>
             </template>
@@ -64,7 +64,7 @@
               />
               <div class="conBox" :class="{ active: addMsg.isEdit }">
                 <div class="content">
-                  <el-input v-model="addMsg.message" type="textarea" :rows="4" placeholder="请输入内容" />
+                  <el-input v-model="addMsg.message" type="textarea" :rows="4" placeholder="الرجاء إدخال 内容" />
                 </div>
                 <div class="bom">
                   <div class="select">
@@ -73,8 +73,8 @@
                     </el-select>
                   </div>
                   <div class="btns-box">
-                    <el-button v-db-click @click.stop="addMsg.isEdit = false">取消</el-button>
-                    <el-button type="primary" v-db-click @click.stop="bindAdd">保存</el-button>
+                    <el-button v-db-click @click.stop="addMsg.isEdit = false">إلغاء</el-button>
+                    <el-button type="primary" v-db-click @click.stop="bindAdd">حفظ</el-button>
                   </div>
                 </div>
               </div>
@@ -88,13 +88,13 @@
               </div>
               <div class="edit-box" v-if="tabCur">
                 <span class="iconfont iconbianji" v-db-click @click.stop="editMsg(item)"></span>
-                <span class="iconfont iconshanchu" v-db-click @click.stop="delMsg(item, '删除话术', index)"></span>
+                <span class="iconfont iconshanchu" v-db-click @click.stop="delMsg(item, 'حذف话术', index)"></span>
               </div>
             </div>
             <div class="box2" v-else>
               <el-input class="input-box" v-model="item.title" placeholder="输入标题（选填）" style="width: 100%" />
               <div class="content">
-                <el-input v-model="item.message" type="textarea" :rows="4" placeholder="请输入内容" />
+                <el-input v-model="item.message" type="textarea" :rows="4" placeholder="الرجاء إدخال 内容" />
               </div>
               <div class="bom">
                 <div class="select">
@@ -103,8 +103,8 @@
                   </el-select>
                 </div>
                 <div class="btns-box">
-                  <el-button v-db-click @click.stop="item.isEdit = false">取消</el-button>
-                  <el-button type="primary" v-db-click @click.stop="updataMsg(item)">保存</el-button>
+                  <el-button v-db-click @click.stop="item.isEdit = false">إلغاء</el-button>
+                  <el-button type="primary" v-db-click @click.stop="updataMsg(item)">حفظ</el-button>
                 </div>
               </div>
             </div>
@@ -114,8 +114,8 @@
     </div>
     <el-dialog :visible.sync="isAddSort" append-to-body :title="maskTitle" width="304px" class="class-box">
       <div class="item">
-        <span>分组名称：</span>
-        <el-input v-model="classTitle" placeholder="分组名称" />
+        <span>分组الاسم：</span>
+        <el-input v-model="classTitle" placeholder="分组الاسم" />
       </div>
       <div class="item">
         <span>分组排序：</span>
@@ -183,7 +183,7 @@ export default {
           key: 0,
         },
       ],
-      searchTxt: '', // 搜索
+      searchTxt: '', // بحث
       list: [
         {
           isEdit: false,
@@ -199,11 +199,11 @@ export default {
         cateId: '',
         isEdit: false,
       },
-      isAddSort: false, // 添加分类
-      classTitle: '', // 分类名称
+      isAddSort: false, // إضافة分类
+      classTitle: '', // 分类الاسم
       classSort: '', // 分类排序
       maskTitle: '', // 弹窗标题
-      editObj: {}, // 编辑分类对象
+      editObj: {}, // تحرير分类对象
     };
   },
   filters: {
@@ -243,12 +243,12 @@ export default {
     });
   },
   methods: {
-    // 打开编辑
+    // 打开تحرير
     editMsg(item) {
       item.isEdit = true;
       this.cateId = item.cate_id;
     },
-    // 编辑框
+    // تحرير框
     bindEdit(item, index) {
       //   if (index == 0) {
       //     return;
@@ -267,7 +267,7 @@ export default {
       this.list = [];
       this.serviceCate();
     },
-    // 搜索
+    // بحث
     bindSearch() {
       this.isScroll = true;
       this.page = 1;
@@ -290,7 +290,7 @@ export default {
       this.list = [];
       this.getList();
     },
-    // 删除分类
+    // حذف分类
     delSort(row, tit, num) {
       let delfromData = {
         title: tit,
@@ -351,7 +351,7 @@ export default {
         this.list = this.list.concat(res.data);
       });
     },
-    // 修改话术
+    // تعديل话术
     updataMsg(item) {
       serviceCateUpdate(item.id, {
         title: item.title,
@@ -359,7 +359,7 @@ export default {
         message: item.message,
       })
         .then((res) => {
-          this.$message.success('修改成功');
+          this.$message.success('تعديل成功');
           item.isEdit = false;
         })
         .catch((error) => {
@@ -367,20 +367,20 @@ export default {
           item.isEdit = true;
         });
     },
-    // 添加框显示
+    // إضافة框显示
     bindFocus() {
       this.list.forEach((el, item) => {
         el.isEdit = false;
       });
       this.addMsg.isEdit = true;
     },
-    // 打开添加窗口
+    // 打开إضافة窗口
     openAddSort() {
       this.isAddSort = true;
-      this.maskTitle = '添加分组';
+      this.maskTitle = 'إضافة分组';
       this.editObj.id = 0;
     },
-    // 添加话术
+    // إضافة话术
     bindAdd() {
       addSpeeChcraft({
         title: this.addMsg.title,
@@ -403,7 +403,7 @@ export default {
           this.$message.error(error.msg);
         });
     },
-    // 删除
+    // حذف
     delMsg(row, tit, num, type) {
       let delfromData = {
         title: tit,
@@ -422,7 +422,7 @@ export default {
           this.$message.error(res.msg);
         });
     },
-    // 添加分类
+    // إضافة分类
     addServiceCate() {
       if (this.editObj.id) {
         editServiceCate(this.editObj.id, {
@@ -466,12 +466,12 @@ export default {
           });
       }
     },
-    // 编辑分类
+    // تحرير分类
     editSort(item) {
       this.classSort = item.sort;
       this.classTitle = item.name;
       this.isAddSort = true;
-      this.maskTitle = '编辑分组';
+      this.maskTitle = 'تحرير分组';
       this.editObj = item;
     },
     handleReachBottom() {

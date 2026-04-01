@@ -2,7 +2,7 @@
     <base-drawer mode="bottom" :visible="visible" background-color="transparent" mask maskClosable @close="closeDrawer">
         <view class="classify rd-t-40rpx">
             <view class="title">
-                修改分类
+                تعديل分类
                 <view class="close acea-row row-center-wrapper" @tap="closeDrawer">
                     <text class="iconfont icon-iconfontguanbi"></text>
                 </view>
@@ -149,7 +149,7 @@ export default {
         define() {
             if (!this.checkedIds.length) {
                 this.$util.Tips({
-                    title: '请选择分类'
+                    title: 'الرجاء اختيار 分类'
                 });
                 return;
             }

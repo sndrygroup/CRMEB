@@ -10,7 +10,7 @@
           inline
           @submit.native.prevent
         >
-          <el-form-item label="订单时间：">
+          <el-form-item label="订单الوقت：">
             <el-date-picker
               clearable
               v-model="timeVal"
@@ -31,7 +31,7 @@
               <el-option :label="item" :value="index" v-for="(item, index) in withdrawal" :key="index"></el-option>
             </el-select>
           </el-form-item>
-          <el-form-item label="流水搜索：">
+          <el-form-item label="流水بحث：">
             <div class="acea-row row-middle">
               <el-input
                 clearable
@@ -59,7 +59,7 @@
             <span>{{ scope.row.order_id }}</span>
           </template>
         </el-table-column>
-        <el-table-column label="交易时间" min-width="130">
+        <el-table-column label="交易الوقت" min-width="130">
           <template slot-scope="scope">
             <span>{{ scope.row.add_time }}</span>
           </template>
@@ -87,7 +87,7 @@
             <span>{{ scope.row.mark }}</span>
           </template>
         </el-table-column>
-        <el-table-column label="操作" fixed="right" width="170">
+        <el-table-column label="الخيارات" fixed="right" width="170">
           <template slot-scope="scope">
             <a v-db-click @click="setMark(scope.row)">备注</a>
           </template>
@@ -105,7 +105,7 @@
     </el-card>
     <!-- 拒绝通过-->
     <el-dialog :visible.sync="modals" title="备注" :close-on-click-modal="false" width="540px">
-      <el-input v-model="mark_msg.mark" type="textarea" :rows="4" placeholder="请输入备注" />
+      <el-input v-model="mark_msg.mark" type="textarea" :rows="4" placeholder="الرجاء إدخال 备注" />
       <span slot="footer" class="dialog-footer">
         <el-button type="primary" v-db-click @click.prevent="oks">确定</el-button>
       </span>
@@ -237,7 +237,7 @@ export default {
           this.$message.error(res.msg);
         });
     },
-    // 编辑提交成功
+    // تحريرإرسال成功
     submitFail() {
       this.getList();
     },

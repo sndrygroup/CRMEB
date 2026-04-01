@@ -226,7 +226,7 @@ export default {
       parameter: {
         navbar: "1",
         return: "1",
-        title: this.$t(`抢购详情页`),
+        title: this.$t(`抢购تفاصيل页`),
         color: false,
       },
       attribute: {
@@ -236,7 +236,7 @@ export default {
       },
       productValue: [],
       isOpen: false,
-      attr: this.$t(`请选择`),
+      attr: this.$t(`الرجاء اختيار `),
       attrValue: "",
       status: 1,
       isAuto: false,
@@ -248,7 +248,7 @@ export default {
       reply: [], //评论列表
       replyChance: 0,
       navH: "",
-      navList: [this.$t(`商品`), this.$t(`详情`)],
+      navList: [this.$t(`商品`), this.$t(`تفاصيل`)],
       opacity: 0,
       scrollY: 0,
       topArr: [],
@@ -565,7 +565,7 @@ export default {
         self.$set(self.attribute.productSelect, "unique", "");
         self.$set(self.attribute.productSelect, "cart_num", 0);
         self.$set(self, "attrValue", "");
-        self.$set(self, "attrTxt", self.$t(`请选择`));
+        self.$set(self, "attrTxt", self.$t(`الرجاء اختيار `));
       } else if (!productSelect && !productAttr.length) {
         self.$set(
           self.attribute.productSelect,
@@ -594,7 +594,7 @@ export default {
           productSelect.product_stock
         );
         self.$set(self, "attrValue", "");
-        self.$set(self, "attrTxt", self.$t(`请选择`));
+        self.$set(self, "attrTxt", self.$t(`الرجاء اختيار `));
       }
     },
     selecAttr: function () {
@@ -799,18 +799,18 @@ export default {
       //只有关闭属性弹窗时进行加入购物车
       if (this.attribute.cartAttr === true && this.isOpen == false)
         return (this.isOpen = true);
-      //如果有属性,没有选择,提示用户选择
+      //如果有属性,没有选择,تنبيه用户选择
       if (
         this.attribute.productAttr.length &&
         productSelect === undefined &&
         this.isOpen == true
       )
         return app.$util.Tips({
-          title: this.$t(`请选择属性`),
+          title: this.$t(`الرجاء اختيار 属性`),
         });
       if (this.cart_num <= 0) {
         return app.$util.Tips({
-          title: this.$t(`请选择数量`),
+          title: this.$t(`الرجاء اختيار 数量`),
         });
       }
       this.isOpen = false;

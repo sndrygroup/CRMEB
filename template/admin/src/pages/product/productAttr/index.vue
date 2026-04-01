@@ -11,11 +11,11 @@
           @submit.native.prevent
           inline
         >
-          <el-form-item label="规格搜索：">
+          <el-form-item label="规格بحث：">
             <el-input
               clearable
               v-model="artFrom.rule_name"
-              placeholder="请输入规格名称"
+              placeholder="الرجاء إدخال 规格الاسم"
               class="form_content_width"
             ></el-input>
           </el-form-item>
@@ -26,9 +26,9 @@
       </div>
     </el-card>
     <el-card :bordered="false" shadow="never" class="ivu-mt mt16">
-      <el-button v-auth="['product-rule-save']" type="primary" v-db-click @click="addAttr">添加商品规格</el-button>
-      <el-button v-auth="['product-product-rule-delete']" v-db-click @click="del(null, '批量删除规格')"
-        >批量删除</el-button
+      <el-button v-auth="['product-rule-save']" type="primary" v-db-click @click="addAttr">إضافة商品规格</el-button>
+      <el-button v-auth="['product-product-rule-delete']" v-db-click @click="del(null, '批量حذف规格')"
+        >批量حذف</el-button
       >
       <el-table
         ref="table"
@@ -46,12 +46,12 @@
             <span>{{ scope.row.id }}</span>
           </template>
         </el-table-column>
-        <el-table-column label="模版名称" min-width="130">
+        <el-table-column label="模版الاسم" min-width="130">
           <template slot-scope="scope">
             <span>{{ scope.row.rule_name }}</span>
           </template>
         </el-table-column>
-        <el-table-column label="规格名称" min-width="130">
+        <el-table-column label="规格الاسم" min-width="130">
           <template slot-scope="scope">
             <span>{{ scope.row.attr_name }}</span>
           </template>
@@ -66,11 +66,11 @@
             ></span>
           </template>
         </el-table-column>
-        <el-table-column label="操作" fixed="right" width="120">
+        <el-table-column label="الخيارات" fixed="right" width="120">
           <template slot-scope="scope">
-            <a v-db-click @click="edit(scope.row)">编辑</a>
+            <a v-db-click @click="edit(scope.row)">تحرير</a>
             <el-divider direction="vertical"></el-divider>
-            <a v-db-click @click="del(scope.row, '删除规格', scope.$index)">删除</a>
+            <a v-db-click @click="del(scope.row, 'حذف规格', scope.$index)">حذف</a>
           </template>
         </el-table-column>
       </el-table>
@@ -120,7 +120,7 @@ export default {
     getRowKey(row) {
       return row.id;
     },
-    //全选和取消全选时触发
+    //全选和إلغاء全选时触发
     handleSelectAll(selection) {
       if (selection.length === 0) {
         //获取table的数据；
@@ -161,11 +161,11 @@ export default {
       //将new Set()转化为数组
       this.ids = [...this.selectedIds].join(',');
     },
-    // 删除
+    // حذف
     del(row, tit) {
       let data = {};
-      if (tit === '批量删除规格') {
-        if (this.selectedIds.size === 0) return this.$message.warning('请选择要删除的规格！');
+      if (tit === '批量حذف规格') {
+        if (this.selectedIds.size === 0) return this.$message.warning('الرجاء اختيار 要حذف的规格！');
         data = {
           ids: this.ids,
         };
@@ -193,7 +193,7 @@ export default {
     addAttr() {
       this.$refs.addattr.modal = true;
     },
-    // 编辑
+    // تحرير
     edit(row) {
       this.$refs.addattr.modal = true;
       this.$refs.addattr.getIofo(row);
@@ -217,7 +217,7 @@ export default {
           this.$message.error(res.msg);
         });
     },
-    // 表格搜索
+    // 表格بحث
     userSearchs() {
       this.artFrom.page = 1;
       this.getDataList();

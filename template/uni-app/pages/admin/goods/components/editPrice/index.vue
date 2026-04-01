@@ -9,7 +9,7 @@
   >
     <view class="edit-price rd-t-40rpx" v-if="goodsInfo.attr_value">
       <view class="title"
-        >修改价格/库存
+        >تعديل价格/库存
         <view class="close acea-row row-center-wrapper" @tap="closeDrawer">
           <text class="iconfont icon-iconfontguanbi"></text>
         </view>
@@ -59,7 +59,7 @@
         >确定</view
       >
       <view v-else class="bnt acea-row row-center-wrapper" @tap="define"
-        >保存</view
+        >حفظ</view
       >
     </view>
   </base-drawer>
@@ -97,7 +97,7 @@ export default {
         this.$emit("successChange", info);
       } else {
         this.$util.Tips({
-          title: "修改内容至少填写一项",
+          title: "تعديل内容至少填写一项",
         });
       }
     },

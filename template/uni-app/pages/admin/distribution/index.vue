@@ -332,10 +332,10 @@
 				let self = this
 				let ref = /^[0-9]*$/;
 				if (!this.verify_code) return self.$util.Tips({
-					title: '请输入核销码'
+					title: 'الرجاء إدخال 核销码'
 				});
 				if (!ref.test(this.verify_code)) return self.$util.Tips({
-					title: '请输入正确的核销码'
+					title: 'الرجاء إدخال 正确的核销码'
 				});
 				self.$util.Tips({
 					title: '查询中'

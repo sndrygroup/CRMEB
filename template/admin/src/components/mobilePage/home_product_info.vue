@@ -423,7 +423,7 @@ export default {
             },
             {
               name: 'name',
-              cname: '商品名称',
+              cname: '商品الاسم',
               type: 'radio',
               show: true,
             },

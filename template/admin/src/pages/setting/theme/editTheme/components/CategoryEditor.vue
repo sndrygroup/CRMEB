@@ -70,7 +70,7 @@ export default {
       // 先触发父组件事件
       this.$emit('parentFun', true);
 
-      // 保存数据
+      // حفظ数据
       themeSave(this.$route.query.id, {
         type: 'category',
         value: this.activeStyle + 1,
@@ -84,12 +84,12 @@ export default {
           // 显示成功消息
           this.$message.success(res.msg);
 
-          // 保存成功后跳转回主题列表页面
+          // حفظ成功后跳转回主题列表页面
           this.$router.push(`${setting.routePre}/setting/my_theme`);
         })
         .catch((err) => {
-          // 保存失败时的处理
-          this.$message.error(err.msg || '保存失败');
+          // حفظ失败时的处理
+          this.$message.error(err.msg || 'حفظ失败');
         });
     },
   },

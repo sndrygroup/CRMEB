@@ -23,7 +23,7 @@
         ></el-color-picker>
         <el-input
           v-model="configData.leftColor"
-          placeholder="请输入颜色"
+          placeholder="الرجاء إدخال 颜色"
           @change="handleChange"
           style="margin-left: 10px; flex: 1"
         ></el-input>
@@ -65,7 +65,7 @@
         ></el-color-picker>
         <el-input
           v-model="configData.rightColor"
-          placeholder="请输入颜色"
+          placeholder="الرجاء إدخال 颜色"
           @change="handleChange"
           style="margin-left: 10px; flex: 1"
         ></el-input>

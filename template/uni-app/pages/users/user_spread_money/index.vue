@@ -39,7 +39,7 @@
 											</view>
 											<view>{{ child.add_time }}</view>
 											<view class="fail-msg" v-if="child.fail_msg">{{ $t(`原因`) }}：{{ child.fail_msg }}</view>
-											<view class="fail-msg" v-if="type == 2 && child.is_frozen == 1">佣金冻结中，解冻时间：{{ child.frozen_time }}</view>
+											<view class="fail-msg" v-if="type == 2 && child.is_frozen == 1">佣金冻结中，解冻الوقت：{{ child.frozen_time }}</view>
 										</view>
 										<view class="acea-row row-column items-end">
 											<view class="num font-color" v-if="child.pm == 1">+{{ child.number }}</view>
@@ -119,7 +119,7 @@ export default {
 		// 	// #endif
 
 		// 	//#ifndef H5
-		// 	// 非 H5 平台直接返回 false
+		// 	// 非 H5 平台直接عودة false
 		// 	return true;
 		// 	// #endif
 		// }

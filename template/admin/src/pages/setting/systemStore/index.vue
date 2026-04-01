@@ -12,22 +12,22 @@
         <el-row :gutter="24">
           <el-col :span="24">
             <el-col v-bind="grid">
-              <el-form-item label="门店名称：" prop="name" label-for="name">
-                <el-input v-model="formItem.name" placeholder="请输入门店名称" />
+              <el-form-item label="门店الاسم：" prop="name" label-for="name">
+                <el-input v-model="formItem.name" placeholder="الرجاء إدخال 门店الاسم" />
               </el-form-item>
             </el-col>
           </el-col>
           <el-col :span="24">
             <el-col v-bind="grid">
               <el-form-item label="门店简介：" label-for="introduction">
-                <el-input v-model="formItem.introduction" placeholder="请输入门店简介" />
+                <el-input v-model="formItem.introduction" placeholder="الرجاء إدخال 门店简介" />
               </el-form-item>
             </el-col>
           </el-col>
           <el-col :span="24">
             <el-col v-bind="grid">
               <el-form-item label="门店手机号：" label-for="phone" prop="phone">
-                <el-input v-model="formItem.phone" type="number" placeholder="请输入门店手机号" />
+                <el-input v-model="formItem.phone" type="number" placeholder="الرجاء إدخال 门店手机号" />
               </el-form-item>
             </el-col>
           </el-col>
@@ -46,7 +46,7 @@
           <el-col :span="24">
             <el-col v-bind="grid">
               <el-form-item label="详细地址：" label-for="detailed_address" prop="detailed_address">
-                <el-input v-model="formItem.detailed_address" placeholder="请输入详细地址" />
+                <el-input v-model="formItem.detailed_address" placeholder="الرجاء إدخال 详细地址" />
               </el-form-item>
             </el-col>
           </el-col>
@@ -77,9 +77,9 @@
                   format="HH:mm:ss"
                   value-format="HH:mm:ss"
                   range-separator="-"
-                  start-placeholder="开始时间"
-                  end-placeholder="结束时间"
-                  placeholder="选择时间范围"
+                  start-placeholder="开始الوقت"
+                  end-placeholder="结束الوقت"
+                  placeholder="选择الوقت范围"
                 ></el-time-picker>
               </el-form-item>
             </el-col>
@@ -111,7 +111,7 @@
         </el-row>
         <el-row>
           <el-col v-bind="grid">
-            <el-button type="primary" class="ml20" v-db-click @click="handleSubmit('formItem')">提交</el-button>
+            <el-button type="primary" class="ml20" v-db-click @click="handleSubmit('formItem')">إرسال</el-button>
           </el-col>
         </el-row>
       </el-form>
@@ -189,29 +189,29 @@ export default {
         id: 0,
       },
       ruleValidate: {
-        name: [{ required: true, message: '请输入门店名称', trigger: 'blur' }],
+        name: [{ required: true, message: 'الرجاء إدخال 门店الاسم', trigger: 'blur' }],
         mail: [
           { required: true, message: 'Mailbox cannot be empty', trigger: 'blur' },
           { type: 'email', message: 'Incorrect email format', trigger: 'blur' },
         ],
-        address: [{ required: true, message: '请选择门店地址', type: 'array', trigger: 'change' }],
+        address: [{ required: true, message: 'الرجاء اختيار 门店地址', type: 'array', trigger: 'change' }],
         valid_time: [
           {
             required: true,
             type: 'array',
-            message: '请选择核销时效',
+            message: 'الرجاء اختيار 核销时效',
             trigger: 'change',
             fields: {
-              0: { type: 'date', required: true, message: '请选择年度范围' },
-              1: { type: 'date', required: true, message: '请选择年度范围' },
+              0: { type: 'date', required: true, message: 'الرجاء اختيار 年度范围' },
+              1: { type: 'date', required: true, message: 'الرجاء اختيار 年度范围' },
             },
           },
         ],
-        day_time: [{ required: true, type: 'array', message: '请选择门店营业时间', trigger: 'change' }],
+        day_time: [{ required: true, type: 'array', message: 'الرجاء اختيار 门店营业الوقت', trigger: 'change' }],
         phone: [{ required: true, validator: validatePhone, trigger: 'blur' }],
-        detailed_address: [{ required: true, message: '请输入详细地址', trigger: 'blur' }],
+        detailed_address: [{ required: true, message: 'الرجاء إدخال 详细地址', trigger: 'blur' }],
         image: [{ required: true, validator: validateUpload, trigger: 'change' }],
-        latlng: [{ required: true, message: '请选择经纬度', trigger: 'blur' }],
+        latlng: [{ required: true, message: 'الرجاء اختيار 经纬度', trigger: 'blur' }],
       },
       keyUrl: '',
       grid: {
@@ -257,7 +257,7 @@ export default {
     window.addEventListener(
       'message',
       function (event) {
-        // 接收位置信息，用户选择确认位置点后选点组件会触发该事件，回传用户的位置信息
+        // 接收位置信息，用户选择تأكيد位置点后选点组件会触发该事件，回传用户的位置信息
         var loc = event.data;
         if (loc && loc.module === 'locationPicker') {
           // 防止其他应用也会向该页面post信息，需判断module是否为'locationPicker'
@@ -303,7 +303,7 @@ export default {
           this.$message.error(res.msg);
         });
     },
-    // 详情
+    // تفاصيل
     getFrom() {
       this.spinShow = true;
       storeApi()
@@ -336,14 +336,14 @@ export default {
     onchangeDate(e) {
       this.formItem.valid_time = e;
     },
-    // 营业时间
+    // 营业الوقت
     onchangeTime(e) {
       this.formItem.day_time = e;
     },
     onSearch() {
       this.modalMap = true;
     },
-    // 提交
+    // إرسال
     handleSubmit(name) {
       this.$refs[name].validate((valid) => {
         if (valid) {

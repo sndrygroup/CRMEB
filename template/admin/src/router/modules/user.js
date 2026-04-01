@@ -33,7 +33,7 @@ export default {
       name: `${pre}list`,
       meta: {
         auth: ['admin-user-user-index'],
-        title: '用户管理',
+        title: '用户إدارة',
       },
       component: () => import('@/pages/user/list/index'),
     },

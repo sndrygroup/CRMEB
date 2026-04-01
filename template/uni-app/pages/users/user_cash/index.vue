@@ -13,7 +13,7 @@
 					<form @submit="subCash">
 						<view class='item acea-row row-between-wrapper'>
 							<view class='name'><text class='red'>*</text> {{$t(`持卡人`)}}</view>
-							<view class='input'><input :placeholder='$t(`请输入持卡人姓名`)' placeholder-class='placeholder'
+							<view class='input'><input :placeholder='$t(`الرجاء إدخال 持卡人姓名`)' placeholder-class='placeholder'
 									name="name"></input></view>
 						</view>
 						<view class='item acea-row row-between-wrapper'>
@@ -141,7 +141,7 @@
 					<form @submit="importNowMoney">
 						<view class='item acea-row row-between-wrapper'>
 							<view class='name'><text class='red'>*</text> {{$t(`提现`)}}</view>
-							<view class='input'><input @input='inputNum' placeholder='请输入提现金额' placeholder-class='placeholder'
+							<view class='input'><input @input='inputNum' placeholder='الرجاء إدخال 提现金额' placeholder-class='placeholder'
 									name="money" type='digit'></input></view>
 						</view>
 						<view class='tip'>
@@ -199,7 +199,7 @@
 				isShowAuth: false, //是否隐藏授权
 				qrcodeUrlW: "",
 				qrcodeUrlZ: "",
-				prevent: false, //避免重复提交成功多次
+				prevent: false, //避免重复إرسال成功多次
 				weixinExtractType: 0, // 佣金到账方式
 				alipayExtractType: 0, // 佣金到账方式
 				withdrawal_fee: 0, //提现手续费
@@ -259,7 +259,7 @@
 				});
 			},
 			/**
-			 * 删除图片
+			 * حذف图片
 			 * 
 			 */
 			DelPicW: function() {
@@ -280,7 +280,7 @@
 				let that = this;
 				extractBank().then(res => {
 					let array = res.data.extractBank;
-					array.unshift('请选择银行');
+					array.unshift('الرجاء اختيار 银行');
 					array.forEach((v, i) => {
 						array.splice(i, 1, that.$t(v))
 					})
@@ -347,7 +347,7 @@
 						title: this.$t(`请填写卡号`)
 					});
 					if (that.index == 0) return this.$util.Tips({
-						title: this.$t(`请选择银行`)
+						title: this.$t(`الرجاء اختيار 银行`)
 					});
 					value.extract_type = 'bank';
 					value.bankname = that.array[that.index];
@@ -429,12 +429,12 @@
 				let value = e.detail.value.money;
 				if (parseFloat(value) < 0 || parseFloat(value) == NaN || value == undefined || value == "") {
 					return that.$util.Tips({
-						title: that.$t(`请输入金额`)
+						title: that.$t(`الرجاء إدخال 金额`)
 					});
 				}
 				uni.showModal({
 					title: that.$t(`提现到余额`),
-					content: that.$t(`提现到余额后无法再次转出，确认是否提现到余额`),
+					content: that.$t(`提现到余额后无法再次转出，تأكيد是否提现到余额`),
 					success(res) {
 						if (res.confirm) {
 							recharge({
@@ -456,7 +456,7 @@
 								});
 						} else if (res.cancel) {
 							return that.$util.Tips({
-								title: that.$t(`已取消`)
+								title: that.$t(`已إلغاء`)
 							});
 						}
 					},

@@ -141,7 +141,7 @@
 					<view class="pictrue">
 						<image src="/images/left.png"></image>
 					</view>
-					<view class="titleCon">{{ $t(`商品详情`) }}</view>
+					<view class="titleCon">{{ $t(`商品تفاصيل`) }}</view>
 					<view class="pictrue on">
 						<image src="/images/left.png"></image>
 					</view>
@@ -234,10 +234,10 @@
 			<image src="/static/images/poster-close.png" class="close" @click="listenerActionClose"></image>
 			<image class="poster-img" :src="posterImage"></image>
 			<!-- #ifndef H5  -->
-			<view class="save-poster" @click="savePosterPath">{{ $t(`保存到手机`) }}</view>
+			<view class="save-poster" @click="savePosterPath">{{ $t(`حفظ到手机`) }}</view>
 			<!-- #endif -->
 			<!-- #ifdef H5 -->
-			<view class="keep">{{ $t(`长按图片可以保存到手机`) }}</view>
+			<view class="keep">{{ $t(`长按图片可以حفظ到手机`) }}</view>
 			<!-- #endif -->
 		</view>
 		<!-- 分享按钮 -->
@@ -490,7 +490,7 @@ export default {
 			toLogin();
 		}
 		uni.setNavigationBarTitle({
-			title: this.$t(`砍价详情`)
+			title: this.$t(`砍价تفاصيل`)
 		});
 	},
 	methods: {
@@ -667,7 +667,7 @@ export default {
 				});
 		},
 		getBargainDetails() {
-			//获取砍价产品详情
+			//获取砍价产品تفاصيل
 			var that = this;
 			var id = that.id;
 			getBargainDetail(id, that.bargainUid)
@@ -774,7 +774,7 @@ export default {
 			this.$set(this, 'active', false);
 		},
 		addShareBargain() {
-			//添加分享次数 获取人数
+			//إضافة分享次数 获取人数
 			var that = this;
 			postBargainShare(this.id).then((res) => {
 				that.$set(that, 'peopleCount', res.data);
@@ -830,13 +830,13 @@ export default {
 									success: function (res) {
 										that.posterImageClose();
 										that.$util.Tips({
-											title: that.$t(`保存成功`),
+											title: that.$t(`حفظ成功`),
 											icon: 'success'
 										});
 									},
 									fail: function (res) {
 										that.$util.Tips({
-											title: that.$t(`保存失败`)
+											title: that.$t(`حفظ失败`)
 										});
 									}
 								});
@@ -848,13 +848,13 @@ export default {
 							success: function (res) {
 								that.posterImageClose();
 								that.$util.Tips({
-									title: that.$t(`保存成功`),
+									title: that.$t(`حفظ成功`),
 									icon: 'success'
 								});
 							},
 							fail: function (res) {
 								that.$util.Tips({
-									title: that.$t(`保存失败`)
+									title: that.$t(`حفظ失败`)
 								});
 							}
 						});

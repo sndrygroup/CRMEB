@@ -5,7 +5,7 @@
       <div class="flex justify-between warpper">
         <el-form :model="formItem" label-width="120px">
           <el-form-item label="小票头部：">
-            <el-checkbox v-model="formItem.header" :true-label="1" :false-label="0">商家名称</el-checkbox>
+            <el-checkbox v-model="formItem.header" :true-label="1" :false-label="0">商家الاسم</el-checkbox>
           </el-form-item>
           <el-form-item label="配送信息：">
             <el-checkbox v-model="formItem.delivery" :true-label="1" :false-label="0">配送信息</el-checkbox>
@@ -34,9 +34,9 @@
           <el-form-item label="其他订单信息：">
             <el-checkbox-group v-model="formItem.order">
               <el-checkbox :label="0">订单编号</el-checkbox>
-              <el-checkbox :label="1">下单时间</el-checkbox>
-              <el-checkbox :label="2">支付时间</el-checkbox>
-              <el-checkbox :label="3">打印时间</el-checkbox>
+              <el-checkbox :label="1">下单الوقت</el-checkbox>
+              <el-checkbox :label="2">支付الوقت</el-checkbox>
+              <el-checkbox :label="3">打印الوقت</el-checkbox>
             </el-checkbox-group>
           </el-form-item>
           <el-form-item label="推广二维码：">
@@ -44,7 +44,7 @@
             <div v-if="formItem.code" class="link">
               <div class="select-link">
                 链接：{{ formItem.code_url }}
-                <span class="change" @click="getLink(index)">{{ formItem.code_url ? '修改' : '选择' }}</span>
+                <span class="change" @click="getLink(index)">{{ formItem.code_url ? 'تعديل' : '选择' }}</span>
               </div>
             </div>
           </el-form-item>
@@ -56,7 +56,7 @@
                 maxlength="80"
                 show-word-limit
                 type="textarea"
-                placeholder="请输入公告内容"
+                placeholder="الرجاء إدخال 公告内容"
                 style="width: 500px"
               />
             </div>
@@ -65,7 +65,7 @@
         <div class="ticket-preview">
           <div class="out-line"></div>
           <div class="ticket-content">
-            <div v-if="formItem.header === 1" class="ticket-header">商家名称</div>
+            <div v-if="formItem.header === 1" class="ticket-header">商家الاسم</div>
             <!-- 配送方式 -->
             <div class="delivery btn-line" v-if="formItem.delivery === 1">
               <div class="form-box">
@@ -168,9 +168,9 @@
 
             <div class="order pt-10 btn-line" v-if="formItem.order.length > 0">
               <div v-if="formItem.order.includes(0)">订单编号：wx1234567890</div>
-              <div v-if="formItem.order.includes(1)">下单时间：2022/06/18 12:00:00</div>
-              <div v-if="formItem.order.includes(2)">支付时间：2022/06/18 12:00:00</div>
-              <div v-if="formItem.order.includes(3)">打印时间：2022/06/18 14:20:00</div>
+              <div v-if="formItem.order.includes(1)">下单الوقت：2022/06/18 12:00:00</div>
+              <div v-if="formItem.order.includes(2)">支付الوقت：2022/06/18 12:00:00</div>
+              <div v-if="formItem.order.includes(3)">打印الوقت：2022/06/18 14:20:00</div>
             </div>
             <!-- 二维码 -->
             <div class="code">
@@ -187,7 +187,7 @@
       </div>
     </el-card>
     <el-card :bordered="false" dis-hover class="fixed-card">
-      <el-button type="primary" class="submission" @click="save">保存</el-button>
+      <el-button type="primary" class="submission" @click="save">حفظ</el-button>
     </el-card>
     <linkaddress ref="linkaddres" @linkUrl="linkUrl"></linkaddress>
   </div>
@@ -253,10 +253,10 @@ export default {
     save() {
       printSaveContent(this.id, this.formItem)
         .then((res) => {
-          this.$message.success('保存成功');
+          this.$message.success('حفظ成功');
         })
         .catch((err) => {
-          this.$message.error('保存失败');
+          this.$message.error('حفظ失败');
         });
     },
     getLink(index) {

@@ -10,10 +10,10 @@
           @submit.native.prevent
           inline
         >
-          <el-form-item label="搜索：">
+          <el-form-item label="بحث：">
             <el-input
               clearable
-              placeholder="请输入姓名、UID"
+              placeholder="الرجاء إدخال 姓名、UID"
               v-model="formValidate.keyword"
               class="form_content_width"
             />
@@ -27,7 +27,7 @@
     <el-card :bordered="false" shadow="never" class="ivu-mt mt16">
       <el-row class="ivu-mt box-wrapper">
         <el-col :xs="24" :sm="24" ref="rightBox">
-          <el-button type="primary" v-db-click @click="groupAdd('0')">添加事业部</el-button>
+          <el-button type="primary" v-db-click @click="groupAdd('0')">إضافة事业部</el-button>
           <el-tooltip placement="right-start">
             <i class="el-icon-question ml10"></i>
             <div slot="content">
@@ -35,7 +35,7 @@
                 事业部层级说明：事业部-代理商-员工。事业部相当于总代理或者区域代理，设置成为事业部之后，关联的用户会清除上级推广人
               </div>
               <div>
-                添加时候的管理员身份需要在，设置-管理权限-角色管理中设置对应的角色，事业部可以使用添加时设置的管理员账号密码登录后台
+                إضافة时候的إدارة员身份需要在，设置-إدارة权限-角色إدارة中设置对应的角色，事业部可以使用إضافة时设置的إدارة员账号كلمة المرورتسجيل الدخول后台
               </div>
             </div>
           </el-tooltip>
@@ -60,7 +60,7 @@
                 </div>
               </template>
             </el-table-column>
-            <el-table-column label="名称" min-width="130">
+            <el-table-column label="الاسم" min-width="130">
               <template slot-scope="scope">
                 <div class="acea-row">
                   <div v-text="scope.row.division_name"></div>
@@ -82,12 +82,12 @@
                 <span>{{ scope.row.agent_count }}</span>
               </template>
             </el-table-column>
-            <el-table-column label="截止时间" min-width="130">
+            <el-table-column label="截止الوقت" min-width="130">
               <template slot-scope="scope">
                 <span>{{ scope.row.division_end_time }}</span>
               </template>
             </el-table-column>
-            <el-table-column label="状态" min-width="130">
+            <el-table-column label="الحالة" min-width="130">
               <template slot-scope="scope">
                 <el-switch
                   :active-value="1"
@@ -100,13 +100,13 @@
                 </el-switch>
               </template>
             </el-table-column>
-            <el-table-column label="操作" fixed="right" width="170">
+            <el-table-column label="الخيارات" fixed="right" width="170">
               <template slot-scope="scope">
                 <a v-db-click @click="jump(scope.row.uid)">查看代理商</a>
                 <el-divider direction="vertical"></el-divider>
-                <a v-db-click @click="groupAdd(scope.row.uid)">编辑</a>
+                <a v-db-click @click="groupAdd(scope.row.uid)">تحرير</a>
                 <el-divider direction="vertical"></el-divider>
-                <a v-db-click @click="del(scope.row, '删除事业部', scope.$index)">删除</a>
+                <a v-db-click @click="del(scope.row, 'حذف事业部', scope.$index)">حذف</a>
               </template>
             </el-table-column>
           </el-table>
@@ -144,7 +144,7 @@
             </div>
           </template>
         </el-table-column>
-        <el-table-column label="名称" min-width="130">
+        <el-table-column label="الاسم" min-width="130">
           <template slot-scope="scope">
             <div class="acea-row">
               <div v-text="scope.row.division_name" class="ml10"></div>
@@ -156,7 +156,7 @@
             <span> {{ scope.row.division_percent }}%</span>
           </template>
         </el-table-column>
-        <el-table-column label="到期时间" min-width="130">
+        <el-table-column label="到期الوقت" min-width="130">
           <template slot-scope="scope">
             <span> {{ scope.row.division_end_time | formatDate }}</span>
           </template>
@@ -241,7 +241,7 @@ export default {
     this.getList();
   },
   methods: {
-    // 搜索
+    // بحث
     userSearchs() {
       this.formValidate.page = 1;
       this.getList();
@@ -274,7 +274,7 @@ export default {
           this.$message.error(res.msg);
         });
     },
-    // 添加表单
+    // إضافة表单
     groupAdd(id) {
       this.$modalForm(regionFrom(id))
         .then((res) => {
@@ -282,7 +282,7 @@ export default {
         })
         .catch((err) => {});
     },
-    // 修改是否显示
+    // تعديل是否显示
     onchangeIsShow(row) {
       let data = {
         id: row.uid,
@@ -296,9 +296,9 @@ export default {
           this.$message.error(res.msg);
         });
     },
-    // 编辑
+    // تحرير
     edit(row) {},
-    // 删除
+    // حذف
     del(row, tit, num) {
       let delfromData = {
         title: tit,

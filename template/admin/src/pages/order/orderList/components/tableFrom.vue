@@ -30,7 +30,7 @@
             <el-option v-for="item in payList" :value="item.val" :label="item.label" :key="item.id" />
           </el-select>
         </el-form-item>
-        <el-form-item label="创建时间：">
+        <el-form-item label="创建الوقت：">
           <el-date-picker
             clearable
             v-model="timeVal"
@@ -44,15 +44,15 @@
             style="width: 250px"
           ></el-date-picker>
         </el-form-item>
-        <el-form-item label="订单搜索：" prop="real_name" label-for="real_name">
-          <el-input clearable v-model="orderData.real_name" placeholder="请输入" class="form_content_width">
+        <el-form-item label="订单بحث：" prop="real_name" label-for="real_name">
+          <el-input clearable v-model="orderData.real_name" placeholder="الرجاء إدخال " class="form_content_width">
             <el-select v-model="orderData.field_key" slot="prepend" style="width: 100px">
               <el-option value="all" label="全部"></el-option>
               <el-option value="order_id" label="订单号"></el-option>
               <el-option value="uid" label="UID"></el-option>
               <el-option value="real_name" label="用户姓名"></el-option>
               <el-option value="user_phone" label="用户电话"></el-option>
-              <el-option value="title" label="商品名称"></el-option>
+              <el-option value="title" label="商品الاسم"></el-option>
             </el-select>
           </el-input>
         </el-form-item>
@@ -75,7 +75,7 @@ export default {
   data() {
     return {
       fromList: {
-        title: '选择时间',
+        title: '选择الوقت',
         custom: true,
         fromTxt: [
           { text: '全部', val: '' },
@@ -95,7 +95,7 @@ export default {
         sm: 24,
         xs: 24,
       },
-      // 搜索条件
+      // بحث条件
       orderData: {
         status: '',
         data: '',
@@ -207,7 +207,7 @@ export default {
       this.getOrderTime(this.orderData.data);
       this.$emit('getList', 1);
     },
-    // 选择时间
+    // 选择الوقت
     selectChange(tab) {
       this.$store.dispatch('order/getOrderTabs', {
         type: this.orderData.status,
@@ -221,7 +221,7 @@ export default {
       this.timeVal = [];
       this.$emit('getList');
     },
-    // 订单选择状态
+    // 订单选择الحالة
     selectChange2(tab) {
       this.onChangeTabs(Number(tab));
       this.$store.dispatch('order/getOrderTabs', {
@@ -244,12 +244,12 @@ export default {
       });
       this.$emit('getList', 1);
     },
-    // 时间状态
+    // الوقتالحالة
     timeChange(time) {
       this.getOrderTime(time);
       this.$emit('getList');
     },
-    // 订单号搜索
+    // 订单号بحث
     orderSearch() {
       this.setOrderKeyword(this.orderData.real_name);
       this.getfieldKey(this.orderData.field_key);
@@ -266,17 +266,17 @@ export default {
     onClickTab() {
       this.$emit('onChangeType', this.currentTab);
     },
-    // 批量删除
+    // 批量حذف
     delAll() {
       if (this.delIdList.length === 0) {
-        this.$message.error('请先选择删除的订单！');
+        this.$message.error('请先选择حذف的订单！');
       } else {
         if (this.isDels) {
           let idss = {
             ids: this.delIdList,
           };
           let delfromData = {
-            title: '删除订单',
+            title: 'حذف订单',
             url: `/order/dels`,
             method: 'post',
             ids: idss,
@@ -290,11 +290,11 @@ export default {
               this.$message.error(res.msg);
             });
         } else {
-          this.$message.error('您选择的的订单存在用户未删除的订单，无法删除用户未删除的订单！');
+          this.$message.error('您选择的的订单存在用户未حذف的订单，无法حذف用户未حذف的订单！');
         }
       }
     },
-    // 刷新
+    // تحديث
     Refresh() {
       this.$emit('getList');
     },

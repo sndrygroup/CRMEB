@@ -13,12 +13,12 @@ let routePre = setting.routePre;
 const pre = 'kefu_';
 
 export default [
-  // 登录
+  // تسجيل الدخول
   {
     path: routePre + '/login',
     name: 'login',
     meta: {
-      title: '登录',
+      title: 'تسجيل الدخول',
       hideInMenu: true,
     },
     component: () => import('@/pages/account/login'),
@@ -28,7 +28,7 @@ export default [
     name: `${pre}index`,
     meta: {
       auth: true,
-      title: '客服管理',
+      title: '客服إدارة',
       kefu: true,
     },
     component: () => import('@/pages/kefu/index'),
@@ -39,7 +39,7 @@ export default [
     name: `${pre}index`,
     meta: {
       auth: true,
-      title: '客服管理',
+      title: '客服إدارة',
       kefu: true,
     },
     redirect: {
@@ -62,7 +62,7 @@ export default [
     name: `${pre}mobile_chat`,
     meta: {
       auth: true,
-      title: '对话详情',
+      title: '对话تفاصيل',
       kefu: true,
     },
     component: () => import('@/pages/kefu/mobile/index'),
@@ -92,7 +92,7 @@ export default [
     name: `${pre}order-detail`,
     meta: {
       auth: true,
-      title: '订单详情',
+      title: '订单تفاصيل',
       kefu: true,
     },
     component: () => import('@/pages/kefu/mobile/orderList/orderDetail.vue'),

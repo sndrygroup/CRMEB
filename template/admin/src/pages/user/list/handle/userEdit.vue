@@ -6,7 +6,7 @@
           class="form-sty"
           disabled
           v-model="formItem.uid"
-          placeholder="请输入编号"
+          placeholder="الرجاء إدخال 编号"
           style="width: 80%"
         ></el-input>
       </el-form-item>
@@ -14,12 +14,12 @@
         <el-input
           class="form-sty"
           v-model.trim="formItem.real_name"
-          placeholder="请输入真实姓名"
+          placeholder="الرجاء إدخال 真实姓名"
           style="width: 80%"
         ></el-input>
       </el-form-item>
       <el-form-item label="手机号码：" prop="phone">
-        <el-input class="form-sty" v-model="formItem.phone" placeholder="请输入手机号码" style="width: 80%"></el-input>
+        <el-input class="form-sty" v-model="formItem.phone" placeholder="الرجاء إدخال 手机号码" style="width: 80%"></el-input>
       </el-form-item>
       <el-form-item label="生日：">
         <el-date-picker
@@ -27,7 +27,7 @@
           class="form-sty"
           type="date"
           v-model="formItem.birthday"
-          placeholder="请选择生日"
+          placeholder="الرجاء اختيار 生日"
           style="width: 80%"
           format="yyyy-MM-dd"
           value-format="yyyy-MM-dd"
@@ -37,31 +37,31 @@
         <el-input
           class="form-sty"
           v-model.trim="formItem.card_id"
-          placeholder="请输入身份证号"
+          placeholder="الرجاء إدخال 身份证号"
           style="width: 80%"
         ></el-input>
       </el-form-item>
       <el-form-item label="用户地址：">
-        <el-input class="form-sty" v-model="formItem.addres" placeholder="请输入用户地址" style="width: 80%"></el-input>
+        <el-input class="form-sty" v-model="formItem.addres" placeholder="الرجاء إدخال 用户地址" style="width: 80%"></el-input>
       </el-form-item>
       <el-form-item label="用户备注：">
-        <el-input class="form-sty" v-model="formItem.mark" placeholder="请输入用户备注" style="width: 80%"></el-input>
+        <el-input class="form-sty" v-model="formItem.mark" placeholder="الرجاء إدخال 用户备注" style="width: 80%"></el-input>
       </el-form-item>
-      <el-form-item label="登录密码：" prop="pwd">
+      <el-form-item label="تسجيل الدخولكلمة المرور：" prop="pwd">
         <el-input
           class="form-sty"
           type="password"
           v-model="formItem.pwd"
-          placeholder="请输入登录密码（修改用户可不填写，不填写不修改原密码）"
+          placeholder="الرجاء إدخال تسجيل الدخولكلمة المرور（تعديل用户可不填写，不填写不تعديل原كلمة المرور）"
           style="width: 80%"
         ></el-input>
       </el-form-item>
-      <el-form-item label="确认密码：" prop="true_pwd">
+      <el-form-item label="تأكيدكلمة المرور：" prop="true_pwd">
         <el-input
           class="form-sty"
           type="password"
           v-model="formItem.true_pwd"
-          placeholder="请输入确认密码（修改用户可不填写，不填写不修改原密码）"
+          placeholder="الرجاء إدخال تأكيدكلمة المرور（تعديل用户可不填写，不填写不تعديل原كلمة المرور）"
           style="width: 80%"
         ></el-input>
       </el-form-item>
@@ -129,7 +129,7 @@
         </el-radio-group>
         <div class="tip">手动开启或关闭用户的分销权限</div>
       </el-form-item>
-      <el-form-item label="用户状态：">
+      <el-form-item label="用户الحالة：">
         <el-radio-group v-model="formItem.status" class="form-sty">
           <el-radio :label="1">开启</el-radio>
           <el-radio :label="0">锁定</el-radio>
@@ -140,7 +140,7 @@
     <el-dialog
       :visible.sync="labelShow"
       scrollable
-      title="请选择用户标签"
+      title="الرجاء اختيار 用户标签"
       :modal="false"
       :show-close="true"
       width="540px"

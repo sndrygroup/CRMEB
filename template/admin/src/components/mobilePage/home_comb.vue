@@ -154,11 +154,11 @@
 import { mapState } from 'vuex';
 // import theme from "@/mixins/theme";
 export default {
-  name: 'home_comb', // 组件名称
-  cname: '轮播搜索', // 标题名称
+  name: 'home_comb', // 组件الاسم
+  cname: '轮播بحث', // 标题الاسم
   icon: '#iconzujian-zuhezujian',
-  defaultName: 'homeComb', // 外面匹配名称
-  configName: 'c_home_comb', // 右侧配置名称
+  defaultName: 'homeComb', // 外面匹配الاسم
+  configName: 'c_home_comb', // 右侧配置الاسم
   type: 0, // 0 基础组件 1 营销组件 2工具组件
   props: {
     index: {
@@ -205,11 +205,11 @@ export default {
   // mixins: [theme],
   data() {
     return {
-      // 默认初始化数据禁止修改
+      // 默认初始化数据禁止تعديل
       defaultConfig: {
-        cname: '轮播搜索',
+        cname: '轮播بحث',
         // 组件描述
-        desc: '轮播搜索组件',
+        desc: '轮播بحث组件',
         name: 'homeComb',
         timestamp: this.num,
         isHide: false,
@@ -217,8 +217,8 @@ export default {
           tabVal: 0,
         },
         titleLeft: '展示设置',
-        titleSearch: '搜索设置',
-        titleHotWords: '搜索热词',
+        titleSearch: 'بحث设置',
+        titleHotWords: 'بحث热词',
         titleTab: '选项卡设置',
         titleImg: '图片设置',
         titleRight: '标签设置',
@@ -249,7 +249,7 @@ export default {
           ],
         },
         searchConfig: {
-          title: '搜索设置',
+          title: 'بحث设置',
           tabVal: 0,
           tabList: [
             {
@@ -261,7 +261,7 @@ export default {
           ],
         },
         searchBox: {
-          title: '搜索框',
+          title: 'بحث框',
           tabVal: 1,
           tabList: [
             {
@@ -287,7 +287,7 @@ export default {
         titleConfig: {
           title: '标题',
           value: '标题',
-          place: '请输入标题',
+          place: 'الرجاء إدخال 标题',
           max: 6,
         },
         logoConfig: {
@@ -303,8 +303,8 @@ export default {
           name: '顶部固定logo',
         },
         inputConfig: {
-          title: '提示文字',
-          value: '请输入搜索词',
+          title: 'تنبيه文字',
+          value: 'الرجاء إدخال بحث词',
           place: '填写内容',
           max: 10,
         },
@@ -329,8 +329,8 @@ export default {
           ],
         },
         numConfig: {
-          placeholder: '设置搜索热词显示时间',
-          title: '滚动时间',
+          placeholder: '设置بحث热词显示الوقت',
+          title: '滚动الوقت',
           val: 3,
           type: 'words',
         },
@@ -343,7 +343,7 @@ export default {
                 title: '显示文字',
                 val: '首页',
                 max: 4,
-                pla: '请输入分类名称',
+                pla: 'الرجاء إدخال 分类الاسم',
               },
               dataType: {
                 title: '数据类型',
@@ -371,7 +371,7 @@ export default {
                 title: '显示文字',
                 val: '标题标题',
                 max: 4,
-                pla: '请输入分类名称',
+                pla: 'الرجاء إدخال 分类الاسم',
               },
               dataType: {
                 title: '数据类型',
@@ -399,7 +399,7 @@ export default {
                 title: '显示文字',
                 val: '标题标题',
                 max: 4,
-                pla: '请输入分类名称',
+                pla: 'الرجاء إدخال 分类الاسم',
               },
               dataType: {
                 title: '数据类型',
@@ -427,7 +427,7 @@ export default {
                 title: '显示文字',
                 val: '标题标题',
                 max: 4,
-                pla: '请输入分类名称',
+                pla: 'الرجاء إدخال 分类الاسم',
               },
               dataType: {
                 title: '数据类型',
@@ -567,7 +567,7 @@ export default {
         },
         swiperConfig: {
           title: '建议：图片尺寸702*320px；鼠标拖拽版块可调整图片顺序',
-          bnt: '添加',
+          bnt: 'إضافة',
           maxList: 10,
           list: [
             {
@@ -582,7 +582,7 @@ export default {
                 {
                   title: '链接',
                   value: '',
-                  tips: '请输入链接',
+                  tips: 'الرجاء إدخال 链接',
                   max: 100,
                 },
               ],

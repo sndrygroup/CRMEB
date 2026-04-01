@@ -6,7 +6,7 @@
 			</div>
 		</div>
 		<div class="whiteBg">
-			<div class="title">{{$t(`找回密码`)}}</div>
+			<div class="title">{{$t(`找回كلمة المرور`)}}</div>
 			<div class="list">
 				<div class="item">
 					<div class="acea-row row-middle">
@@ -27,7 +27,7 @@
 				<div class="item">
 					<div class="acea-row row-middle">
 						<image src="../static//code_2.png"></image>
-						<input type="password" :placeholder="$t(`填写您的新密码`)" v-model="password" />
+						<input type="password" :placeholder="$t(`填写您的新كلمة المرور`)" v-model="password" />
 					</div>
 				</div>
 				<div class="item" v-if="isShowCode">
@@ -37,9 +37,9 @@
 					</div>
 				</div>
 			</div>
-			<div class="logon" @click="registerReset">{{$t(`确认`)}}</div>
+			<div class="logon" @click="registerReset">{{$t(`تأكيد`)}}</div>
 			<div class="tip">
-				<span class="font-color-red" @click="back">{{$t(`立即登录`)}}</span>
+				<span class="font-color-red" @click="back">{{$t(`立即تسجيل الدخول`)}}</span>
 			</div>
 		</div>
 		<div class="bottom"></div>
@@ -99,7 +99,7 @@
 					title: that.$t(`请填写手机号码`)
 				});
 				if (!/^1(3|4|5|7|8|9|6)\d{9}$/i.test(that.account)) return that.$util.Tips({
-					title: that.$t(`请输入正确的手机号码`)
+					title: that.$t(`الرجاء إدخال 正确的手机号码`)
 				});
 				if (!that.captcha) return that.$util.Tips({
 					title: that.$t(`请填写验证码`)
@@ -129,7 +129,7 @@
 					title: that.$t(`请填写手机号码`)
 				});
 				if (!/^1(3|4|5|7|8|9|6)\d{9}$/i.test(that.account)) return that.$util.Tips({
-					title: that.$t(`请输入正确的手机号码`)
+					title: that.$t(`الرجاء إدخال 正确的手机号码`)
 				});
 				if (that.formItem == 2) that.type = "register";
 				await registerVerify({

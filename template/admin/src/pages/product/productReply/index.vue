@@ -10,7 +10,7 @@
           label-position="right"
           @submit.native.prevent
         >
-          <el-form-item label="评论时间：">
+          <el-form-item label="评论الوقت：">
             <el-date-picker
               clearable
               v-model="timeVal"
@@ -23,10 +23,10 @@
               :picker-options="pickerOptions"
             ></el-date-picker>
           </el-form-item>
-          <el-form-item label="评价状态：">
+          <el-form-item label="评价الحالة：">
             <el-select
               v-model="formValidate.is_reply"
-              placeholder="请选择"
+              placeholder="الرجاء اختيار "
               clearable
               @change="userSearchs"
               class="form_content_width"
@@ -35,10 +35,10 @@
               <el-option value="0" label="未回复"></el-option>
             </el-select>
           </el-form-item>
-          <el-form-item label="审核状态：">
+          <el-form-item label="审核الحالة：">
             <el-select
               v-model="formValidate.status"
-              placeholder="请选择"
+              placeholder="الرجاء اختيار "
               clearable
               @change="userSearchs"
               class="form_content_width"
@@ -50,16 +50,16 @@
           </el-form-item>
           <el-form-item label="商品信息：" label-for="store_name">
             <el-input
-              placeholder="请输入商品信息"
+              placeholder="الرجاء إدخال 商品信息"
               clearable
               v-model="formValidate.store_name"
               class="form_content_width"
             />
           </el-form-item>
-          <el-form-item label="用户名称：">
+          <el-form-item label="اسم المستخدم称：">
             <el-input
               enter-button
-              placeholder="请输入"
+              placeholder="الرجاء إدخال "
               clearable
               v-model="formValidate.account"
               class="form_content_width"
@@ -75,7 +75,7 @@
       <el-row>
         <el-col v-bind="grid">
           <el-button v-auth="['product-reply-save_fictitious_reply']" type="primary" v-db-click @click="addRep"
-            >添加自评</el-button
+            >إضافة自评</el-button
           >
           <el-button v-auth="['product-reply-save_fictitious_reply']" v-db-click @click="openBatchModal"
             >批量审核</el-button
@@ -110,7 +110,7 @@
             <span>{{ scope.row.suk }}</span>
           </template>
         </el-table-column>
-        <el-table-column label="用户名称" min-width="130">
+        <el-table-column label="اسم المستخدم称" min-width="130">
           <template slot-scope="scope">
             <span>{{ scope.row.nickname }}</span>
           </template>
@@ -133,19 +133,19 @@
             <span>{{ scope.row.merchant_reply_content }}</span>
           </template>
         </el-table-column>
-        <el-table-column label="审核状态" min-width="80">
+        <el-table-column label="审核الحالة" min-width="80">
           <template slot-scope="scope">
             <el-tag effect="dark" v-if="scope.row.status == 1"> 通过 </el-tag>
             <el-tag effect="dark" type="warning" v-if="scope.row.status == 0"> 待审核 </el-tag>
             <el-tag effect="dark" type="danger" v-if="scope.row.status == 2"> 已拒绝 </el-tag>
           </template>
         </el-table-column>
-        <el-table-column label="评价时间" min-width="130">
+        <el-table-column label="评价الوقت" min-width="130">
           <template slot-scope="scope">
             <span>{{ scope.row.add_time }}</span>
           </template>
         </el-table-column>
-        <el-table-column label="操作" fixed="right" width="170">
+        <el-table-column label="الخيارات" fixed="right" width="170">
           <template slot-scope="scope">
             <template v-if="scope.row.status == 0">
               <a class="item" v-db-click @click="adopt(scope.row, '审核通过', 1)">通过</a>
@@ -155,7 +155,7 @@
             </template>
             <a v-if="scope.row.status != 2" v-db-click @click="reply(scope.row)">回复</a>
             <el-divider v-if="scope.row.status != 2" direction="vertical"></el-divider>
-            <a v-db-click @click="del(scope.row, '删除评论', scope.$index)">删除</a>
+            <a v-db-click @click="del(scope.row, 'حذف评论', scope.$index)">حذف</a>
           </template>
         </el-table-column>
       </el-table>
@@ -172,11 +172,11 @@
     <el-dialog :visible.sync="modals" scrollable title="回复内容" width="720px">
       <el-form ref="contents" :model="contents" :rules="ruleInline" label-position="right" @submit.native.prevent>
         <el-form-item prop="content">
-          <el-input v-model="contents.content" type="textarea" :rows="4" placeholder="请输入回复内容" />
+          <el-input v-model="contents.content" type="textarea" :rows="4" placeholder="الرجاء إدخال 回复内容" />
         </el-form-item>
       </el-form>
       <div slot="footer">
-        <el-button @click="cancels">取消</el-button>
+        <el-button @click="cancels">إلغاء</el-button>
         <el-button type="primary" v-db-click @click="oks">确定</el-button>
       </div>
     </el-dialog>
@@ -350,7 +350,7 @@ export default {
         content: '',
       },
       ruleInline: {
-        content: [{ required: true, message: '请输入回复内容', trigger: 'blur' }],
+        content: [{ required: true, message: 'الرجاء إدخال 回复内容', trigger: 'blur' }],
       },
       rows: {},
       ids: [],
@@ -395,7 +395,7 @@ export default {
           this.$message.error(res.msg);
         });
     },
-    // 添加虚拟评论；
+    // إضافة虚拟评论；
     addRep() {
       // this.$modalForm(fictitiousReply(this.formValidate.product_id)).then(() => this.getList());
       this.replyModal = true;
@@ -460,7 +460,7 @@ export default {
       this.modals = false;
       this.$refs['contents'].resetFields();
     },
-    // 删除
+    // حذف
     del(row, tit, num) {
       let delfromData = {
         title: tit,
@@ -506,7 +506,7 @@ export default {
       this.attrData = {};
       this.templateRadio = '';
     },
-    // 选择时间
+    // 选择الوقت
     selectChange(tab) {
       this.formValidate.data = tab;
       this.timeVal = [];
@@ -530,7 +530,7 @@ export default {
           this.$message.error(res.msg);
         });
     },
-    // 表格搜索
+    // 表格بحث
     userSearchs() {
       this.formValidate.page = 1;
       this.getList();

@@ -30,7 +30,7 @@
         >
         </vue-cropper>
       </div>
-      <!--底部操作工具按钮-->
+      <!--底部الخيارات工具按钮-->
       <div class="footer-btn">
         <div class="scope-btn">
           <input
@@ -58,7 +58,7 @@
       </div>
       <div class="upload-btn">
         <label class="btn" for="uploads">选择图片</label>
-        <el-button size="mini" type="success" v-db-click @click="uploadImg()">确认上传</el-button>
+        <el-button size="mini" type="success" v-db-click @click="uploadImg()">تأكيد上传</el-button>
       </div>
     </div>
   </div>

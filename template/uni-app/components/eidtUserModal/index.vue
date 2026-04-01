@@ -33,7 +33,7 @@
 						<view class="left">
 							<view class="head">{{$t(`昵称`)}}</view>
 							<view class='input'><input type='nickname' placeholder-class="pl-sty"
-									:placeholder="$t(`请输入昵称`)" name='nickname' :maxlength="16"
+									:placeholder="$t(`الرجاء إدخال 昵称`)" name='nickname' :maxlength="16"
 									:value='userInfo.nickname'></input>
 							</view>
 						</view>
@@ -44,7 +44,7 @@
 
 				<view class="bottom">
 					<button class="save" formType="submit" :class="{'open': userInfo.avatar}">
-						{{$t(`保存`)}}
+						{{$t(`حفظ`)}}
 					</button>
 				</view>
 			</form>
@@ -122,7 +122,7 @@
 				this.$emit('closeEdit');
 			},
 			/**
-			 * 提交修改
+			 * إرسالتعديل
 			 */
 			formSubmit(e) {
 				let that = this
@@ -130,7 +130,7 @@
 					title: that.$t(`请上传头像`)
 				});
 				if (!e.detail.value.nickname) return that.$util.Tips({
-					title: that.$t(`请输入昵称`)
+					title: that.$t(`الرجاء إدخال 昵称`)
 				});
 				this.userInfo.nickname = e.detail.value.nickname
 				userEdit(this.userInfo).then(res => {
@@ -143,7 +143,7 @@
 					});
 				}).catch(msg => {
 					return that.$util.Tips({
-						title: msg || that.$t(`保存失败`)
+						title: msg || that.$t(`حفظ失败`)
 					}, {
 						tab: 3,
 						url: 1

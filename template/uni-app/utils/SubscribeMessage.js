@@ -21,7 +21,7 @@ export function auth() {
 
 /**
  * 支付成功后订阅消息id
- * 订阅  确认收货通知 订单支付成功  新订单管理员提醒 
+ * 订阅  تأكيد收货通知 订单支付成功  新订单إدارة员提醒 
  */
 export function openPaySubscribe() {
 	let tmplIds = auth();
@@ -34,7 +34,7 @@ export function openPaySubscribe() {
 
 /**
  * 订单相关订阅消息
- * 送货 发货 取消订单
+ * 送货 发货 إلغاء订单
  */
 export function openOrderSubscribe() {
 	let tmplIds = auth();

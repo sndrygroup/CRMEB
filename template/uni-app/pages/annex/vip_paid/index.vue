@@ -121,9 +121,9 @@
 					<view class="line"></view>
 				</view>
 				<form class="form" @submit="checkForm">
-					<input v-model="account" class="input" name="account" type="text" :placeholder="$t(`请输入卡号`)" placeholder-style="color:#C49D89" />
-					<input v-model="password" class="input" name="password" type="text" :placeholder="$t(`请输入卡密`)" placeholder-style="color:#C49D89" password />
-					<button class="button" form-type="submit">{{ $t(`确认激活`) }}</button>
+					<input v-model="account" class="input" name="account" type="text" :placeholder="$t(`الرجاء إدخال 卡号`)" placeholder-style="color:#C49D89" />
+					<input v-model="password" class="input" name="password" type="text" :placeholder="$t(`الرجاء إدخال 卡密`)" placeholder-style="color:#C49D89" password />
+					<button class="button" form-type="submit">{{ $t(`تأكيد激活`) }}</button>
 				</form>
 			</view>
 			<button class="iconfont icon-guanbi2" @click="closePopup"></button>
@@ -244,12 +244,12 @@ export default {
 		this.payClose();
 		let options = wx.getEnterOptionsSync();
 		if (options.scene == '1038' && options.referrerInfo.appId == 'wxef277996acc166c3' && this.initIn) {
-			// 代表从收银台小程序返回
+			// 代表从收银台小程序عودة
 			let extraData = options.referrerInfo.extraData;
 			this.initIn = false;
 			if (!extraData) {
 				this.memberCard();
-				// "当前通过物理按键返回，未接收到返参，建议自行查询交易结果";
+				// "当前通过物理按键عودة，未接收到返参，建议自行查询交易结果";
 			} else {
 				if (extraData.code == 'success') {
 					this.memberCard();
@@ -409,13 +409,13 @@ export default {
 			}
 			if (!this.account) {
 				return uni.showToast({
-					title: this.$t(`请输入卡号`),
+					title: this.$t(`الرجاء إدخال 卡号`),
 					icon: 'none'
 				});
 			}
 			if (!this.password) {
 				return uni.showToast({
-					title: this.$t(`请输入卡密`),
+					title: this.$t(`الرجاء إدخال 卡密`),
 					icon: 'none'
 				});
 			}
@@ -621,7 +621,7 @@ export default {
 						},
 						fail: function () {
 							uni.showToast({
-								title: that.$t(`取消支付`),
+								title: that.$t(`إلغاء支付`),
 								icon: 'none'
 							});
 						},
@@ -648,7 +648,7 @@ export default {
 						.catch((err) => {
 							if (err.errMsg == 'chooseWXPay:cancel') {
 								uni.showToast({
-									title: this.$t(`取消支付`),
+									title: this.$t(`إلغاء支付`),
 									icon: 'none'
 								});
 							}
@@ -754,13 +754,13 @@ export default {
 				};
 			if (!formData.account) {
 				return uni.showToast({
-					title: this.$t(`请输入卡号`),
+					title: this.$t(`الرجاء إدخال 卡号`),
 					icon: 'none'
 				});
 			}
 			if (!formData.password) {
 				return uni.showToast({
-					title: this.$t(`请输入卡密`),
+					title: this.$t(`الرجاء إدخال 卡密`),
 					icon: 'none'
 				});
 			}

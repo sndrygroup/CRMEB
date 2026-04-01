@@ -101,7 +101,7 @@ export default {
     },
     /**
      * 初始化 isDot 属性
-     * @param {boolean} status - 状态值
+     * @param {boolean} status - الحالة值
      */
     initIsDot(status) {
       this.isDot = status;
@@ -120,7 +120,7 @@ export default {
       this.isDot = false;
     },
 
-    // 搜索点击
+    // بحث点击
     onSearchClick() {
       this.$refs.searchRef.openSearch();
     },

@@ -20,17 +20,17 @@
             <span>{{ scope.row.cthash }}</span>
           </template>
         </el-table-column>
-        <el-table-column label="上次访问时间" min-width="130">
+        <el-table-column label="上次访问الوقت" min-width="130">
           <template slot-scope="scope">
             <span>{{ scope.row.atime }}</span>
           </template>
         </el-table-column>
-        <el-table-column label="上次修改时间" min-width="130">
+        <el-table-column label="上次تعديلالوقت" min-width="130">
           <template slot-scope="scope">
             <span>{{ scope.row.mtime }}</span>
           </template>
         </el-table-column>
-        <el-table-column label="上次改变时间" min-width="130">
+        <el-table-column label="上次改变الوقت" min-width="130">
           <template slot-scope="scope">
             <span>{{ scope.row.ctime }}</span>
           </template>

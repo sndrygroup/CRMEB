@@ -24,7 +24,7 @@ export function headerListApi(data) {
 }
 
 /**
- * @description 设置 系统设置 应用设置 编辑表单
+ * @description 设置 系统设置 应用设置 تحرير表单
  * @param {Object} param data {Object} 传值参数 type类型
  */
 export function dataFromApi(data, url) {
@@ -59,7 +59,7 @@ export function tempCreateApi() {
 }
 
 /**
- * @description 设置 短信设置 登录
+ * @description 设置 短信设置 تسجيل الدخول
  * @param {Object} param data {Object} 传值参数
  */
 export function configApi(data) {
@@ -71,7 +71,7 @@ export function configApi(data) {
 }
 
 /**
- * @description 设置 短信 修改密码
+ * @description 设置 短信 تعديلكلمة المرور
  */
 export function serveModifyApi(data) {
   return request({
@@ -82,7 +82,7 @@ export function serveModifyApi(data) {
 }
 
 /**
- * @description 设置 短信 修改手机号
+ * @description 设置 短信 تعديل手机号
  */
 export function updateHoneApi(data) {
   return request({
@@ -93,7 +93,7 @@ export function updateHoneApi(data) {
 }
 
 /**
- * @description 设置 短信设置 修改账户密码
+ * @description 设置 短信设置 تعديل账户كلمة المرور
  * @param {Object} param data {Object} 传值参数
  */
 // export function configApi (data) {
@@ -160,7 +160,7 @@ export function serveInfoApi() {
 }
 
 /**
- * @description 修改短信签名
+ * @description تعديل短信签名
  */
 export function serveSign(data) {
   return request({
@@ -171,7 +171,7 @@ export function serveSign(data) {
 }
 
 /**
- * 客服登录
+ * 客服تسجيل الدخول
  */
 export function kefuLogin(id) {
   return request({
@@ -192,7 +192,7 @@ export function wechatSpeechcraft(data) {
 }
 
 /**
- * 客服话术编辑
+ * 客服话术تحرير
  */
 export function speechcraftEdit(id) {
   return request({
@@ -202,7 +202,7 @@ export function speechcraftEdit(id) {
 }
 
 /**
- * 客服话术添加
+ * 客服话术إضافة
  */
 export function speechcraftCreate() {
   return request({
@@ -352,7 +352,7 @@ export function smsRecordApi(params) {
 }
 
 /**
- * @description 门店设置 详情
+ * @description 门店设置 تفاصيل
  */
 export function storeApi() {
   return request({
@@ -372,7 +372,7 @@ export function keyApi() {
 }
 
 /**
- * @description 门店设置 提交数据,
+ * @description 门店设置 إرسال数据,
  * @param {Object} param data {Object} 传值参数
  */
 export function storeAddApi(data) {
@@ -406,7 +406,7 @@ export function freightCreateApi() {
 }
 
 /**
- * @description 设置 物流公司 编辑表单
+ * @description 设置 物流公司 تحرير表单
  * @param {Number} param id {Number} 物流公司id
  */
 export function freightEditApi(id) {
@@ -417,7 +417,7 @@ export function freightEditApi(id) {
 }
 
 /**
- * @description 设置 物流公司 修改状态
+ * @description 设置 物流公司 تعديلالحالة
  * @param {Number} param id {Number} 物流公司id
  */
 export function freightStatusApi(data) {
@@ -466,7 +466,7 @@ export function speechcraftcateCreate() {
   });
 }
 /**
- * @description 获取渠道码创建、编辑分类表单
+ * @description 获取渠道码创建、تحرير分类表单
  */
 export function wechatQrcodeCreate(id) {
   return request({
@@ -476,7 +476,7 @@ export function wechatQrcodeCreate(id) {
 }
 
 /**
- * @description 修改话术分类(获取表单)
+ * @description تعديل话术分类(获取表单)
  */
 export function speechcraftcateEdit(id) {
   return request({
@@ -486,7 +486,7 @@ export function speechcraftcateEdit(id) {
 }
 
 /**
- * @description 设置 身份管理 列表
+ * @description 设置 身份إدارة 列表
  * @param {Number} param id {Number} 物流公司id
  */
 export function roleListApi(params) {
@@ -509,7 +509,7 @@ export function wechatQrcodeList(params) {
 }
 
 /**
- * @description 设置 身份管理 修改状态
+ * @description 设置 身份إدارة تعديلالحالة
  * @param {Object} param data {Object} 传值参数
  */
 export function roleSetStatusApi(data) {
@@ -520,7 +520,7 @@ export function roleSetStatusApi(data) {
 }
 
 /**
- * @description 设置 身份管理 ==新增 编辑
+ * @description 设置 身份إدارة ==新增 تحرير
  * @param {Object} param data {Object} 传值参数
  */
 export function roleCreateApi(data) {
@@ -532,8 +532,8 @@ export function roleCreateApi(data) {
 }
 
 /**
- * @description 设置 身份管理 ==详情
- * @param {Number} param id {Number} 身份管理id
+ * @description 设置 身份إدارة ==تفاصيل
+ * @param {Number} param id {Number} 身份إدارةid
  */
 export function roleInfoApi(id) {
   return request({
@@ -543,7 +543,7 @@ export function roleInfoApi(id) {
 }
 
 /**
- * @description 设置 身份管理 ==权限列表
+ * @description 设置 身份إدارة ==权限列表
  */
 export function menusListApi() {
   return request({
@@ -553,7 +553,7 @@ export function menusListApi() {
 }
 
 /**
- * @description 设置 客服管理 -- 列表
+ * @description 设置 客服إدارة -- 列表
  * @param {Object} param params {Object} 传值参数
  */
 export function kefuListApi(params) {
@@ -565,7 +565,7 @@ export function kefuListApi(params) {
 }
 
 /**
- * @description 设置 客服管理 -- 选择用户
+ * @description 设置 客服إدارة -- 选择用户
  *  @param {Object} param params {Object} 传值参数
  */
 export function kefucreateApi(params) {
@@ -577,7 +577,7 @@ export function kefucreateApi(params) {
 }
 
 /**
- * @description 设置 客服管理 -- 添加客服
+ * @description 设置 客服إدارة -- إضافة客服
  *  @param {Object} param params {Object} 传值参数
  */
 export function kefuaddApi() {
@@ -588,7 +588,7 @@ export function kefuaddApi() {
 }
 
 /**
- * @description 设置 客服管理 -- 添加客服保存
+ * @description 设置 客服إدارة -- إضافة客服حفظ
  *  @param {Object} param params {Object} 传值参数
  */
 export function kefuAddApi(data) {
@@ -600,7 +600,7 @@ export function kefuAddApi(data) {
 }
 
 /**
- * @description 设置 客服管理 -- 修改状态
+ * @description 设置 客服إدارة -- تعديلالحالة
  *  @param {Object} param data {Object} 传值参数
  */
 export function kefusetStatusApi(data) {
@@ -611,7 +611,7 @@ export function kefusetStatusApi(data) {
 }
 
 /**
- * @description 设置 渠道码 -- 修改状态
+ * @description 设置 渠道码 -- تعديلالحالة
  *  @param {Object} param data {Object} 传值参数
  */
 export function wechatQrcodeStatusApi(data) {
@@ -632,7 +632,7 @@ export function getUserList(params) {
   });
 }
 /**
- * @description 设置 渠道码编辑详情获取
+ * @description 设置 渠道码تحريرتفاصيل获取
  *  @param {Object} param data {Object} 传值参数
  */
 export function wechatQrcodeDetail(id) {
@@ -642,7 +642,7 @@ export function wechatQrcodeDetail(id) {
   });
 }
 /**
- * @description  渠道码制作--保存
+ * @description  渠道码制作--حفظ
  */
 export function wechatQrcodeSaveApi(id, data) {
   return request({
@@ -652,7 +652,7 @@ export function wechatQrcodeSaveApi(id, data) {
   });
 }
 /**
- * @description 设置 客服管理 -- 编辑表单
+ * @description 设置 客服إدارة -- تحرير表单
  *  @param {Number} param id {Number} 客服id
  */
 export function kefuEditApi(id) {
@@ -663,7 +663,7 @@ export function kefuEditApi(id) {
 }
 
 /**
- * @description 设置 客服管理 -- 聊天记录列表
+ * @description 设置 客服إدارة -- 聊天记录列表
  *  @param {Number} param id {Number} 客服id
  *  @param {Object} param params {Object} 传参数
  */
@@ -676,7 +676,7 @@ export function kefuRecordApi(params, id) {
 }
 
 /**
- * @description 设置 客服管理 -- 查看对话列表
+ * @description 设置 客服إدارة -- 查看对话列表
  *  @param {Object} param params {Object} 传参数
  */
 export function kefuChatlistApi(params) {
@@ -688,7 +688,7 @@ export function kefuChatlistApi(params) {
 }
 
 /**
- * @description 短信设置 -- 查看是否登录
+ * @description 短信设置 -- 查看是否تسجيل الدخول
  */
 export function isLoginApi() {
   return request({
@@ -698,7 +698,7 @@ export function isLoginApi() {
 }
 
 /**
- * @description 短信设置 -- 退出登录
+ * @description 短信设置 -- 退出تسجيل الدخول
  */
 export function logoutApi() {
   return request({
@@ -719,7 +719,7 @@ export function cityListApi(id) {
 }
 
 /**
- * @description 设置 城市添加 -- 表单
+ * @description 设置 城市إضافة -- 表单
  *  @param {Object} param data {Object} 传值参数
  */
 export function cityAddApi(id) {
@@ -730,7 +730,7 @@ export function cityAddApi(id) {
 }
 
 /**
- * @description 设置 城市修改 -- 表单
+ * @description 设置 城市تعديل -- 表单
  *  @param {Object} param data {Object} 传值参数
  */
 export function cityApi(id) {
@@ -763,7 +763,7 @@ export function templatesCityListApi(data) {
 }
 
 /**
- * @description 设置 运费模板 -- 提交修改表单；
+ * @description 设置 运费模板 -- إرسالتعديل表单；
  */
 export function templatesSaveApi(id, data) {
   return request({
@@ -774,7 +774,7 @@ export function templatesSaveApi(id, data) {
 }
 
 /**
- * @description 设置 运费模板 -- 提交修改表单；
+ * @description 设置 运费模板 -- إرسالتعديل表单；
  */
 export function shipTemplatesApi(id) {
   return request({
@@ -815,7 +815,7 @@ export function storeSetShowApi(id, is_show) {
 }
 
 /**
- * @description 门店设置 -- 门店修改信息；
+ * @description 门店设置 -- 门店تعديل信息；
  */
 export function storeGetInfoApi(id) {
   return request({
@@ -887,7 +887,7 @@ export function verifySpreadInfoApi(uid) {
 }
 
 /**
- * 获取店员搜索门店列表
+ * 获取店员بحث门店列表
  */
 export function merchantStoreListApi() {
   return request({
@@ -966,7 +966,7 @@ export function storageSynchApi(type) {
   });
 }
 /**
- * @description 储存配置-修改状态
+ * @description 储存配置-تعديلالحالة
  */
 export function storageStatusApi(id) {
   return request({
@@ -976,7 +976,7 @@ export function storageStatusApi(id) {
 }
 
 /**
- * @description 储存配置-修改空间域名
+ * @description 储存配置-تعديل空间域名
  */
 export function editStorageApi(id) {
   return request({
@@ -994,7 +994,7 @@ export function positionInfoApi() {
   });
 }
 /**
- * @description 储存配置-保存缩略图
+ * @description 储存配置-حفظ缩略图
  */
 export function positionPostApi(data) {
   return request({
@@ -1026,7 +1026,7 @@ export function langTypeList(data) {
 }
 
 /**
- * @description 多语言-语言类型新增编辑
+ * @description 多语言-语言类型新增تحرير
  * @param {Number} param id {Number}
  */
 export function langTypeForm(id) {
@@ -1037,7 +1037,7 @@ export function langTypeForm(id) {
 }
 
 /**
- * @description 多语言-语言详情列表
+ * @description 多语言-语言تفاصيل列表
  */
 export function langCodeList(data) {
   return request({
@@ -1059,7 +1059,7 @@ export function langCodeInfo(data) {
 }
 
 /**
- * @description 修改语言详情
+ * @description تعديل语言تفاصيل
  */
 export function langCodeSettingSave(data) {
   return request({
@@ -1080,7 +1080,7 @@ export function langCountryList(data) {
   });
 }
 /**
- * 添加语言地区表单
+ * إضافة语言地区表单
  * @param {*} id
  * @returns
  */
@@ -1091,7 +1091,7 @@ export function langCountryForm(id) {
   });
 }
 /**
- * 添加语言地区表单
+ * إضافة语言地区表单
  * @param {*} id
  * @returns
  */
@@ -1169,7 +1169,7 @@ export function scanUpload(data) {
   });
 }
 /**
- * 菜单搜索
+ * 菜单بحث
  */
 export function menusSearch(data) {
   return request({
@@ -1229,7 +1229,7 @@ export function printForm(id) {
   });
 }
 /**
- * 打印机状态切换
+ * 打印机الحالة切换
  * @param {*} type
  * @returns
  */
@@ -1241,7 +1241,7 @@ export function printSetStatus(data) {
 }
 
 /**
- * 发票配置保存
+ * 发票配置حفظ
  * @returns
  */
 export function printSaveContent(id, data) {
@@ -1273,7 +1273,7 @@ export function diyLinkCategoryListApi() {
   });
 }
 /**
- * @description 添加/编辑分类
+ * @description إضافة/تحرير分类
  */
 export function linkCategoryFormApi(cate_id, pid) {
   return request({
@@ -1292,7 +1292,7 @@ export function linkListApi(data) {
   });
 }
 /**
- * @description 创建/编辑链接
+ * @description 创建/تحرير链接
  */
 export function linkCreateApi(data) {
   return request({

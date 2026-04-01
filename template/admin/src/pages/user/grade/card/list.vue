@@ -9,10 +9,10 @@
       @submit.native.prevent
     >
       <el-form-item label="卡号：">
-        <el-input v-model="table.card_number" placeholder="请输入卡号" class="form_content_width" />
+        <el-input v-model="table.card_number" placeholder="الرجاء إدخال 卡号" class="form_content_width" />
       </el-form-item>
       <el-form-item label="手机号：">
-        <el-input v-model="table.phone" placeholder="请输入手机号" class="form_content_width" />
+        <el-input v-model="table.phone" placeholder="الرجاء إدخال 手机号" class="form_content_width" />
       </el-form-item>
       <el-form-item label="是否领取：">
         <el-select clearable v-model="table.is_use" class="form_content_width">
@@ -42,12 +42,12 @@
           <span>{{ scope.row.card_number }}</span>
         </template>
       </el-table-column>
-      <el-table-column label="密码" min-width="100">
+      <el-table-column label="كلمة المرور" min-width="100">
         <template slot-scope="scope">
           <span>{{ scope.row.card_password }}</span>
         </template>
       </el-table-column>
-      <el-table-column label="领取人名称" min-width="100">
+      <el-table-column label="领取人الاسم" min-width="100">
         <template slot-scope="scope">
           <span>{{ scope.row.username ? scope.row.username : '-' }}</span>
         </template>
@@ -57,7 +57,7 @@
           <span>{{ scope.row.phone ? scope.row.phone : '-' }}</span>
         </template>
       </el-table-column>
-      <el-table-column label="领取时间" min-width="100">
+      <el-table-column label="领取الوقت" min-width="100">
         <template slot-scope="scope">
           <span>{{ scope.row.use_time }}</span>
         </template>
@@ -154,7 +154,7 @@ export default {
           this.$message.error(err.msg);
         });
     },
-    // 搜索
+    // بحث
     formSubmit() {
       this.table.page = 1;
       this.getMemberCard();

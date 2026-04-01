@@ -1,7 +1,7 @@
 <template>
   <common-wrapper :config="configData">
     <view>
-      <!-- 搜索框 -->
+      <!-- بحث框 -->
       <!-- #ifdef H5  -->
       <view class="header">
         <view
@@ -492,7 +492,7 @@ export default {
         color: var(--view-theme);
       }
 
-      // 没有logo，直接搜索框
+      // 没有logo，直接بحث框
       &.on {
         /* #ifdef MP */
         width: 70%;

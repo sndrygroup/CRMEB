@@ -12,7 +12,7 @@
                 type="text"
                 v-model="formInline.phone"
                 prefix="ios-contact-outline"
-                placeholder="请输入手机号"
+                placeholder="الرجاء إدخال 手机号"
                 size="large"
               />
             </el-form-item>
@@ -22,7 +22,7 @@
                   type="text"
                   v-model="formInline.verify_code"
                   prefix="ios-keypad-outline"
-                  placeholder="请输入验证码"
+                  placeholder="الرجاء إدخال 验证码"
                   size="large"
                 />
                 <el-button :disabled="!this.canClick" v-db-click @click="cutDown" size="large">{{ cutNUm }}</el-button>
@@ -35,7 +35,7 @@
                 type="password"
                 v-model="formInline.password"
                 prefix="ios-lock-outline"
-                placeholder="请输入新密码"
+                placeholder="الرجاء إدخال 新كلمة المرور"
                 size="large"
               />
             </el-form-item>
@@ -44,7 +44,7 @@
                 type="password"
                 v-model="formInline.checkPass"
                 prefix="ios-lock-outline"
-                placeholder="请验证新密码"
+                placeholder="请验证新كلمة المرور"
                 size="large"
               />
             </el-form-item>
@@ -55,7 +55,7 @@
                 type="text"
                 v-model="formInline.phone"
                 prefix="ios-contact-outline"
-                placeholder="请输入手机号"
+                placeholder="الرجاء إدخال 手机号"
               />
             </el-form-item>
             <el-form-item prop="password" class="maxInpt">
@@ -63,7 +63,7 @@
                 type="password"
                 v-model="formInline.password"
                 prefix="ios-lock-outline"
-                placeholder="请输入密码"
+                placeholder="الرجاء إدخال كلمة المرور"
               />
             </el-form-item>
           </template>
@@ -86,7 +86,7 @@
               v-db-click
               @click="handleSubmit2('formInline', current)"
               class="mb20"
-              >提交</el-button
+              >إرسال</el-button
             >
             <el-button
               v-if="current === 2"
@@ -96,9 +96,9 @@
               v-db-click
               @click="handleSubmit('formInline', current)"
               class="mb20"
-              >登录</el-button
+              >تسجيل الدخول</el-button
             >
-            <el-button long size="large" v-db-click @click="returns('formInline')" class="btn">返回 </el-button>
+            <el-button long size="large" v-db-click @click="returns('formInline')" class="btn">عودة </el-button>
           </el-form-item>
         </el-form>
       </div>
@@ -126,7 +126,7 @@ export default {
     };
     var validatePass = (rule, value, callback) => {
       if (value === '') {
-        callback(new Error('请输入密码'));
+        callback(new Error('الرجاء إدخال كلمة المرور'));
       } else {
         if (this.current === 1) {
           if (this.formInline.checkPass !== '') {
@@ -135,7 +135,7 @@ export default {
           callback();
         } else {
           if (value !== this.formInline.checkPass) {
-            callback(new Error('请输入正确密码!'));
+            callback(new Error('الرجاء إدخال 正确كلمة المرور!'));
           }
           callback();
         }
@@ -143,9 +143,9 @@ export default {
     };
     var validatePass2 = (rule, value, callback) => {
       if (value === '') {
-        callback(new Error('请再次输入密码'));
+        callback(new Error('请再次输入كلمة المرور'));
       } else if (value !== this.formInline.password) {
-        callback(new Error('两次输入密码不一致!'));
+        callback(new Error('两次输入كلمة المرور不一致!'));
       } else {
         callback();
       }
@@ -163,11 +163,11 @@ export default {
       },
       ruleInline: {
         phone: [{ required: true, validator: validatePhone, trigger: 'blur' }],
-        verify_code: [{ required: true, message: '请输入验证码', trigger: 'blur' }],
+        verify_code: [{ required: true, message: 'الرجاء إدخال 验证码', trigger: 'blur' }],
         password: [{ validator: validatePass, trigger: 'blur' }],
         checkPass: [{ validator: validatePass2, trigger: 'blur' }],
       },
-      stepList: ['验证账号信息', '修改账户密码', '登录'],
+      stepList: ['验证账号信息', 'تعديل账户كلمة المرور', 'تسجيل الدخول'],
     };
   },
   methods: {
@@ -231,7 +231,7 @@ export default {
         }
       });
     },
-    //登录
+    //تسجيل الدخول
     handleSubmit(name) {
       this.$refs[name].validate((valid) => {
         if (valid) {
@@ -240,7 +240,7 @@ export default {
             password: this.formInline.password,
           })
             .then(async (res) => {
-              this.$message.success('登录成功!');
+              this.$message.success('تسجيل الدخول成功!');
               this.$emit('on-Login');
             })
             .catch((res) => {

@@ -20,7 +20,7 @@
             </div>
           </div>
           <div class="input-box">
-            <el-input v-model="wordsData.searchTxt" placeholder="搜索快捷回复" :search="true" @on-search="bindSearch" />
+            <el-input v-model="wordsData.searchTxt" placeholder="بحث快捷回复" :search="true" @on-search="bindSearch" />
           </div>
         </div>
         <div class="scroll-box">
@@ -44,7 +44,7 @@
               <div class="slot-load" slot="load-beforeDeactive"></div>
               <div class="slot-load" slot="load-active">下滑加载更多</div>
               <div class="msg-item add-mg" v-show="wordsTabCur" v-db-click @click.stop="addMsg">
-                <span class="iconfont icontianjia11"></span>添加话术
+                <span class="iconfont icontianjia11"></span>إضافة话术
               </div>
               <div
                 class="msg-item"
@@ -61,7 +61,7 @@
         </div>
       </div>
     </div>
-    <!-- 添加分组  -->
+    <!-- إضافة分组  -->
     <el-dialog
       :visible.sync="cateData.isCate"
       width="470px"
@@ -70,20 +70,20 @@
       class="words-box"
     >
       <div class="mask-title">
-        {{ cateData.status ? '编辑分组' : '新增分组' }}
+        {{ cateData.status ? 'تحرير分组' : '新增分组' }}
         <span class="iconfont iconcha" v-db-click @click.stop="closeCate"></span>
       </div>
       <div class="input-box">
-        <el-input class="noinput" v-model="cateData.name" placeholder="请输入分组名称" />
+        <el-input class="noinput" v-model="cateData.name" placeholder="الرجاء إدخال 分组الاسم" />
       </div>
       <div class="input-box">
-        <el-input class="noinput" v-model="cateData.sort" placeholder="请输入分组排序" />
+        <el-input class="noinput" v-model="cateData.sort" placeholder="الرجاء إدخال 分组排序" />
       </div>
       <el-button v-db-click @click.stop="cateConfirm" class="subBtn" type="primary" :disabled="cateStatus"
         >确定</el-button
       >
     </el-dialog>
-    <!-- 添加话术  -->
+    <!-- إضافة话术  -->
     <el-dialog
       :visible.sync="msgData.isCateMeg"
       width="470px"
@@ -92,14 +92,14 @@
       class="words-box"
     >
       <div class="mask-title">
-        {{ msgData.status ? '修改话术' : '添加话术' }}
+        {{ msgData.status ? 'تعديل话术' : 'إضافة话术' }}
         <span class="iconfont iconcha" v-db-click @click.stop="closeMsgBox"></span>
       </div>
       <div class="input-box">
-        <el-input class="noinput" v-model="msgData.title" placeholder="请输入标题名称 (选填)" />
+        <el-input class="noinput" v-model="msgData.title" placeholder="الرجاء إدخال 标题الاسم (选填)" />
       </div>
       <div class="input-box text-area">
-        <el-input class="noinput" :rows="4" type="textarea" v-model="msgData.message" placeholder="请输入您的话术" />
+        <el-input class="noinput" :rows="4" type="textarea" v-model="msgData.message" placeholder="الرجاء إدخال 您的话术" />
       </div>
       <div class="input-box">
         <el-select v-model="msgData.msgCateId">
@@ -110,14 +110,14 @@
         >确定</el-button
       >
     </el-dialog>
-    <!-- 编辑弹窗  -->
+    <!-- تحرير弹窗  -->
     <div class="edit-box" v-if="isWordShow">
       <div class="head">
         <div class="tit-bar">
           {{ wordsTabCur ? '个人库' : '公共库' }}<span v-db-click @click.stop="isWordShow = false">完成</span>
         </div>
         <div class="input-box noinput">
-          <el-input v-model="wordsData.searchTxt" placeholder="搜索快捷回复" :search="true" @on-search="bindSearch" />
+          <el-input v-model="wordsData.searchTxt" placeholder="بحث快捷回复" :search="true" @on-search="bindSearch" />
         </div>
       </div>
       <div class="scroll-box">
@@ -137,7 +137,7 @@
             </div>
           </div>
           <div class="bom" v-if="wordsTabCur">
-            <div class="left-item edits-box" v-db-click @click.stop="editList.status = true">编辑分组</div>
+            <div class="left-item edits-box" v-db-click @click.stop="editList.status = true">تحرير分组</div>
           </div>
         </div>
         <div class="right-box">
@@ -150,14 +150,14 @@
               >{{ item.message }}
               <div class="edit-bar" v-if="wordsTabCur">
                 <span class="iconfont iconbianji1" v-db-click @click.stop="bindEdit(item)"></span>
-                <span class="iconfont iconshanchu1" v-db-click @click.stop="delMsg(item, '删除话术', index)"></span>
+                <span class="iconfont iconshanchu1" v-db-click @click.stop="delMsg(item, 'حذف话术', index)"></span>
               </div>
             </div>
           </vue-scroll>
         </div>
       </div>
     </div>
-    <!-- 编辑分组列表 -->
+    <!-- تحرير分组列表 -->
     <el-dialog
       :visible.sync="editList.status"
       width="470px"
@@ -166,7 +166,7 @@
       class="words-box cate-list"
     >
       <div class="mask-title">
-        编辑分组
+        تحرير分组
         <span class="iconfont iconcha" v-db-click @click.stop="editList.status = false"></span>
       </div>
       <div class="list-box">
@@ -178,7 +178,7 @@
               class="iconfont iconshanchu1"
               v-if="index > 0"
               v-db-click
-              @click.stop="delCate(item, '删除分组', index)"
+              @click.stop="delCate(item, 'حذف分组', index)"
             ></span>
           </div>
         </div>
@@ -222,7 +222,7 @@ export default {
   },
   data() {
     return {
-      isWordShow: false, // 编辑窗
+      isWordShow: false, // تحرير窗
       wordsList: [],
       wordsTab: [
         {
@@ -272,23 +272,23 @@ export default {
       },
       // 分组数据
       cateData: {
-        status: 0, // 0 新增 1编辑
+        status: 0, // 0 新增 1تحرير
         name: '',
         sort: '',
-        isCate: false, // 分组状态开关
+        isCate: false, // 分组الحالة开关
         id: '',
       },
-      // 编辑分组列表
+      // تحرير分组列表
       editList: {
         status: false,
       },
-      // 话术添加数据
+      // 话术إضافة数据
       msgData: {
         isCateMeg: false,
         msgCateId: '',
         message: '',
         title: '',
-        status: 0, // 0 新增 1修改
+        status: 0, // 0 新增 1تعديل
         editId: '',
       },
       selectData: '',
@@ -298,7 +298,7 @@ export default {
     Promise.all([this.getServiceCate()]);
   },
   methods: {
-    // 关闭添加话术弹窗
+    // 关闭إضافة话术弹窗
     closeMsgBox() {
       this.msgData.isCateMeg = false;
     },
@@ -310,7 +310,7 @@ export default {
     closeBox() {
       this.$emit('closeBox');
     },
-    // 搜索
+    // بحث
     bindSearch() {
       this.wordsData.page = 1;
       this.wordsData.isScroll = true;
@@ -382,7 +382,7 @@ export default {
       this.cateData.name = '';
       this.cateData.sort = '';
     },
-    // 分组添加
+    // 分组إضافة
     cateConfirm() {
       if (!this.cateData.status) {
         addServiceCate({
@@ -424,7 +424,7 @@ export default {
       this.msgData.isCateMeg = true;
       this.msgData.status = 0;
     },
-    // 话术添加
+    // 话术إضافة
     msgConfirm() {
       if (!this.msgData.status) {
         addSpeeChcraft({
@@ -464,7 +464,7 @@ export default {
         });
       }
     },
-    // 编辑话术
+    // تحرير话术
     bindEdit(item) {
       this.msgData.status = 1;
       this.msgData.isCateMeg = true;
@@ -472,7 +472,7 @@ export default {
       this.msgData.title = item.title;
       this.msgData.editId = item.id;
     },
-    // 删除话术
+    // حذف话术
     delMsg(row, tit, num) {
       let delfromData = {
         title: tit,

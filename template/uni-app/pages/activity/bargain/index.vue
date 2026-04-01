@@ -26,7 +26,7 @@
 						<div class="acea-row row-middle row-right">
 							<div class="bnt cancel" v-if="item.status === 1"
 								@click="getBargainUserCancel(item.bargain_id)">
-								{{$t(`取消活动`)}}
+								{{$t(`إلغاء活动`)}}
 							</div>
 							<div class="bnt bg-color-red" v-if="item.status === 1" @click="goDetail(item.bargain_id)">
 								{{$t(`继续砍价`)}}
@@ -118,7 +118,7 @@
 					});
 			},
 			/**
-		 * 取消砍价活动
+		 * إلغاء砍价活动
 		 * @param {number} bargainId - 砍价活动ID
 		 */
 		getBargainUserCancel: function(bargainId) {

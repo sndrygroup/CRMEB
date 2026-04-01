@@ -25,7 +25,7 @@
         <div class="right-wrapper" v-db-click @click="outLogin">
           <div class="icon-box"><span class="iconfont icontuichu"></span></div>
 
-          <div style="margin-left: 5px">退出登录</div>
+          <div style="margin-left: 5px">退出تسجيل الدخول</div>
         </div>
       </div>
       <div class="tab-box">
@@ -40,7 +40,7 @@
         </div>
       </div>
       <div class="search-box">
-        <el-input v-model="searchTxt" placeholder="搜索用户名称" @change="bindSearch" />
+        <el-input v-model="searchTxt" placeholder="بحثاسم المستخدم称" @change="bindSearch" />
       </div>
     </div>
     <div class="list-box" v-if="list.length > 0">
@@ -154,7 +154,7 @@ export default {
   filters: {
     toDay: function (value) {
       if (!value) return '';
-      var date = new Date(); //时间戳为10位需*1000，时间戳为13位的话不需乘1000
+      var date = new Date(); //الوقت戳为10位需*1000，الوقت戳为13位的话不需乘1000
       var Y = date.getFullYear() + '-';
       var M = (date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1) + '-';
       var D = (date.getDate() < 10 ? '0' + date.getDate() : date.getDate()) + ' ';
@@ -171,11 +171,11 @@ export default {
   },
   mounted() {
     let that = this;
-    // 监听页面刷新
+    // 监听页面تحديث
     window.addEventListener('beforeunload', (e) => {
       sessionStorage.setItem('wsLogin', false);
     });
-    // 获取是否登录的key
+    // 获取是否تسجيل الدخول的key
     this.wsLogin = JSON.parse(sessionStorage.getItem('wsLogin'));
     let token = getCookies('kefu_token');
     Socket.then((ws) => {
@@ -233,7 +233,7 @@ export default {
           }
         }
       });
-      // ws登录成功
+      // wsتسجيل الدخول成功
       ws.$on('success', (data) => {
         sessionStorage.setItem('wsLogin', true);
       });
@@ -292,10 +292,10 @@ export default {
     outLogin() {
       let self = this;
       this.$msgbox({
-        title: '退出登录确认',
-        message: '您确定退出登录当前账户吗？打开的标签页和个人设置将会保存。',
+        title: '退出تسجيل الدخولتأكيد',
+        message: '您确定退出تسجيل الدخول当前账户吗？打开的标签页和个人设置将会حفظ。',
         showCancelButton: true,
-        cancelButtonText: '取消',
+        cancelButtonText: 'إلغاء',
         confirmButtonText: '确定',
         iconClass: 'el-icon-warning',
         confirmButtonClass: 'btn-custom-cancel',
@@ -308,7 +308,7 @@ export default {
         })
         .catch(() => {});
     },
-    // 搜索
+    // بحث
     bindSearch(e) {
       this.page = 1;
       this.list = [];

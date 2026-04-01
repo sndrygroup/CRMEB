@@ -3,7 +3,7 @@
 		<view class="poster-poster">
 			<view class="tip">
 				<text class="iconfont icon-shuoming"></text>
-				{{ $t(`提示：点击图片即可保存至手机相册`) }}
+				{{ $t(`تنبيه：点击图片即可حفظ至手机相册`) }}
 			</view>
 			<view class="pictrue">
 				<!-- <image :src='image' mode="widthFix"></image> -->
@@ -315,13 +315,13 @@ export default {
 				filePath: url,
 				success: function (res) {
 					that.$util.Tips({
-						title: that.$t(`保存成功`),
+						title: that.$t(`حفظ成功`),
 						icon: 'success'
 					});
 				},
 				fail: function (res) {
 					that.$util.Tips({
-						title: that.$t(`保存失败`)
+						title: that.$t(`حفظ失败`)
 					});
 				}
 			});
@@ -337,20 +337,20 @@ export default {
 									filePath: url,
 									success: function (res) {
 										that.$util.Tips({
-											title: that.$t(`保存成功`),
+											title: that.$t(`حفظ成功`),
 											icon: 'success'
 										});
 									},
 									fail: function (res) {
 										that.$util.Tips({
-											title: that.$t(`保存失败`)
+											title: that.$t(`حفظ失败`)
 										});
 									}
 								});
 							},
 							fail: function (res) {
 								that.$util.Tips({
-									title: that.$t(`保存失败`)
+									title: that.$t(`حفظ失败`)
 								});
 							}
 						});
@@ -359,13 +359,13 @@ export default {
 							filePath: url,
 							success: function (res) {
 								that.$util.Tips({
-									title: that.$t(`保存成功`),
+									title: that.$t(`حفظ成功`),
 									icon: 'success'
 								});
 							},
 							fail: function (res) {
 								that.$util.Tips({
-									title: that.$t(`保存失败`)
+									title: that.$t(`حفظ失败`)
 								});
 							}
 						});
@@ -400,13 +400,13 @@ export default {
 									success: function (res) {
 										that.posterImageClose();
 										that.$util.Tips({
-											title: that.$t(`保存成功`),
+											title: that.$t(`حفظ成功`),
 											icon: 'success'
 										});
 									},
 									fail: function (res) {
 										that.$util.Tips({
-											title: that.$t(`保存失败`)
+											title: that.$t(`حفظ失败`)
 										});
 									}
 								});
@@ -418,13 +418,13 @@ export default {
 							success: function (res) {
 								that.posterImageClose();
 								that.$util.Tips({
-									title: that.$t(`保存成功`),
+									title: that.$t(`حفظ成功`),
 									icon: 'success'
 								});
 							},
 							fail: function (res) {
 								that.$util.Tips({
-									title: that.$t(`保存失败`)
+									title: that.$t(`حفظ失败`)
 								});
 							}
 						});

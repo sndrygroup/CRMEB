@@ -2,7 +2,7 @@
 	<view :style="colorStyle">
 		<view class="acea-row nav">
 			<view class="acea-row row-center-wrapper" :class="{ on: nav === 1 }" @click="navTab(1)">{{ $t(`发票记录`) }}</view>
-			<view class="acea-row row-center-wrapper" :class="{ on: nav === 2 }" @click="navTab(2)">{{ $t(`抬头管理`) }}</view>
+			<view class="acea-row row-center-wrapper" :class="{ on: nav === 2 }" @click="navTab(2)">{{ $t(`抬头إدارة`) }}</view>
 		</view>
 		<view v-show="nav === 1" class="record-wrapper">
 			<view v-for="item in orderList" :key="item.id" class="item">
@@ -13,7 +13,7 @@
 				<view class="item-bd acea-row row-between-wrapper">
 					<view>
 						<view class="name">{{ item.header_type === 1 ? $t(`个人`) : $t(`企业`) }}{{ item.type === 1 ? $t(`普通`) : $t(`专用`) }}{{ $t(`发票`) }}</view>
-						<view>{{ $t(`申请时间`) }} {{ item.add_time }}</view>
+						<view>{{ $t(`申请الوقت`) }} {{ item.add_time }}</view>
 					</view>
 					<view class="money">
 						{{ $t(`￥`) }}
@@ -24,7 +24,7 @@
 					<view>{{ item.is_invoice ? $t(`已开票`) : $t(`未开票`) }}</view>
 					<view class="acea-row row-center-wrapper">
 						<view class="link mr20" @click="getInvoiceLink(item.id)" v-if="item.is_invoice == 1 && item.unique_num != '' && item.red_invoice_num == ''">复制</view>
-						<navigator class="link" :url="`/pages/users/user_invoice_order/index?order_id=${item.order.order_id}`">{{ $t(`查看详情`) }}</navigator>
+						<navigator class="link" :url="`/pages/users/user_invoice_order/index?order_id=${item.order.order_id}`">{{ $t(`查看تفاصيل`) }}</navigator>
 					</view>
 				</view>
 			</view>
@@ -54,11 +54,11 @@
 						<view class="acea-row row-right item-ft">
 							<view class="btn" @click="editInvoice(item.id)">
 								<text class="iconfont icon-bianji"></text>
-								{{ $t(`编辑`) }}
+								{{ $t(`تحرير`) }}
 							</view>
 							<view class="btn" @click="deleteInvoice(item.id)">
 								<text class="iconfont icon-shanchu"></text>
-								{{ $t(`删除`) }}
+								{{ $t(`حذف`) }}
 							</view>
 						</view>
 					</view>
@@ -70,7 +70,7 @@
 			</view>
 			<navigator class="add-link" :url="`/pages/users/user_invoice_form/index?specialInvoice=${specialInvoice}`">
 				<text class="iconfont icon-fapiao"></text>
-				{{ $t(`添加新发票`) }}
+				{{ $t(`إضافة新发票`) }}
 			</navigator>
 		</view>
 		<!-- #ifndef MP -->
@@ -96,7 +96,7 @@ export default {
 			imgHost: HTTP_REQUEST_URL,
 			orderList: [],
 			invoiceList: [],
-			nav: 1, // 1：发票记录 2：抬头管理
+			nav: 1, // 1：发票记录 2：抬头إدارة
 			page: 1,
 			limit: 30,
 			loading: false,
@@ -207,17 +207,17 @@ export default {
 					});
 				});
 		},
-		// 编辑发票
+		// تحرير发票
 		editInvoice(id) {
 			uni.navigateTo({
 				url: `/pages/users/user_invoice_form/index?id=${id}`
 			});
 		},
-		// 删除发票
+		// حذف发票
 		deleteInvoice(id) {
 			let that = this;
 			uni.showModal({
-				content: that.$t(`删除该发票？`),
+				content: that.$t(`حذف该发票？`),
 				confirmColor: '#E93323',
 				success(res) {
 					if (res.confirm) {
@@ -225,7 +225,7 @@ export default {
 							.then(() => {
 								that.$util.Tips(
 									{
-										title: that.$t(`删除成功`),
+										title: that.$t(`حذف成功`),
 										icon: 'success'
 									},
 									() => {

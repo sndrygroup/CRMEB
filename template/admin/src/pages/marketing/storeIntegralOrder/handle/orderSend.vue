@@ -19,7 +19,7 @@
           <el-select
             v-model="formItem.delivery_name"
             filterable
-            placeholder="请选择快递公司"
+            placeholder="الرجاء اختيار 快递公司"
             style="width: 80%"
             @change="expressChange"
           >
@@ -32,9 +32,9 @@
           </el-select>
         </el-form-item>
         <el-form-item v-if="formItem.express_record_type === '1'" label="快递单号：">
-          <el-input v-model="formItem.delivery_id" placeholder="请输入快递单号" style="width: 80%"></el-input>
+          <el-input v-model="formItem.delivery_id" placeholder="الرجاء إدخال 快递单号" style="width: 80%"></el-input>
           <div class="trips" v-if="formItem.delivery_name == '顺丰速运'">
-            <p>顺丰请输入单号 :收件人或寄件人手机号后四位</p>
+            <p>顺丰الرجاء إدخال 单号 :收件人或寄件人手机号后四位</p>
             <p>例如：SF000000000000:3941</p>
           </div>
         </el-form-item>
@@ -42,7 +42,7 @@
           <el-form-item label="电子面单：" class="express_temp_id">
             <el-select
               v-model="formItem.express_temp_id"
-              placeholder="请选择电子面单"
+              placeholder="الرجاء اختيار 电子面单"
               style="width: 80%"
               @change="expressTempChange"
             >
@@ -56,13 +56,13 @@
             <el-button v-if="formItem.express_temp_id" type="text" v-db-click @click="preview">预览</el-button>
           </el-form-item>
           <el-form-item label="寄件人姓名：">
-            <el-input v-model="formItem.to_name" placeholder="请输入寄件人姓名" style="width: 80%"></el-input>
+            <el-input v-model="formItem.to_name" placeholder="الرجاء إدخال 寄件人姓名" style="width: 80%"></el-input>
           </el-form-item>
           <el-form-item label="寄件人电话：">
-            <el-input v-model="formItem.to_tel" placeholder="请输入寄件人电话" style="width: 80%"></el-input>
+            <el-input v-model="formItem.to_tel" placeholder="الرجاء إدخال 寄件人电话" style="width: 80%"></el-input>
           </el-form-item>
           <el-form-item label="寄件人地址：">
-            <el-input v-model="formItem.to_addr" placeholder="请输入寄件人地址" style="width: 80%"></el-input>
+            <el-input v-model="formItem.to_addr" placeholder="الرجاء إدخال 寄件人地址" style="width: 80%"></el-input>
           </el-form-item>
         </template>
       </div>
@@ -70,7 +70,7 @@
         <el-form-item label="送货人：">
           <el-select
             v-model="formItem.sh_delivery"
-            placeholder="请选择送货人"
+            placeholder="الرجاء اختيار 送货人"
             style="width: 80%"
             @change="shDeliveryChange"
           >
@@ -96,8 +96,8 @@
       </div>
     </el-form>
     <span slot="footer" class="dialog-footer">
-      <el-button v-db-click @click="cancel">取消</el-button>
-      <el-button type="primary" v-db-click @click="putSend">提交</el-button>
+      <el-button v-db-click @click="cancel">إلغاء</el-button>
+      <el-button type="primary" v-db-click @click="putSend">إرسال</el-button>
     </span>
     <div ref="viewer" v-viewer v-show="temp">
       <img :src="temp.pic" style="display: none" />
@@ -139,16 +139,16 @@ export default {
       deliveryList: [],
       // ruleValidate: {
       //     delivery_name: [
-      //         { required: true, message: '请选择快递公司', trigger: 'change' }
+      //         { required: true, message: 'الرجاء اختيار 快递公司', trigger: 'change' }
       //     ],
       //     delivery_id: [
-      //         { required: true, message: '请输入快递单号', trigger: 'blur' }
+      //         { required: true, message: 'الرجاء إدخال 快递单号', trigger: 'blur' }
       //     ],
       //     express_temp_id: [
-      //         { required: true, message: '请选择电子面单', trigger: 'change' }
+      //         { required: true, message: 'الرجاء اختيار 电子面单', trigger: 'change' }
       //     ],
       //     sh_delivery: [
-      //         { required: true, message: '请选择送货人', trigger: 'change', type: 'number' }
+      //         { required: true, message: 'الرجاء اختيار 送货人', trigger: 'change', type: 'number' }
       //     ]
       // },
       temp: {},
@@ -233,7 +233,7 @@ export default {
           this.$message.error(res.msg);
         });
     },
-    // 提交
+    // إرسال
     putSend(name) {
       let data = {
         id: this.orderId,
@@ -249,7 +249,7 @@ export default {
         } else if (this.formItem.to_tel === '') {
           return this.$message.error('寄件人电话不能为空');
         } else if (!/^1(3|4|5|7|8|9|6)\d{9}$/i.test(this.formItem.to_tel)) {
-          return this.$message.error('请输入正确的手机号码');
+          return this.$message.error('الرجاء إدخال 正确的手机号码');
         } else if (this.formItem.to_addr === '') {
           return this.$message.error('寄件人地址不能为空');
         }

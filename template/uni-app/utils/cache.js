@@ -23,14 +23,14 @@ class Cache {
 	}
 
 	/**
-	 * 获取当前时间戳
+	 * 获取当前الوقت戳
 	 */
 	time() {
 		return Math.round(new Date() / 1000);
 	}
 
 	/**
-	 * 字符串转时间戳
+	 * 字符串转الوقت戳
 	 * @param {Object} expiresTime
 	 */
 	strTotime(expiresTime) {
@@ -41,7 +41,7 @@ class Cache {
 
 
 	/**
-	 * 设置过期时间缓存
+	 * 设置过期الوقت缓存
 	 * @param {Object} key
 	 * @param {Object} expire
 	 */
@@ -71,9 +71,9 @@ class Cache {
 	}
 
 	/**
-	 * 缓存是否过期,过期自动删除
+	 * 缓存是否过期,过期自动حذف
 	 * @param {Object} key
-	 * @param {Object} $bool true = 删除,false = 不删除
+	 * @param {Object} $bool true = حذف,false = 不حذف
 	 */
 	getExpireCahe(key, $bool) {
 		try {
@@ -170,7 +170,7 @@ class Cache {
 	}
 
 	/**
-	 * 删除缓存
+	 * حذف缓存
 	 * @param {Object} key
 	 */
 	clear(key) {
@@ -215,11 +215,11 @@ class Cache {
 				}
 			});
 		}
-		//保存没有过期的缓存标签
+		//حفظ没有过期的缓存标签
 		if (newTagValue.length !== cahceValue.length) {
 			this.cacheSetHandler(this.cacheExpire, newTagValue);
 		}
-		//删除过期缓存
+		//حذف过期缓存
 		newBeOverdueValue.forEach(k => {
 			this.cacheClearHandler(k);
 		})

@@ -27,7 +27,7 @@ LotteryDraw.prototype = {
 		if (this.count >= this.totalCount && this.startIndex === this.winingIndex) {
 			if (typeof this.callback === 'function') {
 				setTimeout(function() {
-					that.callback(that.startIndex,that.count); //执行回调函数，抽奖完成的相关操作
+					that.callback(that.startIndex,that.count); //执行回调函数，抽奖完成的相关الخيارات
 				}, 400);
 			}
 			clearInterval(this.timer);

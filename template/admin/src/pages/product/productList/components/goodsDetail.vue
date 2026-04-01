@@ -3,7 +3,7 @@
     <div class="goods_detail_wrapper" style="height: 640px">
       <HappyScroll size="5" resize hide-horizontal>
         <div style="width: 375px">
-          <div class="title-box">商品详情</div>
+          <div class="title-box">商品تفاصيل</div>
           <div class="swiper-box">
             <el-carousel :autoplay="goodsInfo.productInfo.slider_image.length > 1" v-model="value2" loop arrow="never">
               <el-carousel-item v-for="(item, index) in goodsInfo.productInfo.slider_image" :key="index">

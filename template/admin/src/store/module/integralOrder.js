@@ -23,11 +23,11 @@ import { integralGetOrdes } from '@/api/marketing';
 export default {
   namespaced: true,
   state: {
-    orderStatus: '', // 订单状态
-    // orderTime: today().join('-'), // 订单时间
+    orderStatus: '', // 订单الحالة
+    // orderTime: today().join('-'), // 订单الوقت
     orderTime: '',
     orderNum: '',
-    orderType: 0, // 订单状态
+    orderType: 0, // 订单الحالة
     fieldKey: '',
     orderChartType: {},
     isDels: false,
@@ -44,28 +44,28 @@ export default {
      */
 
     /**
-     * @description 订单号搜索
+     * @description 订单号بحث
      */
     getOrderStatus(state, orderStatus) {
       state.orderStatus = orderStatus;
     },
 
     /**
-     * @description 订单状态搜索
+     * @description 订单الحالةبحث
      */
     getOrderType(state, orderPayType) {
       state.orderPayType = orderPayType;
     },
 
     /**
-     * @description 时间状态
+     * @description الوقتالحالة
      */
     getOrderTime(state, orderTime) {
       state.orderTime = orderTime;
     },
 
     /**
-     * @description 订单选择状态
+     * @description 订单选择الحالة
      */
     getOrderNum(state, orderNum) {
       state.orderNum = orderNum;
@@ -76,28 +76,28 @@ export default {
     },
 
     /**
-     * @description tab切换，选择订单状态
+     * @description tab切换，选择订单الحالة
      */
     onChangeTabs(state, orderType) {
       state.orderType = orderType;
     },
 
     /**
-     * @description  订单状态 全部对象
+     * @description  订单الحالة 全部对象
      */
     onChangeChart(state, orderChartType) {
       state.orderChartType = orderChartType;
     },
 
     /**
-     * @description  是否批量删除订单
+     * @description  是否批量حذف订单
      */
     getIsDel(state, isDels) {
       state.isDels = isDels;
     },
 
     /**
-     * @description  批量删除订单的id集合
+     * @description  批量حذف订单的id集合
      */
     getisDelIdListl(state, delIdList) {
       state.delIdList = delIdList;
@@ -105,7 +105,7 @@ export default {
   },
   actions: {
     /**
-     * @description 订单状态
+     * @description 订单الحالة
      */
     getOrderTabs({ commit }, data) {
       return new Promise((resolve, reject) => {
@@ -113,7 +113,7 @@ export default {
       });
     },
     /**
-     * @description 初始化监听全屏状态
+     * @description 初始化监听全屏الحالة
      */
     listenFullscreen({ commit }) {
       return new Promise((resolve) => {

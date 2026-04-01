@@ -213,7 +213,7 @@ class AuthWechat {
 	}
 
 	/**
-	 * 授权登录获取token
+	 * 授权تسجيل الدخول获取token
 	 * @param {Object} code
 	 */
 	auth(code) {
@@ -270,7 +270,7 @@ class AuthWechat {
 	}
 
 	/**
-	 * 跳转自动登录
+	 * 跳转自动تسجيل الدخول
 	 */
 	toAuth(snsapiBase, backUrl) {
 		let that = this;

@@ -30,7 +30,7 @@
           <el-select
             v-model="formValidate.logisticsCode"
             filterable
-            placeholder="请选择"
+            placeholder="الرجاء اختيار "
             @change="bindChange"
             :label-in-value="true"
             style="width: 100%"
@@ -44,10 +44,10 @@
           </el-select>
         </el-form-item>
         <el-form-item label="快递单号：" prop="number" class="form-item" label-position="right" label-width="100px">
-          <el-input v-model="formValidate.number" placeholder="请输入快递单号" style="width: 100%"></el-input>
+          <el-input v-model="formValidate.number" placeholder="الرجاء إدخال 快递单号" style="width: 100%"></el-input>
         </el-form-item>
         <el-form-item label="" class="form-item" label-position="right" label-width="100px">
-          <div style="color: #c4c4c4">顺丰请输入单号：收件人或寄件人手机号后四位,</div>
+          <div style="color: #c4c4c4">顺丰الرجاء إدخال 单号：收件人或寄件人手机号后四位,</div>
           <div style="color: #c4c4c4">例如：SF000000000000:3941</div>
         </el-form-item>
       </div>
@@ -62,7 +62,7 @@
         >
           <el-select
             v-model="formValidate.logisticsCode"
-            placeholder="请选择"
+            placeholder="الرجاء اختيار "
             style="width: 100%"
             @change="bindChange"
             filterable
@@ -83,7 +83,7 @@
           label-width="100px"
           v-if="orderTempList.length > 0"
         >
-          <el-select v-model="formValidate.electronic" placeholder="请选择电子面单" style="width: 80%">
+          <el-select v-model="formValidate.electronic" placeholder="الرجاء اختيار 电子面单" style="width: 80%">
             <el-option
               :value="item.temp_id"
               v-for="(item, index) in orderTempList"
@@ -97,7 +97,7 @@
           </viewer>
         </el-form-item>
         <el-form-item label="寄件人姓名：" prop="sendName" class="form-item" label-position="right" label-width="100px">
-          <el-input v-model="formValidate.sendName" placeholder="请输入寄件人姓名" style="width: 100%"></el-input>
+          <el-input v-model="formValidate.sendName" placeholder="الرجاء إدخال 寄件人姓名" style="width: 100%"></el-input>
         </el-form-item>
         <el-form-item
           label="寄件人电话："
@@ -106,7 +106,7 @@
           label-position="right"
           label-width="100px"
         >
-          <el-input v-model="formValidate.sendPhone" placeholder="请输入寄件人电话" style="width: 100%"></el-input>
+          <el-input v-model="formValidate.sendPhone" placeholder="الرجاء إدخال 寄件人电话" style="width: 100%"></el-input>
         </el-form-item>
         <el-form-item
           label="寄件人地址："
@@ -115,7 +115,7 @@
           label-position="right"
           label-width="100px"
         >
-          <el-input v-model="formValidate.sendAddress" placeholder="请输入寄件人地址" style="width: 100%"></el-input>
+          <el-input v-model="formValidate.sendAddress" placeholder="الرجاء إدخال 寄件人地址" style="width: 100%"></el-input>
         </el-form-item>
       </div>
       <!--  送货  -->
@@ -137,8 +137,8 @@
         </el-form-item>
       </div>
       <div class="mask-footer">
-        <el-button type="primary" v-db-click @click="handleSubmit('formValidate')">提交</el-button>
-        <el-button v-db-click @click="close">取消</el-button>
+        <el-button type="primary" v-db-click @click="handleSubmit('formValidate')">إرسال</el-button>
+        <el-button v-db-click @click="close">إلغاء</el-button>
       </div>
     </el-form>
   </div>
@@ -216,7 +216,7 @@ export default {
         },
       ],
       ruleInline: {
-        logisticsCode: [{ required: true, message: '请选择快递公司', trigger: 'change' }],
+        logisticsCode: [{ required: true, message: 'الرجاء اختيار 快递公司', trigger: 'change' }],
         number: [{ required: true, message: '请填写快递单号', trigger: 'change' }],
         sendName: [{ required: true, message: '请填写寄件人姓名', trigger: 'change' }],
         sendPhone: [
@@ -230,7 +230,7 @@ export default {
         gender: 1,
         shipStatus: 1,
         logisticsCode: '', // 快递公司编号
-        logisticsName: '', // 快递公司名称
+        logisticsName: '', // 快递公司الاسم
         number: '', // 快递单号
         electronic: '', //电子面单
         sendName: '', //寄件人姓名
@@ -357,7 +357,7 @@ export default {
           }
         });
       } else {
-        this.$message.error('请选择电子面单');
+        this.$message.error('الرجاء اختيار 电子面单');
       }
     },
   },

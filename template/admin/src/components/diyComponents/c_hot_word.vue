@@ -1,7 +1,7 @@
 <template>
   <div class="line-box">
     <div class="title">
-      <p>搜索热词</p>
+      <p>بحث热词</p>
       <span>{{ datas[name].title }}</span>
     </div>
     <div class="input-box">
@@ -21,7 +21,7 @@
           type="primary"
           ghost
           style="width: 100%; height: 40px; border-color: var(--prev-color-primary); color: var(--prev-color-primary)"
-          >添加热词</el-button
+          >إضافة热词</el-button
         >
       </div>
     </div>
@@ -71,7 +71,7 @@ export default {
       if (this.datas[this.name].list.length < 20) {
         this.datas[this.name].list.push(obj);
       } else {
-        this.$message.warning('最多添加20个热词');
+        this.$message.warning('最多إضافة20个热词');
       }
     },
     close(index) {

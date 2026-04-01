@@ -2,7 +2,7 @@
   <div v-loading="spinShow">
     <pages-header
       ref="pageHeader"
-      :title="$route.params.id ? '编辑秒杀商品' : '添加秒杀商品'"
+      :title="$route.params.id ? 'تحرير秒杀商品' : 'إضافة秒杀商品'"
       :backUrl="$routeProStr + '/marketing/store_seckill/index'"
     ></pages-header>
     <el-card :bordered="false" shadow="never" class="mt16">
@@ -64,7 +64,7 @@
                   <el-form-item label="商品标题：" prop="title" label-for="title">
                     <el-input
                       clearable
-                      placeholder="请输入商品标题"
+                      placeholder="الرجاء إدخال 商品标题"
                       v-model="formValidate.title"
                       class="content_width"
                       maxlength="80"
@@ -77,7 +77,7 @@
                 <el-col v-bind="grid">
                   <el-form-item label="秒杀活动简介：" prop="info" label-for="info">
                     <el-input
-                      placeholder="请输入秒杀活动简介"
+                      placeholder="الرجاء إدخال 秒杀活动简介"
                       type="textarea"
                       :rows="4"
                       v-model="formValidate.info"
@@ -89,7 +89,7 @@
                 </el-col>
               </el-col>
               <el-col :span="24">
-                <el-form-item label="活动时间：" prop="section_time">
+                <el-form-item label="活动الوقت：" prop="section_time">
                   <div>
                     <el-date-picker
                       clearable
@@ -104,7 +104,7 @@
                       class="content_width"
                       v-model="formValidate.section_time"
                     ></el-date-picker>
-                    <div class="grey">设置活动开启结束时间，用户可以在有效时间内参与秒杀</div>
+                    <div class="grey">设置活动开启结束الوقت，用户可以在有效الوقت内参与秒杀</div>
                   </div>
                 </el-form-item>
               </el-col>
@@ -135,7 +135,7 @@
                       :min="0"
                       :max="9999999999"
                       v-model="formValidate.postage"
-                      placeholder="请输入金额"
+                      placeholder="الرجاء إدخال 金额"
                       class="content_width input-number-unit-class"
                       class-unit="元"
                     />
@@ -148,7 +148,7 @@
                     <el-select
                       v-model="formValidate.temp_id"
                       clearable
-                      placeholder="请选择运费模板"
+                      placeholder="الرجاء اختيار 运费模板"
                       class="content_width"
                     >
                       <el-option
@@ -164,7 +164,7 @@
               </el-col>
 
               <el-col :span="24">
-                <el-form-item label="开始时间：" prop="time_id">
+                <el-form-item label="开始الوقت：" prop="time_id">
                   <div>
                     <el-select v-model="formValidate.time_id" multiple class="content_width">
                       <el-option
@@ -175,7 +175,7 @@
                       ></el-option>
                     </el-select>
                     <div class="grey">
-                      选择产品开始时间段，该时间段内用户可参与购买；其它时间段会显示活动未开始或已结束。如活动超过一天，则活动期内，每天都会定时开启
+                      选择产品开始الوقت段，该الوقت段内用户可参与购买；其它الوقت段会显示活动未开始或已结束。如活动超过一天，则活动期内，每天都会定时开启
                     </div>
                   </div>
                 </el-form-item>
@@ -186,7 +186,7 @@
                     <el-input-number
                       :controls="false"
                       :min="1"
-                      placeholder="请输入数量限制"
+                      placeholder="الرجاء إدخال 数量限制"
                       element-id="num"
                       :precision="0"
                       :max="10000"
@@ -205,7 +205,7 @@
                     <el-input-number
                       :controls="false"
                       :min="1"
-                      placeholder="请输入单次购买数量限制"
+                      placeholder="الرجاء إدخال 单次购买数量限制"
                       element-id="once_num"
                       :precision="0"
                       :max="10000"
@@ -221,7 +221,7 @@
               <el-col :span="24">
                 <el-form-item label="单位：" prop="unit_name" label-for="unit_name">
                   <el-input
-                    placeholder="请输入单位"
+                    placeholder="الرجاء إدخال 单位"
                     element-id="unit_name"
                     v-model="formValidate.unit_name"
                     class="content_width"
@@ -232,7 +232,7 @@
                 <el-form-item label="排序：">
                   <el-input-number
                     :controls="false"
-                    placeholder="请输入排序"
+                    placeholder="الرجاء إدخال 排序"
                     element-id="sort"
                     :precision="0"
                     :max="10000"
@@ -260,7 +260,7 @@
                 </el-form-item>
               </el-col>
               <el-col :span="24">
-                <el-form-item label="活动状态：" props="status" label-for="status">
+                <el-form-item label="活动الحالة：" props="status" label-for="status">
                   <el-switch
                     class="defineSwitch"
                     :active-value="1"
@@ -357,7 +357,7 @@
                   class="submission"
                   v-db-click
                   @click="next('formValidate')"
-                  >{{ current === 2 ? '提交' : '下一步' }}</el-button
+                  >{{ current === 2 ? 'إرسال' : '下一步' }}</el-button
                 >
               </el-form-item>
             </el-col>
@@ -406,7 +406,7 @@ export default {
   },
   data() {
     return {
-      stepList: ['选择秒杀商品', '填写基础信息', '修改商品详情'],
+      stepList: ['选择秒杀商品', '填写基础信息', 'تعديل商品تفاصيل'],
       submitOpen: false,
       spinShow: false,
       isChoice: '',
@@ -441,7 +441,7 @@ export default {
         xs: 8,
       },
       myConfig: {
-        autoHeightEnabled: false, // 编辑器不自动被内容撑高
+        autoHeightEnabled: false, // تحرير器不自动被内容撑高
         initialFrameHeight: 500, // 初始容器高度
         initialFrameWidth: '100%', // 初始容器宽度
         UEDITOR_HOME_URL: '/UEditor/',
@@ -490,12 +490,12 @@ export default {
       picTit: '',
       tableIndex: 0,
       ruleValidate: {
-        image: [{ required: true, message: '请选择主图', trigger: 'change' }],
+        image: [{ required: true, message: 'الرجاء اختيار 主图', trigger: 'change' }],
         images: [
           {
             required: true,
             type: 'array',
-            message: '请选择主图',
+            message: 'الرجاء اختيار 主图',
             trigger: 'change',
           },
           {
@@ -505,22 +505,22 @@ export default {
             trigger: 'change',
           },
         ],
-        title: [{ required: true, message: '请输入商品标题', trigger: 'blur' }],
-        info: [{ required: true, message: '请输入秒杀活动简介', trigger: 'blur' }],
+        title: [{ required: true, message: 'الرجاء إدخال 商品标题', trigger: 'blur' }],
+        info: [{ required: true, message: 'الرجاء إدخال 秒杀活动简介', trigger: 'blur' }],
         section_time: [
           {
             required: true,
             type: 'array',
-            message: '请选择活动时间',
+            message: 'الرجاء اختيار 活动الوقت',
             trigger: 'change',
           },
         ],
-        unit_name: [{ required: true, message: '请输入单位', trigger: 'blur' }],
+        unit_name: [{ required: true, message: 'الرجاء إدخال 单位', trigger: 'blur' }],
         price: [
           {
             required: true,
             type: 'number',
-            message: '请输入秒杀价',
+            message: 'الرجاء إدخال 秒杀价',
             trigger: 'blur',
           },
         ],
@@ -528,7 +528,7 @@ export default {
           {
             required: true,
             type: 'number',
-            message: '请输入原价',
+            message: 'الرجاء إدخال 原价',
             trigger: 'blur',
           },
         ],
@@ -536,7 +536,7 @@ export default {
           {
             required: true,
             type: 'number',
-            message: '请输入成本价',
+            message: 'الرجاء إدخال 成本价',
             trigger: 'blur',
           },
         ],
@@ -544,7 +544,7 @@ export default {
           {
             required: true,
             type: 'number',
-            message: '请输入库存',
+            message: 'الرجاء إدخال 库存',
             trigger: 'blur',
           },
         ],
@@ -552,7 +552,7 @@ export default {
           {
             required: true,
             type: 'number',
-            message: '请输入购买数量限制',
+            message: 'الرجاء إدخال 购买数量限制',
             trigger: 'blur',
           },
         ],
@@ -560,14 +560,14 @@ export default {
           {
             required: true,
             type: 'number',
-            message: '请输入单次购买数量限制',
+            message: 'الرجاء إدخال 单次购买数量限制',
             trigger: 'blur',
           },
         ],
         temp_id: [
           {
             required: true,
-            message: '请选择运费模板',
+            message: 'الرجاء اختيار 运费模板',
             trigger: 'change',
             type: 'number',
           },
@@ -575,7 +575,7 @@ export default {
         time_id: [
           {
             required: true,
-            message: '请选择开始时间',
+            message: 'الرجاء اختيار 开始الوقت',
             trigger: 'change',
             type: 'array',
           },
@@ -606,7 +606,7 @@ export default {
     getEditorContent(data) {
       this.description = data;
     },
-    // 添加运费模板
+    // إضافة运费模板
     freight() {
       this.$refs.template.id = 0;
       this.$refs.template.isTemplate = true;
@@ -708,7 +708,7 @@ export default {
     onchangeTime(e) {
       this.formValidate.section_time = e;
     },
-    // 详情
+    // تفاصيل
     getInfo() {
       this.spinShow = true;
       seckillInfoApi(this.$route.params.id)
@@ -784,7 +784,7 @@ export default {
         this.$refs[name].validate((valid) => {
           if (valid) {
             if (!that.formValidate.attrs) {
-              return that.$message.error('请选择属性规格');
+              return that.$message.error('الرجاء اختيار 属性规格');
             } else {
               for (let index in that.formValidate.attrs) {
                 if (that.formValidate.attrs[index].price > this.formValidate.attrs[index]['ot_price']) {
@@ -805,7 +805,7 @@ export default {
         if (this.formValidate.images) {
           this.current += 1;
         } else {
-          this.$message.warning('请选择商品');
+          this.$message.warning('الرجاء اختيار 商品');
         }
       }
     },

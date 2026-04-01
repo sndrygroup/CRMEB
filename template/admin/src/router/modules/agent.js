@@ -31,7 +31,7 @@ export default {
       name: `${pre}agentManage`,
       meta: {
         auth: ['agent-agent-manage'],
-        title: '分销员管理',
+        title: '分销员إدارة',
       },
       component: () => import('@/pages/agent/agentManage'),
     },

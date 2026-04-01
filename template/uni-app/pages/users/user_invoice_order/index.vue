@@ -70,11 +70,11 @@
 					</view>
 				</view>
 				<view class='item acea-row row-between'>
-					<view>{{$t(`下单时间`)}}：</view>
+					<view>{{$t(`下单الوقت`)}}：</view>
 					<view class='conter'>{{(orderInfo.add_time_y || '') +' '+(orderInfo.add_time_h || 0)}}</view>
 				</view>
 				<view class='item acea-row row-between'>
-					<view>{{$t(`支付状态`)}}：</view>
+					<view>{{$t(`支付الحالة`)}}：</view>
 					<view class='conter' v-if="orderInfo.paid">{{$t(`已支付`)}}</view>
 					<view class='conter' v-else>{{$t(`未支付`)}}</view>
 				</view>
@@ -91,7 +91,7 @@
 					<view class='conter'>{{orderInfo.fictitious_content}}</view>
 				</view>
 			</view>
-			<!-- 退款订单详情 -->
+			<!-- 退款订单تفاصيل -->
 			<view class='wrapper' v-if="isGoodsReturn">
 				<view class='item acea-row row-between'>
 					<view>{{$t(`收货人`)}}：</view>
@@ -572,10 +572,10 @@
 				orderInfo: {
 					system_store: {},
 					_status: {}
-				}, //订单详情
+				}, //订单تفاصيل
 				system_store: {},
 				isGoodsReturn: false, //是否为退款订单
-				status: {}, //订单底部按钮状态
+				status: {}, //订单底部按钮الحالة
 				isClose: false,
 				pay_close: false,
 				pay_order_id: '',
@@ -671,7 +671,7 @@
 				});
 			},
 			/**
-			 * 登录授权回调
+			 * تسجيل الدخول授权回调
 			 * 
 			 */
 			onLoadFun: function() {
@@ -745,13 +745,13 @@
 				};
 				if (type == 1 && combination_id > 0) status.class_status = 1; //查看拼团
 				if (type == 2 && delivery_type == 'express') status.class_status = 2; //查看物流
-				if (type == 2) status.class_status = 3; //确认收货
-				if (type == 4 || type == 0) status.class_status = 4; //删除订单
+				if (type == 2) status.class_status = 3; //تأكيد收货
+				if (type == 4 || type == 0) status.class_status = 4; //حذف订单
 				if (!seckill_id && !bargain_id && !combination_id && (type == 3 || type == 4)) status.class_status = 5; //再次购买
 				this.$set(this, 'status', status);
 			},
 			/**
-			 * 去拼团详情
+			 * 去拼团تفاصيل
 			 * 
 			 */
 			goJoinPink: function() {
@@ -774,13 +774,13 @@
 			confirmOrder: function() {
 				let that = this;
 				uni.showModal({
-					title: this.$t(`确认收货`),
-					content: this.$t(`为保障权益，请收到货确认无误后，再确认收货`),
+					title: this.$t(`تأكيد收货`),
+					content: this.$t(`为保障权益，请收到货تأكيد无误后，再تأكيد收货`),
 					success: function(res) {
 						if (res.confirm) {
 							orderTake(that.order_id).then(res => {
 								return that.$util.Tips({
-									title: that.$t(`操作成功`),
+									title: that.$t(`الخيارات成功`),
 									icon: 'success'
 								}, function() {
 									that.getOrderInfo();
@@ -796,13 +796,13 @@
 			},
 			/**
 			 * 
-			 * 删除订单
+			 * حذف订单
 			 */
 			delOrder: function() {
 				let that = this;
 				orderDel(this.order_id).then(res => {
 					return that.$util.Tips({
-						title: that.$t(`删除成功`),
+						title: that.$t(`حذف成功`),
 						icon: 'success'
 					}, {
 						tab: 3,
@@ -817,8 +817,8 @@
 			cancelOrder() {
 				let self = this
 				uni.showModal({
-					title: that.$t(`提示`),
-					content: that.$t(`确认取消该订单`),
+					title: that.$t(`تنبيه`),
+					content: that.$t(`تأكيدإلغاء该订单`),
 					success: function(res) {
 						if (res.confirm) {
 							orderCancel(self.orderInfo.order_id)

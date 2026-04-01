@@ -62,7 +62,7 @@ export const GoodsTableHead = [
     minWidth: '100px',
   },
   {
-    title: '操作',
+    title: 'الخيارات',
     slot: 'action',
     fixed: 'right',
     align: 'center',
@@ -121,7 +121,7 @@ export const VirtualTableHead = [
     minWidth: 90,
   },
   {
-    title: '操作',
+    title: 'الخيارات',
     slot: 'action',
     fixed: 'right',
     align: 'center',
@@ -174,7 +174,7 @@ export const VirtualTableHead2 = [
     minWidth: 90,
   },
   {
-    title: '操作',
+    title: 'الخيارات',
     slot: 'action',
     fixed: 'right',
     align: 'center',
@@ -238,7 +238,7 @@ export const columns2 = [
     minWidth: 95,
   },
   {
-    title: '操作',
+    title: 'الخيارات',
     slot: 'action',
     fixed: 'right',
     align: 'center',
@@ -290,7 +290,7 @@ export const columns3 = [
     minWidth: 120,
   },
   {
-    title: '操作',
+    title: 'الخيارات',
     slot: 'action',
     fixed: 'right',
     align: 'center',
@@ -318,7 +318,7 @@ export const CustomList = [
   },
   {
     value: 'time',
-    label: '时间',
+    label: 'الوقت',
   },
   {
     value: 'id',
@@ -335,17 +335,17 @@ export const CustomList = [
 ];
 
 export const RuleValidate = {
-  store_name: [{ required: true, message: '请输入商品名称', trigger: 'blur' }],
+  store_name: [{ required: true, message: 'الرجاء إدخال 商品الاسم', trigger: 'blur' }],
   cate_id: [
     {
       required: true,
-      message: '请选择商品分类',
+      message: 'الرجاء اختيار 商品分类',
       trigger: 'change',
       type: 'array',
       min: '1',
     },
   ],
-  unit_name: [{ required: true, message: '请输入单位', trigger: 'blur' }],
+  unit_name: [{ required: true, message: 'الرجاء إدخال 单位', trigger: 'blur' }],
   slider_image: [
     {
       required: true,
@@ -354,13 +354,13 @@ export const RuleValidate = {
       trigger: 'change',
     },
   ],
-  spec_type: [{ required: true, message: '请选择商品规格', trigger: 'change' }],
-  is_virtual: [{ required: true, message: '请选择商品类型', trigger: 'change' }],
-  selectRule: [{ required: true, message: '请选择商品规格属性', trigger: 'change' }],
+  spec_type: [{ required: true, message: 'الرجاء اختيار 商品规格', trigger: 'change' }],
+  is_virtual: [{ required: true, message: 'الرجاء اختيار 商品类型', trigger: 'change' }],
+  selectRule: [{ required: true, message: 'الرجاء اختيار 商品规格属性', trigger: 'change' }],
   temp_id: [
     {
       required: true,
-      message: '请选择运费模板',
+      message: 'الرجاء اختيار 运费模板',
       trigger: 'change',
       type: 'number',
     },
@@ -369,7 +369,7 @@ export const RuleValidate = {
     {
       required: true,
       type: 'array',
-      message: '请选择活动时间',
+      message: 'الرجاء اختيار 活动الوقت',
       trigger: 'change',
     },
   ],
@@ -378,15 +378,15 @@ export const RuleValidate = {
       required: true,
       type: 'array',
       min: 1,
-      message: '请选择物流方式',
+      message: 'الرجاء اختيار 物流方式',
       trigger: 'change',
     },
     {
       type: 'array',
       max: 2,
-      message: '请选择物流方式',
+      message: 'الرجاء اختيار 物流方式',
       trigger: 'change',
     },
   ],
-  give_integral: [{ type: 'integer', message: '请输入整数' }],
+  give_integral: [{ type: 'integer', message: 'الرجاء إدخال 整数' }],
 };

@@ -637,9 +637,9 @@ export default {
           tabList: [{ name: '样式一' }, { name: '样式二' }, { name: '样式三' }, { name: '样式四' }],
         },
         menuConfig: {
-          title: '最多可添加2张图片，建议宽度40 * 40px',
-          bnt: '添加',
-          listStyleName: '操作内容',
+          title: '最多可إضافة2张图片，建议宽度40 * 40px',
+          bnt: 'إضافة',
+          listStyleName: 'الخيارات内容',
           type: 1,
           listStyle: 0,
           maxList: 2,
@@ -659,7 +659,7 @@ export default {
                 {
                   title: '链接',
                   value: '',
-                  tips: '请输入链接',
+                  tips: 'الرجاء إدخال 链接',
                   max: 100,
                 },
               ],
@@ -679,7 +679,7 @@ export default {
                 {
                   title: '链接',
                   value: '',
-                  tips: '请输入链接',
+                  tips: 'الرجاء إدخال 链接',
                   max: 100,
                 },
               ],

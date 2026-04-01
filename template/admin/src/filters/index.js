@@ -10,7 +10,7 @@
 
 // import parseTime, formatTime and set to filter
 /**
- * 直播状态
+ * 直播الحالة
  * @param {String} value
  */
 export function liveReviewStatusFilter(value) {
@@ -27,7 +27,7 @@ export function liveReviewStatusFilter(value) {
 }
 
 /**
- * 审核状态
+ * 审核الحالة
  * @param {String} value
  */
 export function liveStatusFilter(value) {
@@ -41,7 +41,7 @@ export function liveStatusFilter(value) {
 }
 
 /**
- * 时间戳转时间
+ * الوقت戳转الوقت
  * @param {String} data
  */
 export function formatDate(data) {

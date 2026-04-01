@@ -185,7 +185,7 @@ export default {
       styleConfig: [],
       loading: false,
       loadend: false,
-      loadTitle: "下拉加载更多", //提示语
+      loadTitle: "下拉加载更多", //تنبيه语
       page: 1,
       limit: this.$config.LIMIT,
       numConfig: 0,
@@ -454,7 +454,7 @@ export default {
       uni.hideLoading();
       this.domOffsetTop = data.top;
     },
-    // 去商品详情
+    // 去商品تفاصيل
     goGoodsDetail(item) {
       goShopDetail(item, this.uid).then((res) => {
         uni.navigateTo({

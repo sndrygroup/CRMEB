@@ -9,7 +9,7 @@
           :label-position="labelPosition"
           @submit.native.prevent
         >
-          <el-form-item label="创建时间：">
+          <el-form-item label="创建الوقت：">
             <el-date-picker
               clearable
               v-model="timeVal"
@@ -75,9 +75,9 @@
               <span>￥{{ scope.row.entry_price }}</span>
             </template>
           </el-table-column>
-          <el-table-column label="操作" fixed="right" width="170">
+          <el-table-column label="الخيارات" fixed="right" width="170">
             <template slot-scope="scope">
-              <a v-db-click @click="Info(scope.row)">账单详情</a>
+              <a v-db-click @click="Info(scope.row)">账单تفاصيل</a>
               <el-divider direction="vertical"></el-divider>
               <a v-db-click @click="download(scope.row)">下载</a>
             </template>
@@ -94,7 +94,7 @@
         </div>
       </div>
     </el-card>
-    <el-dialog :visible.sync="modals" title="账单详情" width="1000px">
+    <el-dialog :visible.sync="modals" title="账单تفاصيل" width="1000px">
       <commission-details v-if="modals" ref="commission" :ids="ids" :time="formValidate.time"></commission-details>
     </el-dialog>
   </div>
@@ -171,7 +171,7 @@ export default {
         this.total = res.data.count;
       });
     },
-    // 选择时间
+    // 选择الوقت
     selectChange(tab) {
       this.formValidate.page = 1;
       this.formValidate.time = tab;
@@ -185,7 +185,7 @@ export default {
       this.formValidate.page = 1;
       this.getList();
     },
-    // 账单详情
+    // 账单تفاصيل
     Info(row) {
       this.ids = row.ids || '';
       this.modals = true;

@@ -88,11 +88,11 @@
         <div v-if="downloadStage !== 'idle' && !this.showUpgradeComplete" class="upgrade-section">
           <div class="section-title">
             升级进度
-            <el-button type="text" class="ml8" @click="handleRefreshStatus">刷新状态</el-button>
+            <el-button type="text" class="ml8" @click="handleRefreshStatus">تحديثالحالة</el-button>
           </div>
           <!-- 顶部进度条（加粗蓝色） -->
           <el-progress :percentage="downloadProgress" :show-text="false" :stroke-width="10" class="progress-line" />
-          <!-- 分段状态行 -->
+          <!-- 分段الحالة行 -->
           <div class="progress-status-row">
             <div class="status-item">
               <i
@@ -187,7 +187,7 @@
           </div>
           <div class="mt10 download-msg">{{ downloadMessage }}</div>
         </div>
-        <!-- 文件校验失败提示 -->
+        <!-- 文件校验失败تنبيه -->
         <div class="upgrade-section" v-if="downloadType >= 0 && downloadSteps[0].status !== 'loading' && !this.showUpgradeComplete">
           <div class="section-title">
             <span class="step-num">1</span>
@@ -196,7 +196,7 @@
           <template v-if="downloadSteps[0].status === 'error'">
             <div class="check-error-box mt16">
               <div class="check-error-desc">
-                {{ downloadSteps[0].message || '您的系统功能做了修改，导致升级失败' }}
+                {{ downloadSteps[0].message || '您的系统功能做了تعديل，导致升级失败' }}
               </div>
             </div>
             <!-- 变更文件列表 -->
@@ -209,7 +209,7 @@
               </div>
             </div>
             <div class="check-error-actions mt10" v-if="downloadType === 0">
-              <el-button size="small" type="primary" @click="cancelUpgrade">取消升级</el-button>
+              <el-button size="small" type="primary" @click="cancelUpgrade">إلغاء升级</el-button>
               <el-button size="small" class="ml8" @click="ignoreAndProceed(0)">忽略并执行</el-button>
             </div>
           </template>
@@ -231,7 +231,7 @@
               </div>
             </div>
             <div class="check-error-actions mt10">
-              <el-button size="small" type="primary" @click="cancelUpgrade">取消升级</el-button>
+              <el-button size="small" type="primary" @click="cancelUpgrade">إلغاء升级</el-button>
               <el-button size="small" class="ml8" @click="ignoreAndProceed(1)">忽略并执行</el-button>
               <el-button size="small" class="ml8" @click="reExecuteUpgrade">重新备份</el-button>
             </div>
@@ -249,17 +249,17 @@
           class="upgrade-section"
           v-if="sqlExecutionLogs.length > 0 && downloadType >= 3 && downloadSteps[3].status !== 'loading' && !this.showUpgradeComplete"
         >
-          <!-- 升级进度详情 -->
+          <!-- 升级进度تفاصيل -->
           <template>
             <div class="section-title">
               <span class="step-num">4</span>
               <span>执行数据库升级</span>
             </div>
             <div class="upgrade-progress-detail">
-              <!-- SQL执行详情 -->
+              <!-- SQL执行تفاصيل -->
               <div class="sql-execution-logs">
                 <div class="logs-header">
-                  <span>SQL执行详情</span>
+                  <span>SQL执行تفاصيل</span>
                   <el-tag size="mini" type="success">成功: {{ sqlSuccessCount }}</el-tag>
                   <el-tag size="mini" type="danger" v-if="sqlFailedCount > 0">失败: {{ sqlFailedCount }}</el-tag>
                   <el-tag size="mini" type="info" v-if="sqlSkippedCount > 0">跳过: {{ sqlSkippedCount }}</el-tag>
@@ -320,8 +320,8 @@
               v{{ scope.row.first_version }}.{{ scope.row.second_version }}.{{ scope.row.third_version }}
             </template>
           </el-table-column>
-          <el-table-column prop="upgrade_time" label="升级时间" width="200" />
-          <el-table-column label="备份状态" min-width="150">
+          <el-table-column prop="upgrade_time" label="升级الوقت" width="200" />
+          <el-table-column label="备份الحالة" min-width="150">
             <template slot-scope="scope">
               <el-tag size="mini" :type="scope.row.file_status ? 'success' : 'danger'">
                 项目: {{ scope.row.file_status ? scope.row.package_link : '无' }}
@@ -425,7 +425,7 @@ export default {
         force_reminder: 0,
       },
       upgradeablePackage: null, // 可升级包信息
-      // 下载状态
+      // 下载الحالة
       startingDownload: false,
       downloadStage: 'idle', // idle，loading，error，success, complete
       downloadType: -1, // 0:检测，1:备份，2:下载，3:更新
@@ -612,7 +612,7 @@ export default {
             this.downloadMessage = currentMessage;
             this.checkErrorFiles = currentErrorFiles;
 
-            // 更新当前步骤状态
+            // 更新当前步骤الحالة
             if (this.downloadType >= 0 && this.downloadType < this.downloadSteps.length) {
               this.$set(this.downloadSteps, this.downloadType, {
                 status: currentStage,
@@ -627,7 +627,7 @@ export default {
               this.sqlSkippedCount = res.data.data.skipped || 0;
               this.sqlFailedCount = res.data.data.failed || 0;
             }
-            // 完成时停止轮询并自动刷新页面
+            // 完成时停止轮询并自动تحديث页面
             if (res.data.stage === 'complete' && this.downloadType === 4) {
               this.mpVersionData = res.data.routine_upload_data;
               this.clearDownloadTimer();
@@ -669,11 +669,11 @@ export default {
       this.downloadMessage = '';
     },
 
-    // 刷新页面
+    // تحديث页面
     refreshPage() {
       window.location.reload();
     },
-    // 取消升级，返回初始状态
+    // إلغاء升级，عودة初始الحالة
     cancelUpgrade() {
       this.clearDownloadTimer();
       this.downloadStage = 'idle';
@@ -716,7 +716,7 @@ export default {
       if (this.downloadStage === stage) return 'el-icon-loading';
       return 'el-icon-time';
     },
-    // 刷新状态
+    // تحديثالحالة
     handleRefreshStatus() {
       location.reload();
     },
@@ -740,17 +740,17 @@ export default {
       this.loadUpgradeLogs();
     },
 
-    // SQL类型名称
+    // SQL类型الاسم
     getTypeName(type) {
       const typeMap = {
         1: '建表',
         2: '删表',
-        3: '添加字段',
-        4: '修改字段',
-        5: '删除字段',
-        6: '添加数据',
-        7: '修改数据',
-        8: '删除数据',
+        3: 'إضافة字段',
+        4: 'تعديل字段',
+        5: 'حذف字段',
+        6: 'إضافة数据',
+        7: 'تعديل数据',
+        8: 'حذف数据',
         '-1': '执行SQL',
       };
       return typeMap[type] || '未知';

@@ -16,7 +16,7 @@
         </div>
       </draggable>
       <div class="add-btn" @click="addHotTxt" v-if="configData.list.length < 20">
-        <el-button class="btn" type="primary" ghost> <span class="iconfont iconjiahao"></span>添加 </el-button>
+        <el-button class="btn" type="primary" ghost> <span class="iconfont iconjiahao"></span>إضافة </el-button>
       </div>
     </div>
   </div>
@@ -86,7 +86,7 @@ export default {
       this.configData.list.push(obj);
       // this.$emit('input', this.hotWordList);
     },
-    // 删除数组
+    // حذف数组
     bindDelete(index) {
       this.configData.list.splice(index, 1);
     },

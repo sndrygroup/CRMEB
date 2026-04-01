@@ -17,10 +17,10 @@ export function modalSure(delfromData) {
     }
     const h = this.$createElement;
     this.$msgbox({
-      title: '提示',
+      title: 'تنبيه',
       message: h('p', null, [h('div', null, `确定要${delfromData.title}吗？`), h('div', null, `${delfromData.info}`)]),
       showCancelButton: true,
-      cancelButtonText: '取消',
+      cancelButtonText: 'إلغاء',
       confirmButtonText: '确定',
       iconClass: 'el-icon-warning',
       confirmButtonClass: 'btn-custom-cancel',

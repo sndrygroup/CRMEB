@@ -2,7 +2,7 @@
   <view>
     <!-- #ifdef MP || APP -->
     <NavBar
-      titleText="订单详情"
+      titleText="订单تفاصيل"
       :iconColor="iconColor"
       :textColor="iconColor"
       :isScrolling="isScrolling"
@@ -170,11 +170,11 @@
           <view class="conter">{{ payType }}</view>
         </view>
         <view class="item acea-row row-between">
-          <view>支付时间</view>
+          <view>支付الوقت</view>
           <view class="conter">{{ orderInfo._pay_time }}</view>
         </view>
         <view class="item acea-row row-between">
-          <view>下单时间</view>
+          <view>下单الوقت</view>
           <view class="conter">{{ orderInfo._add_time }}</view>
         </view>
         <view class="item acea-row row-between" v-if="orderInfo._status">

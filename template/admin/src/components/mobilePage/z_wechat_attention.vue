@@ -26,7 +26,7 @@ export default {
   configName: 'c_wechat_attention',
   icon: '#iconzujian-gongzhonghao',
   type: 2, // 0 基础组件 1 营销组件 2工具组件
-  defaultName: 'follow', // 外面匹配名称
+  defaultName: 'follow', // 外面匹配الاسم
   props: {
     index: {
       type: null,
@@ -69,7 +69,7 @@ export default {
   data() {
     return {
       configObj: null,
-      // 默认初始化数据禁止修改
+      // 默认初始化数据禁止تعديل
       defaultConfig: {
         cname: '关注公众号',
         name: 'follow',
@@ -97,9 +97,9 @@ export default {
           ],
         },
         titleConfig: {
-          title: '标题名称',
+          title: '标题الاسم',
           value: '标题',
-          place: '请输入标题',
+          place: 'الرجاء إدخال 标题',
           max: 10,
         },
         imgConfig: {

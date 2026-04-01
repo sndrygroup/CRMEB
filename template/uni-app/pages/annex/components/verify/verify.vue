@@ -197,7 +197,7 @@ export default {
 		},
 		/**
 		 * refresh
-		 * @description 刷新
+		 * @description تحديث
 		 * */
 		refresh() {
 			if (this.instance.refresh) {

@@ -176,7 +176,7 @@
 					this.goodList = res.data.list
 				})
 			},
-			// 去商品详情
+			// 去商品تفاصيل
 			goGoodsDetail(item) {
 				goShopDetail(item).then(res => {
 					uni.navigateTo({

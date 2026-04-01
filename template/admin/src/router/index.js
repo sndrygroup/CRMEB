@@ -34,7 +34,7 @@ const router = new Router({
   mode: Setting.routerMode,
 });
 
-// 判断路由 meta.roles 中是否包含当前登录用户权限字段
+// 判断路由 meta.roles 中是否包含当前تسجيل الدخول用户权限字段
 export function hasAuth(roles, route) {
   if (route.meta && route.meta.auth) return roles.some((role) => route.meta.auth.includes(role));
   else return true;
@@ -77,7 +77,7 @@ export function keepAliveSplice(to) {
   }
 }
 
-// 编辑模块
+// تحرير模块
 export function editRouterFun(to, from) {
   const onRoutes = to.meta.activeMenu ? to.meta.activeMenu : to.meta.path;
   store.commit('menu/setActivePath', onRoutes);
@@ -100,7 +100,7 @@ export function editRouterFun(to, from) {
     let route = to.matched[1].path.split(':')[0];
     store.state.menus.oneLvRoutes.map((e) => {
       if (route.indexOf(e.path) != -1) {
-        to.meta.title = `${to.params.id ? e.title + 'ID: ' + to.params.id : '添加' + e.title}`;
+        to.meta.title = `${to.params.id ? e.title + 'ID: ' + to.params.id : 'إضافة' + e.title}`;
       }
     });
   }
@@ -125,9 +125,9 @@ router.beforeEach(async (to, from, next) => {
   if (to.fullPath.indexOf('kefu') != -1 || to.name == 'mobile_upload') {
     return next();
   }
-  // 判断是否需要登录才可以进入
+  // 判断是否需要تسجيل الدخول才可以进入
   if (to.matched.some((_) => _.meta.auth)) {
-    // 这里依据 token 判断是否登录，可视情况修改
+    // 这里依据 token 判断是否تسجيل الدخول，可视情况تعديل
     const token = getCookies('token');
     if (token && token !== 'undefined') {
       const access = store.state.userInfo.uniqueAuth;
@@ -154,8 +154,8 @@ router.beforeEach(async (to, from, next) => {
       }
       // next();
     } else {
-      // 没有登录的时候跳转到登录界面
-      // 携带上登录成功之后需要跳转的页面完整路径
+      // 没有تسجيل الدخول的时候跳转到تسجيل الدخول界面
+      // 携带上تسجيل الدخول成功之后需要跳转的页面完整路径
       next({
         name: 'login',
         query: {
@@ -175,7 +175,7 @@ router.beforeEach(async (to, from, next) => {
 router.afterEach((to) => {
   // 更改标题
   setTitle(to, router.app);
-  // 返回页面顶端
+  // عودة页面顶端
   window.scrollTo(0, 0);
   PrevLoading.done();
 });

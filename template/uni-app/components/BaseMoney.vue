@@ -23,7 +23,7 @@
 				type: String | Number,
 				default: ""
 			},
-			// 删除线
+			// حذف线
 			line: {
 				type: Boolean,
 				default: false

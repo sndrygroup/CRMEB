@@ -4,7 +4,7 @@
       <el-alert type="warning" :closable="false">
         <template slot="title">
           自定义事件说明：<br />
-          1、新增的事件会在对应的事件类型相关的流程中触发，例：选择用户登录，则在用户登录时执行代码。<br />
+          1、新增的事件会在对应的事件类型相关的流程中触发，例：选择用户تسجيل الدخول，则在用户تسجيل الدخول时执行代码。<br />
           2、可以使用对应事件类型中对应的参数，例：$data['nickname']、$data['phone']等。<br />
           3、调用类的时候请写入完整路径，例：\think\facade\Db、\app\services\other\CacheServices::class等。<br />
         </template>
@@ -41,17 +41,17 @@
             </el-switch>
           </template>
         </el-table-column>
-        <el-table-column label="创建时间" min-width="130">
+        <el-table-column label="创建الوقت" min-width="130">
           <template slot-scope="scope">
             <span>{{ scope.row.add_time }}</span>
           </template>
         </el-table-column>
-        <el-table-column label="操作" width="100">
+        <el-table-column label="الخيارات" width="100">
           <template slot-scope="scope">
-            <a v-db-click @click="edit(scope.row.id)">编辑</a>
+            <a v-db-click @click="edit(scope.row.id)">تحرير</a>
             <el-divider direction="vertical"></el-divider>
-            <a v-permission="'seckill'" v-db-click @click="handleDelete(scope.row, '删除自定事件', scope.$index)"
-              >删除</a
+            <a v-permission="'seckill'" v-db-click @click="handleDelete(scope.row, 'حذف自定事件', scope.$index)"
+              >حذف</a
             >
           </template>
         </el-table-column>
@@ -115,7 +115,7 @@ export default {
     edit(id) {
       this.$refs.addTask.eventInfo(id);
     },
-    // 删除
+    // حذف
     handleDelete(row, tit, num) {
       let delfromData = {
         title: tit,

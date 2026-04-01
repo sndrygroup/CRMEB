@@ -26,7 +26,7 @@ export function getCombinationList(data) {
 }
 
 /**
- * 拼团详情
+ * 拼团تفاصيل
  * 
  */
 export function getCombinationDetail(id) {
@@ -41,7 +41,7 @@ export function getCombinationPink(id) {
 }
 
 /**
- * 拼团 取消开团
+ * 拼团 إلغاء开团
  */
 export function postCombinationRemove(data) {
 	return request.post("combination/remove", data);
@@ -87,7 +87,7 @@ export function getBargainUserList(data) {
 
 
 /**
- * 砍价产品详情
+ * 砍价产品تفاصيل
  */
 export function getBargainDetail(id, uid) {
 	return request.get(`bargain/detail/${id}?bargainUid=${uid}`);
@@ -147,7 +147,7 @@ export function postBargainShare(bargainId) {
 }
 
 /**
- * 秒杀产品时间区间
+ * 秒杀产品الوقت区间
  * 
  */
 export function getSeckillIndexTime() {
@@ -168,7 +168,7 @@ export function getSeckillList(time, data) {
 }
 
 /**
- * 秒杀产品详情
+ * 秒杀产品تفاصيل
  * @param int id
  */
 export function getSeckillDetail(id, data) {
@@ -194,7 +194,7 @@ export function getCombinationPoster(data) {
 }
 
 /**
- * 砍价取消
+ * 砍价إلغاء
  */
 export function getBargainUserCancel(data) {
 	return request.post("bargain/user/cancel", data);
@@ -243,7 +243,7 @@ export function integralOrderCreate(data) {
 	return request.post('store_integral/order/create', data);
 }
 /**
- * 获取积分订单详情
+ * 获取积分订单تفاصيل
  * @param string cartId
  */
 export function integralOrderDetails(order) {
@@ -251,7 +251,7 @@ export function integralOrderDetails(order) {
 }
 
 /**
- * 积分产品详情
+ * 积分产品تفاصيل
  * @param int id
  * 
  */
@@ -280,14 +280,14 @@ export function getIntegralOrderList(data) {
 }
 
 /**
- * 积分兑换详情
+ * 积分兑换تفاصيل
  */
 export function getLogisticsDetails(orderId) {
 	return request.get(`store_integral/order/express/${orderId}`);
 }
 
 /**
- * 积分兑换订单确认收货
+ * 积分兑换订单تأكيد收货
  * @param object data
  */
 export function orderTake(data) {
@@ -295,7 +295,7 @@ export function orderTake(data) {
 }
 
 /**
- * 积分兑换订单删除
+ * 积分兑换订单حذف
  * @param object data
  */
 export function orderDel(data) {

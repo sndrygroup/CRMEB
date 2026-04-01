@@ -13,7 +13,7 @@
             <el-form-item label="是否有效：" label-for="status">
               <el-select
                 v-model="tableFrom.status"
-                placeholder="请选择"
+                placeholder="الرجاء اختيار "
                 clearable
                 element-id="status"
                 @change="userSearchs"
@@ -24,12 +24,12 @@
             </el-form-item>
           </el-col>
           <el-col v-bind="grid">
-            <el-form-item label="优惠券名称：" label-for="title">
+            <el-form-item label="优惠券الاسم：" label-for="title">
               <el-input
                 search
                 enter-button
                 v-model="tableFrom.title"
-                placeholder="请输入优惠券名称"
+                placeholder="الرجاء إدخال 优惠券الاسم"
                 @on-search="userSearchs"
               />
             </el-form-item>
@@ -43,7 +43,7 @@
               icon="md-add"
               v-db-click
               @click="add"
-              >添加优惠券</el-button
+              >إضافة优惠券</el-button
             >
           </el-col>
         </el-row>
@@ -62,7 +62,7 @@
             <span>{{ scope.row.id }}</span>
           </template>
         </el-table-column>
-        <el-table-column label="优惠券名称" min-width="130">
+        <el-table-column label="优惠券الاسم" min-width="130">
           <template slot-scope="scope">
             <span>{{ scope.row.title }}</span>
           </template>
@@ -98,14 +98,14 @@
             <i class="el-icon-close" v-else style="color: #ed5565; font-size: 14px" />
           </template>
         </el-table-column>
-        <el-table-column label="添加时间" min-width="130">
+        <el-table-column label="إضافةالوقت" min-width="130">
           <template slot-scope="scope">
             <span> {{ scope.row.add_time | formatDate }}</span>
           </template>
         </el-table-column>
-        <el-table-column label="操作" fixed="right" width="170">
+        <el-table-column label="الخيارات" fixed="right" width="170">
           <template slot-scope="scope">
-            <a v-db-click @click="couponInvalid(scope.row, '修改优惠券', index)" v-if="scope.row.status">立即失效</a>
+            <a v-db-click @click="couponInvalid(scope.row, 'تعديل优惠券', index)" v-if="scope.row.status">立即失效</a>
             <el-divider direction="vertical" v-if="scope.row.status" />
             <a
               v-db-click
@@ -115,7 +115,7 @@
               >发布</a
             >
             <el-divider direction="vertical" v-if="scope.row.status" />
-            <a v-db-click @click="couponDel(scope.row, '删除优惠券', scope.$index)">删除</a>
+            <a v-db-click @click="couponDel(scope.row, 'حذف优惠券', scope.$index)">حذف</a>
           </template>
         </el-table-column>
       </el-table>
@@ -129,7 +129,7 @@
         />
       </div>
     </el-card>
-    <!--表单编辑-->
+    <!--表单تحرير-->
     <edit-from :FromData="FromData" @changeType="changeType" ref="edits"></edit-from>
   </div>
 </template>
@@ -167,7 +167,7 @@ export default {
           width: 80,
         },
         {
-          title: '优惠券名称',
+          title: '优惠券الاسم',
           key: 'title',
           minWidth: 150,
         },
@@ -202,12 +202,12 @@ export default {
           minWidth: 90,
         },
         {
-          title: '添加时间',
+          title: 'إضافةالوقت',
           slot: 'add_time',
           minWidth: 150,
         },
         {
-          title: '操作',
+          title: 'الخيارات',
           slot: 'action',
           fixed: 'right',
           minWidth: 170,
@@ -259,7 +259,7 @@ export default {
     couponSend(row) {
       this.$modalForm(couponSendApi(row.id)).then(() => this.getList());
     },
-    // 删除
+    // حذف
     couponDel(row, tit, num) {
       let delfromData = {
         title: tit,
@@ -300,7 +300,7 @@ export default {
     changeType(data) {
       this.type = data;
     },
-    // 添加
+    // إضافة
     add() {
       // this.$modalForm(couponCreateApi()).then(() => this.getList());
       this.addType(0);
@@ -318,16 +318,16 @@ export default {
           this.$message.error(res.msg);
         });
     },
-    // 编辑
+    // تحرير
     edit(row) {
       this.$modalForm(couponEditeApi(row.id)).then(() => this.getList());
     },
-    // 表格搜索
+    // 表格بحث
     userSearchs() {
       this.tableFrom.page = 1;
       this.getList();
     },
-    // 修改成功
+    // تعديل成功
     submitFail() {
       this.getList();
     },

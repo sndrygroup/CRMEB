@@ -17,7 +17,7 @@ class Calendar {
 		// 范围结束
 		this.endDate = endDate
 		this.range = range
-		// 多选状态
+		// 多选الحالة
 		this.multipleStatus = {
 			before: '',
 			after: '',
@@ -30,7 +30,7 @@ class Calendar {
 	}
 
 	/**
-	 * 获取任意时间
+	 * 获取任意الوقت
 	 */
 	getDate(date, AddDayCount = 0, str = 'day') {
 		if (!date) {
@@ -172,7 +172,7 @@ class Calendar {
 		this._getWeek(date)
 	}
 	/**
-	 * 获取当前日期详情
+	 * 获取当前日期تفاصيل
 	 * @param {Object} date
 	 */
 	getInfo(date) {
@@ -184,12 +184,12 @@ class Calendar {
 	}
 
 	/**
-	 * 比较时间大小
+	 * 比较الوقت大小
 	 */
 	dateCompare(startDate, endDate) {
-		// 计算截止时间
+		// 计算截止الوقت
 		startDate = new Date(startDate.replace('-', '/').replace('-', '/'))
-		// 计算详细项的截止时间
+		// 计算详细项的截止الوقت
 		endDate = new Date(endDate.replace('-', '/').replace('-', '/'))
 		if (startDate <= endDate) {
 			return true
@@ -199,12 +199,12 @@ class Calendar {
 	}
 
 	/**
-	 * 比较时间是否相等
+	 * 比较الوقت是否相等
 	 */
 	dateEqual(before, after) {
-		// 计算截止时间
+		// 计算截止الوقت
 		before = new Date(before.replace('-', '/').replace('-', '/'))
-		// 计算详细项的截止时间
+		// 计算详细项的截止الوقت
 		after = new Date(after.replace('-', '/').replace('-', '/'))
 		if (before.getTime() - after.getTime() === 0) {
 			return true
@@ -250,7 +250,7 @@ class Calendar {
 	}
 
 	/**
-	 *  获取多选状态
+	 *  获取多选الحالة
 	 */
 	setMultiple(fullDate) {
 		let {

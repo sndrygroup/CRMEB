@@ -12,7 +12,7 @@
       <view class="icon" @click="home" v-else>
         <image src="../static/home.png"></image>
       </view>
-      {{ $t(`商城登录`) }}
+      {{ $t(`商城تسجيل الدخول`) }}
     </view>
     <!-- #endif -->
     <view class="merchant-msg">
@@ -25,7 +25,7 @@
       <view class="btn-wrapper">
         <!-- #ifdef H5 -->
         <button hover-class="none" @click="wechatLogin" class="bg-theme btn1">
-          {{ $t(`微信登录`) }}
+          {{ $t(`微信تسجيل الدخول`) }}
         </button>
         <!-- #endif -->
         <!-- #ifdef MP -->
@@ -36,14 +36,14 @@
             open-type="getPhoneNumber"
             @getphonenumber="getphonenumber"
           >
-            {{ $t(`授权登录`) }}
+            {{ $t(`授权تسجيل الدخول`) }}
           </button>
           <button
             class="bg-theme btn1"
             v-else-if="!bindPhone"
             @click="getAuthLogin"
           >
-            {{ $t(`授权登录`) }}
+            {{ $t(`授权تسجيل الدخول`) }}
           </button>
         </template>
         <button
@@ -52,9 +52,9 @@
           @click="phoneLogin"
           class="btn2"
         >
-          {{ $t(`手机号登录`) }}
+          {{ $t(`手机号تسجيل الدخول`) }}
         </button>
-        <view class="cancel-login" @click="onReject">取消登录</view>
+        <view class="cancel-login" @click="onReject">إلغاءتسجيل الدخول</view>
         <!-- #endif -->
       </view>
     </view>
@@ -212,7 +212,7 @@ export default {
   methods: {
     wechatAuthLogin(d, back_url) {
       uni.showLoading({
-        title: this.$t(`正在登录中`),
+        title: this.$t(`正在تسجيل الدخول中`),
       });
       wechatAuthLogin(d)
         .then((res) => {
@@ -243,7 +243,7 @@ export default {
     onAgree() {
       this.protocol = true;
     },
-    // 小程序 22.11.8日删除getUserProfile 接口获取用户昵称头像
+    // 小程序 22.11.8日حذفgetUserProfile 接口获取用户昵称头像
     userLogin() {
       // if (!this.protocol) {
       // 	uni.showToast({
@@ -256,7 +256,7 @@ export default {
       Routine.getCode()
         .then((code) => {
           // uni.showLoading({
-          // 	title: this.$t(`正在登录中`)
+          // 	title: this.$t(`正在تسجيل الدخول中`)
           // });
           authType({
             code,
@@ -295,7 +295,7 @@ export default {
         return;
       }
       uni.showLoading({
-        title: this.$t(`正在登录中`),
+        title: this.$t(`正在تسجيل الدخول中`),
       });
       authLogin({
         key: this.authKey,
@@ -333,7 +333,7 @@ export default {
       this.isShow = false;
       this.$util.Tips(
         {
-          title: this.$t(`登录成功`),
+          title: this.$t(`تسجيل الدخول成功`),
           icon: "success",
         },
         {
@@ -385,7 +385,7 @@ export default {
         // #ifndef MP
         this.$util.Tips(
           {
-            title: this.$t(`登录成功`),
+            title: this.$t(`تسجيل الدخول成功`),
             icon: "success",
           },
           {
@@ -407,7 +407,7 @@ export default {
         return;
       }
       uni.showLoading({
-        title: this.$t(`正在登录中`),
+        title: this.$t(`正在تسجيل الدخول中`),
       });
       Routine.getCode()
         .then((code) => {
@@ -441,7 +441,7 @@ export default {
           this.$Cache.clear("snsapiKey");
           this.getUserInfo(res.data.bindName);
           // this.$util.Tips({
-          // 	title: this.$t(`登录成功`),
+          // 	title: this.$t(`تسجيل الدخول成功`),
           // 	icon: 'success'
           // }, {
           // 	tab: 3
@@ -469,7 +469,7 @@ export default {
             // #ifdef MP
             that.$util.Tips(
               {
-                title: that.$t(`登录成功`),
+                title: that.$t(`تسجيل الدخول成功`),
                 icon: "success",
               },
               {
@@ -480,7 +480,7 @@ export default {
             // #ifndef MP
             that.$util.Tips(
               {
-                title: that.$t(`登录成功`),
+                title: that.$t(`تسجيل الدخول成功`),
                 icon: "success",
               },
               {
@@ -520,7 +520,7 @@ export default {
         return null;
       }
     },
-    // 公众号登录
+    // 公众号تسجيل الدخول
     wechatLogin() {
       if (!this.protocol) {
         uni.showToast({
@@ -556,7 +556,7 @@ export default {
         }
         this.isUp = false;
         uni.showToast({
-          title: this.$t(`登录成功`),
+          title: this.$t(`تسجيل الدخول成功`),
           icon: "none",
         });
         setTimeout((res) => {
@@ -565,7 +565,7 @@ export default {
       } else {
         this.isUp = false;
         uni.showToast({
-          title: this.$t(`登录成功`),
+          title: this.$t(`تسجيل الدخول成功`),
           icon: "none",
         });
         setTimeout((res) => {

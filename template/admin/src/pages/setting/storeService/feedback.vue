@@ -11,7 +11,7 @@
           @submit.native.prevent
           inline
         >
-          <el-form-item label="留言时间：">
+          <el-form-item label="留言الوقت：">
             <el-date-picker
               clearable
               v-model="timeVal"
@@ -30,7 +30,7 @@
           <el-form-item label="留言信息：">
             <el-input
               clearable
-              placeholder="请输入用户昵称/电话/留言内容搜索"
+              placeholder="الرجاء إدخال 用户昵称/电话/留言内容بحث"
               v-model="formValidate.title"
               class="form_content_width"
             />
@@ -63,21 +63,21 @@
             <span>{{ scope.row.content }}</span>
           </template>
         </el-table-column>
-        <el-table-column label="状态" min-width="130">
+        <el-table-column label="الحالة" min-width="130">
           <template slot-scope="scope">
             <div>{{ scope.row.status === 1 ? '已处理' : '未处理' }}</div>
           </template>
         </el-table-column>
-        <el-table-column label="时间" min-width="130">
+        <el-table-column label="الوقت" min-width="130">
           <template slot-scope="scope">
             <span>{{ scope.row.add_time }}</span>
           </template>
         </el-table-column>
-        <el-table-column label="操作" fixed="right" width="170">
+        <el-table-column label="الخيارات" fixed="right" width="170">
           <template slot-scope="scope">
             <a v-db-click @click="remarks(scope.row.id)">{{ scope.row.status === 1 ? '备注' : '处理' }}</a>
             <el-divider direction="vertical"></el-divider>
-            <a v-db-click @click="del(scope.row, '删除反馈', scope.$index)">删除</a>
+            <a v-db-click @click="del(scope.row, 'حذف反馈', scope.$index)">حذف</a>
           </template>
         </el-table-column>
       </el-table>
@@ -130,7 +130,7 @@ export default {
       this.page = 1;
       this.getList();
     },
-    // 选择时间
+    // 选择الوقت
     selectChange(tab) {
       this.formValidate.time = tab;
       this.timeVal = [];
@@ -155,7 +155,7 @@ export default {
         this.total = res.data.count;
       });
     },
-    // 删除
+    // حذف
     del(row, tit, num) {
       let delfromData = {
         title: tit,

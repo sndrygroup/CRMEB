@@ -23,16 +23,16 @@
               ></el-option>
             </el-select>
           </el-form-item>
-          <el-form-item label="搜索：">
+          <el-form-item label="بحث：">
             <el-input
               clearable
-              placeholder="请输入语言备注"
+              placeholder="الرجاء إدخال 语言备注"
               v-model="formValidate.remarks"
               class="form_content_width"
             />
           </el-form-item>
           <el-form-item>
-            <el-button type="primary" class="userSearch" v-db-click @click="selChange">搜索</el-button>
+            <el-button type="primary" class="userSearch" v-db-click @click="selChange">بحث</el-button>
           </el-form-item>
         </el-form>
       </div>
@@ -40,17 +40,17 @@
     <el-alert type="warning" :closable="false">
       <template slot="title">
         <p class="alert_title">页面语言</p>
-        添加页面语言，添加完成之后状态码为中文文字，移动端页面使用 $t(`xxxx`)，js文件中使用 this.t(`xxxx`) 或者使用
+        إضافة页面语言，إضافة完成之后الحالة码为中文文字，移动端页面使用 $t(`xxxx`)，js文件中使用 this.t(`xxxx`) 或者使用
         that.t(`xxxx`) 实现语言的切换<br />
         <br />
         <p class="alert_title">接口语言</p>
-        添加接口语言，添加完成之后状态码为6位数字，接口返回提示信息时，直接返回对应的错误码即可实现语言的切换
+        إضافة接口语言，إضافة完成之后الحالة码为6位数字，接口عودةتنبيه信息时，直接عودة对应的错误码即可实现语言的切换
       </template>
     </el-alert>
     <el-card class="mt14" :bordered="false" shadow="never">
       <el-row class="mb14">
         <el-col>
-          <el-button type="primary" v-db-click @click="add">添加语句</el-button>
+          <el-button type="primary" v-db-click @click="add">إضافة语句</el-button>
         </el-col>
       </el-row>
       <el-table ref="table" :data="tabList" class="ivu-mt" v-loading="loading" empty-text="暂无数据">
@@ -69,7 +69,7 @@
             <span>{{ scope.row.lang_explain }}</span>
           </template>
         </el-table-column>
-        <el-table-column label="状态码/文字(接口/页面调用参考)" min-width="130">
+        <el-table-column label="الحالة码/文字(接口/页面调用参考)" min-width="130">
           <template slot-scope="scope">
             <span>{{ scope.row.code }}</span>
           </template>
@@ -79,11 +79,11 @@
             <span>{{ scope.row.language_name }}</span>
           </template>
         </el-table-column>
-        <el-table-column label="操作" fixed="right" width="170">
+        <el-table-column label="الخيارات" fixed="right" width="170">
           <template slot-scope="scope">
-            <a v-db-click @click="edit(scope.row)">编辑</a>
+            <a v-db-click @click="edit(scope.row)">تحرير</a>
             <el-divider direction="vertical"></el-divider>
-            <a v-db-click @click="del(scope.row, '删除语言', scope.$index)">删除</a>
+            <a v-db-click @click="del(scope.row, 'حذف语言', scope.$index)">حذف</a>
           </template>
         </el-table-column>
       </el-table>
@@ -97,7 +97,7 @@
         />
       </div>
     </el-card>
-    <el-dialog :visible.sync="addlangModal" width="720px" title="添加需要翻译的语句" @closed="modalChange">
+    <el-dialog :visible.sync="addlangModal" width="720px" title="إضافة需要翻译的语句" @closed="modalChange">
       <el-form ref="langFormData" :model="langFormData" :rules="ruleValidate">
         <el-form-item label="应用端：" class="mb20" label-width="120px">
           <el-radio-group type="button" v-model="langFormData.is_admin" class="mr15">
@@ -110,7 +110,7 @@
         <el-form-item label="需要翻译的语句：" prop="remarks" class="mb20">
           <el-input
             v-model="langFormData.remarks"
-            placeholder="请输入需要添加翻译的语句"
+            placeholder="الرجاء إدخال 需要إضافة翻译的语句"
             style="width: 330px"
             search
             @on-search="translate"
@@ -134,7 +134,7 @@
         </el-form-item>
       </el-form>
       <span slot="footer" class="dialog-footer">
-        <el-button v-db-click @click="addlangModal = false">取消</el-button>
+        <el-button v-db-click @click="addlangModal = false">إلغاء</el-button>
         <el-button type="primary" v-db-click @click="ok">确定</el-button>
       </span>
     </el-dialog>
@@ -161,8 +161,8 @@ export default {
       FormLoading: true,
       loading: false,
       ruleValidate: {
-        code: [{ required: true, message: '请输入状态码/文字', trigger: 'blur' }],
-        remarks: [{ required: true, message: '请输入文字', trigger: 'blur' }],
+        code: [{ required: true, message: 'الرجاء إدخال الحالة码/文字', trigger: 'blur' }],
+        remarks: [{ required: true, message: 'الرجاء إدخال 文字', trigger: 'blur' }],
       },
       langColumns: [
         {
@@ -271,7 +271,7 @@ export default {
           this.$message.error(err.msg);
         });
     },
-    // 删除
+    // حذف
     del(row, tit, num) {
       let delfromData = {
         title: tit,

@@ -11,7 +11,7 @@
 import request from '@/libs/request';
 
 /**
- * @description 文章管理--列表
+ * @description 文章إدارة--列表
  * @param {Object} param data {Object} 传值参数
  */
 export function cmsListApi(data) {
@@ -23,7 +23,7 @@ export function cmsListApi(data) {
 }
 
 /**
- * @description 文章管理--新增编辑
+ * @description 文章إدارة--新增تحرير
  * @param {Object} param data {Object} 传值参数
  */
 export function cmsAddApi(data) {
@@ -35,7 +35,7 @@ export function cmsAddApi(data) {
 }
 
 /**
- * @description 文章管理--文章详情
+ * @description 文章إدارة--文章تفاصيل
  * @param {Number} param id {Number} 文章id
  */
 export function createApi(id) {
@@ -78,7 +78,7 @@ export function categoryTreeListApi() {
 }
 
 /**
- * @description 文章分类--编辑表单
+ * @description 文章分类--تحرير表单
  * @param {Number} param id {Number} 文章id
  */
 export function categoryEditApi(id) {
@@ -89,7 +89,7 @@ export function categoryEditApi(id) {
 }
 
 /**
- * @description 文章分类--修改状态
+ * @description 文章分类--تعديلالحالة
  * @param {Object} param data {Object} 传值
  */
 export function statusApi(data) {

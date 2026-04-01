@@ -26,7 +26,7 @@ export default {
   configName: 'c_paid_vip',
   icon: '#iconzujian-fufeihuiyuan',
   type: 3, // 0 基础组件 1 营销组件 2工具组件
-  defaultName: 'home_paid_vip', // 外面匹配名称
+  defaultName: 'home_paid_vip', // 外面匹配الاسم
   props: {
     index: {
       type: null,
@@ -153,7 +153,7 @@ export default {
       borderConfig: null,
       shadowConfig: null,
       componentBgConfig: null,
-      // 默认初始化数据禁止修改
+      // 默认初始化数据禁止تعديل
       defaultConfig: {
         cname: '付费会员',
         name: 'home_paid_vip',
@@ -173,7 +173,7 @@ export default {
         rightBntConfig: {
           title: '右侧按钮',
           value: '立即开通',
-          place: '请输入按钮文字',
+          place: 'الرجاء إدخال 按钮文字',
           max: 6,
         },
 
@@ -185,7 +185,7 @@ export default {
           tabList: [{ name: '默认' }, { name: '自定义' }],
         },
         tipsColor: {
-          title: '提示文字',
+          title: 'تنبيه文字',
           default: [{ item: '#333333' }],
           color: [{ item: '#333333' }],
         },

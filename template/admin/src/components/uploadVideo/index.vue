@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="mt20 ml20">
-      <el-input class="perW35" v-model="videoLink" placeholder="请输入视频链接" />
+      <el-input class="perW35" v-model="videoLink" placeholder="الرجاء إدخال 视频链接" />
       <input type="file" ref="refid" style="display: none" @change="zh_uploadFile_change" />
       <el-button
         v-if="upload_type !== '1' || videoLink"
@@ -10,7 +10,7 @@
         class="ml10"
         v-db-click
         @click="zh_uploadFile"
-        >{{ videoLink ? '确认添加' : '上传视频' }}</el-button
+        >{{ videoLink ? 'تأكيدإضافة' : '上传视频' }}</el-button
       >
       <el-upload
         v-if="upload_type === '1' && !videoLink"
@@ -40,7 +40,7 @@
       </div>
     </div>
     <div class="mt50 ml20">
-      <el-button type="primary" v-db-click @click="uploads">确认</el-button>
+      <el-button type="primary" v-db-click @click="uploads">تأكيد</el-button>
     </div>
   </div>
 </template>
@@ -76,7 +76,7 @@ export default {
     this.getToken();
   },
   methods: {
-    // 删除视频；
+    // حذف视频；
     delVideo() {
       let that = this;
       that.$set(that.formValidate, 'video_link', '');

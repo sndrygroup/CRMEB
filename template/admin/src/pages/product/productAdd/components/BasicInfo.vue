@@ -25,11 +25,11 @@
     </el-col>
 
     <el-col :span="24">
-      <el-form-item label="商品名称：" prop="store_name">
+      <el-form-item label="商品الاسم：" prop="store_name">
         <el-input
           class="content_width"
           v-model="formValidate.store_name"
-          placeholder="请输入商品名称"
+          placeholder="الرجاء إدخال 商品الاسم"
           maxlength="80"
           show-word-limit
         />
@@ -41,7 +41,7 @@
         <el-input
           class="input_width"
           v-model="formValidate.unit_name"
-          placeholder="请输入单位"
+          placeholder="الرجاء إدخال 单位"
           maxlength="5"
           show-word-limit
         />
@@ -80,7 +80,7 @@
       </el-form-item>
     </el-col>
     <el-col :span="24" id="selectvideo">
-      <el-form-item label="添加视频：" prop="video_link">
+      <el-form-item label="إضافة视频：" prop="video_link">
         <div v-if="!formValidate.video_link" class="videbox" @click="addVideo">
           <i class="el-icon-video-camera"></i>
         </div>
@@ -122,7 +122,7 @@
       </el-form-item>
     </el-col>
     <el-col :span="24">
-      <el-form-item label="商品状态：">
+      <el-form-item label="商品الحالة：">
         <el-radio-group v-model="formValidate.is_show">
           <el-radio :label="1" class="radio">上架</el-radio>
           <el-radio :label="0">下架</el-radio>

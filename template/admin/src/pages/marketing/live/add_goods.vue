@@ -65,9 +65,9 @@
               <span>{{ scope.row.stock }}</span>
             </template>
           </el-table-column>
-          <el-table-column label="操作" fixed="right" width="80">
+          <el-table-column label="الخيارات" fixed="right" width="80">
             <template slot-scope="scope">
-              <a v-db-click @click="del(scope.row, scope.$index)">删除</a>
+              <a v-db-click @click="del(scope.row, scope.$index)">حذف</a>
             </template>
           </el-table-column>
         </el-table>
@@ -80,7 +80,7 @@
             @click="bindSub"
             :disabled="disabled"
             :loading="loadings"
-            >提交</el-button
+            >إرسال</el-button
           >
         </div>
       </div>
@@ -169,7 +169,7 @@ export default {
         this.isShowBox = false;
       }
     },
-    // 提交
+    // إرسال
     bindSub() {
       this.disabled = true;
       this.loadings = true;
@@ -177,7 +177,7 @@ export default {
         goods_info: this.tabList,
       })
         .then((res) => {
-          this.$message.success('添加成功');
+          this.$message.success('إضافة成功');
           this.disabled = false;
           setTimeout(() => {
             this.$router.push({ path: this.$routeProStr + '/marketing/live/live_goods' });

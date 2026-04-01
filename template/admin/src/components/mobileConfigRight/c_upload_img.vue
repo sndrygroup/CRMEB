@@ -133,7 +133,7 @@ export default {
         this.modalPic = true;
       }
     },
-    // 添加自定义弹窗
+    // إضافة自定义弹窗
     addCustomDialog(editorId) {
       window.UE.registerUI(
         'test-dialog',

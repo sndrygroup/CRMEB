@@ -9,7 +9,7 @@
         <el-input
           v-model="datas[name].val"
           type="number"
-          placeholder="请输入数量"
+          placeholder="الرجاء إدخال 数量"
           style="text-align: right; width: 350px"
           @blur="numberVal(datas[name].val)"
           @change="maxNum(datas[name].val)"

@@ -1,5 +1,5 @@
 <template>
-  <el-dialog :visible.sync="modals" title="请修改内容" class="order_box" :show-close="true" width="540px">
+  <el-dialog :visible.sync="modals" title="请تعديل内容" class="order_box" :show-close="true" width="540px">
     <el-form
       ref="formValidate"
       :model="formValidate"
@@ -21,8 +21,8 @@
       </el-form-item>
     </el-form>
     <span slot="footer" class="dialog-footer">
-      <el-button v-db-click @click="cancel('formValidate')">取消</el-button>
-      <el-button type="primary" v-db-click @click="putRemark('formValidate')">提交</el-button>
+      <el-button v-db-click @click="cancel('formValidate')">إلغاء</el-button>
+      <el-button type="primary" v-db-click @click="putRemark('formValidate')">إرسال</el-button>
     </span>
   </el-dialog>
 </template>
@@ -39,7 +39,7 @@ export default {
       modals: false,
       ruleValidate: {
         remark: [
-          { required: true, message: '请输入备注信息', trigger: 'blur' },
+          { required: true, message: 'الرجاء إدخال 备注信息', trigger: 'blur' },
           // { type: 'string', min: 20, message: 'Introduce no less than 20 words', trigger: 'blur' }
         ],
       },

@@ -96,9 +96,9 @@
       </div>
       <div v-else class="detail-header" slot="title">
         <div class="left-action">
-          <div class="back-btn" @click="backToStyleList"><i class="el-icon-arrow-left"></i> 返回</div>
+          <div class="back-btn" @click="backToStyleList"><i class="el-icon-arrow-left"></i> عودة</div>
           <div class="vertical-line"></div>
-          <span class="detail-title">风格详情</span>
+          <span class="detail-title">风格تفاصيل</span>
         </div>
       </div>
 
@@ -110,7 +110,7 @@
                 <div class="search-box">
                   <el-input
                     v-model="searchKeyword"
-                    placeholder="请输入主题名称"
+                    placeholder="الرجاء إدخال 主题الاسم"
                     prefix-icon="el-icon-search"
                     size="small"
                   ></el-input>
@@ -130,7 +130,7 @@
                   </div>
                   <div class="theme-info">
                     <div class="default-info">
-                      <div class="theme-title line1">{{ item.name || '无名称' }}</div>
+                      <div class="theme-title line1">{{ item.name || '无الاسم' }}</div>
                       <div class="color-dots">
                         <span class="dot" :style="{ background: item.themeColor }"></span>
                         <span class="dot" :style="{ background: item.gradientColor }"></span>
@@ -138,7 +138,7 @@
                       </div>
                     </div>
                     <div class="hover-actions">
-                      <el-button plain size="small" @click="viewStyleDetail(item)">查看详情</el-button>
+                      <el-button plain size="small" @click="viewStyleDetail(item)">查看تفاصيل</el-button>
                       <el-button type="primary" size="small" @click="handleStyleSelect(item)">使用风格</el-button>
                     </div>
                   </div>
@@ -159,7 +159,7 @@
           </div>
         </div>
 
-        <!-- 详情视图 -->
+        <!-- تفاصيل视图 -->
         <div class="detail-content" v-else key="detail">
           <div class="detail-body">
             <div class="detail-images-section">
@@ -321,9 +321,9 @@ export default {
       });
     },
     saveOnly() {
-      this.$confirm('确认仅保存风格吗？', '提示', {
+      this.$confirm('تأكيد仅حفظ风格吗？', 'تنبيه', {
         confirmButtonText: '确定',
-        cancelButtonText: '取消',
+        cancelButtonText: 'إلغاء',
         type: 'warning',
       }).then(() => {
         themeSave(this.$route.query.id, {
@@ -346,7 +346,7 @@ export default {
       });
     },
     saveAndClose() {
-      // 保存主题配置数据
+      // حفظ主题配置数据
       themeSave(this.$route.query.id, {
         type: 'theme',
         value: {
@@ -368,12 +368,12 @@ export default {
             message: res.msg,
           });
 
-          // 保存成功后跳转回主题列表页面
+          // حفظ成功后跳转回主题列表页面
           this.$router.push(`${Setting.routePre}/setting/my_theme`);
         })
         .catch((err) => {
-          // 保存失败时的处理
-          this.$message.error(err.msg || '保存失败');
+          // حفظ失败时的处理
+          this.$message.error(err.msg || 'حفظ失败');
         });
     },
   },

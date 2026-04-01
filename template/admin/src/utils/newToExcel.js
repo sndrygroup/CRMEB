@@ -13,7 +13,7 @@ import { export_json_to_excel } from '../vendor/Export2Excel';
  * @method exportExcel
  * @param {Array} header   表头
  * @param {Array} filterVal 表头属性字段
- * @param {String} filename 文件名称
+ * @param {String} filename 文件الاسم
  * @param {Array} tableData 列表数据
  **/
 export default function exportExcel(header, filterVal, filename, tableData) {

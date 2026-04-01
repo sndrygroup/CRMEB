@@ -17,10 +17,10 @@
               <el-option :value="0" label="不显示"></el-option>
             </el-select>
           </el-form-item>
-          <el-form-item label="等级名称：">
+          <el-form-item label="等级الاسم：">
             <el-input
               clearable
-              placeholder="请输入等级名称"
+              placeholder="الرجاء إدخال 等级الاسم"
               v-model="formValidate.keyword"
               class="form_content_width"
             />
@@ -32,7 +32,7 @@
       </div>
     </el-card>
     <el-card :bordered="false" shadow="never" class="ivu-mt mt16">
-      <el-button type="primary" v-db-click @click="groupAdd">添加等级</el-button>
+      <el-button type="primary" v-db-click @click="groupAdd">إضافة等级</el-button>
       <el-table
         class="mt14"
         :data="tabList"
@@ -54,7 +54,7 @@
             </div>
           </template>
         </el-table-column>
-        <el-table-column label="名称" min-width="130">
+        <el-table-column label="الاسم" min-width="130">
           <template slot-scope="scope">
             <span>{{ scope.row.name }}</span>
           </template>
@@ -132,13 +132,13 @@
             </el-switch>
           </template>
         </el-table-column>
-        <el-table-column label="操作" fixed="right" width="170">
+        <el-table-column label="الخيارات" fixed="right" width="170">
           <template slot-scope="scope">
             <a v-db-click @click="addTask(scope.row)">等级任务</a>
             <el-divider direction="vertical"></el-divider>
-            <a v-db-click @click="edit(scope.row, '编辑')">编辑</a>
+            <a v-db-click @click="edit(scope.row, 'تحرير')">تحرير</a>
             <el-divider direction="vertical"></el-divider>
-            <a v-db-click @click="del(scope.row, '删除这条信息', scope.$index)">删除</a>
+            <a v-db-click @click="del(scope.row, 'حذف这条信息', scope.$index)">حذف</a>
           </template>
         </el-table-column>
       </el-table>
@@ -153,7 +153,7 @@
       </div>
     </el-card>
     <div class="task-modal">
-      <el-dialog :visible.sync="modal2" title="添加任务" width="1000px">
+      <el-dialog :visible.sync="modal2" title="إضافة任务" width="1000px">
         <el-form :model="taskData" :label-width="labelWidth" :label-position="labelPosition" inline>
           <el-form-item label="是否显示：">
             <el-select v-model="taskData.status" class="form_content_width" clearable>
@@ -161,8 +161,8 @@
               <el-option :value="0" label="不显示"></el-option>
             </el-select>
           </el-form-item>
-          <el-form-item label="任务名称：">
-            <el-input v-model="taskData.keyword" placeholder="请输入任务名称" clearable class="form_content_width" />
+          <el-form-item label="任务الاسم：">
+            <el-input v-model="taskData.keyword" placeholder="الرجاء إدخال 任务الاسم" clearable class="form_content_width" />
           </el-form-item>
           <el-form-item>
             <el-button type="primary" v-db-click @click="searchTask">查询</el-button>
@@ -170,7 +170,7 @@
         </el-form>
         <div>
           <div class="add-task">
-            <el-button type="primary" v-db-click @click="taskAdd()">添加等级任务</el-button>
+            <el-button type="primary" v-db-click @click="taskAdd()">إضافة等级任务</el-button>
             <el-button type="primary" v-db-click @click="taskEdit()">设置完成数量</el-button>
           </div>
           <div>
@@ -188,7 +188,7 @@
                   <span>{{ scope.row.id }}</span>
                 </template>
               </el-table-column>
-              <el-table-column label="名称" min-width="130">
+              <el-table-column label="الاسم" min-width="130">
                 <template slot-scope="scope">
                   <span>{{ scope.row.name }}</span>
                 </template>
@@ -225,11 +225,11 @@
                   <span>{{ scope.row.sort }}</span>
                 </template>
               </el-table-column>
-              <el-table-column label="操作" fixed="right" width="170">
+              <el-table-column label="الخيارات" fixed="right" width="170">
                 <template slot-scope="scope">
-                  <a v-db-click @click="editTask(scope.row, '编辑')">编辑</a>
+                  <a v-db-click @click="editTask(scope.row, 'تحرير')">تحرير</a>
                   <el-divider direction="vertical"></el-divider>
-                  <a v-db-click @click="delTask(scope.row, '删除这条信息', scope.$index)">删除</a>
+                  <a v-db-click @click="delTask(scope.row, 'حذف这条信息', scope.$index)">حذف</a>
                 </template>
               </el-table-column>
             </el-table>
@@ -296,7 +296,7 @@ export default {
         {
           key: 'name',
           minWidth: 35,
-          title: '名称',
+          title: 'الاسم',
         },
         {
           key: 'grade',
@@ -331,7 +331,7 @@ export default {
         {
           minWidth: 120,
           slot: 'action',
-          title: '操作',
+          title: 'الخيارات',
         },
       ],
       columns2: [
@@ -343,7 +343,7 @@ export default {
         {
           key: 'name',
           minWidth: 35,
-          title: '名称',
+          title: 'الاسم',
         },
         {
           key: 'type_name',
@@ -369,7 +369,7 @@ export default {
           fixed: 'right',
           minWidth: 120,
           slot: 'action',
-          title: '操作',
+          title: 'الخيارات',
         },
       ],
       FromData: null,
@@ -441,7 +441,7 @@ export default {
           this.$message.error(res.msg);
         });
     },
-    // 表格搜索
+    // 表格بحث
     search() {
       this.formValidate.page = 1;
       this.getList();
@@ -453,7 +453,7 @@ export default {
     taskEdit() {
       this.$modalForm(getTaskNumFormApi(this.id)).then(() => this.getList());
     },
-    // 添加表单
+    // إضافة表单
     groupAdd() {
       this.$modalForm(membershipDataAddApi({}, '/agent/level/create')).then(() => this.getList());
     },
@@ -462,7 +462,7 @@ export default {
         this.getTaskList(),
       );
     },
-    // 修改是否显示
+    // تعديل是否显示
     onchangeIsShow(row) {
       membershipSetApi(`agent/level/set_status/${row.id}/${row.status}`)
         .then(async (res) => {
@@ -473,7 +473,7 @@ export default {
           this.$message.error(res.msg);
         });
     },
-    // 修改是否显示
+    // تعديل是否显示
     onchangeTaskIsShow(row) {
       levelTaskSetApi(`agent/level_task/set_status/${row.id}/${row.status}`)
         .then(async (res) => {
@@ -484,28 +484,28 @@ export default {
           this.$message.error(res.msg);
         });
     },
-    //添加等级任务
+    //إضافة等级任务
     addTask(row) {
       this.id = row.id;
       this.modal2 = true;
       this.taskData.id = row.id;
       this.getTaskList();
     },
-    // 编辑
+    // تحرير
     edit(row) {
       let data = {
         gid: row.gid,
       };
       this.$modalForm(membershipDataEditApi(data, `agent/level/${row.id}/edit`)).then(() => this.getList());
     },
-    // 编辑
+    // تحرير
     editTask(row) {
       let data = {
         gid: row.gid,
       };
       this.$modalForm(levelTaskDataEditApi(data, `agent/level_task/${row.id}/edit`)).then(() => this.getTaskList());
     },
-    // 删除
+    // حذف
     del(row, tit, num) {
       let delfromData = {
         title: tit,
@@ -523,7 +523,7 @@ export default {
           this.$message.error(res.msg);
         });
     },
-    // 删除
+    // حذف
     delTask(row, tit, num) {
       let delfromData = {
         title: tit,

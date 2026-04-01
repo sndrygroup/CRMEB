@@ -9,13 +9,13 @@
         label-position="right"
         class="tabform"
       >
-        <el-form-item label="图文搜索：" prop="cate_name" label-for="cate_name">
-          <el-input clearable placeholder="请输入" v-model="formValidate.cate_name" class="form_content_width" />
+        <el-form-item label="图文بحث：" prop="cate_name" label-for="cate_name">
+          <el-input clearable placeholder="الرجاء إدخال " v-model="formValidate.cate_name" class="form_content_width" />
         </el-form-item>
         <el-form-item>
           <el-button type="primary" v-db-click @click="userSearchs">查询</el-button>
           <router-link :to="routePre + '/app/wechat/news_category/save/0'">
-            <el-button type="primary" class="bnt ml15">添加图文消息</el-button>
+            <el-button type="primary" class="bnt ml15">إضافة图文消息</el-button>
           </router-link>
         </el-form-item>
       </el-form>
@@ -56,7 +56,7 @@
                     icon="el-icon-delete"
                     v-show="props.value.new[i].isDel && isShow"
                     v-db-click
-                    @click="del(props.value, '删除图文', i)"
+                    @click="del(props.value, 'حذف图文', i)"
                     style="margin-top: 5px"
                   ></el-button>
                   <el-button
@@ -197,7 +197,7 @@ export default {
         this.$emit('getCentList', value);
       }
     },
-    // 删除
+    // حذف
     del(row, tit, num) {
       let delfromData = {
         title: tit,
@@ -219,9 +219,9 @@ export default {
           this.$message.error(res.msg);
         });
     },
-    // 删除成功
+    // حذف成功
     // submitModel () {
-    //     if (this.delfromData.title === '删除图文') {
+    //     if (this.delfromData.title === 'حذف图文') {
     //         // this.imgsArr.splice(this.delfromData.num, 1)
     //         this.$nextTick(() => {
     //             this.imgsArr = [];
@@ -230,7 +230,7 @@ export default {
     //         this.getData();
     //     }
     // },
-    // 编辑
+    // تحرير
     clkk(item) {
       this.$router.push({
         path: this.routePre + '/app/wechat/news_category/save/' + item.id,
@@ -244,7 +244,7 @@ export default {
     mouseenterOver(item) {
       this.$set(item, 'isDel', false);
     },
-    // 搜索
+    // بحث
     userSearchs() {
       this.$nextTick(() => {
         this.imgsArr = [];

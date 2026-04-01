@@ -7,14 +7,14 @@
           :maxlength="200"
           show-word-limit
           type="textarea"
-          placeholder="请输入备注信息"
+          placeholder="الرجاء إدخال 备注信息"
           style="width: 100%"
         />
       </el-form-item>
     </el-form>
     <div slot="footer">
-      <el-button type="primary" v-db-click @click="putRemark('formValidate')">提交</el-button>
-      <el-button v-db-click @click="cancel('formValidate')">取消</el-button>
+      <el-button type="primary" v-db-click @click="putRemark('formValidate')">إرسال</el-button>
+      <el-button v-db-click @click="cancel('formValidate')">إلغاء</el-button>
     </div>
   </el-dialog>
 </template>
@@ -30,7 +30,7 @@ export default {
       modals: false,
       ruleValidate: {
         remark: [
-          { required: true, message: '请输入备注信息', trigger: 'blur' },
+          { required: true, message: 'الرجاء إدخال 备注信息', trigger: 'blur' },
           // { type: 'string', min: 20, message: 'Introduce no less than 20 words', trigger: 'blur' }
         ],
       },

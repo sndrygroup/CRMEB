@@ -1,7 +1,7 @@
 <template>
   <div>
     <el-card :bordered="false" shadow="never" class="save_from ivu-mt">
-      <el-button type="primary" v-db-click @click="add">{{ '添加' + $route.meta.title }}</el-button>
+      <el-button type="primary" v-db-click @click="add">{{ 'إضافة' + $route.meta.title }}</el-button>
       <el-table
         :data="tabList"
         ref="table"
@@ -26,11 +26,11 @@
             <span>{{ scope.row.count }}</span>
           </template>
         </el-table-column>
-        <el-table-column label="操作" fixed="right" width="170">
+        <el-table-column label="الخيارات" fixed="right" width="170">
           <template slot-scope="scope">
-            <a v-db-click @click="edit(scope.row)">编辑</a>
+            <a v-db-click @click="edit(scope.row)">تحرير</a>
             <el-divider direction="vertical"></el-divider>
-            <a v-db-click @click="del(scope.row, '删除标签', scope.$index)">删除</a>
+            <a v-db-click @click="del(scope.row, 'حذف标签', scope.$index)">حذف</a>
           </template>
         </el-table-column>
       </el-table>
@@ -65,7 +65,7 @@ export default {
     this.getList();
   },
   methods: {
-    // 添加
+    // إضافة
     add() {
       if (this.$route.path === this.$routeProStr + '/app/wechat/wechat_user/user/tag') {
         this.$modalForm(wechatTagCreateApi()).then(() => this.getList());
@@ -73,7 +73,7 @@ export default {
         this.$modalForm(wechatGroupCreateApi()).then(() => this.getList());
       }
     },
-    // 编辑
+    // تحرير
     edit(row) {
       if (this.$route.path === this.$routeProStr + '/app/wechat/wechat_user/user/tag') {
         this.$modalForm(wechatTagEditApi(row.id)).then(() => this.getList());
@@ -81,7 +81,7 @@ export default {
         this.$modalForm(wechatGroupEditApi(row.id)).then(() => this.getList());
       }
     },
-    // 删除
+    // حذف
     del(row, tit, num) {
       let delfromData = null;
       if (this.$route.path === this.$routeProStr + '/app/wechat/wechat_user/user/tag') {

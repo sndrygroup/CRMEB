@@ -15,10 +15,10 @@
         @submit.native.prevent
         inline
       >
-        <el-form-item v-if="type == 1" label="订单状态：" label-for="status">
+        <el-form-item v-if="type == 1" label="订单الحالة：" label-for="status">
           <el-select
             v-model="pagination.status"
-            placeholder="请选择订单状态"
+            placeholder="الرجاء اختيار 订单الحالة"
             clearable
             @change="searchList"
             class="form_content_width"
@@ -29,10 +29,10 @@
             <el-option value="4" label="交易完成"></el-option>
           </el-select>
         </el-form-item>
-        <el-form-item label="搜索：" label-for="title">
+        <el-form-item label="بحث：" label-for="title">
           <el-input
             v-model="pagination.real_name"
-            :placeholder="type == 1 ? '请输入用户姓名|订单号|UID' : '请输入用户UID'"
+            :placeholder="type == 1 ? 'الرجاء إدخال 用户姓名|订单号|UID' : 'الرجاء إدخال 用户UID'"
             class="form_content_width"
             clearable
           />
@@ -75,7 +75,7 @@
               <el-tag size="medium" v-show="scope.row.status === 3">已成功</el-tag>
             </template>
             <template v-else-if="item.slot === 'action'">
-              <a v-db-click @click="Info(scope.row)">查看详情</a>
+              <a v-db-click @click="Info(scope.row)">查看تفاصيل</a>
             </template>
           </template>
         </el-table-column>
@@ -90,8 +90,8 @@
         />
       </div>
     </el-card>
-    <!-- 详情模态框-->
-    <el-dialog :visible.sync="modals" class="tableBox" title="查看详情" :close-on-click-modal="false" width="720px">
+    <!-- تفاصيل模态框-->
+    <el-dialog :visible.sync="modals" class="tableBox" title="查看تفاصيل" :close-on-click-modal="false" width="720px">
       <el-table
         ref="selection"
         :data="tabList3"
@@ -118,7 +118,7 @@
             <span>{{ scope.row.price }}</span>
           </template>
         </el-table-column>
-        <el-table-column label="砍价时间" min-width="130">
+        <el-table-column label="砍价الوقت" min-width="130">
           <template slot-scope="scope">
             <span>{{ scope.row.add_time }}</span>
           </template>
@@ -178,7 +178,7 @@ export default {
           key: 'nickname',
         },
         {
-          title: '发起时间',
+          title: '发起الوقت',
           key: 'add_time',
         },
         {
@@ -186,15 +186,15 @@ export default {
           key: 'already_num',
         },
         {
-          title: '结束时间',
+          title: '结束الوقت',
           key: 'datatime',
         },
         {
-          title: '砍价状态',
+          title: '砍价الحالة',
           slot: 'status',
         },
         {
-          title: '操作',
+          title: 'الخيارات',
           slot: 'action',
         },
       ],
@@ -208,7 +208,7 @@ export default {
           key: 'real_name',
         },
         {
-          title: '订单状态',
+          title: '订单الحالة',
           key: 'status',
         },
         {
@@ -220,11 +220,11 @@ export default {
           key: 'total_num',
         },
         {
-          title: '下单时间',
+          title: '下单الوقت',
           key: 'add_time',
         },
         {
-          title: '支付时间',
+          title: '支付الوقت',
           key: 'pay_time',
         },
       ],
@@ -319,19 +319,19 @@ export default {
     },
     // 标签切换
     onClickTab(e) {
-      // 切换标签时，重置搜索条件，页码重置为1
+      // 切换标签时，重置بحث条件，页码重置为1
       this.pagination.page = 1;
       this.pagination.real_name = '';
       this.pagination.status = '';
       this.type = e.index;
       this.getList(this.id);
     },
-    // 搜索
+    // بحث
     searchList() {
       this.pagination.page = 1;
       this.getList(this.id);
     },
-    // 查看详情
+    // 查看تفاصيل
     Info(row) {
       this.modals = true;
       this.rows = row;

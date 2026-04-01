@@ -4,8 +4,8 @@
 		<view class="record" :style="colorStyle" v-if="visitList.length">
 			<view class="nav acea-row row-between-wrapper">
 				<view class="left">{{$t(`共`)}} <text class="num">{{count}}</text>{{$t(`件商品`)}}</view>
-				<view class="font-num" v-if="!isShowChecked" @click="switchTap">{{$t(`管理`)}}</view>
-				<view v-else @click="switchTap">{{$t(`取消`)}}</view>
+				<view class="font-num" v-if="!isShowChecked" @click="switchTap">{{$t(`إدارة`)}}</view>
+				<view v-else @click="switchTap">{{$t(`إلغاء`)}}</view>
 			</view>
 			<view class="list">
 				<checkbox-group @change="checkboxChange">
@@ -49,7 +49,7 @@
 				</checkbox-group>
 				<view class="acea-row row-middle">
 					<view class="bnt acea-row row-center-wrapper" @click="collect">{{$t(`收藏`)}}</view>
-					<view class="bnt on acea-row row-center-wrapper" @click="del">{{$t(`删除`)}}</view>
+					<view class="bnt on acea-row row-center-wrapper" @click="del">{{$t(`حذف`)}}</view>
 				</view>
 			</view>
 		</view>
@@ -148,7 +148,7 @@
 				})
 				if(!ids.length){
 					return this.$util.Tips({
-						title: '请选择收藏商品'
+						title: 'الرجاء اختيار 收藏商品'
 					});
 				}
 				let str = ids.join(',');
@@ -169,7 +169,7 @@
 				})
 				if(!ids.length){
 					return this.$util.Tips({
-						title: '请选择删除商品'
+						title: 'الرجاء اختيار حذف商品'
 					});
 				}
 				deleteVisitList({ids}).then(res=>{

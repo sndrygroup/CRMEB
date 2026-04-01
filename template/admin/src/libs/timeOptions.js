@@ -91,7 +91,7 @@ export default {
     {
       text: '去年',
       onClick(picker) {
-        //获取当前时间
+        //获取当前الوقت
         let currentDate = new Date();
         //获得当前年份4位年
         let currentYear = currentDate.getFullYear() - 1;

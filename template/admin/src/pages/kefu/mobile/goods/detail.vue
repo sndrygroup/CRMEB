@@ -1,6 +1,6 @@
 <template>
   <div class="scroll-box">
-    <div class="title-box">商品详情</div>
+    <div class="title-box">商品تفاصيل</div>
     <swiper :options="swiperOption" class="swiper-box">
       <swiper-slide class="swiper-slide" v-for="(item, index) in goodsInfo.slider_image" :key="index">
         <img :src="item" />

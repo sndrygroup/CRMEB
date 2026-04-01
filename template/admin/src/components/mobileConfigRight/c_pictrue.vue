@@ -2,7 +2,7 @@
   <div class="mobile-page">
     <div v-if="isUpdate">
       <!-- <div class="title">布局</div>
-            <div class="tip">选定布局区域，在下方添加图片，建议添加比例一致的图片</div> -->
+            <div class="tip">选定布局区域，在下方إضافة图片，建议إضافة比例一致的图片</div> -->
       <div class="advert">
         <div
           class="advertItem07"
@@ -349,9 +349,9 @@ export default {
         this.configData.picList.push(JSON.parse(JSON.stringify(this.arrayObj)));
       }
     },
-    // 删除指定热区
+    // حذف指定热区
     delAreaBox(index) {
-      /* 删除某个热区 */
+      /* حذف某个热区 */
       this.selBoxList.splice(index, 1);
       this.configObj.picStyle.picList.splice(index, 1);
       this.configObj.picStyle.picList.push({ image: '', link: '' });
@@ -391,7 +391,7 @@ export default {
       this.rect.style.cssText =
         'position:absolute;width:0px;height:0px;font-size:0px;margin:0px;padding:0px;border:1px dashed #0099FF;background-color:#C3D5ED;z-index:1000;filter:alpha(opacity:60);opacity:0.6;display:none;';
       this.rect.id = 'selectDiv';
-      // 添加到lay1下
+      // إضافة到lay1下
       document.getElementById('lay1').appendChild(this.rect);
       // 取得鼠标按下时的坐标位置
       this.downX = event.layerX;
@@ -446,7 +446,7 @@ export default {
         h: this.getMax(topList) - this.getMin(topList) + 93.75,
       };
     },
-    // 删除
+    // حذف
     del() {
       this.$emit('delAreaBox', this.areaDataIndex);
     },

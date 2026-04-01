@@ -14,17 +14,17 @@
         <div>
           <el-form :model="formItem" ref="formItem" class="pl15" :rules="ruleValidate">
             <el-form-item prop="rela_name">
-              <el-input v-model="formItem.rela_name" placeholder="请输入您的姓名"></el-input>
+              <el-input v-model="formItem.rela_name" placeholder="الرجاء إدخال 您的姓名"></el-input>
             </el-form-item>
             <el-form-item prop="phone">
-              <el-input v-model="formItem.phone" placeholder="请输入您的联系电话"></el-input>
+              <el-input v-model="formItem.phone" placeholder="الرجاء إدخال 您的联系电话"></el-input>
             </el-form-item>
             <el-form-item prop="content">
-              <el-input v-model="formItem.content" class="mb10" type="textarea" placeholder="请输入留言内容"></el-input>
+              <el-input v-model="formItem.content" class="mb10" type="textarea" placeholder="الرجاء إدخال 留言内容"></el-input>
             </el-form-item>
             <el-form-item>
               <el-button type="primary" v-db-click @click="handleSubmit('formItem')" style="width: 100%"
-                >提交留言</el-button
+                >إرسال留言</el-button
               >
             </el-form-item>
           </el-form>
@@ -32,8 +32,8 @@
       </div>
       <div class="sure" v-if="isShow">
         <div class="sure-yuan"></div>
-        <div class="sp1 mb10">提交成功</div>
-        <div class="sp2 mb30">您的信息提交成功，我们会尽快与您取得联系！</div>
+        <div class="sp1 mb10">إرسال成功</div>
+        <div class="sp2 mb30">您的信息إرسال成功，我们会尽快与您取得联系！</div>
         <el-button type="primary" v-db-click @click="close">好的</el-button>
       </div>
     </div>
@@ -58,8 +58,8 @@ export default {
       },
       notice: '',
       ruleValidate: {
-        rela_name: [{ required: true, message: '请输入您的姓名', trigger: 'blur' }],
-        content: [{ required: true, message: '请输入留言内容', trigger: 'blur' }],
+        rela_name: [{ required: true, message: 'الرجاء إدخال 您的姓名', trigger: 'blur' }],
+        content: [{ required: true, message: 'الرجاء إدخال 留言内容', trigger: 'blur' }],
         phone: [
           { required: true, message: '请填写手机号码', trigger: 'change' },
           { pattern: /^1[3456789]\d{9}$/, message: '手机号码格式不正确', trigger: 'blur' },

@@ -146,7 +146,7 @@ export default {
       setUp: 0, //0：内容；1：样式
       type2: 0, //导航样式索引
       type3: 0, //色调索引
-      headerEnable: false, //头部开关状态
+      headerEnable: false, //头部开关الحالة
       modals: false,
     };
   },

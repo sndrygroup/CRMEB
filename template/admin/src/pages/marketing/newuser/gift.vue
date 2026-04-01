@@ -7,7 +7,7 @@
             <el-input-number
               class="form-width"
               v-model="formData.reward_money"
-              placeholder="请输入赠送余额"
+              placeholder="الرجاء إدخال 赠送余额"
               :min="0"
             ></el-input-number>
             <div class="tips-info">新用户奖励金额，必须大于等于0，0为不赠送</div>
@@ -16,7 +16,7 @@
             <el-input-number
               class="form-width"
               v-model="formData.reward_integral"
-              placeholder="请输入赠送积分数量"
+              placeholder="الرجاء إدخال 赠送积分数量"
               :min="0"
             ></el-input-number>
             <div class="tips-info">新用户奖励积分，必须大于等于0，0为不赠送</div>
@@ -35,7 +35,7 @@
             <el-button v-db-click @click="addCoupon">选择优惠券</el-button>
           </el-form-item>
           <el-form-item label="">
-            <el-button type="primary" v-db-click @click="submitForm">确认</el-button>
+            <el-button type="primary" v-db-click @click="submitForm">تأكيد</el-button>
           </el-form-item>
         </el-form>
       </el-card>
@@ -88,7 +88,7 @@ export default {
     nameId(id, names) {
       this.formData.reward_coupon = this.uniqueArray(names);
     },
-    // 添加优惠券
+    // إضافة优惠券
     addCoupon() {
       this.$refs.couponTemplates.isTemplate = true;
       this.$refs.couponTemplates.tableList();
@@ -109,17 +109,17 @@ export default {
           this.$message.error('获取失败');
         });
     },
-    // 提交表单
+    // إرسال表单
     submitForm() {
       this.spinShow = true;
       editNewbie(this.formData)
         .then((res) => {
           this.spinShow = false;
-          this.$message.success('提交成功');
+          this.$message.success('إرسال成功');
         })
         .catch((err) => {
           this.spinShow = false;
-          this.$message.error('提交失败');
+          this.$message.error('إرسال失败');
         });
     },
   },

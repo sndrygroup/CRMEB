@@ -127,7 +127,7 @@
 				}
 				let that = this;
 				if (!that.order_id) return that.$util.Tips({
-					title: that.$t(`请选择要支付的订单`)
+					title: that.$t(`الرجاء اختيار 要支付的订单`)
 				});
 				if (paytype == 'yue' && parseFloat(number) < parseFloat(that.totalPrice)) return that.$util.Tips({
 					title: that.$t(`余额不足`)
@@ -223,7 +223,7 @@
 									fail: function(e) {
 										uni.hideLoading();
 										return that.$util.Tips({
-											title: that.$t(`取消支付`)
+											title: that.$t(`إلغاء支付`)
 										}, () => {
 											that.$emit('onChangeFun', {
 												action: 'pay_fail'
@@ -235,7 +235,7 @@
 										if (e.errMsg == 'requestPayment:cancel' || e.errMsg ==
 											'requestOrderPayment:cancel') return that.$util
 											.Tips({
-												title: that.$t(`取消支付`)
+												title: that.$t(`إلغاء支付`)
 											}, () => {
 												that.$emit('onChangeFun', {
 													action: 'pay_fail'

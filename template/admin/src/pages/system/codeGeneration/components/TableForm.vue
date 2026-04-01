@@ -4,17 +4,17 @@
       <template v-slot:title>crud生成说明</template>
       <template>
         <p>
-          1、字段配置中表存在生成的字段为表内列的信息,并且主键、伪删除字段不允许设置为列，主键默认展示在列表中，伪删除字段不允许展示
+          1、字段配置中表存在生成的字段为表内列的信息,并且主键、伪حذف字段不允许设置为列，主键默认展示在列表中，伪حذف字段不允许展示
         </p>
         <p>2、在字段配置中新建表时，主键不需要增加列，会自动增加一行主键id</p>
         <p>3、在字段配置中，表单类型为不生成时创建后不会生成对应的表单项</p>
-        <p>4、添加字段id、create_time、update_time、delete_time为不可用字段</p>
+        <p>4、إضافة字段id、create_time、update_time、delete_time为不可用字段</p>
       </template>
     </el-alert>
     <div class="df mb14">
-      <el-button class="mr20" type="primary" v-db-click @click="addRow">添加一行</el-button>
-      <el-checkbox class="mr10" v-model="isCreate" @change="addCreate">添加与修改时间</el-checkbox>
-      <el-checkbox class="mr10" v-model="isDelete" @change="addDelete">伪删除</el-checkbox>
+      <el-button class="mr20" type="primary" v-db-click @click="addRow">إضافة一行</el-button>
+      <el-checkbox class="mr10" v-model="isCreate" @change="addCreate">إضافة与تعديلالوقت</el-checkbox>
+      <el-checkbox class="mr10" v-model="isDelete" @change="addDelete">伪حذف</el-checkbox>
     </div>
     <div>
       <el-table
@@ -91,7 +91,7 @@
               v-model="scope.row.search"
               :disabled="disabledInput(scope.$index)"
               slot="prepend"
-              placeholder="请选择"
+              placeholder="الرجاء اختيار "
             >
               <el-option
                 :label="item.label"
@@ -110,7 +110,7 @@
             ></el-checkbox>
           </template>
         </el-table-column>
-        <el-table-column label="字段名称" min-width="120">
+        <el-table-column label="字段الاسم" min-width="120">
           <template slot-scope="scope">
             <el-input
               :disabled="disabledInput(scope.$index)"
@@ -146,7 +146,7 @@
               allow-create
               clearable
               default-first-option
-              placeholder="请添加"
+              placeholder="请إضافة"
             />
           </template>
         </el-table-column>
@@ -163,7 +163,7 @@
                 v-model="scope.row.default_type"
                 slot="prepend"
                 :disabled="disabledInput(scope.$index)"
-                placeholder="请选择"
+                placeholder="الرجاء اختيار "
                 style="width: 100px"
               >
                 <el-option
@@ -203,10 +203,10 @@
             ></el-checkbox>
           </template>
         </el-table-column>
-        <el-table-column label="操作" fixed="right" width="100">
+        <el-table-column label="الخيارات" fixed="right" width="100">
           <template slot-scope="scope">
             <a v-if="!scope.row.primaryKey && !disabledInput(scope.$index)" v-db-click @click="del(row, scope.$index)"
-              >删除</a
+              >حذف</a
             >
             <span v-else>--</span>
           </template>
@@ -223,12 +223,12 @@
       <div class="options-list">
         <el-form ref="form" :inline="true" label-width="80px">
           <div class="mb10">
-            <el-form-item label="字典名称：">
-              <el-input class="mr10" v-model="dictionaryName" placeholder="字典名称" style="width: 310px" />
+            <el-form-item label="字典الاسم：">
+              <el-input class="mr10" v-model="dictionaryName" placeholder="字典الاسم" style="width: 310px" />
             </el-form-item>
           </div>
           <div class="item" v-for="(item, index) in optionsList" :key="index">
-            <el-form-item label="数据名称：">
+            <el-form-item label="数据الاسم：">
               <el-input class="mr10" v-model="item.label" placeholder="label" style="width: 150px" />
             </el-form-item>
             <el-form-item label="数据值：">
@@ -245,7 +245,7 @@
               <i
                 v-if="index > 0"
                 class="el-icon-remove-outline delete"
-                title="删除"
+                title="حذف"
                 v-db-click
                 @click="delOneOptions(index)"
               />
@@ -302,7 +302,7 @@ export default {
       index: 0,
       deleteField: [],
       searchType: [],
-      dictionaryName: '', // 字典名称
+      dictionaryName: '', // 字典الاسم
       defaultType: [], // 默认类型
       associationTable: [], // 关联表
       dictionaryList: [],
@@ -317,7 +317,7 @@ export default {
               resolve(res.data);
             });
           }
-          // 通过调用resolve将子节点数据返回，通知组件数据加载完成
+          // 通过调用resolve将子节点数据عودة，通知组件数据加载完成
         },
       },
     };
@@ -391,10 +391,10 @@ export default {
     },
     changeItemField(e, i) {
       if (e === 'addSoftDelete') {
-        this.$set(this.tableField[i], 'comment', '伪删除');
+        this.$set(this.tableField[i], 'comment', '伪حذف');
       }
       if (e === 'addTimestamps') {
-        this.$set(this.tableField[i], 'comment', '添加和修改时间');
+        this.$set(this.tableField[i], 'comment', 'إضافة和تعديلالوقت');
       }
     },
     eidtOptions(i) {
@@ -442,7 +442,7 @@ export default {
           !Number(el.primaryKey) &&
           !['addTimestamps', 'addSoftDelete'].includes(el.field_type)
         ) {
-          return this.$message.warning('请输入列表名');
+          return this.$message.warning('الرجاء إدخال 列表名');
         }
       }
       let i = this.tableField.length;
@@ -491,10 +491,10 @@ export default {
             field_type: 'timestamp',
             default: '',
             default_type: '-1',
-            comment: '添加时间',
+            comment: 'إضافةالوقت',
             required: false,
             is_table: false,
-            table_name: '添加时间',
+            table_name: 'إضافةالوقت',
             limit: '',
             primaryKey: 0,
             from_type: '',
@@ -508,10 +508,10 @@ export default {
             field_type: 'timestamp',
             default_type: '-1',
             default: '',
-            comment: '修改时间',
+            comment: 'تعديلالوقت',
             required: false,
             is_table: false,
-            table_name: '修改时间',
+            table_name: 'تعديلالوقت',
             limit: '',
             primaryKey: 0,
             from_type: '',
@@ -540,10 +540,10 @@ export default {
             field_type: 'timestamp',
             default: '',
             default_type: '-1',
-            comment: '伪删除',
+            comment: '伪حذف',
             required: false,
             is_table: false,
-            table_name: '伪删除',
+            table_name: '伪حذف',
             limit: '',
             primaryKey: 0,
             from_type: '',
@@ -564,7 +564,7 @@ export default {
         for (let i = 0; i < this.tableField.length; i++) {
           const e = this.tableField[i];
           if (['id', 'create_time', 'update_time', 'delete_time'].includes(this.tableField[index].field)) {
-            this.$message.warning('列表中已存在该字段名称');
+            this.$message.warning('列表中已存在该字段الاسم');
             this.tableField[index].field = '';
             return;
           }

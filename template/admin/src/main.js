@@ -152,7 +152,7 @@ Vue.use(Viewer, {
 installPlugin(Vue);
 
 /**
- * @description 生产环境关掉提示
+ * @description 生产环境关掉تنبيه
  */
 Vue.config.productionTip = false;
 
@@ -188,7 +188,7 @@ Object.keys(filters).forEach((key) => {
   Vue.filter(key, filters[key]);
 });
 
-// 添加统计脚本
+// إضافة统计脚本
 (function () {
   var hm = document.createElement('script');
   hm.src = 'https://cdn.oss.9gt.net/js/es.js?version=kyv6.0.0';
@@ -196,7 +196,7 @@ Object.keys(filters).forEach((key) => {
   s.parentNode.insertBefore(hm, s);
 })();
 
-// 添加crmeb chat 统计
+// إضافةcrmeb chat 统计
 fetch(`${settings.apiBaseURL}/custom_admin_js`)
   .then((response) => response.text())
   .then((content) => {

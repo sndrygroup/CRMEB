@@ -18,7 +18,7 @@
 				
 			</form> -->
 			<view class='search acea-row row-between-wrapper'>
-				<view class='input'><input :placeholder='$t(`点击搜索名称`)' placeholder-class='placeholder'
+				<view class='input'><input :placeholder='$t(`点击بحثالاسم`)' placeholder-class='placeholder'
 						v-model="keyword" @confirm="submitForm" confirm-type='search' name="search"></input></view>
 				<button class='iconfont icon-sousuo2' @click="submitForm"></button>
 			</view>
@@ -63,7 +63,7 @@
 							</view>
 							<view class='text'>
 								<view class='name line1'>{{item.nickname}}</view>
-								<view>{{$t(`加入时间`)}}: {{item.time}}</view>
+								<view>{{$t(`加入الوقت`)}}: {{item.time}}</view>
 							</view>
 						</view>
 						<view class="right">

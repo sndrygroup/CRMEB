@@ -10,7 +10,7 @@
           @submit.native.prevent
           inline
         >
-          <el-form-item label="创建时间：">
+          <el-form-item label="创建الوقت：">
             <el-date-picker
               clearable
               v-model="timeVal"
@@ -25,9 +25,9 @@
               style="width: 250px"
             ></el-date-picker>
           </el-form-item>
-          <el-form-item label="上架状态：">
+          <el-form-item label="上架الحالة：">
             <el-select
-              placeholder="请选择"
+              placeholder="الرجاء اختيار "
               clearable
               v-model="tableFrom.is_show"
               @change="userSearchs"
@@ -37,8 +37,8 @@
               <el-option value="0" label="下架"></el-option>
             </el-select>
           </el-form-item>
-          <el-form-item label="商品搜索：" label-for="store_name">
-            <el-input placeholder="请输入商品名称，ID" v-model="tableFrom.store_name" clearable class="form_content_width" />
+          <el-form-item label="商品بحث：" label-for="store_name">
+            <el-input placeholder="الرجاء إدخال 商品الاسم，ID" v-model="tableFrom.store_name" clearable class="form_content_width" />
           </el-form-item>
           <el-form-item>
             <el-button type="primary" v-db-click @click="userSearchs">查询</el-button>
@@ -54,7 +54,7 @@
         v-db-click
         @click="add"
         class="mr10"
-        >添加积分商品</el-button
+        >إضافة积分商品</el-button
       >
       <el-table
         :data="tableList"
@@ -101,7 +101,7 @@
             <span>{{ scope.row.quota }}</span>
           </template>
         </el-table-column>
-        <el-table-column label="创建时间" min-width="100">
+        <el-table-column label="创建الوقت" min-width="100">
           <template slot-scope="scope">
             <span>{{ scope.row.add_time }}</span>
           </template>
@@ -111,7 +111,7 @@
             <span>{{ scope.row.sort }}</span>
           </template>
         </el-table-column>
-        <el-table-column label="状态" min-width="60">
+        <el-table-column label="الحالة" min-width="60">
           <template slot-scope="scope">
             <el-switch
               :active-value="1"
@@ -124,15 +124,15 @@
             </el-switch>
           </template>
         </el-table-column>
-        <el-table-column label="操作" fixed="right" width="200">
+        <el-table-column label="الخيارات" fixed="right" width="200">
           <template slot-scope="scope">
             <a v-db-click @click="orderList(scope.row)">兑换记录</a>
             <el-divider direction="vertical"></el-divider>
-            <a v-db-click @click="edit(scope.row)">编辑</a>
+            <a v-db-click @click="edit(scope.row)">تحرير</a>
             <el-divider direction="vertical"></el-divider>
             <a v-db-click @click="copy(scope.row)">复制</a>
             <el-divider direction="vertical"></el-divider>
-            <a v-db-click @click="del(scope.row, '删除积分商品', scope.$index)">删除</a>
+            <a v-db-click @click="del(scope.row, 'حذف积分商品', scope.$index)">حذف</a>
           </template>
         </el-table-column>
       </el-table>
@@ -199,7 +199,7 @@ export default {
     this.getList();
   },
   methods: {
-    // 添加
+    // إضافة
     add() {
       this.$router.push({ path: this.$routeProStr + '/marketing/store_integral/create' });
     },
@@ -227,7 +227,7 @@ export default {
           this.$message.error(res.msg);
         });
     },
-    // 编辑
+    // تحرير
     edit(row) {
       this.$router.push({
         path: this.$routeProStr + '/marketing/store_integral/create/' + row.id + '/0',
@@ -239,7 +239,7 @@ export default {
         path: this.$routeProStr + '/marketing/store_integral/create/' + row.id + '/1',
       });
     },
-    // 删除
+    // حذف
     del(row, tit, num) {
       let delfromData = {
         title: tit,
@@ -275,7 +275,7 @@ export default {
           this.$message.error(res.msg);
         });
     },
-    // 表格搜索
+    // 表格بحث
     userSearchs() {
       this.tableFrom.page = 1;
       this.getList();
@@ -286,7 +286,7 @@ export default {
       this.tableFrom.integral_time = this.timeVal ? this.timeVal.join('-') : '';
       this.getList();
     },
-    // 修改是否显示
+    // تعديل是否显示
     onchangeIsShow(row) {
       let data = {
         id: row.id,

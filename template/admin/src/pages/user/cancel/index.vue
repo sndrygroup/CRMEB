@@ -10,7 +10,7 @@
       >
         <el-row :gutter="24">
           <el-col v-bind="grid">
-            <el-form-item label="状态：" label-for="status1">
+            <el-form-item label="الحالة：" label-for="status1">
               <el-radio-group v-model="levelFrom.status" type="button" @input="userSearchs(levelFrom.status)">
                 <el-radio-button label="">全部</el-radio-button>
                 <el-radio-button label="0">待审核</el-radio-button>
@@ -20,12 +20,12 @@
             </el-form-item>
           </el-col>
           <el-col v-bind="grid">
-            <el-form-item label="用户搜索：" label-for="title">
+            <el-form-item label="用户بحث：" label-for="title">
               <el-input
                 search
                 enter-button
                 v-model="levelFrom.keywords"
-                placeholder="请输入用户昵称/ID/手机号"
+                placeholder="الرجاء إدخال 用户昵称/ID/手机号"
                 @on-search="userSearchs"
               />
             </el-form-item>
@@ -56,17 +56,17 @@
             <span>{{ scope.row.phone }}</span>
           </template>
         </el-table-column>
-        <el-table-column label="状态" min-width="130">
+        <el-table-column label="الحالة" min-width="130">
           <template slot-scope="scope">
             <span>{{ scope.row.status }}</span>
           </template>
         </el-table-column>
-        <el-table-column label="申请时间" min-width="130">
+        <el-table-column label="申请الوقت" min-width="130">
           <template slot-scope="scope">
             <span>{{ scope.row.add_time }}</span>
           </template>
         </el-table-column>
-        <el-table-column label="审核时间" min-width="130">
+        <el-table-column label="审核الوقت" min-width="130">
           <template slot-scope="scope">
             <span>{{ scope.row.up_time }}</span>
           </template>
@@ -76,7 +76,7 @@
             <span>{{ scope.row.remark }}</span>
           </template>
         </el-table-column>
-        <el-table-column label="操作" fixed="right" width="170">
+        <el-table-column label="الخيارات" fixed="right" width="170">
           <template slot-scope="scope">
             <a v-db-click @click="agree(scope.row)">同意</a>
             <el-divider direction="vertical"></el-divider>
@@ -167,7 +167,7 @@ export default {
     refuse(row) {
       this.delfromData = {
         title: '拒绝注销用户',
-        info: '您确认拒绝注销此用户吗?',
+        info: '您تأكيد拒绝注销此用户吗?',
         url: `/user/cancel/refuse/${row.id}`,
         method: 'get',
       };
@@ -212,7 +212,7 @@ export default {
           this.$message.error(res.msg);
         });
     },
-    // 表格搜索
+    // 表格بحث
     userSearchs() {
       this.levelFrom.page = 1;
       this.getList();

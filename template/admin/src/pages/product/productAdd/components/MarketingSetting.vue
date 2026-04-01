@@ -8,7 +8,7 @@
           v-model="formValidate.give_integral"
           :min="0"
           :max="9999999999"
-          placeholder="请输入积分"
+          placeholder="الرجاء إدخال 积分"
           class="input_width input-number-unit-class"
           class-unit="积分"
         />
@@ -53,7 +53,7 @@
           :max="9999999999"
           :precision="0"
           v-model="formValidate.min_qty"
-          placeholder="请输入起购数量"
+          placeholder="الرجاء إدخال 起购数量"
           class="input_width input-number-unit-class"
           :class-unit="formValidate.unit_name || '件'"
         />
@@ -87,7 +87,7 @@
         <div class="acea-row row-middle">
           <el-input-number
             :controls="false"
-            placeholder="请输入限购数量"
+            placeholder="الرجاء إدخال 限购数量"
             :precision="0"
             :min="1"
             v-model="formValidate.limit_num"
@@ -115,7 +115,7 @@
       </el-form-item>
     </el-col>
     <el-col :span="24" v-if="formValidate.presale">
-      <el-form-item label="预售活动时间：" prop="presale_time">
+      <el-form-item label="预售活动الوقت：" prop="presale_time">
         <div class="acea-row row-middle">
           <el-date-picker
             clearable
@@ -130,17 +130,17 @@
             v-model="formValidate.presale_time"
           ></el-date-picker>
         </div>
-        <div class="tips-info">设置活动开启结束时间，用户可以在设置时间内发起参与预售</div>
+        <div class="tips-info">设置活动开启结束الوقت，用户可以在设置الوقت内发起参与预售</div>
       </el-form-item>
     </el-col>
     <el-col :span="24" v-if="formValidate.presale">
-      <el-form-item label="发货时间：" prop="presale_day">
+      <el-form-item label="发货الوقت：" prop="presale_day">
         <div class="acea-row row-middle">
           <span class="mr10">预售活动结束后</span>
           <el-input-number
             class="w-80 input-number-unit-class"
             :controls="false"
-            placeholder="请输入发货时间"
+            placeholder="الرجاء إدخال 发货الوقت"
             :precision="0"
             :min="1"
             class-unit="天"
@@ -206,7 +206,7 @@
           :min="0"
           :max="9999999999"
           v-model="formValidate.ficti"
-          placeholder="请输入虚拟销量"
+          placeholder="الرجاء إدخال 虚拟销量"
           class="input_width input-number-unit-class"
           :class-unit="formValidate.unit_name || '件'"
         />
@@ -219,7 +219,7 @@
           :min="0"
           :max="9999999999"
           v-model="formValidate.sort"
-          placeholder="请输入数字越大越靠前"
+          placeholder="الرجاء إدخال 数字越大越靠前"
           class="input_width"
         />
       </el-form-item>

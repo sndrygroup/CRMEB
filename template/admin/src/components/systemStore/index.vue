@@ -2,7 +2,7 @@
   <div>
     <el-dialog
       :visible.sync="isTemplate"
-      :title="formItem.id ? '编辑提货点' : '添加提货点'"
+      :title="formItem.id ? 'تحرير提货点' : 'إضافة提货点'"
       width="720px"
       @closed="cancel"
       append-to-body
@@ -19,22 +19,22 @@
           <el-row :gutter="24">
             <el-col :span="24">
               <el-col v-bind="grid">
-                <el-form-item label="提货点名称：" prop="name" label-for="name">
-                  <el-input v-model="formItem.name" placeholder="请输入提货点名称" />
+                <el-form-item label="提货点الاسم：" prop="name" label-for="name">
+                  <el-input v-model="formItem.name" placeholder="الرجاء إدخال 提货点الاسم" />
                 </el-form-item>
               </el-col>
             </el-col>
             <el-col :span="24">
               <el-col v-bind="grid">
                 <el-form-item label="提货点简介：" label-for="introduction">
-                  <el-input v-model="formItem.introduction" placeholder="请输入提货点简介" />
+                  <el-input v-model="formItem.introduction" placeholder="الرجاء إدخال 提货点简介" />
                 </el-form-item>
               </el-col>
             </el-col>
             <el-col :span="24">
               <el-col v-bind="grid">
                 <el-form-item label="提货点电话：" label-for="phone" prop="phone">
-                  <el-input v-model="formItem.phone" placeholder="请输入提货点电话：" />
+                  <el-input v-model="formItem.phone" placeholder="الرجاء إدخال 提货点电话：" />
                 </el-form-item>
               </el-col>
             </el-col>
@@ -53,14 +53,14 @@
             <el-col :span="24">
               <el-col v-bind="grid">
                 <el-form-item label="详细地址：" label-for="detailed_address" prop="detailed_address">
-                  <el-input v-model="formItem.detailed_address" placeholder="请输入详细地址" />
+                  <el-input v-model="formItem.detailed_address" placeholder="الرجاء إدخال 详细地址" />
                 </el-form-item>
               </el-col>
             </el-col>
             <!--<el-col :span="24">-->
             <!--<el-col v-bind="grid">-->
             <!--<el-form-item label="核销时效：" label-for="valid_time">-->
-            <!--<DatePicker @change="onchangeDate" :value="formItem.valid_time" v-model="formItem.valid_time" format="yyyy/MM/dd" type="daterange" split-panels placeholder="请选择核销时效" ></DatePicker>-->
+            <!--<DatePicker @change="onchangeDate" :value="formItem.valid_time" v-model="formItem.valid_time" format="yyyy/MM/dd" type="daterange" split-panels placeholder="الرجاء اختيار 核销时效" ></DatePicker>-->
             <!--</el-form-item>-->
             <!--</el-col>-->
             <!--</el-col>-->
@@ -74,9 +74,9 @@
                     format="HH:mm:ss"
                     value-format="HH:mm:ss"
                     range-separator="-"
-                    start-placeholder="开始时间"
-                    end-placeholder="结束时间"
-                    placeholder="选择时间范围"
+                    start-placeholder="开始الوقت"
+                    end-placeholder="结束الوقت"
+                    placeholder="选择الوقت范围"
                     style="width: 100%"
                   ></el-time-picker>
                 </el-form-item>
@@ -126,7 +126,7 @@
           <!-- <el-row>
               <div class="btn">
                 <el-button type="primary" long v-db-click @click="handleSubmit('formItem')">{{
-                  formItem.id ? '修改' : '提交'
+                  formItem.id ? 'تعديل' : 'إرسال'
                 }}</el-button>
               </div>
             </el-row> -->
@@ -150,13 +150,13 @@
       </div>
       <span slot="footer" class="dialog-footer">
         <el-button type="primary" long v-db-click @click="handleSubmit('formItem')">{{
-          formItem.id ? '修改' : '提交'
+          formItem.id ? 'تعديل' : 'إرسال'
         }}</el-button>
       </span>
     </el-dialog>
     <el-dialog
       :visible.sync="modalMap"
-      title="请选择地址"
+      title="الرجاء اختيار 地址"
       append-to-body
       :close-on-click-modal="false"
       width="720px"
@@ -217,7 +217,7 @@ export default {
         id: 0,
       },
       ruleValidate: {
-        name: [{ required: true, message: '请输入提货点名称', trigger: 'blur' }],
+        name: [{ required: true, message: 'الرجاء إدخال 提货点الاسم', trigger: 'blur' }],
         mail: [
           {
             required: true,
@@ -229,7 +229,7 @@ export default {
         address: [
           {
             required: true,
-            message: '请选择提货点地址',
+            message: 'الرجاء اختيار 提货点地址',
             type: 'array',
             trigger: 'change',
           },
@@ -238,11 +238,11 @@ export default {
           {
             required: true,
             type: 'array',
-            message: '请选择核销时效',
+            message: 'الرجاء اختيار 核销时效',
             trigger: 'change',
             fields: {
-              0: { type: 'date', required: true, message: '请选择年度范围' },
-              1: { type: 'date', required: true, message: '请选择年度范围' },
+              0: { type: 'date', required: true, message: 'الرجاء اختيار 年度范围' },
+              1: { type: 'date', required: true, message: 'الرجاء اختيار 年度范围' },
             },
           },
         ],
@@ -250,15 +250,15 @@ export default {
           {
             required: true,
             type: 'array',
-            message: '请选择提货点营业时间',
+            message: 'الرجاء اختيار 提货点营业الوقت',
             trigger: 'change',
           },
         ],
         phone: [{ required: true, validator: validatePhone, trigger: 'blur' }],
-        detailed_address: [{ required: true, message: '请输入详细地址', trigger: 'blur' }],
+        detailed_address: [{ required: true, message: 'الرجاء إدخال 详细地址', trigger: 'blur' }],
         image: [{ required: true, validator: validateUpload, trigger: 'change' }],
         oblong_image: [{ required: true, validator: oblongImageUpload, trigger: 'change' }],
-        latlng: [{ required: true, message: '请选择经纬度', trigger: 'blur' }],
+        latlng: [{ required: true, message: 'الرجاء اختيار 经纬度', trigger: 'blur' }],
       },
       keyUrl: '',
       grid: {
@@ -294,7 +294,7 @@ export default {
     window.addEventListener(
       'message',
       function (event) {
-        // 接收位置信息，用户选择确认位置点后选点组件会触发该事件，回传用户的位置信息
+        // 接收位置信息，用户选择تأكيد位置点后选点组件会触发该事件，回传用户的位置信息
         var loc = event.data;
         if (loc && loc.module === 'locationPicker') {
           // 防止其他应用也会向该页面post信息，需判断module是否为'locationPicker'
@@ -341,7 +341,7 @@ export default {
     },
     // key值
     getKey() {},
-    // 详情
+    // تفاصيل
     getInfo(id) {
       let that = this;
       that.formItem.id = id;
@@ -386,7 +386,7 @@ export default {
     onchangeDate(e) {
       this.formItem.valid_time = e;
     },
-    // 营业时间
+    // 营业الوقت
     onchangeTime(e) {
       this.formItem.day_time = e;
     },
@@ -405,7 +405,7 @@ export default {
         this.modalMap = true;
       }
     },
-    // 提交
+    // إرسال
     handleSubmit(name) {
       this.$refs[name].validate((valid) => {
         if (valid) {

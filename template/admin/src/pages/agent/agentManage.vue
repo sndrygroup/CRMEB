@@ -10,7 +10,7 @@
           @submit.native.prevent
           inline
         >
-          <el-form-item label="时间选择：">
+          <el-form-item label="الوقت选择：">
             <el-date-picker
               clearable
               v-model="timeVal"
@@ -26,10 +26,10 @@
               class="mr20"
             ></el-date-picker>
           </el-form-item>
-          <el-form-item label="搜索：" label-for="status">
+          <el-form-item label="بحث：" label-for="status">
             <el-input
               clearable
-              placeholder="请输入姓名、电话、UID"
+              placeholder="الرجاء إدخال 姓名、电话、UID"
               v-model="formValidate.nickname"
               class="form_content_width"
             />
@@ -117,7 +117,7 @@
             <div>{{ scope.row.spread_name }}</div>
           </template>
         </el-table-column>
-        <el-table-column label="操作" fixed="right" width="120">
+        <el-table-column label="الخيارات" fixed="right" width="120">
           <template slot-scope="scope">
             <a v-db-click @click="promoters(scope.row, 'man')">推广人</a>
             <el-divider direction="vertical"></el-divider>
@@ -127,10 +127,10 @@
                 <el-dropdown-menu slot="dropdown">
                   <el-dropdown-item command="1">推广订单</el-dropdown-item>
                   <el-dropdown-item command="2">推广二维码</el-dropdown-item>
-                  <el-dropdown-item command="3">修改上级推广人</el-dropdown-item>
+                  <el-dropdown-item command="3">تعديل上级推广人</el-dropdown-item>
                   <el-dropdown-item command="4" v-if="scope.row.spread_uid">清除上级推广人</el-dropdown-item>
-                  <el-dropdown-item command="5">取消推广资格</el-dropdown-item>
-                  <el-dropdown-item command="6">修改分销等级</el-dropdown-item>
+                  <el-dropdown-item command="5">إلغاء推广资格</el-dropdown-item>
+                  <el-dropdown-item command="6">تعديل分销等级</el-dropdown-item>
                 </el-dropdown-menu>
               </el-dropdown>
             </template>
@@ -166,8 +166,8 @@
         </div>
       </div>
     </el-dialog>
-    <!--修改推广人-->
-    <el-dialog :visible.sync="promoterShow" title="修改推广人" width="540px" :show-close="true">
+    <!--تعديل推广人-->
+    <el-dialog :visible.sync="promoterShow" title="تعديل推广人" width="540px" :show-close="true">
       <el-form ref="formInline" :model="formInline" label-width="100px" @submit.native.prevent>
         <el-form-item label="用户头像：" prop="image">
           <div class="picBox" v-db-click @click="customer">
@@ -182,10 +182,10 @@
       </el-form>
       <span slot="footer" class="dialog-footer">
         <el-button v-db-click @click="cancel('formInline')">取 消</el-button>
-        <el-button type="primary" v-db-click @click="putSend('formInline')">提交</el-button>
+        <el-button type="primary" v-db-click @click="putSend('formInline')">إرسال</el-button>
       </span>
     </el-dialog>
-    <el-dialog :visible.sync="customerShow" title="请选择商城用户" :show-close="true" width="1000px">
+    <el-dialog :visible.sync="customerShow" title="الرجاء اختيار 商城用户" :show-close="true" width="1000px">
       <customerInfo v-if="customerShow" @imageObject="imageObject"></customerInfo>
     </el-dialog>
   </div>
@@ -254,7 +254,7 @@ export default {
     this.getStatistics();
   },
   methods: {
-    // 提交
+    // إرسال
     putSend(name) {
       this.$refs[name].validate((valid) => {
         if (valid) {
@@ -289,7 +289,7 @@ export default {
           this.$message.error(res.msg);
         });
     },
-    // 操作
+    // الخيارات
     changeMenu(row, name, index) {
       switch (name) {
         case '1':
@@ -299,15 +299,15 @@ export default {
           this.spreadQR(row); //推广方式二维码
           break;
         case '3':
-          this.editS(row); //修改上级推广人
+          this.editS(row); //تعديل上级推广人
           break;
         case '4': //清除上级推广人
           this.del_parent(row, '清除【 ' + row.nickname + ' 】的上级推广人', index);
           break;
-        case '5': //取消推广资格
-          this.del_agent(row, '取消【 ' + row.nickname + ' 】的推广资格', index);
+        case '5': //إلغاء推广资格
+          this.del_agent(row, 'إلغاء【 ' + row.nickname + ' 】的推广资格', index);
           break;
-        case '6': //修改推广等级
+        case '6': //تعديل推广等级
           this.$modalForm(membershipDataAddApi({ uid: row.uid }, '/agent/get_level_form')).then(() => this.getList());
           break;
         default:
@@ -344,7 +344,7 @@ export default {
           this.$message.error(res.msg);
         });
     },
-    // 取消自己推广资格
+    // إلغاء自己推广资格
     del_agent(row, tit, num) {
       let delfromData = {
         title: tit,
@@ -401,7 +401,7 @@ export default {
       this.getList();
       this.getStatistics();
     },
-    // 选择时间
+    // 选择الوقت
     selectChange(tab) {
       this.formValidate.page = 1;
       this.formValidate.data = tab;
@@ -424,7 +424,7 @@ export default {
           this.$message.error(res.msg);
         });
     },
-    // 表格搜索
+    // 表格بحث
     userSearchs() {
       this.formValidate.page = 1;
       this.getList();

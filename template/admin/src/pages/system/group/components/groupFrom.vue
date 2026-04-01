@@ -10,18 +10,18 @@
       >
         <el-row :gutter="24">
           <el-col :span="24">
-            <el-form-item label="数据组名称：" prop="name">
-              <el-input v-model="formValidate.name" placeholder="请输入数据组名称" style="width: 90%"></el-input>
+            <el-form-item label="数据组الاسم：" prop="name">
+              <el-input v-model="formValidate.name" placeholder="الرجاء إدخال 数据组الاسم" style="width: 90%"></el-input>
             </el-form-item>
           </el-col>
           <el-col :span="24">
             <el-form-item label="数据字段：" prop="config_name">
-              <el-input v-model="formValidate.config_name" placeholder="请输入数据字段" style="width: 90%"></el-input>
+              <el-input v-model="formValidate.config_name" placeholder="الرجاء إدخال 数据字段" style="width: 90%"></el-input>
             </el-form-item>
           </el-col>
           <el-col :span="24">
             <el-form-item label="数据简介：" prop="info">
-              <el-input v-model="formValidate.info" placeholder="请输入数据简介" style="width: 90%"></el-input>
+              <el-input v-model="formValidate.info" placeholder="الرجاء إدخال 数据简介" style="width: 90%"></el-input>
             </el-form-item>
           </el-col>
           <el-col :span="24">
@@ -38,16 +38,16 @@
                 :label="'字段' + (index + 1) + '：'"
                 label-width="90px"
                 :prop="'typelist.' + index + '.name.value'"
-                :rules="{ required: true, message: '请输入字段名称：姓名', trigger: 'blur' }"
+                :rules="{ required: true, message: 'الرجاء إدخال 字段الاسم：姓名', trigger: 'blur' }"
               >
-                <el-input v-model="item.name.value" placeholder="字段名称：姓名"></el-input>
+                <el-input v-model="item.name.value" placeholder="字段الاسم：姓名"></el-input>
               </el-form-item>
             </el-col>
             <el-col v-bind="grid" class="goupBox">
               <el-form-item
                 label-width="0"
                 :prop="'typelist.' + index + '.title.value'"
-                :rules="{ required: true, message: '请输入字段配置名', trigger: 'blur' }"
+                :rules="{ required: true, message: 'الرجاء إدخال 字段配置名', trigger: 'blur' }"
               >
                 <el-input v-model="item.title.value" placeholder="字段配置名：name"></el-input>
               </el-form-item>
@@ -55,7 +55,7 @@
             <el-col v-bind="grid" prop="type" class="goupBox">
               <el-form-item
                 :prop="'typelist.' + index + '.type.value'"
-                :rules="{ required: true, message: '请选择字段类型', trigger: 'change' }"
+                :rules="{ required: true, message: 'الرجاء اختيار 字段类型', trigger: 'change' }"
                 label-width="0"
               >
                 <el-select placeholder="字段类型" v-model="item.type.value">
@@ -77,7 +77,7 @@
             >
               <el-form-item
                 :prop="'typelist.' + index + '.param.value'"
-                :rules="{ required: true, message: '请输入参数方式', trigger: 'blur' }"
+                :rules="{ required: true, message: 'الرجاء إدخال 参数方式', trigger: 'blur' }"
               >
                 <el-input
                   type="textarea"
@@ -91,7 +91,7 @@
           </el-col>
           <el-col>
             <el-form-item>
-              <el-button type="primary" v-db-click @click="addType">添加字段</el-button>
+              <el-button type="primary" v-db-click @click="addType">إضافة字段</el-button>
             </el-form-item>
           </el-col>
         </el-row>
@@ -135,10 +135,10 @@ export default {
       modals: false,
       modal12: false,
       ruleValidate: {
-        name: [{ required: true, message: '请输入数据组名称', trigger: 'blur' }],
-        config_name: [{ required: true, message: '请输入数据字段', trigger: 'blur' }],
-        info: [{ required: true, message: '请输入数据简介', trigger: 'blur' }],
-        names: [{ required: true, message: '请输入字段名称', trigger: 'blur' }],
+        name: [{ required: true, message: 'الرجاء إدخال 数据组الاسم', trigger: 'blur' }],
+        config_name: [{ required: true, message: 'الرجاء إدخال 数据字段', trigger: 'blur' }],
+        info: [{ required: true, message: 'الرجاء إدخال 数据简介', trigger: 'blur' }],
+        names: [{ required: true, message: 'الرجاء إدخال 字段الاسم', trigger: 'blur' }],
       },
       FromData: [],
       valids: false,
@@ -160,7 +160,7 @@ export default {
     },
   },
   methods: {
-    // 点击添加字段
+    // 点击إضافة字段
     addType() {
       this.formValidate.typelist.push({
         name: {
@@ -178,11 +178,11 @@ export default {
         },
       });
     },
-    // 删除字段
+    // حذف字段
     delGroup(index) {
       this.formValidate.typelist.splice(index, 1);
     },
-    // 详情
+    // تفاصيل
     fromData(id) {
       groupInfoApi(id)
         .then(async (res) => {
@@ -192,7 +192,7 @@ export default {
           this.$message.error(res.msg);
         });
     },
-    // 提交
+    // إرسال
     handleSubmit(name) {
       let data = {
         url: this.groupId ? `/setting/group/${this.groupId}` : 'setting/group',
@@ -201,7 +201,7 @@ export default {
       };
       this.$refs[name].validate((valid) => {
         if (valid) {
-          if (this.formValidate.typelist.length === 0) return this.$message.error('请添加字段名称：姓名！');
+          if (this.formValidate.typelist.length === 0) return this.$message.error('请إضافة字段الاسم：姓名！');
           groupAddApi(data)
             .then(async (res) => {
               this.$message.success(res.msg);
@@ -214,9 +214,9 @@ export default {
               this.$message.error(res.msg);
             });
         } else {
-          if (!this.formValidate.name) return this.$message.error('请添加数据组名称！');
-          if (!this.formValidate.config_name) return this.$message.error('请添加数据字段！');
-          if (!this.formValidate.info) return this.$message.error('请添加数据简介！');
+          if (!this.formValidate.name) return this.$message.error('请إضافة数据组الاسم！');
+          if (!this.formValidate.config_name) return this.$message.error('请إضافة数据字段！');
+          if (!this.formValidate.info) return this.$message.error('请إضافة数据简介！');
         }
       });
     },

@@ -391,7 +391,7 @@ export default {
     titleUrl() {
       return this.dataConfig.imgConfig.url;
     },
-    /*标题提示文字*/
+    /*标题تنبيه文字*/
     tipsColor() {
       return {
         color: this.styleConfig
@@ -405,7 +405,7 @@ export default {
         color: this.dataConfig.dividerColor.color[0].item,
       };
     },
-    /*头部提示语文本*/
+    /*头部تنبيه语文本*/
     tipTxt() {
       return this.dataConfig.tipTxtConfig.value;
     },
@@ -434,7 +434,7 @@ export default {
       }
       return borderRadius;
     },
-    /*商品名称样式*/
+    /*商品الاسم样式*/
     productStyle() {
       return {
         color: this.dataConfig.goodsNameColor.color[0].item,

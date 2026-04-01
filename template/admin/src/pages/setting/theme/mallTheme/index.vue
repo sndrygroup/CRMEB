@@ -30,7 +30,7 @@
             <div class="card-header">
               <span class="card-title">{{ item.name || '未命名主题' }}</span>
               <div class="card-actions">
-                <span class="action-btn" @click="handleEdit(item)">编辑</span>
+                <span class="action-btn" @click="handleEdit(item)">تحرير</span>
                 <el-divider direction="vertical"></el-divider>
                 <span class="action-btn" @click="handleReplace(item, ['home', 'category', 'detail', 'user'][index])"
                   >更换</span
@@ -39,7 +39,7 @@
             </div>
             <div class="card-info">
               <div class="theme-name line1">{{ item.themeName }}</div>
-              <div class="last-modified">上次修改：{{ item.updateTime }}</div>
+              <div class="last-modified">上次تعديل：{{ item.updateTime }}</div>
             </div>
             <div class="card-preview">
               <div class="phone-mockup" :class="{ 'has-image': item.image }">
@@ -51,11 +51,11 @@
                   <img src="@/assets/images/no-theme-poster.png" class="empty-poster" alt="no poster" />
                   <div class="empty-text">
                     暂无主题封面
-                    <el-tooltip content="请前往设计页面保存封面" placement="top">
+                    <el-tooltip content="请前往设计页面حفظ封面" placement="top">
                       <i class="el-icon-question"></i>
                     </el-tooltip>
                   </div>
-                  <el-button type="primary" size="small" @click="handleEdit(item)">去编辑</el-button>
+                  <el-button type="primary" size="small" @click="handleEdit(item)">去تحرير</el-button>
                 </div>
               </div>
             </div>
@@ -89,7 +89,7 @@ export default {
   data() {
     return {
       pageList: [],
-      themeColors: [], // 模拟后端返回的主题色值
+      themeColors: [], // 模拟后端عودة的主题色值
       dialogVisible: false,
       title: '',
       is_diy: false,
@@ -125,13 +125,13 @@ export default {
       const names = {
         home: '商城首页',
         category: '商品分类页',
-        detail: '商品详情页',
+        detail: '商品تفاصيل页',
         user: '个人中心页',
       };
       return names[key] || key;
     },
     handleEdit(item) {
-      // 跳转到编辑页面，假设路由结构
+      // 跳转到تحرير页面，假设路由结构
       this.$router.push({
         path: this.$routeProStr + '/setting/edit_theme',
         query: { type: item.type, id: this.id },
@@ -143,9 +143,9 @@ export default {
       this.dialogVisible = true;
     },
     handleRestore() {
-      this.$confirm('确定要还原主题吗？所有自定义修改将丢失。', '提示', {
+      this.$confirm('确定要还原主题吗？所有自定义تعديل将丢失。', 'تنبيه', {
         confirmButtonText: '确定',
-        cancelButtonText: '取消',
+        cancelButtonText: 'إلغاء',
         type: 'warning',
       })
         .then(() => {

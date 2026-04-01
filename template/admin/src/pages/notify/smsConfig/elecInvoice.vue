@@ -15,7 +15,7 @@
         <el-row :gutter="24">
           <el-col :span="24">
             <el-col v-bind="grid">
-              <el-form-item label="电子发票状态：" prop="name" label-for="name">
+              <el-form-item label="电子发票الحالة：" prop="name" label-for="name">
                 <el-radio-group v-model="formItem.elec_invoice">
                   <el-radio :label="1">开启</el-radio>
                   <el-radio :label="0">关闭</el-radio>
@@ -50,13 +50,13 @@
                       reserve-keyword
                       :remote-method="remoteMethod"
                       :loading="loading"
-                      placeholder="请输入并选择电子发票的商品分类"
+                      placeholder="الرجاء إدخال 并选择电子发票的商品分类"
                       @change="selectChange"
                     >
                       <el-option v-for="item in options" :key="item.id" :label="item.name" :value="item.id">
                       </el-option>
                     </el-select>
-                    <div class="tips-info">电子发票需输入搜索并选择商品分类，如：电子产品、电子服务等</div>
+                    <div class="tips-info">电子发票需输入بحث并选择商品分类，如：电子产品、电子服务等</div>
                   </el-form-item>
                 </el-col>
               </el-col>
@@ -67,10 +67,10 @@
                       type="number"
                       class="input-width"
                       v-model="formItem.elec_invoice_tax_rate"
-                      placeholder="请输入电子发票税率"
+                      placeholder="الرجاء إدخال 电子发票税率"
                     />
                     <div class="tips-info">
-                      默认填充税率可能存在误差，请确认无误后再保存电子发票的税率，填写0-100直接的整数，如：13%的税率请填写13
+                      默认填充税率可能存在误差，请تأكيد无误后再حفظ电子发票的税率，填写0-100直接的整数，如：13%的税率请填写13
                     </div>
                   </el-form-item>
                 </el-col>
@@ -80,7 +80,7 @@
           <el-col :span="24">
             <el-col v-bind="grid">
               <el-form-item>
-                <el-button type="primary" long v-db-click @click="handleSubmit('formItem')">保存</el-button>
+                <el-button type="primary" long v-db-click @click="handleSubmit('formItem')">حفظ</el-button>
               </el-form-item>
             </el-col>
           </el-col>
@@ -145,7 +145,7 @@ export default {
       this.$refs[formName].validate((valid) => {
         if (valid) {
           saveBasics(this.formItem).then(() => {
-            this.$message.success('保存成功');
+            this.$message.success('حفظ成功');
           });
         } else {
           console.log('error submit!!');

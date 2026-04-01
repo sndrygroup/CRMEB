@@ -5,7 +5,7 @@
         <span>{{ configData.title }}</span>
       </div>
       <div class="style-box acea-row row-middle">
-        <div class="bnt" @click="styleTap">修改风格</div>
+        <div class="bnt" @click="styleTap">تعديل风格</div>
         <div class="name">当前：样式{{ configData.tabVal + 1 }}</div>
       </div>
     </div>
